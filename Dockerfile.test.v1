@@ -1,0 +1,9 @@
+FROM node:14
+ENTRYPOINT ["/datadog-api-client-typescript/run-tests.sh"]
+
+COPY . /datadog-api-client-typescript
+
+WORKDIR /datadog-api-client-typescript/
+
+RUN npm i && \
+    npm run build

@@ -1,0 +1,15 @@
+repos:
+- repo: local
+  hooks:
+  - id: generated
+    name: Do not commit generated files
+    language: fail
+    entry: Unstage generated files with 'git reset --' command
+    files: '^packages/datadog-api-client-v[1-9].*'
+    verbose: true
+  - id: generated-features
+    name: Do not commit generated feature files
+    language: fail
+    entry: Unstage generated files with 'git reset --' command
+    files: '^features/v[1-9][0-9]*/.*.feature$'
+    verbose: true

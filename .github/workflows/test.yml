@@ -1,0 +1,53 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    if: false == startsWith(github.event.pull_request.head.ref, 'datadog-api-spec/generated/') && !contains(github.event.pull_request.labels.*.name, 'ci/skip/pre-commit')
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+    - name: Install pre-commit
+      run: python -m pip install pre-commit
+    - name: set PY
+      run: echo "PY=$(python -c 'import hashlib, sys;print(hashlib.sha256(sys.version.encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_ENV
+    - uses: actions/cache@v1
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+    - name: Run pre-commit
+      run: pre-commit run --all-files --source ${{ github.event.pull_request.base.sha }} --origin ${{ github.event.pull_request.head.sha }} --show-diff-on-failure --color=always
+
+  test:
+    strategy:
+      matrix:
+        node-version: ['10', '12', '14']
+        platform: [ubuntu-latest, macos-latest] # , windows-latest]
+        # test only latest version on macos and windows
+        exclude:
+          - platform: macos-latest
+            node-version: '10'
+          - platform: macos-latest
+            node-version: '12'
+          # - platform: windows-latest
+          #   node-version: '10'
+          # - platform: windows-latest
+          #   node-version: '12'
+    runs-on: ${{ matrix.platform }}
+    if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        ruby-version: ${{ matrix.node-version }}
+        bundler-cache: true
+    - run: npm install
+    - name: Test
+      run: ./run-tests.sh
+      shell: bash

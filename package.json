@@ -1,0 +1,79 @@
+{
+  "name": "@datadog/datadog-api-client",
+  "description": "OpenAPI client for Datadog APIs",
+  "author": "Datadog Inc",
+  "keywords": [
+    "fetch",
+    "typescript",
+    "openapi-client",
+    "openapi-generator"
+  ],
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.{json,md,html,yml,yaml,css}": [
+        "prettier --ignore-path .eslintignore --write",
+        "git add"
+      ]
+    },
+    "globOptions": {
+      "dot": true
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "prepare": "npm run build",
+    "test": "tsc && cucumber-js features/",
+    "test:rerecord": "tsc && RECORD=true cucumber-js @rerun.txt"
+  },
+  "dependencies": {
+    "@types/node": "*",
+    "@types/node-fetch": "^2.5.7",
+    "btoa": "^1.2.1",
+    "durations": "^3.4.2",
+    "es6-promise": "^4.2.4",
+    "form-data": "^3.0.0",
+    "node-fetch": "^2.6.0",
+    "url-parse": "^1.4.3"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.0.0",
+    "@cucumber/messages": "^13.2.1",
+    "@pollyjs/adapter-node-http": "^5.1.0",
+    "@pollyjs/core": "^5.1.0",
+    "@pollyjs/persister-fs": "^5.0.0",
+    "@types/chai": "^4.2.14",
+    "@types/lodash": "^4.14.168",
+    "@types/pollyjs__adapter-node-http": "^2.0.1",
+    "@types/pollyjs__core": "^4.3.2",
+    "@types/pollyjs__persister-fs": "^2.0.1",
+    "@types/pollyjs__utils": "^2.6.1",
+    "@types/url-parse": "^1.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "chai": "^4.2.0",
+    "dd-trace": "git+https://github.com/DataDog/dd-trace-js.git",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "typescript": "^3.9.8"
+  },
+  "version": "1.0.0"
+}
