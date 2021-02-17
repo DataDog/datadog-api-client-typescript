@@ -87,7 +87,7 @@ Before(function (
   this.fixtures["hour_ago_iso"] = hourAgo.toISOString();
 
   // make sure that we are not recording APM traces
-  server.any((tracer as any)._tracer._url.host).passthrough();
+  server.any((tracer as any)._tracer._url.href + '*').passthrough();
   // remove secrets from request headers before persisting
   server.any().on("beforePersist", (req, recording) => {
     recording.request.headers = recording.request.headers.filter(
