@@ -38,6 +38,7 @@ Before(function (
       headers(headers, _req) {
         delete headers["dd-api-key"];
         delete headers["dd-application-key"];
+        delete headers["user-agent"];
         return headers;
       },
     },
@@ -92,7 +93,7 @@ Before(function (
   server.any().on("beforePersist", (req, recording) => {
     recording.request.headers = recording.request.headers.filter(
       (value: any) => {
-        return value.name != "dd-api-key" && value.name != "dd-application-key";
+        return value.name != "dd-api-key" && value.name != "dd-application-key" && value.name != "user-agent";
       }
     );
   });
