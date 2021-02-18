@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { pathLookup } from "./templating";
+import { getProperty, pathLookup } from "./templating";
 import * as datadogApiClient from "../../index";
 
 interface iOperationParameter {
@@ -40,14 +40,14 @@ function buildUndoFor(
     const apiName = operation.tag.replace(/\s/g, "");
     const operationName = operation.undo.operationId.toOperationName();
 
-    const api = (datadogApiClient as any)[apiVersion];
+    const api = getProperty(datadogApiClient, apiVersion);
     const configuration = api.createConfiguration({
       authMethods: {
         apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,
         appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
       },
     });
-    const apiInstance = new api[`${apiName}Api`](configuration);
+    const apiInstance = new (api as any)[`${apiName}Api`](configuration)
 
     // perform operation
     const opts: { [key: string]: any } = {};
@@ -59,9 +59,10 @@ function buildUndoFor(
     }
 
     apiInstance[operationName](opts).then(
-      () => {},
-      (error: any) =>
+      () => { },
+      (error: any) => {
         console.error(`could not undo operation ${operationName}: ${error}`)
+      }
     );
   };
 }

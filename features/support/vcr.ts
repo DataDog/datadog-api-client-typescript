@@ -99,8 +99,15 @@ Before(function (
   });
 });
 
+// The order of After functions is important. They are in reverse order 
+// hence this.cleanup() must be defined after this.polly.stop().
+
 After(async function (this: World) {
   if (this.polly !== undefined) {
     await this.polly.stop();
   }
+});
+
+After(function (this: World) {
+  this.cleanup();
 });

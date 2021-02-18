@@ -24,11 +24,7 @@ export class World {
     const undo = this.undo;
     undo.reverse();
     for (const clean of undo) {
-      try {
-        clean();
-      } catch (error) {
-        console.error(error);
-      }
+      clean();
     }
     this.undo = [];
   }
