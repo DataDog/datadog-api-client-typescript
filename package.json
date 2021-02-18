@@ -1,5 +1,5 @@
 {
-  "name": "@datadog/datadog-api-client",
+  "name": "datadog-api-client",
   "description": "OpenAPI client for Datadog APIs",
   "author": "Datadog Inc",
   "keywords": [
@@ -75,5 +75,5 @@
     "prettier": "^2.2.1",
     "typescript": "^3.9.8"
   },
-  "version": "1.0.0"
+  "version": "0.1.0"
 }
