@@ -42,7 +42,7 @@ Before(function (
         return headers;
       },
     },
-    mode: RecordMode[process.env.RECORD as string] || MODES.REPLAY,
+    mode: RecordMode[process.env.RECORD || "false"],
     recordIfMissing: false, // make sure that we match body exactly
     recordFailedRequests: true, // make sure we can replay responses with 4xx codes
     logging: false,
