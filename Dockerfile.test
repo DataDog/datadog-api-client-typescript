@@ -5,4 +5,5 @@ COPY . /datadog-api-client-typescript
 
 WORKDIR /datadog-api-client-typescript/
 
-RUN npm install && npm run build
+RUN npm i && \
+    npm run build

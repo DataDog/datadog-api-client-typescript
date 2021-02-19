@@ -23,7 +23,3 @@ Before(function (
   this.apiVersion = parts[parts.length - 2];
   this.document = gherkinDocument;
 });
-
-After(function (this: World) {
-  this.cleanup();
-});

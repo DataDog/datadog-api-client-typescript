@@ -38,10 +38,11 @@ Before(function (
       headers(headers, _req) {
         delete headers["dd-api-key"];
         delete headers["dd-application-key"];
+        delete headers["user-agent"];
         return headers;
       },
     },
-    mode: RecordMode[process.env.RECORD as string] || MODES.REPLAY,
+    mode: RecordMode[process.env.RECORD || "false"],
     recordIfMissing: false, // make sure that we match body exactly
     recordFailedRequests: true, // make sure we can replay responses with 4xx codes
     logging: false,
@@ -87,19 +88,26 @@ Before(function (
   this.fixtures["hour_ago_iso"] = hourAgo.toISOString();
 
   // make sure that we are not recording APM traces
-  server.any((tracer as any)._tracer._url.host).passthrough();
+  server.any((tracer as any)._tracer._url.href + '*').passthrough();
   // remove secrets from request headers before persisting
   server.any().on("beforePersist", (req, recording) => {
     recording.request.headers = recording.request.headers.filter(
       (value: any) => {
-        return value.name != "dd-api-key" && value.name != "dd-application-key";
+        return value.name != "dd-api-key" && value.name != "dd-application-key" && value.name != "user-agent";
       }
     );
   });
 });
 
+// The order of After functions is important. They are in reverse order 
+// hence this.cleanup() must be defined after this.polly.stop().
+
 After(async function (this: World) {
   if (this.polly !== undefined) {
     await this.polly.stop();
   }
+});
+
+After(function (this: World) {
+  this.cleanup();
 });
