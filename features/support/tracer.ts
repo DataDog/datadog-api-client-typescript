@@ -1,8 +1,6 @@
 import { tracer } from "dd-trace";
 import path from "path";
 
-tracer.init();
-
 const SAMPLING_RULE_DECISION = require("dd-trace/packages/dd-trace/src/constants");
 const {
   TEST_TYPE,
