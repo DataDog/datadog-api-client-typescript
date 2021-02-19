@@ -80,14 +80,17 @@ const v2Send = v2.prototype.send;
 
 function wrap(method: any) {
   function send(request: any): any {
-    let span = tracer.scope().active();
-    if (span !== null) {
-      let spanId = span.context().toSpanId();
-      let traceId = span.context().toTraceId();
-      request.setHeaderParam('x-datadog-parent-id', spanId);
-      request.setHeaderParam('x-datadog-trace-id', traceId);
-    }
-    return method(request)
+    return tracer.trace(
+      "fetch",
+      { type: "http", resource: request.getUrl() },
+      (span: any) => {
+        let spanId = span.context().toSpanId();
+        let traceId = span.context().toTraceId();
+        request.setHeaderParam('x-datadog-parent-id', spanId);
+        request.setHeaderParam('x-datadog-trace-id', traceId);
+        return method(request);
+      }
+    );
   }
   return send;
 }
