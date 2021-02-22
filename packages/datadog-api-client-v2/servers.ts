@@ -49,7 +49,7 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
 }
 
 export const server1 = new ServerConfiguration<{ 
-	"site": "datadoghq.com" | "datadoghq.eu" | "ddog-gov.com",
+	"site": "datadoghq.com" | "us3.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com",
 
 	"subdomain": string
  }>("https://{subdomain}.{site}", { 
