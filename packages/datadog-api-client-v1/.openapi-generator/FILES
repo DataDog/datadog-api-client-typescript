@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 apis/AWSIntegrationApi.ts
 apis/AWSLogsIntegrationApi.ts
