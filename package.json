@@ -34,6 +34,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "check-licenses": "node bin/check-licenses.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "npm run build",

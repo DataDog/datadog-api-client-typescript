@@ -9,6 +9,9 @@ trap finish EXIT
 npm i
 npm run build
 
+# Check licenses
+npm run check-licenses
+
 # Run tests
 npm run test
 TEST_RESULT=$?
