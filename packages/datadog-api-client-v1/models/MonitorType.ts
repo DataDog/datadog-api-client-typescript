@@ -15,4 +15,4 @@ import { HttpFile } from '../http/http';
 /**
 * The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
 */
-export type MonitorType = "composite" | "event alert" | "log alert" | "metric alert" | "process alert" | "query alert" | "rum alert" | "service check" | "synthetics alert" | "trace-analytics alert" | "slo alert" ;
+export type MonitorType = "composite" | "event alert" | "log alert" | "metric alert" | "process alert" | "query alert" | "rum alert" | "service check" | "synthetics alert" | "trace-analytics alert" | "slo alert" | "event-v2 alert" ;
