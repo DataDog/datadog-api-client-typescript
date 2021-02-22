@@ -249,9 +249,13 @@ import { SecurityMonitoringListRulesResponse } from '../models/SecurityMonitorin
 import { SecurityMonitoringRuleCase } from '../models/SecurityMonitoringRuleCase';
 import { SecurityMonitoringRuleCaseCreate } from '../models/SecurityMonitoringRuleCaseCreate';
 import { SecurityMonitoringRuleCreatePayload } from '../models/SecurityMonitoringRuleCreatePayload';
+import { SecurityMonitoringRuleDetectionMethod } from '../models/SecurityMonitoringRuleDetectionMethod';
 import { SecurityMonitoringRuleEvaluationWindow } from '../models/SecurityMonitoringRuleEvaluationWindow';
 import { SecurityMonitoringRuleKeepAlive } from '../models/SecurityMonitoringRuleKeepAlive';
 import { SecurityMonitoringRuleMaxSignalDuration } from '../models/SecurityMonitoringRuleMaxSignalDuration';
+import { SecurityMonitoringRuleNewValueOptions } from '../models/SecurityMonitoringRuleNewValueOptions';
+import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from '../models/SecurityMonitoringRuleNewValueOptionsForgetAfter';
+import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from '../models/SecurityMonitoringRuleNewValueOptionsLearningDuration';
 import { SecurityMonitoringRuleOptions } from '../models/SecurityMonitoringRuleOptions';
 import { SecurityMonitoringRuleQuery } from '../models/SecurityMonitoringRuleQuery';
 import { SecurityMonitoringRuleQueryAggregation } from '../models/SecurityMonitoringRuleQueryAggregation';
