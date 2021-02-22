@@ -24,6 +24,6 @@
     "noLib": false,
     "lib": ["es5", "es6", "es7"]
   },
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "features", "node_modules"],
   "filesGlob": ["./**/*.ts"]
 }
