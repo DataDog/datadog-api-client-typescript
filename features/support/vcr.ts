@@ -19,6 +19,10 @@ const RecordMode: { [value: string]: any } = {
   none: MODES.PASSTHROUGH,
 };
 
+function filterHeader(value: any) {
+  return value.name != "dd-api-key" && value.name != "dd-application-key";
+}
+
 Before(function (
   this: World,
   { gherkinDocument, pickle }: ITestCaseHookParameter
@@ -35,12 +39,7 @@ Before(function (
     flushRequestsOnStop: true,
     persister: "fs",
     matchRequestsBy: {
-      headers(headers, _req) {
-        delete headers["dd-api-key"];
-        delete headers["dd-application-key"];
-        delete headers["user-agent"];
-        return headers;
-      },
+      headers: false,
     },
     mode: RecordMode[process.env.RECORD || "false"],
     recordIfMissing: false, // make sure that we match body exactly
@@ -91,11 +90,7 @@ Before(function (
   server.any((tracer as any)._tracer._url.href + '*').passthrough();
   // remove secrets from request headers before persisting
   server.any().on("beforePersist", (req, recording) => {
-    recording.request.headers = recording.request.headers.filter(
-      (value: any) => {
-        return value.name != "dd-api-key" && value.name != "dd-application-key" && value.name != "user-agent";
-      }
-    );
+    recording.request.headers = recording.request.headers.filter(filterHeader);
   });
 });
 

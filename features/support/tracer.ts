@@ -1,8 +1,6 @@
 import { tracer } from "dd-trace";
 import path from "path";
 
-tracer.init();
-
 const SAMPLING_RULE_DECISION = require("dd-trace/packages/dd-trace/src/constants");
 const {
   TEST_TYPE,
@@ -74,5 +72,30 @@ async function handleRunStep(this: void, ...args: any[]) {
 PickleRunner.prototype.run = handleRun;
 PickleRunner.prototype.runStep = handleRunStep;
 // TODO store the original methods
+
+const v1 = require('../../packages/datadog-api-client-v1/http/isomorphic-fetch').IsomorphicFetchHttpLibrary;
+const v1Send = v1.prototype.send;
+const v2 = require('../../packages/datadog-api-client-v2/http/isomorphic-fetch').IsomorphicFetchHttpLibrary;
+const v2Send = v2.prototype.send;
+
+function wrap(method: any) {
+  function send(request: any): any {
+    return tracer.trace(
+      "fetch",
+      { type: "http", resource: request.getUrl() },
+      (span: any) => {
+        let spanId = span.context().toSpanId();
+        let traceId = span.context().toTraceId();
+        request.setHeaderParam('x-datadog-parent-id', spanId);
+        request.setHeaderParam('x-datadog-trace-id', traceId);
+        return method(request);
+      }
+    );
+  }
+  return send;
+}
+
+v1.prototype.send = wrap(v1Send);
+v2.prototype.send = wrap(v2Send);
 
 export default tracer;
