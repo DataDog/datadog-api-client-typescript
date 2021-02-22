@@ -37,7 +37,7 @@
     "check-licenses": "node bin/check-licenses.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "test": "tsc && cucumber-js features/",
     "test:rerecord": "tsc && RECORD=true cucumber-js @rerun.txt"
   },
@@ -74,6 +74,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
     "typescript": "^3.9.8"
   },
   "version": "0.1.0"

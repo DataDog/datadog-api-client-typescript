@@ -47,7 +47,6 @@ jobs:
       with:
         ruby-version: ${{ matrix.node-version }}
         bundler-cache: true
-    - run: npm install
     - name: Test
       run: ./run-tests.sh
       shell: bash

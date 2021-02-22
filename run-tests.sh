@@ -6,17 +6,17 @@ function finish {
 trap finish EXIT
 
 # Docker setup
-npm i
-npm run build
+yarn
+yarn run build
 
 # Check licenses
-npm run check-licenses
+yarn run check-licenses
 
 # Run tests
-npm run test
+yarn run test
 TEST_RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$TEST_RESULT" -ne 0 ]; then
-    npm run test:rerecord
+    yarn run test:rerecord
     TEST_RESULT=$?
 fi
 
