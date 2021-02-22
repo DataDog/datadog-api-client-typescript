@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 apis/DashboardListsApi.ts
 apis/IncidentServicesApi.ts
