@@ -10,22 +10,32 @@
  * Do not edit the class manually.
  */
 
+import { SecurityMonitoringRuleDetectionMethod } from './SecurityMonitoringRuleDetectionMethod';
 import { SecurityMonitoringRuleEvaluationWindow } from './SecurityMonitoringRuleEvaluationWindow';
 import { SecurityMonitoringRuleKeepAlive } from './SecurityMonitoringRuleKeepAlive';
 import { SecurityMonitoringRuleMaxSignalDuration } from './SecurityMonitoringRuleMaxSignalDuration';
+import { SecurityMonitoringRuleNewValueOptions } from './SecurityMonitoringRuleNewValueOptions';
 import { HttpFile } from '../http/http';
 
 /**
 * Options on rules.
 */
 export class SecurityMonitoringRuleOptions {
+    'detectionMethod'?: SecurityMonitoringRuleDetectionMethod;
     'evaluationWindow'?: SecurityMonitoringRuleEvaluationWindow;
     'keepAlive'?: SecurityMonitoringRuleKeepAlive;
     'maxSignalDuration'?: SecurityMonitoringRuleMaxSignalDuration;
+    'newValueOptions'?: SecurityMonitoringRuleNewValueOptions;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "detectionMethod",
+            "baseName": "detectionMethod",
+            "type": "SecurityMonitoringRuleDetectionMethod",
+            "format": ""
+        },
         {
             "name": "evaluationWindow",
             "baseName": "evaluationWindow",
@@ -42,6 +52,12 @@ export class SecurityMonitoringRuleOptions {
             "name": "maxSignalDuration",
             "baseName": "maxSignalDuration",
             "type": "SecurityMonitoringRuleMaxSignalDuration",
+            "format": ""
+        },
+        {
+            "name": "newValueOptions",
+            "baseName": "newValueOptions",
+            "type": "SecurityMonitoringRuleNewValueOptions",
             "format": ""
         }    ];
 

@@ -13,6 +13,6 @@
 import { HttpFile } from '../http/http';
 
 /**
-* The aggregation type.
+* The duration in days after which a learned value is forgotten.
 */
-export type SecurityMonitoringRuleQueryAggregation = "count" | "cardinality" | "sum" | "max" | "new_value" ;
+export type SecurityMonitoringRuleNewValueOptionsForgetAfter = "1" | "2" | "7" | "14" | "21" | "28" ;

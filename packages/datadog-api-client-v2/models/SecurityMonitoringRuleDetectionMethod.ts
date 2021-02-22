@@ -13,6 +13,6 @@
 import { HttpFile } from '../http/http';
 
 /**
-* The aggregation type.
+* The detection method.
 */
-export type SecurityMonitoringRuleQueryAggregation = "count" | "cardinality" | "sum" | "max" | "new_value" ;
+export type SecurityMonitoringRuleDetectionMethod = "threshold" | "new_value" ;

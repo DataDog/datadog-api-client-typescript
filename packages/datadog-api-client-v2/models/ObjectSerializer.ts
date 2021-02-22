@@ -243,9 +243,13 @@ export * from './SecurityMonitoringListRulesResponse';
 export * from './SecurityMonitoringRuleCase';
 export * from './SecurityMonitoringRuleCaseCreate';
 export * from './SecurityMonitoringRuleCreatePayload';
+export * from './SecurityMonitoringRuleDetectionMethod';
 export * from './SecurityMonitoringRuleEvaluationWindow';
 export * from './SecurityMonitoringRuleKeepAlive';
 export * from './SecurityMonitoringRuleMaxSignalDuration';
+export * from './SecurityMonitoringRuleNewValueOptions';
+export * from './SecurityMonitoringRuleNewValueOptionsForgetAfter';
+export * from './SecurityMonitoringRuleNewValueOptionsLearningDuration';
 export * from './SecurityMonitoringRuleOptions';
 export * from './SecurityMonitoringRuleQuery';
 export * from './SecurityMonitoringRuleQueryAggregation';
@@ -532,9 +536,13 @@ import { SecurityMonitoringListRulesResponse } from './SecurityMonitoringListRul
 import { SecurityMonitoringRuleCase } from './SecurityMonitoringRuleCase';
 import { SecurityMonitoringRuleCaseCreate } from './SecurityMonitoringRuleCaseCreate';
 import { SecurityMonitoringRuleCreatePayload } from './SecurityMonitoringRuleCreatePayload';
+import { SecurityMonitoringRuleDetectionMethod } from './SecurityMonitoringRuleDetectionMethod';
 import { SecurityMonitoringRuleEvaluationWindow } from './SecurityMonitoringRuleEvaluationWindow';
 import { SecurityMonitoringRuleKeepAlive } from './SecurityMonitoringRuleKeepAlive';
 import { SecurityMonitoringRuleMaxSignalDuration } from './SecurityMonitoringRuleMaxSignalDuration';
+import { SecurityMonitoringRuleNewValueOptions } from './SecurityMonitoringRuleNewValueOptions';
+import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from './SecurityMonitoringRuleNewValueOptionsForgetAfter';
+import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from './SecurityMonitoringRuleNewValueOptionsLearningDuration';
 import { SecurityMonitoringRuleOptions } from './SecurityMonitoringRuleOptions';
 import { SecurityMonitoringRuleQuery } from './SecurityMonitoringRuleQuery';
 import { SecurityMonitoringRuleQueryAggregation } from './SecurityMonitoringRuleQueryAggregation';
@@ -634,9 +642,12 @@ let enumsMap: Set<string> = new Set<string>([
     "RolesSort",
     "RolesType",
     "SecurityMonitoringFilterAction",
+    "SecurityMonitoringRuleDetectionMethod",
     "SecurityMonitoringRuleEvaluationWindow",
     "SecurityMonitoringRuleKeepAlive",
     "SecurityMonitoringRuleMaxSignalDuration",
+    "SecurityMonitoringRuleNewValueOptionsForgetAfter",
+    "SecurityMonitoringRuleNewValueOptionsLearningDuration",
     "SecurityMonitoringRuleQueryAggregation",
     "SecurityMonitoringRuleSeverity",
     "SecurityMonitoringSignalType",
@@ -852,6 +863,7 @@ let typeMap: {[index: string]: any} = {
     "SecurityMonitoringRuleCase": SecurityMonitoringRuleCase,
     "SecurityMonitoringRuleCaseCreate": SecurityMonitoringRuleCaseCreate,
     "SecurityMonitoringRuleCreatePayload": SecurityMonitoringRuleCreatePayload,
+    "SecurityMonitoringRuleNewValueOptions": SecurityMonitoringRuleNewValueOptions,
     "SecurityMonitoringRuleOptions": SecurityMonitoringRuleOptions,
     "SecurityMonitoringRuleQuery": SecurityMonitoringRuleQuery,
     "SecurityMonitoringRuleQueryCreate": SecurityMonitoringRuleQueryCreate,
