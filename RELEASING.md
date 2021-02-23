@@ -26,4 +26,5 @@ Releasing a new version of `@datadog/datadog-api-client` unfolds as follow:
     - Make sure that all CIs are passing, as this is the commit we will be releasing!
 - Merge the Pull Request.
 - Create a Github Release from the [Tags page](https://github.com/DataDog/datadog-api-client-typescript/tags) with the description of changes introduced.
-- Once the release has been created, a Github Action will publish the package
+    - Check pre-release box for alpha/beta releases.
+- Once the release has been created, a Github Action will publish the package.
