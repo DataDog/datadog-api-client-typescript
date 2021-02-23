@@ -40,7 +40,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "yarn run build",
-    "test": "tsc && bin/dd-cucumber-js features/v1/ip_ranges.feature",
+    "test": "tsc && bin/dd-cucumber-js features/",
     "test:rerecord": "tsc && RECORD=true bin/dd-cucumber-js @rerun.txt"
   },
   "dependencies": {

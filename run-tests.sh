@@ -10,7 +10,7 @@ yarn
 yarn run build
 
 # Check licenses
-yarn run check-licenses
+yarn run check-licenses || exit 1
 
 # Run tests
 yarn run test
