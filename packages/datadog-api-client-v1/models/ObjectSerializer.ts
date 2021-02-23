@@ -261,6 +261,8 @@ export * from './ServiceMapWidgetDefinition';
 export * from './ServiceMapWidgetDefinitionType';
 export * from './ServiceSummaryWidgetDefinition';
 export * from './ServiceSummaryWidgetDefinitionType';
+export * from './SlackIntegrationChannel';
+export * from './SlackIntegrationChannelDisplay';
 export * from './SyntheticsAPITestResultData';
 export * from './SyntheticsAPITestResultFull';
 export * from './SyntheticsAPITestResultFullCheck';
@@ -746,6 +748,8 @@ import { ServiceMapWidgetDefinition } from './ServiceMapWidgetDefinition';
 import { ServiceMapWidgetDefinitionType } from './ServiceMapWidgetDefinitionType';
 import { ServiceSummaryWidgetDefinition } from './ServiceSummaryWidgetDefinition';
 import { ServiceSummaryWidgetDefinitionType } from './ServiceSummaryWidgetDefinitionType';
+import { SlackIntegrationChannel } from './SlackIntegrationChannel';
+import { SlackIntegrationChannelDisplay } from './SlackIntegrationChannelDisplay';
 import { SyntheticsAPITestResultData } from './SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from './SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from './SyntheticsAPITestResultFullCheck';
@@ -1313,6 +1317,8 @@ let typeMap: {[index: string]: any} = {
     "ServiceLevelObjectiveRequest": ServiceLevelObjectiveRequest,
     "ServiceMapWidgetDefinition": ServiceMapWidgetDefinition,
     "ServiceSummaryWidgetDefinition": ServiceSummaryWidgetDefinition,
+    "SlackIntegrationChannel": SlackIntegrationChannel,
+    "SlackIntegrationChannelDisplay": SlackIntegrationChannelDisplay,
     "SyntheticsAPITestResultData": SyntheticsAPITestResultData,
     "SyntheticsAPITestResultFull": SyntheticsAPITestResultFull,
     "SyntheticsAPITestResultFullCheck": SyntheticsAPITestResultFullCheck,

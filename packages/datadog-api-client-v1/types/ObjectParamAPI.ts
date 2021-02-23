@@ -265,6 +265,8 @@ import { ServiceMapWidgetDefinition } from '../models/ServiceMapWidgetDefinition
 import { ServiceMapWidgetDefinitionType } from '../models/ServiceMapWidgetDefinitionType';
 import { ServiceSummaryWidgetDefinition } from '../models/ServiceSummaryWidgetDefinition';
 import { ServiceSummaryWidgetDefinitionType } from '../models/ServiceSummaryWidgetDefinitionType';
+import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
+import { SlackIntegrationChannelDisplay } from '../models/SlackIntegrationChannelDisplay';
 import { SyntheticsAPITestResultData } from '../models/SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from '../models/SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from '../models/SyntheticsAPITestResultFullCheck';
@@ -2960,6 +2962,143 @@ export class ObjectServiceLevelObjectivesApi {
      */
     public updateSLO(param: ServiceLevelObjectivesApiUpdateSLORequest, options?: Configuration): Promise<SLOListResponse> {
         return this.api.updateSLO(param.sloId, param.body,  options).toPromise();
+    }
+	
+
+}
+
+
+
+
+import { ObservableSlackIntegrationApi } from "./ObservableAPI";
+import { SlackIntegrationApiRequestFactory, SlackIntegrationApiResponseProcessor} from "../apis/SlackIntegrationApi";
+
+export interface SlackIntegrationApiCreateSlackIntegrationChannelRequest {
+    /**
+     * Your Slack account name.
+     * @type string
+     * @memberof SlackIntegrationApicreateSlackIntegrationChannel
+     */
+    accountName: string
+    /**
+     * Payload describing Slack channel to be created
+     * @type SlackIntegrationChannel
+     * @memberof SlackIntegrationApicreateSlackIntegrationChannel
+     */
+    body: SlackIntegrationChannel
+}
+
+export interface SlackIntegrationApiGetSlackIntegrationChannelRequest {
+    /**
+     * Your Slack account name.
+     * @type string
+     * @memberof SlackIntegrationApigetSlackIntegrationChannel
+     */
+    accountName: string
+    /**
+     * The name of the Slack channel being operated on.
+     * @type string
+     * @memberof SlackIntegrationApigetSlackIntegrationChannel
+     */
+    channelName: string
+}
+
+export interface SlackIntegrationApiGetSlackIntegrationChannelsRequest {
+    /**
+     * Your Slack account name.
+     * @type string
+     * @memberof SlackIntegrationApigetSlackIntegrationChannels
+     */
+    accountName: string
+}
+
+export interface SlackIntegrationApiRemoveSlackIntegrationChannelRequest {
+    /**
+     * Your Slack account name.
+     * @type string
+     * @memberof SlackIntegrationApiremoveSlackIntegrationChannel
+     */
+    accountName: string
+    /**
+     * The name of the Slack channel being operated on.
+     * @type string
+     * @memberof SlackIntegrationApiremoveSlackIntegrationChannel
+     */
+    channelName: string
+}
+
+export interface SlackIntegrationApiUpdateSlackIntegrationChannelRequest {
+    /**
+     * Your Slack account name.
+     * @type string
+     * @memberof SlackIntegrationApiupdateSlackIntegrationChannel
+     */
+    accountName: string
+    /**
+     * The name of the Slack channel being operated on.
+     * @type string
+     * @memberof SlackIntegrationApiupdateSlackIntegrationChannel
+     */
+    channelName: string
+    /**
+     * Payload describing fields and values to be updated.
+     * @type SlackIntegrationChannel
+     * @memberof SlackIntegrationApiupdateSlackIntegrationChannel
+     */
+    body: SlackIntegrationChannel
+}
+
+
+export class ObjectSlackIntegrationApi {
+    private api: ObservableSlackIntegrationApi
+
+    public constructor(configuration: Configuration, requestFactory?: SlackIntegrationApiRequestFactory, responseProcessor?: SlackIntegrationApiResponseProcessor) {
+        this.api = new ObservableSlackIntegrationApi(configuration, requestFactory, responseProcessor);
+	}
+
+    /**
+     * Add a channel to your Datadog-Slack integration.
+     * Create a Slack integration channel
+     * @param param the request object
+     */
+    public createSlackIntegrationChannel(param: SlackIntegrationApiCreateSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
+        return this.api.createSlackIntegrationChannel(param.accountName, param.body,  options).toPromise();
+    }
+	
+    /**
+     * Get a channel configured for your Datadog-Slack integration.
+     * Get a Slack integration channel
+     * @param param the request object
+     */
+    public getSlackIntegrationChannel(param: SlackIntegrationApiGetSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
+        return this.api.getSlackIntegrationChannel(param.accountName, param.channelName,  options).toPromise();
+    }
+	
+    /**
+     * Get a list of all channels configured for your Datadog-Slack integration.
+     * Get all channels in a Slack integration
+     * @param param the request object
+     */
+    public getSlackIntegrationChannels(param: SlackIntegrationApiGetSlackIntegrationChannelsRequest, options?: Configuration): Promise<Array<SlackIntegrationChannel>> {
+        return this.api.getSlackIntegrationChannels(param.accountName,  options).toPromise();
+    }
+	
+    /**
+     * Remove a channel from your Datadog-Slack integration.
+     * Remove a Slack integration channel
+     * @param param the request object
+     */
+    public removeSlackIntegrationChannel(param: SlackIntegrationApiRemoveSlackIntegrationChannelRequest, options?: Configuration): Promise<void> {
+        return this.api.removeSlackIntegrationChannel(param.accountName, param.channelName,  options).toPromise();
+    }
+	
+    /**
+     * Update a channel used in your Datadog-Slack integration.
+     * Update a Slack integration channel
+     * @param param the request object
+     */
+    public updateSlackIntegrationChannel(param: SlackIntegrationApiUpdateSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
+        return this.api.updateSlackIntegrationChannel(param.accountName, param.channelName, param.body,  options).toPromise();
     }
 	
 
