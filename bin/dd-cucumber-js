@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+require('dd-trace/init');
+require('@cucumber/cucumber/lib/cli/run.js').default();

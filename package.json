@@ -1,9 +1,11 @@
 {
-  "name": "datadog-api-client",
+  "name": "@datadog/datadog-api-client",
   "description": "OpenAPI client for Datadog APIs",
   "author": "Datadog Inc",
   "keywords": [
+    "api",
     "fetch",
+    "datadog",
     "typescript",
     "openapi-client",
     "openapi-generator"
@@ -38,8 +40,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "yarn run build",
-    "test": "tsc && cucumber-js features/",
-    "test:rerecord": "tsc && RECORD=true cucumber-js @rerun.txt"
+    "test": "tsc && bin/dd-cucumber-js features/v1/ip_ranges.feature",
+    "test:rerecord": "tsc && RECORD=true bin/dd-cucumber-js @rerun.txt"
   },
   "dependencies": {
     "@types/node": "*",

@@ -1,5 +1,5 @@
 const feature = [
-  '--require-module dd-trace/init',
+  // use bin/dd-cucumber-js '--require-module dd-trace/init',
   '--require-module ts-node/register',
   '--require features/**/*.ts',
   `--format ${process.env.CI || !process.stdout.isTTY ? 'progress' : 'progress-bar'
