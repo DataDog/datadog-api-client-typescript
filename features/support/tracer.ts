@@ -72,7 +72,6 @@ async function handleRunStep(this: void, ...args: any[]) {
 PickleRunner.prototype.run = handleRun;
 PickleRunner.prototype.runStep = handleRunStep;
 
-/*
 const v1 = require('../../packages/datadog-api-client-v1/http/isomorphic-fetch').IsomorphicFetchHttpLibrary;
 const v1Send = v1.prototype.send;
 const v2 = require('../../packages/datadog-api-client-v2/http/isomorphic-fetch').IsomorphicFetchHttpLibrary;
@@ -97,6 +96,5 @@ function wrap(method: any) {
 
 v1.prototype.send = wrap(v1Send);
 v2.prototype.send = wrap(v2Send);
-*/
 
 export default tracer;
