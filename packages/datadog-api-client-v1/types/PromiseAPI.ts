@@ -265,6 +265,8 @@ import { ServiceMapWidgetDefinition } from '../models/ServiceMapWidgetDefinition
 import { ServiceMapWidgetDefinitionType } from '../models/ServiceMapWidgetDefinitionType';
 import { ServiceSummaryWidgetDefinition } from '../models/ServiceSummaryWidgetDefinition';
 import { ServiceSummaryWidgetDefinitionType } from '../models/ServiceSummaryWidgetDefinitionType';
+import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
+import { SlackIntegrationChannelDisplay } from '../models/SlackIntegrationChannelDisplay';
 import { SyntheticsAPITestResultData } from '../models/SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from '../models/SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from '../models/SyntheticsAPITestResultFullCheck';
@@ -2001,6 +2003,81 @@ export class PromiseServiceLevelObjectivesApi {
      */
     public updateSLO(sloId: string, body: ServiceLevelObjective, options?: Configuration): Promise<SLOListResponse> {
     	const result = this.api.updateSLO(sloId, body, options);
+        return result.toPromise();
+    }
+	
+
+}
+
+
+
+import { ObservableSlackIntegrationApi } from './ObservableAPI';
+
+
+import { SlackIntegrationApiRequestFactory, SlackIntegrationApiResponseProcessor} from "../apis/SlackIntegrationApi";
+export class PromiseSlackIntegrationApi {
+    private api: ObservableSlackIntegrationApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: SlackIntegrationApiRequestFactory,
+        responseProcessor?: SlackIntegrationApiResponseProcessor
+    ) {
+        this.api = new ObservableSlackIntegrationApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Add a channel to your Datadog-Slack integration.
+     * Create a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param body Payload describing Slack channel to be created
+     */
+    public createSlackIntegrationChannel(accountName: string, body: SlackIntegrationChannel, options?: Configuration): Promise<SlackIntegrationChannel> {
+    	const result = this.api.createSlackIntegrationChannel(accountName, body, options);
+        return result.toPromise();
+    }
+	
+    /**
+     * Get a channel configured for your Datadog-Slack integration.
+     * Get a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param channelName The name of the Slack channel being operated on.
+     */
+    public getSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Promise<SlackIntegrationChannel> {
+    	const result = this.api.getSlackIntegrationChannel(accountName, channelName, options);
+        return result.toPromise();
+    }
+	
+    /**
+     * Get a list of all channels configured for your Datadog-Slack integration.
+     * Get all channels in a Slack integration
+     * @param accountName Your Slack account name.
+     */
+    public getSlackIntegrationChannels(accountName: string, options?: Configuration): Promise<Array<SlackIntegrationChannel>> {
+    	const result = this.api.getSlackIntegrationChannels(accountName, options);
+        return result.toPromise();
+    }
+	
+    /**
+     * Remove a channel from your Datadog-Slack integration.
+     * Remove a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param channelName The name of the Slack channel being operated on.
+     */
+    public removeSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Promise<void> {
+    	const result = this.api.removeSlackIntegrationChannel(accountName, channelName, options);
+        return result.toPromise();
+    }
+	
+    /**
+     * Update a channel used in your Datadog-Slack integration.
+     * Update a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param channelName The name of the Slack channel being operated on.
+     * @param body Payload describing fields and values to be updated.
+     */
+    public updateSlackIntegrationChannel(accountName: string, channelName: string, body: SlackIntegrationChannel, options?: Configuration): Promise<SlackIntegrationChannel> {
+    	const result = this.api.updateSlackIntegrationChannel(accountName, channelName, body, options);
         return result.toPromise();
     }
 	

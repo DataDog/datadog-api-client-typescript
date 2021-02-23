@@ -20,6 +20,7 @@ apis/OrganizationsApi.ts
 apis/PagerDutyIntegrationApi.ts
 apis/ServiceLevelObjectiveCorrectionsApi.ts
 apis/ServiceLevelObjectivesApi.ts
+apis/SlackIntegrationApi.ts
 apis/SnapshotsApi.ts
 apis/SyntheticsApi.ts
 apis/TagsApi.ts
@@ -297,6 +298,8 @@ models/ServiceMapWidgetDefinition.ts
 models/ServiceMapWidgetDefinitionType.ts
 models/ServiceSummaryWidgetDefinition.ts
 models/ServiceSummaryWidgetDefinitionType.ts
+models/SlackIntegrationChannel.ts
+models/SlackIntegrationChannelDisplay.ts
 models/SyntheticsAPITestResultData.ts
 models/SyntheticsAPITestResultFull.ts
 models/SyntheticsAPITestResultFullCheck.ts

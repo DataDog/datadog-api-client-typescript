@@ -267,6 +267,8 @@ import { ServiceMapWidgetDefinition } from '../models/ServiceMapWidgetDefinition
 import { ServiceMapWidgetDefinitionType } from '../models/ServiceMapWidgetDefinitionType';
 import { ServiceSummaryWidgetDefinition } from '../models/ServiceSummaryWidgetDefinition';
 import { ServiceSummaryWidgetDefinitionType } from '../models/ServiceSummaryWidgetDefinitionType';
+import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
+import { SlackIntegrationChannelDisplay } from '../models/SlackIntegrationChannelDisplay';
 import { SyntheticsAPITestResultData } from '../models/SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from '../models/SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from '../models/SyntheticsAPITestResultFullCheck';
@@ -3543,6 +3545,153 @@ export class ObservableServiceLevelObjectivesApi {
 	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
 	    		}
 	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateSLO(rsp)));
+	    	}));
+    }
+	
+
+}
+
+
+
+
+import { SlackIntegrationApiRequestFactory, SlackIntegrationApiResponseProcessor} from "../apis/SlackIntegrationApi";
+export class ObservableSlackIntegrationApi {
+    private requestFactory: SlackIntegrationApiRequestFactory;
+    private responseProcessor: SlackIntegrationApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: SlackIntegrationApiRequestFactory,
+        responseProcessor?: SlackIntegrationApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new SlackIntegrationApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new SlackIntegrationApiResponseProcessor();
+    }
+
+    /**
+     * Add a channel to your Datadog-Slack integration.
+     * Create a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param body Payload describing Slack channel to be created
+     */
+    public createSlackIntegrationChannel(accountName: string, body: SlackIntegrationChannel, options?: Configuration): Observable<SlackIntegrationChannel> {
+    	const requestContextPromise = this.requestFactory.createSlackIntegrationChannel(accountName, body, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createSlackIntegrationChannel(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Get a channel configured for your Datadog-Slack integration.
+     * Get a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param channelName The name of the Slack channel being operated on.
+     */
+    public getSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Observable<SlackIntegrationChannel> {
+    	const requestContextPromise = this.requestFactory.getSlackIntegrationChannel(accountName, channelName, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getSlackIntegrationChannel(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Get a list of all channels configured for your Datadog-Slack integration.
+     * Get all channels in a Slack integration
+     * @param accountName Your Slack account name.
+     */
+    public getSlackIntegrationChannels(accountName: string, options?: Configuration): Observable<Array<SlackIntegrationChannel>> {
+    	const requestContextPromise = this.requestFactory.getSlackIntegrationChannels(accountName, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getSlackIntegrationChannels(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Remove a channel from your Datadog-Slack integration.
+     * Remove a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param channelName The name of the Slack channel being operated on.
+     */
+    public removeSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Observable<void> {
+    	const requestContextPromise = this.requestFactory.removeSlackIntegrationChannel(accountName, channelName, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.removeSlackIntegrationChannel(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Update a channel used in your Datadog-Slack integration.
+     * Update a Slack integration channel
+     * @param accountName Your Slack account name.
+     * @param channelName The name of the Slack channel being operated on.
+     * @param body Payload describing fields and values to be updated.
+     */
+    public updateSlackIntegrationChannel(accountName: string, channelName: string, body: SlackIntegrationChannel, options?: Configuration): Observable<SlackIntegrationChannel> {
+    	const requestContextPromise = this.requestFactory.updateSlackIntegrationChannel(accountName, channelName, body, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateSlackIntegrationChannel(rsp)));
 	    	}));
     }
 	
