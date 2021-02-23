@@ -1,4 +1,3 @@
-.gitignore
 README.md
 apis/DashboardListsApi.ts
 apis/IncidentServicesApi.ts
@@ -17,7 +16,6 @@ apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
 configuration.ts
-git_push.sh
 http/http.ts
 http/isomorphic-fetch.ts
 index.ts
@@ -316,10 +314,8 @@ models/UserUpdateRequest.ts
 models/UsersResponse.ts
 models/UsersType.ts
 models/all.ts
-package.json
 rxjsStub.ts
 servers.ts
-tsconfig.json
 types/ObjectParamAPI.ts
 types/ObservableAPI.ts
 types/PromiseAPI.ts
