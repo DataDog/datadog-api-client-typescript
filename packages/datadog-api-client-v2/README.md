@@ -1,4 +1,4 @@
-## datadog-api-client-v2@0.1.0
+## @datadog/datadog-api-client@0.1.0
 
 This generator creates TypeScript/JavaScript client that utilizes fetch-api. 
 
@@ -21,7 +21,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install datadog-api-client-v2@0.1.0 --save
+npm install @datadog/datadog-api-client@0.1.0 --save
 ```
 
 _unPublished (not recommended):_

@@ -46,7 +46,6 @@ jobs:
   services:
     datadog-agent: datadog-agent
   steps:
-    - script: npm install
     - script: ./run-tests.sh
       displayName: Run integration tests
       env:

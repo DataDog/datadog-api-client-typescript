@@ -1,44 +1,27 @@
-## @
+# Node.js Datadog API Client
 
-This generator creates TypeScript/JavaScript client that utilizes fetch-api. 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-### Building
+This repository contains a Node.js API client for the [Datadog API](https://docs.datadoghq.com/api/).
+The code is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+and [apigentools](https://github.com/DataDog/apigentools).
 
-To build and compile the typescript sources to javascript use:
-```
-npm install
-npm run build
-```
+## How to install
 
-### Publishing
+The package is under [@datadog/datadog-api-client](https://www.npmjs.com/package/@datadog/datadog-api-client) and can be installed through NPM or Yarn:
 
-First build the package then run ```npm publish```
+```sh
+# NPM
+npm install @datadog/datadog-api-client
 
-### Consuming
-
-navigate to the folder of your consuming project and run one of the following commands.
-
-_published:_
-
-```
-npm install @ --save
+# Yarn
+yarn add @datadog/datadog-api-client
 ```
 
-_unPublished (not recommended):_
+## Usage
 
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
+TBD
 
+## License
 
-### tsconfig.json
-
-```
-  "references": [
-    {
-      "path": "./v1"
-    },
-    {
-      "path": "./v2"
-    }
-  ]
-```
+[Apache License, v2.0](LICENSE)

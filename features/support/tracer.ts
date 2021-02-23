@@ -71,7 +71,6 @@ async function handleRunStep(this: void, ...args: any[]) {
 
 PickleRunner.prototype.run = handleRun;
 PickleRunner.prototype.runStep = handleRunStep;
-// TODO store the original methods
 
 const v1 = require('../../packages/datadog-api-client-v1/http/isomorphic-fetch').IsomorphicFetchHttpLibrary;
 const v1Send = v1.prototype.send;
