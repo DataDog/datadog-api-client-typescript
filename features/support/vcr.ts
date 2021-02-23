@@ -99,7 +99,11 @@ Before(function (
 
 After(async function (this: World) {
   if (this.polly !== undefined) {
-    await this.polly.stop();
+    try {
+      await this.polly.stop();
+    } catch {
+      this.polly.disconnect();
+    }
   }
 });
 
