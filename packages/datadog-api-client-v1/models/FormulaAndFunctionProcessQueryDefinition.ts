@@ -8,41 +8,17 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventQueryDefinition } from './FormulaAndFunctionEventQueryDefinition';
-import { FormulaAndFunctionEventQueryDefinitionCompute } from './FormulaAndFunctionEventQueryDefinitionCompute';
-import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFunctionEventQueryDefinitionSearch';
-import { FormulaAndFunctionEventQueryGroupBy } from './FormulaAndFunctionEventQueryGroupBy';
 import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricAggregation';
-import { FormulaAndFunctionMetricQueryDefinition } from './FormulaAndFunctionMetricQueryDefinition';
 import { FormulaAndFunctionProcessQueryDataSource } from './FormulaAndFunctionProcessQueryDataSource';
-import { FormulaAndFunctionProcessQueryDefinition } from './FormulaAndFunctionProcessQueryDefinition';
 import { QuerySortOrder } from './QuerySortOrder';
 import { HttpFile } from '../http/http';
 
 /**
-* A formula and function query.
+* Process query using formulas and functions.
 */
-export class FormulaAndFunctionQueryDefinition {
+export class FormulaAndFunctionProcessQueryDefinition {
     'aggregator'?: FormulaAndFunctionMetricAggregation;
     'dataSource': FormulaAndFunctionProcessQueryDataSource;
-    /**
-    * Name of query for use in formulas.
-    */
-    'name'?: string;
-    /**
-    * Metrics query definition.
-    */
-    'query': string;
-    'compute': FormulaAndFunctionEventQueryDefinitionCompute;
-    /**
-    * Group by options.
-    */
-    'groupBy'?: Array<FormulaAndFunctionEventQueryGroupBy>;
-    /**
-    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-    */
-    'indexes'?: Array<string>;
-    'search'?: FormulaAndFunctionEventQueryDefinitionSearch;
     /**
     * Whether to normalize the CPU percentages.
     */
@@ -55,6 +31,10 @@ export class FormulaAndFunctionQueryDefinition {
     * Process metric name.
     */
     'metric': string;
+    /**
+    * Name of query for use in formulas.
+    */
+    'name'?: string;
     'sort'?: QuerySortOrder;
     /**
     * An array of tags to filter by.
@@ -81,42 +61,6 @@ export class FormulaAndFunctionQueryDefinition {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "query",
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "compute",
-            "baseName": "compute",
-            "type": "FormulaAndFunctionEventQueryDefinitionCompute",
-            "format": ""
-        },
-        {
-            "name": "groupBy",
-            "baseName": "group_by",
-            "type": "Array<FormulaAndFunctionEventQueryGroupBy>",
-            "format": ""
-        },
-        {
-            "name": "indexes",
-            "baseName": "indexes",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "search",
-            "baseName": "search",
-            "type": "FormulaAndFunctionEventQueryDefinitionSearch",
-            "format": ""
-        },
-        {
             "name": "isNormalizedCpu",
             "baseName": "is_normalized_cpu",
             "type": "boolean",
@@ -131,6 +75,12 @@ export class FormulaAndFunctionQueryDefinition {
         {
             "name": "metric",
             "baseName": "metric",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
@@ -154,7 +104,7 @@ export class FormulaAndFunctionQueryDefinition {
         }    ];
 
     static getAttributeTypeMap() {
-        return FormulaAndFunctionQueryDefinition.attributeTypeMap;
+        return FormulaAndFunctionProcessQueryDefinition.attributeTypeMap;
     }
     
     public constructor() {
