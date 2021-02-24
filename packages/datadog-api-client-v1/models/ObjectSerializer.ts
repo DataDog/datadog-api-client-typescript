@@ -70,10 +70,17 @@ export * from './EventStreamWidgetDefinitionType';
 export * from './EventTimelineWidgetDefinition';
 export * from './EventTimelineWidgetDefinitionType';
 export * from './FormulaAndFunctionEventAggregation';
+export * from './FormulaAndFunctionEventQueryDefinition';
+export * from './FormulaAndFunctionEventQueryDefinitionCompute';
+export * from './FormulaAndFunctionEventQueryDefinitionSearch';
+export * from './FormulaAndFunctionEventQueryGroupBy';
+export * from './FormulaAndFunctionEventQueryGroupBySort';
 export * from './FormulaAndFunctionEventsDataSource';
 export * from './FormulaAndFunctionMetricAggregation';
 export * from './FormulaAndFunctionMetricDataSource';
+export * from './FormulaAndFunctionMetricQueryDefinition';
 export * from './FormulaAndFunctionProcessQueryDataSource';
+export * from './FormulaAndFunctionProcessQueryDefinition';
 export * from './FormulaAndFunctionQueryDefinition';
 export * from './FormulaAndFunctionResponseFormat';
 export * from './FreeTextWidgetDefinition';
@@ -351,13 +358,6 @@ export * from './TableWidgetHasSearchBar';
 export * from './TableWidgetRequest';
 export * from './TagToHosts';
 export * from './TargetFormatType';
-export * from './TimeSeriesFormulaAndFunctionEventQueryDefinition';
-export * from './TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute';
-export * from './TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch';
-export * from './TimeSeriesFormulaAndFunctionEventQueryGroupBy';
-export * from './TimeSeriesFormulaAndFunctionEventQueryGroupBySort';
-export * from './TimeSeriesFormulaAndFunctionMetricQueryDefinition';
-export * from './TimeSeriesFormulaAndFunctionProcessQueryDefinition';
 export * from './TimeseriesWidgetDefinition';
 export * from './TimeseriesWidgetDefinitionType';
 export * from './TimeseriesWidgetExpressionAlias';
@@ -557,10 +557,17 @@ import { EventStreamWidgetDefinitionType } from './EventStreamWidgetDefinitionTy
 import { EventTimelineWidgetDefinition } from './EventTimelineWidgetDefinition';
 import { EventTimelineWidgetDefinitionType } from './EventTimelineWidgetDefinitionType';
 import { FormulaAndFunctionEventAggregation } from './FormulaAndFunctionEventAggregation';
+import { FormulaAndFunctionEventQueryDefinition } from './FormulaAndFunctionEventQueryDefinition';
+import { FormulaAndFunctionEventQueryDefinitionCompute } from './FormulaAndFunctionEventQueryDefinitionCompute';
+import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFunctionEventQueryDefinitionSearch';
+import { FormulaAndFunctionEventQueryGroupBy } from './FormulaAndFunctionEventQueryGroupBy';
+import { FormulaAndFunctionEventQueryGroupBySort } from './FormulaAndFunctionEventQueryGroupBySort';
 import { FormulaAndFunctionEventsDataSource } from './FormulaAndFunctionEventsDataSource';
 import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricAggregation';
 import { FormulaAndFunctionMetricDataSource } from './FormulaAndFunctionMetricDataSource';
+import { FormulaAndFunctionMetricQueryDefinition } from './FormulaAndFunctionMetricQueryDefinition';
 import { FormulaAndFunctionProcessQueryDataSource } from './FormulaAndFunctionProcessQueryDataSource';
+import { FormulaAndFunctionProcessQueryDefinition } from './FormulaAndFunctionProcessQueryDefinition';
 import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
 import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
 import { FreeTextWidgetDefinition } from './FreeTextWidgetDefinition';
@@ -838,13 +845,6 @@ import { TableWidgetHasSearchBar } from './TableWidgetHasSearchBar';
 import { TableWidgetRequest } from './TableWidgetRequest';
 import { TagToHosts } from './TagToHosts';
 import { TargetFormatType } from './TargetFormatType';
-import { TimeSeriesFormulaAndFunctionEventQueryDefinition } from './TimeSeriesFormulaAndFunctionEventQueryDefinition';
-import { TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute } from './TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute';
-import { TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch } from './TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch';
-import { TimeSeriesFormulaAndFunctionEventQueryGroupBy } from './TimeSeriesFormulaAndFunctionEventQueryGroupBy';
-import { TimeSeriesFormulaAndFunctionEventQueryGroupBySort } from './TimeSeriesFormulaAndFunctionEventQueryGroupBySort';
-import { TimeSeriesFormulaAndFunctionMetricQueryDefinition } from './TimeSeriesFormulaAndFunctionMetricQueryDefinition';
-import { TimeSeriesFormulaAndFunctionProcessQueryDefinition } from './TimeSeriesFormulaAndFunctionProcessQueryDefinition';
 import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
 import { TimeseriesWidgetDefinitionType } from './TimeseriesWidgetDefinitionType';
 import { TimeseriesWidgetExpressionAlias } from './TimeseriesWidgetExpressionAlias';
@@ -1173,6 +1173,13 @@ let typeMap: {[index: string]: any} = {
     "EventResponse": EventResponse,
     "EventStreamWidgetDefinition": EventStreamWidgetDefinition,
     "EventTimelineWidgetDefinition": EventTimelineWidgetDefinition,
+    "FormulaAndFunctionEventQueryDefinition": FormulaAndFunctionEventQueryDefinition,
+    "FormulaAndFunctionEventQueryDefinitionCompute": FormulaAndFunctionEventQueryDefinitionCompute,
+    "FormulaAndFunctionEventQueryDefinitionSearch": FormulaAndFunctionEventQueryDefinitionSearch,
+    "FormulaAndFunctionEventQueryGroupBy": FormulaAndFunctionEventQueryGroupBy,
+    "FormulaAndFunctionEventQueryGroupBySort": FormulaAndFunctionEventQueryGroupBySort,
+    "FormulaAndFunctionMetricQueryDefinition": FormulaAndFunctionMetricQueryDefinition,
+    "FormulaAndFunctionProcessQueryDefinition": FormulaAndFunctionProcessQueryDefinition,
     "FormulaAndFunctionQueryDefinition": FormulaAndFunctionQueryDefinition,
     "FreeTextWidgetDefinition": FreeTextWidgetDefinition,
     "GCPAccount": GCPAccount,
@@ -1383,13 +1390,6 @@ let typeMap: {[index: string]: any} = {
     "TableWidgetDefinition": TableWidgetDefinition,
     "TableWidgetRequest": TableWidgetRequest,
     "TagToHosts": TagToHosts,
-    "TimeSeriesFormulaAndFunctionEventQueryDefinition": TimeSeriesFormulaAndFunctionEventQueryDefinition,
-    "TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute": TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute,
-    "TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch": TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch,
-    "TimeSeriesFormulaAndFunctionEventQueryGroupBy": TimeSeriesFormulaAndFunctionEventQueryGroupBy,
-    "TimeSeriesFormulaAndFunctionEventQueryGroupBySort": TimeSeriesFormulaAndFunctionEventQueryGroupBySort,
-    "TimeSeriesFormulaAndFunctionMetricQueryDefinition": TimeSeriesFormulaAndFunctionMetricQueryDefinition,
-    "TimeSeriesFormulaAndFunctionProcessQueryDefinition": TimeSeriesFormulaAndFunctionProcessQueryDefinition,
     "TimeseriesWidgetDefinition": TimeseriesWidgetDefinition,
     "TimeseriesWidgetExpressionAlias": TimeseriesWidgetExpressionAlias,
     "TimeseriesWidgetRequest": TimeseriesWidgetRequest,
