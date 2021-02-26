@@ -11,6 +11,6 @@
 import { HttpFile } from '../http/http';
 
 /**
-* Timeseries or Scalar response. This feature is currently in beta.
+* Timeseries or Scalar response. **This feature is currently in beta.**
 */
 export type FormulaAndFunctionResponseFormat = "timeseries" | "scalar" ;
