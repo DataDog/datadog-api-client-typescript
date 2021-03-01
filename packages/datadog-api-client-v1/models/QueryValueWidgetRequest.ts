@@ -8,10 +8,13 @@
  * Do not edit the class manually.
  */
 
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
 import { LogQueryDefinition } from './LogQueryDefinition';
 import { ProcessQueryDefinition } from './ProcessQueryDefinition';
 import { WidgetAggregator } from './WidgetAggregator';
 import { WidgetConditionalFormat } from './WidgetConditionalFormat';
+import { WidgetFormula } from './WidgetFormula';
 import { HttpFile } from '../http/http';
 
 /**
@@ -25,6 +28,10 @@ export class QueryValueWidgetRequest {
     */
     'conditionalFormats'?: Array<WidgetConditionalFormat>;
     'eventQuery'?: LogQueryDefinition;
+    /**
+    * List of formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<WidgetFormula>;
     'logQuery'?: LogQueryDefinition;
     'networkQuery'?: LogQueryDefinition;
     'processQuery'?: ProcessQueryDefinition;
@@ -33,6 +40,11 @@ export class QueryValueWidgetRequest {
     * TODO.
     */
     'q'?: string;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
     'rumQuery'?: LogQueryDefinition;
     'securityQuery'?: LogQueryDefinition;
 
@@ -64,6 +76,12 @@ export class QueryValueWidgetRequest {
             "format": ""
         },
         {
+            "name": "formulas",
+            "baseName": "formulas",
+            "type": "Array<WidgetFormula>",
+            "format": ""
+        },
+        {
             "name": "logQuery",
             "baseName": "log_query",
             "type": "LogQueryDefinition",
@@ -91,6 +109,18 @@ export class QueryValueWidgetRequest {
             "name": "q",
             "baseName": "q",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "queries",
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            "format": ""
+        },
+        {
+            "name": "responseFormat",
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
             "format": ""
         },
         {

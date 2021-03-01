@@ -26,7 +26,7 @@ export class TimeseriesWidgetRequest {
     'displayType'?: WidgetDisplayType;
     'eventQuery'?: LogQueryDefinition;
     /**
-    * List of formulas that operate on queries. This feature is currently in beta.
+    * List of formulas that operate on queries. **This feature is currently in beta.**
     */
     'formulas'?: Array<WidgetFormula>;
     'logQuery'?: LogQueryDefinition;
@@ -46,7 +46,7 @@ export class TimeseriesWidgetRequest {
     */
     'q'?: string;
     /**
-    * List of queries that can be returned directly or used in formulas. This feature is currently in beta.
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
     */
     'queries'?: Array<FormulaAndFunctionQueryDefinition>;
     'responseFormat'?: FormulaAndFunctionResponseFormat;
