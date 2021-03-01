@@ -36,6 +36,10 @@ export class MonitorOptions {
     */
     'evaluationDelay'?: number;
     /**
+    * Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
+    */
+    'groupbySimpleMonitor'?: boolean;
+    /**
     * A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If `True`, `[Triggered on {host:h1}] Monitor Title` - If `False`, `[Triggered] Monitor Title`
     */
     'includeTags'?: boolean;
@@ -122,6 +126,12 @@ export class MonitorOptions {
             "baseName": "evaluation_delay",
             "type": "number",
             "format": "int64"
+        },
+        {
+            "name": "groupbySimpleMonitor",
+            "baseName": "groupby_simple_monitor",
+            "type": "boolean",
+            "format": ""
         },
         {
             "name": "includeTags",
