@@ -274,11 +274,14 @@ import { ServiceSummaryWidgetDefinition } from '../models/ServiceSummaryWidgetDe
 import { ServiceSummaryWidgetDefinitionType } from '../models/ServiceSummaryWidgetDefinitionType';
 import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
 import { SlackIntegrationChannelDisplay } from '../models/SlackIntegrationChannelDisplay';
+import { SyntheticsAPITest } from '../models/SyntheticsAPITest';
+import { SyntheticsAPITestConfig } from '../models/SyntheticsAPITestConfig';
 import { SyntheticsAPITestResultData } from '../models/SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from '../models/SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from '../models/SyntheticsAPITestResultFullCheck';
 import { SyntheticsAPITestResultShort } from '../models/SyntheticsAPITestResultShort';
 import { SyntheticsAPITestResultShortResult } from '../models/SyntheticsAPITestResultShortResult';
+import { SyntheticsAPITestType } from '../models/SyntheticsAPITestType';
 import { SyntheticsAssertion } from '../models/SyntheticsAssertion';
 import { SyntheticsAssertionJSONPathOperator } from '../models/SyntheticsAssertionJSONPathOperator';
 import { SyntheticsAssertionJSONPathTarget } from '../models/SyntheticsAssertionJSONPathTarget';
@@ -289,11 +292,14 @@ import { SyntheticsAssertionType } from '../models/SyntheticsAssertionType';
 import { SyntheticsBasicAuth } from '../models/SyntheticsBasicAuth';
 import { SyntheticsBrowserError } from '../models/SyntheticsBrowserError';
 import { SyntheticsBrowserErrorType } from '../models/SyntheticsBrowserErrorType';
+import { SyntheticsBrowserTest } from '../models/SyntheticsBrowserTest';
+import { SyntheticsBrowserTestConfig } from '../models/SyntheticsBrowserTestConfig';
 import { SyntheticsBrowserTestResultData } from '../models/SyntheticsBrowserTestResultData';
 import { SyntheticsBrowserTestResultFull } from '../models/SyntheticsBrowserTestResultFull';
 import { SyntheticsBrowserTestResultFullCheck } from '../models/SyntheticsBrowserTestResultFullCheck';
 import { SyntheticsBrowserTestResultShort } from '../models/SyntheticsBrowserTestResultShort';
 import { SyntheticsBrowserTestResultShortResult } from '../models/SyntheticsBrowserTestResultShortResult';
+import { SyntheticsBrowserTestType } from '../models/SyntheticsBrowserTestType';
 import { SyntheticsBrowserVariable } from '../models/SyntheticsBrowserVariable';
 import { SyntheticsBrowserVariableType } from '../models/SyntheticsBrowserVariableType';
 import { SyntheticsCITest } from '../models/SyntheticsCITest';
@@ -3193,6 +3199,24 @@ export interface SyntheticsApiCreatePrivateLocationRequest {
     body: SyntheticsPrivateLocation
 }
 
+export interface SyntheticsApiCreateSyntheticsAPITestRequest {
+    /**
+     * Details of the test to create.
+     * @type SyntheticsAPITest
+     * @memberof SyntheticsApicreateSyntheticsAPITest
+     */
+    body: SyntheticsAPITest
+}
+
+export interface SyntheticsApiCreateSyntheticsBrowserTestRequest {
+    /**
+     * Details of the test to create.
+     * @type SyntheticsBrowserTest
+     * @memberof SyntheticsApicreateSyntheticsBrowserTest
+     */
+    body: SyntheticsBrowserTest
+}
+
 export interface SyntheticsApiCreateTestRequest {
     /**
      * Details of the test to create.
@@ -3379,6 +3403,36 @@ export interface SyntheticsApiTriggerCITestsRequest {
     body: SyntheticsCITestBody
 }
 
+export interface SyntheticsApiUpdateAPITestRequest {
+    /**
+     * The public ID of the test to get details from.
+     * @type string
+     * @memberof SyntheticsApiupdateAPITest
+     */
+    publicId: string
+    /**
+     * New test details to be saved.
+     * @type SyntheticsAPITest
+     * @memberof SyntheticsApiupdateAPITest
+     */
+    body: SyntheticsAPITest
+}
+
+export interface SyntheticsApiUpdateBrowserTestRequest {
+    /**
+     * The public ID of the test to get details from.
+     * @type string
+     * @memberof SyntheticsApiupdateBrowserTest
+     */
+    publicId: string
+    /**
+     * New test details to be saved.
+     * @type SyntheticsBrowserTest
+     * @memberof SyntheticsApiupdateBrowserTest
+     */
+    body: SyntheticsBrowserTest
+}
+
 export interface SyntheticsApiUpdatePrivateLocationRequest {
     /**
      * The ID of the private location.
@@ -3448,6 +3502,24 @@ export class ObjectSyntheticsApi {
      */
     public createPrivateLocation(param: SyntheticsApiCreatePrivateLocationRequest, options?: Configuration): Promise<SyntheticsPrivateLocationCreationResponse> {
         return this.api.createPrivateLocation(param.body,  options).toPromise();
+    }
+	
+    /**
+     * Create a Synthetic API test.
+     * Create an API test
+     * @param param the request object
+     */
+    public createSyntheticsAPITest(param: SyntheticsApiCreateSyntheticsAPITestRequest, options?: Configuration): Promise<SyntheticsAPITest> {
+        return this.api.createSyntheticsAPITest(param.body,  options).toPromise();
+    }
+	
+    /**
+     * Create a Synthetic browser test.
+     * Create a browser test
+     * @param param the request object
+     */
+    public createSyntheticsBrowserTest(param: SyntheticsApiCreateSyntheticsBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
+        return this.api.createSyntheticsBrowserTest(param.body,  options).toPromise();
     }
 	
     /**
@@ -3592,6 +3664,24 @@ export class ObjectSyntheticsApi {
      */
     public triggerCITests(param: SyntheticsApiTriggerCITestsRequest, options?: Configuration): Promise<SyntheticsTriggerCITestsResponse> {
         return this.api.triggerCITests(param.body,  options).toPromise();
+    }
+	
+    /**
+     * Edit the configuration of a Synthetic API test.
+     * Edit an API test
+     * @param param the request object
+     */
+    public updateAPITest(param: SyntheticsApiUpdateAPITestRequest, options?: Configuration): Promise<SyntheticsAPITest> {
+        return this.api.updateAPITest(param.publicId, param.body,  options).toPromise();
+    }
+	
+    /**
+     * Edit the configuration of a Synthetic browser test.
+     * Edit a browser test
+     * @param param the request object
+     */
+    public updateBrowserTest(param: SyntheticsApiUpdateBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
+        return this.api.updateBrowserTest(param.publicId, param.body,  options).toPromise();
     }
 	
     /**
