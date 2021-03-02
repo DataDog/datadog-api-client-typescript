@@ -26,16 +26,12 @@ jobs:
   test:
     strategy:
       matrix:
-        node-version: ['10', '14']
+        node-version: ['12', '14']
         platform: [ubuntu-latest] # , macos-latest, windows-latest]
         # test only latest version on macos and windows
         # exclude:
           # - platform: macos-latest
-          #   node-version: '10'
-          # - platform: macos-latest
           #   node-version: '12'
-          # - platform: windows-latest
-          #   node-version: '10'
           # - platform: windows-latest
           #   node-version: '12'
     runs-on: ${{ matrix.platform }}
