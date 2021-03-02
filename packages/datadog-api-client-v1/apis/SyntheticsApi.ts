@@ -8,7 +8,9 @@ import {ApiException} from './exception';
 import {isCodeInRange} from '../util';
 
 import { APIErrorResponse } from '../models/APIErrorResponse';
+import { SyntheticsAPITest } from '../models/SyntheticsAPITest';
 import { SyntheticsAPITestResultFull } from '../models/SyntheticsAPITestResultFull';
+import { SyntheticsBrowserTest } from '../models/SyntheticsBrowserTest';
 import { SyntheticsBrowserTestResultFull } from '../models/SyntheticsBrowserTestResultFull';
 import { SyntheticsCITestBody } from '../models/SyntheticsCITestBody';
 import { SyntheticsDeleteTestsPayload } from '../models/SyntheticsDeleteTestsPayload';
@@ -117,6 +119,112 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(body, "SyntheticsPrivateLocation", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Create a Synthetic API test.
+     * Create an API test
+     * @param body Details of the test to create.
+     */
+    public async createSyntheticsAPITest(body: SyntheticsAPITest, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+        
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new RequiredError('Required parameter body was null or undefined when calling createSyntheticsAPITest.');
+        }
+
+        
+        // Path Params
+        const localVarPath = '/api/v1/synthetics/tests/api';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'SyntheticsApi.createSyntheticsAPITest').makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+    
+        // Header Params
+    
+        // Form Params
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(body, "SyntheticsAPITest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Create a Synthetic browser test.
+     * Create a browser test
+     * @param body Details of the test to create.
+     */
+    public async createSyntheticsBrowserTest(body: SyntheticsBrowserTest, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+        
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new RequiredError('Required parameter body was null or undefined when calling createSyntheticsBrowserTest.');
+        }
+
+        
+        // Path Params
+        const localVarPath = '/api/v1/synthetics/tests/browser';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'SyntheticsApi.createSyntheticsBrowserTest').makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+    
+        // Header Params
+    
+        // Form Params
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(body, "SyntheticsBrowserTest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -926,6 +1034,128 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * Edit the configuration of a Synthetic API test.
+     * Edit an API test
+     * @param publicId The public ID of the test to get details from.
+     * @param body New test details to be saved.
+     */
+    public async updateAPITest(publicId: string, body: SyntheticsAPITest, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+        
+        // verify required parameter 'publicId' is not null or undefined
+        if (publicId === null || publicId === undefined) {
+            throw new RequiredError('Required parameter publicId was null or undefined when calling updateAPITest.');
+        }
+
+        
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new RequiredError('Required parameter body was null or undefined when calling updateAPITest.');
+        }
+
+        
+        // Path Params
+        const localVarPath = '/api/v1/synthetics/tests/api/{public_id}'
+            .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
+
+        // Make Request Context
+        const requestContext = getServer(config, 'SyntheticsApi.updateAPITest').makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+    
+        // Header Params
+    
+        // Form Params
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(body, "SyntheticsAPITest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Edit the configuration of a Synthetic browser test.
+     * Edit a browser test
+     * @param publicId The public ID of the test to get details from.
+     * @param body New test details to be saved.
+     */
+    public async updateBrowserTest(publicId: string, body: SyntheticsBrowserTest, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+        
+        // verify required parameter 'publicId' is not null or undefined
+        if (publicId === null || publicId === undefined) {
+            throw new RequiredError('Required parameter publicId was null or undefined when calling updateBrowserTest.');
+        }
+
+        
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new RequiredError('Required parameter body was null or undefined when calling updateBrowserTest.');
+        }
+
+        
+        // Path Params
+        const localVarPath = '/api/v1/synthetics/tests/browser/{public_id}'
+            .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
+
+        // Make Request Context
+        const requestContext = getServer(config, 'SyntheticsApi.updateBrowserTest').makeRequestContext(localVarPath, HttpMethod.PUT);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+    
+        // Header Params
+    
+        // Form Params
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(body, "SyntheticsBrowserTest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * Edit a Synthetics private location.
      * Edit a private location
      * @param locationId The ID of the private location.
@@ -1195,6 +1425,108 @@ export class SyntheticsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SyntheticsPrivateLocationCreationResponse", ""
             ) as SyntheticsPrivateLocationCreationResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+            
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createSyntheticsAPITest
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async createSyntheticsAPITest(response: ResponseContext): Promise<SyntheticsAPITest > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SyntheticsAPITest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsAPITest", ""
+            ) as SyntheticsAPITest;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("402", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(402, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SyntheticsAPITest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsAPITest", ""
+            ) as SyntheticsAPITest;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+            
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createSyntheticsBrowserTest
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async createSyntheticsBrowserTest(response: ResponseContext): Promise<SyntheticsBrowserTest > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsBrowserTest", ""
+            ) as SyntheticsBrowserTest;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("402", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(402, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsBrowserTest", ""
+            ) as SyntheticsBrowserTest;
             return body;
         }
 
@@ -1877,6 +2209,108 @@ export class SyntheticsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SyntheticsTriggerCITestsResponse", ""
             ) as SyntheticsTriggerCITestsResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+            
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to updateAPITest
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async updateAPITest(response: ResponseContext): Promise<SyntheticsAPITest > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SyntheticsAPITest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsAPITest", ""
+            ) as SyntheticsAPITest;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(404, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SyntheticsAPITest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsAPITest", ""
+            ) as SyntheticsAPITest;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+            
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to updateBrowserTest
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async updateBrowserTest(response: ResponseContext): Promise<SyntheticsBrowserTest > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsBrowserTest", ""
+            ) as SyntheticsBrowserTest;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(404, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsBrowserTest", ""
+            ) as SyntheticsBrowserTest;
             return body;
         }
 

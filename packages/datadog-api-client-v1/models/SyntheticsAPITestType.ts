@@ -11,6 +11,6 @@
 import { HttpFile } from '../http/http';
 
 /**
-* Timeseries or Scalar response. **This feature is currently in beta.**
+* Type of the Synthetic test, `api`.
 */
-export type FormulaAndFunctionResponseFormat = "timeseries" | "scalar" ;
+export type SyntheticsAPITestType = "api" ;

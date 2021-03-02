@@ -270,11 +270,14 @@ export * from './ServiceSummaryWidgetDefinition';
 export * from './ServiceSummaryWidgetDefinitionType';
 export * from './SlackIntegrationChannel';
 export * from './SlackIntegrationChannelDisplay';
+export * from './SyntheticsAPITest';
+export * from './SyntheticsAPITestConfig';
 export * from './SyntheticsAPITestResultData';
 export * from './SyntheticsAPITestResultFull';
 export * from './SyntheticsAPITestResultFullCheck';
 export * from './SyntheticsAPITestResultShort';
 export * from './SyntheticsAPITestResultShortResult';
+export * from './SyntheticsAPITestType';
 export * from './SyntheticsAssertion';
 export * from './SyntheticsAssertionJSONPathOperator';
 export * from './SyntheticsAssertionJSONPathTarget';
@@ -285,11 +288,14 @@ export * from './SyntheticsAssertionType';
 export * from './SyntheticsBasicAuth';
 export * from './SyntheticsBrowserError';
 export * from './SyntheticsBrowserErrorType';
+export * from './SyntheticsBrowserTest';
+export * from './SyntheticsBrowserTestConfig';
 export * from './SyntheticsBrowserTestResultData';
 export * from './SyntheticsBrowserTestResultFull';
 export * from './SyntheticsBrowserTestResultFullCheck';
 export * from './SyntheticsBrowserTestResultShort';
 export * from './SyntheticsBrowserTestResultShortResult';
+export * from './SyntheticsBrowserTestType';
 export * from './SyntheticsBrowserVariable';
 export * from './SyntheticsBrowserVariableType';
 export * from './SyntheticsCITest';
@@ -757,11 +763,14 @@ import { ServiceSummaryWidgetDefinition } from './ServiceSummaryWidgetDefinition
 import { ServiceSummaryWidgetDefinitionType } from './ServiceSummaryWidgetDefinitionType';
 import { SlackIntegrationChannel } from './SlackIntegrationChannel';
 import { SlackIntegrationChannelDisplay } from './SlackIntegrationChannelDisplay';
+import { SyntheticsAPITest } from './SyntheticsAPITest';
+import { SyntheticsAPITestConfig } from './SyntheticsAPITestConfig';
 import { SyntheticsAPITestResultData } from './SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from './SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from './SyntheticsAPITestResultFullCheck';
 import { SyntheticsAPITestResultShort } from './SyntheticsAPITestResultShort';
 import { SyntheticsAPITestResultShortResult } from './SyntheticsAPITestResultShortResult';
+import { SyntheticsAPITestType } from './SyntheticsAPITestType';
 import { SyntheticsAssertion } from './SyntheticsAssertion';
 import { SyntheticsAssertionJSONPathOperator } from './SyntheticsAssertionJSONPathOperator';
 import { SyntheticsAssertionJSONPathTarget } from './SyntheticsAssertionJSONPathTarget';
@@ -772,11 +781,14 @@ import { SyntheticsAssertionType } from './SyntheticsAssertionType';
 import { SyntheticsBasicAuth } from './SyntheticsBasicAuth';
 import { SyntheticsBrowserError } from './SyntheticsBrowserError';
 import { SyntheticsBrowserErrorType } from './SyntheticsBrowserErrorType';
+import { SyntheticsBrowserTest } from './SyntheticsBrowserTest';
+import { SyntheticsBrowserTestConfig } from './SyntheticsBrowserTestConfig';
 import { SyntheticsBrowserTestResultData } from './SyntheticsBrowserTestResultData';
 import { SyntheticsBrowserTestResultFull } from './SyntheticsBrowserTestResultFull';
 import { SyntheticsBrowserTestResultFullCheck } from './SyntheticsBrowserTestResultFullCheck';
 import { SyntheticsBrowserTestResultShort } from './SyntheticsBrowserTestResultShort';
 import { SyntheticsBrowserTestResultShortResult } from './SyntheticsBrowserTestResultShortResult';
+import { SyntheticsBrowserTestType } from './SyntheticsBrowserTestType';
 import { SyntheticsBrowserVariable } from './SyntheticsBrowserVariable';
 import { SyntheticsBrowserVariableType } from './SyntheticsBrowserVariableType';
 import { SyntheticsCITest } from './SyntheticsCITest';
@@ -1052,10 +1064,12 @@ let enumsMap: Set<string> = new Set<string>([
     "ScatterPlotWidgetDefinitionType",
     "ServiceMapWidgetDefinitionType",
     "ServiceSummaryWidgetDefinitionType",
+    "SyntheticsAPITestType",
     "SyntheticsAssertionJSONPathOperator",
     "SyntheticsAssertionOperator",
     "SyntheticsAssertionType",
     "SyntheticsBrowserErrorType",
+    "SyntheticsBrowserTestType",
     "SyntheticsBrowserVariableType",
     "SyntheticsCheckType",
     "SyntheticsConfigVariableType",
@@ -1326,6 +1340,8 @@ let typeMap: {[index: string]: any} = {
     "ServiceSummaryWidgetDefinition": ServiceSummaryWidgetDefinition,
     "SlackIntegrationChannel": SlackIntegrationChannel,
     "SlackIntegrationChannelDisplay": SlackIntegrationChannelDisplay,
+    "SyntheticsAPITest": SyntheticsAPITest,
+    "SyntheticsAPITestConfig": SyntheticsAPITestConfig,
     "SyntheticsAPITestResultData": SyntheticsAPITestResultData,
     "SyntheticsAPITestResultFull": SyntheticsAPITestResultFull,
     "SyntheticsAPITestResultFullCheck": SyntheticsAPITestResultFullCheck,
@@ -1337,6 +1353,8 @@ let typeMap: {[index: string]: any} = {
     "SyntheticsAssertionTarget": SyntheticsAssertionTarget,
     "SyntheticsBasicAuth": SyntheticsBasicAuth,
     "SyntheticsBrowserError": SyntheticsBrowserError,
+    "SyntheticsBrowserTest": SyntheticsBrowserTest,
+    "SyntheticsBrowserTestConfig": SyntheticsBrowserTestConfig,
     "SyntheticsBrowserTestResultData": SyntheticsBrowserTestResultData,
     "SyntheticsBrowserTestResultFull": SyntheticsBrowserTestResultFull,
     "SyntheticsBrowserTestResultFullCheck": SyntheticsBrowserTestResultFullCheck,
