@@ -276,11 +276,14 @@ import { ServiceSummaryWidgetDefinition } from '../models/ServiceSummaryWidgetDe
 import { ServiceSummaryWidgetDefinitionType } from '../models/ServiceSummaryWidgetDefinitionType';
 import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
 import { SlackIntegrationChannelDisplay } from '../models/SlackIntegrationChannelDisplay';
+import { SyntheticsAPITest } from '../models/SyntheticsAPITest';
+import { SyntheticsAPITestConfig } from '../models/SyntheticsAPITestConfig';
 import { SyntheticsAPITestResultData } from '../models/SyntheticsAPITestResultData';
 import { SyntheticsAPITestResultFull } from '../models/SyntheticsAPITestResultFull';
 import { SyntheticsAPITestResultFullCheck } from '../models/SyntheticsAPITestResultFullCheck';
 import { SyntheticsAPITestResultShort } from '../models/SyntheticsAPITestResultShort';
 import { SyntheticsAPITestResultShortResult } from '../models/SyntheticsAPITestResultShortResult';
+import { SyntheticsAPITestType } from '../models/SyntheticsAPITestType';
 import { SyntheticsAssertion } from '../models/SyntheticsAssertion';
 import { SyntheticsAssertionJSONPathOperator } from '../models/SyntheticsAssertionJSONPathOperator';
 import { SyntheticsAssertionJSONPathTarget } from '../models/SyntheticsAssertionJSONPathTarget';
@@ -291,11 +294,14 @@ import { SyntheticsAssertionType } from '../models/SyntheticsAssertionType';
 import { SyntheticsBasicAuth } from '../models/SyntheticsBasicAuth';
 import { SyntheticsBrowserError } from '../models/SyntheticsBrowserError';
 import { SyntheticsBrowserErrorType } from '../models/SyntheticsBrowserErrorType';
+import { SyntheticsBrowserTest } from '../models/SyntheticsBrowserTest';
+import { SyntheticsBrowserTestConfig } from '../models/SyntheticsBrowserTestConfig';
 import { SyntheticsBrowserTestResultData } from '../models/SyntheticsBrowserTestResultData';
 import { SyntheticsBrowserTestResultFull } from '../models/SyntheticsBrowserTestResultFull';
 import { SyntheticsBrowserTestResultFullCheck } from '../models/SyntheticsBrowserTestResultFullCheck';
 import { SyntheticsBrowserTestResultShort } from '../models/SyntheticsBrowserTestResultShort';
 import { SyntheticsBrowserTestResultShortResult } from '../models/SyntheticsBrowserTestResultShortResult';
+import { SyntheticsBrowserTestType } from '../models/SyntheticsBrowserTestType';
 import { SyntheticsBrowserVariable } from '../models/SyntheticsBrowserVariable';
 import { SyntheticsBrowserVariableType } from '../models/SyntheticsBrowserVariableType';
 import { SyntheticsCITest } from '../models/SyntheticsCITest';
@@ -3817,6 +3823,54 @@ export class ObservableSyntheticsApi {
     }
 	
     /**
+     * Create a Synthetic API test.
+     * Create an API test
+     * @param body Details of the test to create.
+     */
+    public createSyntheticsAPITest(body: SyntheticsAPITest, options?: Configuration): Observable<SyntheticsAPITest> {
+    	const requestContextPromise = this.requestFactory.createSyntheticsAPITest(body, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createSyntheticsAPITest(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Create a Synthetic browser test.
+     * Create a browser test
+     * @param body Details of the test to create.
+     */
+    public createSyntheticsBrowserTest(body: SyntheticsBrowserTest, options?: Configuration): Observable<SyntheticsBrowserTest> {
+    	const requestContextPromise = this.requestFactory.createSyntheticsBrowserTest(body, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createSyntheticsBrowserTest(rsp)));
+	    	}));
+    }
+	
+    /**
      * Create a Synthetic test.
      * Create a test
      * @param body Details of the test to create.
@@ -4204,6 +4258,56 @@ export class ObservableSyntheticsApi {
 	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
 	    		}
 	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.triggerCITests(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Edit the configuration of a Synthetic API test.
+     * Edit an API test
+     * @param publicId The public ID of the test to get details from.
+     * @param body New test details to be saved.
+     */
+    public updateAPITest(publicId: string, body: SyntheticsAPITest, options?: Configuration): Observable<SyntheticsAPITest> {
+    	const requestContextPromise = this.requestFactory.updateAPITest(publicId, body, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateAPITest(rsp)));
+	    	}));
+    }
+	
+    /**
+     * Edit the configuration of a Synthetic browser test.
+     * Edit a browser test
+     * @param publicId The public ID of the test to get details from.
+     * @param body New test details to be saved.
+     */
+    public updateBrowserTest(publicId: string, body: SyntheticsBrowserTest, options?: Configuration): Observable<SyntheticsBrowserTest> {
+    	const requestContextPromise = this.requestFactory.updateBrowserTest(publicId, body, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateBrowserTest(rsp)));
 	    	}));
     }
 	
