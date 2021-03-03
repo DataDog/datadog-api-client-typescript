@@ -26,16 +26,12 @@ jobs:
   test:
     strategy:
       matrix:
-        node-version: ['10', '14']
+        node-version: ['12', '14']
         platform: [ubuntu-latest] # , macos-latest, windows-latest]
         # test only latest version on macos and windows
         # exclude:
           # - platform: macos-latest
-          #   node-version: '10'
-          # - platform: macos-latest
           #   node-version: '12'
-          # - platform: windows-latest
-          #   node-version: '10'
           # - platform: windows-latest
           #   node-version: '12'
     runs-on: ${{ matrix.platform }}
@@ -45,8 +41,7 @@ jobs:
     - name: Set up Node ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        ruby-version: ${{ matrix.node-version }}
-        bundler-cache: true
+        node-version: ${{ matrix.node-version }}
     - name: Test
       run: ./run-tests.sh
       shell: bash
