@@ -173,6 +173,15 @@ import { LogsSort } from '../models/LogsSort';
 import { LogsSortOrder } from '../models/LogsSortOrder';
 import { LogsWarning } from '../models/LogsWarning';
 import { Metric } from '../models/Metric';
+import { MetricAllTags } from '../models/MetricAllTags';
+import { MetricAllTagsAttributes } from '../models/MetricAllTagsAttributes';
+import { MetricAllTagsResponse } from '../models/MetricAllTagsResponse';
+import { MetricDistinctVolume } from '../models/MetricDistinctVolume';
+import { MetricDistinctVolumeAttributes } from '../models/MetricDistinctVolumeAttributes';
+import { MetricDistinctVolumeType } from '../models/MetricDistinctVolumeType';
+import { MetricIngestedIndexedVolume } from '../models/MetricIngestedIndexedVolume';
+import { MetricIngestedIndexedVolumeAttributes } from '../models/MetricIngestedIndexedVolumeAttributes';
+import { MetricIngestedIndexedVolumeType } from '../models/MetricIngestedIndexedVolumeType';
 import { MetricTagConfiguration } from '../models/MetricTagConfiguration';
 import { MetricTagConfigurationAttributes } from '../models/MetricTagConfigurationAttributes';
 import { MetricTagConfigurationCreateAttributes } from '../models/MetricTagConfigurationCreateAttributes';
@@ -185,6 +194,8 @@ import { MetricTagConfigurationUpdateAttributes } from '../models/MetricTagConfi
 import { MetricTagConfigurationUpdateData } from '../models/MetricTagConfigurationUpdateData';
 import { MetricTagConfigurationUpdateRequest } from '../models/MetricTagConfigurationUpdateRequest';
 import { MetricType } from '../models/MetricType';
+import { MetricVolumes } from '../models/MetricVolumes';
+import { MetricVolumesResponse } from '../models/MetricVolumesResponse';
 import { MetricsAndMetricTagConfigurations } from '../models/MetricsAndMetricTagConfigurations';
 import { MetricsAndMetricTagConfigurationsResponse } from '../models/MetricsAndMetricTagConfigurationsResponse';
 import { Organization } from '../models/Organization';
@@ -1670,6 +1681,24 @@ export interface MetricsApiListTagConfigurationsRequest {
     filterIncludePercentiles?: boolean
 }
 
+export interface MetricsApiListTagsByMetricNameRequest {
+    /**
+     * The name of the metric.
+     * @type string
+     * @memberof MetricsApilistTagsByMetricName
+     */
+    metricName: string
+}
+
+export interface MetricsApiListVolumesByMetricNameRequest {
+    /**
+     * The name of the metric.
+     * @type string
+     * @memberof MetricsApilistVolumesByMetricName
+     */
+    metricName: string
+}
+
 export interface MetricsApiUpdateTagConfigurationRequest {
     /**
      * The name of the metric.
@@ -1695,7 +1724,7 @@ export class ObjectMetricsApi {
 
     /**
      * Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
-     * Create a Tag Configuration
+     * Create a tag configuration
      * @param param the request object
      */
     public createTagConfiguration(param: MetricsApiCreateTagConfigurationRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
@@ -1704,7 +1733,7 @@ export class ObjectMetricsApi {
 	
     /**
      * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-     * Delete a Tag Configuration
+     * Delete a tag configuration
      * @param param the request object
      */
     public deleteTagConfiguration(param: MetricsApiDeleteTagConfigurationRequest, options?: Configuration): Promise<void> {
@@ -1713,7 +1742,7 @@ export class ObjectMetricsApi {
 	
     /**
      * Returns the tag configuration for the given metric name.
-     * List Tag Configuration by Name
+     * List tag configuration by name
      * @param param the request object
      */
     public listTagConfigurationByName(param: MetricsApiListTagConfigurationByNameRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
@@ -1722,7 +1751,7 @@ export class ObjectMetricsApi {
 	
     /**
      * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
-     * List Tag Configurations
+     * List tag configurations
      * @param param the request object
      */
     public listTagConfigurations(param: MetricsApiListTagConfigurationsRequest, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
@@ -1730,8 +1759,26 @@ export class ObjectMetricsApi {
     }
 	
     /**
+     * View indexed tag key-value pairs for a given metric name.
+     * List tags by metric name
+     * @param param the request object
+     */
+    public listTagsByMetricName(param: MetricsApiListTagsByMetricNameRequest, options?: Configuration): Promise<MetricAllTagsResponse> {
+        return this.api.listTagsByMetricName(param.metricName,  options).toPromise();
+    }
+	
+    /**
+     * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metrics. For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+     * List distinct metric volumes by metric name
+     * @param param the request object
+     */
+    public listVolumesByMetricName(param: MetricsApiListVolumesByMetricNameRequest, options?: Configuration): Promise<MetricVolumesResponse> {
+        return this.api.listVolumesByMetricName(param.metricName,  options).toPromise();
+    }
+	
+    /**
      * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-     * Update a Tag Configuration
+     * Update a tag configuration
      * @param param the request object
      */
     public updateTagConfiguration(param: MetricsApiUpdateTagConfigurationRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
