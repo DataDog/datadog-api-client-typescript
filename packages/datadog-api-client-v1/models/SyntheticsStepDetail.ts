@@ -10,6 +10,7 @@
 
 import { SyntheticsBrowserError } from './SyntheticsBrowserError';
 import { SyntheticsCheckType } from './SyntheticsCheckType';
+import { SyntheticsCoreWebVitals } from './SyntheticsCoreWebVitals';
 import { SyntheticsPlayingTab } from './SyntheticsPlayingTab';
 import { SyntheticsStepDetailWarning } from './SyntheticsStepDetailWarning';
 import { SyntheticsStepType } from './SyntheticsStepType';
@@ -70,6 +71,10 @@ export class SyntheticsStepDetail {
     * Value for the step.
     */
     'value'?: any;
+    /**
+    * Array of Core Web Vitals metrics for the step.
+    */
+    'vitalsMetrics'?: Array<SyntheticsCoreWebVitals>;
     /**
     * Warning collected that didn't failed the step.
     */
@@ -166,6 +171,12 @@ export class SyntheticsStepDetail {
             "name": "value",
             "baseName": "value",
             "type": "any",
+            "format": ""
+        },
+        {
+            "name": "vitalsMetrics",
+            "baseName": "vitalsMetrics",
+            "type": "Array<SyntheticsCoreWebVitals>",
             "format": ""
         },
         {

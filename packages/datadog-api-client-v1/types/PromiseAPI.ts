@@ -310,6 +310,7 @@ import { SyntheticsCITestMetadataGit } from '../models/SyntheticsCITestMetadataG
 import { SyntheticsCheckType } from '../models/SyntheticsCheckType';
 import { SyntheticsConfigVariable } from '../models/SyntheticsConfigVariable';
 import { SyntheticsConfigVariableType } from '../models/SyntheticsConfigVariableType';
+import { SyntheticsCoreWebVitals } from '../models/SyntheticsCoreWebVitals';
 import { SyntheticsDeleteTestsPayload } from '../models/SyntheticsDeleteTestsPayload';
 import { SyntheticsDeleteTestsResponse } from '../models/SyntheticsDeleteTestsResponse';
 import { SyntheticsDeletedTest } from '../models/SyntheticsDeletedTest';
