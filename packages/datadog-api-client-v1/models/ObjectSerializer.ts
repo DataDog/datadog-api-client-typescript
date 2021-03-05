@@ -306,6 +306,7 @@ export * from './SyntheticsCITestMetadataGit';
 export * from './SyntheticsCheckType';
 export * from './SyntheticsConfigVariable';
 export * from './SyntheticsConfigVariableType';
+export * from './SyntheticsCoreWebVitals';
 export * from './SyntheticsDeleteTestsPayload';
 export * from './SyntheticsDeleteTestsResponse';
 export * from './SyntheticsDeletedTest';
@@ -799,6 +800,7 @@ import { SyntheticsCITestMetadataGit } from './SyntheticsCITestMetadataGit';
 import { SyntheticsCheckType } from './SyntheticsCheckType';
 import { SyntheticsConfigVariable } from './SyntheticsConfigVariable';
 import { SyntheticsConfigVariableType } from './SyntheticsConfigVariableType';
+import { SyntheticsCoreWebVitals } from './SyntheticsCoreWebVitals';
 import { SyntheticsDeleteTestsPayload } from './SyntheticsDeleteTestsPayload';
 import { SyntheticsDeleteTestsResponse } from './SyntheticsDeleteTestsResponse';
 import { SyntheticsDeletedTest } from './SyntheticsDeletedTest';
@@ -1367,6 +1369,7 @@ let typeMap: {[index: string]: any} = {
     "SyntheticsCITestMetadataCi": SyntheticsCITestMetadataCi,
     "SyntheticsCITestMetadataGit": SyntheticsCITestMetadataGit,
     "SyntheticsConfigVariable": SyntheticsConfigVariable,
+    "SyntheticsCoreWebVitals": SyntheticsCoreWebVitals,
     "SyntheticsDeleteTestsPayload": SyntheticsDeleteTestsPayload,
     "SyntheticsDeleteTestsResponse": SyntheticsDeleteTestsResponse,
     "SyntheticsDeletedTest": SyntheticsDeletedTest,
