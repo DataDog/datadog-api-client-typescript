@@ -191,6 +191,15 @@ models/LogsSort.ts
 models/LogsSortOrder.ts
 models/LogsWarning.ts
 models/Metric.ts
+models/MetricAllTags.ts
+models/MetricAllTagsAttributes.ts
+models/MetricAllTagsResponse.ts
+models/MetricDistinctVolume.ts
+models/MetricDistinctVolumeAttributes.ts
+models/MetricDistinctVolumeType.ts
+models/MetricIngestedIndexedVolume.ts
+models/MetricIngestedIndexedVolumeAttributes.ts
+models/MetricIngestedIndexedVolumeType.ts
 models/MetricTagConfiguration.ts
 models/MetricTagConfigurationAttributes.ts
 models/MetricTagConfigurationCreateAttributes.ts
@@ -203,6 +212,8 @@ models/MetricTagConfigurationUpdateAttributes.ts
 models/MetricTagConfigurationUpdateData.ts
 models/MetricTagConfigurationUpdateRequest.ts
 models/MetricType.ts
+models/MetricVolumes.ts
+models/MetricVolumesResponse.ts
 models/MetricsAndMetricTagConfigurations.ts
 models/MetricsAndMetricTagConfigurationsResponse.ts
 models/ObjectSerializer.ts
