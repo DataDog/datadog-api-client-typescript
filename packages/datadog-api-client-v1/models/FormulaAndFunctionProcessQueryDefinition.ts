@@ -34,7 +34,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
     /**
     * Name of query for use in formulas.
     */
-    'name'?: string;
+    'name': string;
     'sort'?: QuerySortOrder;
     /**
     * An array of tags to filter by.
