@@ -13,15 +13,19 @@ import { SyntheticsVariableParser } from './SyntheticsVariableParser';
 import { HttpFile } from '../http/http';
 
 /**
-* Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
+* Parsing options for variables to extract.
 */
-export class SyntheticsGlobalVariableParseTestOptions {
+export class SyntheticsParsingOptions {
     /**
     * When type is `http_header`, name of the header to use to extract the value.
     */
     'field'?: string;
-    'parser': SyntheticsVariableParser;
-    'type': SyntheticsGlobalVariableParseTestOptionsType;
+    /**
+    * Name of the variable to extract.
+    */
+    'name'?: string;
+    'parser'?: SyntheticsVariableParser;
+    'type'?: SyntheticsGlobalVariableParseTestOptionsType;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -29,6 +33,12 @@ export class SyntheticsGlobalVariableParseTestOptions {
         {
             "name": "field",
             "baseName": "field",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
@@ -46,7 +56,7 @@ export class SyntheticsGlobalVariableParseTestOptions {
         }    ];
 
     static getAttributeTypeMap() {
-        return SyntheticsGlobalVariableParseTestOptions.attributeTypeMap;
+        return SyntheticsParsingOptions.attributeTypeMap;
     }
     
     public constructor() {

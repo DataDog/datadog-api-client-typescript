@@ -8,29 +8,30 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPIStep } from './SyntheticsAPIStep';
+import { SyntheticsAPIStepSubtype } from './SyntheticsAPIStepSubtype';
 import { SyntheticsAssertion } from './SyntheticsAssertion';
-import { SyntheticsConfigVariable } from './SyntheticsConfigVariable';
+import { SyntheticsParsingOptions } from './SyntheticsParsingOptions';
 import { SyntheticsTestRequest } from './SyntheticsTestRequest';
 import { HttpFile } from '../http/http';
 
 /**
-* Configuration object for a Synthetic API test.
+* The steps used in a Synthetics multistep API test.
 */
-export class SyntheticsAPITestConfig {
+export class SyntheticsAPIStep {
     /**
     * Array of assertions used for the test.
     */
-    'assertions': Array<SyntheticsAssertion>;
+    'assertions'?: Array<SyntheticsAssertion>;
     /**
-    * Array of variables used for the test.
+    * Array of values to parse and save as variables from the response.
     */
-    'configVariables'?: Array<SyntheticsConfigVariable>;
+    'extractedValues'?: Array<SyntheticsParsingOptions>;
+    /**
+    * The name of the step.
+    */
+    'name'?: string;
     'request'?: SyntheticsTestRequest;
-    /**
-    * When the test subtype is `multi`, the steps of the test.
-    */
-    'steps'?: Array<SyntheticsAPIStep>;
+    'subtype'?: SyntheticsAPIStepSubtype;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -42,9 +43,15 @@ export class SyntheticsAPITestConfig {
             "format": ""
         },
         {
-            "name": "configVariables",
-            "baseName": "configVariables",
-            "type": "Array<SyntheticsConfigVariable>",
+            "name": "extractedValues",
+            "baseName": "extractedValues",
+            "type": "Array<SyntheticsParsingOptions>",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -54,14 +61,14 @@ export class SyntheticsAPITestConfig {
             "format": ""
         },
         {
-            "name": "steps",
-            "baseName": "steps",
-            "type": "Array<SyntheticsAPIStep>",
+            "name": "subtype",
+            "baseName": "subtype",
+            "type": "SyntheticsAPIStepSubtype",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SyntheticsAPITestConfig.attributeTypeMap;
+        return SyntheticsAPIStep.attributeTypeMap;
     }
     
     public constructor() {
