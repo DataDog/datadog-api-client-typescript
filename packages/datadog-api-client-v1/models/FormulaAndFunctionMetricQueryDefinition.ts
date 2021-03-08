@@ -21,7 +21,7 @@ export class FormulaAndFunctionMetricQueryDefinition {
     /**
     * Name of the query for use in formulas.
     */
-    'name'?: string;
+    'name': string;
     /**
     * Metrics query definition.
     */

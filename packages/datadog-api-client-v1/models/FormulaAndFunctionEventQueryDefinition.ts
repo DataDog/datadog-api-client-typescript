@@ -31,7 +31,7 @@ export class FormulaAndFunctionEventQueryDefinition {
     /**
     * Name of the query for use in formulas.
     */
-    'name'?: string;
+    'name': string;
     'search'?: FormulaAndFunctionEventQueryDefinitionSearch;
 
     static readonly discriminator: string | undefined = undefined;
