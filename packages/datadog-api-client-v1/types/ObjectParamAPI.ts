@@ -2802,7 +2802,7 @@ export class ObjectServiceLevelObjectivesApi {
     }
 
     /**
-     * Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+     * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
      * Check if SLOs can be safely deleted
      * @param param the request object
      */
@@ -2812,7 +2812,7 @@ export class ObjectServiceLevelObjectivesApi {
 
     /**
      * Create a service level objective object.
-     * Create a SLO object
+     * Create an SLO object
      * @param param the request object
      */
     public createSLO(param: ServiceLevelObjectivesApiCreateSLORequest, options?: Configuration): Promise<SLOListResponse> {
@@ -2821,7 +2821,7 @@ export class ObjectServiceLevelObjectivesApi {
 
     /**
      * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
-     * Delete a SLO
+     * Delete an SLO
      * @param param the request object
      */
     public deleteSLO(param: ServiceLevelObjectivesApiDeleteSLORequest, options?: Configuration): Promise<SLODeleteResponse> {
@@ -2839,7 +2839,7 @@ export class ObjectServiceLevelObjectivesApi {
 
     /**
      * Get a service level objective object.
-     * Get a SLO's details
+     * Get an SLO's details
      * @param param the request object
      */
     public getSLO(param: ServiceLevelObjectivesApiGetSLORequest, options?: Configuration): Promise<SLOResponse> {
@@ -2866,7 +2866,7 @@ export class ObjectServiceLevelObjectivesApi {
 
     /**
      * Update the specified service level objective object.
-     * Update a SLO
+     * Update an SLO
      * @param param the request object
      */
     public updateSLO(param: ServiceLevelObjectivesApiUpdateSLORequest, options?: Configuration): Promise<SLOListResponse> {
