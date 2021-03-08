@@ -175,6 +175,15 @@ import { LogsSort } from '../models/LogsSort';
 import { LogsSortOrder } from '../models/LogsSortOrder';
 import { LogsWarning } from '../models/LogsWarning';
 import { Metric } from '../models/Metric';
+import { MetricAllTags } from '../models/MetricAllTags';
+import { MetricAllTagsAttributes } from '../models/MetricAllTagsAttributes';
+import { MetricAllTagsResponse } from '../models/MetricAllTagsResponse';
+import { MetricDistinctVolume } from '../models/MetricDistinctVolume';
+import { MetricDistinctVolumeAttributes } from '../models/MetricDistinctVolumeAttributes';
+import { MetricDistinctVolumeType } from '../models/MetricDistinctVolumeType';
+import { MetricIngestedIndexedVolume } from '../models/MetricIngestedIndexedVolume';
+import { MetricIngestedIndexedVolumeAttributes } from '../models/MetricIngestedIndexedVolumeAttributes';
+import { MetricIngestedIndexedVolumeType } from '../models/MetricIngestedIndexedVolumeType';
 import { MetricTagConfiguration } from '../models/MetricTagConfiguration';
 import { MetricTagConfigurationAttributes } from '../models/MetricTagConfigurationAttributes';
 import { MetricTagConfigurationCreateAttributes } from '../models/MetricTagConfigurationCreateAttributes';
@@ -187,6 +196,8 @@ import { MetricTagConfigurationUpdateAttributes } from '../models/MetricTagConfi
 import { MetricTagConfigurationUpdateData } from '../models/MetricTagConfigurationUpdateData';
 import { MetricTagConfigurationUpdateRequest } from '../models/MetricTagConfigurationUpdateRequest';
 import { MetricType } from '../models/MetricType';
+import { MetricVolumes } from '../models/MetricVolumes';
+import { MetricVolumesResponse } from '../models/MetricVolumesResponse';
 import { MetricsAndMetricTagConfigurations } from '../models/MetricsAndMetricTagConfigurations';
 import { MetricsAndMetricTagConfigurationsResponse } from '../models/MetricsAndMetricTagConfigurationsResponse';
 import { Organization } from '../models/Organization';
@@ -1737,7 +1748,7 @@ export class ObservableMetricsApi {
 
     /**
      * Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
-     * Create a Tag Configuration
+     * Create a tag configuration
      * @param metricName The name of the metric.
      * @param body 
      */
@@ -1762,7 +1773,7 @@ export class ObservableMetricsApi {
 	
     /**
      * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-     * Delete a Tag Configuration
+     * Delete a tag configuration
      * @param metricName The name of the metric.
      */
     public deleteTagConfiguration(metricName: string, options?: Configuration): Observable<void> {
@@ -1786,7 +1797,7 @@ export class ObservableMetricsApi {
 	
     /**
      * Returns the tag configuration for the given metric name.
-     * List Tag Configuration by Name
+     * List tag configuration by name
      * @param metricName The name of the metric.
      */
     public listTagConfigurationByName(metricName: string, options?: Configuration): Observable<MetricTagConfigurationResponse> {
@@ -1810,7 +1821,7 @@ export class ObservableMetricsApi {
 	
     /**
      * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
-     * List Tag Configurations
+     * List tag configurations
      * @param filterConfigured Filter metrics that have configured tags.
      * @param filterTagsConfigured Filter tag configurations by configured tags.
      * @param filterMetricType Filter tag configurations by metric type.
@@ -1836,8 +1847,56 @@ export class ObservableMetricsApi {
     }
 	
     /**
+     * View indexed tag key-value pairs for a given metric name.
+     * List tags by metric name
+     * @param metricName The name of the metric.
+     */
+    public listTagsByMetricName(metricName: string, options?: Configuration): Observable<MetricAllTagsResponse> {
+    	const requestContextPromise = this.requestFactory.listTagsByMetricName(metricName, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listTagsByMetricName(rsp)));
+	    	}));
+    }
+	
+    /**
+     * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+     * List distinct metric volumes by metric name
+     * @param metricName The name of the metric.
+     */
+    public listVolumesByMetricName(metricName: string, options?: Configuration): Observable<MetricVolumesResponse> {
+    	const requestContextPromise = this.requestFactory.listVolumesByMetricName(metricName, options);
+
+		// build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    	for (let middleware of this.configuration.middleware) {
+    		middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+    	}
+
+    	return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+	    	pipe(mergeMap((response: ResponseContext) => {
+	    		let middlewarePostObservable = of(response);
+	    		for (let middleware of this.configuration.middleware) {
+	    			middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+	    		}
+	    		return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listVolumesByMetricName(rsp)));
+	    	}));
+    }
+	
+    /**
      * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-     * Update a Tag Configuration
+     * Update a tag configuration
      * @param metricName The name of the metric.
      * @param body 
      */

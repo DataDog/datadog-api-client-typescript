@@ -343,6 +343,7 @@ models/SyntheticsCITestMetadataGit.ts
 models/SyntheticsCheckType.ts
 models/SyntheticsConfigVariable.ts
 models/SyntheticsConfigVariableType.ts
+models/SyntheticsCoreWebVitals.ts
 models/SyntheticsDeleteTestsPayload.ts
 models/SyntheticsDeleteTestsResponse.ts
 models/SyntheticsDeletedTest.ts

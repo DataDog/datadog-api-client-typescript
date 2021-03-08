@@ -169,6 +169,15 @@ export * from './LogsSort';
 export * from './LogsSortOrder';
 export * from './LogsWarning';
 export * from './Metric';
+export * from './MetricAllTags';
+export * from './MetricAllTagsAttributes';
+export * from './MetricAllTagsResponse';
+export * from './MetricDistinctVolume';
+export * from './MetricDistinctVolumeAttributes';
+export * from './MetricDistinctVolumeType';
+export * from './MetricIngestedIndexedVolume';
+export * from './MetricIngestedIndexedVolumeAttributes';
+export * from './MetricIngestedIndexedVolumeType';
 export * from './MetricTagConfiguration';
 export * from './MetricTagConfigurationAttributes';
 export * from './MetricTagConfigurationCreateAttributes';
@@ -181,6 +190,8 @@ export * from './MetricTagConfigurationUpdateAttributes';
 export * from './MetricTagConfigurationUpdateData';
 export * from './MetricTagConfigurationUpdateRequest';
 export * from './MetricType';
+export * from './MetricVolumes';
+export * from './MetricVolumesResponse';
 export * from './MetricsAndMetricTagConfigurations';
 export * from './MetricsAndMetricTagConfigurationsResponse';
 export * from './Organization';
@@ -462,6 +473,15 @@ import { LogsSort } from './LogsSort';
 import { LogsSortOrder } from './LogsSortOrder';
 import { LogsWarning } from './LogsWarning';
 import { Metric } from './Metric';
+import { MetricAllTags } from './MetricAllTags';
+import { MetricAllTagsAttributes } from './MetricAllTagsAttributes';
+import { MetricAllTagsResponse } from './MetricAllTagsResponse';
+import { MetricDistinctVolume } from './MetricDistinctVolume';
+import { MetricDistinctVolumeAttributes } from './MetricDistinctVolumeAttributes';
+import { MetricDistinctVolumeType } from './MetricDistinctVolumeType';
+import { MetricIngestedIndexedVolume } from './MetricIngestedIndexedVolume';
+import { MetricIngestedIndexedVolumeAttributes } from './MetricIngestedIndexedVolumeAttributes';
+import { MetricIngestedIndexedVolumeType } from './MetricIngestedIndexedVolumeType';
 import { MetricTagConfiguration } from './MetricTagConfiguration';
 import { MetricTagConfigurationAttributes } from './MetricTagConfigurationAttributes';
 import { MetricTagConfigurationCreateAttributes } from './MetricTagConfigurationCreateAttributes';
@@ -474,6 +494,8 @@ import { MetricTagConfigurationUpdateAttributes } from './MetricTagConfiguration
 import { MetricTagConfigurationUpdateData } from './MetricTagConfigurationUpdateData';
 import { MetricTagConfigurationUpdateRequest } from './MetricTagConfigurationUpdateRequest';
 import { MetricType } from './MetricType';
+import { MetricVolumes } from './MetricVolumes';
+import { MetricVolumesResponse } from './MetricVolumesResponse';
 import { MetricsAndMetricTagConfigurations } from './MetricsAndMetricTagConfigurations';
 import { MetricsAndMetricTagConfigurationsResponse } from './MetricsAndMetricTagConfigurationsResponse';
 import { Organization } from './Organization';
@@ -632,6 +654,8 @@ let enumsMap: Set<string> = new Set<string>([
     "LogsMetricType",
     "LogsSort",
     "LogsSortOrder",
+    "MetricDistinctVolumeType",
+    "MetricIngestedIndexedVolumeType",
     "MetricTagConfigurationMetricTypes",
     "MetricTagConfigurationType",
     "MetricType",
@@ -799,6 +823,13 @@ let typeMap: {[index: string]: any} = {
     "LogsResponseMetadataPage": LogsResponseMetadataPage,
     "LogsWarning": LogsWarning,
     "Metric": Metric,
+    "MetricAllTags": MetricAllTags,
+    "MetricAllTagsAttributes": MetricAllTagsAttributes,
+    "MetricAllTagsResponse": MetricAllTagsResponse,
+    "MetricDistinctVolume": MetricDistinctVolume,
+    "MetricDistinctVolumeAttributes": MetricDistinctVolumeAttributes,
+    "MetricIngestedIndexedVolume": MetricIngestedIndexedVolume,
+    "MetricIngestedIndexedVolumeAttributes": MetricIngestedIndexedVolumeAttributes,
     "MetricTagConfiguration": MetricTagConfiguration,
     "MetricTagConfigurationAttributes": MetricTagConfigurationAttributes,
     "MetricTagConfigurationCreateAttributes": MetricTagConfigurationCreateAttributes,
@@ -808,6 +839,8 @@ let typeMap: {[index: string]: any} = {
     "MetricTagConfigurationUpdateAttributes": MetricTagConfigurationUpdateAttributes,
     "MetricTagConfigurationUpdateData": MetricTagConfigurationUpdateData,
     "MetricTagConfigurationUpdateRequest": MetricTagConfigurationUpdateRequest,
+    "MetricVolumes": MetricVolumes,
+    "MetricVolumesResponse": MetricVolumesResponse,
     "MetricsAndMetricTagConfigurations": MetricsAndMetricTagConfigurations,
     "MetricsAndMetricTagConfigurationsResponse": MetricsAndMetricTagConfigurationsResponse,
     "Organization": Organization,
