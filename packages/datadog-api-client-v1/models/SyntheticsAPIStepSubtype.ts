@@ -11,6 +11,6 @@
 import { HttpFile } from '../http/http';
 
 /**
-* The subtype of the Synthetic API test, `http`, `ssl`, `tcp`, `dns` or `multi`.
+* The subtype of the Synthetic multistep API test step, currently only supporting `http`.
 */
-export type SyntheticsTestDetailsSubType = "http" | "ssl" | "tcp" | "dns" | "multi" ;
+export type SyntheticsAPIStepSubtype = "http" ;

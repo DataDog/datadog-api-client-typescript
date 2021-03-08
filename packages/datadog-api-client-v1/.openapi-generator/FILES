@@ -307,6 +307,8 @@ models/ServiceSummaryWidgetDefinition.ts
 models/ServiceSummaryWidgetDefinitionType.ts
 models/SlackIntegrationChannel.ts
 models/SlackIntegrationChannelDisplay.ts
+models/SyntheticsAPIStep.ts
+models/SyntheticsAPIStepSubtype.ts
 models/SyntheticsAPITest.ts
 models/SyntheticsAPITestConfig.ts
 models/SyntheticsAPITestResultData.ts
@@ -354,13 +356,13 @@ models/SyntheticsGetAPITestLatestResultsResponse.ts
 models/SyntheticsGetBrowserTestLatestResultsResponse.ts
 models/SyntheticsGlobalVariable.ts
 models/SyntheticsGlobalVariableParseTestOptions.ts
-models/SyntheticsGlobalVariableParseTestOptionsParser.ts
 models/SyntheticsGlobalVariableParseTestOptionsType.ts
 models/SyntheticsGlobalVariableParserType.ts
 models/SyntheticsGlobalVariableValue.ts
 models/SyntheticsListTestsResponse.ts
 models/SyntheticsLocation.ts
 models/SyntheticsLocations.ts
+models/SyntheticsParsingOptions.ts
 models/SyntheticsPlayingTab.ts
 models/SyntheticsPrivateLocation.ts
 models/SyntheticsPrivateLocationCreationResponse.ts
@@ -394,6 +396,7 @@ models/SyntheticsTriggerCITestLocation.ts
 models/SyntheticsTriggerCITestRunResult.ts
 models/SyntheticsTriggerCITestsResponse.ts
 models/SyntheticsUpdateTestPauseStatusPayload.ts
+models/SyntheticsVariableParser.ts
 models/SyntheticsWarningType.ts
 models/TableWidgetCellDisplayMode.ts
 models/TableWidgetDefinition.ts

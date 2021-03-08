@@ -270,6 +270,8 @@ export * from './ServiceSummaryWidgetDefinition';
 export * from './ServiceSummaryWidgetDefinitionType';
 export * from './SlackIntegrationChannel';
 export * from './SlackIntegrationChannelDisplay';
+export * from './SyntheticsAPIStep';
+export * from './SyntheticsAPIStepSubtype';
 export * from './SyntheticsAPITest';
 export * from './SyntheticsAPITestConfig';
 export * from './SyntheticsAPITestResultData';
@@ -317,13 +319,13 @@ export * from './SyntheticsGetAPITestLatestResultsResponse';
 export * from './SyntheticsGetBrowserTestLatestResultsResponse';
 export * from './SyntheticsGlobalVariable';
 export * from './SyntheticsGlobalVariableParseTestOptions';
-export * from './SyntheticsGlobalVariableParseTestOptionsParser';
 export * from './SyntheticsGlobalVariableParseTestOptionsType';
 export * from './SyntheticsGlobalVariableParserType';
 export * from './SyntheticsGlobalVariableValue';
 export * from './SyntheticsListTestsResponse';
 export * from './SyntheticsLocation';
 export * from './SyntheticsLocations';
+export * from './SyntheticsParsingOptions';
 export * from './SyntheticsPlayingTab';
 export * from './SyntheticsPrivateLocation';
 export * from './SyntheticsPrivateLocationCreationResponse';
@@ -357,6 +359,7 @@ export * from './SyntheticsTriggerCITestLocation';
 export * from './SyntheticsTriggerCITestRunResult';
 export * from './SyntheticsTriggerCITestsResponse';
 export * from './SyntheticsUpdateTestPauseStatusPayload';
+export * from './SyntheticsVariableParser';
 export * from './SyntheticsWarningType';
 export * from './TableWidgetCellDisplayMode';
 export * from './TableWidgetDefinition';
@@ -764,6 +767,8 @@ import { ServiceSummaryWidgetDefinition } from './ServiceSummaryWidgetDefinition
 import { ServiceSummaryWidgetDefinitionType } from './ServiceSummaryWidgetDefinitionType';
 import { SlackIntegrationChannel } from './SlackIntegrationChannel';
 import { SlackIntegrationChannelDisplay } from './SlackIntegrationChannelDisplay';
+import { SyntheticsAPIStep } from './SyntheticsAPIStep';
+import { SyntheticsAPIStepSubtype } from './SyntheticsAPIStepSubtype';
 import { SyntheticsAPITest } from './SyntheticsAPITest';
 import { SyntheticsAPITestConfig } from './SyntheticsAPITestConfig';
 import { SyntheticsAPITestResultData } from './SyntheticsAPITestResultData';
@@ -811,13 +816,13 @@ import { SyntheticsGetAPITestLatestResultsResponse } from './SyntheticsGetAPITes
 import { SyntheticsGetBrowserTestLatestResultsResponse } from './SyntheticsGetBrowserTestLatestResultsResponse';
 import { SyntheticsGlobalVariable } from './SyntheticsGlobalVariable';
 import { SyntheticsGlobalVariableParseTestOptions } from './SyntheticsGlobalVariableParseTestOptions';
-import { SyntheticsGlobalVariableParseTestOptionsParser } from './SyntheticsGlobalVariableParseTestOptionsParser';
 import { SyntheticsGlobalVariableParseTestOptionsType } from './SyntheticsGlobalVariableParseTestOptionsType';
 import { SyntheticsGlobalVariableParserType } from './SyntheticsGlobalVariableParserType';
 import { SyntheticsGlobalVariableValue } from './SyntheticsGlobalVariableValue';
 import { SyntheticsListTestsResponse } from './SyntheticsListTestsResponse';
 import { SyntheticsLocation } from './SyntheticsLocation';
 import { SyntheticsLocations } from './SyntheticsLocations';
+import { SyntheticsParsingOptions } from './SyntheticsParsingOptions';
 import { SyntheticsPlayingTab } from './SyntheticsPlayingTab';
 import { SyntheticsPrivateLocation } from './SyntheticsPrivateLocation';
 import { SyntheticsPrivateLocationCreationResponse } from './SyntheticsPrivateLocationCreationResponse';
@@ -851,6 +856,7 @@ import { SyntheticsTriggerCITestLocation } from './SyntheticsTriggerCITestLocati
 import { SyntheticsTriggerCITestRunResult } from './SyntheticsTriggerCITestRunResult';
 import { SyntheticsTriggerCITestsResponse } from './SyntheticsTriggerCITestsResponse';
 import { SyntheticsUpdateTestPauseStatusPayload } from './SyntheticsUpdateTestPauseStatusPayload';
+import { SyntheticsVariableParser } from './SyntheticsVariableParser';
 import { SyntheticsWarningType } from './SyntheticsWarningType';
 import { TableWidgetCellDisplayMode } from './TableWidgetCellDisplayMode';
 import { TableWidgetDefinition } from './TableWidgetDefinition';
@@ -1066,6 +1072,7 @@ let enumsMap: Set<string> = new Set<string>([
     "ScatterPlotWidgetDefinitionType",
     "ServiceMapWidgetDefinitionType",
     "ServiceSummaryWidgetDefinitionType",
+    "SyntheticsAPIStepSubtype",
     "SyntheticsAPITestType",
     "SyntheticsAssertionJSONPathOperator",
     "SyntheticsAssertionOperator",
@@ -1342,6 +1349,7 @@ let typeMap: {[index: string]: any} = {
     "ServiceSummaryWidgetDefinition": ServiceSummaryWidgetDefinition,
     "SlackIntegrationChannel": SlackIntegrationChannel,
     "SlackIntegrationChannelDisplay": SlackIntegrationChannelDisplay,
+    "SyntheticsAPIStep": SyntheticsAPIStep,
     "SyntheticsAPITest": SyntheticsAPITest,
     "SyntheticsAPITestConfig": SyntheticsAPITestConfig,
     "SyntheticsAPITestResultData": SyntheticsAPITestResultData,
@@ -1378,11 +1386,11 @@ let typeMap: {[index: string]: any} = {
     "SyntheticsGetBrowserTestLatestResultsResponse": SyntheticsGetBrowserTestLatestResultsResponse,
     "SyntheticsGlobalVariable": SyntheticsGlobalVariable,
     "SyntheticsGlobalVariableParseTestOptions": SyntheticsGlobalVariableParseTestOptions,
-    "SyntheticsGlobalVariableParseTestOptionsParser": SyntheticsGlobalVariableParseTestOptionsParser,
     "SyntheticsGlobalVariableValue": SyntheticsGlobalVariableValue,
     "SyntheticsListTestsResponse": SyntheticsListTestsResponse,
     "SyntheticsLocation": SyntheticsLocation,
     "SyntheticsLocations": SyntheticsLocations,
+    "SyntheticsParsingOptions": SyntheticsParsingOptions,
     "SyntheticsPrivateLocation": SyntheticsPrivateLocation,
     "SyntheticsPrivateLocationCreationResponse": SyntheticsPrivateLocationCreationResponse,
     "SyntheticsPrivateLocationCreationResponseResultEncryption": SyntheticsPrivateLocationCreationResponseResultEncryption,
@@ -1408,6 +1416,7 @@ let typeMap: {[index: string]: any} = {
     "SyntheticsTriggerCITestRunResult": SyntheticsTriggerCITestRunResult,
     "SyntheticsTriggerCITestsResponse": SyntheticsTriggerCITestsResponse,
     "SyntheticsUpdateTestPauseStatusPayload": SyntheticsUpdateTestPauseStatusPayload,
+    "SyntheticsVariableParser": SyntheticsVariableParser,
     "TableWidgetDefinition": TableWidgetDefinition,
     "TableWidgetRequest": TableWidgetRequest,
     "TagToHosts": TagToHosts,
