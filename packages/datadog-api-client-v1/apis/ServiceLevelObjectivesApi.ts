@@ -24,7 +24,7 @@ import { ServiceLevelObjectiveRequest } from '../models/ServiceLevelObjectiveReq
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+     * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
      * Check if SLOs can be safely deleted
      * @param ids A comma separated list of the IDs of the service level objectives objects.
      */
@@ -72,7 +72,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     /**
      * Create a service level objective object.
-     * Create a SLO object
+     * Create an SLO object
      * @param body Service level objective request object.
      */
     public async createSLO(body: ServiceLevelObjectiveRequest, options?: Configuration): Promise<RequestContext> {
@@ -125,7 +125,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     /**
      * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
-     * Delete a SLO
+     * Delete an SLO
      * @param sloId The ID of the service level objective.
      * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
      */
@@ -228,7 +228,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     /**
      * Get a service level objective object.
-     * Get a SLO's details
+     * Get an SLO's details
      * @param sloId The ID of the service level objective object.
      */
     public async getSLO(sloId: string, options?: Configuration): Promise<RequestContext> {
@@ -395,7 +395,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     /**
      * Update the specified service level objective object.
-     * Update a SLO
+     * Update an SLO
      * @param sloId The ID of the service level objective object.
      * @param body The edited service level objective request object.
      */
