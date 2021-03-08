@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -30,7 +30,7 @@ import { SyntheticsUpdateTestPauseStatusPayload } from '../models/SyntheticsUpda
  * no description
  */
 export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a Synthetics global variable.
      * Create a global variable
@@ -38,13 +38,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createGlobalVariable(body: SyntheticsGlobalVariable, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createGlobalVariable.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/variables';
 
@@ -53,9 +53,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -91,13 +91,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createPrivateLocation(body: SyntheticsPrivateLocation, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createPrivateLocation.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/private-locations';
 
@@ -106,9 +106,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -144,13 +144,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createSyntheticsAPITest(body: SyntheticsAPITest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createSyntheticsAPITest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/api';
 
@@ -159,9 +159,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -197,13 +197,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createSyntheticsBrowserTest(body: SyntheticsBrowserTest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createSyntheticsBrowserTest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/browser';
 
@@ -212,9 +212,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -250,13 +250,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createTest(body: SyntheticsTestDetails, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createTest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests';
 
@@ -265,9 +265,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -303,13 +303,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteGlobalVariable(variableId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'variableId' is not null or undefined
         if (variableId === null || variableId === undefined) {
             throw new RequiredError('Required parameter variableId was null or undefined when calling deleteGlobalVariable.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/variables/{variable_id}'
             .replace('{' + 'variable_id' + '}', encodeURIComponent(String(variableId)));
@@ -319,9 +319,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -348,13 +348,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deletePrivateLocation(locationId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'locationId' is not null or undefined
         if (locationId === null || locationId === undefined) {
             throw new RequiredError('Required parameter locationId was null or undefined when calling deletePrivateLocation.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/private-locations/{location_id}'
             .replace('{' + 'location_id' + '}', encodeURIComponent(String(locationId)));
@@ -364,9 +364,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -393,13 +393,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteTests(body: SyntheticsDeleteTestsPayload, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteTests.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/delete';
 
@@ -408,9 +408,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -447,19 +447,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async editGlobalVariable(variableId: string, body: SyntheticsGlobalVariable, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'variableId' is not null or undefined
         if (variableId === null || variableId === undefined) {
             throw new RequiredError('Required parameter variableId was null or undefined when calling editGlobalVariable.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling editGlobalVariable.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/variables/{variable_id}'
             .replace('{' + 'variable_id' + '}', encodeURIComponent(String(variableId)));
@@ -469,9 +469,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -510,16 +510,16 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getAPITestLatestResults(publicId: string, fromTs?: number, toTs?: number, probeDc?: Array<string>, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getAPITestLatestResults.');
         }
 
-        
-        
-        
-        
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/{public_id}/results'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -538,9 +538,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         if (probeDc !== undefined) {
             requestContext.setQueryParam("probe_dc", ObjectSerializer.serialize(probeDc, "Array<string>", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -568,19 +568,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getAPITestResult(publicId: string, resultId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getAPITestResult.');
         }
 
-        
+
         // verify required parameter 'resultId' is not null or undefined
         if (resultId === null || resultId === undefined) {
             throw new RequiredError('Required parameter resultId was null or undefined when calling getAPITestResult.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/{public_id}/results/{result_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)))
@@ -591,9 +591,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -620,13 +620,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getBrowserTest(publicId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getBrowserTest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/browser/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -636,9 +636,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -668,16 +668,16 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getBrowserTestLatestResults(publicId: string, fromTs?: number, toTs?: number, probeDc?: Array<string>, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getBrowserTestLatestResults.');
         }
 
-        
-        
-        
-        
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/browser/{public_id}/results'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -696,9 +696,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         if (probeDc !== undefined) {
             requestContext.setQueryParam("probe_dc", ObjectSerializer.serialize(probeDc, "Array<string>", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -726,19 +726,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getBrowserTestResult(publicId: string, resultId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getBrowserTestResult.');
         }
 
-        
+
         // verify required parameter 'resultId' is not null or undefined
         if (resultId === null || resultId === undefined) {
             throw new RequiredError('Required parameter resultId was null or undefined when calling getBrowserTestResult.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)))
@@ -749,9 +749,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -778,13 +778,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getGlobalVariable(variableId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'variableId' is not null or undefined
         if (variableId === null || variableId === undefined) {
             throw new RequiredError('Required parameter variableId was null or undefined when calling getGlobalVariable.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/variables/{variable_id}'
             .replace('{' + 'variable_id' + '}', encodeURIComponent(String(variableId)));
@@ -794,9 +794,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -823,13 +823,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getPrivateLocation(locationId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'locationId' is not null or undefined
         if (locationId === null || locationId === undefined) {
             throw new RequiredError('Required parameter locationId was null or undefined when calling getPrivateLocation.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/private-locations/{location_id}'
             .replace('{' + 'location_id' + '}', encodeURIComponent(String(locationId)));
@@ -839,9 +839,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -868,13 +868,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getTest(publicId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getTest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -884,9 +884,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -912,7 +912,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLocations(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/locations';
 
@@ -921,9 +921,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -949,7 +949,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listTests(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests';
 
@@ -958,9 +958,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -987,13 +987,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async triggerCITests(body: SyntheticsCITestBody, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling triggerCITests.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/trigger/ci';
 
@@ -1002,9 +1002,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1041,19 +1041,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateAPITest(publicId: string, body: SyntheticsAPITest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling updateAPITest.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateAPITest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/api/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -1063,9 +1063,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1102,19 +1102,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateBrowserTest(publicId: string, body: SyntheticsBrowserTest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling updateBrowserTest.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateBrowserTest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/browser/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -1124,9 +1124,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1163,19 +1163,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updatePrivateLocation(locationId: string, body: SyntheticsPrivateLocation, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'locationId' is not null or undefined
         if (locationId === null || locationId === undefined) {
             throw new RequiredError('Required parameter locationId was null or undefined when calling updatePrivateLocation.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updatePrivateLocation.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/private-locations/{location_id}'
             .replace('{' + 'location_id' + '}', encodeURIComponent(String(locationId)));
@@ -1185,9 +1185,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1224,19 +1224,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateTest(publicId: string, body: SyntheticsTestDetails, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling updateTest.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateTest.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -1246,9 +1246,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1285,19 +1285,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateTestPauseStatus(publicId: string, body: SyntheticsUpdateTestPauseStatusPayload, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling updateTestPauseStatus.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateTestPauseStatus.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/synthetics/tests/{public_id}/status'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -1307,9 +1307,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1339,8 +1339,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class SyntheticsApiResponseProcessor {
 
@@ -1387,7 +1385,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1431,7 +1429,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1482,7 +1480,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1533,7 +1531,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1584,7 +1582,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1631,7 +1629,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1664,7 +1662,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1715,7 +1713,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1759,7 +1757,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1803,7 +1801,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1847,7 +1845,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1891,7 +1889,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1935,7 +1933,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1979,7 +1977,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2023,7 +2021,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2060,7 +2058,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2104,7 +2102,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2134,7 +2132,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2178,7 +2176,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2215,7 +2213,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2266,7 +2264,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2317,7 +2315,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2354,7 +2352,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2405,7 +2403,7 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2456,5 +2454,5 @@ export class SyntheticsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

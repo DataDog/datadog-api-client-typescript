@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -16,7 +16,7 @@ import { DashboardSummary } from '../models/DashboardSummary';
  * no description
  */
 export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
      * Create a new dashboard
@@ -24,13 +24,13 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createDashboard(body: Dashboard, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createDashboard.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard';
 
@@ -39,9 +39,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -77,13 +77,13 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteDashboard(dashboardId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'dashboardId' is not null or undefined
         if (dashboardId === null || dashboardId === undefined) {
             throw new RequiredError('Required parameter dashboardId was null or undefined when calling deleteDashboard.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/{dashboard_id}'
             .replace('{' + 'dashboard_id' + '}', encodeURIComponent(String(dashboardId)));
@@ -93,9 +93,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -122,13 +122,13 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getDashboard(dashboardId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'dashboardId' is not null or undefined
         if (dashboardId === null || dashboardId === undefined) {
             throw new RequiredError('Required parameter dashboardId was null or undefined when calling getDashboard.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/{dashboard_id}'
             .replace('{' + 'dashboard_id' + '}', encodeURIComponent(String(dashboardId)));
@@ -138,9 +138,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -166,7 +166,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listDashboards(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard';
 
@@ -175,9 +175,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -205,19 +205,19 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateDashboard(dashboardId: string, body: Dashboard, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'dashboardId' is not null or undefined
         if (dashboardId === null || dashboardId === undefined) {
             throw new RequiredError('Required parameter dashboardId was null or undefined when calling updateDashboard.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateDashboard.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/{dashboard_id}'
             .replace('{' + 'dashboard_id' + '}', encodeURIComponent(String(dashboardId)));
@@ -227,9 +227,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -259,8 +259,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class DashboardsApiResponseProcessor {
 
@@ -307,7 +305,7 @@ export class DashboardsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -351,7 +349,7 @@ export class DashboardsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -395,7 +393,7 @@ export class DashboardsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -432,7 +430,7 @@ export class DashboardsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -483,5 +481,5 @@ export class DashboardsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

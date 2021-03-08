@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -19,7 +19,7 @@ import { RolesResponse } from '../models/RolesResponse';
  * no description
  */
 export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
      * Grant role to an archive
@@ -28,19 +28,19 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async addReadRoleToArchive(archiveId: string, body: RelationshipToRole, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'archiveId' is not null or undefined
         if (archiveId === null || archiveId === undefined) {
             throw new RequiredError('Required parameter archiveId was null or undefined when calling addReadRoleToArchive.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling addReadRoleToArchive.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives/{archive_id}/readers'
             .replace('{' + 'archive_id' + '}', encodeURIComponent(String(archiveId)));
@@ -50,9 +50,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -88,13 +88,13 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createLogsArchive(body: LogsArchiveCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createLogsArchive.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives';
 
@@ -103,9 +103,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -141,13 +141,13 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteLogsArchive(archiveId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'archiveId' is not null or undefined
         if (archiveId === null || archiveId === undefined) {
             throw new RequiredError('Required parameter archiveId was null or undefined when calling deleteLogsArchive.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives/{archive_id}'
             .replace('{' + 'archive_id' + '}', encodeURIComponent(String(archiveId)));
@@ -157,9 +157,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -186,13 +186,13 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsArchive(archiveId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'archiveId' is not null or undefined
         if (archiveId === null || archiveId === undefined) {
             throw new RequiredError('Required parameter archiveId was null or undefined when calling getLogsArchive.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives/{archive_id}'
             .replace('{' + 'archive_id' + '}', encodeURIComponent(String(archiveId)));
@@ -202,9 +202,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -230,7 +230,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsArchiveOrder(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archive-order';
 
@@ -239,9 +239,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -268,13 +268,13 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listArchiveReadRoles(archiveId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'archiveId' is not null or undefined
         if (archiveId === null || archiveId === undefined) {
             throw new RequiredError('Required parameter archiveId was null or undefined when calling listArchiveReadRoles.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives/{archive_id}/readers'
             .replace('{' + 'archive_id' + '}', encodeURIComponent(String(archiveId)));
@@ -284,9 +284,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -312,7 +312,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLogsArchives(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives';
 
@@ -321,9 +321,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -351,19 +351,19 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async removeRoleFromArchive(archiveId: string, body: RelationshipToRole, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'archiveId' is not null or undefined
         if (archiveId === null || archiveId === undefined) {
             throw new RequiredError('Required parameter archiveId was null or undefined when calling removeRoleFromArchive.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling removeRoleFromArchive.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives/{archive_id}/readers'
             .replace('{' + 'archive_id' + '}', encodeURIComponent(String(archiveId)));
@@ -373,9 +373,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -412,19 +412,19 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsArchive(archiveId: string, body: LogsArchiveCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'archiveId' is not null or undefined
         if (archiveId === null || archiveId === undefined) {
             throw new RequiredError('Required parameter archiveId was null or undefined when calling updateLogsArchive.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsArchive.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archives/{archive_id}'
             .replace('{' + 'archive_id' + '}', encodeURIComponent(String(archiveId)));
@@ -434,9 +434,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -472,13 +472,13 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsArchiveOrder(body: LogsArchiveOrder, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsArchiveOrder.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/archive-order';
 
@@ -487,9 +487,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -519,8 +519,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class LogsArchivesApiResponseProcessor {
 
@@ -570,7 +568,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -614,7 +612,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -661,7 +659,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -712,7 +710,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -749,7 +747,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -800,7 +798,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -837,7 +835,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -884,7 +882,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -935,7 +933,7 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -986,5 +984,5 @@ export class LogsArchivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

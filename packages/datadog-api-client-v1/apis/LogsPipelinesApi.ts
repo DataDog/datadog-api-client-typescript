@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -16,7 +16,7 @@ import { LogsPipelinesOrder } from '../models/LogsPipelinesOrder';
  * no description
  */
 export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a pipeline in your organization.
      * Create a pipeline
@@ -24,13 +24,13 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createLogsPipeline(body: LogsPipeline, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createLogsPipeline.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipelines';
 
@@ -39,9 +39,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -77,13 +77,13 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteLogsPipeline(pipelineId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'pipelineId' is not null or undefined
         if (pipelineId === null || pipelineId === undefined) {
             throw new RequiredError('Required parameter pipelineId was null or undefined when calling deleteLogsPipeline.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipelines/{pipeline_id}'
             .replace('{' + 'pipeline_id' + '}', encodeURIComponent(String(pipelineId)));
@@ -93,9 +93,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -122,13 +122,13 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsPipeline(pipelineId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'pipelineId' is not null or undefined
         if (pipelineId === null || pipelineId === undefined) {
             throw new RequiredError('Required parameter pipelineId was null or undefined when calling getLogsPipeline.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipelines/{pipeline_id}'
             .replace('{' + 'pipeline_id' + '}', encodeURIComponent(String(pipelineId)));
@@ -138,9 +138,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -166,7 +166,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsPipelineOrder(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipeline-order';
 
@@ -175,9 +175,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -203,7 +203,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLogsPipelines(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipelines';
 
@@ -212,9 +212,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -242,19 +242,19 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsPipeline(pipelineId: string, body: LogsPipeline, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'pipelineId' is not null or undefined
         if (pipelineId === null || pipelineId === undefined) {
             throw new RequiredError('Required parameter pipelineId was null or undefined when calling updateLogsPipeline.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsPipeline.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipelines/{pipeline_id}'
             .replace('{' + 'pipeline_id' + '}', encodeURIComponent(String(pipelineId)));
@@ -264,9 +264,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -302,13 +302,13 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsPipelineOrder(body: LogsPipelinesOrder, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsPipelineOrder.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/pipeline-order';
 
@@ -317,9 +317,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -349,8 +349,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class LogsPipelinesApiResponseProcessor {
 
@@ -397,7 +395,7 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -437,7 +435,7 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -481,7 +479,7 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -518,7 +516,7 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -555,7 +553,7 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -599,7 +597,7 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -650,5 +648,5 @@ export class LogsPipelinesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

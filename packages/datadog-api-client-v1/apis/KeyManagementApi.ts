@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -19,7 +19,7 @@ import { ApplicationKeyResponse } from '../models/ApplicationKeyResponse';
  * no description
  */
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Creates an API key with a given name.
      * Create an API key
@@ -27,13 +27,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createAPIKey(body: ApiKey, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createAPIKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/api_key';
 
@@ -42,9 +42,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -80,13 +80,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createApplicationKey(body: ApplicationKey, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createApplicationKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/application_key';
 
@@ -95,9 +95,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -133,13 +133,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteAPIKey(key: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'key' is not null or undefined
         if (key === null || key === undefined) {
             throw new RequiredError('Required parameter key was null or undefined when calling deleteAPIKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/api_key/{key}'
             .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
@@ -149,9 +149,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -178,13 +178,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteApplicationKey(key: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'key' is not null or undefined
         if (key === null || key === undefined) {
             throw new RequiredError('Required parameter key was null or undefined when calling deleteApplicationKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/application_key/{key}'
             .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
@@ -194,9 +194,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -223,13 +223,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getAPIKey(key: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'key' is not null or undefined
         if (key === null || key === undefined) {
             throw new RequiredError('Required parameter key was null or undefined when calling getAPIKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/api_key/{key}'
             .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
@@ -239,9 +239,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -268,13 +268,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getApplicationKey(key: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'key' is not null or undefined
         if (key === null || key === undefined) {
             throw new RequiredError('Required parameter key was null or undefined when calling getApplicationKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/application_key/{key}'
             .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
@@ -284,9 +284,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -312,7 +312,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAPIKeys(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/api_key';
 
@@ -321,9 +321,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -349,7 +349,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listApplicationKeys(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/application_key';
 
@@ -358,9 +358,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -388,19 +388,19 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateAPIKey(key: string, body: ApiKey, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'key' is not null or undefined
         if (key === null || key === undefined) {
             throw new RequiredError('Required parameter key was null or undefined when calling updateAPIKey.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateAPIKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/api_key/{key}'
             .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
@@ -410,9 +410,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -449,19 +449,19 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateApplicationKey(key: string, body: ApplicationKey, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'key' is not null or undefined
         if (key === null || key === undefined) {
             throw new RequiredError('Required parameter key was null or undefined when calling updateApplicationKey.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateApplicationKey.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/application_key/{key}'
             .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
@@ -471,9 +471,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -503,8 +503,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class KeyManagementApiResponseProcessor {
 
@@ -551,7 +549,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -602,7 +600,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -653,7 +651,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -697,7 +695,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -741,7 +739,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -785,7 +783,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -822,7 +820,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -859,7 +857,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -910,7 +908,7 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -968,5 +966,5 @@ export class KeyManagementApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

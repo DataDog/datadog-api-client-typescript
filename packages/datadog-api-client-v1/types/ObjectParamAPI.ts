@@ -604,13 +604,12 @@ export interface AWSIntegrationApiUpdateAWSAccountRequest {
     accessKeyId?: string
 }
 
-
 export class ObjectAWSIntegrationApi {
     private api: ObservableAWSIntegrationApi
 
     public constructor(configuration: Configuration, requestFactory?: AWSIntegrationApiRequestFactory, responseProcessor?: AWSIntegrationApiResponseProcessor) {
         this.api = new ObservableAWSIntegrationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
@@ -620,7 +619,7 @@ export class ObjectAWSIntegrationApi {
     public createAWSAccount(param: AWSIntegrationApiCreateAWSAccountRequest, options?: Configuration): Promise<AWSAccountCreateResponse> {
         return this.api.createAWSAccount(param.body,  options).toPromise();
     }
-	
+
     /**
      * Set an AWS tag filter.
      * Set an AWS tag filter
@@ -629,7 +628,7 @@ export class ObjectAWSIntegrationApi {
     public createAWSTagFilter(param: AWSIntegrationApiCreateAWSTagFilterRequest, options?: Configuration): Promise<any> {
         return this.api.createAWSTagFilter(param.body,  options).toPromise();
     }
-	
+
     /**
      * Generate a new AWS external ID for a given AWS account ID and role name pair.
      * Generate a new external ID
@@ -638,7 +637,7 @@ export class ObjectAWSIntegrationApi {
     public createNewAWSExternalID(param: AWSIntegrationApiCreateNewAWSExternalIDRequest, options?: Configuration): Promise<AWSAccountCreateResponse> {
         return this.api.createNewAWSExternalID(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
      * Delete an AWS integration
@@ -647,7 +646,7 @@ export class ObjectAWSIntegrationApi {
     public deleteAWSAccount(param: AWSIntegrationApiDeleteAWSAccountRequest, options?: Configuration): Promise<any> {
         return this.api.deleteAWSAccount(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a tag filtering entry.
      * Delete a tag filtering entry
@@ -656,7 +655,7 @@ export class ObjectAWSIntegrationApi {
     public deleteAWSTagFilter(param: AWSIntegrationApiDeleteAWSTagFilterRequest, options?: Configuration): Promise<any> {
         return this.api.deleteAWSTagFilter(param.body,  options).toPromise();
     }
-	
+
     /**
      * List all Datadog-AWS integrations available in your Datadog organization.
      * List all AWS integrations
@@ -665,7 +664,7 @@ export class ObjectAWSIntegrationApi {
     public listAWSAccounts(param: AWSIntegrationApiListAWSAccountsRequest, options?: Configuration): Promise<AWSAccountListResponse> {
         return this.api.listAWSAccounts(param.accountId, param.roleName, param.accessKeyId,  options).toPromise();
     }
-	
+
     /**
      * Get all AWS tag filters.
      * Get all AWS tag filters
@@ -674,7 +673,7 @@ export class ObjectAWSIntegrationApi {
     public listAWSTagFilters(param: AWSIntegrationApiListAWSTagFiltersRequest, options?: Configuration): Promise<AWSTagFilterListResponse> {
         return this.api.listAWSTagFilters(param.accountId,  options).toPromise();
     }
-	
+
     /**
      * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
      * List namespace rules
@@ -683,7 +682,7 @@ export class ObjectAWSIntegrationApi {
     public listAvailableAWSNamespaces(param: AWSIntegrationApiListAvailableAWSNamespacesRequest, options?: Configuration): Promise<Array<string>> {
         return this.api.listAvailableAWSNamespaces( options).toPromise();
     }
-	
+
     /**
      * Update a Datadog-Amazon Web Services integration.
      * Update an AWS integration
@@ -692,12 +691,8 @@ export class ObjectAWSIntegrationApi {
     public updateAWSAccount(param: AWSIntegrationApiUpdateAWSAccountRequest, options?: Configuration): Promise<any> {
         return this.api.updateAWSAccount(param.body, param.accountId, param.roleName, param.accessKeyId,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableAWSLogsIntegrationApi } from "./ObservableAPI";
 import { AWSLogsIntegrationApiRequestFactory, AWSLogsIntegrationApiResponseProcessor} from "../apis/AWSLogsIntegrationApi";
@@ -753,13 +748,12 @@ export interface AWSLogsIntegrationApiListAWSLogsIntegrationsRequest {
 export interface AWSLogsIntegrationApiListAWSLogsServicesRequest {
 }
 
-
 export class ObjectAWSLogsIntegrationApi {
     private api: ObservableAWSLogsIntegrationApi
 
     public constructor(configuration: Configuration, requestFactory?: AWSLogsIntegrationApiRequestFactory, responseProcessor?: AWSLogsIntegrationApiResponseProcessor) {
         this.api = new ObservableAWSLogsIntegrationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of 'created' when it's checking if the Lambda exists in the account. - Returns a status of 'waiting' while checking. - Returns a status of 'checked and ok' if the Lambda exists. - Returns a status of 'error' if the Lambda does not exist.
@@ -769,7 +763,7 @@ export class ObjectAWSLogsIntegrationApi {
     public checkAWSLogsLambdaAsync(param: AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest, options?: Configuration): Promise<AWSLogsAsyncResponse> {
         return this.api.checkAWSLogsLambdaAsync(param.body,  options).toPromise();
     }
-	
+
     /**
      * Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for `EnableAWSLogServices`. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of `created` when it's checking if the permissions exists   in the AWS account. - Returns a status of `waiting` while checking. - Returns a status of `checked and ok` if the Lambda exists. - Returns a status of `error` if the Lambda does not exist.
      * Check permissions for log services
@@ -778,7 +772,7 @@ export class ObjectAWSLogsIntegrationApi {
     public checkAWSLogsServicesAsync(param: AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest, options?: Configuration): Promise<AWSLogsAsyncResponse> {
         return this.api.checkAWSLogsServicesAsync(param.body,  options).toPromise();
     }
-	
+
     /**
      * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
      * Add AWS Log Lambda ARN
@@ -787,7 +781,7 @@ export class ObjectAWSLogsIntegrationApi {
     public createAWSLambdaARN(param: AWSLogsIntegrationApiCreateAWSLambdaARNRequest, options?: Configuration): Promise<any> {
         return this.api.createAWSLambdaARN(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
      * Delete an AWS Logs integration
@@ -796,7 +790,7 @@ export class ObjectAWSLogsIntegrationApi {
     public deleteAWSLambdaARN(param: AWSLogsIntegrationApiDeleteAWSLambdaARNRequest, options?: Configuration): Promise<any> {
         return this.api.deleteAWSLambdaARN(param.body,  options).toPromise();
     }
-	
+
     /**
      * Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
      * Enable an AWS Logs integration
@@ -805,7 +799,7 @@ export class ObjectAWSLogsIntegrationApi {
     public enableAWSLogServices(param: AWSLogsIntegrationApiEnableAWSLogServicesRequest, options?: Configuration): Promise<any> {
         return this.api.enableAWSLogServices(param.body,  options).toPromise();
     }
-	
+
     /**
      * List all Datadog-AWS Logs integrations configured in your Datadog account.
      * List all AWS Logs integrations
@@ -814,7 +808,7 @@ export class ObjectAWSLogsIntegrationApi {
     public listAWSLogsIntegrations(param: AWSLogsIntegrationApiListAWSLogsIntegrationsRequest, options?: Configuration): Promise<Array<AWSLogsListResponse>> {
         return this.api.listAWSLogsIntegrations( options).toPromise();
     }
-	
+
     /**
      * Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
      * Get list of AWS log ready services
@@ -823,12 +817,8 @@ export class ObjectAWSLogsIntegrationApi {
     public listAWSLogsServices(param: AWSLogsIntegrationApiListAWSLogsServicesRequest, options?: Configuration): Promise<Array<AWSLogsListServicesResponse>> {
         return this.api.listAWSLogsServices( options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableAuthenticationApi } from "./ObservableAPI";
 import { AuthenticationApiRequestFactory, AuthenticationApiResponseProcessor} from "../apis/AuthenticationApi";
@@ -836,13 +826,12 @@ import { AuthenticationApiRequestFactory, AuthenticationApiResponseProcessor} fr
 export interface AuthenticationApiValidateRequest {
 }
 
-
 export class ObjectAuthenticationApi {
     private api: ObservableAuthenticationApi
 
     public constructor(configuration: Configuration, requestFactory?: AuthenticationApiRequestFactory, responseProcessor?: AuthenticationApiResponseProcessor) {
         this.api = new ObservableAuthenticationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
@@ -852,12 +841,8 @@ export class ObjectAuthenticationApi {
     public validate(param: AuthenticationApiValidateRequest, options?: Configuration): Promise<AuthenticationValidationResponse> {
         return this.api.validate( options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableAzureIntegrationApi } from "./ObservableAPI";
 import { AzureIntegrationApiRequestFactory, AzureIntegrationApiResponseProcessor} from "../apis/AzureIntegrationApi";
@@ -901,13 +886,12 @@ export interface AzureIntegrationApiUpdateAzureIntegrationRequest {
     body: AzureAccount
 }
 
-
 export class ObjectAzureIntegrationApi {
     private api: ObservableAzureIntegrationApi
 
     public constructor(configuration: Configuration, requestFactory?: AzureIntegrationApiRequestFactory, responseProcessor?: AzureIntegrationApiResponseProcessor) {
         this.api = new ObservableAzureIntegrationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
@@ -917,7 +901,7 @@ export class ObjectAzureIntegrationApi {
     public createAzureIntegration(param: AzureIntegrationApiCreateAzureIntegrationRequest, options?: Configuration): Promise<any> {
         return this.api.createAzureIntegration(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a given Datadog-Azure integration from your Datadog account.
      * Delete an Azure integration
@@ -926,7 +910,7 @@ export class ObjectAzureIntegrationApi {
     public deleteAzureIntegration(param: AzureIntegrationApiDeleteAzureIntegrationRequest, options?: Configuration): Promise<any> {
         return this.api.deleteAzureIntegration(param.body,  options).toPromise();
     }
-	
+
     /**
      * List all Datadog-Azure integrations configured in your Datadog account.
      * List all Azure integrations
@@ -935,7 +919,7 @@ export class ObjectAzureIntegrationApi {
     public listAzureIntegration(param: AzureIntegrationApiListAzureIntegrationRequest, options?: Configuration): Promise<Array<AzureAccount>> {
         return this.api.listAzureIntegration( options).toPromise();
     }
-	
+
     /**
      * Update the defined list of host filters for a given Datadog-Azure integration.
      * Update Azure integration host filters
@@ -944,7 +928,7 @@ export class ObjectAzureIntegrationApi {
     public updateAzureHostFilters(param: AzureIntegrationApiUpdateAzureHostFiltersRequest, options?: Configuration): Promise<any> {
         return this.api.updateAzureHostFilters(param.body,  options).toPromise();
     }
-	
+
     /**
      * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
      * Update an Azure integration
@@ -953,12 +937,8 @@ export class ObjectAzureIntegrationApi {
     public updateAzureIntegration(param: AzureIntegrationApiUpdateAzureIntegrationRequest, options?: Configuration): Promise<any> {
         return this.api.updateAzureIntegration(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableDashboardListsApi } from "./ObservableAPI";
 import { DashboardListsApiRequestFactory, DashboardListsApiResponseProcessor} from "../apis/DashboardListsApi";
@@ -1008,13 +988,12 @@ export interface DashboardListsApiUpdateDashboardListRequest {
     body: DashboardList
 }
 
-
 export class ObjectDashboardListsApi {
     private api: ObservableDashboardListsApi
 
     public constructor(configuration: Configuration, requestFactory?: DashboardListsApiRequestFactory, responseProcessor?: DashboardListsApiResponseProcessor) {
         this.api = new ObservableDashboardListsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create an empty dashboard list.
@@ -1024,7 +1003,7 @@ export class ObjectDashboardListsApi {
     public createDashboardList(param: DashboardListsApiCreateDashboardListRequest, options?: Configuration): Promise<DashboardList> {
         return this.api.createDashboardList(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a dashboard list.
      * Delete a dashboard list
@@ -1033,7 +1012,7 @@ export class ObjectDashboardListsApi {
     public deleteDashboardList(param: DashboardListsApiDeleteDashboardListRequest, options?: Configuration): Promise<DashboardListDeleteResponse> {
         return this.api.deleteDashboardList(param.listId,  options).toPromise();
     }
-	
+
     /**
      * Fetch an existing dashboard list's definition.
      * Get a dashboard list
@@ -1042,7 +1021,7 @@ export class ObjectDashboardListsApi {
     public getDashboardList(param: DashboardListsApiGetDashboardListRequest, options?: Configuration): Promise<DashboardList> {
         return this.api.getDashboardList(param.listId,  options).toPromise();
     }
-	
+
     /**
      * Fetch all of your existing dashboard list definitions.
      * Get all dashboard lists
@@ -1051,7 +1030,7 @@ export class ObjectDashboardListsApi {
     public listDashboardLists(param: DashboardListsApiListDashboardListsRequest, options?: Configuration): Promise<DashboardListListResponse> {
         return this.api.listDashboardLists( options).toPromise();
     }
-	
+
     /**
      * Update the name of a dashboard list.
      * Update a dashboard list
@@ -1060,12 +1039,8 @@ export class ObjectDashboardListsApi {
     public updateDashboardList(param: DashboardListsApiUpdateDashboardListRequest, options?: Configuration): Promise<DashboardList> {
         return this.api.updateDashboardList(param.listId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableDashboardsApi } from "./ObservableAPI";
 import { DashboardsApiRequestFactory, DashboardsApiResponseProcessor} from "../apis/DashboardsApi";
@@ -1115,13 +1090,12 @@ export interface DashboardsApiUpdateDashboardRequest {
     body: Dashboard
 }
 
-
 export class ObjectDashboardsApi {
     private api: ObservableDashboardsApi
 
     public constructor(configuration: Configuration, requestFactory?: DashboardsApiRequestFactory, responseProcessor?: DashboardsApiResponseProcessor) {
         this.api = new ObservableDashboardsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
@@ -1131,7 +1105,7 @@ export class ObjectDashboardsApi {
     public createDashboard(param: DashboardsApiCreateDashboardRequest, options?: Configuration): Promise<Dashboard> {
         return this.api.createDashboard(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a dashboard using the specified ID.
      * Delete a dashboard
@@ -1140,7 +1114,7 @@ export class ObjectDashboardsApi {
     public deleteDashboard(param: DashboardsApiDeleteDashboardRequest, options?: Configuration): Promise<DashboardDeleteResponse> {
         return this.api.deleteDashboard(param.dashboardId,  options).toPromise();
     }
-	
+
     /**
      * Get a dashboard using the specified ID.
      * Get a dashboard
@@ -1149,7 +1123,7 @@ export class ObjectDashboardsApi {
     public getDashboard(param: DashboardsApiGetDashboardRequest, options?: Configuration): Promise<Dashboard> {
         return this.api.getDashboard(param.dashboardId,  options).toPromise();
     }
-	
+
     /**
      * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
      * Get all dashboards
@@ -1158,7 +1132,7 @@ export class ObjectDashboardsApi {
     public listDashboards(param: DashboardsApiListDashboardsRequest, options?: Configuration): Promise<DashboardSummary> {
         return this.api.listDashboards( options).toPromise();
     }
-	
+
     /**
      * Update a dashboard using the specified ID.
      * Update a dashboard
@@ -1167,12 +1141,8 @@ export class ObjectDashboardsApi {
     public updateDashboard(param: DashboardsApiUpdateDashboardRequest, options?: Configuration): Promise<Dashboard> {
         return this.api.updateDashboard(param.dashboardId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableDowntimesApi } from "./ObservableAPI";
 import { DowntimesApiRequestFactory, DowntimesApiResponseProcessor} from "../apis/DowntimesApi";
@@ -1237,13 +1207,12 @@ export interface DowntimesApiUpdateDowntimeRequest {
     body: Downtime
 }
 
-
 export class ObjectDowntimesApi {
     private api: ObservableDowntimesApi
 
     public constructor(configuration: Configuration, requestFactory?: DowntimesApiRequestFactory, responseProcessor?: DowntimesApiResponseProcessor) {
         this.api = new ObservableDowntimesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Cancel a downtime.
@@ -1253,7 +1222,7 @@ export class ObjectDowntimesApi {
     public cancelDowntime(param: DowntimesApiCancelDowntimeRequest, options?: Configuration): Promise<void> {
         return this.api.cancelDowntime(param.downtimeId,  options).toPromise();
     }
-	
+
     /**
      * Delete all downtimes that match the scope of `X`.
      * Cancel downtimes by scope
@@ -1262,7 +1231,7 @@ export class ObjectDowntimesApi {
     public cancelDowntimesByScope(param: DowntimesApiCancelDowntimesByScopeRequest, options?: Configuration): Promise<CanceledDowntimesIds> {
         return this.api.cancelDowntimesByScope(param.body,  options).toPromise();
     }
-	
+
     /**
      * Schedule a downtime.
      * Schedule a downtime
@@ -1271,7 +1240,7 @@ export class ObjectDowntimesApi {
     public createDowntime(param: DowntimesApiCreateDowntimeRequest, options?: Configuration): Promise<Downtime> {
         return this.api.createDowntime(param.body,  options).toPromise();
     }
-	
+
     /**
      * Get downtime detail by `downtime_id`.
      * Get a downtime
@@ -1280,7 +1249,7 @@ export class ObjectDowntimesApi {
     public getDowntime(param: DowntimesApiGetDowntimeRequest, options?: Configuration): Promise<Downtime> {
         return this.api.getDowntime(param.downtimeId,  options).toPromise();
     }
-	
+
     /**
      * Get all scheduled downtimes.
      * Get all downtimes
@@ -1289,7 +1258,7 @@ export class ObjectDowntimesApi {
     public listDowntimes(param: DowntimesApiListDowntimesRequest, options?: Configuration): Promise<Array<Downtime>> {
         return this.api.listDowntimes(param.currentOnly,  options).toPromise();
     }
-	
+
     /**
      * Update a single downtime by `downtime_id`.
      * Update a downtime
@@ -1298,12 +1267,8 @@ export class ObjectDowntimesApi {
     public updateDowntime(param: DowntimesApiUpdateDowntimeRequest, options?: Configuration): Promise<Downtime> {
         return this.api.updateDowntime(param.downtimeId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableEventsApi } from "./ObservableAPI";
 import { EventsApiRequestFactory, EventsApiResponseProcessor} from "../apis/EventsApi";
@@ -1356,13 +1321,12 @@ export interface EventsApiListEventsRequest {
     unaggregated?: boolean
 }
 
-
 export class ObjectEventsApi {
     private api: ObservableEventsApi
 
     public constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor) {
         this.api = new ObservableEventsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
@@ -1372,7 +1336,7 @@ export class ObjectEventsApi {
     public getEvent(param: EventsApiGetEventRequest, options?: Configuration): Promise<EventResponse> {
         return this.api.getEvent(param.eventId,  options).toPromise();
     }
-	
+
     /**
      * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results.
      * Query the event stream
@@ -1381,12 +1345,8 @@ export class ObjectEventsApi {
     public listEvents(param: EventsApiListEventsRequest, options?: Configuration): Promise<EventListResponse> {
         return this.api.listEvents(param.start, param.end, param.priority, param.sources, param.tags, param.unaggregated,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableGCPIntegrationApi } from "./ObservableAPI";
 import { GCPIntegrationApiRequestFactory, GCPIntegrationApiResponseProcessor} from "../apis/GCPIntegrationApi";
@@ -1421,13 +1381,12 @@ export interface GCPIntegrationApiUpdateGCPIntegrationRequest {
     body: GCPAccount
 }
 
-
 export class ObjectGCPIntegrationApi {
     private api: ObservableGCPIntegrationApi
 
     public constructor(configuration: Configuration, requestFactory?: GCPIntegrationApiRequestFactory, responseProcessor?: GCPIntegrationApiResponseProcessor) {
         this.api = new ObservableGCPIntegrationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a Datadog-GCP integration.
@@ -1437,7 +1396,7 @@ export class ObjectGCPIntegrationApi {
     public createGCPIntegration(param: GCPIntegrationApiCreateGCPIntegrationRequest, options?: Configuration): Promise<any> {
         return this.api.createGCPIntegration(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a given Datadog-GCP integration.
      * Delete a GCP integration
@@ -1446,7 +1405,7 @@ export class ObjectGCPIntegrationApi {
     public deleteGCPIntegration(param: GCPIntegrationApiDeleteGCPIntegrationRequest, options?: Configuration): Promise<any> {
         return this.api.deleteGCPIntegration(param.body,  options).toPromise();
     }
-	
+
     /**
      * List all Datadog-GCP integrations configured in your Datadog account.
      * List all GCP integrations
@@ -1455,7 +1414,7 @@ export class ObjectGCPIntegrationApi {
     public listGCPIntegration(param: GCPIntegrationApiListGCPIntegrationRequest, options?: Configuration): Promise<Array<GCPAccount>> {
         return this.api.listGCPIntegration( options).toPromise();
     }
-	
+
     /**
      * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
      * Update a GCP integration
@@ -1464,12 +1423,8 @@ export class ObjectGCPIntegrationApi {
     public updateGCPIntegration(param: GCPIntegrationApiUpdateGCPIntegrationRequest, options?: Configuration): Promise<any> {
         return this.api.updateGCPIntegration(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableHostsApi } from "./ObservableAPI";
 import { HostsApiRequestFactory, HostsApiResponseProcessor} from "../apis/HostsApi";
@@ -1558,13 +1513,12 @@ export interface HostsApiUnmuteHostRequest {
     hostName: string
 }
 
-
 export class ObjectHostsApi {
     private api: ObservableHostsApi
 
     public constructor(configuration: Configuration, requestFactory?: HostsApiRequestFactory, responseProcessor?: HostsApiResponseProcessor) {
         this.api = new ObservableHostsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
@@ -1574,7 +1528,7 @@ export class ObjectHostsApi {
     public getHostTotals(param: HostsApiGetHostTotalsRequest, options?: Configuration): Promise<HostTotals> {
         return this.api.getHostTotals(param.from,  options).toPromise();
     }
-	
+
     /**
      * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
      * Get all hosts for your organization
@@ -1583,7 +1537,7 @@ export class ObjectHostsApi {
     public listHosts(param: HostsApiListHostsRequest, options?: Configuration): Promise<HostListResponse> {
         return this.api.listHosts(param.filter, param.sortField, param.sortDir, param.start, param.count, param.from, param.includeMutedHostsData, param.includeHostsMetadata,  options).toPromise();
     }
-	
+
     /**
      * Mute a host.
      * Mute a host
@@ -1592,7 +1546,7 @@ export class ObjectHostsApi {
     public muteHost(param: HostsApiMuteHostRequest, options?: Configuration): Promise<HostMuteResponse> {
         return this.api.muteHost(param.hostName, param.body,  options).toPromise();
     }
-	
+
     /**
      * Unmutes a host. This endpoint takes no JSON arguments.
      * Unmute a host
@@ -1601,12 +1555,8 @@ export class ObjectHostsApi {
     public unmuteHost(param: HostsApiUnmuteHostRequest, options?: Configuration): Promise<HostMuteResponse> {
         return this.api.unmuteHost(param.hostName,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableIPRangesApi } from "./ObservableAPI";
 import { IPRangesApiRequestFactory, IPRangesApiResponseProcessor} from "../apis/IPRangesApi";
@@ -1614,13 +1564,12 @@ import { IPRangesApiRequestFactory, IPRangesApiResponseProcessor} from "../apis/
 export interface IPRangesApiGetIPRangesRequest {
 }
 
-
 export class ObjectIPRangesApi {
     private api: ObservableIPRangesApi
 
     public constructor(configuration: Configuration, requestFactory?: IPRangesApiRequestFactory, responseProcessor?: IPRangesApiResponseProcessor) {
         this.api = new ObservableIPRangesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Get information about Datadog IP ranges.
@@ -1630,12 +1579,8 @@ export class ObjectIPRangesApi {
     public getIPRanges(param: IPRangesApiGetIPRangesRequest, options?: Configuration): Promise<IPRanges> {
         return this.api.getIPRanges( options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableKeyManagementApi } from "./ObservableAPI";
 import { KeyManagementApiRequestFactory, KeyManagementApiResponseProcessor} from "../apis/KeyManagementApi";
@@ -1730,13 +1675,12 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
     body: ApplicationKey
 }
 
-
 export class ObjectKeyManagementApi {
     private api: ObservableKeyManagementApi
 
     public constructor(configuration: Configuration, requestFactory?: KeyManagementApiRequestFactory, responseProcessor?: KeyManagementApiResponseProcessor) {
         this.api = new ObservableKeyManagementApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Creates an API key with a given name.
@@ -1746,7 +1690,7 @@ export class ObjectKeyManagementApi {
     public createAPIKey(param: KeyManagementApiCreateAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
         return this.api.createAPIKey(param.body,  options).toPromise();
     }
-	
+
     /**
      * Create an application key with a given name.
      * Create an application key
@@ -1755,7 +1699,7 @@ export class ObjectKeyManagementApi {
     public createApplicationKey(param: KeyManagementApiCreateApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.createApplicationKey(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a given API key.
      * Delete an API key
@@ -1764,7 +1708,7 @@ export class ObjectKeyManagementApi {
     public deleteAPIKey(param: KeyManagementApiDeleteAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
         return this.api.deleteAPIKey(param.key,  options).toPromise();
     }
-	
+
     /**
      * Delete a given application key.
      * Delete an application key
@@ -1773,7 +1717,7 @@ export class ObjectKeyManagementApi {
     public deleteApplicationKey(param: KeyManagementApiDeleteApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.deleteApplicationKey(param.key,  options).toPromise();
     }
-	
+
     /**
      * Get a given API key.
      * Get API key
@@ -1782,7 +1726,7 @@ export class ObjectKeyManagementApi {
     public getAPIKey(param: KeyManagementApiGetAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
         return this.api.getAPIKey(param.key,  options).toPromise();
     }
-	
+
     /**
      * Get a given application key.
      * Get an application key
@@ -1791,7 +1735,7 @@ export class ObjectKeyManagementApi {
     public getApplicationKey(param: KeyManagementApiGetApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.getApplicationKey(param.key,  options).toPromise();
     }
-	
+
     /**
      * Get all API keys available for your account.
      * Get all API keys
@@ -1800,7 +1744,7 @@ export class ObjectKeyManagementApi {
     public listAPIKeys(param: KeyManagementApiListAPIKeysRequest, options?: Configuration): Promise<ApiKeyListResponse> {
         return this.api.listAPIKeys( options).toPromise();
     }
-	
+
     /**
      * Get all application keys available for your Datadog account.
      * Get all application keys
@@ -1809,7 +1753,7 @@ export class ObjectKeyManagementApi {
     public listApplicationKeys(param: KeyManagementApiListApplicationKeysRequest, options?: Configuration): Promise<ApplicationKeyListResponse> {
         return this.api.listApplicationKeys( options).toPromise();
     }
-	
+
     /**
      * Edit an API key name.
      * Edit an API key
@@ -1818,7 +1762,7 @@ export class ObjectKeyManagementApi {
     public updateAPIKey(param: KeyManagementApiUpdateAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
         return this.api.updateAPIKey(param.key, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit an application key name.
      * Edit an application key
@@ -1827,12 +1771,8 @@ export class ObjectKeyManagementApi {
     public updateApplicationKey(param: KeyManagementApiUpdateApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.updateApplicationKey(param.key, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableLogsApi } from "./ObservableAPI";
 import { LogsApiRequestFactory, LogsApiResponseProcessor} from "../apis/LogsApi";
@@ -1846,13 +1786,12 @@ export interface LogsApiListLogsRequest {
     body: LogsListRequest
 }
 
-
 export class ObjectLogsApi {
     private api: ObservableLogsApi
 
     public constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor) {
         this.api = new ObservableLogsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
@@ -1862,12 +1801,8 @@ export class ObjectLogsApi {
     public listLogs(param: LogsApiListLogsRequest, options?: Configuration): Promise<LogsListResponse> {
         return this.api.listLogs(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableLogsIndexesApi } from "./ObservableAPI";
 import { LogsIndexesApiRequestFactory, LogsIndexesApiResponseProcessor} from "../apis/LogsIndexesApi";
@@ -1920,13 +1855,12 @@ export interface LogsIndexesApiUpdateLogsIndexOrderRequest {
     body: LogsIndexesOrder
 }
 
-
 export class ObjectLogsIndexesApi {
     private api: ObservableLogsIndexesApi
 
     public constructor(configuration: Configuration, requestFactory?: LogsIndexesApiRequestFactory, responseProcessor?: LogsIndexesApiResponseProcessor) {
         this.api = new ObservableLogsIndexesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Creates a new index. Returns the Index object passed in the request body when the request is successful.
@@ -1936,7 +1870,7 @@ export class ObjectLogsIndexesApi {
     public createLogsIndex(param: LogsIndexesApiCreateLogsIndexRequest, options?: Configuration): Promise<LogsIndex> {
         return this.api.createLogsIndex(param.body,  options).toPromise();
     }
-	
+
     /**
      * Get one log index from your organization. This endpoint takes no JSON arguments.
      * Get an index
@@ -1945,7 +1879,7 @@ export class ObjectLogsIndexesApi {
     public getLogsIndex(param: LogsIndexesApiGetLogsIndexRequest, options?: Configuration): Promise<LogsIndex> {
         return this.api.getLogsIndex(param.name,  options).toPromise();
     }
-	
+
     /**
      * Get the current order of your log indexes. This endpoint takes no JSON arguments.
      * Get indexes order
@@ -1954,7 +1888,7 @@ export class ObjectLogsIndexesApi {
     public getLogsIndexOrder(param: LogsIndexesApiGetLogsIndexOrderRequest, options?: Configuration): Promise<LogsIndexesOrder> {
         return this.api.getLogsIndexOrder( options).toPromise();
     }
-	
+
     /**
      * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
      * Get all indexes
@@ -1963,7 +1897,7 @@ export class ObjectLogsIndexesApi {
     public listLogIndexes(param: LogsIndexesApiListLogIndexesRequest, options?: Configuration): Promise<LogsIndexListResponse> {
         return this.api.listLogIndexes( options).toPromise();
     }
-	
+
     /**
      * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
      * Update an index
@@ -1972,7 +1906,7 @@ export class ObjectLogsIndexesApi {
     public updateLogsIndex(param: LogsIndexesApiUpdateLogsIndexRequest, options?: Configuration): Promise<LogsIndex> {
         return this.api.updateLogsIndex(param.name, param.body,  options).toPromise();
     }
-	
+
     /**
      * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
      * Update indexes order
@@ -1981,12 +1915,8 @@ export class ObjectLogsIndexesApi {
     public updateLogsIndexOrder(param: LogsIndexesApiUpdateLogsIndexOrderRequest, options?: Configuration): Promise<LogsIndexesOrder> {
         return this.api.updateLogsIndexOrder(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableLogsPipelinesApi } from "./ObservableAPI";
 import { LogsPipelinesApiRequestFactory, LogsPipelinesApiResponseProcessor} from "../apis/LogsPipelinesApi";
@@ -2048,13 +1978,12 @@ export interface LogsPipelinesApiUpdateLogsPipelineOrderRequest {
     body: LogsPipelinesOrder
 }
 
-
 export class ObjectLogsPipelinesApi {
     private api: ObservableLogsPipelinesApi
 
     public constructor(configuration: Configuration, requestFactory?: LogsPipelinesApiRequestFactory, responseProcessor?: LogsPipelinesApiResponseProcessor) {
         this.api = new ObservableLogsPipelinesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a pipeline in your organization.
@@ -2064,7 +1993,7 @@ export class ObjectLogsPipelinesApi {
     public createLogsPipeline(param: LogsPipelinesApiCreateLogsPipelineRequest, options?: Configuration): Promise<LogsPipeline> {
         return this.api.createLogsPipeline(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
      * Delete a pipeline
@@ -2073,7 +2002,7 @@ export class ObjectLogsPipelinesApi {
     public deleteLogsPipeline(param: LogsPipelinesApiDeleteLogsPipelineRequest, options?: Configuration): Promise<void> {
         return this.api.deleteLogsPipeline(param.pipelineId,  options).toPromise();
     }
-	
+
     /**
      * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
      * Get a pipeline
@@ -2082,7 +2011,7 @@ export class ObjectLogsPipelinesApi {
     public getLogsPipeline(param: LogsPipelinesApiGetLogsPipelineRequest, options?: Configuration): Promise<LogsPipeline> {
         return this.api.getLogsPipeline(param.pipelineId,  options).toPromise();
     }
-	
+
     /**
      * Get the current order of your pipelines. This endpoint takes no JSON arguments.
      * Get pipeline order
@@ -2091,7 +2020,7 @@ export class ObjectLogsPipelinesApi {
     public getLogsPipelineOrder(param: LogsPipelinesApiGetLogsPipelineOrderRequest, options?: Configuration): Promise<LogsPipelinesOrder> {
         return this.api.getLogsPipelineOrder( options).toPromise();
     }
-	
+
     /**
      * Get all pipelines from your organization. This endpoint takes no JSON arguments.
      * Get all pipelines
@@ -2100,7 +2029,7 @@ export class ObjectLogsPipelinesApi {
     public listLogsPipelines(param: LogsPipelinesApiListLogsPipelinesRequest, options?: Configuration): Promise<Array<LogsPipeline>> {
         return this.api.listLogsPipelines( options).toPromise();
     }
-	
+
     /**
      * Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
      * Update a pipeline
@@ -2109,7 +2038,7 @@ export class ObjectLogsPipelinesApi {
     public updateLogsPipeline(param: LogsPipelinesApiUpdateLogsPipelineRequest, options?: Configuration): Promise<LogsPipeline> {
         return this.api.updateLogsPipeline(param.pipelineId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
      * Update pipeline order
@@ -2118,12 +2047,8 @@ export class ObjectLogsPipelinesApi {
     public updateLogsPipelineOrder(param: LogsPipelinesApiUpdateLogsPipelineOrderRequest, options?: Configuration): Promise<LogsPipelinesOrder> {
         return this.api.updateLogsPipelineOrder(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableMetricsApi } from "./ObservableAPI";
 import { MetricsApiRequestFactory, MetricsApiResponseProcessor} from "../apis/MetricsApi";
@@ -2197,13 +2122,12 @@ export interface MetricsApiUpdateMetricMetadataRequest {
     body: MetricMetadata
 }
 
-
 export class ObjectMetricsApi {
     private api: ObservableMetricsApi
 
     public constructor(configuration: Configuration, requestFactory?: MetricsApiRequestFactory, responseProcessor?: MetricsApiResponseProcessor) {
         this.api = new ObservableMetricsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Get metadata about a specific metric.
@@ -2213,7 +2137,7 @@ export class ObjectMetricsApi {
     public getMetricMetadata(param: MetricsApiGetMetricMetadataRequest, options?: Configuration): Promise<MetricMetadata> {
         return this.api.getMetricMetadata(param.metricName,  options).toPromise();
     }
-	
+
     /**
      * Get the list of actively reporting metrics from a given time until now.
      * Get active metrics list
@@ -2222,7 +2146,7 @@ export class ObjectMetricsApi {
     public listActiveMetrics(param: MetricsApiListActiveMetricsRequest, options?: Configuration): Promise<MetricsListResponse> {
         return this.api.listActiveMetrics(param.from, param.host,  options).toPromise();
     }
-	
+
     /**
      * Search for metrics from the last 24 hours in Datadog.
      * Search metrics
@@ -2231,7 +2155,7 @@ export class ObjectMetricsApi {
     public listMetrics(param: MetricsApiListMetricsRequest, options?: Configuration): Promise<MetricSearchResponse> {
         return this.api.listMetrics(param.q,  options).toPromise();
     }
-	
+
     /**
      * Query timeseries points.
      * Query timeseries points
@@ -2240,7 +2164,7 @@ export class ObjectMetricsApi {
     public queryMetrics(param: MetricsApiQueryMetricsRequest, options?: Configuration): Promise<MetricsQueryResponse> {
         return this.api.queryMetrics(param.from, param.to, param.query,  options).toPromise();
     }
-	
+
     /**
      * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
      * Edit metric metadata
@@ -2249,12 +2173,8 @@ export class ObjectMetricsApi {
     public updateMetricMetadata(param: MetricsApiUpdateMetricMetadataRequest, options?: Configuration): Promise<MetricMetadata> {
         return this.api.updateMetricMetadata(param.metricName, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableMonitorsApi } from "./ObservableAPI";
 import { MonitorsApiRequestFactory, MonitorsApiResponseProcessor} from "../apis/MonitorsApi";
@@ -2382,13 +2302,12 @@ export interface MonitorsApiValidateMonitorRequest {
     body: Monitor
 }
 
-
 export class ObjectMonitorsApi {
     private api: ObservableMonitorsApi
 
     public constructor(configuration: Configuration, requestFactory?: MonitorsApiRequestFactory, responseProcessor?: MonitorsApiResponseProcessor) {
         this.api = new ObservableMonitorsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Check if the given monitors can be deleted.
@@ -2398,7 +2317,7 @@ export class ObjectMonitorsApi {
     public checkCanDeleteMonitor(param: MonitorsApiCheckCanDeleteMonitorRequest, options?: Configuration): Promise<CheckCanDeleteMonitorResponse> {
         return this.api.checkCanDeleteMonitor(param.monitorIds,  options).toPromise();
     }
-	
+
     /**
      * Create a monitor using the specified options.  #### Monitor Types  The type of monitor chosen from:  - anomaly: `query alert` - APM: `query alert` or `trace-analytics alert` - composite: `composite` - custom: `service check` - event: `event alert` - forecast: `query alert` - host: `service check` - integration: `query alert` or `service check` - live process: `process alert` - logs: `log alert` - metric: `metric alert` - network: `service check` - outlier: `query alert` - process: `service check` - rum: `rum alert` - watchdog: `event alert` - event-v2: `event-v2 alert`  #### Query Types  **Metric Alert Query**  Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`  - `time_aggr`: avg, sum, max, min, change, or pct_change - `time_window`: `last_#m` (with `#` between 1 and 2880 depending on the monitor type) or `last_#h`(with `#` between 1 and 48 depending on the monitor type), or `last_1d` - `space_aggr`: avg, sum, min, or max - `tags`: one or more tags (comma-separated), or * - `key`: a 'key' in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) - `operator`: <, <=, >, >=, ==, or != - `#`: an integer or decimal number used to set the threshold  If you are using the `_change_` or `_pct_change_` time aggregator, instead use `change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}] operator #` with:  - `change_aggr` change, pct_change - `time_aggr` avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) - `time_window` last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago  Use this to create an outlier monitor using the following query: `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`  **Service Check Query**  Example: `\"check\".over(tags).last(count).count_by_status()`  - **`check`** name of the check, e.g. `datadog.agent.up` - **`tags`** one or more quoted tags (comma-separated), or \"*\". e.g.: `.over(\"env:prod\", \"role:db\")` - **`count`** must be at >= your max threshold (defined in the `options`). e.g. if you want to notify on 1 critical, 3 ok and 2 warn statuses count should be 3. It is limited to 100.  **Event Alert Query**  Example: `events('sources:nagios status:error,warning priority:normal tags: \"string query\"').rollup(\"count\").last(\"1h\")\"`  - **`event`**, the event query string: - **`string_query`** free text query to match against event title and text. - **`sources`** event sources (comma-separated). - **`status`** event statuses (comma-separated). Valid options: error, warn, and info. - **`priority`** event priorities (comma-separated). Valid options: low, normal, all. - **`host`** event reporting host (comma-separated). - **`tags`** event tags (comma-separated). - **`excluded_tags`** excluded event tags (comma-separated). - **`rollup`** the stats roll-up method. `count` is the only supported method now. - **`last`** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.  **NOTE** Only available on US1 and EU.  **Event V2 Alert Query**  Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (5, 10, 15, or 30), #h (1, 2, or 4, 24). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1.  **Process Alert Query**  Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`  - **`search`** free text search string for querying processes. Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) page. - **`tags`** one or more tags (comma-separated) - **`timeframe`** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d - **`operator`** <, <=, >, >=, ==, or != - **`#`** an integer or decimal number used to set the threshold  **Logs Alert Query**  Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`index_name`** For multi-index organizations, the log index in which the request is performed. - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48) - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **Composite Query**  Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors  * **`name`** [*required*, *default* = **dynamic, based on query**]: The name of the alert. * **`message`** [*required*, *default* = **dynamic, based on query**]: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same '@username' notation as events. * **`tags`** [*optional*, *default* = **empty list**]: A list of tags to associate with your monitor. When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags. It is only available via the API and isn't visible or editable in the Datadog UI.
      * Create a monitor
@@ -2407,7 +2326,7 @@ export class ObjectMonitorsApi {
     public createMonitor(param: MonitorsApiCreateMonitorRequest, options?: Configuration): Promise<Monitor> {
         return this.api.createMonitor(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete the specified monitor
      * Delete a monitor
@@ -2416,7 +2335,7 @@ export class ObjectMonitorsApi {
     public deleteMonitor(param: MonitorsApiDeleteMonitorRequest, options?: Configuration): Promise<DeletedMonitor> {
         return this.api.deleteMonitor(param.monitorId, param.force,  options).toPromise();
     }
-	
+
     /**
      * Get details about the specified monitor from your organization.
      * Get a monitor's details
@@ -2425,7 +2344,7 @@ export class ObjectMonitorsApi {
     public getMonitor(param: MonitorsApiGetMonitorRequest, options?: Configuration): Promise<Monitor> {
         return this.api.getMonitor(param.monitorId, param.groupStates,  options).toPromise();
     }
-	
+
     /**
      * Get details about the specified monitor from your organization.
      * Get all monitor details
@@ -2434,7 +2353,7 @@ export class ObjectMonitorsApi {
     public listMonitors(param: MonitorsApiListMonitorsRequest, options?: Configuration): Promise<Array<Monitor>> {
         return this.api.listMonitors(param.groupStates, param.name, param.tags, param.monitorTags, param.withDowntimes, param.idOffset, param.page, param.pageSize,  options).toPromise();
     }
-	
+
     /**
      * Edit the specified monitor.
      * Edit a monitor
@@ -2443,7 +2362,7 @@ export class ObjectMonitorsApi {
     public updateMonitor(param: MonitorsApiUpdateMonitorRequest, options?: Configuration): Promise<Monitor> {
         return this.api.updateMonitor(param.monitorId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Validate the monitor provided in the request.
      * Validate a monitor
@@ -2452,12 +2371,8 @@ export class ObjectMonitorsApi {
     public validateMonitor(param: MonitorsApiValidateMonitorRequest, options?: Configuration): Promise<Monitor> {
         return this.api.validateMonitor(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableOrganizationsApi } from "./ObservableAPI";
 import { OrganizationsApiRequestFactory, OrganizationsApiResponseProcessor} from "../apis/OrganizationsApi";
@@ -2513,13 +2428,12 @@ export interface OrganizationsApiUploadIdPForOrgRequest {
     idpFile: HttpFile
 }
 
-
 export class ObjectOrganizationsApi {
     private api: ObservableOrganizationsApi
 
     public constructor(configuration: Configuration, requestFactory?: OrganizationsApiRequestFactory, responseProcessor?: OrganizationsApiResponseProcessor) {
         this.api = new ObservableOrganizationsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `pi_key.key`, and `application_key.hash` provided in the response.
@@ -2529,7 +2443,7 @@ export class ObjectOrganizationsApi {
     public createChildOrg(param: OrganizationsApiCreateChildOrgRequest, options?: Configuration): Promise<OrganizationCreateResponse> {
         return this.api.createChildOrg(param.body,  options).toPromise();
     }
-	
+
     /**
      * Get organization information.
      * Get organization information
@@ -2538,7 +2452,7 @@ export class ObjectOrganizationsApi {
     public getOrg(param: OrganizationsApiGetOrgRequest, options?: Configuration): Promise<OrganizationResponse> {
         return this.api.getOrg(param.publicId,  options).toPromise();
     }
-	
+
     /**
      * List your managed organizations.
      * List your managed organizations
@@ -2547,7 +2461,7 @@ export class ObjectOrganizationsApi {
     public listOrgs(param: OrganizationsApiListOrgsRequest, options?: Configuration): Promise<OrganizationListResponse> {
         return this.api.listOrgs( options).toPromise();
     }
-	
+
     /**
      * Update your organization.
      * Update your organization
@@ -2556,7 +2470,7 @@ export class ObjectOrganizationsApi {
     public updateOrg(param: OrganizationsApiUpdateOrgRequest, options?: Configuration): Promise<OrganizationResponse> {
         return this.api.updateOrg(param.publicId, param.body,  options).toPromise();
     }
-	
+
     /**
      * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
      * Upload IdP metadata
@@ -2565,12 +2479,8 @@ export class ObjectOrganizationsApi {
     public uploadIdPForOrg(param: OrganizationsApiUploadIdPForOrgRequest, options?: Configuration): Promise<IdpResponse> {
         return this.api.uploadIdPForOrg(param.publicId, param.idpFile,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservablePagerDutyIntegrationApi } from "./ObservableAPI";
 import { PagerDutyIntegrationApiRequestFactory, PagerDutyIntegrationApiResponseProcessor} from "../apis/PagerDutyIntegrationApi";
@@ -2617,13 +2527,12 @@ export interface PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest
     body: PagerDutyServiceKey
 }
 
-
 export class ObjectPagerDutyIntegrationApi {
     private api: ObservablePagerDutyIntegrationApi
 
     public constructor(configuration: Configuration, requestFactory?: PagerDutyIntegrationApiRequestFactory, responseProcessor?: PagerDutyIntegrationApiResponseProcessor) {
         this.api = new ObservablePagerDutyIntegrationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a new service object in the PagerDuty integration.
@@ -2633,7 +2542,7 @@ export class ObjectPagerDutyIntegrationApi {
     public createPagerDutyIntegrationService(param: PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest, options?: Configuration): Promise<PagerDutyServiceName> {
         return this.api.createPagerDutyIntegrationService(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a single service object in the Datadog-PagerDuty integration.
      * Delete a single service object
@@ -2642,7 +2551,7 @@ export class ObjectPagerDutyIntegrationApi {
     public deletePagerDutyIntegrationService(param: PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest, options?: Configuration): Promise<void> {
         return this.api.deletePagerDutyIntegrationService(param.serviceName,  options).toPromise();
     }
-	
+
     /**
      * Get service name in the Datadog-PagerDuty integration.
      * Get a single service object
@@ -2651,7 +2560,7 @@ export class ObjectPagerDutyIntegrationApi {
     public getPagerDutyIntegrationService(param: PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest, options?: Configuration): Promise<PagerDutyServiceName> {
         return this.api.getPagerDutyIntegrationService(param.serviceName,  options).toPromise();
     }
-	
+
     /**
      * Update a single service object in the Datadog-PagerDuty integration.
      * Update a single service object
@@ -2660,12 +2569,8 @@ export class ObjectPagerDutyIntegrationApi {
     public updatePagerDutyIntegrationService(param: PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest, options?: Configuration): Promise<void> {
         return this.api.updatePagerDutyIntegrationService(param.serviceName, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableServiceLevelObjectiveCorrectionsApi } from "./ObservableAPI";
 import { ServiceLevelObjectiveCorrectionsApiRequestFactory, ServiceLevelObjectiveCorrectionsApiResponseProcessor} from "../apis/ServiceLevelObjectiveCorrectionsApi";
@@ -2715,13 +2620,12 @@ export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
     body: SLOCorrectionUpdateRequest
 }
 
-
 export class ObjectServiceLevelObjectiveCorrectionsApi {
     private api: ObservableServiceLevelObjectiveCorrectionsApi
 
     public constructor(configuration: Configuration, requestFactory?: ServiceLevelObjectiveCorrectionsApiRequestFactory, responseProcessor?: ServiceLevelObjectiveCorrectionsApiResponseProcessor) {
         this.api = new ObservableServiceLevelObjectiveCorrectionsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create an SLO Correction
@@ -2731,7 +2635,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     public createSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
         return this.api.createSLOCorrection(param.body,  options).toPromise();
     }
-	
+
     /**
      * Permanently delete the specified SLO Correction object
      * Delete an SLO Correction
@@ -2740,7 +2644,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     public deleteSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest, options?: Configuration): Promise<void> {
         return this.api.deleteSLOCorrection(param.sloCorrectionId,  options).toPromise();
     }
-	
+
     /**
      * Get an SLO Correction
      * Get an SLO correction for an SLO
@@ -2749,7 +2653,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     public getSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
         return this.api.getSLOCorrection(param.sloCorrectionId,  options).toPromise();
     }
-	
+
     /**
      * Get all Service Level Objective Corrections
      * Get all SLO corrections
@@ -2758,7 +2662,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     public listSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionListResponse> {
         return this.api.listSLOCorrection( options).toPromise();
     }
-	
+
     /**
      * Update the specified SLO correction object object
      * Update an SLO Correction
@@ -2767,12 +2671,8 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     public updateSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
         return this.api.updateSLOCorrection(param.sloCorrectionId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableServiceLevelObjectivesApi } from "./ObservableAPI";
 import { ServiceLevelObjectivesApiRequestFactory, ServiceLevelObjectivesApiResponseProcessor} from "../apis/ServiceLevelObjectivesApi";
@@ -2891,13 +2791,12 @@ export interface ServiceLevelObjectivesApiUpdateSLORequest {
     body: ServiceLevelObjective
 }
 
-
 export class ObjectServiceLevelObjectivesApi {
     private api: ObservableServiceLevelObjectivesApi
 
     public constructor(configuration: Configuration, requestFactory?: ServiceLevelObjectivesApiRequestFactory, responseProcessor?: ServiceLevelObjectivesApiResponseProcessor) {
         this.api = new ObservableServiceLevelObjectivesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
@@ -2907,7 +2806,7 @@ export class ObjectServiceLevelObjectivesApi {
     public checkCanDeleteSLO(param: ServiceLevelObjectivesApiCheckCanDeleteSLORequest, options?: Configuration): Promise<CheckCanDeleteSLOResponse> {
         return this.api.checkCanDeleteSLO(param.ids,  options).toPromise();
     }
-	
+
     /**
      * Create a service level objective object.
      * Create a SLO object
@@ -2916,7 +2815,7 @@ export class ObjectServiceLevelObjectivesApi {
     public createSLO(param: ServiceLevelObjectivesApiCreateSLORequest, options?: Configuration): Promise<SLOListResponse> {
         return this.api.createSLO(param.body,  options).toPromise();
     }
-	
+
     /**
      * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
      * Delete a SLO
@@ -2925,7 +2824,7 @@ export class ObjectServiceLevelObjectivesApi {
     public deleteSLO(param: ServiceLevelObjectivesApiDeleteSLORequest, options?: Configuration): Promise<SLODeleteResponse> {
         return this.api.deleteSLO(param.sloId, param.force,  options).toPromise();
     }
-	
+
     /**
      * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
      * Bulk Delete SLO Timeframes
@@ -2934,7 +2833,7 @@ export class ObjectServiceLevelObjectivesApi {
     public deleteSLOTimeframeInBulk(param: ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest, options?: Configuration): Promise<SLOBulkDeleteResponse> {
         return this.api.deleteSLOTimeframeInBulk(param.body,  options).toPromise();
     }
-	
+
     /**
      * Get a service level objective object.
      * Get a SLO's details
@@ -2943,7 +2842,7 @@ export class ObjectServiceLevelObjectivesApi {
     public getSLO(param: ServiceLevelObjectivesApiGetSLORequest, options?: Configuration): Promise<SLOResponse> {
         return this.api.getSLO(param.sloId,  options).toPromise();
     }
-	
+
     /**
      * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
      * Get an SLO's history
@@ -2952,7 +2851,7 @@ export class ObjectServiceLevelObjectivesApi {
     public getSLOHistory(param: ServiceLevelObjectivesApiGetSLOHistoryRequest, options?: Configuration): Promise<SLOHistoryResponse> {
         return this.api.getSLOHistory(param.sloId, param.fromTs, param.toTs,  options).toPromise();
     }
-	
+
     /**
      * Get a list of service level objective objects for your organization.
      * Get all SLOs
@@ -2961,7 +2860,7 @@ export class ObjectServiceLevelObjectivesApi {
     public listSLOs(param: ServiceLevelObjectivesApiListSLOsRequest, options?: Configuration): Promise<SLOListResponse> {
         return this.api.listSLOs(param.ids, param.query, param.tagsQuery, param.metricsQuery,  options).toPromise();
     }
-	
+
     /**
      * Update the specified service level objective object.
      * Update a SLO
@@ -2970,12 +2869,8 @@ export class ObjectServiceLevelObjectivesApi {
     public updateSLO(param: ServiceLevelObjectivesApiUpdateSLORequest, options?: Configuration): Promise<SLOListResponse> {
         return this.api.updateSLO(param.sloId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableSlackIntegrationApi } from "./ObservableAPI";
 import { SlackIntegrationApiRequestFactory, SlackIntegrationApiResponseProcessor} from "../apis/SlackIntegrationApi";
@@ -3055,13 +2950,12 @@ export interface SlackIntegrationApiUpdateSlackIntegrationChannelRequest {
     body: SlackIntegrationChannel
 }
 
-
 export class ObjectSlackIntegrationApi {
     private api: ObservableSlackIntegrationApi
 
     public constructor(configuration: Configuration, requestFactory?: SlackIntegrationApiRequestFactory, responseProcessor?: SlackIntegrationApiResponseProcessor) {
         this.api = new ObservableSlackIntegrationApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Add a channel to your Datadog-Slack integration.
@@ -3071,7 +2965,7 @@ export class ObjectSlackIntegrationApi {
     public createSlackIntegrationChannel(param: SlackIntegrationApiCreateSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
         return this.api.createSlackIntegrationChannel(param.accountName, param.body,  options).toPromise();
     }
-	
+
     /**
      * Get a channel configured for your Datadog-Slack integration.
      * Get a Slack integration channel
@@ -3080,7 +2974,7 @@ export class ObjectSlackIntegrationApi {
     public getSlackIntegrationChannel(param: SlackIntegrationApiGetSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
         return this.api.getSlackIntegrationChannel(param.accountName, param.channelName,  options).toPromise();
     }
-	
+
     /**
      * Get a list of all channels configured for your Datadog-Slack integration.
      * Get all channels in a Slack integration
@@ -3089,7 +2983,7 @@ export class ObjectSlackIntegrationApi {
     public getSlackIntegrationChannels(param: SlackIntegrationApiGetSlackIntegrationChannelsRequest, options?: Configuration): Promise<Array<SlackIntegrationChannel>> {
         return this.api.getSlackIntegrationChannels(param.accountName,  options).toPromise();
     }
-	
+
     /**
      * Remove a channel from your Datadog-Slack integration.
      * Remove a Slack integration channel
@@ -3098,7 +2992,7 @@ export class ObjectSlackIntegrationApi {
     public removeSlackIntegrationChannel(param: SlackIntegrationApiRemoveSlackIntegrationChannelRequest, options?: Configuration): Promise<void> {
         return this.api.removeSlackIntegrationChannel(param.accountName, param.channelName,  options).toPromise();
     }
-	
+
     /**
      * Update a channel used in your Datadog-Slack integration.
      * Update a Slack integration channel
@@ -3107,12 +3001,8 @@ export class ObjectSlackIntegrationApi {
     public updateSlackIntegrationChannel(param: SlackIntegrationApiUpdateSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
         return this.api.updateSlackIntegrationChannel(param.accountName, param.channelName, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableSnapshotsApi } from "./ObservableAPI";
 import { SnapshotsApiRequestFactory, SnapshotsApiResponseProcessor} from "../apis/SnapshotsApi";
@@ -3156,13 +3046,12 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
     title?: string
 }
 
-
 export class ObjectSnapshotsApi {
     private api: ObservableSnapshotsApi
 
     public constructor(configuration: Configuration, requestFactory?: SnapshotsApiRequestFactory, responseProcessor?: SnapshotsApiResponseProcessor) {
         this.api = new ObservableSnapshotsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
@@ -3172,12 +3061,8 @@ export class ObjectSnapshotsApi {
     public getGraphSnapshot(param: SnapshotsApiGetGraphSnapshotRequest, options?: Configuration): Promise<GraphSnapshot> {
         return this.api.getGraphSnapshot(param.start, param.end, param.metricQuery, param.eventQuery, param.graphDef, param.title,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableSyntheticsApi } from "./ObservableAPI";
 import { SyntheticsApiRequestFactory, SyntheticsApiResponseProcessor} from "../apis/SyntheticsApi";
@@ -3479,13 +3364,12 @@ export interface SyntheticsApiUpdateTestPauseStatusRequest {
     body: SyntheticsUpdateTestPauseStatusPayload
 }
 
-
 export class ObjectSyntheticsApi {
     private api: ObservableSyntheticsApi
 
     public constructor(configuration: Configuration, requestFactory?: SyntheticsApiRequestFactory, responseProcessor?: SyntheticsApiResponseProcessor) {
         this.api = new ObservableSyntheticsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a Synthetics global variable.
@@ -3495,7 +3379,7 @@ export class ObjectSyntheticsApi {
     public createGlobalVariable(param: SyntheticsApiCreateGlobalVariableRequest, options?: Configuration): Promise<SyntheticsGlobalVariable> {
         return this.api.createGlobalVariable(param.body,  options).toPromise();
     }
-	
+
     /**
      * Create a new Synthetics private location.
      * Create a private location
@@ -3504,7 +3388,7 @@ export class ObjectSyntheticsApi {
     public createPrivateLocation(param: SyntheticsApiCreatePrivateLocationRequest, options?: Configuration): Promise<SyntheticsPrivateLocationCreationResponse> {
         return this.api.createPrivateLocation(param.body,  options).toPromise();
     }
-	
+
     /**
      * Create a Synthetic API test.
      * Create an API test
@@ -3513,7 +3397,7 @@ export class ObjectSyntheticsApi {
     public createSyntheticsAPITest(param: SyntheticsApiCreateSyntheticsAPITestRequest, options?: Configuration): Promise<SyntheticsAPITest> {
         return this.api.createSyntheticsAPITest(param.body,  options).toPromise();
     }
-	
+
     /**
      * Create a Synthetic browser test.
      * Create a browser test
@@ -3522,7 +3406,7 @@ export class ObjectSyntheticsApi {
     public createSyntheticsBrowserTest(param: SyntheticsApiCreateSyntheticsBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
         return this.api.createSyntheticsBrowserTest(param.body,  options).toPromise();
     }
-	
+
     /**
      * Create a Synthetic test.
      * Create a test
@@ -3531,7 +3415,7 @@ export class ObjectSyntheticsApi {
     public createTest(param: SyntheticsApiCreateTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
         return this.api.createTest(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a Synthetics global variable.
      * Delete a global variable
@@ -3540,7 +3424,7 @@ export class ObjectSyntheticsApi {
     public deleteGlobalVariable(param: SyntheticsApiDeleteGlobalVariableRequest, options?: Configuration): Promise<void> {
         return this.api.deleteGlobalVariable(param.variableId,  options).toPromise();
     }
-	
+
     /**
      * Delete a Synthetics private location.
      * Delete a private location
@@ -3549,7 +3433,7 @@ export class ObjectSyntheticsApi {
     public deletePrivateLocation(param: SyntheticsApiDeletePrivateLocationRequest, options?: Configuration): Promise<void> {
         return this.api.deletePrivateLocation(param.locationId,  options).toPromise();
     }
-	
+
     /**
      * Delete multiple Synthetic tests by ID.
      * Delete tests
@@ -3558,7 +3442,7 @@ export class ObjectSyntheticsApi {
     public deleteTests(param: SyntheticsApiDeleteTestsRequest, options?: Configuration): Promise<SyntheticsDeleteTestsResponse> {
         return this.api.deleteTests(param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit a Synthetics global variable.
      * Edit a global variable
@@ -3567,7 +3451,7 @@ export class ObjectSyntheticsApi {
     public editGlobalVariable(param: SyntheticsApiEditGlobalVariableRequest, options?: Configuration): Promise<SyntheticsGlobalVariable> {
         return this.api.editGlobalVariable(param.variableId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Get the last 50 test results summaries for a given Synthetics API test.
      * Get the test's latest results summaries (API)
@@ -3576,7 +3460,7 @@ export class ObjectSyntheticsApi {
     public getAPITestLatestResults(param: SyntheticsApiGetAPITestLatestResultsRequest, options?: Configuration): Promise<SyntheticsGetAPITestLatestResultsResponse> {
         return this.api.getAPITestLatestResults(param.publicId, param.fromTs, param.toTs, param.probeDc,  options).toPromise();
     }
-	
+
     /**
      * Get a specific full result from a given (API) Synthetic test.
      * Get a test result (API)
@@ -3585,7 +3469,7 @@ export class ObjectSyntheticsApi {
     public getAPITestResult(param: SyntheticsApiGetAPITestResultRequest, options?: Configuration): Promise<SyntheticsAPITestResultFull> {
         return this.api.getAPITestResult(param.publicId, param.resultId,  options).toPromise();
     }
-	
+
     /**
      * Get the detailed configuration (including steps) associated with a Synthetic browser test.
      * Get a test configuration (browser)
@@ -3594,7 +3478,7 @@ export class ObjectSyntheticsApi {
     public getBrowserTest(param: SyntheticsApiGetBrowserTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
         return this.api.getBrowserTest(param.publicId,  options).toPromise();
     }
-	
+
     /**
      * Get the last 50 test results summaries for a given Synthetics Browser test.
      * Get the test's latest results summaries (browser)
@@ -3603,7 +3487,7 @@ export class ObjectSyntheticsApi {
     public getBrowserTestLatestResults(param: SyntheticsApiGetBrowserTestLatestResultsRequest, options?: Configuration): Promise<SyntheticsGetBrowserTestLatestResultsResponse> {
         return this.api.getBrowserTestLatestResults(param.publicId, param.fromTs, param.toTs, param.probeDc,  options).toPromise();
     }
-	
+
     /**
      * Get a specific full result from a given (browser) Synthetic test.
      * Get a test result (browser)
@@ -3612,7 +3496,7 @@ export class ObjectSyntheticsApi {
     public getBrowserTestResult(param: SyntheticsApiGetBrowserTestResultRequest, options?: Configuration): Promise<SyntheticsBrowserTestResultFull> {
         return this.api.getBrowserTestResult(param.publicId, param.resultId,  options).toPromise();
     }
-	
+
     /**
      * Get the detailed configuration of a global variable.
      * Get a global variable
@@ -3621,7 +3505,7 @@ export class ObjectSyntheticsApi {
     public getGlobalVariable(param: SyntheticsApiGetGlobalVariableRequest, options?: Configuration): Promise<SyntheticsGlobalVariable> {
         return this.api.getGlobalVariable(param.variableId,  options).toPromise();
     }
-	
+
     /**
      * Get a Synthetics private location.
      * Get a private location
@@ -3630,7 +3514,7 @@ export class ObjectSyntheticsApi {
     public getPrivateLocation(param: SyntheticsApiGetPrivateLocationRequest, options?: Configuration): Promise<SyntheticsPrivateLocation> {
         return this.api.getPrivateLocation(param.locationId,  options).toPromise();
     }
-	
+
     /**
      * Get the detailed configuration associated with a Synthetics test.
      * Get a test configuration (API)
@@ -3639,7 +3523,7 @@ export class ObjectSyntheticsApi {
     public getTest(param: SyntheticsApiGetTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
         return this.api.getTest(param.publicId,  options).toPromise();
     }
-	
+
     /**
      * Get the list of public and private locations available for Synthetic tests. No arguments required.
      * Get all locations (public and private)
@@ -3648,7 +3532,7 @@ export class ObjectSyntheticsApi {
     public listLocations(param: SyntheticsApiListLocationsRequest, options?: Configuration): Promise<SyntheticsLocations> {
         return this.api.listLocations( options).toPromise();
     }
-	
+
     /**
      * Get the list of all Synthetic tests.
      * Get the list of all tests
@@ -3657,7 +3541,7 @@ export class ObjectSyntheticsApi {
     public listTests(param: SyntheticsApiListTestsRequest, options?: Configuration): Promise<SyntheticsListTestsResponse> {
         return this.api.listTests( options).toPromise();
     }
-	
+
     /**
      * Trigger a set of Synthetics tests for continuous integration.
      * Trigger some Synthetics tests for CI
@@ -3666,7 +3550,7 @@ export class ObjectSyntheticsApi {
     public triggerCITests(param: SyntheticsApiTriggerCITestsRequest, options?: Configuration): Promise<SyntheticsTriggerCITestsResponse> {
         return this.api.triggerCITests(param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit the configuration of a Synthetic API test.
      * Edit an API test
@@ -3675,7 +3559,7 @@ export class ObjectSyntheticsApi {
     public updateAPITest(param: SyntheticsApiUpdateAPITestRequest, options?: Configuration): Promise<SyntheticsAPITest> {
         return this.api.updateAPITest(param.publicId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit the configuration of a Synthetic browser test.
      * Edit a browser test
@@ -3684,7 +3568,7 @@ export class ObjectSyntheticsApi {
     public updateBrowserTest(param: SyntheticsApiUpdateBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
         return this.api.updateBrowserTest(param.publicId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit a Synthetics private location.
      * Edit a private location
@@ -3693,7 +3577,7 @@ export class ObjectSyntheticsApi {
     public updatePrivateLocation(param: SyntheticsApiUpdatePrivateLocationRequest, options?: Configuration): Promise<SyntheticsPrivateLocation> {
         return this.api.updatePrivateLocation(param.locationId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit the configuration of a Synthetic test.
      * Edit a test
@@ -3702,7 +3586,7 @@ export class ObjectSyntheticsApi {
     public updateTest(param: SyntheticsApiUpdateTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
         return this.api.updateTest(param.publicId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Pause or start a Synthetics test by changing the status.
      * Pause or start a test
@@ -3711,12 +3595,8 @@ export class ObjectSyntheticsApi {
     public updateTestPauseStatus(param: SyntheticsApiUpdateTestPauseStatusRequest, options?: Configuration): Promise<boolean> {
         return this.api.updateTestPauseStatus(param.publicId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableTagsApi } from "./ObservableAPI";
 import { TagsApiRequestFactory, TagsApiResponseProcessor} from "../apis/TagsApi";
@@ -3802,13 +3682,12 @@ export interface TagsApiUpdateHostTagsRequest {
     source?: string
 }
 
-
 export class ObjectTagsApi {
     private api: ObservableTagsApi
 
     public constructor(configuration: Configuration, requestFactory?: TagsApiRequestFactory, responseProcessor?: TagsApiResponseProcessor) {
         this.api = new ObservableTagsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
@@ -3818,7 +3697,7 @@ export class ObjectTagsApi {
     public createHostTags(param: TagsApiCreateHostTagsRequest, options?: Configuration): Promise<HostTags> {
         return this.api.createHostTags(param.hostName, param.body, param.source,  options).toPromise();
     }
-	
+
     /**
      * This endpoint allows you to remove all user-assigned tags for a single host.
      * Remove host tags
@@ -3827,7 +3706,7 @@ export class ObjectTagsApi {
     public deleteHostTags(param: TagsApiDeleteHostTagsRequest, options?: Configuration): Promise<void> {
         return this.api.deleteHostTags(param.hostName, param.source,  options).toPromise();
     }
-	
+
     /**
      * Return the list of tags that apply to a given host.
      * Get host tags
@@ -3836,7 +3715,7 @@ export class ObjectTagsApi {
     public getHostTags(param: TagsApiGetHostTagsRequest, options?: Configuration): Promise<HostTags> {
         return this.api.getHostTags(param.hostName, param.source,  options).toPromise();
     }
-	
+
     /**
      * Return a mapping of tags to hosts for your whole infrastructure.
      * Get Tags
@@ -3845,7 +3724,7 @@ export class ObjectTagsApi {
     public listHostTags(param: TagsApiListHostTagsRequest, options?: Configuration): Promise<TagToHosts> {
         return this.api.listHostTags(param.source,  options).toPromise();
     }
-	
+
     /**
      * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
      * Update host tags
@@ -3854,12 +3733,8 @@ export class ObjectTagsApi {
     public updateHostTags(param: TagsApiUpdateHostTagsRequest, options?: Configuration): Promise<HostTags> {
         return this.api.updateHostTags(param.hostName, param.body, param.source,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableUsageMeteringApi } from "./ObservableAPI";
 import { UsageMeteringApiRequestFactory, UsageMeteringApiResponseProcessor} from "../apis/UsageMeteringApi";
@@ -4347,13 +4222,12 @@ export interface UsageMeteringApiGetUsageTraceRequest {
     endHr?: Date
 }
 
-
 export class ObjectUsageMeteringApi {
     private api: ObservableUsageMeteringApi
 
     public constructor(configuration: Configuration, requestFactory?: UsageMeteringApiRequestFactory, responseProcessor?: UsageMeteringApiResponseProcessor) {
         this.api = new ObservableUsageMeteringApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Get daily custom reports.
@@ -4363,7 +4237,7 @@ export class ObjectUsageMeteringApi {
     public getDailyCustomReports(param: UsageMeteringApiGetDailyCustomReportsRequest, options?: Configuration): Promise<UsageCustomReportsResponse> {
         return this.api.getDailyCustomReports(param.pageSize, param.pageNumber, param.sortDir, param.sort,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for incident management.
      * Get hourly usage for incident management
@@ -4372,7 +4246,7 @@ export class ObjectUsageMeteringApi {
     public getIncidentManagement(param: UsageMeteringApiGetIncidentManagementRequest, options?: Configuration): Promise<UsageIncidentManagementResponse> {
         return this.api.getIncidentManagement(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for ingested spans.
      * Get hourly usage for ingested spans
@@ -4381,7 +4255,7 @@ export class ObjectUsageMeteringApi {
     public getIngestedSpans(param: UsageMeteringApiGetIngestedSpansRequest, options?: Configuration): Promise<UsageIngestedSpansResponse> {
         return this.api.getIngestedSpans(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get monthly custom reports.
      * Get the list of available monthly custom reports
@@ -4390,7 +4264,7 @@ export class ObjectUsageMeteringApi {
     public getMonthlyCustomReports(param: UsageMeteringApiGetMonthlyCustomReportsRequest, options?: Configuration): Promise<UsageCustomReportsResponse> {
         return this.api.getMonthlyCustomReports(param.pageSize, param.pageNumber, param.sortDir, param.sort,  options).toPromise();
     }
-	
+
     /**
      * Get specified daily custom reports.
      * Get specified daily custom reports
@@ -4399,7 +4273,7 @@ export class ObjectUsageMeteringApi {
     public getSpecifiedDailyCustomReports(param: UsageMeteringApiGetSpecifiedDailyCustomReportsRequest, options?: Configuration): Promise<UsageSpecifiedCustomReportsResponse> {
         return this.api.getSpecifiedDailyCustomReports(param.reportId,  options).toPromise();
     }
-	
+
     /**
      * Get specified monthly custom reports.
      * Get specified monthly custom reports
@@ -4408,7 +4282,7 @@ export class ObjectUsageMeteringApi {
     public getSpecifiedMonthlyCustomReports(param: UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest, options?: Configuration): Promise<UsageSpecifiedCustomReportsResponse> {
         return this.api.getSpecifiedMonthlyCustomReports(param.reportId,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
      * Get hourly usage for tracing without limits
@@ -4417,7 +4291,7 @@ export class ObjectUsageMeteringApi {
     public getTracingWithoutLimits(param: UsageMeteringApiGetTracingWithoutLimitsRequest, options?: Configuration): Promise<UsageTracingWithoutLimitsResponse> {
         return this.api.getTracingWithoutLimits(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for analyzed logs (Security Monitoring).
      * Get hourly usage for analyzed logs
@@ -4426,7 +4300,7 @@ export class ObjectUsageMeteringApi {
     public getUsageAnalyzedLogs(param: UsageMeteringApiGetUsageAnalyzedLogsRequest, options?: Configuration): Promise<UsageAnalyzedLogsResponse> {
         return this.api.getUsageAnalyzedLogs(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get Usage Attribution.
      * Get Usage Attribution
@@ -4435,7 +4309,7 @@ export class ObjectUsageMeteringApi {
     public getUsageAttribution(param: UsageMeteringApiGetUsageAttributionRequest, options?: Configuration): Promise<UsageAttributionResponse> {
         return this.api.getUsageAttribution(param.startMonth, param.fields, param.endMonth, param.sortDirection, param.sortName,  options).toPromise();
     }
-	
+
     /**
      * Get billable usage across your account.
      * Get billable usage across your account
@@ -4444,7 +4318,7 @@ export class ObjectUsageMeteringApi {
     public getUsageBillableSummary(param: UsageMeteringApiGetUsageBillableSummaryRequest, options?: Configuration): Promise<UsageBillableSummaryResponse> {
         return this.api.getUsageBillableSummary(param.month,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
      * Get hourly usage for Fargate
@@ -4453,7 +4327,7 @@ export class ObjectUsageMeteringApi {
     public getUsageFargate(param: UsageMeteringApiGetUsageFargateRequest, options?: Configuration): Promise<UsageFargateResponse> {
         return this.api.getUsageFargate(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for hosts and containers.
      * Get hourly usage for hosts and containers
@@ -4462,7 +4336,7 @@ export class ObjectUsageMeteringApi {
     public getUsageHosts(param: UsageMeteringApiGetUsageHostsRequest, options?: Configuration): Promise<UsageHostsResponse> {
         return this.api.getUsageHosts(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for indexed spans.
      * Get hourly usage for indexed spans
@@ -4471,7 +4345,7 @@ export class ObjectUsageMeteringApi {
     public getUsageIndexedSpans(param: UsageMeteringApiGetUsageIndexedSpansRequest, options?: Configuration): Promise<UsageIndexedSpansResponse> {
         return this.api.getUsageIndexedSpans(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for IoT.
      * Get hourly usage for IoT
@@ -4480,7 +4354,7 @@ export class ObjectUsageMeteringApi {
     public getUsageInternetOfThings(param: UsageMeteringApiGetUsageInternetOfThingsRequest, options?: Configuration): Promise<UsageIoTResponse> {
         return this.api.getUsageInternetOfThings(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for lambda.
      * Get hourly usage for Lambda
@@ -4489,7 +4363,7 @@ export class ObjectUsageMeteringApi {
     public getUsageLambda(param: UsageMeteringApiGetUsageLambdaRequest, options?: Configuration): Promise<UsageLambdaResponse> {
         return this.api.getUsageLambda(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for logs.
      * Get hourly usage for Logs
@@ -4498,7 +4372,7 @@ export class ObjectUsageMeteringApi {
     public getUsageLogs(param: UsageMeteringApiGetUsageLogsRequest, options?: Configuration): Promise<UsageLogsResponse> {
         return this.api.getUsageLogs(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for logs by index.
      * Get hourly usage for Logs by Index
@@ -4507,7 +4381,7 @@ export class ObjectUsageMeteringApi {
     public getUsageLogsByIndex(param: UsageMeteringApiGetUsageLogsByIndexRequest, options?: Configuration): Promise<UsageLogsByIndexResponse> {
         return this.api.getUsageLogsByIndex(param.startHr, param.endHr, param.indexName,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for network flows.
      * Get hourly usage for Network Flows
@@ -4516,7 +4390,7 @@ export class ObjectUsageMeteringApi {
     public getUsageNetworkFlows(param: UsageMeteringApiGetUsageNetworkFlowsRequest, options?: Configuration): Promise<UsageNetworkFlowsResponse> {
         return this.api.getUsageNetworkFlows(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for network hosts.
      * Get hourly usage for Network Hosts
@@ -4525,7 +4399,7 @@ export class ObjectUsageMeteringApi {
     public getUsageNetworkHosts(param: UsageMeteringApiGetUsageNetworkHostsRequest, options?: Configuration): Promise<UsageNetworkHostsResponse> {
         return this.api.getUsageNetworkHosts(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for profiled hosts.
      * Get hourly usage for profiled hosts
@@ -4534,7 +4408,7 @@ export class ObjectUsageMeteringApi {
     public getUsageProfiling(param: UsageMeteringApiGetUsageProfilingRequest, options?: Configuration): Promise<UsageProfilingResponse> {
         return this.api.getUsageProfiling(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
      * Get hourly usage for RUM Sessions
@@ -4543,7 +4417,7 @@ export class ObjectUsageMeteringApi {
     public getUsageRumSessions(param: UsageMeteringApiGetUsageRumSessionsRequest, options?: Configuration): Promise<UsageRumSessionsResponse> {
         return this.api.getUsageRumSessions(param.startHr, param.endHr, param.type,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for SNMP devices.
      * Get hourly usage for SNMP devices
@@ -4552,7 +4426,7 @@ export class ObjectUsageMeteringApi {
     public getUsageSNMP(param: UsageMeteringApiGetUsageSNMPRequest, options?: Configuration): Promise<UsageSNMPResponse> {
         return this.api.getUsageSNMP(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get usage across your multi-org account. You must have the multi-org feature enabled.
      * Get usage across your multi-org account
@@ -4561,7 +4435,7 @@ export class ObjectUsageMeteringApi {
     public getUsageSummary(param: UsageMeteringApiGetUsageSummaryRequest, options?: Configuration): Promise<UsageSummaryResponse> {
         return this.api.getUsageSummary(param.startMonth, param.endMonth, param.includeOrgDetails,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
      * Get hourly usage for Synthetics Checks
@@ -4570,7 +4444,7 @@ export class ObjectUsageMeteringApi {
     public getUsageSynthetics(param: UsageMeteringApiGetUsageSyntheticsRequest, options?: Configuration): Promise<UsageSyntheticsResponse> {
         return this.api.getUsageSynthetics(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
      * Get hourly usage for Synthetics API Checks
@@ -4579,7 +4453,7 @@ export class ObjectUsageMeteringApi {
     public getUsageSyntheticsAPI(param: UsageMeteringApiGetUsageSyntheticsAPIRequest, options?: Configuration): Promise<UsageSyntheticsAPIResponse> {
         return this.api.getUsageSyntheticsAPI(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for synthetics browser checks.
      * Get hourly usage for Synthetics Browser Checks
@@ -4588,7 +4462,7 @@ export class ObjectUsageMeteringApi {
     public getUsageSyntheticsBrowser(param: UsageMeteringApiGetUsageSyntheticsBrowserRequest, options?: Configuration): Promise<UsageSyntheticsBrowserResponse> {
         return this.api.getUsageSyntheticsBrowser(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
      * Get hourly usage for custom metrics
@@ -4597,7 +4471,7 @@ export class ObjectUsageMeteringApi {
     public getUsageTimeseries(param: UsageMeteringApiGetUsageTimeseriesRequest, options?: Configuration): Promise<UsageTimeseriesResponse> {
         return this.api.getUsageTimeseries(param.startHr, param.endHr,  options).toPromise();
     }
-	
+
     /**
      * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
      * Get top custom metrics by hourly average
@@ -4606,7 +4480,7 @@ export class ObjectUsageMeteringApi {
     public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
         return this.api.getUsageTopAvgMetrics(param.month, param.names, param.limit,  options).toPromise();
     }
-	
+
     /**
      * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
      * Get hourly usage for Trace Search
@@ -4615,12 +4489,8 @@ export class ObjectUsageMeteringApi {
     public getUsageTrace(param: UsageMeteringApiGetUsageTraceRequest, options?: Configuration): Promise<UsageTraceResponse> {
         return this.api.getUsageTrace(param.startHr, param.endHr,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableUsersApi } from "./ObservableAPI";
 import { UsersApiRequestFactory, UsersApiResponseProcessor} from "../apis/UsersApi";
@@ -4670,13 +4540,12 @@ export interface UsersApiUpdateUserRequest {
     body: User
 }
 
-
 export class ObjectUsersApi {
     private api: ObservableUsersApi
 
     public constructor(configuration: Configuration, requestFactory?: UsersApiRequestFactory, responseProcessor?: UsersApiResponseProcessor) {
         this.api = new ObservableUsersApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
@@ -4686,7 +4555,7 @@ export class ObjectUsersApi {
     public createUser(param: UsersApiCreateUserRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.createUser(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
      * Disable a user
@@ -4695,7 +4564,7 @@ export class ObjectUsersApi {
     public disableUser(param: UsersApiDisableUserRequest, options?: Configuration): Promise<UserDisableResponse> {
         return this.api.disableUser(param.userHandle,  options).toPromise();
     }
-	
+
     /**
      * Get a user's details.
      * Get user details
@@ -4704,7 +4573,7 @@ export class ObjectUsersApi {
     public getUser(param: UsersApiGetUserRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.getUser(param.userHandle,  options).toPromise();
     }
-	
+
     /**
      * List all users for your organization.
      * List all users
@@ -4713,7 +4582,7 @@ export class ObjectUsersApi {
     public listUsers(param: UsersApiListUsersRequest, options?: Configuration): Promise<UserListResponse> {
         return this.api.listUsers( options).toPromise();
     }
-	
+
     /**
      * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
      * Update a user
@@ -4722,9 +4591,5 @@ export class ObjectUsersApi {
     public updateUser(param: UsersApiUpdateUserRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.updateUser(param.userHandle, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-

@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -19,7 +19,7 @@ import { OrganizationResponse } from '../models/OrganizationResponse';
  * no description
  */
 export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `pi_key.key`, and `application_key.hash` provided in the response.
      * Create a child organization
@@ -27,13 +27,13 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createChildOrg(body: OrganizationCreateBody, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createChildOrg.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/org';
 
@@ -42,9 +42,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -80,13 +80,13 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getOrg(publicId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling getOrg.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/org/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -96,9 +96,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -124,7 +124,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listOrgs(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/org';
 
@@ -133,9 +133,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -163,19 +163,19 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateOrg(publicId: string, body: Organization, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling updateOrg.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateOrg.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/org/{public_id}'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -185,9 +185,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -224,19 +224,19 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async uploadIdPForOrg(publicId: string, idpFile: HttpFile, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'publicId' is not null or undefined
         if (publicId === null || publicId === undefined) {
             throw new RequiredError('Required parameter publicId was null or undefined when calling uploadIdPForOrg.');
         }
 
-        
+
         // verify required parameter 'idpFile' is not null or undefined
         if (idpFile === null || idpFile === undefined) {
             throw new RequiredError('Required parameter idpFile was null or undefined when calling uploadIdPForOrg.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/org/{public_id}/idp_metadata'
             .replace('{' + 'public_id' + '}', encodeURIComponent(String(publicId)));
@@ -246,14 +246,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
         let localVarFormParams = new FormData();
 
         if (idpFile !== undefined) {
-        // TODO: replace .append with .set
+             // TODO: replace .append with .set
              localVarFormParams.append('idp_file', idpFile.data, idpFile.name);
         }
         requestContext.setBody(localVarFormParams);
@@ -275,8 +275,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class OrganizationsApiResponseProcessor {
 
@@ -323,7 +321,7 @@ export class OrganizationsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -367,7 +365,7 @@ export class OrganizationsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -404,7 +402,7 @@ export class OrganizationsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -448,7 +446,7 @@ export class OrganizationsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -499,5 +497,5 @@ export class OrganizationsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

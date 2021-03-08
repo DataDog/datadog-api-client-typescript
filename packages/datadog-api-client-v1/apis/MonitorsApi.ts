@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -17,7 +17,7 @@ import { MonitorUpdateRequest } from '../models/MonitorUpdateRequest';
  * no description
  */
 export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Check if the given monitors can be deleted.
      * Check if a monitor can be deleted
@@ -25,13 +25,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async checkCanDeleteMonitor(monitorIds: Array<number>, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'monitorIds' is not null or undefined
         if (monitorIds === null || monitorIds === undefined) {
             throw new RequiredError('Required parameter monitorIds was null or undefined when calling checkCanDeleteMonitor.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/monitor/can_delete';
 
@@ -43,9 +43,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         if (monitorIds !== undefined) {
             requestContext.setQueryParam("monitor_ids", ObjectSerializer.serialize(monitorIds, "Array<number>", "int64"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -72,13 +72,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createMonitor(body: Monitor, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createMonitor.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/monitor';
 
@@ -87,9 +87,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -126,14 +126,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteMonitor(monitorId: number, force?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'monitorId' is not null or undefined
         if (monitorId === null || monitorId === undefined) {
             throw new RequiredError('Required parameter monitorId was null or undefined when calling deleteMonitor.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/monitor/{monitor_id}'
             .replace('{' + 'monitor_id' + '}', encodeURIComponent(String(monitorId)));
@@ -146,9 +146,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         if (force !== undefined) {
             requestContext.setQueryParam("force", ObjectSerializer.serialize(force, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -176,14 +176,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getMonitor(monitorId: number, groupStates?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'monitorId' is not null or undefined
         if (monitorId === null || monitorId === undefined) {
             throw new RequiredError('Required parameter monitorId was null or undefined when calling getMonitor.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/monitor/{monitor_id}'
             .replace('{' + 'monitor_id' + '}', encodeURIComponent(String(monitorId)));
@@ -196,9 +196,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         if (groupStates !== undefined) {
             requestContext.setQueryParam("group_states", ObjectSerializer.serialize(groupStates, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -232,15 +232,15 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listMonitors(groupStates?: string, name?: string, tags?: string, monitorTags?: string, withDowntimes?: boolean, idOffset?: number, page?: number, pageSize?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/monitor';
 
@@ -273,9 +273,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         if (pageSize !== undefined) {
             requestContext.setQueryParam("page_size", ObjectSerializer.serialize(pageSize, "number", "int32"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -303,19 +303,19 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateMonitor(monitorId: number, body: MonitorUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'monitorId' is not null or undefined
         if (monitorId === null || monitorId === undefined) {
             throw new RequiredError('Required parameter monitorId was null or undefined when calling updateMonitor.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateMonitor.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/monitor/{monitor_id}'
             .replace('{' + 'monitor_id' + '}', encodeURIComponent(String(monitorId)));
@@ -325,9 +325,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -363,13 +363,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async validateMonitor(body: Monitor, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling validateMonitor.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/monitor/validate';
 
@@ -378,9 +378,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -410,8 +410,6 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class MonitorsApiResponseProcessor {
 
@@ -465,7 +463,7 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -509,7 +507,7 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -567,7 +565,7 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -618,7 +616,7 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -662,7 +660,7 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -720,7 +718,7 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -764,5 +762,5 @@ export class MonitorsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

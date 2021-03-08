@@ -363,13 +363,12 @@ export interface DashboardListsApiUpdateDashboardListItemsRequest {
     body: DashboardListUpdateItemsRequest
 }
 
-
 export class ObjectDashboardListsApi {
     private api: ObservableDashboardListsApi
 
     public constructor(configuration: Configuration, requestFactory?: DashboardListsApiRequestFactory, responseProcessor?: DashboardListsApiResponseProcessor) {
         this.api = new ObservableDashboardListsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Add dashboards to an existing dashboard list.
@@ -379,7 +378,7 @@ export class ObjectDashboardListsApi {
     public createDashboardListItems(param: DashboardListsApiCreateDashboardListItemsRequest, options?: Configuration): Promise<DashboardListAddItemsResponse> {
         return this.api.createDashboardListItems(param.dashboardListId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete dashboards from an existing dashboard list.
      * Delete items from a dashboard list
@@ -388,7 +387,7 @@ export class ObjectDashboardListsApi {
     public deleteDashboardListItems(param: DashboardListsApiDeleteDashboardListItemsRequest, options?: Configuration): Promise<DashboardListDeleteItemsResponse> {
         return this.api.deleteDashboardListItems(param.dashboardListId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Fetch the dashboard list’s dashboard definitions.
      * Get items of a Dashboard List
@@ -397,7 +396,7 @@ export class ObjectDashboardListsApi {
     public getDashboardListItems(param: DashboardListsApiGetDashboardListItemsRequest, options?: Configuration): Promise<DashboardListItems> {
         return this.api.getDashboardListItems(param.dashboardListId,  options).toPromise();
     }
-	
+
     /**
      * Update dashboards of an existing dashboard list.
      * Update items of a dashboard list
@@ -406,12 +405,8 @@ export class ObjectDashboardListsApi {
     public updateDashboardListItems(param: DashboardListsApiUpdateDashboardListItemsRequest, options?: Configuration): Promise<DashboardListUpdateItemsResponse> {
         return this.api.updateDashboardListItems(param.dashboardListId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableIncidentServicesApi } from "./ObservableAPI";
 import { IncidentServicesApiRequestFactory, IncidentServicesApiResponseProcessor} from "../apis/IncidentServicesApi";
@@ -491,13 +486,12 @@ export interface IncidentServicesApiUpdateIncidentServiceRequest {
     body: IncidentServiceUpdateRequest
 }
 
-
 export class ObjectIncidentServicesApi {
     private api: ObservableIncidentServicesApi
 
     public constructor(configuration: Configuration, requestFactory?: IncidentServicesApiRequestFactory, responseProcessor?: IncidentServicesApiResponseProcessor) {
         this.api = new ObservableIncidentServicesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Creates a new incident service.
@@ -507,7 +501,7 @@ export class ObjectIncidentServicesApi {
     public createIncidentService(param: IncidentServicesApiCreateIncidentServiceRequest, options?: Configuration): Promise<IncidentServiceResponse> {
         return this.api.createIncidentService(param.body,  options).toPromise();
     }
-	
+
     /**
      * Deletes an existing incident service.
      * Delete an existing incident service
@@ -516,7 +510,7 @@ export class ObjectIncidentServicesApi {
     public deleteIncidentService(param: IncidentServicesApiDeleteIncidentServiceRequest, options?: Configuration): Promise<void> {
         return this.api.deleteIncidentService(param.serviceId,  options).toPromise();
     }
-	
+
     /**
      * Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
      * Get details of an incident service
@@ -525,7 +519,7 @@ export class ObjectIncidentServicesApi {
     public getIncidentService(param: IncidentServicesApiGetIncidentServiceRequest, options?: Configuration): Promise<IncidentServiceResponse> {
         return this.api.getIncidentService(param.serviceId, param.include,  options).toPromise();
     }
-	
+
     /**
      * Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
      * Get a list of all incident services
@@ -534,7 +528,7 @@ export class ObjectIncidentServicesApi {
     public listIncidentServices(param: IncidentServicesApiListIncidentServicesRequest, options?: Configuration): Promise<IncidentServicesResponse> {
         return this.api.listIncidentServices(param.include, param.pageSize, param.pageOffset, param.filter,  options).toPromise();
     }
-	
+
     /**
      * Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
      * Update an existing incident service
@@ -543,12 +537,8 @@ export class ObjectIncidentServicesApi {
     public updateIncidentService(param: IncidentServicesApiUpdateIncidentServiceRequest, options?: Configuration): Promise<IncidentServiceResponse> {
         return this.api.updateIncidentService(param.serviceId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableIncidentTeamsApi } from "./ObservableAPI";
 import { IncidentTeamsApiRequestFactory, IncidentTeamsApiResponseProcessor} from "../apis/IncidentTeamsApi";
@@ -628,13 +618,12 @@ export interface IncidentTeamsApiUpdateIncidentTeamRequest {
     body: IncidentTeamUpdateRequest
 }
 
-
 export class ObjectIncidentTeamsApi {
     private api: ObservableIncidentTeamsApi
 
     public constructor(configuration: Configuration, requestFactory?: IncidentTeamsApiRequestFactory, responseProcessor?: IncidentTeamsApiResponseProcessor) {
         this.api = new ObservableIncidentTeamsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Creates a new incident team.
@@ -644,7 +633,7 @@ export class ObjectIncidentTeamsApi {
     public createIncidentTeam(param: IncidentTeamsApiCreateIncidentTeamRequest, options?: Configuration): Promise<IncidentTeamResponse> {
         return this.api.createIncidentTeam(param.body,  options).toPromise();
     }
-	
+
     /**
      * Deletes an existing incident team.
      * Delete an existing incident team
@@ -653,7 +642,7 @@ export class ObjectIncidentTeamsApi {
     public deleteIncidentTeam(param: IncidentTeamsApiDeleteIncidentTeamRequest, options?: Configuration): Promise<void> {
         return this.api.deleteIncidentTeam(param.teamId,  options).toPromise();
     }
-	
+
     /**
      * Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
      * Get details of an incident team
@@ -662,7 +651,7 @@ export class ObjectIncidentTeamsApi {
     public getIncidentTeam(param: IncidentTeamsApiGetIncidentTeamRequest, options?: Configuration): Promise<IncidentTeamResponse> {
         return this.api.getIncidentTeam(param.teamId, param.include,  options).toPromise();
     }
-	
+
     /**
      * Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
      * Get a list of all incident teams
@@ -671,7 +660,7 @@ export class ObjectIncidentTeamsApi {
     public listIncidentTeams(param: IncidentTeamsApiListIncidentTeamsRequest, options?: Configuration): Promise<IncidentTeamsResponse> {
         return this.api.listIncidentTeams(param.include, param.pageSize, param.pageOffset, param.filter,  options).toPromise();
     }
-	
+
     /**
      * Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
      * Update an existing incident team
@@ -680,12 +669,8 @@ export class ObjectIncidentTeamsApi {
     public updateIncidentTeam(param: IncidentTeamsApiUpdateIncidentTeamRequest, options?: Configuration): Promise<IncidentTeamResponse> {
         return this.api.updateIncidentTeam(param.teamId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableIncidentsApi } from "./ObservableAPI";
 import { IncidentsApiRequestFactory, IncidentsApiResponseProcessor} from "../apis/IncidentsApi";
@@ -759,13 +744,12 @@ export interface IncidentsApiUpdateIncidentRequest {
     body: IncidentUpdateRequest
 }
 
-
 export class ObjectIncidentsApi {
     private api: ObservableIncidentsApi
 
     public constructor(configuration: Configuration, requestFactory?: IncidentsApiRequestFactory, responseProcessor?: IncidentsApiResponseProcessor) {
         this.api = new ObservableIncidentsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create an incident.
@@ -775,7 +759,7 @@ export class ObjectIncidentsApi {
     public createIncident(param: IncidentsApiCreateIncidentRequest, options?: Configuration): Promise<IncidentResponse> {
         return this.api.createIncident(param.body,  options).toPromise();
     }
-	
+
     /**
      * Deletes an existing incident from the users organization.
      * Delete an existing incident
@@ -784,7 +768,7 @@ export class ObjectIncidentsApi {
     public deleteIncident(param: IncidentsApiDeleteIncidentRequest, options?: Configuration): Promise<void> {
         return this.api.deleteIncident(param.incidentId,  options).toPromise();
     }
-	
+
     /**
      * Get the details of an incident by `incident_id`.
      * Get the details of an incident
@@ -793,7 +777,7 @@ export class ObjectIncidentsApi {
     public getIncident(param: IncidentsApiGetIncidentRequest, options?: Configuration): Promise<IncidentResponse> {
         return this.api.getIncident(param.incidentId, param.include,  options).toPromise();
     }
-	
+
     /**
      * Get all incidents for the user's organization.
      * Get a list of incidents
@@ -802,7 +786,7 @@ export class ObjectIncidentsApi {
     public listIncidents(param: IncidentsApiListIncidentsRequest, options?: Configuration): Promise<IncidentsResponse> {
         return this.api.listIncidents(param.include, param.pageSize, param.pageOffset,  options).toPromise();
     }
-	
+
     /**
      * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
      * Update an existing incident
@@ -811,12 +795,8 @@ export class ObjectIncidentsApi {
     public updateIncident(param: IncidentsApiUpdateIncidentRequest, options?: Configuration): Promise<IncidentResponse> {
         return this.api.updateIncident(param.incidentId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableKeyManagementApi } from "./ObservableAPI";
 import { KeyManagementApiRequestFactory, KeyManagementApiResponseProcessor} from "../apis/KeyManagementApi";
@@ -1070,13 +1050,12 @@ export interface KeyManagementApiUpdateCurrentUserApplicationKeyRequest {
     body: ApplicationKeyUpdateRequest
 }
 
-
 export class ObjectKeyManagementApi {
     private api: ObservableKeyManagementApi
 
     public constructor(configuration: Configuration, requestFactory?: KeyManagementApiRequestFactory, responseProcessor?: KeyManagementApiResponseProcessor) {
         this.api = new ObservableKeyManagementApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create an API key.
@@ -1086,7 +1065,7 @@ export class ObjectKeyManagementApi {
     public createAPIKey(param: KeyManagementApiCreateAPIKeyRequest, options?: Configuration): Promise<APIKeyResponse> {
         return this.api.createAPIKey(param.body,  options).toPromise();
     }
-	
+
     /**
      * Create an application key for current user
      * Create an application key for current user
@@ -1095,7 +1074,7 @@ export class ObjectKeyManagementApi {
     public createCurrentUserApplicationKey(param: KeyManagementApiCreateCurrentUserApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.createCurrentUserApplicationKey(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete an API key.
      * Delete an API key
@@ -1104,7 +1083,7 @@ export class ObjectKeyManagementApi {
     public deleteAPIKey(param: KeyManagementApiDeleteAPIKeyRequest, options?: Configuration): Promise<void> {
         return this.api.deleteAPIKey(param.apiKeyId,  options).toPromise();
     }
-	
+
     /**
      * Delete an application key
      * Delete an application key
@@ -1113,7 +1092,7 @@ export class ObjectKeyManagementApi {
     public deleteApplicationKey(param: KeyManagementApiDeleteApplicationKeyRequest, options?: Configuration): Promise<void> {
         return this.api.deleteApplicationKey(param.appKeyId,  options).toPromise();
     }
-	
+
     /**
      * Delete an application key owned by current user
      * Delete an application key owned by current user
@@ -1122,7 +1101,7 @@ export class ObjectKeyManagementApi {
     public deleteCurrentUserApplicationKey(param: KeyManagementApiDeleteCurrentUserApplicationKeyRequest, options?: Configuration): Promise<void> {
         return this.api.deleteCurrentUserApplicationKey(param.appKeyId,  options).toPromise();
     }
-	
+
     /**
      * Get an API key.
      * Get API key
@@ -1131,7 +1110,7 @@ export class ObjectKeyManagementApi {
     public getAPIKey(param: KeyManagementApiGetAPIKeyRequest, options?: Configuration): Promise<APIKeyResponse> {
         return this.api.getAPIKey(param.apiKeyId, param.include,  options).toPromise();
     }
-	
+
     /**
      * Get an application key owned by current user
      * Get one application key owned by current user
@@ -1140,7 +1119,7 @@ export class ObjectKeyManagementApi {
     public getCurrentUserApplicationKey(param: KeyManagementApiGetCurrentUserApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.getCurrentUserApplicationKey(param.appKeyId,  options).toPromise();
     }
-	
+
     /**
      * List all API keys available for your account.
      * Get all API keys
@@ -1149,7 +1128,7 @@ export class ObjectKeyManagementApi {
     public listAPIKeys(param: KeyManagementApiListAPIKeysRequest, options?: Configuration): Promise<APIKeysResponse> {
         return this.api.listAPIKeys(param.pageSize, param.pageNumber, param.sort, param.filter, param.filterCreatedAtStart, param.filterCreatedAtEnd, param.filterModifiedAtStart, param.filterModifiedAtEnd, param.include,  options).toPromise();
     }
-	
+
     /**
      * List all application keys available for your org
      * Get all application keys
@@ -1158,7 +1137,7 @@ export class ObjectKeyManagementApi {
     public listApplicationKeys(param: KeyManagementApiListApplicationKeysRequest, options?: Configuration): Promise<ListApplicationKeysResponse> {
         return this.api.listApplicationKeys(param.pageSize, param.pageNumber, param.sort, param.filter, param.filterCreatedAtStart, param.filterCreatedAtEnd,  options).toPromise();
     }
-	
+
     /**
      * List all application keys available for current user
      * Get all application keys owned by current user
@@ -1167,7 +1146,7 @@ export class ObjectKeyManagementApi {
     public listCurrentUserApplicationKeys(param: KeyManagementApiListCurrentUserApplicationKeysRequest, options?: Configuration): Promise<ListApplicationKeysResponse> {
         return this.api.listCurrentUserApplicationKeys(param.pageSize, param.pageNumber, param.sort, param.filter, param.filterCreatedAtStart, param.filterCreatedAtEnd,  options).toPromise();
     }
-	
+
     /**
      * Update an API key.
      * Edit an API key
@@ -1176,7 +1155,7 @@ export class ObjectKeyManagementApi {
     public updateAPIKey(param: KeyManagementApiUpdateAPIKeyRequest, options?: Configuration): Promise<APIKeyResponse> {
         return this.api.updateAPIKey(param.apiKeyId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit an application key
      * Edit an application key
@@ -1185,7 +1164,7 @@ export class ObjectKeyManagementApi {
     public updateApplicationKey(param: KeyManagementApiUpdateApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.updateApplicationKey(param.appKeyId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit an application key owned by current user
      * Edit an application key owned by current user
@@ -1194,12 +1173,8 @@ export class ObjectKeyManagementApi {
     public updateCurrentUserApplicationKey(param: KeyManagementApiUpdateCurrentUserApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
         return this.api.updateCurrentUserApplicationKey(param.appKeyId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableLogsApi } from "./ObservableAPI";
 import { LogsApiRequestFactory, LogsApiResponseProcessor} from "../apis/LogsApi";
@@ -1267,13 +1242,12 @@ export interface LogsApiListLogsGetRequest {
     pageLimit?: number
 }
 
-
 export class ObjectLogsApi {
     private api: ObservableLogsApi
 
     public constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor) {
         this.api = new ObservableLogsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * The API endpoint to aggregate events into buckets and compute metrics and timeseries.
@@ -1283,7 +1257,7 @@ export class ObjectLogsApi {
     public aggregateLogs(param: LogsApiAggregateLogsRequest, options?: Configuration): Promise<LogsAggregateResponse> {
         return this.api.aggregateLogs(param.body,  options).toPromise();
     }
-	
+
     /**
      * List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to build complex logs filtering and search.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
      * Search logs
@@ -1292,7 +1266,7 @@ export class ObjectLogsApi {
     public listLogs(param: LogsApiListLogsRequest, options?: Configuration): Promise<LogsListResponse> {
         return this.api.listLogs(param.body,  options).toPromise();
     }
-	
+
     /**
      * List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to see your latest logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
      * Get a list of logs
@@ -1301,12 +1275,8 @@ export class ObjectLogsApi {
     public listLogsGet(param: LogsApiListLogsGetRequest, options?: Configuration): Promise<LogsListResponse> {
         return this.api.listLogsGet(param.filterQuery, param.filterIndex, param.filterFrom, param.filterTo, param.sort, param.pageCursor, param.pageLimit,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableLogsArchivesApi } from "./ObservableAPI";
 import { LogsArchivesApiRequestFactory, LogsArchivesApiResponseProcessor} from "../apis/LogsArchivesApi";
@@ -1407,13 +1377,12 @@ export interface LogsArchivesApiUpdateLogsArchiveOrderRequest {
     body: LogsArchiveOrder
 }
 
-
 export class ObjectLogsArchivesApi {
     private api: ObservableLogsArchivesApi
 
     public constructor(configuration: Configuration, requestFactory?: LogsArchivesApiRequestFactory, responseProcessor?: LogsArchivesApiResponseProcessor) {
         this.api = new ObservableLogsArchivesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
@@ -1423,7 +1392,7 @@ export class ObjectLogsArchivesApi {
     public addReadRoleToArchive(param: LogsArchivesApiAddReadRoleToArchiveRequest, options?: Configuration): Promise<void> {
         return this.api.addReadRoleToArchive(param.archiveId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Create an archive in your organization.
      * Create an archive
@@ -1432,7 +1401,7 @@ export class ObjectLogsArchivesApi {
     public createLogsArchive(param: LogsArchivesApiCreateLogsArchiveRequest, options?: Configuration): Promise<LogsArchive> {
         return this.api.createLogsArchive(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a given archive from your organization.
      * Delete an archive
@@ -1441,7 +1410,7 @@ export class ObjectLogsArchivesApi {
     public deleteLogsArchive(param: LogsArchivesApiDeleteLogsArchiveRequest, options?: Configuration): Promise<void> {
         return this.api.deleteLogsArchive(param.archiveId,  options).toPromise();
     }
-	
+
     /**
      * Get a specific archive from your organization.
      * Get an archive
@@ -1450,7 +1419,7 @@ export class ObjectLogsArchivesApi {
     public getLogsArchive(param: LogsArchivesApiGetLogsArchiveRequest, options?: Configuration): Promise<LogsArchive> {
         return this.api.getLogsArchive(param.archiveId,  options).toPromise();
     }
-	
+
     /**
      * Get the current order of your archives. This endpoint takes no JSON arguments.
      * Get archive order
@@ -1459,7 +1428,7 @@ export class ObjectLogsArchivesApi {
     public getLogsArchiveOrder(param: LogsArchivesApiGetLogsArchiveOrderRequest, options?: Configuration): Promise<LogsArchiveOrder> {
         return this.api.getLogsArchiveOrder( options).toPromise();
     }
-	
+
     /**
      * Returns all read roles a given archive is restricted to.
      * List read roles for an archive
@@ -1468,7 +1437,7 @@ export class ObjectLogsArchivesApi {
     public listArchiveReadRoles(param: LogsArchivesApiListArchiveReadRolesRequest, options?: Configuration): Promise<RolesResponse> {
         return this.api.listArchiveReadRoles(param.archiveId,  options).toPromise();
     }
-	
+
     /**
      * Get the list of configured logs archives with their definitions.
      * Get all archives
@@ -1477,7 +1446,7 @@ export class ObjectLogsArchivesApi {
     public listLogsArchives(param: LogsArchivesApiListLogsArchivesRequest, options?: Configuration): Promise<LogsArchives> {
         return this.api.listLogsArchives( options).toPromise();
     }
-	
+
     /**
      * Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
      * Revoke role from an archive
@@ -1486,7 +1455,7 @@ export class ObjectLogsArchivesApi {
     public removeRoleFromArchive(param: LogsArchivesApiRemoveRoleFromArchiveRequest, options?: Configuration): Promise<void> {
         return this.api.removeRoleFromArchive(param.archiveId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
      * Update an archive
@@ -1495,7 +1464,7 @@ export class ObjectLogsArchivesApi {
     public updateLogsArchive(param: LogsArchivesApiUpdateLogsArchiveRequest, options?: Configuration): Promise<LogsArchive> {
         return this.api.updateLogsArchive(param.archiveId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
      * Update archive order
@@ -1504,12 +1473,8 @@ export class ObjectLogsArchivesApi {
     public updateLogsArchiveOrder(param: LogsArchivesApiUpdateLogsArchiveOrderRequest, options?: Configuration): Promise<LogsArchiveOrder> {
         return this.api.updateLogsArchiveOrder(param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableLogsMetricsApi } from "./ObservableAPI";
 import { LogsMetricsApiRequestFactory, LogsMetricsApiResponseProcessor} from "../apis/LogsMetricsApi";
@@ -1559,13 +1524,12 @@ export interface LogsMetricsApiUpdateLogsMetricRequest {
     body: LogsMetricUpdateRequest
 }
 
-
 export class ObjectLogsMetricsApi {
     private api: ObservableLogsMetricsApi
 
     public constructor(configuration: Configuration, requestFactory?: LogsMetricsApiRequestFactory, responseProcessor?: LogsMetricsApiResponseProcessor) {
         this.api = new ObservableLogsMetricsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
@@ -1575,7 +1539,7 @@ export class ObjectLogsMetricsApi {
     public createLogsMetric(param: LogsMetricsApiCreateLogsMetricRequest, options?: Configuration): Promise<LogsMetricResponse> {
         return this.api.createLogsMetric(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete a specific log-based metric from your organization.
      * Delete a log-based metric
@@ -1584,7 +1548,7 @@ export class ObjectLogsMetricsApi {
     public deleteLogsMetric(param: LogsMetricsApiDeleteLogsMetricRequest, options?: Configuration): Promise<void> {
         return this.api.deleteLogsMetric(param.metricId,  options).toPromise();
     }
-	
+
     /**
      * Get a specific log-based metric from your organization.
      * Get a log-based metric
@@ -1593,7 +1557,7 @@ export class ObjectLogsMetricsApi {
     public getLogsMetric(param: LogsMetricsApiGetLogsMetricRequest, options?: Configuration): Promise<LogsMetricResponse> {
         return this.api.getLogsMetric(param.metricId,  options).toPromise();
     }
-	
+
     /**
      * Get the list of configured log-based metrics with their definitions.
      * Get all log-based metrics
@@ -1602,7 +1566,7 @@ export class ObjectLogsMetricsApi {
     public listLogsMetrics(param: LogsMetricsApiListLogsMetricsRequest, options?: Configuration): Promise<LogsMetricsResponse> {
         return this.api.listLogsMetrics( options).toPromise();
     }
-	
+
     /**
      * Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
      * Update a log-based metric
@@ -1611,12 +1575,8 @@ export class ObjectLogsMetricsApi {
     public updateLogsMetric(param: LogsMetricsApiUpdateLogsMetricRequest, options?: Configuration): Promise<LogsMetricResponse> {
         return this.api.updateLogsMetric(param.metricId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableMetricsApi } from "./ObservableAPI";
 import { MetricsApiRequestFactory, MetricsApiResponseProcessor} from "../apis/MetricsApi";
@@ -1714,13 +1674,12 @@ export interface MetricsApiUpdateTagConfigurationRequest {
     body: MetricTagConfigurationUpdateRequest
 }
 
-
 export class ObjectMetricsApi {
     private api: ObservableMetricsApi
 
     public constructor(configuration: Configuration, requestFactory?: MetricsApiRequestFactory, responseProcessor?: MetricsApiResponseProcessor) {
         this.api = new ObservableMetricsApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
@@ -1730,7 +1689,7 @@ export class ObjectMetricsApi {
     public createTagConfiguration(param: MetricsApiCreateTagConfigurationRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
         return this.api.createTagConfiguration(param.metricName, param.body,  options).toPromise();
     }
-	
+
     /**
      * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
      * Delete a tag configuration
@@ -1739,7 +1698,7 @@ export class ObjectMetricsApi {
     public deleteTagConfiguration(param: MetricsApiDeleteTagConfigurationRequest, options?: Configuration): Promise<void> {
         return this.api.deleteTagConfiguration(param.metricName,  options).toPromise();
     }
-	
+
     /**
      * Returns the tag configuration for the given metric name.
      * List tag configuration by name
@@ -1748,7 +1707,7 @@ export class ObjectMetricsApi {
     public listTagConfigurationByName(param: MetricsApiListTagConfigurationByNameRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
         return this.api.listTagConfigurationByName(param.metricName,  options).toPromise();
     }
-	
+
     /**
      * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
      * List tag configurations
@@ -1757,7 +1716,7 @@ export class ObjectMetricsApi {
     public listTagConfigurations(param: MetricsApiListTagConfigurationsRequest, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
         return this.api.listTagConfigurations(param.filterConfigured, param.filterTagsConfigured, param.filterMetricType, param.filterIncludePercentiles,  options).toPromise();
     }
-	
+
     /**
      * View indexed tag key-value pairs for a given metric name.
      * List tags by metric name
@@ -1766,7 +1725,7 @@ export class ObjectMetricsApi {
     public listTagsByMetricName(param: MetricsApiListTagsByMetricNameRequest, options?: Configuration): Promise<MetricAllTagsResponse> {
         return this.api.listTagsByMetricName(param.metricName,  options).toPromise();
     }
-	
+
     /**
      * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
      * List distinct metric volumes by metric name
@@ -1775,7 +1734,7 @@ export class ObjectMetricsApi {
     public listVolumesByMetricName(param: MetricsApiListVolumesByMetricNameRequest, options?: Configuration): Promise<MetricVolumesResponse> {
         return this.api.listVolumesByMetricName(param.metricName,  options).toPromise();
     }
-	
+
     /**
      * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
      * Update a tag configuration
@@ -1784,12 +1743,8 @@ export class ObjectMetricsApi {
     public updateTagConfiguration(param: MetricsApiUpdateTagConfigurationRequest, options?: Configuration): Promise<MetricTagConfigurationResponse> {
         return this.api.updateTagConfiguration(param.metricName, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableProcessesApi } from "./ObservableAPI";
 import { ProcessesApiRequestFactory, ProcessesApiResponseProcessor} from "../apis/ProcessesApi";
@@ -1833,13 +1788,12 @@ export interface ProcessesApiListProcessesRequest {
     pageCursor?: string
 }
 
-
 export class ObjectProcessesApi {
     private api: ObservableProcessesApi
 
     public constructor(configuration: Configuration, requestFactory?: ProcessesApiRequestFactory, responseProcessor?: ProcessesApiResponseProcessor) {
         this.api = new ObservableProcessesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Get all processes for your organization.
@@ -1849,12 +1803,8 @@ export class ObjectProcessesApi {
     public listProcesses(param: ProcessesApiListProcessesRequest, options?: Configuration): Promise<ProcessSummariesResponse> {
         return this.api.listProcesses(param.search, param.tags, param.from, param.to, param.pageLimit, param.pageCursor,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableRolesApi } from "./ObservableAPI";
 import { RolesApiRequestFactory, RolesApiResponseProcessor} from "../apis/RolesApi";
@@ -2033,13 +1983,12 @@ export interface RolesApiUpdateRoleRequest {
     body: RoleUpdateRequest
 }
 
-
 export class ObjectRolesApi {
     private api: ObservableRolesApi
 
     public constructor(configuration: Configuration, requestFactory?: RolesApiRequestFactory, responseProcessor?: RolesApiResponseProcessor) {
         this.api = new ObservableRolesApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Adds a permission to a role.
@@ -2049,7 +1998,7 @@ export class ObjectRolesApi {
     public addPermissionToRole(param: RolesApiAddPermissionToRoleRequest, options?: Configuration): Promise<PermissionsResponse> {
         return this.api.addPermissionToRole(param.roleId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Adds a user to a role.
      * Add a user to a role
@@ -2058,7 +2007,7 @@ export class ObjectRolesApi {
     public addUserToRole(param: RolesApiAddUserToRoleRequest, options?: Configuration): Promise<UsersResponse> {
         return this.api.addUserToRole(param.roleId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Create a new role for your organization.
      * Create role
@@ -2067,7 +2016,7 @@ export class ObjectRolesApi {
     public createRole(param: RolesApiCreateRoleRequest, options?: Configuration): Promise<RoleCreateResponse> {
         return this.api.createRole(param.body,  options).toPromise();
     }
-	
+
     /**
      * Disables a role.
      * Delete role
@@ -2076,7 +2025,7 @@ export class ObjectRolesApi {
     public deleteRole(param: RolesApiDeleteRoleRequest, options?: Configuration): Promise<void> {
         return this.api.deleteRole(param.roleId,  options).toPromise();
     }
-	
+
     /**
      * Get a role in the organization specified by the role’s `role_id`.
      * Get a role
@@ -2085,7 +2034,7 @@ export class ObjectRolesApi {
     public getRole(param: RolesApiGetRoleRequest, options?: Configuration): Promise<RoleResponse> {
         return this.api.getRole(param.roleId,  options).toPromise();
     }
-	
+
     /**
      * Returns a list of all permissions, including name, description, and ID.
      * List permissions
@@ -2094,7 +2043,7 @@ export class ObjectRolesApi {
     public listPermissions(param: RolesApiListPermissionsRequest, options?: Configuration): Promise<PermissionsResponse> {
         return this.api.listPermissions( options).toPromise();
     }
-	
+
     /**
      * Returns a list of all permissions for a single role.
      * List permissions for a role
@@ -2103,7 +2052,7 @@ export class ObjectRolesApi {
     public listRolePermissions(param: RolesApiListRolePermissionsRequest, options?: Configuration): Promise<PermissionsResponse> {
         return this.api.listRolePermissions(param.roleId,  options).toPromise();
     }
-	
+
     /**
      * Gets all users of a role.
      * Get all users of a role
@@ -2112,7 +2061,7 @@ export class ObjectRolesApi {
     public listRoleUsers(param: RolesApiListRoleUsersRequest, options?: Configuration): Promise<UsersResponse> {
         return this.api.listRoleUsers(param.roleId, param.pageSize, param.pageNumber, param.sort, param.filter,  options).toPromise();
     }
-	
+
     /**
      * Returns all roles, including their names and IDs.
      * List roles
@@ -2121,7 +2070,7 @@ export class ObjectRolesApi {
     public listRoles(param: RolesApiListRolesRequest, options?: Configuration): Promise<RolesResponse> {
         return this.api.listRoles(param.pageSize, param.pageNumber, param.sort, param.filter,  options).toPromise();
     }
-	
+
     /**
      * Removes a permission from a role.
      * Revoke permission
@@ -2130,7 +2079,7 @@ export class ObjectRolesApi {
     public removePermissionFromRole(param: RolesApiRemovePermissionFromRoleRequest, options?: Configuration): Promise<PermissionsResponse> {
         return this.api.removePermissionFromRole(param.roleId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Removes a user from a role.
      * Remove a user from a role
@@ -2139,7 +2088,7 @@ export class ObjectRolesApi {
     public removeUserFromRole(param: RolesApiRemoveUserFromRoleRequest, options?: Configuration): Promise<UsersResponse> {
         return this.api.removeUserFromRole(param.roleId, param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit a role. Can only be used with application keys belonging to administrators.
      * Update a role
@@ -2148,12 +2097,8 @@ export class ObjectRolesApi {
     public updateRole(param: RolesApiUpdateRoleRequest, options?: Configuration): Promise<RoleUpdateResponse> {
         return this.api.updateRole(param.roleId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableSecurityMonitoringApi } from "./ObservableAPI";
 import { SecurityMonitoringApiRequestFactory, SecurityMonitoringApiResponseProcessor} from "../apis/SecurityMonitoringApi";
@@ -2263,13 +2208,12 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
     body: SecurityMonitoringRuleUpdatePayload
 }
 
-
 export class ObjectSecurityMonitoringApi {
     private api: ObservableSecurityMonitoringApi
 
     public constructor(configuration: Configuration, requestFactory?: SecurityMonitoringApiRequestFactory, responseProcessor?: SecurityMonitoringApiResponseProcessor) {
         this.api = new ObservableSecurityMonitoringApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a detection rule.
@@ -2279,7 +2223,7 @@ export class ObjectSecurityMonitoringApi {
     public createSecurityMonitoringRule(param: SecurityMonitoringApiCreateSecurityMonitoringRuleRequest, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         return this.api.createSecurityMonitoringRule(param.body,  options).toPromise();
     }
-	
+
     /**
      * Delete an existing rule. Default rules cannot be deleted.
      * Delete an existing rule
@@ -2288,7 +2232,7 @@ export class ObjectSecurityMonitoringApi {
     public deleteSecurityMonitoringRule(param: SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest, options?: Configuration): Promise<void> {
         return this.api.deleteSecurityMonitoringRule(param.ruleId,  options).toPromise();
     }
-	
+
     /**
      * Get a rule's details.
      * Get a rule's details
@@ -2297,7 +2241,7 @@ export class ObjectSecurityMonitoringApi {
     public getSecurityMonitoringRule(param: SecurityMonitoringApiGetSecurityMonitoringRuleRequest, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         return this.api.getSecurityMonitoringRule(param.ruleId,  options).toPromise();
     }
-	
+
     /**
      * List rules.
      * List rules
@@ -2306,7 +2250,7 @@ export class ObjectSecurityMonitoringApi {
     public listSecurityMonitoringRules(param: SecurityMonitoringApiListSecurityMonitoringRulesRequest, options?: Configuration): Promise<SecurityMonitoringListRulesResponse> {
         return this.api.listSecurityMonitoringRules(param.pageSize, param.pageNumber,  options).toPromise();
     }
-	
+
     /**
      * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
      * Get a quick list of security signals
@@ -2315,7 +2259,7 @@ export class ObjectSecurityMonitoringApi {
     public listSecurityMonitoringSignals(param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
         return this.api.listSecurityMonitoringSignals(param.filterQuery, param.filterFrom, param.filterTo, param.sort, param.pageCursor, param.pageLimit,  options).toPromise();
     }
-	
+
     /**
      * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
      * Get a list of security signals
@@ -2324,7 +2268,7 @@ export class ObjectSecurityMonitoringApi {
     public searchSecurityMonitoringSignals(param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
         return this.api.searchSecurityMonitoringSignals(param.body,  options).toPromise();
     }
-	
+
     /**
      * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
      * Update an existing rule
@@ -2333,12 +2277,8 @@ export class ObjectSecurityMonitoringApi {
     public updateSecurityMonitoringRule(param: SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         return this.api.updateSecurityMonitoringRule(param.ruleId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-
 
 import { ObservableUsersApi } from "./ObservableAPI";
 import { UsersApiRequestFactory, UsersApiResponseProcessor} from "../apis/UsersApi";
@@ -2460,13 +2400,12 @@ export interface UsersApiUpdateUserRequest {
     body: UserUpdateRequest
 }
 
-
 export class ObjectUsersApi {
     private api: ObservableUsersApi
 
     public constructor(configuration: Configuration, requestFactory?: UsersApiRequestFactory, responseProcessor?: UsersApiResponseProcessor) {
         this.api = new ObservableUsersApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * Create a user for your organization.
@@ -2476,7 +2415,7 @@ export class ObjectUsersApi {
     public createUser(param: UsersApiCreateUserRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.createUser(param.body,  options).toPromise();
     }
-	
+
     /**
      * Disable a user. Can only be used with an application key belonging to an administrator user.
      * Disable a user
@@ -2485,7 +2424,7 @@ export class ObjectUsersApi {
     public disableUser(param: UsersApiDisableUserRequest, options?: Configuration): Promise<void> {
         return this.api.disableUser(param.userId,  options).toPromise();
     }
-	
+
     /**
      * Returns a single user invitation by its UUID.
      * Get a user invitation
@@ -2494,7 +2433,7 @@ export class ObjectUsersApi {
     public getInvitation(param: UsersApiGetInvitationRequest, options?: Configuration): Promise<UserInvitationResponse> {
         return this.api.getInvitation(param.userInvitationUuid,  options).toPromise();
     }
-	
+
     /**
      * Get a user in the organization specified by the user’s `user_id`.
      * Get user details
@@ -2503,7 +2442,7 @@ export class ObjectUsersApi {
     public getUser(param: UsersApiGetUserRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.getUser(param.userId,  options).toPromise();
     }
-	
+
     /**
      * Get a user organization. Returns the user information and all organizations joined by this user.
      * Get a user organization
@@ -2512,7 +2451,7 @@ export class ObjectUsersApi {
     public listUserOrganizations(param: UsersApiListUserOrganizationsRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.listUserOrganizations(param.userId,  options).toPromise();
     }
-	
+
     /**
      * Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
      * Get a user permissions
@@ -2521,7 +2460,7 @@ export class ObjectUsersApi {
     public listUserPermissions(param: UsersApiListUserPermissionsRequest, options?: Configuration): Promise<PermissionsResponse> {
         return this.api.listUserPermissions(param.userId,  options).toPromise();
     }
-	
+
     /**
      * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
      * List all users
@@ -2530,7 +2469,7 @@ export class ObjectUsersApi {
     public listUsers(param: UsersApiListUsersRequest, options?: Configuration): Promise<UsersResponse> {
         return this.api.listUsers(param.pageSize, param.pageNumber, param.sort, param.sortDir, param.filter, param.filterStatus,  options).toPromise();
     }
-	
+
     /**
      * Sends emails to one or more users inviting them to join the organization.
      * Send invitation emails
@@ -2539,7 +2478,7 @@ export class ObjectUsersApi {
     public sendInvitations(param: UsersApiSendInvitationsRequest, options?: Configuration): Promise<UserInvitationsResponse> {
         return this.api.sendInvitations(param.body,  options).toPromise();
     }
-	
+
     /**
      * Edit a user. Can only be used with an application key belonging to an administrator user.
      * Update a user
@@ -2548,9 +2487,5 @@ export class ObjectUsersApi {
     public updateUser(param: UsersApiUpdateUserRequest, options?: Configuration): Promise<UserResponse> {
         return this.api.updateUser(param.userId, param.body,  options).toPromise();
     }
-	
 
 }
-
-
-

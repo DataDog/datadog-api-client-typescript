@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -17,7 +17,7 @@ import { LogsMetricsResponse } from '../models/LogsMetricsResponse';
  * no description
  */
 export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
      * Create a log-based metric
@@ -25,13 +25,13 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createLogsMetric(body: LogsMetricCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createLogsMetric.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/metrics';
 
@@ -40,9 +40,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -78,13 +78,13 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteLogsMetric(metricId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricId' is not null or undefined
         if (metricId === null || metricId === undefined) {
             throw new RequiredError('Required parameter metricId was null or undefined when calling deleteLogsMetric.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/metrics/{metric_id}'
             .replace('{' + 'metric_id' + '}', encodeURIComponent(String(metricId)));
@@ -94,9 +94,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -123,13 +123,13 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsMetric(metricId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricId' is not null or undefined
         if (metricId === null || metricId === undefined) {
             throw new RequiredError('Required parameter metricId was null or undefined when calling getLogsMetric.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/metrics/{metric_id}'
             .replace('{' + 'metric_id' + '}', encodeURIComponent(String(metricId)));
@@ -139,9 +139,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -167,7 +167,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLogsMetrics(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/metrics';
 
@@ -176,9 +176,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -206,19 +206,19 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsMetric(metricId: string, body: LogsMetricUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricId' is not null or undefined
         if (metricId === null || metricId === undefined) {
             throw new RequiredError('Required parameter metricId was null or undefined when calling updateLogsMetric.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsMetric.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/config/metrics/{metric_id}'
             .replace('{' + 'metric_id' + '}', encodeURIComponent(String(metricId)));
@@ -228,9 +228,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -260,8 +260,6 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class LogsMetricsApiResponseProcessor {
 
@@ -322,7 +320,7 @@ export class LogsMetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -369,7 +367,7 @@ export class LogsMetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -420,7 +418,7 @@ export class LogsMetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -464,7 +462,7 @@ export class LogsMetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -522,5 +520,5 @@ export class LogsMetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -18,7 +18,7 @@ import { IncidentServicesResponse } from '../models/IncidentServicesResponse';
  * no description
  */
 export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Creates a new incident service.
      * Create a new incident service
@@ -26,13 +26,13 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createIncidentService(body: IncidentServiceCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createIncidentService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/services';
 
@@ -41,9 +41,9 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -79,13 +79,13 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteIncidentService(serviceId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'serviceId' is not null or undefined
         if (serviceId === null || serviceId === undefined) {
             throw new RequiredError('Required parameter serviceId was null or undefined when calling deleteIncidentService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/services/{service_id}'
             .replace('{' + 'service_id' + '}', encodeURIComponent(String(serviceId)));
@@ -95,9 +95,9 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -125,14 +125,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getIncidentService(serviceId: string, include?: IncidentRelatedObject, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'serviceId' is not null or undefined
         if (serviceId === null || serviceId === undefined) {
             throw new RequiredError('Required parameter serviceId was null or undefined when calling getIncidentService.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v2/services/{service_id}'
             .replace('{' + 'service_id' + '}', encodeURIComponent(String(serviceId)));
@@ -145,9 +145,9 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
         if (include !== undefined) {
             requestContext.setQueryParam("include", ObjectSerializer.serialize(include, "IncidentRelatedObject", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -177,11 +177,11 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listIncidentServices(include?: IncidentRelatedObject, pageSize?: number, pageOffset?: number, filter?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/services';
 
@@ -202,9 +202,9 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
         if (filter !== undefined) {
             requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -232,19 +232,19 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateIncidentService(serviceId: string, body: IncidentServiceUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'serviceId' is not null or undefined
         if (serviceId === null || serviceId === undefined) {
             throw new RequiredError('Required parameter serviceId was null or undefined when calling updateIncidentService.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateIncidentService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/services/{service_id}'
             .replace('{' + 'service_id' + '}', encodeURIComponent(String(serviceId)));
@@ -254,9 +254,9 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -286,8 +286,6 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class IncidentServicesApiResponseProcessor {
 
@@ -348,7 +346,7 @@ export class IncidentServicesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -402,7 +400,7 @@ export class IncidentServicesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -460,7 +458,7 @@ export class IncidentServicesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -518,7 +516,7 @@ export class IncidentServicesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -576,5 +574,5 @@ export class IncidentServicesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

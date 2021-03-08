@@ -497,7 +497,6 @@ import { WidgetViewMode } from '../models/WidgetViewMode';
 import { WidgetVizType } from '../models/WidgetVizType';
 import { ObservableAWSIntegrationApi } from './ObservableAPI';
 
-
 import { AWSIntegrationApiRequestFactory, AWSIntegrationApiResponseProcessor} from "../apis/AWSIntegrationApi";
 export class PromiseAWSIntegrationApi {
     private api: ObservableAWSIntegrationApi
@@ -516,50 +515,50 @@ export class PromiseAWSIntegrationApi {
      * @param body AWS Request Object
      */
     public createAWSAccount(body: AWSAccount, options?: Configuration): Promise<AWSAccountCreateResponse> {
-    	const result = this.api.createAWSAccount(body, options);
+        const result = this.api.createAWSAccount(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Set an AWS tag filter.
      * Set an AWS tag filter
      * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
      */
     public createAWSTagFilter(body: AWSTagFilterCreateRequest, options?: Configuration): Promise<any> {
-    	const result = this.api.createAWSTagFilter(body, options);
+        const result = this.api.createAWSTagFilter(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Generate a new AWS external ID for a given AWS account ID and role name pair.
      * Generate a new external ID
      * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
      */
     public createNewAWSExternalID(body: AWSAccount, options?: Configuration): Promise<AWSAccountCreateResponse> {
-    	const result = this.api.createNewAWSExternalID(body, options);
+        const result = this.api.createNewAWSExternalID(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
      * Delete an AWS integration
      * @param body AWS request object
      */
     public deleteAWSAccount(body: AWSAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.deleteAWSAccount(body, options);
+        const result = this.api.deleteAWSAccount(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a tag filtering entry.
      * Delete a tag filtering entry
      * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
      */
     public deleteAWSTagFilter(body: AWSTagFilterDeleteRequest, options?: Configuration): Promise<any> {
-    	const result = this.api.deleteAWSTagFilter(body, options);
+        const result = this.api.deleteAWSTagFilter(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * List all Datadog-AWS integrations available in your Datadog organization.
      * List all AWS integrations
@@ -568,29 +567,29 @@ export class PromiseAWSIntegrationApi {
      * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
      */
     public listAWSAccounts(accountId?: string, roleName?: string, accessKeyId?: string, options?: Configuration): Promise<AWSAccountListResponse> {
-    	const result = this.api.listAWSAccounts(accountId, roleName, accessKeyId, options);
+        const result = this.api.listAWSAccounts(accountId, roleName, accessKeyId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all AWS tag filters.
      * Get all AWS tag filters
      * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;.
      */
     public listAWSTagFilters(accountId: string, options?: Configuration): Promise<AWSTagFilterListResponse> {
-    	const result = this.api.listAWSTagFilters(accountId, options);
+        const result = this.api.listAWSTagFilters(accountId, options);
         return result.toPromise();
     }
-	
+
     /**
      * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
      * List namespace rules
      */
     public listAvailableAWSNamespaces(options?: Configuration): Promise<Array<string>> {
-    	const result = this.api.listAvailableAWSNamespaces(options);
+        const result = this.api.listAvailableAWSNamespaces(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a Datadog-Amazon Web Services integration.
      * Update an AWS integration
@@ -600,17 +599,16 @@ export class PromiseAWSIntegrationApi {
      * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
      */
     public updateAWSAccount(body: AWSAccount, accountId?: string, roleName?: string, accessKeyId?: string, options?: Configuration): Promise<any> {
-    	const result = this.api.updateAWSAccount(body, accountId, roleName, accessKeyId, options);
+        const result = this.api.updateAWSAccount(body, accountId, roleName, accessKeyId, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableAWSLogsIntegrationApi } from './ObservableAPI';
-
 
 import { AWSLogsIntegrationApiRequestFactory, AWSLogsIntegrationApiResponseProcessor} from "../apis/AWSLogsIntegrationApi";
 export class PromiseAWSLogsIntegrationApi {
@@ -630,75 +628,74 @@ export class PromiseAWSLogsIntegrationApi {
      * @param body Check AWS Log Lambda Async request body.
      */
     public checkAWSLogsLambdaAsync(body: AWSAccountAndLambdaRequest, options?: Configuration): Promise<AWSLogsAsyncResponse> {
-    	const result = this.api.checkAWSLogsLambdaAsync(body, options);
+        const result = this.api.checkAWSLogsLambdaAsync(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for `EnableAWSLogServices`. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of `created` when it's checking if the permissions exists   in the AWS account. - Returns a status of `waiting` while checking. - Returns a status of `checked and ok` if the Lambda exists. - Returns a status of `error` if the Lambda does not exist.
      * Check permissions for log services
      * @param body Check AWS Logs Async Services request body.
      */
     public checkAWSLogsServicesAsync(body: AWSLogsServicesRequest, options?: Configuration): Promise<AWSLogsAsyncResponse> {
-    	const result = this.api.checkAWSLogsServicesAsync(body, options);
+        const result = this.api.checkAWSLogsServicesAsync(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
      * Add AWS Log Lambda ARN
      * @param body AWS Log Lambda Async request body.
      */
     public createAWSLambdaARN(body: AWSAccountAndLambdaRequest, options?: Configuration): Promise<any> {
-    	const result = this.api.createAWSLambdaARN(body, options);
+        const result = this.api.createAWSLambdaARN(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
      * Delete an AWS Logs integration
      * @param body Delete AWS Lambda ARN request body.
      */
     public deleteAWSLambdaARN(body: AWSAccountAndLambdaRequest, options?: Configuration): Promise<any> {
-    	const result = this.api.deleteAWSLambdaARN(body, options);
+        const result = this.api.deleteAWSLambdaARN(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
      * Enable an AWS Logs integration
      * @param body Enable AWS Log Services request body.
      */
     public enableAWSLogServices(body: AWSLogsServicesRequest, options?: Configuration): Promise<any> {
-    	const result = this.api.enableAWSLogServices(body, options);
+        const result = this.api.enableAWSLogServices(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * List all Datadog-AWS Logs integrations configured in your Datadog account.
      * List all AWS Logs integrations
      */
     public listAWSLogsIntegrations(options?: Configuration): Promise<Array<AWSLogsListResponse>> {
-    	const result = this.api.listAWSLogsIntegrations(options);
+        const result = this.api.listAWSLogsIntegrations(options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
      * Get list of AWS log ready services
      */
     public listAWSLogsServices(options?: Configuration): Promise<Array<AWSLogsListServicesResponse>> {
-    	const result = this.api.listAWSLogsServices(options);
+        const result = this.api.listAWSLogsServices(options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableAuthenticationApi } from './ObservableAPI';
-
 
 import { AuthenticationApiRequestFactory, AuthenticationApiResponseProcessor} from "../apis/AuthenticationApi";
 export class PromiseAuthenticationApi {
@@ -717,17 +714,16 @@ export class PromiseAuthenticationApi {
      * Validate API key
      */
     public validate(options?: Configuration): Promise<AuthenticationValidationResponse> {
-    	const result = this.api.validate(options);
+        const result = this.api.validate(options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableAzureIntegrationApi } from './ObservableAPI';
-
 
 import { AzureIntegrationApiRequestFactory, AzureIntegrationApiResponseProcessor} from "../apis/AzureIntegrationApi";
 export class PromiseAzureIntegrationApi {
@@ -747,56 +743,55 @@ export class PromiseAzureIntegrationApi {
      * @param body Create a Datadog-Azure integration for your Datadog account request body.
      */
     public createAzureIntegration(body: AzureAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.createAzureIntegration(body, options);
+        const result = this.api.createAzureIntegration(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a given Datadog-Azure integration from your Datadog account.
      * Delete an Azure integration
      * @param body Delete a given Datadog-Azure integration request body.
      */
     public deleteAzureIntegration(body: AzureAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.deleteAzureIntegration(body, options);
+        const result = this.api.deleteAzureIntegration(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * List all Datadog-Azure integrations configured in your Datadog account.
      * List all Azure integrations
      */
     public listAzureIntegration(options?: Configuration): Promise<Array<AzureAccount>> {
-    	const result = this.api.listAzureIntegration(options);
+        const result = this.api.listAzureIntegration(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update the defined list of host filters for a given Datadog-Azure integration.
      * Update Azure integration host filters
      * @param body Update a Datadog-Azure integration&#39;s host filters request body.
      */
     public updateAzureHostFilters(body: AzureAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.updateAzureHostFilters(body, options);
+        const result = this.api.updateAzureHostFilters(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
      * Update an Azure integration
      * @param body Update a Datadog-Azure integration request body.
      */
     public updateAzureIntegration(body: AzureAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.updateAzureIntegration(body, options);
+        const result = this.api.updateAzureIntegration(body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableDashboardListsApi } from './ObservableAPI';
-
 
 import { DashboardListsApiRequestFactory, DashboardListsApiResponseProcessor} from "../apis/DashboardListsApi";
 export class PromiseDashboardListsApi {
@@ -816,39 +811,39 @@ export class PromiseDashboardListsApi {
      * @param body Create a dashboard list request body.
      */
     public createDashboardList(body: DashboardList, options?: Configuration): Promise<DashboardList> {
-    	const result = this.api.createDashboardList(body, options);
+        const result = this.api.createDashboardList(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a dashboard list.
      * Delete a dashboard list
      * @param listId ID of the dashboard list to delete.
      */
     public deleteDashboardList(listId: number, options?: Configuration): Promise<DashboardListDeleteResponse> {
-    	const result = this.api.deleteDashboardList(listId, options);
+        const result = this.api.deleteDashboardList(listId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Fetch an existing dashboard list's definition.
      * Get a dashboard list
      * @param listId ID of the dashboard list to fetch.
      */
     public getDashboardList(listId: number, options?: Configuration): Promise<DashboardList> {
-    	const result = this.api.getDashboardList(listId, options);
+        const result = this.api.getDashboardList(listId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Fetch all of your existing dashboard list definitions.
      * Get all dashboard lists
      */
     public listDashboardLists(options?: Configuration): Promise<DashboardListListResponse> {
-    	const result = this.api.listDashboardLists(options);
+        const result = this.api.listDashboardLists(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update the name of a dashboard list.
      * Update a dashboard list
@@ -856,17 +851,16 @@ export class PromiseDashboardListsApi {
      * @param body Update a dashboard list request body.
      */
     public updateDashboardList(listId: number, body: DashboardList, options?: Configuration): Promise<DashboardList> {
-    	const result = this.api.updateDashboardList(listId, body, options);
+        const result = this.api.updateDashboardList(listId, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableDashboardsApi } from './ObservableAPI';
-
 
 import { DashboardsApiRequestFactory, DashboardsApiResponseProcessor} from "../apis/DashboardsApi";
 export class PromiseDashboardsApi {
@@ -886,39 +880,39 @@ export class PromiseDashboardsApi {
      * @param body Create a dashboard request body.
      */
     public createDashboard(body: Dashboard, options?: Configuration): Promise<Dashboard> {
-    	const result = this.api.createDashboard(body, options);
+        const result = this.api.createDashboard(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a dashboard using the specified ID.
      * Delete a dashboard
      * @param dashboardId The ID of the dashboard.
      */
     public deleteDashboard(dashboardId: string, options?: Configuration): Promise<DashboardDeleteResponse> {
-    	const result = this.api.deleteDashboard(dashboardId, options);
+        const result = this.api.deleteDashboard(dashboardId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a dashboard using the specified ID.
      * Get a dashboard
      * @param dashboardId The ID of the dashboard.
      */
     public getDashboard(dashboardId: string, options?: Configuration): Promise<Dashboard> {
-    	const result = this.api.getDashboard(dashboardId, options);
+        const result = this.api.getDashboard(dashboardId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
      * Get all dashboards
      */
     public listDashboards(options?: Configuration): Promise<DashboardSummary> {
-    	const result = this.api.listDashboards(options);
+        const result = this.api.listDashboards(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a dashboard using the specified ID.
      * Update a dashboard
@@ -926,17 +920,16 @@ export class PromiseDashboardsApi {
      * @param body Update Dashboard request body.
      */
     public updateDashboard(dashboardId: string, body: Dashboard, options?: Configuration): Promise<Dashboard> {
-    	const result = this.api.updateDashboard(dashboardId, body, options);
+        const result = this.api.updateDashboard(dashboardId, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableDowntimesApi } from './ObservableAPI';
-
 
 import { DowntimesApiRequestFactory, DowntimesApiResponseProcessor} from "../apis/DowntimesApi";
 export class PromiseDowntimesApi {
@@ -956,50 +949,50 @@ export class PromiseDowntimesApi {
      * @param downtimeId ID of the downtime to cancel.
      */
     public cancelDowntime(downtimeId: number, options?: Configuration): Promise<void> {
-    	const result = this.api.cancelDowntime(downtimeId, options);
+        const result = this.api.cancelDowntime(downtimeId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete all downtimes that match the scope of `X`.
      * Cancel downtimes by scope
      * @param body Scope to cancel downtimes for.
      */
     public cancelDowntimesByScope(body: CancelDowntimesByScopeRequest, options?: Configuration): Promise<CanceledDowntimesIds> {
-    	const result = this.api.cancelDowntimesByScope(body, options);
+        const result = this.api.cancelDowntimesByScope(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Schedule a downtime.
      * Schedule a downtime
      * @param body Schedule a downtime request body.
      */
     public createDowntime(body: Downtime, options?: Configuration): Promise<Downtime> {
-    	const result = this.api.createDowntime(body, options);
+        const result = this.api.createDowntime(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get downtime detail by `downtime_id`.
      * Get a downtime
      * @param downtimeId ID of the downtime to fetch.
      */
     public getDowntime(downtimeId: number, options?: Configuration): Promise<Downtime> {
-    	const result = this.api.getDowntime(downtimeId, options);
+        const result = this.api.getDowntime(downtimeId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all scheduled downtimes.
      * Get all downtimes
      * @param currentOnly Only return downtimes that are active when the request is made.
      */
     public listDowntimes(currentOnly?: boolean, options?: Configuration): Promise<Array<Downtime>> {
-    	const result = this.api.listDowntimes(currentOnly, options);
+        const result = this.api.listDowntimes(currentOnly, options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a single downtime by `downtime_id`.
      * Update a downtime
@@ -1007,17 +1000,16 @@ export class PromiseDowntimesApi {
      * @param body Update a downtime request body.
      */
     public updateDowntime(downtimeId: number, body: Downtime, options?: Configuration): Promise<Downtime> {
-    	const result = this.api.updateDowntime(downtimeId, body, options);
+        const result = this.api.updateDowntime(downtimeId, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableEventsApi } from './ObservableAPI';
-
 
 import { EventsApiRequestFactory, EventsApiResponseProcessor} from "../apis/EventsApi";
 export class PromiseEventsApi {
@@ -1037,10 +1029,10 @@ export class PromiseEventsApi {
      * @param eventId The ID of the event.
      */
     public getEvent(eventId: number, options?: Configuration): Promise<EventResponse> {
-    	const result = this.api.getEvent(eventId, options);
+        const result = this.api.getEvent(eventId, options);
         return result.toPromise();
     }
-	
+
     /**
      * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results.
      * Query the event stream
@@ -1052,17 +1044,16 @@ export class PromiseEventsApi {
      * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output.
      */
     public listEvents(start: number, end: number, priority?: EventPriority, sources?: string, tags?: string, unaggregated?: boolean, options?: Configuration): Promise<EventListResponse> {
-    	const result = this.api.listEvents(start, end, priority, sources, tags, unaggregated, options);
+        const result = this.api.listEvents(start, end, priority, sources, tags, unaggregated, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableGCPIntegrationApi } from './ObservableAPI';
-
 
 import { GCPIntegrationApiRequestFactory, GCPIntegrationApiResponseProcessor} from "../apis/GCPIntegrationApi";
 export class PromiseGCPIntegrationApi {
@@ -1082,46 +1073,45 @@ export class PromiseGCPIntegrationApi {
      * @param body Create a Datadog-GCP integration.
      */
     public createGCPIntegration(body: GCPAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.createGCPIntegration(body, options);
+        const result = this.api.createGCPIntegration(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a given Datadog-GCP integration.
      * Delete a GCP integration
      * @param body Delete a given Datadog-GCP integration.
      */
     public deleteGCPIntegration(body: GCPAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.deleteGCPIntegration(body, options);
+        const result = this.api.deleteGCPIntegration(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * List all Datadog-GCP integrations configured in your Datadog account.
      * List all GCP integrations
      */
     public listGCPIntegration(options?: Configuration): Promise<Array<GCPAccount>> {
-    	const result = this.api.listGCPIntegration(options);
+        const result = this.api.listGCPIntegration(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
      * Update a GCP integration
      * @param body Update a Datadog-GCP integration.
      */
     public updateGCPIntegration(body: GCPAccount, options?: Configuration): Promise<any> {
-    	const result = this.api.updateGCPIntegration(body, options);
+        const result = this.api.updateGCPIntegration(body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableHostsApi } from './ObservableAPI';
-
 
 import { HostsApiRequestFactory, HostsApiResponseProcessor} from "../apis/HostsApi";
 export class PromiseHostsApi {
@@ -1141,10 +1131,10 @@ export class PromiseHostsApi {
      * @param from Number of seconds from which you want to get total number of active hosts.
      */
     public getHostTotals(from?: number, options?: Configuration): Promise<HostTotals> {
-    	const result = this.api.getHostTotals(from, options);
+        const result = this.api.getHostTotals(from, options);
         return result.toPromise();
     }
-	
+
     /**
      * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
      * Get all hosts for your organization
@@ -1158,10 +1148,10 @@ export class PromiseHostsApi {
      * @param includeHostsMetadata Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
      */
     public listHosts(filter?: string, sortField?: string, sortDir?: string, start?: number, count?: number, from?: number, includeMutedHostsData?: boolean, includeHostsMetadata?: boolean, options?: Configuration): Promise<HostListResponse> {
-    	const result = this.api.listHosts(filter, sortField, sortDir, start, count, from, includeMutedHostsData, includeHostsMetadata, options);
+        const result = this.api.listHosts(filter, sortField, sortDir, start, count, from, includeMutedHostsData, includeHostsMetadata, options);
         return result.toPromise();
     }
-	
+
     /**
      * Mute a host.
      * Mute a host
@@ -1169,27 +1159,26 @@ export class PromiseHostsApi {
      * @param body Mute a host request body.
      */
     public muteHost(hostName: string, body: HostMuteSettings, options?: Configuration): Promise<HostMuteResponse> {
-    	const result = this.api.muteHost(hostName, body, options);
+        const result = this.api.muteHost(hostName, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Unmutes a host. This endpoint takes no JSON arguments.
      * Unmute a host
      * @param hostName Name of the host to unmute.
      */
     public unmuteHost(hostName: string, options?: Configuration): Promise<HostMuteResponse> {
-    	const result = this.api.unmuteHost(hostName, options);
+        const result = this.api.unmuteHost(hostName, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableIPRangesApi } from './ObservableAPI';
-
 
 import { IPRangesApiRequestFactory, IPRangesApiResponseProcessor} from "../apis/IPRangesApi";
 export class PromiseIPRangesApi {
@@ -1208,17 +1197,16 @@ export class PromiseIPRangesApi {
      * List IP Ranges
      */
     public getIPRanges(options?: Configuration): Promise<IPRanges> {
-    	const result = this.api.getIPRanges(options);
+        const result = this.api.getIPRanges(options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableKeyManagementApi } from './ObservableAPI';
-
 
 import { KeyManagementApiRequestFactory, KeyManagementApiResponseProcessor} from "../apis/KeyManagementApi";
 export class PromiseKeyManagementApi {
@@ -1238,78 +1226,78 @@ export class PromiseKeyManagementApi {
      * @param body 
      */
     public createAPIKey(body: ApiKey, options?: Configuration): Promise<ApiKeyResponse> {
-    	const result = this.api.createAPIKey(body, options);
+        const result = this.api.createAPIKey(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create an application key with a given name.
      * Create an application key
      * @param body 
      */
     public createApplicationKey(body: ApplicationKey, options?: Configuration): Promise<ApplicationKeyResponse> {
-    	const result = this.api.createApplicationKey(body, options);
+        const result = this.api.createApplicationKey(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a given API key.
      * Delete an API key
      * @param key The specific API key you are working with.
      */
     public deleteAPIKey(key: string, options?: Configuration): Promise<ApiKeyResponse> {
-    	const result = this.api.deleteAPIKey(key, options);
+        const result = this.api.deleteAPIKey(key, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a given application key.
      * Delete an application key
      * @param key The specific APP key you are working with.
      */
     public deleteApplicationKey(key: string, options?: Configuration): Promise<ApplicationKeyResponse> {
-    	const result = this.api.deleteApplicationKey(key, options);
+        const result = this.api.deleteApplicationKey(key, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a given API key.
      * Get API key
      * @param key The specific API key you are working with.
      */
     public getAPIKey(key: string, options?: Configuration): Promise<ApiKeyResponse> {
-    	const result = this.api.getAPIKey(key, options);
+        const result = this.api.getAPIKey(key, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a given application key.
      * Get an application key
      * @param key The specific APP key you are working with.
      */
     public getApplicationKey(key: string, options?: Configuration): Promise<ApplicationKeyResponse> {
-    	const result = this.api.getApplicationKey(key, options);
+        const result = this.api.getApplicationKey(key, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all API keys available for your account.
      * Get all API keys
      */
     public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
-    	const result = this.api.listAPIKeys(options);
+        const result = this.api.listAPIKeys(options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all application keys available for your Datadog account.
      * Get all application keys
      */
     public listApplicationKeys(options?: Configuration): Promise<ApplicationKeyListResponse> {
-    	const result = this.api.listApplicationKeys(options);
+        const result = this.api.listApplicationKeys(options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit an API key name.
      * Edit an API key
@@ -1317,10 +1305,10 @@ export class PromiseKeyManagementApi {
      * @param body 
      */
     public updateAPIKey(key: string, body: ApiKey, options?: Configuration): Promise<ApiKeyResponse> {
-    	const result = this.api.updateAPIKey(key, body, options);
+        const result = this.api.updateAPIKey(key, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit an application key name.
      * Edit an application key
@@ -1328,17 +1316,16 @@ export class PromiseKeyManagementApi {
      * @param body 
      */
     public updateApplicationKey(key: string, body: ApplicationKey, options?: Configuration): Promise<ApplicationKeyResponse> {
-    	const result = this.api.updateApplicationKey(key, body, options);
+        const result = this.api.updateApplicationKey(key, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableLogsApi } from './ObservableAPI';
-
 
 import { LogsApiRequestFactory, LogsApiResponseProcessor} from "../apis/LogsApi";
 export class PromiseLogsApi {
@@ -1358,17 +1345,16 @@ export class PromiseLogsApi {
      * @param body Logs filter
      */
     public listLogs(body: LogsListRequest, options?: Configuration): Promise<LogsListResponse> {
-    	const result = this.api.listLogs(body, options);
+        const result = this.api.listLogs(body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableLogsIndexesApi } from './ObservableAPI';
-
 
 import { LogsIndexesApiRequestFactory, LogsIndexesApiResponseProcessor} from "../apis/LogsIndexesApi";
 export class PromiseLogsIndexesApi {
@@ -1388,38 +1374,38 @@ export class PromiseLogsIndexesApi {
      * @param body Object containing the new index.
      */
     public createLogsIndex(body: LogsIndex, options?: Configuration): Promise<LogsIndex> {
-    	const result = this.api.createLogsIndex(body, options);
+        const result = this.api.createLogsIndex(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get one log index from your organization. This endpoint takes no JSON arguments.
      * Get an index
      * @param name Name of the log index.
      */
     public getLogsIndex(name: string, options?: Configuration): Promise<LogsIndex> {
-    	const result = this.api.getLogsIndex(name, options);
+        const result = this.api.getLogsIndex(name, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the current order of your log indexes. This endpoint takes no JSON arguments.
      * Get indexes order
      */
     public getLogsIndexOrder(options?: Configuration): Promise<LogsIndexesOrder> {
-    	const result = this.api.getLogsIndexOrder(options);
+        const result = this.api.getLogsIndexOrder(options);
         return result.toPromise();
     }
-	
+
     /**
      * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
      * Get all indexes
      */
     public listLogIndexes(options?: Configuration): Promise<LogsIndexListResponse> {
-    	const result = this.api.listLogIndexes(options);
+        const result = this.api.listLogIndexes(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
      * Update an index
@@ -1427,27 +1413,26 @@ export class PromiseLogsIndexesApi {
      * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
      */
     public updateLogsIndex(name: string, body: LogsIndexUpdateRequest, options?: Configuration): Promise<LogsIndex> {
-    	const result = this.api.updateLogsIndex(name, body, options);
+        const result = this.api.updateLogsIndex(name, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
      * Update indexes order
      * @param body Object containing the new ordered list of index names
      */
     public updateLogsIndexOrder(body: LogsIndexesOrder, options?: Configuration): Promise<LogsIndexesOrder> {
-    	const result = this.api.updateLogsIndexOrder(body, options);
+        const result = this.api.updateLogsIndexOrder(body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableLogsPipelinesApi } from './ObservableAPI';
-
 
 import { LogsPipelinesApiRequestFactory, LogsPipelinesApiResponseProcessor} from "../apis/LogsPipelinesApi";
 export class PromiseLogsPipelinesApi {
@@ -1467,48 +1452,48 @@ export class PromiseLogsPipelinesApi {
      * @param body Definition of the new pipeline.
      */
     public createLogsPipeline(body: LogsPipeline, options?: Configuration): Promise<LogsPipeline> {
-    	const result = this.api.createLogsPipeline(body, options);
+        const result = this.api.createLogsPipeline(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
      * Delete a pipeline
      * @param pipelineId ID of the pipeline to delete.
      */
     public deleteLogsPipeline(pipelineId: string, options?: Configuration): Promise<void> {
-    	const result = this.api.deleteLogsPipeline(pipelineId, options);
+        const result = this.api.deleteLogsPipeline(pipelineId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
      * Get a pipeline
      * @param pipelineId ID of the pipeline to get.
      */
     public getLogsPipeline(pipelineId: string, options?: Configuration): Promise<LogsPipeline> {
-    	const result = this.api.getLogsPipeline(pipelineId, options);
+        const result = this.api.getLogsPipeline(pipelineId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the current order of your pipelines. This endpoint takes no JSON arguments.
      * Get pipeline order
      */
     public getLogsPipelineOrder(options?: Configuration): Promise<LogsPipelinesOrder> {
-    	const result = this.api.getLogsPipelineOrder(options);
+        const result = this.api.getLogsPipelineOrder(options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all pipelines from your organization. This endpoint takes no JSON arguments.
      * Get all pipelines
      */
     public listLogsPipelines(options?: Configuration): Promise<Array<LogsPipeline>> {
-    	const result = this.api.listLogsPipelines(options);
+        const result = this.api.listLogsPipelines(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
      * Update a pipeline
@@ -1516,27 +1501,26 @@ export class PromiseLogsPipelinesApi {
      * @param body New definition of the pipeline.
      */
     public updateLogsPipeline(pipelineId: string, body: LogsPipeline, options?: Configuration): Promise<LogsPipeline> {
-    	const result = this.api.updateLogsPipeline(pipelineId, body, options);
+        const result = this.api.updateLogsPipeline(pipelineId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
      * Update pipeline order
      * @param body Object containing the new ordered list of pipeline IDs.
      */
     public updateLogsPipelineOrder(body: LogsPipelinesOrder, options?: Configuration): Promise<LogsPipelinesOrder> {
-    	const result = this.api.updateLogsPipelineOrder(body, options);
+        const result = this.api.updateLogsPipelineOrder(body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableMetricsApi } from './ObservableAPI';
-
 
 import { MetricsApiRequestFactory, MetricsApiResponseProcessor} from "../apis/MetricsApi";
 export class PromiseMetricsApi {
@@ -1556,10 +1540,10 @@ export class PromiseMetricsApi {
      * @param metricName Name of the metric for which to get metadata.
      */
     public getMetricMetadata(metricName: string, options?: Configuration): Promise<MetricMetadata> {
-    	const result = this.api.getMetricMetadata(metricName, options);
+        const result = this.api.getMetricMetadata(metricName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the list of actively reporting metrics from a given time until now.
      * Get active metrics list
@@ -1567,20 +1551,20 @@ export class PromiseMetricsApi {
      * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
      */
     public listActiveMetrics(from: number, host?: string, options?: Configuration): Promise<MetricsListResponse> {
-    	const result = this.api.listActiveMetrics(from, host, options);
+        const result = this.api.listActiveMetrics(from, host, options);
         return result.toPromise();
     }
-	
+
     /**
      * Search for metrics from the last 24 hours in Datadog.
      * Search metrics
      * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
      */
     public listMetrics(q: string, options?: Configuration): Promise<MetricSearchResponse> {
-    	const result = this.api.listMetrics(q, options);
+        const result = this.api.listMetrics(q, options);
         return result.toPromise();
     }
-	
+
     /**
      * Query timeseries points.
      * Query timeseries points
@@ -1589,10 +1573,10 @@ export class PromiseMetricsApi {
      * @param query Query string.
      */
     public queryMetrics(from: number, to: number, query: string, options?: Configuration): Promise<MetricsQueryResponse> {
-    	const result = this.api.queryMetrics(from, to, query, options);
+        const result = this.api.queryMetrics(from, to, query, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
      * Edit metric metadata
@@ -1600,17 +1584,16 @@ export class PromiseMetricsApi {
      * @param body New metadata.
      */
     public updateMetricMetadata(metricName: string, body: MetricMetadata, options?: Configuration): Promise<MetricMetadata> {
-    	const result = this.api.updateMetricMetadata(metricName, body, options);
+        const result = this.api.updateMetricMetadata(metricName, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableMonitorsApi } from './ObservableAPI';
-
 
 import { MonitorsApiRequestFactory, MonitorsApiResponseProcessor} from "../apis/MonitorsApi";
 export class PromiseMonitorsApi {
@@ -1630,20 +1613,20 @@ export class PromiseMonitorsApi {
      * @param monitorIds The IDs of the monitor to check.
      */
     public checkCanDeleteMonitor(monitorIds: Array<number>, options?: Configuration): Promise<CheckCanDeleteMonitorResponse> {
-    	const result = this.api.checkCanDeleteMonitor(monitorIds, options);
+        const result = this.api.checkCanDeleteMonitor(monitorIds, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create a monitor using the specified options.  #### Monitor Types  The type of monitor chosen from:  - anomaly: `query alert` - APM: `query alert` or `trace-analytics alert` - composite: `composite` - custom: `service check` - event: `event alert` - forecast: `query alert` - host: `service check` - integration: `query alert` or `service check` - live process: `process alert` - logs: `log alert` - metric: `metric alert` - network: `service check` - outlier: `query alert` - process: `service check` - rum: `rum alert` - watchdog: `event alert` - event-v2: `event-v2 alert`  #### Query Types  **Metric Alert Query**  Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`  - `time_aggr`: avg, sum, max, min, change, or pct_change - `time_window`: `last_#m` (with `#` between 1 and 2880 depending on the monitor type) or `last_#h`(with `#` between 1 and 48 depending on the monitor type), or `last_1d` - `space_aggr`: avg, sum, min, or max - `tags`: one or more tags (comma-separated), or * - `key`: a 'key' in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) - `operator`: <, <=, >, >=, ==, or != - `#`: an integer or decimal number used to set the threshold  If you are using the `_change_` or `_pct_change_` time aggregator, instead use `change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}] operator #` with:  - `change_aggr` change, pct_change - `time_aggr` avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) - `time_window` last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago  Use this to create an outlier monitor using the following query: `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`  **Service Check Query**  Example: `\"check\".over(tags).last(count).count_by_status()`  - **`check`** name of the check, e.g. `datadog.agent.up` - **`tags`** one or more quoted tags (comma-separated), or \"*\". e.g.: `.over(\"env:prod\", \"role:db\")` - **`count`** must be at >= your max threshold (defined in the `options`). e.g. if you want to notify on 1 critical, 3 ok and 2 warn statuses count should be 3. It is limited to 100.  **Event Alert Query**  Example: `events('sources:nagios status:error,warning priority:normal tags: \"string query\"').rollup(\"count\").last(\"1h\")\"`  - **`event`**, the event query string: - **`string_query`** free text query to match against event title and text. - **`sources`** event sources (comma-separated). - **`status`** event statuses (comma-separated). Valid options: error, warn, and info. - **`priority`** event priorities (comma-separated). Valid options: low, normal, all. - **`host`** event reporting host (comma-separated). - **`tags`** event tags (comma-separated). - **`excluded_tags`** excluded event tags (comma-separated). - **`rollup`** the stats roll-up method. `count` is the only supported method now. - **`last`** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.  **NOTE** Only available on US1 and EU.  **Event V2 Alert Query**  Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (5, 10, 15, or 30), #h (1, 2, or 4, 24). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1.  **Process Alert Query**  Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`  - **`search`** free text search string for querying processes. Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) page. - **`tags`** one or more tags (comma-separated) - **`timeframe`** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d - **`operator`** <, <=, >, >=, ==, or != - **`#`** an integer or decimal number used to set the threshold  **Logs Alert Query**  Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`index_name`** For multi-index organizations, the log index in which the request is performed. - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48) - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **Composite Query**  Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors  * **`name`** [*required*, *default* = **dynamic, based on query**]: The name of the alert. * **`message`** [*required*, *default* = **dynamic, based on query**]: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same '@username' notation as events. * **`tags`** [*optional*, *default* = **empty list**]: A list of tags to associate with your monitor. When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags. It is only available via the API and isn't visible or editable in the Datadog UI.
      * Create a monitor
      * @param body Create a monitor request body.
      */
     public createMonitor(body: Monitor, options?: Configuration): Promise<Monitor> {
-    	const result = this.api.createMonitor(body, options);
+        const result = this.api.createMonitor(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete the specified monitor
      * Delete a monitor
@@ -1651,10 +1634,10 @@ export class PromiseMonitorsApi {
      * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
      */
     public deleteMonitor(monitorId: number, force?: string, options?: Configuration): Promise<DeletedMonitor> {
-    	const result = this.api.deleteMonitor(monitorId, force, options);
+        const result = this.api.deleteMonitor(monitorId, force, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get details about the specified monitor from your organization.
      * Get a monitor's details
@@ -1662,10 +1645,10 @@ export class PromiseMonitorsApi {
      * @param groupStates When specified, shows additional information about the group states. Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and &#x60;no data&#x60;.
      */
     public getMonitor(monitorId: number, groupStates?: string, options?: Configuration): Promise<Monitor> {
-    	const result = this.api.getMonitor(monitorId, groupStates, options);
+        const result = this.api.getMonitor(monitorId, groupStates, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get details about the specified monitor from your organization.
      * Get all monitor details
@@ -1679,10 +1662,10 @@ export class PromiseMonitorsApi {
      * @param pageSize The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100.
      */
     public listMonitors(groupStates?: string, name?: string, tags?: string, monitorTags?: string, withDowntimes?: boolean, idOffset?: number, page?: number, pageSize?: number, options?: Configuration): Promise<Array<Monitor>> {
-    	const result = this.api.listMonitors(groupStates, name, tags, monitorTags, withDowntimes, idOffset, page, pageSize, options);
+        const result = this.api.listMonitors(groupStates, name, tags, monitorTags, withDowntimes, idOffset, page, pageSize, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit the specified monitor.
      * Edit a monitor
@@ -1690,27 +1673,26 @@ export class PromiseMonitorsApi {
      * @param body Edit a monitor request body.
      */
     public updateMonitor(monitorId: number, body: MonitorUpdateRequest, options?: Configuration): Promise<Monitor> {
-    	const result = this.api.updateMonitor(monitorId, body, options);
+        const result = this.api.updateMonitor(monitorId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Validate the monitor provided in the request.
      * Validate a monitor
      * @param body Monitor request object
      */
     public validateMonitor(body: Monitor, options?: Configuration): Promise<Monitor> {
-    	const result = this.api.validateMonitor(body, options);
+        const result = this.api.validateMonitor(body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableOrganizationsApi } from './ObservableAPI';
-
 
 import { OrganizationsApiRequestFactory, OrganizationsApiResponseProcessor} from "../apis/OrganizationsApi";
 export class PromiseOrganizationsApi {
@@ -1730,29 +1712,29 @@ export class PromiseOrganizationsApi {
      * @param body Organization object that needs to be created
      */
     public createChildOrg(body: OrganizationCreateBody, options?: Configuration): Promise<OrganizationCreateResponse> {
-    	const result = this.api.createChildOrg(body, options);
+        const result = this.api.createChildOrg(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get organization information.
      * Get organization information
      * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
      */
     public getOrg(publicId: string, options?: Configuration): Promise<OrganizationResponse> {
-    	const result = this.api.getOrg(publicId, options);
+        const result = this.api.getOrg(publicId, options);
         return result.toPromise();
     }
-	
+
     /**
      * List your managed organizations.
      * List your managed organizations
      */
     public listOrgs(options?: Configuration): Promise<OrganizationListResponse> {
-    	const result = this.api.listOrgs(options);
+        const result = this.api.listOrgs(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update your organization.
      * Update your organization
@@ -1760,10 +1742,10 @@ export class PromiseOrganizationsApi {
      * @param body 
      */
     public updateOrg(publicId: string, body: Organization, options?: Configuration): Promise<OrganizationResponse> {
-    	const result = this.api.updateOrg(publicId, body, options);
+        const result = this.api.updateOrg(publicId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
      * Upload IdP metadata
@@ -1771,17 +1753,16 @@ export class PromiseOrganizationsApi {
      * @param idpFile The path to the XML metadata file you wish to upload.
      */
     public uploadIdPForOrg(publicId: string, idpFile: HttpFile, options?: Configuration): Promise<IdpResponse> {
-    	const result = this.api.uploadIdPForOrg(publicId, idpFile, options);
+        const result = this.api.uploadIdPForOrg(publicId, idpFile, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservablePagerDutyIntegrationApi } from './ObservableAPI';
-
 
 import { PagerDutyIntegrationApiRequestFactory, PagerDutyIntegrationApiResponseProcessor} from "../apis/PagerDutyIntegrationApi";
 export class PromisePagerDutyIntegrationApi {
@@ -1801,30 +1782,30 @@ export class PromisePagerDutyIntegrationApi {
      * @param body Create a new service object request body.
      */
     public createPagerDutyIntegrationService(body: PagerDutyService, options?: Configuration): Promise<PagerDutyServiceName> {
-    	const result = this.api.createPagerDutyIntegrationService(body, options);
+        const result = this.api.createPagerDutyIntegrationService(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a single service object in the Datadog-PagerDuty integration.
      * Delete a single service object
      * @param serviceName The service name
      */
     public deletePagerDutyIntegrationService(serviceName: string, options?: Configuration): Promise<void> {
-    	const result = this.api.deletePagerDutyIntegrationService(serviceName, options);
+        const result = this.api.deletePagerDutyIntegrationService(serviceName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get service name in the Datadog-PagerDuty integration.
      * Get a single service object
      * @param serviceName The service name.
      */
     public getPagerDutyIntegrationService(serviceName: string, options?: Configuration): Promise<PagerDutyServiceName> {
-    	const result = this.api.getPagerDutyIntegrationService(serviceName, options);
+        const result = this.api.getPagerDutyIntegrationService(serviceName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a single service object in the Datadog-PagerDuty integration.
      * Update a single service object
@@ -1832,17 +1813,16 @@ export class PromisePagerDutyIntegrationApi {
      * @param body Update an existing service object request body.
      */
     public updatePagerDutyIntegrationService(serviceName: string, body: PagerDutyServiceKey, options?: Configuration): Promise<void> {
-    	const result = this.api.updatePagerDutyIntegrationService(serviceName, body, options);
+        const result = this.api.updatePagerDutyIntegrationService(serviceName, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableServiceLevelObjectiveCorrectionsApi } from './ObservableAPI';
-
 
 import { ServiceLevelObjectiveCorrectionsApiRequestFactory, ServiceLevelObjectiveCorrectionsApiResponseProcessor} from "../apis/ServiceLevelObjectiveCorrectionsApi";
 export class PromiseServiceLevelObjectiveCorrectionsApi {
@@ -1862,39 +1842,39 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
      * @param body Create an SLO Correction
      */
     public createSLOCorrection(body: SLOCorrectionCreateRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
-    	const result = this.api.createSLOCorrection(body, options);
+        const result = this.api.createSLOCorrection(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Permanently delete the specified SLO Correction object
      * Delete an SLO Correction
      * @param sloCorrectionId The ID of the SLO correction object
      */
     public deleteSLOCorrection(sloCorrectionId: string, options?: Configuration): Promise<void> {
-    	const result = this.api.deleteSLOCorrection(sloCorrectionId, options);
+        const result = this.api.deleteSLOCorrection(sloCorrectionId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get an SLO Correction
      * Get an SLO correction for an SLO
      * @param sloCorrectionId The ID of the SLO correction object
      */
     public getSLOCorrection(sloCorrectionId: string, options?: Configuration): Promise<SLOCorrectionResponse> {
-    	const result = this.api.getSLOCorrection(sloCorrectionId, options);
+        const result = this.api.getSLOCorrection(sloCorrectionId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get all Service Level Objective Corrections
      * Get all SLO corrections
      */
     public listSLOCorrection(options?: Configuration): Promise<SLOCorrectionListResponse> {
-    	const result = this.api.listSLOCorrection(options);
+        const result = this.api.listSLOCorrection(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update the specified SLO correction object object
      * Update an SLO Correction
@@ -1902,17 +1882,16 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
      * @param body The edited SLO correction object.
      */
     public updateSLOCorrection(sloCorrectionId: string, body: SLOCorrectionUpdateRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
-    	const result = this.api.updateSLOCorrection(sloCorrectionId, body, options);
+        const result = this.api.updateSLOCorrection(sloCorrectionId, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableServiceLevelObjectivesApi } from './ObservableAPI';
-
 
 import { ServiceLevelObjectivesApiRequestFactory, ServiceLevelObjectivesApiResponseProcessor} from "../apis/ServiceLevelObjectivesApi";
 export class PromiseServiceLevelObjectivesApi {
@@ -1932,20 +1911,20 @@ export class PromiseServiceLevelObjectivesApi {
      * @param ids A comma separated list of the IDs of the service level objectives objects.
      */
     public checkCanDeleteSLO(ids: string, options?: Configuration): Promise<CheckCanDeleteSLOResponse> {
-    	const result = this.api.checkCanDeleteSLO(ids, options);
+        const result = this.api.checkCanDeleteSLO(ids, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create a service level objective object.
      * Create a SLO object
      * @param body Service level objective request object.
      */
     public createSLO(body: ServiceLevelObjectiveRequest, options?: Configuration): Promise<SLOListResponse> {
-    	const result = this.api.createSLO(body, options);
+        const result = this.api.createSLO(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
      * Delete a SLO
@@ -1953,30 +1932,30 @@ export class PromiseServiceLevelObjectivesApi {
      * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
      */
     public deleteSLO(sloId: string, force?: string, options?: Configuration): Promise<SLODeleteResponse> {
-    	const result = this.api.deleteSLO(sloId, force, options);
+        const result = this.api.deleteSLO(sloId, force, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
      * Bulk Delete SLO Timeframes
      * @param body Delete multiple service level objective objects request body.
      */
     public deleteSLOTimeframeInBulk(body: { [key: string]: Array<SLOTimeframe>; }, options?: Configuration): Promise<SLOBulkDeleteResponse> {
-    	const result = this.api.deleteSLOTimeframeInBulk(body, options);
+        const result = this.api.deleteSLOTimeframeInBulk(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a service level objective object.
      * Get a SLO's details
      * @param sloId The ID of the service level objective object.
      */
     public getSLO(sloId: string, options?: Configuration): Promise<SLOResponse> {
-    	const result = this.api.getSLO(sloId, options);
+        const result = this.api.getSLO(sloId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
      * Get an SLO's history
@@ -1985,10 +1964,10 @@ export class PromiseServiceLevelObjectivesApi {
      * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds.
      */
     public getSLOHistory(sloId: string, fromTs: number, toTs: number, options?: Configuration): Promise<SLOHistoryResponse> {
-    	const result = this.api.getSLOHistory(sloId, fromTs, toTs, options);
+        const result = this.api.getSLOHistory(sloId, fromTs, toTs, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a list of service level objective objects for your organization.
      * Get all SLOs
@@ -1998,10 +1977,10 @@ export class PromiseServiceLevelObjectivesApi {
      * @param metricsQuery The query string to filter results based on SLO numerator and denominator.
      */
     public listSLOs(ids?: string, query?: string, tagsQuery?: string, metricsQuery?: string, options?: Configuration): Promise<SLOListResponse> {
-    	const result = this.api.listSLOs(ids, query, tagsQuery, metricsQuery, options);
+        const result = this.api.listSLOs(ids, query, tagsQuery, metricsQuery, options);
         return result.toPromise();
     }
-	
+
     /**
      * Update the specified service level objective object.
      * Update a SLO
@@ -2009,17 +1988,16 @@ export class PromiseServiceLevelObjectivesApi {
      * @param body The edited service level objective request object.
      */
     public updateSLO(sloId: string, body: ServiceLevelObjective, options?: Configuration): Promise<SLOListResponse> {
-    	const result = this.api.updateSLO(sloId, body, options);
+        const result = this.api.updateSLO(sloId, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableSlackIntegrationApi } from './ObservableAPI';
-
 
 import { SlackIntegrationApiRequestFactory, SlackIntegrationApiResponseProcessor} from "../apis/SlackIntegrationApi";
 export class PromiseSlackIntegrationApi {
@@ -2040,10 +2018,10 @@ export class PromiseSlackIntegrationApi {
      * @param body Payload describing Slack channel to be created
      */
     public createSlackIntegrationChannel(accountName: string, body: SlackIntegrationChannel, options?: Configuration): Promise<SlackIntegrationChannel> {
-    	const result = this.api.createSlackIntegrationChannel(accountName, body, options);
+        const result = this.api.createSlackIntegrationChannel(accountName, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a channel configured for your Datadog-Slack integration.
      * Get a Slack integration channel
@@ -2051,20 +2029,20 @@ export class PromiseSlackIntegrationApi {
      * @param channelName The name of the Slack channel being operated on.
      */
     public getSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Promise<SlackIntegrationChannel> {
-    	const result = this.api.getSlackIntegrationChannel(accountName, channelName, options);
+        const result = this.api.getSlackIntegrationChannel(accountName, channelName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a list of all channels configured for your Datadog-Slack integration.
      * Get all channels in a Slack integration
      * @param accountName Your Slack account name.
      */
     public getSlackIntegrationChannels(accountName: string, options?: Configuration): Promise<Array<SlackIntegrationChannel>> {
-    	const result = this.api.getSlackIntegrationChannels(accountName, options);
+        const result = this.api.getSlackIntegrationChannels(accountName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Remove a channel from your Datadog-Slack integration.
      * Remove a Slack integration channel
@@ -2072,10 +2050,10 @@ export class PromiseSlackIntegrationApi {
      * @param channelName The name of the Slack channel being operated on.
      */
     public removeSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Promise<void> {
-    	const result = this.api.removeSlackIntegrationChannel(accountName, channelName, options);
+        const result = this.api.removeSlackIntegrationChannel(accountName, channelName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a channel used in your Datadog-Slack integration.
      * Update a Slack integration channel
@@ -2084,17 +2062,16 @@ export class PromiseSlackIntegrationApi {
      * @param body Payload describing fields and values to be updated.
      */
     public updateSlackIntegrationChannel(accountName: string, channelName: string, body: SlackIntegrationChannel, options?: Configuration): Promise<SlackIntegrationChannel> {
-    	const result = this.api.updateSlackIntegrationChannel(accountName, channelName, body, options);
+        const result = this.api.updateSlackIntegrationChannel(accountName, channelName, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableSnapshotsApi } from './ObservableAPI';
-
 
 import { SnapshotsApiRequestFactory, SnapshotsApiResponseProcessor} from "../apis/SnapshotsApi";
 export class PromiseSnapshotsApi {
@@ -2119,17 +2096,16 @@ export class PromiseSnapshotsApi {
      * @param title A title for the graph. If no title is specified, the graph does not have a title.
      */
     public getGraphSnapshot(start: number, end: number, metricQuery?: string, eventQuery?: string, graphDef?: string, title?: string, options?: Configuration): Promise<GraphSnapshot> {
-    	const result = this.api.getGraphSnapshot(start, end, metricQuery, eventQuery, graphDef, title, options);
+        const result = this.api.getGraphSnapshot(start, end, metricQuery, eventQuery, graphDef, title, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableSyntheticsApi } from './ObservableAPI';
-
 
 import { SyntheticsApiRequestFactory, SyntheticsApiResponseProcessor} from "../apis/SyntheticsApi";
 export class PromiseSyntheticsApi {
@@ -2149,80 +2125,80 @@ export class PromiseSyntheticsApi {
      * @param body Details of the global variable to create.
      */
     public createGlobalVariable(body: SyntheticsGlobalVariable, options?: Configuration): Promise<SyntheticsGlobalVariable> {
-    	const result = this.api.createGlobalVariable(body, options);
+        const result = this.api.createGlobalVariable(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create a new Synthetics private location.
      * Create a private location
      * @param body Details of the private location to create.
      */
     public createPrivateLocation(body: SyntheticsPrivateLocation, options?: Configuration): Promise<SyntheticsPrivateLocationCreationResponse> {
-    	const result = this.api.createPrivateLocation(body, options);
+        const result = this.api.createPrivateLocation(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create a Synthetic API test.
      * Create an API test
      * @param body Details of the test to create.
      */
     public createSyntheticsAPITest(body: SyntheticsAPITest, options?: Configuration): Promise<SyntheticsAPITest> {
-    	const result = this.api.createSyntheticsAPITest(body, options);
+        const result = this.api.createSyntheticsAPITest(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create a Synthetic browser test.
      * Create a browser test
      * @param body Details of the test to create.
      */
     public createSyntheticsBrowserTest(body: SyntheticsBrowserTest, options?: Configuration): Promise<SyntheticsBrowserTest> {
-    	const result = this.api.createSyntheticsBrowserTest(body, options);
+        const result = this.api.createSyntheticsBrowserTest(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Create a Synthetic test.
      * Create a test
      * @param body Details of the test to create.
      */
     public createTest(body: SyntheticsTestDetails, options?: Configuration): Promise<SyntheticsTestDetails> {
-    	const result = this.api.createTest(body, options);
+        const result = this.api.createTest(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a Synthetics global variable.
      * Delete a global variable
      * @param variableId The ID of the global variable.
      */
     public deleteGlobalVariable(variableId: string, options?: Configuration): Promise<void> {
-    	const result = this.api.deleteGlobalVariable(variableId, options);
+        const result = this.api.deleteGlobalVariable(variableId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a Synthetics private location.
      * Delete a private location
      * @param locationId The ID of the private location.
      */
     public deletePrivateLocation(locationId: string, options?: Configuration): Promise<void> {
-    	const result = this.api.deletePrivateLocation(locationId, options);
+        const result = this.api.deletePrivateLocation(locationId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete multiple Synthetic tests by ID.
      * Delete tests
      * @param body Public ID list of the Synthetic tests to be deleted.
      */
     public deleteTests(body: SyntheticsDeleteTestsPayload, options?: Configuration): Promise<SyntheticsDeleteTestsResponse> {
-    	const result = this.api.deleteTests(body, options);
+        const result = this.api.deleteTests(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit a Synthetics global variable.
      * Edit a global variable
@@ -2230,10 +2206,10 @@ export class PromiseSyntheticsApi {
      * @param body Details of the global variable to update.
      */
     public editGlobalVariable(variableId: string, body: SyntheticsGlobalVariable, options?: Configuration): Promise<SyntheticsGlobalVariable> {
-    	const result = this.api.editGlobalVariable(variableId, body, options);
+        const result = this.api.editGlobalVariable(variableId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the last 50 test results summaries for a given Synthetics API test.
      * Get the test's latest results summaries (API)
@@ -2243,10 +2219,10 @@ export class PromiseSyntheticsApi {
      * @param probeDc Locations for which to query results.
      */
     public getAPITestLatestResults(publicId: string, fromTs?: number, toTs?: number, probeDc?: Array<string>, options?: Configuration): Promise<SyntheticsGetAPITestLatestResultsResponse> {
-    	const result = this.api.getAPITestLatestResults(publicId, fromTs, toTs, probeDc, options);
+        const result = this.api.getAPITestLatestResults(publicId, fromTs, toTs, probeDc, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a specific full result from a given (API) Synthetic test.
      * Get a test result (API)
@@ -2254,20 +2230,20 @@ export class PromiseSyntheticsApi {
      * @param resultId The ID of the result to get.
      */
     public getAPITestResult(publicId: string, resultId: string, options?: Configuration): Promise<SyntheticsAPITestResultFull> {
-    	const result = this.api.getAPITestResult(publicId, resultId, options);
+        const result = this.api.getAPITestResult(publicId, resultId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the detailed configuration (including steps) associated with a Synthetic browser test.
      * Get a test configuration (browser)
      * @param publicId The public ID of the test to get details from.
      */
     public getBrowserTest(publicId: string, options?: Configuration): Promise<SyntheticsTestDetails> {
-    	const result = this.api.getBrowserTest(publicId, options);
+        const result = this.api.getBrowserTest(publicId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the last 50 test results summaries for a given Synthetics Browser test.
      * Get the test's latest results summaries (browser)
@@ -2277,10 +2253,10 @@ export class PromiseSyntheticsApi {
      * @param probeDc Locations for which to query results.
      */
     public getBrowserTestLatestResults(publicId: string, fromTs?: number, toTs?: number, probeDc?: Array<string>, options?: Configuration): Promise<SyntheticsGetBrowserTestLatestResultsResponse> {
-    	const result = this.api.getBrowserTestLatestResults(publicId, fromTs, toTs, probeDc, options);
+        const result = this.api.getBrowserTestLatestResults(publicId, fromTs, toTs, probeDc, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a specific full result from a given (browser) Synthetic test.
      * Get a test result (browser)
@@ -2288,68 +2264,68 @@ export class PromiseSyntheticsApi {
      * @param resultId The ID of the result to get.
      */
     public getBrowserTestResult(publicId: string, resultId: string, options?: Configuration): Promise<SyntheticsBrowserTestResultFull> {
-    	const result = this.api.getBrowserTestResult(publicId, resultId, options);
+        const result = this.api.getBrowserTestResult(publicId, resultId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the detailed configuration of a global variable.
      * Get a global variable
      * @param variableId The ID of the global variable.
      */
     public getGlobalVariable(variableId: string, options?: Configuration): Promise<SyntheticsGlobalVariable> {
-    	const result = this.api.getGlobalVariable(variableId, options);
+        const result = this.api.getGlobalVariable(variableId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a Synthetics private location.
      * Get a private location
      * @param locationId The ID of the private location.
      */
     public getPrivateLocation(locationId: string, options?: Configuration): Promise<SyntheticsPrivateLocation> {
-    	const result = this.api.getPrivateLocation(locationId, options);
+        const result = this.api.getPrivateLocation(locationId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the detailed configuration associated with a Synthetics test.
      * Get a test configuration (API)
      * @param publicId The public ID of the test to get details from.
      */
     public getTest(publicId: string, options?: Configuration): Promise<SyntheticsTestDetails> {
-    	const result = this.api.getTest(publicId, options);
+        const result = this.api.getTest(publicId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the list of public and private locations available for Synthetic tests. No arguments required.
      * Get all locations (public and private)
      */
     public listLocations(options?: Configuration): Promise<SyntheticsLocations> {
-    	const result = this.api.listLocations(options);
+        const result = this.api.listLocations(options);
         return result.toPromise();
     }
-	
+
     /**
      * Get the list of all Synthetic tests.
      * Get the list of all tests
      */
     public listTests(options?: Configuration): Promise<SyntheticsListTestsResponse> {
-    	const result = this.api.listTests(options);
+        const result = this.api.listTests(options);
         return result.toPromise();
     }
-	
+
     /**
      * Trigger a set of Synthetics tests for continuous integration.
      * Trigger some Synthetics tests for CI
      * @param body Details of the test to trigger.
      */
     public triggerCITests(body: SyntheticsCITestBody, options?: Configuration): Promise<SyntheticsTriggerCITestsResponse> {
-    	const result = this.api.triggerCITests(body, options);
+        const result = this.api.triggerCITests(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit the configuration of a Synthetic API test.
      * Edit an API test
@@ -2357,10 +2333,10 @@ export class PromiseSyntheticsApi {
      * @param body New test details to be saved.
      */
     public updateAPITest(publicId: string, body: SyntheticsAPITest, options?: Configuration): Promise<SyntheticsAPITest> {
-    	const result = this.api.updateAPITest(publicId, body, options);
+        const result = this.api.updateAPITest(publicId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit the configuration of a Synthetic browser test.
      * Edit a browser test
@@ -2368,10 +2344,10 @@ export class PromiseSyntheticsApi {
      * @param body New test details to be saved.
      */
     public updateBrowserTest(publicId: string, body: SyntheticsBrowserTest, options?: Configuration): Promise<SyntheticsBrowserTest> {
-    	const result = this.api.updateBrowserTest(publicId, body, options);
+        const result = this.api.updateBrowserTest(publicId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit a Synthetics private location.
      * Edit a private location
@@ -2379,10 +2355,10 @@ export class PromiseSyntheticsApi {
      * @param body Details of the private location to be updated.
      */
     public updatePrivateLocation(locationId: string, body: SyntheticsPrivateLocation, options?: Configuration): Promise<SyntheticsPrivateLocation> {
-    	const result = this.api.updatePrivateLocation(locationId, body, options);
+        const result = this.api.updatePrivateLocation(locationId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Edit the configuration of a Synthetic test.
      * Edit a test
@@ -2390,10 +2366,10 @@ export class PromiseSyntheticsApi {
      * @param body New test details to be saved.
      */
     public updateTest(publicId: string, body: SyntheticsTestDetails, options?: Configuration): Promise<SyntheticsTestDetails> {
-    	const result = this.api.updateTest(publicId, body, options);
+        const result = this.api.updateTest(publicId, body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Pause or start a Synthetics test by changing the status.
      * Pause or start a test
@@ -2401,17 +2377,16 @@ export class PromiseSyntheticsApi {
      * @param body Status to set the given Synthetic test to.
      */
     public updateTestPauseStatus(publicId: string, body: SyntheticsUpdateTestPauseStatusPayload, options?: Configuration): Promise<boolean> {
-    	const result = this.api.updateTestPauseStatus(publicId, body, options);
+        const result = this.api.updateTestPauseStatus(publicId, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableTagsApi } from './ObservableAPI';
-
 
 import { TagsApiRequestFactory, TagsApiResponseProcessor} from "../apis/TagsApi";
 export class PromiseTagsApi {
@@ -2433,10 +2408,10 @@ export class PromiseTagsApi {
      * @param source The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
      */
     public createHostTags(hostName: string, body: HostTags, source?: string, options?: Configuration): Promise<HostTags> {
-    	const result = this.api.createHostTags(hostName, body, source, options);
+        const result = this.api.createHostTags(hostName, body, source, options);
         return result.toPromise();
     }
-	
+
     /**
      * This endpoint allows you to remove all user-assigned tags for a single host.
      * Remove host tags
@@ -2444,10 +2419,10 @@ export class PromiseTagsApi {
      * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
      */
     public deleteHostTags(hostName: string, source?: string, options?: Configuration): Promise<void> {
-    	const result = this.api.deleteHostTags(hostName, source, options);
+        const result = this.api.deleteHostTags(hostName, source, options);
         return result.toPromise();
     }
-	
+
     /**
      * Return the list of tags that apply to a given host.
      * Get host tags
@@ -2455,20 +2430,20 @@ export class PromiseTagsApi {
      * @param source Source to filter.
      */
     public getHostTags(hostName: string, source?: string, options?: Configuration): Promise<HostTags> {
-    	const result = this.api.getHostTags(hostName, source, options);
+        const result = this.api.getHostTags(hostName, source, options);
         return result.toPromise();
     }
-	
+
     /**
      * Return a mapping of tags to hosts for your whole infrastructure.
      * Get Tags
      * @param source When specified, filters host list to those tags with the specified source.
      */
     public listHostTags(source?: string, options?: Configuration): Promise<TagToHosts> {
-    	const result = this.api.listHostTags(source, options);
+        const result = this.api.listHostTags(source, options);
         return result.toPromise();
     }
-	
+
     /**
      * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
      * Update host tags
@@ -2477,17 +2452,16 @@ export class PromiseTagsApi {
      * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
      */
     public updateHostTags(hostName: string, body: HostTags, source?: string, options?: Configuration): Promise<HostTags> {
-    	const result = this.api.updateHostTags(hostName, body, source, options);
+        const result = this.api.updateHostTags(hostName, body, source, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableUsageMeteringApi } from './ObservableAPI';
-
 
 import { UsageMeteringApiRequestFactory, UsageMeteringApiResponseProcessor} from "../apis/UsageMeteringApi";
 export class PromiseUsageMeteringApi {
@@ -2510,10 +2484,10 @@ export class PromiseUsageMeteringApi {
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
      */
     public getDailyCustomReports(pageSize?: number, pageNumber?: number, sortDir?: UsageSortDirection, sort?: UsageSort, options?: Configuration): Promise<UsageCustomReportsResponse> {
-    	const result = this.api.getDailyCustomReports(pageSize, pageNumber, sortDir, sort, options);
+        const result = this.api.getDailyCustomReports(pageSize, pageNumber, sortDir, sort, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for incident management.
      * Get hourly usage for incident management
@@ -2521,10 +2495,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getIncidentManagement(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageIncidentManagementResponse> {
-    	const result = this.api.getIncidentManagement(startHr, endHr, options);
+        const result = this.api.getIncidentManagement(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for ingested spans.
      * Get hourly usage for ingested spans
@@ -2532,10 +2506,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getIngestedSpans(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageIngestedSpansResponse> {
-    	const result = this.api.getIngestedSpans(startHr, endHr, options);
+        const result = this.api.getIngestedSpans(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get monthly custom reports.
      * Get the list of available monthly custom reports
@@ -2545,30 +2519,30 @@ export class PromiseUsageMeteringApi {
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
      */
     public getMonthlyCustomReports(pageSize?: number, pageNumber?: number, sortDir?: UsageSortDirection, sort?: UsageSort, options?: Configuration): Promise<UsageCustomReportsResponse> {
-    	const result = this.api.getMonthlyCustomReports(pageSize, pageNumber, sortDir, sort, options);
+        const result = this.api.getMonthlyCustomReports(pageSize, pageNumber, sortDir, sort, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get specified daily custom reports.
      * Get specified daily custom reports
      * @param reportId The specified ID to search results for.
      */
     public getSpecifiedDailyCustomReports(reportId: string, options?: Configuration): Promise<UsageSpecifiedCustomReportsResponse> {
-    	const result = this.api.getSpecifiedDailyCustomReports(reportId, options);
+        const result = this.api.getSpecifiedDailyCustomReports(reportId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get specified monthly custom reports.
      * Get specified monthly custom reports
      * @param reportId The specified ID to search results for.
      */
     public getSpecifiedMonthlyCustomReports(reportId: string, options?: Configuration): Promise<UsageSpecifiedCustomReportsResponse> {
-    	const result = this.api.getSpecifiedMonthlyCustomReports(reportId, options);
+        const result = this.api.getSpecifiedMonthlyCustomReports(reportId, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
      * Get hourly usage for tracing without limits
@@ -2576,10 +2550,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getTracingWithoutLimits(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageTracingWithoutLimitsResponse> {
-    	const result = this.api.getTracingWithoutLimits(startHr, endHr, options);
+        const result = this.api.getTracingWithoutLimits(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for analyzed logs (Security Monitoring).
      * Get hourly usage for analyzed logs
@@ -2587,10 +2561,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getUsageAnalyzedLogs(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageAnalyzedLogsResponse> {
-    	const result = this.api.getUsageAnalyzedLogs(startHr, endHr, options);
+        const result = this.api.getUsageAnalyzedLogs(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get Usage Attribution.
      * Get Usage Attribution
@@ -2601,20 +2575,20 @@ export class PromiseUsageMeteringApi {
      * @param sortName The field to sort by.
      */
     public getUsageAttribution(startMonth: Date, fields: string, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Promise<UsageAttributionResponse> {
-    	const result = this.api.getUsageAttribution(startMonth, fields, endMonth, sortDirection, sortName, options);
+        const result = this.api.getUsageAttribution(startMonth, fields, endMonth, sortDirection, sortName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get billable usage across your account.
      * Get billable usage across your account
      * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
      */
     public getUsageBillableSummary(month?: Date, options?: Configuration): Promise<UsageBillableSummaryResponse> {
-    	const result = this.api.getUsageBillableSummary(month, options);
+        const result = this.api.getUsageBillableSummary(month, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
      * Get hourly usage for Fargate
@@ -2622,10 +2596,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageFargate(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageFargateResponse> {
-    	const result = this.api.getUsageFargate(startHr, endHr, options);
+        const result = this.api.getUsageFargate(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for hosts and containers.
      * Get hourly usage for hosts and containers
@@ -2633,10 +2607,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageHosts(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageHostsResponse> {
-    	const result = this.api.getUsageHosts(startHr, endHr, options);
+        const result = this.api.getUsageHosts(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for indexed spans.
      * Get hourly usage for indexed spans
@@ -2644,10 +2618,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getUsageIndexedSpans(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageIndexedSpansResponse> {
-    	const result = this.api.getUsageIndexedSpans(startHr, endHr, options);
+        const result = this.api.getUsageIndexedSpans(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for IoT.
      * Get hourly usage for IoT
@@ -2655,10 +2629,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getUsageInternetOfThings(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageIoTResponse> {
-    	const result = this.api.getUsageInternetOfThings(startHr, endHr, options);
+        const result = this.api.getUsageInternetOfThings(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for lambda.
      * Get hourly usage for Lambda
@@ -2666,10 +2640,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageLambda(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageLambdaResponse> {
-    	const result = this.api.getUsageLambda(startHr, endHr, options);
+        const result = this.api.getUsageLambda(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for logs.
      * Get hourly usage for Logs
@@ -2677,10 +2651,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageLogs(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageLogsResponse> {
-    	const result = this.api.getUsageLogs(startHr, endHr, options);
+        const result = this.api.getUsageLogs(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for logs by index.
      * Get hourly usage for Logs by Index
@@ -2689,10 +2663,10 @@ export class PromiseUsageMeteringApi {
      * @param indexName Comma-separated list of log index names.
      */
     public getUsageLogsByIndex(startHr: Date, endHr?: Date, indexName?: Array<string>, options?: Configuration): Promise<UsageLogsByIndexResponse> {
-    	const result = this.api.getUsageLogsByIndex(startHr, endHr, indexName, options);
+        const result = this.api.getUsageLogsByIndex(startHr, endHr, indexName, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for network flows.
      * Get hourly usage for Network Flows
@@ -2700,10 +2674,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getUsageNetworkFlows(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageNetworkFlowsResponse> {
-    	const result = this.api.getUsageNetworkFlows(startHr, endHr, options);
+        const result = this.api.getUsageNetworkFlows(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for network hosts.
      * Get hourly usage for Network Hosts
@@ -2711,10 +2685,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageNetworkHosts(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageNetworkHostsResponse> {
-    	const result = this.api.getUsageNetworkHosts(startHr, endHr, options);
+        const result = this.api.getUsageNetworkHosts(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for profiled hosts.
      * Get hourly usage for profiled hosts
@@ -2722,10 +2696,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getUsageProfiling(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageProfilingResponse> {
-    	const result = this.api.getUsageProfiling(startHr, endHr, options);
+        const result = this.api.getUsageProfiling(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
      * Get hourly usage for RUM Sessions
@@ -2734,10 +2708,10 @@ export class PromiseUsageMeteringApi {
      * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
      */
     public getUsageRumSessions(startHr: Date, endHr?: Date, type?: string, options?: Configuration): Promise<UsageRumSessionsResponse> {
-    	const result = this.api.getUsageRumSessions(startHr, endHr, type, options);
+        const result = this.api.getUsageRumSessions(startHr, endHr, type, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for SNMP devices.
      * Get hourly usage for SNMP devices
@@ -2745,10 +2719,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
     public getUsageSNMP(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageSNMPResponse> {
-    	const result = this.api.getUsageSNMP(startHr, endHr, options);
+        const result = this.api.getUsageSNMP(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get usage across your multi-org account. You must have the multi-org feature enabled.
      * Get usage across your multi-org account
@@ -2757,10 +2731,10 @@ export class PromiseUsageMeteringApi {
      * @param includeOrgDetails Include usage summaries for each sub-org.
      */
     public getUsageSummary(startMonth: Date, endMonth?: Date, includeOrgDetails?: boolean, options?: Configuration): Promise<UsageSummaryResponse> {
-    	const result = this.api.getUsageSummary(startMonth, endMonth, includeOrgDetails, options);
+        const result = this.api.getUsageSummary(startMonth, endMonth, includeOrgDetails, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
      * Get hourly usage for Synthetics Checks
@@ -2768,10 +2742,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageSynthetics(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageSyntheticsResponse> {
-    	const result = this.api.getUsageSynthetics(startHr, endHr, options);
+        const result = this.api.getUsageSynthetics(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
      * Get hourly usage for Synthetics API Checks
@@ -2779,10 +2753,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageSyntheticsAPI(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageSyntheticsAPIResponse> {
-    	const result = this.api.getUsageSyntheticsAPI(startHr, endHr, options);
+        const result = this.api.getUsageSyntheticsAPI(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for synthetics browser checks.
      * Get hourly usage for Synthetics Browser Checks
@@ -2790,10 +2764,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageSyntheticsBrowser(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageSyntheticsBrowserResponse> {
-    	const result = this.api.getUsageSyntheticsBrowser(startHr, endHr, options);
+        const result = this.api.getUsageSyntheticsBrowser(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
      * Get hourly usage for custom metrics
@@ -2801,10 +2775,10 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageTimeseries(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageTimeseriesResponse> {
-    	const result = this.api.getUsageTimeseries(startHr, endHr, options);
+        const result = this.api.getUsageTimeseries(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
      * Get top custom metrics by hourly average
@@ -2813,10 +2787,10 @@ export class PromiseUsageMeteringApi {
      * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
      */
     public getUsageTopAvgMetrics(month: Date, names?: Array<string>, limit?: number, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
-    	const result = this.api.getUsageTopAvgMetrics(month, names, limit, options);
+        const result = this.api.getUsageTopAvgMetrics(month, names, limit, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
      * Get hourly usage for Trace Search
@@ -2824,17 +2798,16 @@ export class PromiseUsageMeteringApi {
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
      */
     public getUsageTrace(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageTraceResponse> {
-    	const result = this.api.getUsageTrace(startHr, endHr, options);
+        const result = this.api.getUsageTrace(startHr, endHr, options);
         return result.toPromise();
     }
-	
+
 
 }
 
 
 
 import { ObservableUsersApi } from './ObservableAPI';
-
 
 import { UsersApiRequestFactory, UsersApiResponseProcessor} from "../apis/UsersApi";
 export class PromiseUsersApi {
@@ -2854,39 +2827,39 @@ export class PromiseUsersApi {
      * @param body User object that needs to be created.
      */
     public createUser(body: User, options?: Configuration): Promise<UserResponse> {
-    	const result = this.api.createUser(body, options);
+        const result = this.api.createUser(body, options);
         return result.toPromise();
     }
-	
+
     /**
      * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
      * Disable a user
      * @param userHandle The handle of the user.
      */
     public disableUser(userHandle: string, options?: Configuration): Promise<UserDisableResponse> {
-    	const result = this.api.disableUser(userHandle, options);
+        const result = this.api.disableUser(userHandle, options);
         return result.toPromise();
     }
-	
+
     /**
      * Get a user's details.
      * Get user details
      * @param userHandle The ID of the user.
      */
     public getUser(userHandle: string, options?: Configuration): Promise<UserResponse> {
-    	const result = this.api.getUser(userHandle, options);
+        const result = this.api.getUser(userHandle, options);
         return result.toPromise();
     }
-	
+
     /**
      * List all users for your organization.
      * List all users
      */
     public listUsers(options?: Configuration): Promise<UserListResponse> {
-    	const result = this.api.listUsers(options);
+        const result = this.api.listUsers(options);
         return result.toPromise();
     }
-	
+
     /**
      * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
      * Update a user
@@ -2894,10 +2867,10 @@ export class PromiseUsersApi {
      * @param body Description of the update.
      */
     public updateUser(userHandle: string, body: User, options?: Configuration): Promise<UserResponse> {
-    	const result = this.api.updateUser(userHandle, body, options);
+        const result = this.api.updateUser(userHandle, body, options);
         return result.toPromise();
     }
-	
+
 
 }
 

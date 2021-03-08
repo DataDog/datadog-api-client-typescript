@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -16,7 +16,7 @@ import { DashboardListListResponse } from '../models/DashboardListListResponse';
  * no description
  */
 export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create an empty dashboard list.
      * Create a dashboard list
@@ -24,13 +24,13 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createDashboardList(body: DashboardList, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createDashboardList.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/lists/manual';
 
@@ -39,9 +39,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -77,13 +77,13 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteDashboardList(listId: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'listId' is not null or undefined
         if (listId === null || listId === undefined) {
             throw new RequiredError('Required parameter listId was null or undefined when calling deleteDashboardList.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/lists/manual/{list_id}'
             .replace('{' + 'list_id' + '}', encodeURIComponent(String(listId)));
@@ -93,9 +93,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -122,13 +122,13 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getDashboardList(listId: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'listId' is not null or undefined
         if (listId === null || listId === undefined) {
             throw new RequiredError('Required parameter listId was null or undefined when calling getDashboardList.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/lists/manual/{list_id}'
             .replace('{' + 'list_id' + '}', encodeURIComponent(String(listId)));
@@ -138,9 +138,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -166,7 +166,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listDashboardLists(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/lists/manual';
 
@@ -175,9 +175,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -205,19 +205,19 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateDashboardList(listId: number, body: DashboardList, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'listId' is not null or undefined
         if (listId === null || listId === undefined) {
             throw new RequiredError('Required parameter listId was null or undefined when calling updateDashboardList.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateDashboardList.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/dashboard/lists/manual/{list_id}'
             .replace('{' + 'list_id' + '}', encodeURIComponent(String(listId)));
@@ -227,9 +227,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -259,8 +259,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class DashboardListsApiResponseProcessor {
 
@@ -307,7 +305,7 @@ export class DashboardListsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -351,7 +349,7 @@ export class DashboardListsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -395,7 +393,7 @@ export class DashboardListsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -432,7 +430,7 @@ export class DashboardListsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -483,5 +481,5 @@ export class DashboardListsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

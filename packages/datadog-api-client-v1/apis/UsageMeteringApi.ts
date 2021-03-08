@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -43,7 +43,7 @@ import { UsageTracingWithoutLimitsResponse } from '../models/UsageTracingWithout
  * no description
  */
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Get daily custom reports.
      * Get the list of available daily custom reports
@@ -54,11 +54,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getDailyCustomReports(pageSize?: number, pageNumber?: number, sortDir?: UsageSortDirection, sort?: UsageSort, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/daily_custom_reports';
 
@@ -79,9 +79,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (sort !== undefined) {
             requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "UsageSort", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -109,14 +109,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getIncidentManagement(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getIncidentManagement.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/incident-management';
 
@@ -131,9 +131,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -161,14 +161,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getIngestedSpans(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getIngestedSpans.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/ingested-spans';
 
@@ -183,9 +183,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -215,11 +215,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getMonthlyCustomReports(pageSize?: number, pageNumber?: number, sortDir?: UsageSortDirection, sort?: UsageSort, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/monthly_custom_reports';
 
@@ -240,9 +240,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (sort !== undefined) {
             requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "UsageSort", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -269,13 +269,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getSpecifiedDailyCustomReports(reportId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'reportId' is not null or undefined
         if (reportId === null || reportId === undefined) {
             throw new RequiredError('Required parameter reportId was null or undefined when calling getSpecifiedDailyCustomReports.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/daily_custom_reports/{report_id}'
             .replace('{' + 'report_id' + '}', encodeURIComponent(String(reportId)));
@@ -285,9 +285,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -314,13 +314,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getSpecifiedMonthlyCustomReports(reportId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'reportId' is not null or undefined
         if (reportId === null || reportId === undefined) {
             throw new RequiredError('Required parameter reportId was null or undefined when calling getSpecifiedMonthlyCustomReports.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/monthly_custom_reports/{report_id}'
             .replace('{' + 'report_id' + '}', encodeURIComponent(String(reportId)));
@@ -330,9 +330,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -360,14 +360,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getTracingWithoutLimits(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getTracingWithoutLimits.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/tracing-without-limits';
 
@@ -382,9 +382,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -412,14 +412,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageAnalyzedLogs(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageAnalyzedLogs.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/analyzed_logs';
 
@@ -434,9 +434,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -467,22 +467,22 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageAttribution(startMonth: Date, fields: string, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startMonth' is not null or undefined
         if (startMonth === null || startMonth === undefined) {
             throw new RequiredError('Required parameter startMonth was null or undefined when calling getUsageAttribution.');
         }
 
-        
+
         // verify required parameter 'fields' is not null or undefined
         if (fields === null || fields === undefined) {
             throw new RequiredError('Required parameter fields was null or undefined when calling getUsageAttribution.');
         }
 
-        
-        
-        
-        
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/attribution';
 
@@ -506,9 +506,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (sortName !== undefined) {
             requestContext.setQueryParam("sort_name", ObjectSerializer.serialize(sortName, "UsageAttributionSort", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -535,8 +535,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageBillableSummary(month?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/billable-summary';
 
@@ -548,9 +548,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (month !== undefined) {
             requestContext.setQueryParam("month", ObjectSerializer.serialize(month, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -578,14 +578,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageFargate(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageFargate.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/fargate';
 
@@ -600,9 +600,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -630,14 +630,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageHosts(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageHosts.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/hosts';
 
@@ -652,9 +652,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -682,14 +682,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageIndexedSpans(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageIndexedSpans.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/indexed-spans';
 
@@ -704,9 +704,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -734,14 +734,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageInternetOfThings(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageInternetOfThings.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/iot';
 
@@ -756,9 +756,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -786,14 +786,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageLambda(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageLambda.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/aws_lambda';
 
@@ -808,9 +808,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -838,14 +838,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageLogs(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageLogs.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/logs';
 
@@ -860,9 +860,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -891,15 +891,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageLogsByIndex(startHr: Date, endHr?: Date, indexName?: Array<string>, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageLogsByIndex.');
         }
 
-        
-        
-        
+
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/logs_by_index';
 
@@ -917,9 +917,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (indexName !== undefined) {
             requestContext.setQueryParam("index_name", ObjectSerializer.serialize(indexName, "Array<string>", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -947,14 +947,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageNetworkFlows(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageNetworkFlows.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/network_flows';
 
@@ -969,9 +969,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -999,14 +999,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageNetworkHosts(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageNetworkHosts.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/network_hosts';
 
@@ -1021,9 +1021,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1051,14 +1051,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageProfiling(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageProfiling.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/profiling';
 
@@ -1073,9 +1073,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1104,15 +1104,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageRumSessions(startHr: Date, endHr?: Date, type?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageRumSessions.');
         }
 
-        
-        
-        
+
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/rum_sessions';
 
@@ -1130,9 +1130,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (type !== undefined) {
             requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1160,14 +1160,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageSNMP(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageSNMP.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/snmp';
 
@@ -1182,9 +1182,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1213,15 +1213,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageSummary(startMonth: Date, endMonth?: Date, includeOrgDetails?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startMonth' is not null or undefined
         if (startMonth === null || startMonth === undefined) {
             throw new RequiredError('Required parameter startMonth was null or undefined when calling getUsageSummary.');
         }
 
-        
-        
-        
+
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/summary';
 
@@ -1239,9 +1239,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (includeOrgDetails !== undefined) {
             requestContext.setQueryParam("include_org_details", ObjectSerializer.serialize(includeOrgDetails, "boolean", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1269,14 +1269,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageSynthetics(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageSynthetics.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/synthetics';
 
@@ -1291,9 +1291,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1321,14 +1321,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageSyntheticsAPI(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageSyntheticsAPI.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/synthetics_api';
 
@@ -1343,9 +1343,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1373,14 +1373,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageSyntheticsBrowser(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageSyntheticsBrowser.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/synthetics_browser';
 
@@ -1395,9 +1395,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1425,14 +1425,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageTimeseries(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageTimeseries.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/timeseries';
 
@@ -1447,9 +1447,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1478,15 +1478,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageTopAvgMetrics(month: Date, names?: Array<string>, limit?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'month' is not null or undefined
         if (month === null || month === undefined) {
             throw new RequiredError('Required parameter month was null or undefined when calling getUsageTopAvgMetrics.');
         }
 
-        
-        
-        
+
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/top_avg_metrics';
 
@@ -1504,9 +1504,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int32"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1534,14 +1534,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUsageTrace(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
             throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageTrace.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/usage/traces';
 
@@ -1556,9 +1556,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         if (endHr !== undefined) {
             requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -1579,8 +1579,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class UsageMeteringApiResponseProcessor {
 
@@ -1620,7 +1618,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1664,7 +1662,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1708,7 +1706,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1745,7 +1743,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1789,7 +1787,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1840,7 +1838,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1884,7 +1882,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1928,7 +1926,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1965,7 +1963,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2009,7 +2007,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2053,7 +2051,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2097,7 +2095,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2141,7 +2139,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2185,7 +2183,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2229,7 +2227,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2273,7 +2271,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2317,7 +2315,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2361,7 +2359,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2405,7 +2403,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2449,7 +2447,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2493,7 +2491,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2537,7 +2535,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2581,7 +2579,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2625,7 +2623,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2669,7 +2667,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2713,7 +2711,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2757,7 +2755,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2801,7 +2799,7 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -2845,5 +2843,5 @@ export class UsageMeteringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

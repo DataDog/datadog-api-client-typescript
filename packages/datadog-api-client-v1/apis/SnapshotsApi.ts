@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -14,7 +14,7 @@ import { GraphSnapshot } from '../models/GraphSnapshot';
  * no description
  */
 export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
      * Take graph snapshots
@@ -27,23 +27,23 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getGraphSnapshot(start: number, end: number, metricQuery?: string, eventQuery?: string, graphDef?: string, title?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'start' is not null or undefined
         if (start === null || start === undefined) {
             throw new RequiredError('Required parameter start was null or undefined when calling getGraphSnapshot.');
         }
 
-        
+
         // verify required parameter 'end' is not null or undefined
         if (end === null || end === undefined) {
             throw new RequiredError('Required parameter end was null or undefined when calling getGraphSnapshot.');
         }
 
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/graph/snapshot';
 
@@ -70,9 +70,9 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
         if (title !== undefined) {
             requestContext.setQueryParam("title", ObjectSerializer.serialize(title, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -93,8 +93,6 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class SnapshotsApiResponseProcessor {
 
@@ -141,5 +139,5 @@ export class SnapshotsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

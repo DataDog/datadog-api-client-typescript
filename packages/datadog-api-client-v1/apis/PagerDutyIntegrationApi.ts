@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -16,7 +16,7 @@ import { PagerDutyServiceName } from '../models/PagerDutyServiceName';
  * no description
  */
 export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a new service object in the PagerDuty integration.
      * Create a new service object
@@ -24,13 +24,13 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
      */
     public async createPagerDutyIntegrationService(body: PagerDutyService, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createPagerDutyIntegrationService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/pagerduty/configuration/services';
 
@@ -39,9 +39,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -77,13 +77,13 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
      */
     public async deletePagerDutyIntegrationService(serviceName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'serviceName' is not null or undefined
         if (serviceName === null || serviceName === undefined) {
             throw new RequiredError('Required parameter serviceName was null or undefined when calling deletePagerDutyIntegrationService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/pagerduty/configuration/services/{service_name}'
             .replace('{' + 'service_name' + '}', encodeURIComponent(String(serviceName)));
@@ -93,9 +93,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -122,13 +122,13 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
      */
     public async getPagerDutyIntegrationService(serviceName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'serviceName' is not null or undefined
         if (serviceName === null || serviceName === undefined) {
             throw new RequiredError('Required parameter serviceName was null or undefined when calling getPagerDutyIntegrationService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/pagerduty/configuration/services/{service_name}'
             .replace('{' + 'service_name' + '}', encodeURIComponent(String(serviceName)));
@@ -138,9 +138,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -168,19 +168,19 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
      */
     public async updatePagerDutyIntegrationService(serviceName: string, body: PagerDutyServiceKey, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'serviceName' is not null or undefined
         if (serviceName === null || serviceName === undefined) {
             throw new RequiredError('Required parameter serviceName was null or undefined when calling updatePagerDutyIntegrationService.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updatePagerDutyIntegrationService.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/pagerduty/configuration/services/{service_name}'
             .replace('{' + 'service_name' + '}', encodeURIComponent(String(serviceName)));
@@ -190,9 +190,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -222,8 +222,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     }
 
 }
-
-
 
 export class PagerDutyIntegrationApiResponseProcessor {
 
@@ -270,7 +268,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -310,7 +308,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -354,7 +352,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -401,5 +399,5 @@ export class PagerDutyIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -17,7 +17,7 @@ import { UserResponse } from '../models/UserResponse';
  * no description
  */
 export class UsersApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
      * Create a user
@@ -25,13 +25,13 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createUser(body: User, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createUser.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/user';
 
@@ -40,9 +40,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -78,13 +78,13 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async disableUser(userHandle: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'userHandle' is not null or undefined
         if (userHandle === null || userHandle === undefined) {
             throw new RequiredError('Required parameter userHandle was null or undefined when calling disableUser.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/user/{user_handle}'
             .replace('{' + 'user_handle' + '}', encodeURIComponent(String(userHandle)));
@@ -94,9 +94,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -123,13 +123,13 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getUser(userHandle: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'userHandle' is not null or undefined
         if (userHandle === null || userHandle === undefined) {
             throw new RequiredError('Required parameter userHandle was null or undefined when calling getUser.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/user/{user_handle}'
             .replace('{' + 'user_handle' + '}', encodeURIComponent(String(userHandle)));
@@ -139,9 +139,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -167,7 +167,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listUsers(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/user';
 
@@ -176,9 +176,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -206,19 +206,19 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateUser(userHandle: string, body: User, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'userHandle' is not null or undefined
         if (userHandle === null || userHandle === undefined) {
             throw new RequiredError('Required parameter userHandle was null or undefined when calling updateUser.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateUser.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/user/{user_handle}'
             .replace('{' + 'user_handle' + '}', encodeURIComponent(String(userHandle)));
@@ -228,9 +228,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -260,8 +260,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class UsersApiResponseProcessor {
 
@@ -315,7 +313,7 @@ export class UsersApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -366,7 +364,7 @@ export class UsersApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -410,7 +408,7 @@ export class UsersApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -447,7 +445,7 @@ export class UsersApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -498,5 +496,5 @@ export class UsersApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

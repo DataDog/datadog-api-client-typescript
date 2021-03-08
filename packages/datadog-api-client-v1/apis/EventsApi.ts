@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -16,7 +16,7 @@ import { EventResponse } from '../models/EventResponse';
  * no description
  */
 export class EventsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
      * Get an event
@@ -24,13 +24,13 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getEvent(eventId: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'eventId' is not null or undefined
         if (eventId === null || eventId === undefined) {
             throw new RequiredError('Required parameter eventId was null or undefined when calling getEvent.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/events/{event_id}'
             .replace('{' + 'event_id' + '}', encodeURIComponent(String(eventId)));
@@ -40,9 +40,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -74,23 +74,23 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listEvents(start: number, end: number, priority?: EventPriority, sources?: string, tags?: string, unaggregated?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'start' is not null or undefined
         if (start === null || start === undefined) {
             throw new RequiredError('Required parameter start was null or undefined when calling listEvents.');
         }
 
-        
+
         // verify required parameter 'end' is not null or undefined
         if (end === null || end === undefined) {
             throw new RequiredError('Required parameter end was null or undefined when calling listEvents.');
         }
 
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/events';
 
@@ -117,9 +117,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         if (unaggregated !== undefined) {
             requestContext.setQueryParam("unaggregated", ObjectSerializer.serialize(unaggregated, "boolean", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -140,8 +140,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class EventsApiResponseProcessor {
 
@@ -188,7 +186,7 @@ export class EventsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -232,5 +230,5 @@ export class EventsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

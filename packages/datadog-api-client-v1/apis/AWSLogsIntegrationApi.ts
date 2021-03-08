@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -18,7 +18,7 @@ import { AWSLogsServicesRequest } from '../models/AWSLogsServicesRequest';
  * no description
  */
 export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of 'created' when it's checking if the Lambda exists in the account. - Returns a status of 'waiting' while checking. - Returns a status of 'checked and ok' if the Lambda exists. - Returns a status of 'error' if the Lambda does not exist.
      * Check that an AWS Lambda Function exists
@@ -26,13 +26,13 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async checkAWSLogsLambdaAsync(body: AWSAccountAndLambdaRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling checkAWSLogsLambdaAsync.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs/check_async';
 
@@ -41,9 +41,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -79,13 +79,13 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async checkAWSLogsServicesAsync(body: AWSLogsServicesRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling checkAWSLogsServicesAsync.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs/services_async';
 
@@ -94,9 +94,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -132,13 +132,13 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createAWSLambdaARN(body: AWSAccountAndLambdaRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createAWSLambdaARN.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs';
 
@@ -147,9 +147,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -185,13 +185,13 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteAWSLambdaARN(body: AWSAccountAndLambdaRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteAWSLambdaARN.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs';
 
@@ -200,9 +200,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -238,13 +238,13 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async enableAWSLogServices(body: AWSLogsServicesRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling enableAWSLogServices.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs/services';
 
@@ -253,9 +253,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -290,7 +290,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAWSLogsIntegrations(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs';
 
@@ -299,9 +299,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -327,7 +327,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAWSLogsServices(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/logs/services';
 
@@ -336,9 +336,9 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -359,8 +359,6 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class AWSLogsIntegrationApiResponseProcessor {
 
@@ -407,7 +405,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -451,7 +449,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -495,7 +493,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -539,7 +537,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -583,7 +581,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -627,7 +625,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -664,5 +662,5 @@ export class AWSLogsIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

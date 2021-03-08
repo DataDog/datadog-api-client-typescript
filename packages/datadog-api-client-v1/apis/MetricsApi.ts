@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -17,7 +17,7 @@ import { MetricsQueryResponse } from '../models/MetricsQueryResponse';
  * no description
  */
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Get metadata about a specific metric.
      * Get metric metadata
@@ -25,13 +25,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getMetricMetadata(metricName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling getMetricMetadata.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/metrics/{metric_name}'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -41,9 +41,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -71,14 +71,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listActiveMetrics(from: number, host?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'from' is not null or undefined
         if (from === null || from === undefined) {
             throw new RequiredError('Required parameter from was null or undefined when calling listActiveMetrics.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/metrics';
 
@@ -93,9 +93,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         if (host !== undefined) {
             requestContext.setQueryParam("host", ObjectSerializer.serialize(host, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -122,13 +122,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listMetrics(q: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'q' is not null or undefined
         if (q === null || q === undefined) {
             throw new RequiredError('Required parameter q was null or undefined when calling listMetrics.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/search';
 
@@ -140,9 +140,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         if (q !== undefined) {
             requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -171,25 +171,25 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async queryMetrics(from: number, to: number, query: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'from' is not null or undefined
         if (from === null || from === undefined) {
             throw new RequiredError('Required parameter from was null or undefined when calling queryMetrics.');
         }
 
-        
+
         // verify required parameter 'to' is not null or undefined
         if (to === null || to === undefined) {
             throw new RequiredError('Required parameter to was null or undefined when calling queryMetrics.');
         }
 
-        
+
         // verify required parameter 'query' is not null or undefined
         if (query === null || query === undefined) {
             throw new RequiredError('Required parameter query was null or undefined when calling queryMetrics.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/query';
 
@@ -207,9 +207,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         if (query !== undefined) {
             requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -237,19 +237,19 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateMetricMetadata(metricName: string, body: MetricMetadata, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling updateMetricMetadata.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateMetricMetadata.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/metrics/{metric_name}'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -259,9 +259,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -291,8 +291,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class MetricsApiResponseProcessor {
 
@@ -339,7 +337,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -383,7 +381,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -427,7 +425,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -471,7 +469,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -522,5 +520,5 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

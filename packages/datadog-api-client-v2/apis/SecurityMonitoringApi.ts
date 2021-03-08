@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -20,7 +20,7 @@ import { SecurityMonitoringSignalsSort } from '../models/SecurityMonitoringSigna
  * no description
  */
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a detection rule.
      * Create a detection rule
@@ -28,13 +28,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createSecurityMonitoringRule(body: SecurityMonitoringRuleCreatePayload, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createSecurityMonitoringRule.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/rules';
 
@@ -43,9 +43,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -81,13 +81,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteSecurityMonitoringRule(ruleId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'ruleId' is not null or undefined
         if (ruleId === null || ruleId === undefined) {
             throw new RequiredError('Required parameter ruleId was null or undefined when calling deleteSecurityMonitoringRule.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/rules/{rule_id}'
             .replace('{' + 'rule_id' + '}', encodeURIComponent(String(ruleId)));
@@ -97,9 +97,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -126,13 +126,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getSecurityMonitoringRule(ruleId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'ruleId' is not null or undefined
         if (ruleId === null || ruleId === undefined) {
             throw new RequiredError('Required parameter ruleId was null or undefined when calling getSecurityMonitoringRule.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/rules/{rule_id}'
             .replace('{' + 'rule_id' + '}', encodeURIComponent(String(ruleId)));
@@ -142,9 +142,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -172,9 +172,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listSecurityMonitoringRules(pageSize?: number, pageNumber?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
+
+
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/rules';
 
@@ -189,9 +189,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         if (pageNumber !== undefined) {
             requestContext.setQueryParam("page[number]", ObjectSerializer.serialize(pageNumber, "number", "int64"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -223,13 +223,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listSecurityMonitoringSignals(filterQuery?: string, filterFrom?: Date, filterTo?: Date, sort?: SecurityMonitoringSignalsSort, pageCursor?: string, pageLimit?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/signals';
 
@@ -256,9 +256,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         if (pageLimit !== undefined) {
             requestContext.setQueryParam("page[limit]", ObjectSerializer.serialize(pageLimit, "number", "int32"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -285,8 +285,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async searchSecurityMonitoringSignals(body?: SecurityMonitoringSignalListRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/signals/search';
 
@@ -295,9 +295,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -334,19 +334,19 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateSecurityMonitoringRule(ruleId: string, body: SecurityMonitoringRuleUpdatePayload, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'ruleId' is not null or undefined
         if (ruleId === null || ruleId === undefined) {
             throw new RequiredError('Required parameter ruleId was null or undefined when calling updateSecurityMonitoringRule.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateSecurityMonitoringRule.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/security_monitoring/rules/{rule_id}'
             .replace('{' + 'rule_id' + '}', encodeURIComponent(String(ruleId)));
@@ -356,9 +356,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -388,8 +388,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class SecurityMonitoringApiResponseProcessor {
 
@@ -436,7 +434,7 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -476,7 +474,7 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -513,7 +511,7 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -550,7 +548,7 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -594,7 +592,7 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -638,7 +636,7 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -696,5 +694,5 @@ export class SecurityMonitoringApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }
