@@ -274,6 +274,8 @@ import { ServiceSummaryWidgetDefinition } from '../models/ServiceSummaryWidgetDe
 import { ServiceSummaryWidgetDefinitionType } from '../models/ServiceSummaryWidgetDefinitionType';
 import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
 import { SlackIntegrationChannelDisplay } from '../models/SlackIntegrationChannelDisplay';
+import { SyntheticsAPIStep } from '../models/SyntheticsAPIStep';
+import { SyntheticsAPIStepSubtype } from '../models/SyntheticsAPIStepSubtype';
 import { SyntheticsAPITest } from '../models/SyntheticsAPITest';
 import { SyntheticsAPITestConfig } from '../models/SyntheticsAPITestConfig';
 import { SyntheticsAPITestResultData } from '../models/SyntheticsAPITestResultData';
@@ -321,13 +323,13 @@ import { SyntheticsGetAPITestLatestResultsResponse } from '../models/SyntheticsG
 import { SyntheticsGetBrowserTestLatestResultsResponse } from '../models/SyntheticsGetBrowserTestLatestResultsResponse';
 import { SyntheticsGlobalVariable } from '../models/SyntheticsGlobalVariable';
 import { SyntheticsGlobalVariableParseTestOptions } from '../models/SyntheticsGlobalVariableParseTestOptions';
-import { SyntheticsGlobalVariableParseTestOptionsParser } from '../models/SyntheticsGlobalVariableParseTestOptionsParser';
 import { SyntheticsGlobalVariableParseTestOptionsType } from '../models/SyntheticsGlobalVariableParseTestOptionsType';
 import { SyntheticsGlobalVariableParserType } from '../models/SyntheticsGlobalVariableParserType';
 import { SyntheticsGlobalVariableValue } from '../models/SyntheticsGlobalVariableValue';
 import { SyntheticsListTestsResponse } from '../models/SyntheticsListTestsResponse';
 import { SyntheticsLocation } from '../models/SyntheticsLocation';
 import { SyntheticsLocations } from '../models/SyntheticsLocations';
+import { SyntheticsParsingOptions } from '../models/SyntheticsParsingOptions';
 import { SyntheticsPlayingTab } from '../models/SyntheticsPlayingTab';
 import { SyntheticsPrivateLocation } from '../models/SyntheticsPrivateLocation';
 import { SyntheticsPrivateLocationCreationResponse } from '../models/SyntheticsPrivateLocationCreationResponse';
@@ -361,6 +363,7 @@ import { SyntheticsTriggerCITestLocation } from '../models/SyntheticsTriggerCITe
 import { SyntheticsTriggerCITestRunResult } from '../models/SyntheticsTriggerCITestRunResult';
 import { SyntheticsTriggerCITestsResponse } from '../models/SyntheticsTriggerCITestsResponse';
 import { SyntheticsUpdateTestPauseStatusPayload } from '../models/SyntheticsUpdateTestPauseStatusPayload';
+import { SyntheticsVariableParser } from '../models/SyntheticsVariableParser';
 import { SyntheticsWarningType } from '../models/SyntheticsWarningType';
 import { TableWidgetCellDisplayMode } from '../models/TableWidgetCellDisplayMode';
 import { TableWidgetDefinition } from '../models/TableWidgetDefinition';
