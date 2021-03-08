@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -14,7 +14,7 @@ import { GCPAccount } from '../models/GCPAccount';
  * no description
  */
 export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a Datadog-GCP integration.
      * Create a GCP integration
@@ -22,13 +22,13 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createGCPIntegration(body: GCPAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createGCPIntegration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/gcp';
 
@@ -37,9 +37,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -75,13 +75,13 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteGCPIntegration(body: GCPAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteGCPIntegration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/gcp';
 
@@ -90,9 +90,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -127,7 +127,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listGCPIntegration(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/gcp';
 
@@ -136,9 +136,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -165,13 +165,13 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateGCPIntegration(body: GCPAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateGCPIntegration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/gcp';
 
@@ -180,9 +180,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -212,8 +212,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class GCPIntegrationApiResponseProcessor {
 
@@ -260,7 +258,7 @@ export class GCPIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -304,7 +302,7 @@ export class GCPIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -348,7 +346,7 @@ export class GCPIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -392,5 +390,5 @@ export class GCPIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

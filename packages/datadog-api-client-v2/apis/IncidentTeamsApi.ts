@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -18,7 +18,7 @@ import { IncidentTeamsResponse } from '../models/IncidentTeamsResponse';
  * no description
  */
 export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Creates a new incident team.
      * Create a new incident team
@@ -26,13 +26,13 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createIncidentTeam(body: IncidentTeamCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createIncidentTeam.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/teams';
 
@@ -41,9 +41,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -79,13 +79,13 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteIncidentTeam(teamId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'teamId' is not null or undefined
         if (teamId === null || teamId === undefined) {
             throw new RequiredError('Required parameter teamId was null or undefined when calling deleteIncidentTeam.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/teams/{team_id}'
             .replace('{' + 'team_id' + '}', encodeURIComponent(String(teamId)));
@@ -95,9 +95,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -125,14 +125,14 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getIncidentTeam(teamId: string, include?: IncidentRelatedObject, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'teamId' is not null or undefined
         if (teamId === null || teamId === undefined) {
             throw new RequiredError('Required parameter teamId was null or undefined when calling getIncidentTeam.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v2/teams/{team_id}'
             .replace('{' + 'team_id' + '}', encodeURIComponent(String(teamId)));
@@ -145,9 +145,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
         if (include !== undefined) {
             requestContext.setQueryParam("include", ObjectSerializer.serialize(include, "IncidentRelatedObject", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -177,11 +177,11 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listIncidentTeams(include?: IncidentRelatedObject, pageSize?: number, pageOffset?: number, filter?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/teams';
 
@@ -202,9 +202,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
         if (filter !== undefined) {
             requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -232,19 +232,19 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateIncidentTeam(teamId: string, body: IncidentTeamUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'teamId' is not null or undefined
         if (teamId === null || teamId === undefined) {
             throw new RequiredError('Required parameter teamId was null or undefined when calling updateIncidentTeam.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateIncidentTeam.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/teams/{team_id}'
             .replace('{' + 'team_id' + '}', encodeURIComponent(String(teamId)));
@@ -254,9 +254,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -286,8 +286,6 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class IncidentTeamsApiResponseProcessor {
 
@@ -348,7 +346,7 @@ export class IncidentTeamsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -402,7 +400,7 @@ export class IncidentTeamsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -460,7 +458,7 @@ export class IncidentTeamsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -518,7 +516,7 @@ export class IncidentTeamsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -576,5 +574,5 @@ export class IncidentTeamsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

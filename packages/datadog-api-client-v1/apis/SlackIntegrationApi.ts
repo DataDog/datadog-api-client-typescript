@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -14,7 +14,7 @@ import { SlackIntegrationChannel } from '../models/SlackIntegrationChannel';
  * no description
  */
 export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Add a channel to your Datadog-Slack integration.
      * Create a Slack integration channel
@@ -23,19 +23,19 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createSlackIntegrationChannel(accountName: string, body: SlackIntegrationChannel, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'accountName' is not null or undefined
         if (accountName === null || accountName === undefined) {
             throw new RequiredError('Required parameter accountName was null or undefined when calling createSlackIntegrationChannel.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createSlackIntegrationChannel.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'
             .replace('{' + 'account_name' + '}', encodeURIComponent(String(accountName)));
@@ -45,9 +45,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -84,19 +84,19 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'accountName' is not null or undefined
         if (accountName === null || accountName === undefined) {
             throw new RequiredError('Required parameter accountName was null or undefined when calling getSlackIntegrationChannel.');
         }
 
-        
+
         // verify required parameter 'channelName' is not null or undefined
         if (channelName === null || channelName === undefined) {
             throw new RequiredError('Required parameter channelName was null or undefined when calling getSlackIntegrationChannel.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'
             .replace('{' + 'account_name' + '}', encodeURIComponent(String(accountName)))
@@ -107,9 +107,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -136,13 +136,13 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getSlackIntegrationChannels(accountName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'accountName' is not null or undefined
         if (accountName === null || accountName === undefined) {
             throw new RequiredError('Required parameter accountName was null or undefined when calling getSlackIntegrationChannels.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'
             .replace('{' + 'account_name' + '}', encodeURIComponent(String(accountName)));
@@ -152,9 +152,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -182,19 +182,19 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async removeSlackIntegrationChannel(accountName: string, channelName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'accountName' is not null or undefined
         if (accountName === null || accountName === undefined) {
             throw new RequiredError('Required parameter accountName was null or undefined when calling removeSlackIntegrationChannel.');
         }
 
-        
+
         // verify required parameter 'channelName' is not null or undefined
         if (channelName === null || channelName === undefined) {
             throw new RequiredError('Required parameter channelName was null or undefined when calling removeSlackIntegrationChannel.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'
             .replace('{' + 'account_name' + '}', encodeURIComponent(String(accountName)))
@@ -205,9 +205,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -236,25 +236,25 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateSlackIntegrationChannel(accountName: string, channelName: string, body: SlackIntegrationChannel, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'accountName' is not null or undefined
         if (accountName === null || accountName === undefined) {
             throw new RequiredError('Required parameter accountName was null or undefined when calling updateSlackIntegrationChannel.');
         }
 
-        
+
         // verify required parameter 'channelName' is not null or undefined
         if (channelName === null || channelName === undefined) {
             throw new RequiredError('Required parameter channelName was null or undefined when calling updateSlackIntegrationChannel.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateSlackIntegrationChannel.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'
             .replace('{' + 'account_name' + '}', encodeURIComponent(String(accountName)))
@@ -265,9 +265,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -297,8 +297,6 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class SlackIntegrationApiResponseProcessor {
 
@@ -352,7 +350,7 @@ export class SlackIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -403,7 +401,7 @@ export class SlackIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -454,7 +452,7 @@ export class SlackIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -501,7 +499,7 @@ export class SlackIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -552,5 +550,5 @@ export class SlackIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

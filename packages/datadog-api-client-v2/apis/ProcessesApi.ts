@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -14,7 +14,7 @@ import { ProcessSummariesResponse } from '../models/ProcessSummariesResponse';
  * no description
  */
 export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Get all processes for your organization.
      * Get all processes
@@ -27,13 +27,13 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listProcesses(search?: string, tags?: string, from?: number, to?: number, pageLimit?: number, pageCursor?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/processes';
 
@@ -60,9 +60,9 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
         if (pageCursor !== undefined) {
             requestContext.setQueryParam("page[cursor]", ObjectSerializer.serialize(pageCursor, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -83,8 +83,6 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class ProcessesApiResponseProcessor {
 
@@ -131,5 +129,5 @@ export class ProcessesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

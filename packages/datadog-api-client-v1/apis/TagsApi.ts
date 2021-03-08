@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -15,7 +15,7 @@ import { TagToHosts } from '../models/TagToHosts';
  * no description
  */
 export class TagsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
      * Add tags to a host
@@ -25,20 +25,20 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createHostTags(hostName: string, body: HostTags, source?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'hostName' is not null or undefined
         if (hostName === null || hostName === undefined) {
             throw new RequiredError('Required parameter hostName was null or undefined when calling createHostTags.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createHostTags.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/tags/hosts/{host_name}'
             .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
@@ -51,9 +51,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         if (source !== undefined) {
             requestContext.setQueryParam("source", ObjectSerializer.serialize(source, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -90,14 +90,14 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteHostTags(hostName: string, source?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'hostName' is not null or undefined
         if (hostName === null || hostName === undefined) {
             throw new RequiredError('Required parameter hostName was null or undefined when calling deleteHostTags.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/tags/hosts/{host_name}'
             .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
@@ -110,9 +110,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         if (source !== undefined) {
             requestContext.setQueryParam("source", ObjectSerializer.serialize(source, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -140,14 +140,14 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getHostTags(hostName: string, source?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'hostName' is not null or undefined
         if (hostName === null || hostName === undefined) {
             throw new RequiredError('Required parameter hostName was null or undefined when calling getHostTags.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/tags/hosts/{host_name}'
             .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
@@ -160,9 +160,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         if (source !== undefined) {
             requestContext.setQueryParam("source", ObjectSerializer.serialize(source, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -189,8 +189,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listHostTags(source?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/tags/hosts';
 
@@ -202,9 +202,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         if (source !== undefined) {
             requestContext.setQueryParam("source", ObjectSerializer.serialize(source, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -233,20 +233,20 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateHostTags(hostName: string, body: HostTags, source?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'hostName' is not null or undefined
         if (hostName === null || hostName === undefined) {
             throw new RequiredError('Required parameter hostName was null or undefined when calling updateHostTags.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateHostTags.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/tags/hosts/{host_name}'
             .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
@@ -259,9 +259,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         if (source !== undefined) {
             requestContext.setQueryParam("source", ObjectSerializer.serialize(source, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -291,8 +291,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class TagsApiResponseProcessor {
 
@@ -339,7 +337,7 @@ export class TagsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -379,7 +377,7 @@ export class TagsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -423,7 +421,7 @@ export class TagsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -467,7 +465,7 @@ export class TagsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -511,5 +509,5 @@ export class TagsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

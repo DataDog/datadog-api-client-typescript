@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -17,7 +17,7 @@ import { SLOCorrectionUpdateRequest } from '../models/SLOCorrectionUpdateRequest
  * no description
  */
 export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create an SLO Correction
      * Create an SLO correction
@@ -25,13 +25,13 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
      */
     public async createSLOCorrection(body: SLOCorrectionCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createSLOCorrection.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/correction';
 
@@ -40,9 +40,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -78,13 +78,13 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
      */
     public async deleteSLOCorrection(sloCorrectionId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloCorrectionId' is not null or undefined
         if (sloCorrectionId === null || sloCorrectionId === undefined) {
             throw new RequiredError('Required parameter sloCorrectionId was null or undefined when calling deleteSLOCorrection.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/correction/{slo_correction_id}'
             .replace('{' + 'slo_correction_id' + '}', encodeURIComponent(String(sloCorrectionId)));
@@ -94,9 +94,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -123,13 +123,13 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
      */
     public async getSLOCorrection(sloCorrectionId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloCorrectionId' is not null or undefined
         if (sloCorrectionId === null || sloCorrectionId === undefined) {
             throw new RequiredError('Required parameter sloCorrectionId was null or undefined when calling getSLOCorrection.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/correction/{slo_correction_id}'
             .replace('{' + 'slo_correction_id' + '}', encodeURIComponent(String(sloCorrectionId)));
@@ -139,9 +139,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -167,7 +167,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
      */
     public async listSLOCorrection(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/correction';
 
@@ -176,9 +176,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -206,19 +206,19 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
      */
     public async updateSLOCorrection(sloCorrectionId: string, body: SLOCorrectionUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloCorrectionId' is not null or undefined
         if (sloCorrectionId === null || sloCorrectionId === undefined) {
             throw new RequiredError('Required parameter sloCorrectionId was null or undefined when calling updateSLOCorrection.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateSLOCorrection.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/correction/{slo_correction_id}'
             .replace('{' + 'slo_correction_id' + '}', encodeURIComponent(String(sloCorrectionId)));
@@ -228,9 +228,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -260,8 +260,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     }
 
 }
-
-
 
 export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
 
@@ -308,7 +306,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -348,7 +346,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -392,7 +390,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -429,7 +427,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -480,5 +478,5 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

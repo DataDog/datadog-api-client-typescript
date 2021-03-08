@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -14,7 +14,7 @@ import { AzureAccount } from '../models/AzureAccount';
  * no description
  */
 export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
      * Create an Azure integration
@@ -22,13 +22,13 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createAzureIntegration(body: AzureAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createAzureIntegration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/azure';
 
@@ -37,9 +37,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -75,13 +75,13 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteAzureIntegration(body: AzureAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteAzureIntegration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/azure';
 
@@ -90,9 +90,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -127,7 +127,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAzureIntegration(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/azure';
 
@@ -136,9 +136,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -165,13 +165,13 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateAzureHostFilters(body: AzureAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateAzureHostFilters.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/azure/host_filters';
 
@@ -180,9 +180,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -218,13 +218,13 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateAzureIntegration(body: AzureAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateAzureIntegration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/azure';
 
@@ -233,9 +233,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -265,8 +265,6 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class AzureIntegrationApiResponseProcessor {
 
@@ -313,7 +311,7 @@ export class AzureIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -357,7 +355,7 @@ export class AzureIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -401,7 +399,7 @@ export class AzureIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -445,7 +443,7 @@ export class AzureIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -489,5 +487,5 @@ export class AzureIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

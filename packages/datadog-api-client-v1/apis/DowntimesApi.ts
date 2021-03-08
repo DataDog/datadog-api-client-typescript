@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -16,7 +16,7 @@ import { Downtime } from '../models/Downtime';
  * no description
  */
 export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Cancel a downtime.
      * Cancel a downtime
@@ -24,13 +24,13 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async cancelDowntime(downtimeId: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'downtimeId' is not null or undefined
         if (downtimeId === null || downtimeId === undefined) {
             throw new RequiredError('Required parameter downtimeId was null or undefined when calling cancelDowntime.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/downtime/{downtime_id}'
             .replace('{' + 'downtime_id' + '}', encodeURIComponent(String(downtimeId)));
@@ -40,9 +40,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -69,13 +69,13 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async cancelDowntimesByScope(body: CancelDowntimesByScopeRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling cancelDowntimesByScope.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/downtime/cancel/by_scope';
 
@@ -84,9 +84,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -122,13 +122,13 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createDowntime(body: Downtime, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createDowntime.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/downtime';
 
@@ -137,9 +137,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -175,13 +175,13 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getDowntime(downtimeId: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'downtimeId' is not null or undefined
         if (downtimeId === null || downtimeId === undefined) {
             throw new RequiredError('Required parameter downtimeId was null or undefined when calling getDowntime.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/downtime/{downtime_id}'
             .replace('{' + 'downtime_id' + '}', encodeURIComponent(String(downtimeId)));
@@ -191,9 +191,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -220,8 +220,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listDowntimes(currentOnly?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/downtime';
 
@@ -233,9 +233,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
         if (currentOnly !== undefined) {
             requestContext.setQueryParam("current_only", ObjectSerializer.serialize(currentOnly, "boolean", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -263,19 +263,19 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateDowntime(downtimeId: number, body: Downtime, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'downtimeId' is not null or undefined
         if (downtimeId === null || downtimeId === undefined) {
             throw new RequiredError('Required parameter downtimeId was null or undefined when calling updateDowntime.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateDowntime.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/downtime/{downtime_id}'
             .replace('{' + 'downtime_id' + '}', encodeURIComponent(String(downtimeId)));
@@ -285,9 +285,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -317,8 +317,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class DowntimesApiResponseProcessor {
 
@@ -361,7 +359,7 @@ export class DowntimesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -412,7 +410,7 @@ export class DowntimesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -456,7 +454,7 @@ export class DowntimesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -500,7 +498,7 @@ export class DowntimesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -537,7 +535,7 @@ export class DowntimesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -588,5 +586,5 @@ export class DowntimesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

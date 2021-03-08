@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -20,7 +20,7 @@ import { MetricsAndMetricTagConfigurationsResponse } from '../models/MetricsAndM
  * no description
  */
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
      * Create a tag configuration
@@ -29,19 +29,19 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createTagConfiguration(metricName: string, body: MetricTagConfigurationCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling createTagConfiguration.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createTagConfiguration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/metrics/{metric_name}/tags'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -51,9 +51,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -89,13 +89,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteTagConfiguration(metricName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling deleteTagConfiguration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/metrics/{metric_name}/tags'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -105,9 +105,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -134,13 +134,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listTagConfigurationByName(metricName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling listTagConfigurationByName.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/metrics/{metric_name}/tags'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -150,9 +150,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -182,11 +182,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listTagConfigurations(filterConfigured?: boolean, filterTagsConfigured?: string, filterMetricType?: MetricTagConfigurationMetricTypes, filterIncludePercentiles?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/metrics';
 
@@ -207,9 +207,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         if (filterIncludePercentiles !== undefined) {
             requestContext.setQueryParam("filter[include_percentiles]", ObjectSerializer.serialize(filterIncludePercentiles, "boolean", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -236,13 +236,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listTagsByMetricName(metricName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling listTagsByMetricName.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/metrics/{metric_name}/all-tags'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -252,9 +252,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -281,13 +281,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listVolumesByMetricName(metricName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling listVolumesByMetricName.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/metrics/{metric_name}/volumes'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -297,9 +297,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -327,19 +327,19 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateTagConfiguration(metricName: string, body: MetricTagConfigurationUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'metricName' is not null or undefined
         if (metricName === null || metricName === undefined) {
             throw new RequiredError('Required parameter metricName was null or undefined when calling updateTagConfiguration.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateTagConfiguration.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/metrics/{metric_name}/tags'
             .replace('{' + 'metric_name' + '}', encodeURIComponent(String(metricName)));
@@ -349,9 +349,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -381,8 +381,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class MetricsApiResponseProcessor {
 
@@ -443,7 +441,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -490,7 +488,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -541,7 +539,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -592,7 +590,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -650,7 +648,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -708,7 +706,7 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -766,5 +764,5 @@ export class MetricsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

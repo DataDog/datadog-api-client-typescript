@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -22,7 +22,7 @@ import { ServiceLevelObjectiveRequest } from '../models/ServiceLevelObjectiveReq
  * no description
  */
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Check if a SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
      * Check if SLOs can be safely deleted
@@ -30,13 +30,13 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async checkCanDeleteSLO(ids: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'ids' is not null or undefined
         if (ids === null || ids === undefined) {
             throw new RequiredError('Required parameter ids was null or undefined when calling checkCanDeleteSLO.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/can_delete';
 
@@ -48,9 +48,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         if (ids !== undefined) {
             requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -77,13 +77,13 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async createSLO(body: ServiceLevelObjectiveRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createSLO.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo';
 
@@ -92,9 +92,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -131,14 +131,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async deleteSLO(sloId: string, force?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloId' is not null or undefined
         if (sloId === null || sloId === undefined) {
             throw new RequiredError('Required parameter sloId was null or undefined when calling deleteSLO.');
         }
 
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/slo/{slo_id}'
             .replace('{' + 'slo_id' + '}', encodeURIComponent(String(sloId)));
@@ -151,9 +151,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         if (force !== undefined) {
             requestContext.setQueryParam("force", ObjectSerializer.serialize(force, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -180,13 +180,13 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async deleteSLOTimeframeInBulk(body: { [key: string]: Array<SLOTimeframe>; }, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteSLOTimeframeInBulk.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/bulk_delete';
 
@@ -195,9 +195,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -233,13 +233,13 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async getSLO(sloId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloId' is not null or undefined
         if (sloId === null || sloId === undefined) {
             throw new RequiredError('Required parameter sloId was null or undefined when calling getSLO.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/{slo_id}'
             .replace('{' + 'slo_id' + '}', encodeURIComponent(String(sloId)));
@@ -249,9 +249,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -280,25 +280,25 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async getSLOHistory(sloId: string, fromTs: number, toTs: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloId' is not null or undefined
         if (sloId === null || sloId === undefined) {
             throw new RequiredError('Required parameter sloId was null or undefined when calling getSLOHistory.');
         }
 
-        
+
         // verify required parameter 'fromTs' is not null or undefined
         if (fromTs === null || fromTs === undefined) {
             throw new RequiredError('Required parameter fromTs was null or undefined when calling getSLOHistory.');
         }
 
-        
+
         // verify required parameter 'toTs' is not null or undefined
         if (toTs === null || toTs === undefined) {
             throw new RequiredError('Required parameter toTs was null or undefined when calling getSLOHistory.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/{slo_id}/history'
             .replace('{' + 'slo_id' + '}', encodeURIComponent(String(sloId)));
@@ -314,9 +314,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         if (toTs !== undefined) {
             requestContext.setQueryParam("to_ts", ObjectSerializer.serialize(toTs, "number", "int64"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -346,11 +346,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async listSLOs(ids?: string, query?: string, tagsQuery?: string, metricsQuery?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/slo';
 
@@ -371,9 +371,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         if (metricsQuery !== undefined) {
             requestContext.setQueryParam("metrics_query", ObjectSerializer.serialize(metricsQuery, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -401,19 +401,19 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      */
     public async updateSLO(sloId: string, body: ServiceLevelObjective, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'sloId' is not null or undefined
         if (sloId === null || sloId === undefined) {
             throw new RequiredError('Required parameter sloId was null or undefined when calling updateSLO.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateSLO.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/slo/{slo_id}'
             .replace('{' + 'slo_id' + '}', encodeURIComponent(String(sloId)));
@@ -423,9 +423,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -455,8 +455,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     }
 
 }
-
-
 
 export class ServiceLevelObjectivesApiResponseProcessor {
 
@@ -510,7 +508,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -554,7 +552,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -605,7 +603,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -649,7 +647,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -693,7 +691,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -744,7 +742,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -795,7 +793,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -846,5 +844,5 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

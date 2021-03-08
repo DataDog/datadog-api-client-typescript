@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -14,14 +14,14 @@ import { AuthenticationValidationResponse } from '../models/AuthenticationValida
  * no description
  */
 export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
      * Validate API key
      */
     public async validate(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/validate';
 
@@ -30,9 +30,9 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -49,8 +49,6 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class AuthenticationApiResponseProcessor {
 
@@ -90,5 +88,5 @@ export class AuthenticationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }
