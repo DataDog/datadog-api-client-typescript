@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -24,7 +24,7 @@ import { UsersResponse } from '../models/UsersResponse';
  * no description
  */
 export class RolesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Adds a permission to a role.
      * Grant permission to a role
@@ -33,19 +33,19 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async addPermissionToRole(roleId: string, body: RelationshipToPermission, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling addPermissionToRole.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling addPermissionToRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}/permissions'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -55,9 +55,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -94,19 +94,19 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async addUserToRole(roleId: string, body: RelationshipToUser, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling addUserToRole.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling addUserToRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}/users'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -116,9 +116,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -154,13 +154,13 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createRole(body: RoleCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles';
 
@@ -169,9 +169,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -207,13 +207,13 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteRole(roleId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling deleteRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -223,9 +223,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -252,13 +252,13 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getRole(roleId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling getRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -268,9 +268,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -296,7 +296,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listPermissions(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v2/permissions';
 
@@ -305,9 +305,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -334,13 +334,13 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listRolePermissions(roleId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling listRolePermissions.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}/permissions'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -350,9 +350,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -383,17 +383,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listRoleUsers(roleId: string, pageSize?: number, pageNumber?: number, sort?: string, filter?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling listRoleUsers.');
         }
 
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}/users'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -415,9 +415,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         if (filter !== undefined) {
             requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -447,11 +447,11 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listRoles(pageSize?: number, pageNumber?: number, sort?: RolesSort, filter?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/roles';
 
@@ -472,9 +472,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         if (filter !== undefined) {
             requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -502,19 +502,19 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async removePermissionFromRole(roleId: string, body: RelationshipToPermission, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling removePermissionFromRole.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling removePermissionFromRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}/permissions'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -524,9 +524,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -563,19 +563,19 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async removeUserFromRole(roleId: string, body: RelationshipToUser, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling removeUserFromRole.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling removeUserFromRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}/users'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -585,9 +585,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -624,19 +624,19 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateRole(roleId: string, body: RoleUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'roleId' is not null or undefined
         if (roleId === null || roleId === undefined) {
             throw new RequiredError('Required parameter roleId was null or undefined when calling updateRole.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateRole.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/roles/{role_id}'
             .replace('{' + 'role_id' + '}', encodeURIComponent(String(roleId)));
@@ -646,9 +646,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -678,8 +678,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class RolesApiResponseProcessor {
 
@@ -733,7 +731,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -784,7 +782,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -828,7 +826,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -868,7 +866,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -912,7 +910,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -956,7 +954,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1000,7 +998,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1044,7 +1042,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1081,7 +1079,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1132,7 +1130,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1183,7 +1181,7 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1241,5 +1239,5 @@ export class RolesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

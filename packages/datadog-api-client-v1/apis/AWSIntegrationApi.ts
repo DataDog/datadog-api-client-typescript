@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -19,7 +19,7 @@ import { AWSTagFilterListResponse } from '../models/AWSTagFilterListResponse';
  * no description
  */
 export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
      * Create an AWS integration
@@ -27,13 +27,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createAWSAccount(body: AWSAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createAWSAccount.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws';
 
@@ -42,9 +42,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -80,13 +80,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createAWSTagFilter(body: AWSTagFilterCreateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createAWSTagFilter.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/filtering';
 
@@ -95,9 +95,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -133,13 +133,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createNewAWSExternalID(body: AWSAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createNewAWSExternalID.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/generate_new_external_id';
 
@@ -148,9 +148,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -186,13 +186,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteAWSAccount(body: AWSAccount, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteAWSAccount.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws';
 
@@ -201,9 +201,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -239,13 +239,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async deleteAWSTagFilter(body: AWSTagFilterDeleteRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling deleteAWSTagFilter.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/filtering';
 
@@ -254,9 +254,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -294,10 +294,10 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAWSAccounts(accountId?: string, roleName?: string, accessKeyId?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws';
 
@@ -315,9 +315,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         if (accessKeyId !== undefined) {
             requestContext.setQueryParam("access_key_id", ObjectSerializer.serialize(accessKeyId, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -344,13 +344,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAWSTagFilters(accountId: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
             throw new RequiredError('Required parameter accountId was null or undefined when calling listAWSTagFilters.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/filtering';
 
@@ -362,9 +362,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         if (accountId !== undefined) {
             requestContext.setQueryParam("account_id", ObjectSerializer.serialize(accountId, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -390,7 +390,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listAvailableAWSNamespaces(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws/available_namespace_rules';
 
@@ -399,9 +399,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -431,16 +431,16 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateAWSAccount(body: AWSAccount, accountId?: string, roleName?: string, accessKeyId?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateAWSAccount.');
         }
 
-        
-        
-        
-        
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/integration/aws';
 
@@ -458,9 +458,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         if (accessKeyId !== undefined) {
             requestContext.setQueryParam("access_key_id", ObjectSerializer.serialize(accessKeyId, "string", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -490,8 +490,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class AWSIntegrationApiResponseProcessor {
 
@@ -545,7 +543,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -589,7 +587,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -633,7 +631,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -684,7 +682,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -728,7 +726,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -772,7 +770,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -816,7 +814,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -853,7 +851,7 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -904,5 +902,5 @@ export class AWSIntegrationApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -13,14 +13,14 @@ import { IPRanges } from '../models/IPRanges';
  * no description
  */
 export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Get information about Datadog IP ranges.
      * List IP Ranges
      */
     public async getIPRanges(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/';
 
@@ -29,9 +29,9 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -43,8 +43,6 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class IPRangesApiResponseProcessor {
 
@@ -77,5 +75,5 @@ export class IPRangesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

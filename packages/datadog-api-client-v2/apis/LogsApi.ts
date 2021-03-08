@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -18,7 +18,7 @@ import { LogsSort } from '../models/LogsSort';
  * no description
  */
 export class LogsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * The API endpoint to aggregate events into buckets and compute metrics and timeseries.
      * Aggregate events
@@ -26,13 +26,13 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async aggregateLogs(body: LogsAggregateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling aggregateLogs.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v2/logs/analytics/aggregate';
 
@@ -41,9 +41,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -79,8 +79,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLogs(body?: LogsListRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v2/logs/events/search';
 
@@ -89,9 +89,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -133,14 +133,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLogsGet(filterQuery?: string, filterIndex?: string, filterFrom?: Date, filterTo?: Date, sort?: LogsSort, pageCursor?: string, pageLimit?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v2/logs/events';
 
@@ -170,9 +170,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         if (pageLimit !== undefined) {
             requestContext.setQueryParam("page[limit]", ObjectSerializer.serialize(pageLimit, "number", "int32"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -193,8 +193,6 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class LogsApiResponseProcessor {
 
@@ -241,7 +239,7 @@ export class LogsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -285,7 +283,7 @@ export class LogsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -329,5 +327,5 @@ export class LogsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

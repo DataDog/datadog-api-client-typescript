@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -18,7 +18,7 @@ import { LogsIndexesOrder } from '../models/LogsIndexesOrder';
  * no description
  */
 export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * Creates a new index. Returns the Index object passed in the request body when the request is successful.
      * Create an index
@@ -26,13 +26,13 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async createLogsIndex(body: LogsIndex, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling createLogsIndex.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/indexes';
 
@@ -41,9 +41,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -79,13 +79,13 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsIndex(name: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'name' is not null or undefined
         if (name === null || name === undefined) {
             throw new RequiredError('Required parameter name was null or undefined when calling getLogsIndex.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/indexes/{name}'
             .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
@@ -95,9 +95,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -123,7 +123,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getLogsIndexOrder(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/index-order';
 
@@ -132,9 +132,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -160,7 +160,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listLogIndexes(options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/indexes';
 
@@ -169,9 +169,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -199,19 +199,19 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsIndex(name: string, body: LogsIndexUpdateRequest, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'name' is not null or undefined
         if (name === null || name === undefined) {
             throw new RequiredError('Required parameter name was null or undefined when calling updateLogsIndex.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsIndex.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/indexes/{name}'
             .replace('{' + 'name' + '}', encodeURIComponent(String(name)));
@@ -221,9 +221,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -259,13 +259,13 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async updateLogsIndexOrder(body: LogsIndexesOrder, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling updateLogsIndexOrder.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/logs/config/index-order';
 
@@ -274,9 +274,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -306,8 +306,6 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class LogsIndexesApiResponseProcessor {
 
@@ -354,7 +352,7 @@ export class LogsIndexesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -398,7 +396,7 @@ export class LogsIndexesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -435,7 +433,7 @@ export class LogsIndexesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -472,7 +470,7 @@ export class LogsIndexesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -523,7 +521,7 @@ export class LogsIndexesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -567,5 +565,5 @@ export class LogsIndexesApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }

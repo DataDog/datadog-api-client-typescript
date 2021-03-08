@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import { Configuration, getServer } from '../configuration';
+import {Configuration, getServer } from '../configuration';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer';
@@ -17,7 +17,7 @@ import { HostTotals } from '../models/HostTotals';
  * no description
  */
 export class HostsApiRequestFactory extends BaseAPIRequestFactory {
-    
+
     /**
      * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
      * Get the total number of active hosts
@@ -25,8 +25,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async getHostTotals(from?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
+
+
         // Path Params
         const localVarPath = '/api/v1/hosts/totals';
 
@@ -38,9 +38,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
         if (from !== undefined) {
             requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -74,15 +74,15 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async listHosts(filter?: string, sortField?: string, sortDir?: string, start?: number, count?: number, from?: number, includeMutedHostsData?: boolean, includeHostsMetadata?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
         // Path Params
         const localVarPath = '/api/v1/hosts';
 
@@ -115,9 +115,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
         if (includeHostsMetadata !== undefined) {
             requestContext.setQueryParam("include_hosts_metadata", ObjectSerializer.serialize(includeHostsMetadata, "boolean", ""));
         }
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -145,19 +145,19 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async muteHost(hostName: string, body: HostMuteSettings, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'hostName' is not null or undefined
         if (hostName === null || hostName === undefined) {
             throw new RequiredError('Required parameter hostName was null or undefined when calling muteHost.');
         }
 
-        
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new RequiredError('Required parameter body was null or undefined when calling muteHost.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/host/{host_name}/mute'
             .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
@@ -167,9 +167,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -205,13 +205,13 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
      */
     public async unmuteHost(hostName: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
-        
+
         // verify required parameter 'hostName' is not null or undefined
         if (hostName === null || hostName === undefined) {
             throw new RequiredError('Required parameter hostName was null or undefined when calling unmuteHost.');
         }
 
-        
+
         // Path Params
         const localVarPath = '/api/v1/host/{host_name}/unmute'
             .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
@@ -221,9 +221,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-    
+
         // Header Params
-    
+
         // Form Params
 
 
@@ -244,8 +244,6 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class HostsApiResponseProcessor {
 
@@ -292,7 +290,7 @@ export class HostsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -336,7 +334,7 @@ export class HostsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -380,7 +378,7 @@ export class HostsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -424,5 +422,5 @@ export class HostsApiResponseProcessor {
         let body = response.body || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-            
+
 }
