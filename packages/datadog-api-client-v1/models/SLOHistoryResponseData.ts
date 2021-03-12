@@ -23,7 +23,18 @@ export class SLOHistoryResponseData {
     * The `from` timestamp in epoch seconds.
     */
     'fromTs'?: number;
-    'groups'?: SLOHistorySLIData;
+    /**
+    * For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.  This is not included in responses for `monitor` based SLOs.
+    */
+    'groupBy'?: Array<string>;
+    /**
+    * For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for `metric` based SLOs.
+    */
+    'groups'?: Array<SLOHistorySLIData>;
+    /**
+    * For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for `metric` based SLOs.
+    */
+    'monitors'?: Array<SLOHistorySLIData>;
     'overall'?: SLOHistorySLIData;
     'series'?: SLOHistoryMetrics;
     /**
@@ -47,9 +58,21 @@ export class SLOHistoryResponseData {
             "format": "int64"
         },
         {
+            "name": "groupBy",
+            "baseName": "group_by",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
             "name": "groups",
             "baseName": "groups",
-            "type": "SLOHistorySLIData",
+            "type": "Array<SLOHistorySLIData>",
+            "format": ""
+        },
+        {
+            "name": "monitors",
+            "baseName": "monitors",
+            "type": "Array<SLOHistorySLIData>",
             "format": ""
         },
         {

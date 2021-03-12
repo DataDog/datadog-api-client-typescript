@@ -12,7 +12,7 @@ import { SLOHistoryMetricsSeries } from './SLOHistoryMetricsSeries';
 import { HttpFile } from '../http/http';
 
 /**
-* A `metric` based SLO history response.
+* A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.
 */
 export class SLOHistoryMetrics {
     'denominator': SLOHistoryMetricsSeries;
