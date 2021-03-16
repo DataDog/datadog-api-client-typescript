@@ -371,6 +371,7 @@ export * from './TargetFormatType';
 export * from './TimeseriesWidgetDefinition';
 export * from './TimeseriesWidgetDefinitionType';
 export * from './TimeseriesWidgetExpressionAlias';
+export * from './TimeseriesWidgetLegendLayout';
 export * from './TimeseriesWidgetRequest';
 export * from './ToplistWidgetDefinition';
 export * from './ToplistWidgetDefinitionType';
@@ -865,9 +866,10 @@ import { TableWidgetHasSearchBar } from './TableWidgetHasSearchBar';
 import { TableWidgetRequest } from './TableWidgetRequest';
 import { TagToHosts } from './TagToHosts';
 import { TargetFormatType } from './TargetFormatType';
-import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
+import { TimeseriesWidgetDefinition  , TimeseriesWidgetDefinitionLegendColumnsEnum               } from './TimeseriesWidgetDefinition';
 import { TimeseriesWidgetDefinitionType } from './TimeseriesWidgetDefinitionType';
 import { TimeseriesWidgetExpressionAlias } from './TimeseriesWidgetExpressionAlias';
+import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
 import { TimeseriesWidgetRequest } from './TimeseriesWidgetRequest';
 import { ToplistWidgetDefinition } from './ToplistWidgetDefinition';
 import { ToplistWidgetDefinitionType } from './ToplistWidgetDefinitionType';
@@ -957,7 +959,7 @@ import { WidgetComparator } from './WidgetComparator';
 import { WidgetCompareTo } from './WidgetCompareTo';
 import { WidgetConditionalFormat } from './WidgetConditionalFormat';
 import { WidgetCustomLink } from './WidgetCustomLink';
-import { WidgetDefinition } from './WidgetDefinition';
+import { WidgetDefinition                                                                               , WidgetDefinitionLegendColumnsEnum      } from './WidgetDefinition';
 import { WidgetDisplayType } from './WidgetDisplayType';
 import { WidgetEvent } from './WidgetEvent';
 import { WidgetEventSize } from './WidgetEventSize';
@@ -1099,7 +1101,9 @@ let enumsMap: Set<string> = new Set<string>([
     "TableWidgetDefinitionType",
     "TableWidgetHasSearchBar",
     "TargetFormatType",
+    "TimeseriesWidgetDefinitionLegendColumnsEnum",
     "TimeseriesWidgetDefinitionType",
+    "TimeseriesWidgetLegendLayout",
     "ToplistWidgetDefinitionType",
     "UsageAttributionSort",
     "UsageMetricCategory",
@@ -1111,6 +1115,7 @@ let enumsMap: Set<string> = new Set<string>([
     "WidgetColorPreference",
     "WidgetComparator",
     "WidgetCompareTo",
+    "WidgetDefinitionLegendColumnsEnum",
     "WidgetDisplayType",
     "WidgetEventSize",
     "WidgetGrouping",

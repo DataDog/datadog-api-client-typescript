@@ -9,6 +9,7 @@
  */
 
 import { TimeseriesWidgetDefinitionType } from './TimeseriesWidgetDefinitionType';
+import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
 import { TimeseriesWidgetRequest } from './TimeseriesWidgetRequest';
 import { WidgetAxis } from './WidgetAxis';
 import { WidgetCustomLink } from './WidgetCustomLink';
@@ -30,6 +31,11 @@ export class TimeseriesWidgetDefinition {
     * List of widget events.
     */
     'events'?: Array<WidgetEvent>;
+    /**
+    * Columns displayed in the legend.
+    */
+    'legendColumns'?: Array<TimeseriesWidgetDefinitionLegendColumnsEnum>;
+    'legendLayout'?: TimeseriesWidgetLegendLayout;
     /**
     * Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
     */
@@ -73,6 +79,18 @@ export class TimeseriesWidgetDefinition {
             "name": "events",
             "baseName": "events",
             "type": "Array<WidgetEvent>",
+            "format": ""
+        },
+        {
+            "name": "legendColumns",
+            "baseName": "legend_columns",
+            "type": "Array<TimeseriesWidgetDefinitionLegendColumnsEnum>",
+            "format": ""
+        },
+        {
+            "name": "legendLayout",
+            "baseName": "legend_layout",
+            "type": "TimeseriesWidgetLegendLayout",
             "format": ""
         },
         {
@@ -149,4 +167,7 @@ export class TimeseriesWidgetDefinition {
     public constructor() {
     }
 }
+
+
+export type TimeseriesWidgetDefinitionLegendColumnsEnum = "value" | "avg" | "sum" | "min" | "max" ;
 
