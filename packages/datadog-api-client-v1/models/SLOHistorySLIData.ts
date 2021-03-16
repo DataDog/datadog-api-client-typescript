@@ -8,18 +8,39 @@
  * Do not edit the class manually.
  */
 
+import { SLOHistoryResponseError } from './SLOHistoryResponseError';
 import { HttpFile } from '../http/http';
 
 /**
-* An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value or the SLI value for a specific monitor (in multi-monitor SLOs) or group (in grouped SLOs). The uptime history is included for monitor SLOs.
+* An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
 */
 export class SLOHistorySLIData {
+    /**
+    * A mapping of threshold `timeframe` to the remaining error budget.
+    */
+    'errorBudgetRemaining'?: { [key: string]: number; };
+    /**
+    * A list of errors while querying the history data for the service level objective.
+    */
+    'errors'?: Array<SLOHistoryResponseError>;
+    /**
+    * For groups in a grouped SLO, this is the group name.
+    */
+    'group'?: string;
     /**
     * For `monitor` based SLOs, this includes the aggregated history uptime time series.
     */
     'history'?: Array<Array<number>>;
     /**
-    * For groups in a grouped SLO this is the group name. For monitors in a multi-monitor SLO this is the monitor name.
+    * For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
+    */
+    'monitorModified'?: number;
+    /**
+    * For `monitor` based SLOs, this describes the type of monitor.
+    */
+    'monitorType'?: string;
+    /**
+    * For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
     */
     'name'?: string;
     /**
@@ -27,7 +48,7 @@ export class SLOHistorySLIData {
     */
     'precision'?: { [key: string]: number; };
     /**
-    * For `monitor` based SLOs when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
+    * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
     */
     'preview'?: boolean;
     /**
@@ -39,7 +60,7 @@ export class SLOHistorySLIData {
     */
     'spanPrecision'?: number;
     /**
-    * Deprecated. Use `sli_value` instead.
+    * Use `sli_value` instead.
     */
     'uptime'?: number;
 
@@ -47,10 +68,40 @@ export class SLOHistorySLIData {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
+            "name": "errorBudgetRemaining",
+            "baseName": "error_budget_remaining",
+            "type": "{ [key: string]: number; }",
+            "format": "double"
+        },
+        {
+            "name": "errors",
+            "baseName": "errors",
+            "type": "Array<SLOHistoryResponseError>",
+            "format": ""
+        },
+        {
+            "name": "group",
+            "baseName": "group",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "history",
             "baseName": "history",
             "type": "Array<Array<number>>",
             "format": "double"
+        },
+        {
+            "name": "monitorModified",
+            "baseName": "monitor_modified",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "monitorType",
+            "baseName": "monitor_type",
+            "type": "string",
+            "format": ""
         },
         {
             "name": "name",
