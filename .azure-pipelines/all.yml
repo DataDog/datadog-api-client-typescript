@@ -25,7 +25,7 @@ resources:
     env:
       DD_API_KEY: $(ddAPIKey)
       DD_HOSTNAME: "none"
-      DD_INSIDE_CI: "true
+      DD_INSIDE_CI: "true"
 jobs:
 - job: IntegrationTests
   pool:
