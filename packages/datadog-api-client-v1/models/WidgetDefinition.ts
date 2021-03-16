@@ -35,6 +35,7 @@ import { ServiceSummaryWidgetDefinition } from './ServiceSummaryWidgetDefinition
 import { TableWidgetDefinition } from './TableWidgetDefinition';
 import { TableWidgetHasSearchBar } from './TableWidgetHasSearchBar';
 import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
+import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
 import { ToplistWidgetDefinition } from './ToplistWidgetDefinition';
 import { ToplistWidgetDefinitionType } from './ToplistWidgetDefinitionType';
 import { ToplistWidgetRequest } from './ToplistWidgetRequest';
@@ -311,6 +312,11 @@ export class WidgetDefinition {
     */
     'spanName': string;
     'hasSearchBar'?: TableWidgetHasSearchBar;
+    /**
+    * Columns displayed in the legend.
+    */
+    'legendColumns'?: Array<WidgetDefinitionLegendColumnsEnum>;
+    'legendLayout'?: TimeseriesWidgetLegendLayout;
     /**
     * List of markers.
     */
@@ -795,6 +801,18 @@ export class WidgetDefinition {
             "format": ""
         },
         {
+            "name": "legendColumns",
+            "baseName": "legend_columns",
+            "type": "Array<WidgetDefinitionLegendColumnsEnum>",
+            "format": ""
+        },
+        {
+            "name": "legendLayout",
+            "baseName": "legend_layout",
+            "type": "TimeseriesWidgetLegendLayout",
+            "format": ""
+        },
+        {
             "name": "markers",
             "baseName": "markers",
             "type": "Array<WidgetMarker>",
@@ -814,4 +832,7 @@ export class WidgetDefinition {
     public constructor() {
     }
 }
+
+
+export type WidgetDefinitionLegendColumnsEnum = "value" | "avg" | "sum" | "min" | "max" ;
 
