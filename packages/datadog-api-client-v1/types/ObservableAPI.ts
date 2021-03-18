@@ -376,6 +376,7 @@ import { TargetFormatType } from '../models/TargetFormatType';
 import { TimeseriesWidgetDefinition } from '../models/TimeseriesWidgetDefinition';
 import { TimeseriesWidgetDefinitionType } from '../models/TimeseriesWidgetDefinitionType';
 import { TimeseriesWidgetExpressionAlias } from '../models/TimeseriesWidgetExpressionAlias';
+import { TimeseriesWidgetLegendColumn } from '../models/TimeseriesWidgetLegendColumn';
 import { TimeseriesWidgetLegendLayout } from '../models/TimeseriesWidgetLegendLayout';
 import { TimeseriesWidgetRequest } from '../models/TimeseriesWidgetRequest';
 import { ToplistWidgetDefinition } from '../models/ToplistWidgetDefinition';
