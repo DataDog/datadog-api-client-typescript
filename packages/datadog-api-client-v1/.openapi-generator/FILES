@@ -408,6 +408,7 @@ models/TargetFormatType.ts
 models/TimeseriesWidgetDefinition.ts
 models/TimeseriesWidgetDefinitionType.ts
 models/TimeseriesWidgetExpressionAlias.ts
+models/TimeseriesWidgetLegendColumn.ts
 models/TimeseriesWidgetLegendLayout.ts
 models/TimeseriesWidgetRequest.ts
 models/ToplistWidgetDefinition.ts

@@ -9,6 +9,7 @@
  */
 
 import { TimeseriesWidgetDefinitionType } from './TimeseriesWidgetDefinitionType';
+import { TimeseriesWidgetLegendColumn } from './TimeseriesWidgetLegendColumn';
 import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
 import { TimeseriesWidgetRequest } from './TimeseriesWidgetRequest';
 import { WidgetAxis } from './WidgetAxis';
@@ -34,7 +35,7 @@ export class TimeseriesWidgetDefinition {
     /**
     * Columns displayed in the legend.
     */
-    'legendColumns'?: Array<TimeseriesWidgetDefinitionLegendColumnsEnum>;
+    'legendColumns'?: Array<TimeseriesWidgetLegendColumn>;
     'legendLayout'?: TimeseriesWidgetLegendLayout;
     /**
     * Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
@@ -84,7 +85,7 @@ export class TimeseriesWidgetDefinition {
         {
             "name": "legendColumns",
             "baseName": "legend_columns",
-            "type": "Array<TimeseriesWidgetDefinitionLegendColumnsEnum>",
+            "type": "Array<TimeseriesWidgetLegendColumn>",
             "format": ""
         },
         {
@@ -167,7 +168,4 @@ export class TimeseriesWidgetDefinition {
     public constructor() {
     }
 }
-
-
-export type TimeseriesWidgetDefinitionLegendColumnsEnum = "value" | "avg" | "sum" | "min" | "max" ;
 

@@ -35,6 +35,7 @@ import { ServiceSummaryWidgetDefinition } from './ServiceSummaryWidgetDefinition
 import { TableWidgetDefinition } from './TableWidgetDefinition';
 import { TableWidgetHasSearchBar } from './TableWidgetHasSearchBar';
 import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
+import { TimeseriesWidgetLegendColumn } from './TimeseriesWidgetLegendColumn';
 import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
 import { ToplistWidgetDefinition } from './ToplistWidgetDefinition';
 import { ToplistWidgetDefinitionType } from './ToplistWidgetDefinitionType';
@@ -315,7 +316,7 @@ export class WidgetDefinition {
     /**
     * Columns displayed in the legend.
     */
-    'legendColumns'?: Array<WidgetDefinitionLegendColumnsEnum>;
+    'legendColumns'?: Array<TimeseriesWidgetLegendColumn>;
     'legendLayout'?: TimeseriesWidgetLegendLayout;
     /**
     * List of markers.
@@ -803,7 +804,7 @@ export class WidgetDefinition {
         {
             "name": "legendColumns",
             "baseName": "legend_columns",
-            "type": "Array<WidgetDefinitionLegendColumnsEnum>",
+            "type": "Array<TimeseriesWidgetLegendColumn>",
             "format": ""
         },
         {
@@ -832,7 +833,4 @@ export class WidgetDefinition {
     public constructor() {
     }
 }
-
-
-export type WidgetDefinitionLegendColumnsEnum = "value" | "avg" | "sum" | "min" | "max" ;
 
