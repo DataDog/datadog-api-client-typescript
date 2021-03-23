@@ -255,6 +255,10 @@ export class WidgetDefinition {
     'colorByGroups'?: Array<string>;
     'xaxis'?: WidgetAxis;
     /**
+    * Defined global time target.
+    */
+    'globalTimeTarget'?: string;
+    /**
     * Defined error budget.
     */
     'showErrorBudget'?: boolean;
@@ -697,6 +701,12 @@ export class WidgetDefinition {
             "name": "xaxis",
             "baseName": "xaxis",
             "type": "WidgetAxis",
+            "format": ""
+        },
+        {
+            "name": "globalTimeTarget",
+            "baseName": "global_time_target",
+            "type": "string",
             "format": ""
         },
         {

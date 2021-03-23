@@ -19,6 +19,10 @@ import { HttpFile } from '../http/http';
 */
 export class SLOWidgetDefinition {
     /**
+    * Defined global time target.
+    */
+    'globalTimeTarget'?: string;
+    /**
     * Defined error budget.
     */
     'showErrorBudget'?: boolean;
@@ -49,6 +53,12 @@ export class SLOWidgetDefinition {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "globalTimeTarget",
+            "baseName": "global_time_target",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "showErrorBudget",
             "baseName": "show_error_budget",
