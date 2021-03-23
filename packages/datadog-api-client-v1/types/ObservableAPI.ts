@@ -3906,6 +3906,30 @@ export class ObservableSyntheticsApi {
     }
  
     /**
+     * Get the detailed configuration associated with a Synthetic API test.
+     * Get an API test
+     * @param publicId The public ID of the test to get details from.
+     */
+    public getAPITest(publicId: string, options?: Configuration): Observable<SyntheticsAPITest> {
+        const requestContextPromise = this.requestFactory.getAPITest(publicId, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAPITest(rsp)));
+            }));
+    }
+ 
+    /**
      * Get the last 50 test results summaries for a given Synthetics API test.
      * Get the test's latest results summaries (API)
      * @param publicId The public ID of the test for which to search results for.

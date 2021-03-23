@@ -2217,6 +2217,16 @@ export class PromiseSyntheticsApi {
     }
 
     /**
+     * Get the detailed configuration associated with a Synthetic API test.
+     * Get an API test
+     * @param publicId The public ID of the test to get details from.
+     */
+    public getAPITest(publicId: string, options?: Configuration): Promise<SyntheticsAPITest> {
+        const result = this.api.getAPITest(publicId, options);
+        return result.toPromise();
+    }
+
+    /**
      * Get the last 50 test results summaries for a given Synthetics API test.
      * Get the test's latest results summaries (API)
      * @param publicId The public ID of the test for which to search results for.
