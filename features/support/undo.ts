@@ -33,12 +33,13 @@ for (const apiVersion of ["v1", "v2"]) {
 
 function buildUndoFor(
   apiVersion: string,
-  operation: iUndoAction,
+  operationUndo: iUndoAction,
+  operationOrig: string,
   response: any
 ): { (): void } {
   return function (): void {
-    const apiName = operation.tag.replace(/\s/g, "");
-    const operationName = operation.undo.operationId.toOperationName();
+    const apiName = operationUndo.tag.replace(/\s/g, "");
+    const operationName = operationUndo.undo.operationId.toOperationName();
 
     const api = getProperty(datadogApiClient, apiVersion);
     const configuration = api.createConfiguration({
@@ -51,7 +52,7 @@ function buildUndoFor(
 
     // perform operation
     const opts: { [key: string]: any } = {};
-    for (const p of operation.undo.parameters) {
+    for (const p of operationUndo.undo.parameters) {
       let value: any;
       if (p.source !== undefined) {
         opts[p.name.toAttributeName()] = pathLookup(response, p.source);
@@ -61,7 +62,7 @@ function buildUndoFor(
     apiInstance[operationName](opts).then(
       () => { },
       (error: any) => {
-        console.error(`could not undo operation ${operationName}: ${error}`)
+        console.error(`could not undo operation ${operationOrig}: ${error}`)
       }
     );
   };
