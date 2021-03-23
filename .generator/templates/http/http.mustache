@@ -1,14 +1,14 @@
 {{#platforms}}
 {{#node}}
 // TODO: evaluate if we can easily get rid of this library
-import * as FormData from "form-data";
+import FormData from "form-data";
 {{/node}}
 {{/platforms}}
 {{#platforms}}
 {{^deno}}
 // typings of url-parse are incorrect...
 // @ts-ignore 
-import * as URLParse from "url-parse";
+import URLParse from "url-parse";
 {{/deno}}
 {{/platforms}}
 import { Observable, from } from {{#useRxJS}}'rxjs'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{extensionForDeno}}'{{/useRxJS}};
