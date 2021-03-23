@@ -9,12 +9,14 @@
  */
 
 import { UsageTopAvgMetricsHour } from './UsageTopAvgMetricsHour';
+import { UsageTopAvgMetricsMetadata } from './UsageTopAvgMetricsMetadata';
 import { HttpFile } from '../http/http';
 
 /**
 * Response containing the number of hourly recorded custom metrics for a given organization.
 */
 export class UsageTopAvgMetricsResponse {
+    'metadata'?: UsageTopAvgMetricsMetadata;
     /**
     * Number of hourly recorded custom metrics for a given organization.
     */
@@ -23,6 +25,12 @@ export class UsageTopAvgMetricsResponse {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "UsageTopAvgMetricsMetadata",
+            "format": ""
+        },
         {
             "name": "usage",
             "baseName": "usage",
