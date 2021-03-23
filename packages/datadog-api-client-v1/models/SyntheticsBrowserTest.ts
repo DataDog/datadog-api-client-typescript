@@ -25,9 +25,9 @@ export class SyntheticsBrowserTest {
     */
     'locations'?: Array<string>;
     /**
-    * Notification message associated with the test.
+    * Notification message associated with the test. Message can either be text or an empty string.
     */
-    'message'?: string;
+    'message': string;
     /**
     * The associated monitor ID.
     */
