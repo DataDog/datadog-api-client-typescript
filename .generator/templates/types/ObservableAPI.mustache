@@ -1,7 +1,7 @@
 import { ResponseContext, RequestContext, HttpFile } from '../http/http{{extensionForDeno}}';
 import * as models from '../models/all{{extensionForDeno}}';
 import { Configuration} from '../configuration{{extensionForDeno}}'
-import { Observable, of, from } from {{#useRxJS}}'rxjs'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{extensionForDeno}}'{{/useRxJS}};
+import { Observable, of, from as from_ } from {{#useRxJS}}'rxjs'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{extensionForDeno}}'{{/useRxJS}};
 import {mergeMap, map} from  {{#useRxJS}}'rxjs/operators'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{extensionForDeno}}'{{/useRxJS}};
 {{#useInversify}}
 import { injectable, inject, optional } from "inversify";
@@ -66,7 +66,7 @@ export class Observable{{classname}} {
         const requestContextPromise = this.requestFactory.{{nickname}}({{#allParams}}{{paramName}}, {{/allParams}}options);
 
         // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
         }
