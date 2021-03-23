@@ -79,7 +79,7 @@ When("the request is sent", async function (this: World) {
       this.opts
     );
     if (undoAction.undo.type == "unsafe") {
-      this.undo.push(buildUndoFor(this.apiVersion, undoAction, this.response));
+      this.undo.push(buildUndoFor(this.apiVersion, undoAction, this.operationId, this.response));
     }
   } catch (error) {
     console.log(error);
