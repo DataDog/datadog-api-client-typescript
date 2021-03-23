@@ -449,6 +449,7 @@ import { UsageSyntheticsResponse } from '../models/UsageSyntheticsResponse';
 import { UsageTimeseriesHour } from '../models/UsageTimeseriesHour';
 import { UsageTimeseriesResponse } from '../models/UsageTimeseriesResponse';
 import { UsageTopAvgMetricsHour } from '../models/UsageTopAvgMetricsHour';
+import { UsageTopAvgMetricsMetadata } from '../models/UsageTopAvgMetricsMetadata';
 import { UsageTopAvgMetricsResponse } from '../models/UsageTopAvgMetricsResponse';
 import { UsageTraceHour } from '../models/UsageTraceHour';
 import { UsageTraceResponse } from '../models/UsageTraceResponse';
@@ -5144,14 +5145,15 @@ export class ObservableUsageMeteringApi {
     }
  
     /**
-     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
+     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
      * Get top custom metrics by hourly average
-     * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
+     * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
      * @param names Comma-separated list of metric names.
      * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
      */
-    public getUsageTopAvgMetrics(month: Date, names?: Array<string>, limit?: number, options?: Configuration): Observable<UsageTopAvgMetricsResponse> {
-        const requestContextPromise = this.requestFactory.getUsageTopAvgMetrics(month, names, limit, options);
+    public getUsageTopAvgMetrics(month?: Date, day?: Date, names?: Array<string>, limit?: number, options?: Configuration): Observable<UsageTopAvgMetricsResponse> {
+        const requestContextPromise = this.requestFactory.getUsageTopAvgMetrics(month, day, names, limit, options);
 
         // build promise chain
         let middlewarePreObservable = from_<RequestContext>(requestContextPromise);

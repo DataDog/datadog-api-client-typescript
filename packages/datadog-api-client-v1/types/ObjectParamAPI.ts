@@ -448,6 +448,7 @@ import { UsageSyntheticsResponse } from '../models/UsageSyntheticsResponse';
 import { UsageTimeseriesHour } from '../models/UsageTimeseriesHour';
 import { UsageTimeseriesResponse } from '../models/UsageTimeseriesResponse';
 import { UsageTopAvgMetricsHour } from '../models/UsageTopAvgMetricsHour';
+import { UsageTopAvgMetricsMetadata } from '../models/UsageTopAvgMetricsMetadata';
 import { UsageTopAvgMetricsResponse } from '../models/UsageTopAvgMetricsResponse';
 import { UsageTraceHour } from '../models/UsageTraceHour';
 import { UsageTraceResponse } from '../models/UsageTraceResponse';
@@ -4193,11 +4194,17 @@ export interface UsageMeteringApiGetUsageTimeseriesRequest {
 
 export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
     /**
-     * Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour.
+     * Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
      * @type Date
      * @memberof UsageMeteringApigetUsageTopAvgMetrics
      */
-    month: Date
+    month?: Date
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
+     * @type Date
+     * @memberof UsageMeteringApigetUsageTopAvgMetrics
+     */
+    day?: Date
     /**
      * Comma-separated list of metric names.
      * @type Array&lt;string&gt;
@@ -4478,12 +4485,12 @@ export class ObjectUsageMeteringApi {
     }
 
     /**
-     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average.
+     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
      * Get top custom metrics by hourly average
      * @param param the request object
      */
     public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
-        return this.api.getUsageTopAvgMetrics(param.month, param.names, param.limit,  options).toPromise();
+        return this.api.getUsageTopAvgMetrics(param.month, param.day, param.names, param.limit,  options).toPromise();
     }
 
     /**
