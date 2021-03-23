@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
-import {Configuration} from '../configuration{{extensionForDeno}}';
+import {Configuration, getServer } from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
 {{#platforms}}
 {{#node}}
@@ -57,7 +57,7 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
             .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){{/pathParams}};
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.{{httpMethod}});
+        const requestContext = getServer(config, '{{classname}}.{{nickname}}').makeRequestContext(localVarPath, HttpMethod.{{httpMethod}});
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params

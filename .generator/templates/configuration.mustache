@@ -8,11 +8,13 @@ import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorp
 import { JQueryHttpLibrary as DefaultHttpLibrary } from "./http/jquery";
 {{/jquery}}
 {{/frameworks}}
-import { BaseServerConfiguration, server1 } from "./servers{{extensionForDeno}}";
+import { BaseServerConfiguration, servers, operationServers } from "./servers{{extensionForDeno}}";
 import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth{{extensionForDeno}}";
 
 export interface Configuration {
-    readonly baseServer: BaseServerConfiguration;
+    readonly baseServer?: BaseServerConfiguration;
+    readonly serverIndex: number;
+    readonly operationServerIndices: { [ name: string ]: number };
     readonly httpApi: HttpLibrary;
     readonly middleware: Middleware[];
     readonly authMethods: AuthMethods;
@@ -24,9 +26,17 @@ export interface Configuration {
  */
 export interface ConfigurationParameters {
     /**
-     * Default server to use
+     * Default server to use (takes preference over serverIndex and operationServerIndices)
      */
     baseServer?: BaseServerConfiguration;
+    /**
+     * Default index of a server to use from the predefined server list
+     */
+    serverIndex?: number;
+    /**
+     * Default index of a server to use for an operation from the predefined server operation map
+     */
+    operationServerIndices?: { [ name: string ]: number };
     /**
      * HTTP library to use e.g. IsomorphicFetch
      */
@@ -49,7 +59,9 @@ export interface ConfigurationParameters {
  * Configuration factory function
  *
  * If a property is not included in conf, a default is used:
- *    - baseServer: server1
+ *    - baseServer: null
+ *    - serverIndex: 0
+ *    - operationServerIndices: {}
  *    - httpApi: IsomorphicFetchHttpLibrary
  *    - middleware: []
  *    - promiseMiddleware: []
@@ -59,7 +71,9 @@ export interface ConfigurationParameters {
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
     const configuration: Configuration = {
-        baseServer: conf.baseServer !== undefined ? conf.baseServer : server1,
+        baseServer: conf.baseServer,
+        serverIndex: conf.serverIndex || 0,
+        operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
         middleware: conf.middleware || [],
         authMethods: configureAuthMethods(conf.authMethods)
@@ -70,4 +84,12 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         );
     }
     return configuration;
+}
+
+export function getServer(conf: Configuration, endpoint: string): BaseServerConfiguration {
+    if (conf.baseServer !== undefined) {
+        return conf.baseServer;
+    }
+    let index = (endpoint in conf.operationServerIndices) ? conf.operationServerIndices[endpoint] : conf.serverIndex;
+    return (endpoint in operationServers) ? operationServers[endpoint][index] : servers[index];
 }
