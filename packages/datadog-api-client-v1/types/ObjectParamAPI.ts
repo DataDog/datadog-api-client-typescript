@@ -3160,6 +3160,15 @@ export interface SyntheticsApiEditGlobalVariableRequest {
     body: SyntheticsGlobalVariable
 }
 
+export interface SyntheticsApiGetAPITestRequest {
+    /**
+     * The public ID of the test to get details from.
+     * @type string
+     * @memberof SyntheticsApigetAPITest
+     */
+    publicId: string
+}
+
 export interface SyntheticsApiGetAPITestLatestResultsRequest {
     /**
      * The public ID of the test for which to search results for.
@@ -3456,6 +3465,15 @@ export class ObjectSyntheticsApi {
      */
     public editGlobalVariable(param: SyntheticsApiEditGlobalVariableRequest, options?: Configuration): Promise<SyntheticsGlobalVariable> {
         return this.api.editGlobalVariable(param.variableId, param.body,  options).toPromise();
+    }
+
+    /**
+     * Get the detailed configuration associated with a Synthetic API test.
+     * Get an API test
+     * @param param the request object
+     */
+    public getAPITest(param: SyntheticsApiGetAPITestRequest, options?: Configuration): Promise<SyntheticsAPITest> {
+        return this.api.getAPITest(param.publicId,  options).toPromise();
     }
 
     /**
