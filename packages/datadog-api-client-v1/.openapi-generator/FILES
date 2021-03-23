@@ -481,6 +481,7 @@ models/UsageSyntheticsResponse.ts
 models/UsageTimeseriesHour.ts
 models/UsageTimeseriesResponse.ts
 models/UsageTopAvgMetricsHour.ts
+models/UsageTopAvgMetricsMetadata.ts
 models/UsageTopAvgMetricsResponse.ts
 models/UsageTraceHour.ts
 models/UsageTraceResponse.ts
