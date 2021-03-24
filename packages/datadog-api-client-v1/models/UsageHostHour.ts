@@ -47,6 +47,10 @@ export class UsageHostHour {
     */
     'gcpHostCount'?: number;
     /**
+    * Contains the total number of Heroku dynos reported by the Datadog Agent.
+    */
+    'herokuHostCount'?: number;
+    /**
     * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
     */
     'hostCount'?: number;
@@ -58,6 +62,10 @@ export class UsageHostHour {
     * Contains the total number of hosts that reported via the Azure App Services integration (and were NOT running the Datadog Agent).
     */
     'infraAzureAppService'?: number;
+    /**
+    * Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
+    */
+    'opentelemetryHostCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -111,6 +119,12 @@ export class UsageHostHour {
             "format": "int64"
         },
         {
+            "name": "herokuHostCount",
+            "baseName": "heroku_host_count",
+            "type": "number",
+            "format": "int64"
+        },
+        {
             "name": "hostCount",
             "baseName": "host_count",
             "type": "number",
@@ -125,6 +139,12 @@ export class UsageHostHour {
         {
             "name": "infraAzureAppService",
             "baseName": "infra_azure_app_service",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "opentelemetryHostCount",
+            "baseName": "opentelemetry_host_count",
             "type": "number",
             "format": "int64"
         }    ];

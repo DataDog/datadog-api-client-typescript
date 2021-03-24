@@ -71,6 +71,10 @@ export class UsageSummaryDateOrg {
     */
     'gcpHostTop99p'?: number;
     /**
+    * Shows the 99th percentile of all Heroku dynos over all hours in the current date for the given org.
+    */
+    'herokuHostTop99p'?: number;
+    /**
     * The organization id.
     */
     'id'?: string;
@@ -122,6 +126,10 @@ export class UsageSummaryDateOrg {
     * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for the given org.
     */
     'npmHostTop99p'?: number;
+    /**
+    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+    */
+    'opentelemetryHostTop99p'?: number;
     /**
     * Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.
     */
@@ -243,6 +251,12 @@ export class UsageSummaryDateOrg {
             "format": "int64"
         },
         {
+            "name": "herokuHostTop99p",
+            "baseName": "heroku_host_top99p",
+            "type": "number",
+            "format": "int64"
+        },
+        {
             "name": "id",
             "baseName": "id",
             "type": "string",
@@ -317,6 +331,12 @@ export class UsageSummaryDateOrg {
         {
             "name": "npmHostTop99p",
             "baseName": "npm_host_top99p",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "opentelemetryHostTop99p",
+            "baseName": "opentelemetry_host_top99p",
             "type": "number",
             "format": "int64"
         },
