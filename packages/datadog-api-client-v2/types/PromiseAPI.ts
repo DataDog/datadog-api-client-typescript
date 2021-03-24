@@ -272,6 +272,7 @@ import { SecurityMonitoringRuleQueryCreate } from '../models/SecurityMonitoringR
 import { SecurityMonitoringRuleResponse } from '../models/SecurityMonitoringRuleResponse';
 import { SecurityMonitoringRuleSeverity } from '../models/SecurityMonitoringRuleSeverity';
 import { SecurityMonitoringRuleUpdatePayload } from '../models/SecurityMonitoringRuleUpdatePayload';
+import { SecurityMonitoringRuntimeAgentRule } from '../models/SecurityMonitoringRuntimeAgentRule';
 import { SecurityMonitoringSignal } from '../models/SecurityMonitoringSignal';
 import { SecurityMonitoringSignalAttributes } from '../models/SecurityMonitoringSignalAttributes';
 import { SecurityMonitoringSignalListRequest } from '../models/SecurityMonitoringSignalListRequest';
