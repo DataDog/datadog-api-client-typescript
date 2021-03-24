@@ -444,6 +444,7 @@ export * from './UsageSyntheticsResponse';
 export * from './UsageTimeseriesHour';
 export * from './UsageTimeseriesResponse';
 export * from './UsageTopAvgMetricsHour';
+export * from './UsageTopAvgMetricsMetadata';
 export * from './UsageTopAvgMetricsResponse';
 export * from './UsageTraceHour';
 export * from './UsageTraceResponse';
@@ -943,6 +944,7 @@ import { UsageSyntheticsResponse } from './UsageSyntheticsResponse';
 import { UsageTimeseriesHour } from './UsageTimeseriesHour';
 import { UsageTimeseriesResponse } from './UsageTimeseriesResponse';
 import { UsageTopAvgMetricsHour } from './UsageTopAvgMetricsHour';
+import { UsageTopAvgMetricsMetadata } from './UsageTopAvgMetricsMetadata';
 import { UsageTopAvgMetricsResponse } from './UsageTopAvgMetricsResponse';
 import { UsageTraceHour } from './UsageTraceHour';
 import { UsageTraceResponse } from './UsageTraceResponse';
@@ -1493,6 +1495,7 @@ let typeMap: {[index: string]: any} = {
     "UsageTimeseriesHour": UsageTimeseriesHour,
     "UsageTimeseriesResponse": UsageTimeseriesResponse,
     "UsageTopAvgMetricsHour": UsageTopAvgMetricsHour,
+    "UsageTopAvgMetricsMetadata": UsageTopAvgMetricsMetadata,
     "UsageTopAvgMetricsResponse": UsageTopAvgMetricsResponse,
     "UsageTraceHour": UsageTraceHour,
     "UsageTraceResponse": UsageTraceResponse,

@@ -9,12 +9,14 @@
  */
 
 import { SecurityMonitoringRuleQueryAggregation } from './SecurityMonitoringRuleQueryAggregation';
+import { SecurityMonitoringRuntimeAgentRule } from './SecurityMonitoringRuntimeAgentRule';
 import { HttpFile } from '../http/http';
 
 /**
 * Query for matching rule.
 */
 export class SecurityMonitoringRuleQuery {
+    'agentRule'?: SecurityMonitoringRuntimeAgentRule;
     'aggregation'?: SecurityMonitoringRuleQueryAggregation;
     /**
     * Field for which the cardinality is measured. Sent as an array.
@@ -40,6 +42,12 @@ export class SecurityMonitoringRuleQuery {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "agentRule",
+            "baseName": "agentRule",
+            "type": "SecurityMonitoringRuntimeAgentRule",
+            "format": ""
+        },
         {
             "name": "aggregation",
             "baseName": "aggregation",

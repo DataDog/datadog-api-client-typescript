@@ -76,6 +76,10 @@ export class UsageSummaryDate {
     */
     'gcpHostTop99p'?: number;
     /**
+    * Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations.
+    */
+    'herokuHostTop99pSum'?: number;
+    /**
     * Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.
     */
     'incidentManagementMonthlyActiveUsersHwm'?: number;
@@ -119,6 +123,10 @@ export class UsageSummaryDate {
     * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations.
     */
     'npmHostTop99p'?: number;
+    /**
+    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
+    */
+    'opentelemetryHostTop99pSum'?: number;
     /**
     * Organizations associated with a user.
     */
@@ -246,6 +254,12 @@ export class UsageSummaryDate {
             "format": "int64"
         },
         {
+            "name": "herokuHostTop99pSum",
+            "baseName": "heroku_host_top99p_sum",
+            "type": "number",
+            "format": "int64"
+        },
+        {
             "name": "incidentManagementMonthlyActiveUsersHwm",
             "baseName": "incident_management_monthly_active_users_hwm",
             "type": "number",
@@ -308,6 +322,12 @@ export class UsageSummaryDate {
         {
             "name": "npmHostTop99p",
             "baseName": "npm_host_top99p",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "opentelemetryHostTop99pSum",
+            "baseName": "opentelemetry_host_top99p_sum",
             "type": "number",
             "format": "int64"
         },

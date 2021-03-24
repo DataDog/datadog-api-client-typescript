@@ -8,38 +8,39 @@
  * Do not edit the class manually.
  */
 
-import { UsageTopAvgMetricsHour } from './UsageTopAvgMetricsHour';
-import { UsageTopAvgMetricsMetadata } from './UsageTopAvgMetricsMetadata';
 import { HttpFile } from '../http/http';
 
 /**
-* Response containing the number of hourly recorded custom metrics for a given organization.
+* The Agent rule.
 */
-export class UsageTopAvgMetricsResponse {
-    'metadata'?: UsageTopAvgMetricsMetadata;
+export class SecurityMonitoringRuntimeAgentRule {
     /**
-    * Number of hourly recorded custom metrics for a given organization.
+    * The Agent rule ID. Must be unique within the rule.
     */
-    'usage'?: Array<UsageTopAvgMetricsHour>;
+    'agentRuleId'?: string;
+    /**
+    * A Runtime Security expression determines what activity should be collected by the Datadog Agent. These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced option.
+    */
+    'expression'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "UsageTopAvgMetricsMetadata",
+            "name": "agentRuleId",
+            "baseName": "agentRuleId",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "usage",
-            "baseName": "usage",
-            "type": "Array<UsageTopAvgMetricsHour>",
+            "name": "expression",
+            "baseName": "expression",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return UsageTopAvgMetricsResponse.attributeTypeMap;
+        return SecurityMonitoringRuntimeAgentRule.attributeTypeMap;
     }
     
     public constructor() {
