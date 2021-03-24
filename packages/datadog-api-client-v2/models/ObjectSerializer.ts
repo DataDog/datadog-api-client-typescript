@@ -268,6 +268,7 @@ export * from './SecurityMonitoringRuleQueryCreate';
 export * from './SecurityMonitoringRuleResponse';
 export * from './SecurityMonitoringRuleSeverity';
 export * from './SecurityMonitoringRuleUpdatePayload';
+export * from './SecurityMonitoringRuntimeAgentRule';
 export * from './SecurityMonitoringSignal';
 export * from './SecurityMonitoringSignalAttributes';
 export * from './SecurityMonitoringSignalListRequest';
@@ -572,6 +573,7 @@ import { SecurityMonitoringRuleQueryCreate } from './SecurityMonitoringRuleQuery
 import { SecurityMonitoringRuleResponse } from './SecurityMonitoringRuleResponse';
 import { SecurityMonitoringRuleSeverity } from './SecurityMonitoringRuleSeverity';
 import { SecurityMonitoringRuleUpdatePayload } from './SecurityMonitoringRuleUpdatePayload';
+import { SecurityMonitoringRuntimeAgentRule } from './SecurityMonitoringRuntimeAgentRule';
 import { SecurityMonitoringSignal } from './SecurityMonitoringSignal';
 import { SecurityMonitoringSignalAttributes } from './SecurityMonitoringSignalAttributes';
 import { SecurityMonitoringSignalListRequest } from './SecurityMonitoringSignalListRequest';
@@ -902,6 +904,7 @@ let typeMap: {[index: string]: any} = {
     "SecurityMonitoringRuleQueryCreate": SecurityMonitoringRuleQueryCreate,
     "SecurityMonitoringRuleResponse": SecurityMonitoringRuleResponse,
     "SecurityMonitoringRuleUpdatePayload": SecurityMonitoringRuleUpdatePayload,
+    "SecurityMonitoringRuntimeAgentRule": SecurityMonitoringRuntimeAgentRule,
     "SecurityMonitoringSignal": SecurityMonitoringSignal,
     "SecurityMonitoringSignalAttributes": SecurityMonitoringSignalAttributes,
     "SecurityMonitoringSignalListRequest": SecurityMonitoringSignalListRequest,

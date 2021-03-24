@@ -291,6 +291,7 @@ models/SecurityMonitoringRuleQueryCreate.ts
 models/SecurityMonitoringRuleResponse.ts
 models/SecurityMonitoringRuleSeverity.ts
 models/SecurityMonitoringRuleUpdatePayload.ts
+models/SecurityMonitoringRuntimeAgentRule.ts
 models/SecurityMonitoringSignal.ts
 models/SecurityMonitoringSignalAttributes.ts
 models/SecurityMonitoringSignalListRequest.ts
