@@ -2580,9 +2580,10 @@ export class ObservableMetricsApi {
      * Get active metrics list
      * @param from Seconds since the Unix epoch.
      * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+     * @param tagFilter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
      */
-    public listActiveMetrics(from: number, host?: string, options?: Configuration): Observable<MetricsListResponse> {
-        const requestContextPromise = this.requestFactory.listActiveMetrics(from, host, options);
+    public listActiveMetrics(from: number, host?: string, tagFilter?: string, options?: Configuration): Observable<MetricsListResponse> {
+        const requestContextPromise = this.requestFactory.listActiveMetrics(from, host, tagFilter, options);
 
         // build promise chain
         let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
