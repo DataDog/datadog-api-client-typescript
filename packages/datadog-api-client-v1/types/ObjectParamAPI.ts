@@ -2081,6 +2081,12 @@ export interface MetricsApiListActiveMetricsRequest {
      * @memberof MetricsApilistActiveMetrics
      */
     host?: string
+    /**
+     * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+     * @type string
+     * @memberof MetricsApilistActiveMetrics
+     */
+    tagFilter?: string
 }
 
 export interface MetricsApiListMetricsRequest {
@@ -2150,7 +2156,7 @@ export class ObjectMetricsApi {
      * @param param the request object
      */
     public listActiveMetrics(param: MetricsApiListActiveMetricsRequest, options?: Configuration): Promise<MetricsListResponse> {
-        return this.api.listActiveMetrics(param.from, param.host,  options).toPromise();
+        return this.api.listActiveMetrics(param.from, param.host, param.tagFilter,  options).toPromise();
     }
 
     /**

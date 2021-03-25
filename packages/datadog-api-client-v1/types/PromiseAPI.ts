@@ -1555,9 +1555,10 @@ export class PromiseMetricsApi {
      * Get active metrics list
      * @param from Seconds since the Unix epoch.
      * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+     * @param tagFilter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
      */
-    public listActiveMetrics(from: number, host?: string, options?: Configuration): Promise<MetricsListResponse> {
-        const result = this.api.listActiveMetrics(from, host, options);
+    public listActiveMetrics(from: number, host?: string, tagFilter?: string, options?: Configuration): Promise<MetricsListResponse> {
+        const result = this.api.listActiveMetrics(from, host, tagFilter, options);
         return result.toPromise();
     }
 

@@ -1056,9 +1056,11 @@ export class PromiseMetricsApi {
      * @param filterTagsConfigured Filter tag configurations by configured tags.
      * @param filterMetricType Filter tag configurations by metric type.
      * @param filterIncludePercentiles Filter distributions with additional percentile aggregations enabled or disabled.
+     * @param filterTags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+     * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
      */
-    public listTagConfigurations(filterConfigured?: boolean, filterTagsConfigured?: string, filterMetricType?: MetricTagConfigurationMetricTypes, filterIncludePercentiles?: boolean, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
-        const result = this.api.listTagConfigurations(filterConfigured, filterTagsConfigured, filterMetricType, filterIncludePercentiles, options);
+    public listTagConfigurations(filterConfigured?: boolean, filterTagsConfigured?: string, filterMetricType?: MetricTagConfigurationMetricTypes, filterIncludePercentiles?: boolean, filterTags?: string, windowSeconds?: number, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
+        const result = this.api.listTagConfigurations(filterConfigured, filterTagsConfigured, filterMetricType, filterIncludePercentiles, filterTags, windowSeconds, options);
         return result.toPromise();
     }
 

@@ -179,9 +179,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      * @param filterTagsConfigured Filter tag configurations by configured tags.
      * @param filterMetricType Filter tag configurations by metric type.
      * @param filterIncludePercentiles Filter distributions with additional percentile aggregations enabled or disabled.
+     * @param filterTags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+     * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
      */
-    public async listTagConfigurations(filterConfigured?: boolean, filterTagsConfigured?: string, filterMetricType?: MetricTagConfigurationMetricTypes, filterIncludePercentiles?: boolean, options?: Configuration): Promise<RequestContext> {
+    public async listTagConfigurations(filterConfigured?: boolean, filterTagsConfigured?: string, filterMetricType?: MetricTagConfigurationMetricTypes, filterIncludePercentiles?: boolean, filterTags?: string, windowSeconds?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
+
+
 
 
 
@@ -206,6 +210,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         }
         if (filterIncludePercentiles !== undefined) {
             requestContext.setQueryParam("filter[include_percentiles]", ObjectSerializer.serialize(filterIncludePercentiles, "boolean", ""));
+        }
+        if (filterTags !== undefined) {
+            requestContext.setQueryParam("filter[tags]", ObjectSerializer.serialize(filterTags, "string", ""));
+        }
+        if (windowSeconds !== undefined) {
+            requestContext.setQueryParam("window[seconds]", ObjectSerializer.serialize(windowSeconds, "number", "int64"));
         }
 
         // Header Params
