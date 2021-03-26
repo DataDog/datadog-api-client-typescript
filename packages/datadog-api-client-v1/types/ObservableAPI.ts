@@ -395,6 +395,8 @@ import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
+import { UsageComplianceHour } from '../models/UsageComplianceHour';
+import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from '../models/UsageCustomReportsData';
 import { UsageCustomReportsMeta } from '../models/UsageCustomReportsMeta';
@@ -4738,6 +4740,31 @@ export class ObservableUsageMeteringApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageBillableSummary(rsp)));
+            }));
+    }
+ 
+    /**
+     * Get hourly usage for Compliance Monitoring.
+     * Get hourly usage for Compliance Monitoring
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageComplianceMonitoring(startHr: Date, endHr?: Date, options?: Configuration): Observable<UsageComplianceResponse> {
+        const requestContextPromise = this.requestFactory.getUsageComplianceMonitoring(startHr, endHr, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageComplianceMonitoring(rsp)));
             }));
     }
  

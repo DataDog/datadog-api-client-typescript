@@ -48,6 +48,14 @@ export class UsageSummaryDate {
     */
     'billableIngestedBytesSum'?: number;
     /**
+    * Shows the sum of compliance containers over all hours in the current date for all organizations.
+    */
+    'complianceContainerCountSum'?: Object;
+    /**
+    * Shows the sum of compliance hosts over all hours in the current date for all organizations.
+    */
+    'complianceHostCountSum'?: number;
+    /**
     * Shows the average of all distinct containers over all hours in the current date for all organizations.
     */
     'containerAvg'?: number;
@@ -208,6 +216,18 @@ export class UsageSummaryDate {
         {
             "name": "billableIngestedBytesSum",
             "baseName": "billable_ingested_bytes_sum",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "complianceContainerCountSum",
+            "baseName": "compliance_container_count_sum",
+            "type": "Object",
+            "format": ""
+        },
+        {
+            "name": "complianceHostCountSum",
+            "baseName": "compliance_host_count_sum",
             "type": "number",
             "format": "int64"
         },
