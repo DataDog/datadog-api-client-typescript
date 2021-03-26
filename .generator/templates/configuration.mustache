@@ -70,12 +70,27 @@ export interface ConfigurationParameters {
  * @param conf partial configuration
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
-    const authMethods = conf.authMethods || {};
+    if (process.env.DD_SITE) {
+        // Redecompose enum value to make type checking happy
+        switch (process.env.DD_SITE) {
+            {{#servers}}
+            {{#variables}}
+            {{#enumValues}}
+            case "{{.}}":
+                servers[0].setVariables({"site": "{{.}}"});
+                break;
+            {{/enumValues}}
+            {{/variables}}
+            {{/servers}}
+        }
+    }
 
+    const authMethods = conf.authMethods || {};
     {{#authMethods}}
     {{#isApiKey}}
     {{#isKeyInHeader}}
-    if (!authMethods["{{name}}"] && process.env.{{vendorExtensions.x-env-name}}) {
+
+    if (!("{{name}}" in authMethods) && process.env.{{vendorExtensions.x-env-name}}) {
         authMethods["{{name}}"] = process.env.{{vendorExtensions.x-env-name}};
     }
     {{/isKeyInHeader}}
