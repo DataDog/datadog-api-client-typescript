@@ -68,14 +68,16 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
      * Get active metrics list
      * @param from Seconds since the Unix epoch.
      * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+     * @param tagFilter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
      */
-    public async listActiveMetrics(from: number, host?: string, options?: Configuration): Promise<RequestContext> {
+    public async listActiveMetrics(from: number, host?: string, tagFilter?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'from' is not null or undefined
         if (from === null || from === undefined) {
             throw new RequiredError('Required parameter from was null or undefined when calling listActiveMetrics.');
         }
+
 
 
 
@@ -92,6 +94,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         }
         if (host !== undefined) {
             requestContext.setQueryParam("host", ObjectSerializer.serialize(host, "string", ""));
+        }
+        if (tagFilter !== undefined) {
+            requestContext.setQueryParam("tag_filter", ObjectSerializer.serialize(tagFilter, "string", ""));
         }
 
         // Header Params

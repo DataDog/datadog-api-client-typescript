@@ -394,6 +394,8 @@ import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
+import { UsageComplianceHour } from '../models/UsageComplianceHour';
+import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from '../models/UsageCustomReportsData';
 import { UsageCustomReportsMeta } from '../models/UsageCustomReportsMeta';
@@ -2081,6 +2083,12 @@ export interface MetricsApiListActiveMetricsRequest {
      * @memberof MetricsApilistActiveMetrics
      */
     host?: string
+    /**
+     * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+     * @type string
+     * @memberof MetricsApilistActiveMetrics
+     */
+    tagFilter?: string
 }
 
 export interface MetricsApiListMetricsRequest {
@@ -2150,7 +2158,7 @@ export class ObjectMetricsApi {
      * @param param the request object
      */
     public listActiveMetrics(param: MetricsApiListActiveMetricsRequest, options?: Configuration): Promise<MetricsListResponse> {
-        return this.api.listActiveMetrics(param.from, param.host,  options).toPromise();
+        return this.api.listActiveMetrics(param.from, param.host, param.tagFilter,  options).toPromise();
     }
 
     /**
@@ -3937,6 +3945,21 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
     month?: Date
 }
 
+export interface UsageMeteringApiGetUsageComplianceMonitoringRequest {
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageComplianceMonitoring
+     */
+    startHr: Date
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageComplianceMonitoring
+     */
+    endHr?: Date
+}
+
 export interface UsageMeteringApiGetUsageFargateRequest {
     /**
      * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
@@ -4347,6 +4370,15 @@ export class ObjectUsageMeteringApi {
      */
     public getUsageBillableSummary(param: UsageMeteringApiGetUsageBillableSummaryRequest, options?: Configuration): Promise<UsageBillableSummaryResponse> {
         return this.api.getUsageBillableSummary(param.month,  options).toPromise();
+    }
+
+    /**
+     * Get hourly usage for Compliance Monitoring.
+     * Get hourly usage for Compliance Monitoring
+     * @param param the request object
+     */
+    public getUsageComplianceMonitoring(param: UsageMeteringApiGetUsageComplianceMonitoringRequest, options?: Configuration): Promise<UsageComplianceResponse> {
+        return this.api.getUsageComplianceMonitoring(param.startHr, param.endHr,  options).toPromise();
     }
 
     /**

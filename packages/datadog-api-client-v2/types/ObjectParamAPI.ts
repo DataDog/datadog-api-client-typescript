@@ -1640,6 +1640,18 @@ export interface MetricsApiListTagConfigurationsRequest {
      * @memberof MetricsApilistTagConfigurations
      */
     filterIncludePercentiles?: boolean
+    /**
+     * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+     * @type string
+     * @memberof MetricsApilistTagConfigurations
+     */
+    filterTags?: string
+    /**
+     * The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+     * @type number
+     * @memberof MetricsApilistTagConfigurations
+     */
+    windowSeconds?: number
 }
 
 export interface MetricsApiListTagsByMetricNameRequest {
@@ -1715,7 +1727,7 @@ export class ObjectMetricsApi {
      * @param param the request object
      */
     public listTagConfigurations(param: MetricsApiListTagConfigurationsRequest, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
-        return this.api.listTagConfigurations(param.filterConfigured, param.filterTagsConfigured, param.filterMetricType, param.filterIncludePercentiles,  options).toPromise();
+        return this.api.listTagConfigurations(param.filterConfigured, param.filterTagsConfigured, param.filterMetricType, param.filterIncludePercentiles, param.filterTags, param.windowSeconds,  options).toPromise();
     }
 
     /**

@@ -427,6 +427,8 @@ models/UsageBillableSummaryBody.ts
 models/UsageBillableSummaryHour.ts
 models/UsageBillableSummaryKeys.ts
 models/UsageBillableSummaryResponse.ts
+models/UsageComplianceHour.ts
+models/UsageComplianceResponse.ts
 models/UsageCustomReportsAttributes.ts
 models/UsageCustomReportsData.ts
 models/UsageCustomReportsMeta.ts
