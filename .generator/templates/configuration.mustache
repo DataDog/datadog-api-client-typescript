@@ -70,13 +70,25 @@ export interface ConfigurationParameters {
  * @param conf partial configuration
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
+    const authMethods = conf.authMethods || {};
+
+    {{#authMethods}}
+    {{#isApiKey}}
+    {{#isKeyInHeader}}
+    if (!authMethods["{{name}}"] && process.env.{{vendorExtensions.x-env-name}}) {
+        authMethods["{{name}}"] = process.env.{{vendorExtensions.x-env-name}};
+    }
+    {{/isKeyInHeader}}
+    {{/isApiKey}}
+    {{/authMethods}}
+
     const configuration: Configuration = {
         baseServer: conf.baseServer,
         serverIndex: conf.serverIndex || 0,
         operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
         middleware: conf.middleware || [],
-        authMethods: configureAuthMethods(conf.authMethods)
+        authMethods: configureAuthMethods(authMethods)
     };
     if (conf.promiseMiddleware) {
         conf.promiseMiddleware.forEach(
