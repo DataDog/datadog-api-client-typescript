@@ -8,7 +8,7 @@ import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorp
 import { JQueryHttpLibrary as DefaultHttpLibrary } from "./http/jquery";
 {{/jquery}}
 {{/frameworks}}
-import { BaseServerConfiguration, servers, operationServers } from "./servers{{extensionForDeno}}";
+import { BaseServerConfiguration, server1, servers, operationServers } from "./servers{{extensionForDeno}}";
 import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth{{extensionForDeno}}";
 
 export interface Configuration {
@@ -71,18 +71,8 @@ export interface ConfigurationParameters {
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
     if (process.env.DD_SITE) {
-        // Redecompose enum value to make type checking happy
-        switch (process.env.DD_SITE) {
-            {{#servers}}
-            {{#variables}}
-            {{#enumValues}}
-            case "{{.}}":
-                servers[0].setVariables({"site": "{{.}}"});
-                break;
-            {{/enumValues}}
-            {{/variables}}
-            {{/servers}}
-        }
+        let serverConf = server1.getConfiguration();
+        server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
     }
 
     const authMethods = conf.authMethods || {};
