@@ -31,6 +31,10 @@ export class SyntheticsTestOptions {
     */
     'deviceIds'?: Array<SyntheticsDeviceID>;
     /**
+    * Whether or not to disable CORS mechanism.
+    */
+    'disableCors'?: boolean;
+    /**
     * For API HTTP test, whether or not the test should follow redirects.
     */
     'followRedirects'?: boolean;
@@ -43,6 +47,10 @@ export class SyntheticsTestOptions {
     */
     'minLocationFailed'?: number;
     'monitorOptions'?: SyntheticsTestOptionsMonitorOptions;
+    /**
+    * Prevents saving screenshots of the steps.
+    */
+    'noScreenshot'?: boolean;
     'retry'?: SyntheticsTestOptionsRetry;
     'tickEvery'?: SyntheticsTickInterval;
 
@@ -68,6 +76,12 @@ export class SyntheticsTestOptions {
             "format": ""
         },
         {
+            "name": "disableCors",
+            "baseName": "disableCors",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "followRedirects",
             "baseName": "follow_redirects",
             "type": "boolean",
@@ -89,6 +103,12 @@ export class SyntheticsTestOptions {
             "name": "monitorOptions",
             "baseName": "monitor_options",
             "type": "SyntheticsTestOptionsMonitorOptions",
+            "format": ""
+        },
+        {
+            "name": "noScreenshot",
+            "baseName": "noScreenshot",
+            "type": "boolean",
             "format": ""
         },
         {
