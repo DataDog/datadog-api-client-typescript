@@ -15,11 +15,21 @@ import { HttpFile } from '../http/http';
 * Result of the last API test run.
 */
 export class SyntheticsAPITestResultShortResult {
+    /**
+    * Describes if the test run has passed or failed.
+    */
+    'passed'?: boolean;
     'timings'?: SyntheticsTiming;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "passed",
+            "baseName": "passed",
+            "type": "boolean",
+            "format": ""
+        },
         {
             "name": "timings",
             "baseName": "timings",
