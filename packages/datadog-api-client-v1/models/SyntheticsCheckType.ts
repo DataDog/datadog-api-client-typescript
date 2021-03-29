@@ -13,4 +13,4 @@ import { HttpFile } from '../http/http';
 /**
 * Type of assertion to apply in an API test.
 */
-export type SyntheticsCheckType = "equals" | "notEquals" | "contains" | "notContains" | "startsWith" | "notStartsWith" | "greater" | "lower" | "greaterEquals" | "lowerEquals" | "matchRegex" ;
+export type SyntheticsCheckType = "equals" | "notEquals" | "contains" | "notContains" | "startsWith" | "notStartsWith" | "greater" | "lower" | "greaterEquals" | "lowerEquals" | "matchRegex" | "between" | "isEmpty" | "notIsEmpty" ;

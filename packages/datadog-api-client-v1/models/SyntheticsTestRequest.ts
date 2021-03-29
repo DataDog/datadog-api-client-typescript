@@ -37,6 +37,10 @@ export class SyntheticsTestRequest {
     'host'?: string;
     'method'?: HTTPMethod;
     /**
+    * Determines whether or not to save the response body.
+    */
+    'noSavingResponseBody'?: boolean;
+    /**
     * Port to use when performing the test.
     */
     'port'?: number;
@@ -96,6 +100,12 @@ export class SyntheticsTestRequest {
             "name": "method",
             "baseName": "method",
             "type": "HTTPMethod",
+            "format": ""
+        },
+        {
+            "name": "noSavingResponseBody",
+            "baseName": "noSavingResponseBody",
+            "type": "boolean",
             "format": ""
         },
         {
