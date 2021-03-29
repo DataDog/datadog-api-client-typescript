@@ -52,6 +52,14 @@ export class UsageSummaryResponse {
     */
     'billableIngestedBytesAggSum'?: number;
     /**
+    * Shows the sum of all compliance containers over all hours in the current months for all organizations.
+    */
+    'complianceContainerAggSum'?: Object;
+    /**
+    * Shows the sum of all compliance hosts over all hours in the current months for all organizations.
+    */
+    'complianceHostAggSum'?: number;
+    /**
     * Shows the average of all distinct containers over all hours in the current months for all organizations.
     */
     'containerAvgSum'?: number;
@@ -246,6 +254,18 @@ export class UsageSummaryResponse {
         {
             "name": "billableIngestedBytesAggSum",
             "baseName": "billable_ingested_bytes_agg_sum",
+            "type": "number",
+            "format": "int64"
+        },
+        {
+            "name": "complianceContainerAggSum",
+            "baseName": "compliance_container_agg_sum",
+            "type": "Object",
+            "format": ""
+        },
+        {
+            "name": "complianceHostAggSum",
+            "baseName": "compliance_host_agg_sum",
             "type": "number",
             "format": "int64"
         },

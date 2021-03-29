@@ -390,6 +390,8 @@ export * from './UsageBillableSummaryBody';
 export * from './UsageBillableSummaryHour';
 export * from './UsageBillableSummaryKeys';
 export * from './UsageBillableSummaryResponse';
+export * from './UsageComplianceHour';
+export * from './UsageComplianceResponse';
 export * from './UsageCustomReportsAttributes';
 export * from './UsageCustomReportsData';
 export * from './UsageCustomReportsMeta';
@@ -890,6 +892,8 @@ import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from './UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from './UsageBillableSummaryResponse';
+import { UsageComplianceHour } from './UsageComplianceHour';
+import { UsageComplianceResponse } from './UsageComplianceResponse';
 import { UsageCustomReportsAttributes } from './UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from './UsageCustomReportsData';
 import { UsageCustomReportsMeta } from './UsageCustomReportsMeta';
@@ -1445,6 +1449,8 @@ let typeMap: {[index: string]: any} = {
     "UsageBillableSummaryHour": UsageBillableSummaryHour,
     "UsageBillableSummaryKeys": UsageBillableSummaryKeys,
     "UsageBillableSummaryResponse": UsageBillableSummaryResponse,
+    "UsageComplianceHour": UsageComplianceHour,
+    "UsageComplianceResponse": UsageComplianceResponse,
     "UsageCustomReportsAttributes": UsageCustomReportsAttributes,
     "UsageCustomReportsData": UsageCustomReportsData,
     "UsageCustomReportsMeta": UsageCustomReportsMeta,
