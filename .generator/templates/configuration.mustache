@@ -8,7 +8,7 @@ import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorp
 import { JQueryHttpLibrary as DefaultHttpLibrary } from "./http/jquery";
 {{/jquery}}
 {{/frameworks}}
-import { BaseServerConfiguration, servers, operationServers } from "./servers{{extensionForDeno}}";
+import { BaseServerConfiguration, server1, servers, operationServers } from "./servers{{extensionForDeno}}";
 import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth{{extensionForDeno}}";
 
 export interface Configuration {
@@ -70,13 +70,30 @@ export interface ConfigurationParameters {
  * @param conf partial configuration
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
+    if (process.env.DD_SITE) {
+        let serverConf = server1.getConfiguration();
+        server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
+    }
+
+    const authMethods = conf.authMethods || {};
+    {{#authMethods}}
+    {{#isApiKey}}
+    {{#isKeyInHeader}}
+
+    if (!("{{name}}" in authMethods) && process.env.{{vendorExtensions.x-env-name}}) {
+        authMethods["{{name}}"] = process.env.{{vendorExtensions.x-env-name}};
+    }
+    {{/isKeyInHeader}}
+    {{/isApiKey}}
+    {{/authMethods}}
+
     const configuration: Configuration = {
         baseServer: conf.baseServer,
         serverIndex: conf.serverIndex || 0,
         operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
         middleware: conf.middleware || [],
-        authMethods: configureAuthMethods(conf.authMethods)
+        authMethods: configureAuthMethods(authMethods)
     };
     if (conf.promiseMiddleware) {
         conf.promiseMiddleware.forEach(
