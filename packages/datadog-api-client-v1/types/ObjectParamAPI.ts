@@ -3507,7 +3507,7 @@ export class ObjectSyntheticsApi {
      * Get a test configuration (browser)
      * @param param the request object
      */
-    public getBrowserTest(param: SyntheticsApiGetBrowserTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
+    public getBrowserTest(param: SyntheticsApiGetBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
         return this.api.getBrowserTest(param.publicId,  options).toPromise();
     }
 
