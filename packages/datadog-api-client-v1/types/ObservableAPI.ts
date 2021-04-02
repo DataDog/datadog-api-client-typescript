@@ -3989,7 +3989,7 @@ export class ObservableSyntheticsApi {
      * Get a test configuration (browser)
      * @param publicId The public ID of the test to get details from.
      */
-    public getBrowserTest(publicId: string, options?: Configuration): Observable<SyntheticsTestDetails> {
+    public getBrowserTest(publicId: string, options?: Configuration): Observable<SyntheticsBrowserTest> {
         const requestContextPromise = this.requestFactory.getBrowserTest(publicId, options);
 
         // build promise chain

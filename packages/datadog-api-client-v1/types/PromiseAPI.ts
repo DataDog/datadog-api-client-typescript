@@ -2258,7 +2258,7 @@ export class PromiseSyntheticsApi {
      * Get a test configuration (browser)
      * @param publicId The public ID of the test to get details from.
      */
-    public getBrowserTest(publicId: string, options?: Configuration): Promise<SyntheticsTestDetails> {
+    public getBrowserTest(publicId: string, options?: Configuration): Promise<SyntheticsBrowserTest> {
         const result = this.api.getBrowserTest(publicId, options);
         return result.toPromise();
     }
