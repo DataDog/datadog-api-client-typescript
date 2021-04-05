@@ -1200,6 +1200,15 @@ export interface DowntimesApiListDowntimesRequest {
     currentOnly?: boolean
 }
 
+export interface DowntimesApiListMonitorDowntimesRequest {
+    /**
+     * The id of the monitor
+     * @type number
+     * @memberof DowntimesApilistMonitorDowntimes
+     */
+    monitorId: number
+}
+
 export interface DowntimesApiUpdateDowntimeRequest {
     /**
      * ID of the downtime to update.
@@ -1265,6 +1274,15 @@ export class ObjectDowntimesApi {
      */
     public listDowntimes(param: DowntimesApiListDowntimesRequest, options?: Configuration): Promise<Array<Downtime>> {
         return this.api.listDowntimes(param.currentOnly,  options).toPromise();
+    }
+
+    /**
+     * Get all downtimes for the specified monitor
+     * Get all downtimes for a monitor
+     * @param param the request object
+     */
+    public listMonitorDowntimes(param: DowntimesApiListMonitorDowntimesRequest, options?: Configuration): Promise<Array<Downtime>> {
+        return this.api.listMonitorDowntimes(param.monitorId,  options).toPromise();
     }
 
     /**

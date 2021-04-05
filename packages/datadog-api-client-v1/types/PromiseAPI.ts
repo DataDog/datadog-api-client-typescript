@@ -1002,6 +1002,16 @@ export class PromiseDowntimesApi {
     }
 
     /**
+     * Get all downtimes for the specified monitor
+     * Get all downtimes for a monitor
+     * @param monitorId The id of the monitor
+     */
+    public listMonitorDowntimes(monitorId: number, options?: Configuration): Promise<Array<Downtime>> {
+        const result = this.api.listMonitorDowntimes(monitorId, options);
+        return result.toPromise();
+    }
+
+    /**
      * Update a single downtime by `downtime_id`.
      * Update a downtime
      * @param downtimeId ID of the downtime to update.
