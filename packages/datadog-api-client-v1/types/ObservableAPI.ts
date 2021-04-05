@@ -1518,6 +1518,30 @@ export class ObservableDowntimesApi {
     }
  
     /**
+     * Get all downtimes for the specified monitor
+     * Get all downtimes for a monitor
+     * @param monitorId The id of the monitor
+     */
+    public listMonitorDowntimes(monitorId: number, options?: Configuration): Observable<Array<Downtime>> {
+        const requestContextPromise = this.requestFactory.listMonitorDowntimes(monitorId, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listMonitorDowntimes(rsp)));
+            }));
+    }
+ 
+    /**
      * Update a single downtime by `downtime_id`.
      * Update a downtime
      * @param downtimeId ID of the downtime to update.
