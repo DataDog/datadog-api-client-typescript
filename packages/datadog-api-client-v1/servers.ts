@@ -64,8 +64,16 @@ export const server2 = new ServerConfiguration<{
 	"name": "api.datadoghq.com" ,
 	"protocol": "https" 
 })
+export const server3 = new ServerConfiguration<{ 
+	"site": string,
 
-export const servers = [server1, server2];
+	"subdomain": string
+ }>("https://{subdomain}.{site}", { 
+	"site": "datadoghq.com" ,
+	"subdomain": "api" 
+})
+
+export const servers = [server1, server2, server3];
 
 export const operationServers: { [endpoint: string]: BaseServerConfiguration[] } = {
 	"AWSIntegrationApi.createAWSTagFilter": [
@@ -85,6 +93,14 @@ export const operationServers: { [endpoint: string]: BaseServerConfiguration[] }
 			"name": "api.datadoghq.com" ,
 			"protocol": "https" 
 		}),
+		new ServerConfiguration<{ 
+			"site": string,
+		
+			"subdomain": string
+		 }>("https://{subdomain}.{site}", { 
+			"site": "datadoghq.com" ,
+			"subdomain": "api" 
+		}),
 	],
 	"AWSIntegrationApi.deleteAWSTagFilter": [
 		new ServerConfiguration<{ 
@@ -102,6 +118,14 @@ export const operationServers: { [endpoint: string]: BaseServerConfiguration[] }
 		 }>("{protocol}://{name}", { 
 			"name": "api.datadoghq.com" ,
 			"protocol": "https" 
+		}),
+		new ServerConfiguration<{ 
+			"site": string,
+		
+			"subdomain": string
+		 }>("https://{subdomain}.{site}", { 
+			"site": "datadoghq.com" ,
+			"subdomain": "api" 
 		}),
 	],
 	"AWSIntegrationApi.listAWSTagFilters": [
@@ -121,6 +145,14 @@ export const operationServers: { [endpoint: string]: BaseServerConfiguration[] }
 			"name": "api.datadoghq.com" ,
 			"protocol": "https" 
 		}),
+		new ServerConfiguration<{ 
+			"site": string,
+		
+			"subdomain": string
+		 }>("https://{subdomain}.{site}", { 
+			"site": "datadoghq.com" ,
+			"subdomain": "api" 
+		}),
 	],
 	"IPRangesApi.getIPRanges": [
 		new ServerConfiguration<{ 
@@ -138,6 +170,11 @@ export const operationServers: { [endpoint: string]: BaseServerConfiguration[] }
 		 }>("{protocol}://{name}", { 
 			"name": "ip-ranges.datadoghq.com" ,
 			"protocol": "https" 
+		}),
+		new ServerConfiguration<{ 
+			"subdomain": string
+		 }>("https://{subdomain}.datadoghq.com", { 
+			"subdomain": "ip-ranges" 
 		}),
 	],
 }
