@@ -58,9 +58,15 @@ Given("new {string} request", function (this: World, operationId: string) {
 When("the request is sent", async function (this: World) {
   // build request from scenario
   const api = (datadogApiClient as any)[this.apiVersion];
-  const configuration = api.createConfiguration({
+  let configurationOpts = {
     authMethods: this.authMethods,
-  });
+  }
+  if (process.env.DD_TEST_SITE) {
+    let serverConf = api.servers[2].getConfiguration();
+    api.servers[2].setVariables({"site": process.env.DD_TEST_SITE} as (typeof serverConf));
+    (configurationOpts as any)['baseServer'] = api.servers[2];
+  }
+  const configuration = api.createConfiguration(configurationOpts);
   const apiInstance = new api[`${this.apiName}Api`](configuration);
 
   const undoAction = UndoActions[this.apiVersion][this.operationId];

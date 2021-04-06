@@ -64,8 +64,16 @@ export const server2 = new ServerConfiguration<{
 	"name": "api.datadoghq.com" ,
 	"protocol": "https" 
 })
+export const server3 = new ServerConfiguration<{ 
+	"site": string,
 
-export const servers = [server1, server2];
+	"subdomain": string
+ }>("https://{subdomain}.{site}", { 
+	"site": "datadoghq.com" ,
+	"subdomain": "api" 
+})
+
+export const servers = [server1, server2, server3];
 
 export const operationServers: { [endpoint: string]: BaseServerConfiguration[] } = {
 }
