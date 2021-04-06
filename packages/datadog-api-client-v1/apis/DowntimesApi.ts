@@ -256,6 +256,51 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * Get all downtimes for the specified monitor
+     * Get all downtimes for a monitor
+     * @param monitorId The id of the monitor
+     */
+    public async listMonitorDowntimes(monitorId: number, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+        // verify required parameter 'monitorId' is not null or undefined
+        if (monitorId === null || monitorId === undefined) {
+            throw new RequiredError('Required parameter monitorId was null or undefined when calling listMonitorDowntimes.');
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/monitor/{monitor_id}/downtimes'
+            .replace('{' + 'monitor_id' + '}', encodeURIComponent(String(monitorId)));
+
+        // Make Request Context
+        const requestContext = getServer(config, 'DowntimesApi.listMonitorDowntimes').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * Update a single downtime by `downtime_id`.
      * Update a downtime
      * @param downtimeId ID of the downtime to update.
@@ -521,6 +566,50 @@ export class DowntimesApiResponseProcessor {
                 "APIErrorResponse", ""
             ) as APIErrorResponse;
             throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: Array<Downtime> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<Downtime>", ""
+            ) as Array<Downtime>;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listMonitorDowntimes
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async listMonitorDowntimes(response: ResponseContext): Promise<Array<Downtime> > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: Array<Downtime> = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Array<Downtime>", ""
+            ) as Array<Downtime>;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(404, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

@@ -25,7 +25,7 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part.toAttributeName()];
         } else {
           throw new Error(
-            `${part} not found in ${result} (started from ${dottedPath} in ${data})`
+            `${part} not found in ${JSON.stringify(result)} (started from ${dottedPath} in ${JSON.stringify(data)})`
           );
         }
       }
