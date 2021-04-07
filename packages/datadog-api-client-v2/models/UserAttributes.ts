@@ -35,6 +35,10 @@ export class UserAttributes {
     */
     'icon'?: string;
     /**
+    * Time that the user was last modified.
+    */
+    'modifiedAt'?: Date;
+    /**
     * Name of the user.
     */
     'name'?: string;
@@ -83,6 +87,12 @@ export class UserAttributes {
             "baseName": "icon",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "modifiedAt",
+            "baseName": "modified_at",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "name",

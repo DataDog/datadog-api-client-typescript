@@ -1942,13 +1942,13 @@ export class SyntheticsApiResponseProcessor {
      * @params response Response returned by the server for a request to getBrowserTest
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getBrowserTest(response: ResponseContext): Promise<SyntheticsTestDetails > {
+     public async getBrowserTest(response: ResponseContext): Promise<SyntheticsBrowserTest > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
+            const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SyntheticsTestDetails", ""
-            ) as SyntheticsTestDetails;
+                "SyntheticsBrowserTest", ""
+            ) as SyntheticsBrowserTest;
             return body;
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -1968,10 +1968,10 @@ export class SyntheticsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
+            const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SyntheticsTestDetails", ""
-            ) as SyntheticsTestDetails;
+                "SyntheticsBrowserTest", ""
+            ) as SyntheticsBrowserTest;
             return body;
         }
 

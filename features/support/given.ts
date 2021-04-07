@@ -38,12 +38,19 @@ for (const apiVersion of Versions) {
 
       // make sure we have a fresh instance of API client and configuration
       const api = getProperty(datadogApiClient, apiVersion);
-      const configuration = api.createConfiguration({
+      let configurationOpts = {
         authMethods: {
           apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,
           appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
-        },
-      });
+        }
+      }
+      if (process.env.DD_TEST_SITE) {
+        let server = api.servers[2];
+        let serverConf = server.getConfiguration();
+        server.setVariables({"site": process.env.DD_TEST_SITE} as (typeof serverConf));
+        (configurationOpts as any)['baseServer'] = server;
+      }
+      const configuration = api.createConfiguration(configurationOpts);
       const apiInstance = new (api as any)[`${apiName}Api`](configuration);
 
       // find undo method
