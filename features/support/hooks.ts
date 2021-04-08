@@ -3,7 +3,7 @@ import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_libr
 
 import { World } from "./world";
 
-Before({ tags: "@skip" }, function () {
+Before({ tags: "@skip or @skip-typescript" }, function () {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return "skipped" as any;
 });
