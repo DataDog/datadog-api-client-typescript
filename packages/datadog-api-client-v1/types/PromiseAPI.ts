@@ -45,6 +45,7 @@ import { CheckCanDeleteSLOResponse } from '../models/CheckCanDeleteSLOResponse';
 import { CheckCanDeleteSLOResponseData } from '../models/CheckCanDeleteSLOResponseData';
 import { CheckStatusWidgetDefinition } from '../models/CheckStatusWidgetDefinition';
 import { CheckStatusWidgetDefinitionType } from '../models/CheckStatusWidgetDefinitionType';
+import { ContentEncoding } from '../models/ContentEncoding';
 import { Creator } from '../models/Creator';
 import { Dashboard } from '../models/Dashboard';
 import { DashboardDeleteResponse } from '../models/DashboardDeleteResponse';
@@ -65,6 +66,8 @@ import { Downtime } from '../models/Downtime';
 import { DowntimeRecurrence } from '../models/DowntimeRecurrence';
 import { Event } from '../models/Event';
 import { EventAlertType } from '../models/EventAlertType';
+import { EventCreateRequest } from '../models/EventCreateRequest';
+import { EventCreateResponse } from '../models/EventCreateResponse';
 import { EventListResponse } from '../models/EventListResponse';
 import { EventPriority } from '../models/EventPriority';
 import { EventQueryDefinition } from '../models/EventQueryDefinition';
@@ -98,6 +101,8 @@ import { GeomapWidgetRequest } from '../models/GeomapWidgetRequest';
 import { GraphSnapshot } from '../models/GraphSnapshot';
 import { GroupWidgetDefinition } from '../models/GroupWidgetDefinition';
 import { GroupWidgetDefinitionType } from '../models/GroupWidgetDefinitionType';
+import { HTTPLogError } from '../models/HTTPLogError';
+import { HTTPLogItem } from '../models/HTTPLogItem';
 import { HTTPMethod } from '../models/HTTPMethod';
 import { HeatMapWidgetDefinition } from '../models/HeatMapWidgetDefinition';
 import { HeatMapWidgetDefinitionType } from '../models/HeatMapWidgetDefinitionType';
@@ -129,6 +134,7 @@ import { IdpFormData } from '../models/IdpFormData';
 import { IdpResponse } from '../models/IdpResponse';
 import { ImageWidgetDefinition } from '../models/ImageWidgetDefinition';
 import { ImageWidgetDefinitionType } from '../models/ImageWidgetDefinitionType';
+import { IntakePayloadAccepted } from '../models/IntakePayloadAccepted';
 import { Log } from '../models/Log';
 import { LogContent } from '../models/LogContent';
 import { LogQueryDefinition } from '../models/LogQueryDefinition';
@@ -190,6 +196,7 @@ import { MetricMetadata } from '../models/MetricMetadata';
 import { MetricSearchResponse } from '../models/MetricSearchResponse';
 import { MetricSearchResponseResults } from '../models/MetricSearchResponseResults';
 import { MetricsListResponse } from '../models/MetricsListResponse';
+import { MetricsPayload } from '../models/MetricsPayload';
 import { MetricsQueryMetadata } from '../models/MetricsQueryMetadata';
 import { MetricsQueryResponse } from '../models/MetricsQueryResponse';
 import { MetricsQueryUnit } from '../models/MetricsQueryUnit';
@@ -265,6 +272,9 @@ import { ScatterPlotRequest } from '../models/ScatterPlotRequest';
 import { ScatterPlotWidgetDefinition } from '../models/ScatterPlotWidgetDefinition';
 import { ScatterPlotWidgetDefinitionRequests } from '../models/ScatterPlotWidgetDefinitionRequests';
 import { ScatterPlotWidgetDefinitionType } from '../models/ScatterPlotWidgetDefinitionType';
+import { Series } from '../models/Series';
+import { ServiceCheck } from '../models/ServiceCheck';
+import { ServiceCheckStatus } from '../models/ServiceCheckStatus';
 import { ServiceLevelObjective } from '../models/ServiceLevelObjective';
 import { ServiceLevelObjectiveQuery } from '../models/ServiceLevelObjectiveQuery';
 import { ServiceLevelObjectiveRequest } from '../models/ServiceLevelObjectiveRequest';
@@ -1042,6 +1052,16 @@ export class PromiseEventsApi {
     }
 
     /**
+     * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+     * Post an event
+     * @param body Event request object
+     */
+    public createEvent(body: EventCreateRequest, options?: Configuration): Promise<EventCreateResponse> {
+        const result = this.api.createEvent(body, options);
+        return result.toPromise();
+    }
+
+    /**
      * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
      * Get an event
      * @param eventId The ID of the event.
@@ -1367,6 +1387,18 @@ export class PromiseLogsApi {
         return result.toPromise();
     }
 
+    /**
+     * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
+     * Send logs
+     * @param body Log to send (JSON format).
+     * @param contentEncoding HTTP header used to compress the media-type.
+     * @param ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+     */
+    public submitLog(body: Array<HTTPLogItem>, contentEncoding?: ContentEncoding, ddtags?: string, options?: Configuration): Promise<any> {
+        const result = this.api.submitLog(body, contentEncoding, ddtags, options);
+        return result.toPromise();
+    }
+
 
 }
 
@@ -1593,6 +1625,16 @@ export class PromiseMetricsApi {
      */
     public queryMetrics(from: number, to: number, query: string, options?: Configuration): Promise<MetricsQueryResponse> {
         const result = this.api.queryMetrics(from, to, query, options);
+        return result.toPromise();
+    }
+
+    /**
+     * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+     * Submit metrics
+     * @param body 
+     */
+    public submitMetrics(body: MetricsPayload, options?: Configuration): Promise<IntakePayloadAccepted> {
+        const result = this.api.submitMetrics(body, options);
         return result.toPromise();
     }
 
@@ -1833,6 +1875,35 @@ export class PromisePagerDutyIntegrationApi {
      */
     public updatePagerDutyIntegrationService(serviceName: string, body: PagerDutyServiceKey, options?: Configuration): Promise<void> {
         const result = this.api.updatePagerDutyIntegrationService(serviceName, body, options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableServiceChecksApi } from './ObservableAPI';
+
+import { ServiceChecksApiRequestFactory, ServiceChecksApiResponseProcessor} from "../apis/ServiceChecksApi";
+export class PromiseServiceChecksApi {
+    private api: ObservableServiceChecksApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: ServiceChecksApiRequestFactory,
+        responseProcessor?: ServiceChecksApiResponseProcessor
+    ) {
+        this.api = new ObservableServiceChecksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Submit a list of Service Checks.  **Note**: A valid API key is required.
+     * Submit a Service Check
+     * @param body Service Check request body.
+     */
+    public submitServiceCheck(body: Array<ServiceCheck>, options?: Configuration): Promise<IntakePayloadAccepted> {
+        const result = this.api.submitServiceCheck(body, options);
         return result.toPromise();
     }
 

@@ -1120,7 +1120,7 @@ export class ObjectSerializer {
             throw new Error("Cannot parse content. No Content-Type defined.");
         }
 
-        if (mediaType === "application/json") {
+        if (mediaType === "application/json" || mediaType === "text/json") {
             return JSON.parse(rawData);
         }
 

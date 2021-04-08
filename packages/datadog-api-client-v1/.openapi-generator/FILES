@@ -18,6 +18,7 @@ apis/MetricsApi.ts
 apis/MonitorsApi.ts
 apis/OrganizationsApi.ts
 apis/PagerDutyIntegrationApi.ts
+apis/ServiceChecksApi.ts
 apis/ServiceLevelObjectiveCorrectionsApi.ts
 apis/ServiceLevelObjectivesApi.ts
 apis/SlackIntegrationApi.ts
@@ -77,6 +78,7 @@ models/CheckCanDeleteSLOResponse.ts
 models/CheckCanDeleteSLOResponseData.ts
 models/CheckStatusWidgetDefinition.ts
 models/CheckStatusWidgetDefinitionType.ts
+models/ContentEncoding.ts
 models/Creator.ts
 models/Dashboard.ts
 models/DashboardDeleteResponse.ts
@@ -97,6 +99,8 @@ models/Downtime.ts
 models/DowntimeRecurrence.ts
 models/Event.ts
 models/EventAlertType.ts
+models/EventCreateRequest.ts
+models/EventCreateResponse.ts
 models/EventListResponse.ts
 models/EventPriority.ts
 models/EventQueryDefinition.ts
@@ -130,6 +134,8 @@ models/GeomapWidgetRequest.ts
 models/GraphSnapshot.ts
 models/GroupWidgetDefinition.ts
 models/GroupWidgetDefinitionType.ts
+models/HTTPLogError.ts
+models/HTTPLogItem.ts
 models/HTTPMethod.ts
 models/HeatMapWidgetDefinition.ts
 models/HeatMapWidgetDefinitionType.ts
@@ -161,6 +167,7 @@ models/IdpFormData.ts
 models/IdpResponse.ts
 models/ImageWidgetDefinition.ts
 models/ImageWidgetDefinitionType.ts
+models/IntakePayloadAccepted.ts
 models/Log.ts
 models/LogContent.ts
 models/LogQueryDefinition.ts
@@ -222,6 +229,7 @@ models/MetricMetadata.ts
 models/MetricSearchResponse.ts
 models/MetricSearchResponseResults.ts
 models/MetricsListResponse.ts
+models/MetricsPayload.ts
 models/MetricsQueryMetadata.ts
 models/MetricsQueryResponse.ts
 models/MetricsQueryUnit.ts
@@ -298,6 +306,9 @@ models/ScatterPlotRequest.ts
 models/ScatterPlotWidgetDefinition.ts
 models/ScatterPlotWidgetDefinitionRequests.ts
 models/ScatterPlotWidgetDefinitionType.ts
+models/Series.ts
+models/ServiceCheck.ts
+models/ServiceCheckStatus.ts
 models/ServiceLevelObjective.ts
 models/ServiceLevelObjectiveQuery.ts
 models/ServiceLevelObjectiveRequest.ts
