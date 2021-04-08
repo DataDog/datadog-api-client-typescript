@@ -8,6 +8,8 @@ import {ApiException} from './exception';
 import {isCodeInRange} from '../util';
 
 import { APIErrorResponse } from '../models/APIErrorResponse';
+import { EventCreateRequest } from '../models/EventCreateRequest';
+import { EventCreateResponse } from '../models/EventCreateResponse';
 import { EventListResponse } from '../models/EventListResponse';
 import { EventPriority } from '../models/EventPriority';
 import { EventResponse } from '../models/EventResponse';
@@ -16,6 +18,55 @@ import { EventResponse } from '../models/EventResponse';
  * no description
  */
 export class EventsApiRequestFactory extends BaseAPIRequestFactory {
+
+    /**
+     * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+     * Post an event
+     * @param body Event request object
+     */
+    public async createEvent(body: EventCreateRequest, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new RequiredError('Required parameter body was null or undefined when calling createEvent.');
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v1/events';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'EventsApi.createEvent').makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(body, "EventCreateRequest", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
 
     /**
      * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
@@ -142,6 +193,43 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class EventsApiResponseProcessor {
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to createEvent
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async createEvent(response: ResponseContext): Promise<EventCreateResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("202", response.httpStatusCode)) {
+            const body: EventCreateResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "EventCreateResponse", ""
+            ) as EventCreateResponse;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: EventCreateResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "EventCreateResponse", ""
+            ) as EventCreateResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
 
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
