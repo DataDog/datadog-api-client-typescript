@@ -41,6 +41,7 @@ export * from './CheckCanDeleteSLOResponse';
 export * from './CheckCanDeleteSLOResponseData';
 export * from './CheckStatusWidgetDefinition';
 export * from './CheckStatusWidgetDefinitionType';
+export * from './ContentEncoding';
 export * from './Creator';
 export * from './Dashboard';
 export * from './DashboardDeleteResponse';
@@ -61,6 +62,8 @@ export * from './Downtime';
 export * from './DowntimeRecurrence';
 export * from './Event';
 export * from './EventAlertType';
+export * from './EventCreateRequest';
+export * from './EventCreateResponse';
 export * from './EventListResponse';
 export * from './EventPriority';
 export * from './EventQueryDefinition';
@@ -94,6 +97,8 @@ export * from './GeomapWidgetRequest';
 export * from './GraphSnapshot';
 export * from './GroupWidgetDefinition';
 export * from './GroupWidgetDefinitionType';
+export * from './HTTPLogError';
+export * from './HTTPLogItem';
 export * from './HTTPMethod';
 export * from './HeatMapWidgetDefinition';
 export * from './HeatMapWidgetDefinitionType';
@@ -125,6 +130,7 @@ export * from './IdpFormData';
 export * from './IdpResponse';
 export * from './ImageWidgetDefinition';
 export * from './ImageWidgetDefinitionType';
+export * from './IntakePayloadAccepted';
 export * from './Log';
 export * from './LogContent';
 export * from './LogQueryDefinition';
@@ -186,6 +192,7 @@ export * from './MetricMetadata';
 export * from './MetricSearchResponse';
 export * from './MetricSearchResponseResults';
 export * from './MetricsListResponse';
+export * from './MetricsPayload';
 export * from './MetricsQueryMetadata';
 export * from './MetricsQueryResponse';
 export * from './MetricsQueryUnit';
@@ -261,6 +268,9 @@ export * from './ScatterPlotRequest';
 export * from './ScatterPlotWidgetDefinition';
 export * from './ScatterPlotWidgetDefinitionRequests';
 export * from './ScatterPlotWidgetDefinitionType';
+export * from './Series';
+export * from './ServiceCheck';
+export * from './ServiceCheckStatus';
 export * from './ServiceLevelObjective';
 export * from './ServiceLevelObjectiveQuery';
 export * from './ServiceLevelObjectiveRequest';
@@ -543,6 +553,7 @@ import { CheckCanDeleteSLOResponse } from './CheckCanDeleteSLOResponse';
 import { CheckCanDeleteSLOResponseData } from './CheckCanDeleteSLOResponseData';
 import { CheckStatusWidgetDefinition } from './CheckStatusWidgetDefinition';
 import { CheckStatusWidgetDefinitionType } from './CheckStatusWidgetDefinitionType';
+import { ContentEncoding } from './ContentEncoding';
 import { Creator } from './Creator';
 import { Dashboard } from './Dashboard';
 import { DashboardDeleteResponse } from './DashboardDeleteResponse';
@@ -563,6 +574,8 @@ import { Downtime } from './Downtime';
 import { DowntimeRecurrence } from './DowntimeRecurrence';
 import { Event } from './Event';
 import { EventAlertType } from './EventAlertType';
+import { EventCreateRequest } from './EventCreateRequest';
+import { EventCreateResponse } from './EventCreateResponse';
 import { EventListResponse } from './EventListResponse';
 import { EventPriority } from './EventPriority';
 import { EventQueryDefinition } from './EventQueryDefinition';
@@ -596,6 +609,8 @@ import { GeomapWidgetRequest } from './GeomapWidgetRequest';
 import { GraphSnapshot } from './GraphSnapshot';
 import { GroupWidgetDefinition } from './GroupWidgetDefinition';
 import { GroupWidgetDefinitionType } from './GroupWidgetDefinitionType';
+import { HTTPLogError } from './HTTPLogError';
+import { HTTPLogItem } from './HTTPLogItem';
 import { HTTPMethod } from './HTTPMethod';
 import { HeatMapWidgetDefinition } from './HeatMapWidgetDefinition';
 import { HeatMapWidgetDefinitionType } from './HeatMapWidgetDefinitionType';
@@ -627,6 +642,7 @@ import { IdpFormData } from './IdpFormData';
 import { IdpResponse } from './IdpResponse';
 import { ImageWidgetDefinition } from './ImageWidgetDefinition';
 import { ImageWidgetDefinitionType } from './ImageWidgetDefinitionType';
+import { IntakePayloadAccepted } from './IntakePayloadAccepted';
 import { Log } from './Log';
 import { LogContent } from './LogContent';
 import { LogQueryDefinition } from './LogQueryDefinition';
@@ -688,6 +704,7 @@ import { MetricMetadata } from './MetricMetadata';
 import { MetricSearchResponse } from './MetricSearchResponse';
 import { MetricSearchResponseResults } from './MetricSearchResponseResults';
 import { MetricsListResponse } from './MetricsListResponse';
+import { MetricsPayload } from './MetricsPayload';
 import { MetricsQueryMetadata } from './MetricsQueryMetadata';
 import { MetricsQueryResponse } from './MetricsQueryResponse';
 import { MetricsQueryUnit } from './MetricsQueryUnit';
@@ -763,6 +780,9 @@ import { ScatterPlotRequest } from './ScatterPlotRequest';
 import { ScatterPlotWidgetDefinition } from './ScatterPlotWidgetDefinition';
 import { ScatterPlotWidgetDefinitionRequests } from './ScatterPlotWidgetDefinitionRequests';
 import { ScatterPlotWidgetDefinitionType } from './ScatterPlotWidgetDefinitionType';
+import { Series } from './Series';
+import { ServiceCheck } from './ServiceCheck';
+import { ServiceCheckStatus } from './ServiceCheckStatus';
 import { ServiceLevelObjective } from './ServiceLevelObjective';
 import { ServiceLevelObjectiveQuery } from './ServiceLevelObjectiveQuery';
 import { ServiceLevelObjectiveRequest } from './ServiceLevelObjectiveRequest';
@@ -1028,6 +1048,7 @@ let enumsMap: Set<string> = new Set<string>([
     "ApmStatsQueryRowType",
     "ChangeWidgetDefinitionType",
     "CheckStatusWidgetDefinitionType",
+    "ContentEncoding",
     "DashboardLayoutType",
     "DistributionWidgetDefinitionType",
     "EventAlertType",
@@ -1080,6 +1101,7 @@ let enumsMap: Set<string> = new Set<string>([
     "SLOTypeNumeric",
     "SLOWidgetDefinitionType",
     "ScatterPlotWidgetDefinitionType",
+    "ServiceCheckStatus",
     "ServiceMapWidgetDefinitionType",
     "ServiceSummaryWidgetDefinitionType",
     "SyntheticsAPIStepSubtype",
@@ -1203,6 +1225,8 @@ let typeMap: {[index: string]: any} = {
     "Downtime": Downtime,
     "DowntimeRecurrence": DowntimeRecurrence,
     "Event": Event,
+    "EventCreateRequest": EventCreateRequest,
+    "EventCreateResponse": EventCreateResponse,
     "EventListResponse": EventListResponse,
     "EventQueryDefinition": EventQueryDefinition,
     "EventResponse": EventResponse,
@@ -1224,6 +1248,8 @@ let typeMap: {[index: string]: any} = {
     "GeomapWidgetRequest": GeomapWidgetRequest,
     "GraphSnapshot": GraphSnapshot,
     "GroupWidgetDefinition": GroupWidgetDefinition,
+    "HTTPLogError": HTTPLogError,
+    "HTTPLogItem": HTTPLogItem,
     "HeatMapWidgetDefinition": HeatMapWidgetDefinition,
     "HeatMapWidgetRequest": HeatMapWidgetRequest,
     "Host": Host,
@@ -1250,6 +1276,7 @@ let typeMap: {[index: string]: any} = {
     "IdpFormData": IdpFormData,
     "IdpResponse": IdpResponse,
     "ImageWidgetDefinition": ImageWidgetDefinition,
+    "IntakePayloadAccepted": IntakePayloadAccepted,
     "Log": Log,
     "LogContent": LogContent,
     "LogQueryDefinition": LogQueryDefinition,
@@ -1294,6 +1321,7 @@ let typeMap: {[index: string]: any} = {
     "MetricSearchResponse": MetricSearchResponse,
     "MetricSearchResponseResults": MetricSearchResponseResults,
     "MetricsListResponse": MetricsListResponse,
+    "MetricsPayload": MetricsPayload,
     "MetricsQueryMetadata": MetricsQueryMetadata,
     "MetricsQueryResponse": MetricsQueryResponse,
     "MetricsQueryUnit": MetricsQueryUnit,
@@ -1354,6 +1382,8 @@ let typeMap: {[index: string]: any} = {
     "ScatterPlotRequest": ScatterPlotRequest,
     "ScatterPlotWidgetDefinition": ScatterPlotWidgetDefinition,
     "ScatterPlotWidgetDefinitionRequests": ScatterPlotWidgetDefinitionRequests,
+    "Series": Series,
+    "ServiceCheck": ServiceCheck,
     "ServiceLevelObjective": ServiceLevelObjective,
     "ServiceLevelObjectiveQuery": ServiceLevelObjectiveQuery,
     "ServiceLevelObjectiveRequest": ServiceLevelObjectiveRequest,
@@ -1711,7 +1741,7 @@ export class ObjectSerializer {
             throw new Error("Cannot parse content. No Content-Type defined.");
         }
 
-        if (mediaType === "application/json") {
+        if (mediaType === "application/json" || mediaType === "text/json") {
             return JSON.parse(rawData);
         }
 

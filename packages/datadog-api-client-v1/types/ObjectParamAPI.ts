@@ -45,6 +45,7 @@ import { CheckCanDeleteSLOResponse } from '../models/CheckCanDeleteSLOResponse';
 import { CheckCanDeleteSLOResponseData } from '../models/CheckCanDeleteSLOResponseData';
 import { CheckStatusWidgetDefinition } from '../models/CheckStatusWidgetDefinition';
 import { CheckStatusWidgetDefinitionType } from '../models/CheckStatusWidgetDefinitionType';
+import { ContentEncoding } from '../models/ContentEncoding';
 import { Creator } from '../models/Creator';
 import { Dashboard } from '../models/Dashboard';
 import { DashboardDeleteResponse } from '../models/DashboardDeleteResponse';
@@ -65,6 +66,8 @@ import { Downtime } from '../models/Downtime';
 import { DowntimeRecurrence } from '../models/DowntimeRecurrence';
 import { Event } from '../models/Event';
 import { EventAlertType } from '../models/EventAlertType';
+import { EventCreateRequest } from '../models/EventCreateRequest';
+import { EventCreateResponse } from '../models/EventCreateResponse';
 import { EventListResponse } from '../models/EventListResponse';
 import { EventPriority } from '../models/EventPriority';
 import { EventQueryDefinition } from '../models/EventQueryDefinition';
@@ -98,6 +101,8 @@ import { GeomapWidgetRequest } from '../models/GeomapWidgetRequest';
 import { GraphSnapshot } from '../models/GraphSnapshot';
 import { GroupWidgetDefinition } from '../models/GroupWidgetDefinition';
 import { GroupWidgetDefinitionType } from '../models/GroupWidgetDefinitionType';
+import { HTTPLogError } from '../models/HTTPLogError';
+import { HTTPLogItem } from '../models/HTTPLogItem';
 import { HTTPMethod } from '../models/HTTPMethod';
 import { HeatMapWidgetDefinition } from '../models/HeatMapWidgetDefinition';
 import { HeatMapWidgetDefinitionType } from '../models/HeatMapWidgetDefinitionType';
@@ -129,6 +134,7 @@ import { IdpFormData } from '../models/IdpFormData';
 import { IdpResponse } from '../models/IdpResponse';
 import { ImageWidgetDefinition } from '../models/ImageWidgetDefinition';
 import { ImageWidgetDefinitionType } from '../models/ImageWidgetDefinitionType';
+import { IntakePayloadAccepted } from '../models/IntakePayloadAccepted';
 import { Log } from '../models/Log';
 import { LogContent } from '../models/LogContent';
 import { LogQueryDefinition } from '../models/LogQueryDefinition';
@@ -190,6 +196,7 @@ import { MetricMetadata } from '../models/MetricMetadata';
 import { MetricSearchResponse } from '../models/MetricSearchResponse';
 import { MetricSearchResponseResults } from '../models/MetricSearchResponseResults';
 import { MetricsListResponse } from '../models/MetricsListResponse';
+import { MetricsPayload } from '../models/MetricsPayload';
 import { MetricsQueryMetadata } from '../models/MetricsQueryMetadata';
 import { MetricsQueryResponse } from '../models/MetricsQueryResponse';
 import { MetricsQueryUnit } from '../models/MetricsQueryUnit';
@@ -265,6 +272,9 @@ import { ScatterPlotRequest } from '../models/ScatterPlotRequest';
 import { ScatterPlotWidgetDefinition } from '../models/ScatterPlotWidgetDefinition';
 import { ScatterPlotWidgetDefinitionRequests } from '../models/ScatterPlotWidgetDefinitionRequests';
 import { ScatterPlotWidgetDefinitionType } from '../models/ScatterPlotWidgetDefinitionType';
+import { Series } from '../models/Series';
+import { ServiceCheck } from '../models/ServiceCheck';
+import { ServiceCheckStatus } from '../models/ServiceCheckStatus';
 import { ServiceLevelObjective } from '../models/ServiceLevelObjective';
 import { ServiceLevelObjectiveQuery } from '../models/ServiceLevelObjectiveQuery';
 import { ServiceLevelObjectiveRequest } from '../models/ServiceLevelObjectiveRequest';
@@ -1299,6 +1309,15 @@ export class ObjectDowntimesApi {
 import { ObservableEventsApi } from "./ObservableAPI";
 import { EventsApiRequestFactory, EventsApiResponseProcessor} from "../apis/EventsApi";
 
+export interface EventsApiCreateEventRequest {
+    /**
+     * Event request object
+     * @type EventCreateRequest
+     * @memberof EventsApicreateEvent
+     */
+    body: EventCreateRequest
+}
+
 export interface EventsApiGetEventRequest {
     /**
      * The ID of the event.
@@ -1352,6 +1371,15 @@ export class ObjectEventsApi {
 
     public constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor) {
         this.api = new ObservableEventsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+     * Post an event
+     * @param param the request object
+     */
+    public createEvent(param: EventsApiCreateEventRequest, options?: Configuration): Promise<EventCreateResponse> {
+        return this.api.createEvent(param.body,  options).toPromise();
     }
 
     /**
@@ -1812,6 +1840,27 @@ export interface LogsApiListLogsRequest {
     body: LogsListRequest
 }
 
+export interface LogsApiSubmitLogRequest {
+    /**
+     * Log to send (JSON format).
+     * @type Array&lt;HTTPLogItem&gt;
+     * @memberof LogsApisubmitLog
+     */
+    body: Array<HTTPLogItem>
+    /**
+     * HTTP header used to compress the media-type.
+     * @type ContentEncoding
+     * @memberof LogsApisubmitLog
+     */
+    contentEncoding?: ContentEncoding
+    /**
+     * Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+     * @type string
+     * @memberof LogsApisubmitLog
+     */
+    ddtags?: string
+}
+
 export class ObjectLogsApi {
     private api: ObservableLogsApi
 
@@ -1826,6 +1875,15 @@ export class ObjectLogsApi {
      */
     public listLogs(param: LogsApiListLogsRequest, options?: Configuration): Promise<LogsListResponse> {
         return this.api.listLogs(param.body,  options).toPromise();
+    }
+
+    /**
+     * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
+     * Send logs
+     * @param param the request object
+     */
+    public submitLog(param: LogsApiSubmitLogRequest, options?: Configuration): Promise<any> {
+        return this.api.submitLog(param.body, param.contentEncoding, param.ddtags,  options).toPromise();
     }
 
 }
@@ -2139,6 +2197,15 @@ export interface MetricsApiQueryMetricsRequest {
     query: string
 }
 
+export interface MetricsApiSubmitMetricsRequest {
+    /**
+     * 
+     * @type MetricsPayload
+     * @memberof MetricsApisubmitMetrics
+     */
+    body: MetricsPayload
+}
+
 export interface MetricsApiUpdateMetricMetadataRequest {
     /**
      * Name of the metric for which to edit metadata.
@@ -2195,6 +2262,15 @@ export class ObjectMetricsApi {
      */
     public queryMetrics(param: MetricsApiQueryMetricsRequest, options?: Configuration): Promise<MetricsQueryResponse> {
         return this.api.queryMetrics(param.from, param.to, param.query,  options).toPromise();
+    }
+
+    /**
+     * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+     * Submit metrics
+     * @param param the request object
+     */
+    public submitMetrics(param: MetricsApiSubmitMetricsRequest, options?: Configuration): Promise<IntakePayloadAccepted> {
+        return this.api.submitMetrics(param.body,  options).toPromise();
     }
 
     /**
@@ -2600,6 +2676,36 @@ export class ObjectPagerDutyIntegrationApi {
      */
     public updatePagerDutyIntegrationService(param: PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest, options?: Configuration): Promise<void> {
         return this.api.updatePagerDutyIntegrationService(param.serviceName, param.body,  options).toPromise();
+    }
+
+}
+
+import { ObservableServiceChecksApi } from "./ObservableAPI";
+import { ServiceChecksApiRequestFactory, ServiceChecksApiResponseProcessor} from "../apis/ServiceChecksApi";
+
+export interface ServiceChecksApiSubmitServiceCheckRequest {
+    /**
+     * Service Check request body.
+     * @type Array&lt;ServiceCheck&gt;
+     * @memberof ServiceChecksApisubmitServiceCheck
+     */
+    body: Array<ServiceCheck>
+}
+
+export class ObjectServiceChecksApi {
+    private api: ObservableServiceChecksApi
+
+    public constructor(configuration: Configuration, requestFactory?: ServiceChecksApiRequestFactory, responseProcessor?: ServiceChecksApiResponseProcessor) {
+        this.api = new ObservableServiceChecksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Submit a list of Service Checks.  **Note**: A valid API key is required.
+     * Submit a Service Check
+     * @param param the request object
+     */
+    public submitServiceCheck(param: ServiceChecksApiSubmitServiceCheckRequest, options?: Configuration): Promise<IntakePayloadAccepted> {
+        return this.api.submitServiceCheck(param.body,  options).toPromise();
     }
 
 }
