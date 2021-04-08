@@ -64,7 +64,7 @@ When("the request is sent", async function (this: World) {
   if (process.env.DD_TEST_SITE) {
     let serverConf = api.servers[2].getConfiguration();
     api.servers[2].setVariables({"site": process.env.DD_TEST_SITE} as (typeof serverConf));
-    (configurationOpts as any)['baseServer'] = api.servers[2];
+    (configurationOpts as any)['serverIndex'] = 2;
   }
   const configuration = api.createConfiguration(configurationOpts);
   const apiInstance = new api[`${this.apiName}Api`](configuration);
