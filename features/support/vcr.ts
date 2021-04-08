@@ -42,7 +42,7 @@ Before(function (
       headers: false,
     },
     mode: RecordMode[process.env.RECORD || "false"],
-    recordIfMissing: false, // make sure that we match body exactly
+    recordIfMissing: process.env.RERECORD_FAILED_TESTS === "true", // make sure that we match body exactly
     recordFailedRequests: true, // make sure we can replay responses with 4xx codes
     logging: false,
     persisterOptions: {
@@ -59,11 +59,12 @@ Before(function (
     this.polly?.recordingId,
     "frozen.json"
   );
-  if (this.polly?.mode == MODES.REPLAY) {
+  let frozenExists = fs.existsSync(frozen);
+  if (frozenExists && this.polly?.mode == MODES.REPLAY) {
     date = new Date(JSON.parse(fs.readFileSync(frozen).toString()));
   } else {
     date = new Date();
-    if (this.polly?.mode == MODES.RECORD) {
+    if (this.polly?.mode == MODES.RECORD || process.env.RERECORD_FAILED_TESTS === "true") {
       fs.mkdirSync(path.dirname(frozen), {recursive: true});
       fs.writeFileSync(frozen, JSON.stringify(date));
     }
