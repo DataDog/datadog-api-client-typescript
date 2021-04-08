@@ -8,7 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { Creator } from './Creator';
 import { SLOThreshold } from './SLOThreshold';
 import { SLOType } from './SLOType';
 import { ServiceLevelObjectiveQuery } from './ServiceLevelObjectiveQuery';
@@ -19,11 +18,6 @@ import { HttpFile } from '../http/http';
 */
 export class ServiceLevelObjectiveRequest {
     /**
-    * Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
-    */
-    'createdAt'?: number;
-    'creator'?: Creator;
-    /**
     * A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
     */
     'description'?: string;
@@ -31,14 +25,6 @@ export class ServiceLevelObjectiveRequest {
     * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.
     */
     'groups'?: Array<string>;
-    /**
-    * A unique identifier for the service level objective object.  Always included in service level objective responses.
-    */
-    'id'?: string;
-    /**
-    * Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
-    */
-    'modifiedAt'?: number;
     /**
     * A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.
     */
@@ -62,18 +48,6 @@ export class ServiceLevelObjectiveRequest {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "createdAt",
-            "baseName": "created_at",
-            "type": "number",
-            "format": "int64"
-        },
-        {
-            "name": "creator",
-            "baseName": "creator",
-            "type": "Creator",
-            "format": ""
-        },
-        {
             "name": "description",
             "baseName": "description",
             "type": "string",
@@ -84,18 +58,6 @@ export class ServiceLevelObjectiveRequest {
             "baseName": "groups",
             "type": "Array<string>",
             "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "modifiedAt",
-            "baseName": "modified_at",
-            "type": "number",
-            "format": "int64"
         },
         {
             "name": "monitorIds",
