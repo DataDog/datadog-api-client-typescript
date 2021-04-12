@@ -71,7 +71,8 @@ Before(function (
 
   const now = date.getTime() / 1000;
   const name = pickle.name?.replace(/[^A-Za-z0-9]+/g, "_").substr(0, 100);
-  const unique = `Typescript-${name}-${now}`;
+  const prefix = this.polly?.mode == MODES.PASSTHROUGH ? "Test-Typescript" : "Test";
+  const unique = `${prefix}-${name}-${Math.floor(now)}`;
   this.fixtures["unique"] = unique;
   this.fixtures["unique_lower"] = unique.toLowerCase();
   this.fixtures["unique_alnum"] = unique.replace(/[^A-Za-z0-9]+/g, "");
