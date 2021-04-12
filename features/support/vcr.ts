@@ -64,7 +64,7 @@ Before(function (
     date = new Date(JSON.parse(fs.readFileSync(frozen).toString()));
   } else {
     date = new Date();
-    if (this.polly?.mode == MODES.RECORD || process.env.RERECORD_FAILED_TESTS === "true") {
+    if (this.polly?.mode == MODES.RECORD || this.polly?.recordIfMissing) {
       fs.mkdirSync(path.dirname(frozen), {recursive: true});
       fs.writeFileSync(frozen, JSON.stringify(date));
     }
