@@ -76,6 +76,7 @@ Before(function (
   this.fixtures["unique"] = unique;
   this.fixtures["unique_lower"] = unique.toLowerCase();
   this.fixtures["unique_alnum"] = unique.replace(/[^A-Za-z0-9]+/g, "");
+  this.fixtures["unique_lower_alnum"] = this.fixtures["unique_alnum"].toLowerCase();
   this.fixtures["now_ts"] = now;
   this.fixtures["now_iso"] = date.toISOString();
   const hourLater = new Date(JSON.stringify(date));
