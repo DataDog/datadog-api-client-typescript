@@ -9,6 +9,7 @@
  */
 
 import { DashboardLayoutType } from './DashboardLayoutType';
+import { DashboardReflowType } from './DashboardReflowType';
 import { DashboardTemplateVariable } from './DashboardTemplateVariable';
 import { DashboardTemplateVariablePreset } from './DashboardTemplateVariablePreset';
 import { Widget } from './Widget';
@@ -47,6 +48,7 @@ export class Dashboard {
     * List of handles of users to notify when changes are made to this dashboard.
     */
     'notifyList'?: Array<string>;
+    'reflowType'?: DashboardReflowType;
     /**
     * Array of template variables saved views.
     */
@@ -117,6 +119,12 @@ export class Dashboard {
             "name": "notifyList",
             "baseName": "notify_list",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "reflowType",
+            "baseName": "reflow_type",
+            "type": "DashboardReflowType",
             "format": ""
         },
         {

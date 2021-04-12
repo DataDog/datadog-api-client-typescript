@@ -49,6 +49,7 @@ export * from './DashboardLayoutType';
 export * from './DashboardList';
 export * from './DashboardListDeleteResponse';
 export * from './DashboardListListResponse';
+export * from './DashboardReflowType';
 export * from './DashboardSummary';
 export * from './DashboardSummaryDefinition';
 export * from './DashboardTemplateVariable';
@@ -561,6 +562,7 @@ import { DashboardLayoutType } from './DashboardLayoutType';
 import { DashboardList } from './DashboardList';
 import { DashboardListDeleteResponse } from './DashboardListDeleteResponse';
 import { DashboardListListResponse } from './DashboardListListResponse';
+import { DashboardReflowType } from './DashboardReflowType';
 import { DashboardSummary } from './DashboardSummary';
 import { DashboardSummaryDefinition } from './DashboardSummaryDefinition';
 import { DashboardTemplateVariable } from './DashboardTemplateVariable';
@@ -1050,6 +1052,7 @@ let enumsMap: Set<string> = new Set<string>([
     "CheckStatusWidgetDefinitionType",
     "ContentEncoding",
     "DashboardLayoutType",
+    "DashboardReflowType",
     "DistributionWidgetDefinitionType",
     "EventAlertType",
     "EventPriority",
