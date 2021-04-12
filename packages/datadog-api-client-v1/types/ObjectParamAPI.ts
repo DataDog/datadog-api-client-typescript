@@ -2886,6 +2886,12 @@ export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
      * @memberof ServiceLevelObjectivesApigetSLOHistory
      */
     toTs: number
+    /**
+     * The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
+     * @type number
+     * @memberof ServiceLevelObjectivesApigetSLOHistory
+     */
+    target?: number
 }
 
 export interface ServiceLevelObjectivesApiListSLOsRequest {
@@ -2988,7 +2994,7 @@ export class ObjectServiceLevelObjectivesApi {
      * @param param the request object
      */
     public getSLOHistory(param: ServiceLevelObjectivesApiGetSLOHistoryRequest, options?: Configuration): Promise<SLOHistoryResponse> {
-        return this.api.getSLOHistory(param.sloId, param.fromTs, param.toTs,  options).toPromise();
+        return this.api.getSLOHistory(param.sloId, param.fromTs, param.toTs, param.target,  options).toPromise();
     }
 
     /**
