@@ -8,23 +8,42 @@
  * Do not edit the class manually.
  */
 
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
 import { LogQueryDefinition } from './LogQueryDefinition';
+import { WidgetFormula } from './WidgetFormula';
 import { HttpFile } from '../http/http';
 
 /**
 * An updated geomap widget.
 */
 export class GeomapWidgetRequest {
+    /**
+    * List of formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<WidgetFormula>;
     'logQuery'?: LogQueryDefinition;
     /**
     * The widget metrics query.
     */
     'q'?: string;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
     'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "formulas",
+            "baseName": "formulas",
+            "type": "Array<WidgetFormula>",
+            "format": ""
+        },
         {
             "name": "logQuery",
             "baseName": "log_query",
@@ -38,8 +57,26 @@ export class GeomapWidgetRequest {
             "format": ""
         },
         {
+            "name": "queries",
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            "format": ""
+        },
+        {
+            "name": "responseFormat",
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
+            "format": ""
+        },
+        {
             "name": "rumQuery",
             "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            "format": ""
+        },
+        {
+            "name": "securityQuery",
+            "baseName": "security_query",
             "type": "LogQueryDefinition",
             "format": ""
         }    ];

@@ -54,6 +54,7 @@ import { DashboardLayoutType } from '../models/DashboardLayoutType';
 import { DashboardList } from '../models/DashboardList';
 import { DashboardListDeleteResponse } from '../models/DashboardListDeleteResponse';
 import { DashboardListListResponse } from '../models/DashboardListListResponse';
+import { DashboardReflowType } from '../models/DashboardReflowType';
 import { DashboardSummary } from '../models/DashboardSummary';
 import { DashboardSummaryDefinition } from '../models/DashboardSummaryDefinition';
 import { DashboardTemplateVariable } from '../models/DashboardTemplateVariable';
@@ -3321,8 +3322,8 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
     }
  
     /**
-     * Permanently delete the specified SLO Correction object
-     * Delete an SLO Correction
+     * Permanently delete the specified SLO correction object
+     * Delete an SLO correction
      * @param sloCorrectionId The ID of the SLO correction object
      */
     public deleteSLOCorrection(sloCorrectionId: string, options?: Configuration): Observable<void> {
@@ -3345,7 +3346,7 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
     }
  
     /**
-     * Get an SLO Correction
+     * Get an SLO correction
      * Get an SLO correction for an SLO
      * @param sloCorrectionId The ID of the SLO correction object
      */
@@ -3369,7 +3370,7 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
     }
  
     /**
-     * Get all Service Level Objective Corrections
+     * Get all Service Level Objective corrections
      * Get all SLO corrections
      */
     public listSLOCorrection(options?: Configuration): Observable<SLOCorrectionListResponse> {
@@ -3393,7 +3394,7 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
  
     /**
      * Update the specified SLO correction object object
-     * Update an SLO Correction
+     * Update an SLO correction
      * @param sloCorrectionId The ID of the SLO correction object
      * @param body The edited SLO correction object.
      */

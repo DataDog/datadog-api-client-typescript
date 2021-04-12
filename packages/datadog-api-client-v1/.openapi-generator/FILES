@@ -86,6 +86,7 @@ models/DashboardLayoutType.ts
 models/DashboardList.ts
 models/DashboardListDeleteResponse.ts
 models/DashboardListListResponse.ts
+models/DashboardReflowType.ts
 models/DashboardSummary.ts
 models/DashboardSummaryDefinition.ts
 models/DashboardTemplateVariable.ts
