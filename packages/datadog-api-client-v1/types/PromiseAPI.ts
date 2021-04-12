@@ -53,6 +53,7 @@ import { DashboardLayoutType } from '../models/DashboardLayoutType';
 import { DashboardList } from '../models/DashboardList';
 import { DashboardListDeleteResponse } from '../models/DashboardListDeleteResponse';
 import { DashboardListListResponse } from '../models/DashboardListListResponse';
+import { DashboardReflowType } from '../models/DashboardReflowType';
 import { DashboardSummary } from '../models/DashboardSummary';
 import { DashboardSummaryDefinition } from '../models/DashboardSummaryDefinition';
 import { DashboardTemplateVariable } from '../models/DashboardTemplateVariable';
