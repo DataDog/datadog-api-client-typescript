@@ -2776,8 +2776,8 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     }
 
     /**
-     * Permanently delete the specified SLO Correction object
-     * Delete an SLO Correction
+     * Permanently delete the specified SLO correction object
+     * Delete an SLO correction
      * @param param the request object
      */
     public deleteSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest, options?: Configuration): Promise<void> {
@@ -2785,7 +2785,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     }
 
     /**
-     * Get an SLO Correction
+     * Get an SLO correction
      * Get an SLO correction for an SLO
      * @param param the request object
      */
@@ -2794,7 +2794,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
     }
 
     /**
-     * Get all Service Level Objective Corrections
+     * Get all Service Level Objective corrections
      * Get all SLO corrections
      * @param param the request object
      */
@@ -2804,7 +2804,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
 
     /**
      * Update the specified SLO correction object object
-     * Update an SLO Correction
+     * Update an SLO correction
      * @param param the request object
      */
     public updateSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
