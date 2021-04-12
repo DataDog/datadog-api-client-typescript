@@ -277,8 +277,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      * @param sloId The ID of the service level objective object.
      * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds.
      * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds.
+     * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
      */
-    public async getSLOHistory(sloId: string, fromTs: number, toTs: number, options?: Configuration): Promise<RequestContext> {
+    public async getSLOHistory(sloId: string, fromTs: number, toTs: number, target?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'sloId' is not null or undefined
@@ -299,6 +300,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         }
 
 
+
         // Path Params
         const localVarPath = '/api/v1/slo/{slo_id}/history'
             .replace('{' + 'slo_id' + '}', encodeURIComponent(String(sloId)));
@@ -313,6 +315,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         }
         if (toTs !== undefined) {
             requestContext.setQueryParam("to_ts", ObjectSerializer.serialize(toTs, "number", "int64"));
+        }
+        if (target !== undefined) {
+            requestContext.setQueryParam("target", ObjectSerializer.serialize(target, "number", "double"));
         }
 
         // Header Params
