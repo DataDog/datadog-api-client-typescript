@@ -52,7 +52,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     }
     {{/isArray}}
 
-    static deserialize(data: Object): {{classname}} {
+    static deserialize(data: {[key: string]: any}): {{classname}} {
       let res = new {{classname}}();
 
       {{#vars}}
@@ -77,7 +77,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       return res;
     }
 
-    static serialize(data: {{classname}}): Object {
+    static serialize(data: {{classname}}): {[key: string]: any} {
         let attributeTypes = {{{classname}}}.getAttributeTypeMap();
         let res: {[index: string]: any} = {};
         for (let [key, value] of Object.entries(data)) {
