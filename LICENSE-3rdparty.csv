@@ -12,6 +12,7 @@ Component,Licence,Copyright
 @types/pollyjs__core,MIT,Copyright Microsoft Corporation
 @types/pollyjs__persister-fs,MIT,Copyright Microsoft Corporation
 @types/pollyjs__utils,MIT,Copyright Microsoft Corporation
+@types/react,MIT,Copyright Microsoft Corporation
 @types/url-parse,MIT,Copyright Microsoft Corporation
 @typescript-eslint/eslint-plugin,MIT,Copyright (c) 2019 TypeScript ESLint and other contributors
 @typescript-eslint/parser,BSD-2-Clause,
