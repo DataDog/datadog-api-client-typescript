@@ -1,11 +1,5 @@
 {{#models}}
 {{#model}}
-export * from './{{{ classFilename }}}{{extensionForDeno}}';
-{{/model}}
-{{/models}}
-
-{{#models}}
-{{#model}}
 import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName}} {{/isEnum}} {{/vars}}{{/hasEnums}} } from './{{{ classFilename }}}{{extensionForDeno}}';
 {{/model}}
 {{/models}}
@@ -49,11 +43,18 @@ let typeMap: {[index: string]: any} = {
     {{#models}}
         {{#model}}
             {{^isEnum}}
+            {{^oneOf}}
     "{{classname}}": {{classname}},
+            {{/oneOf}}
             {{/isEnum}}
         {{/model}}
     {{/models}}
 }
+
+let oneOfMap: {[index: string]: string[]} = {
+  {{#models}}{{#model}}{{#oneOf}}{{#-first}}"{{classname}}": [{{/-first}}"{{{.}}}"{{^-last}}, {{/-last}}{{#-last}}],
+  {{/-last}}{{/oneOf}}{{/model}}{{/models}}
+};
 
 export class ObjectSerializer {
     public static findCorrectType(data: any, expectedType: string) {
@@ -123,21 +124,29 @@ export class ObjectSerializer {
             if (enumsMap.has(type)) {
                 return data;
             }
-            if (!typeMap[type]) { // in case we dont know the type
-                return data;
+            if (oneOfMap[type]) {
+                let oneOfs: any[] = [];
+                for(let oneOf of oneOfMap[type]) {
+                    try {
+                        oneOfs.push(ObjectSerializer.serialize(data, oneOf, format))
+                    } catch (e) {
+                        console.log(`could not serialize ${oneOf} (${e})`)
+                    }
+                }
+                if (oneOfs.length > 1) {
+                    throw new TypeError(`${data} matches multiple types from ${oneOfMap[type]} ${oneOfs}`);
+                }
+                if (oneOfs.length == 0) {
+                    throw new TypeError(`${data} doesn't match any type from ${oneOfMap[type]} ${oneOfs}`);
+                }
+                return oneOfs[0];
             }
-            
-            // Get the actual type of this object
-            type = this.findCorrectType(data, type);
 
-            // get the map for the correct type.
-            let attributeTypes = typeMap[type].getAttributeTypeMap();
-            let instance: {[index: string]: any} = {};
-            for (let index in attributeTypes) {
-                let attributeType = attributeTypes[index];
-                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type, attributeType.format);
+            if (!typeMap[type]) { // dont know the type
+                throw new TypeError(`unknown type ${type}`);
             }
-            return instance;
+
+            return typeMap[type].serialize(data);
         }
     }
 
@@ -164,15 +173,28 @@ export class ObjectSerializer {
                 return data;
             }
 
+            if (oneOfMap[type]) {
+                let oneOfs: any[] = [];
+                for(let oneOf of oneOfMap[type]) {
+                    try {
+                        oneOfs.push(ObjectSerializer.deserialize(data, oneOf, format))
+                    } catch (e) {
+                        console.log(`could not deserialize ${oneOf} (${e})`)
+                    }
+                }
+                if (oneOfs.length > 1) {
+                    throw new TypeError(`${data} matches multiple types from ${oneOfMap[type]} ${oneOfs}`);
+                }
+                if (oneOfs.length == 0) {
+                    throw new TypeError(`${data} doesn't match any type from ${oneOfMap[type]} ${oneOfs}`);
+                }
+                return oneOfs[0];
+            }
+
             if (!typeMap[type]) { // dont know the type
-                return data;
+                throw new TypeError(`unknown type ${type}`);
             }
-            let instance = new typeMap[type]();
-            let attributeTypes = typeMap[type].getAttributeTypeMap();
-            for (let index in attributeTypes) {
-                let attributeType = attributeTypes[index];
-                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
-            }
+            let instance = typeMap[type].deserialize(data);
             return instance;
         }
     }

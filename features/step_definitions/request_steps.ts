@@ -112,8 +112,10 @@ Then(
 Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
-    expect(pathLookup(this.response, responsePath)).to.equal(
-      JSON.parse(value.templated(this.fixtures))
+      console.log(JSON.stringify(pathLookup(this.response, responsePath), null, 2))
+      console.log(JSON.stringify(JSON.parse(value.templated(this.fixtures), fixKeys), null, 2))
+    expect(pathLookup(this.response, responsePath)).to.deep.equal(
+      JSON.parse(value.templated(this.fixtures), fixKeys)
     );
   }
 );
