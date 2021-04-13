@@ -130,7 +130,7 @@ export class ObjectSerializer {
                     try {
                         oneOfs.push(ObjectSerializer.serialize(data, oneOf, format))
                     } catch (e) {
-                        console.log(`could not serialize ${oneOf} (${e})`)
+                        console.debug(`could not serialize ${oneOf} (${e})`)
                     }
                 }
                 if (oneOfs.length > 1) {
@@ -179,7 +179,7 @@ export class ObjectSerializer {
                     try {
                         oneOfs.push(ObjectSerializer.deserialize(data, oneOf, format))
                     } catch (e) {
-                        console.log(`could not deserialize ${oneOf} (${e})`)
+                        console.debug(`could not deserialize ${oneOf} (${e})`)
                     }
                 }
                 if (oneOfs.length > 1) {
@@ -194,8 +194,7 @@ export class ObjectSerializer {
             if (!typeMap[type]) { // dont know the type
                 throw new TypeError(`unknown type ${type}`);
             }
-            let instance = typeMap[type].deserialize(data);
-            return instance;
+            return typeMap[type].deserialize(data);
         }
     }
 
