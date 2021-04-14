@@ -106,6 +106,15 @@ export class ObjectSerializer {
                 transformedData.push(ObjectSerializer.serialize(date, subType, format));
             }
             return transformedData;
+        } else if (type.lastIndexOf("{ [key: string]: ", 0) === 0) { // string.startsWith pre es6
+            let subType: string = type.replace("{ [key: string]: ", ""); // { [key: string]: Type; } => Type; }
+            subType = subType.substring(0, subType.length - 3); // Type; } => Type
+            let transformedData: { [key: string]: any } = {};
+            for (let k in data) {
+                let date = data[k]
+                transformedData[k] = ObjectSerializer.serialize(date, subType, format);
+            }
+            return transformedData;
         } else if (type === "Date") {
             if ("string" == typeof data) {
                 return data;
@@ -143,7 +152,7 @@ export class ObjectSerializer {
             }
 
             if (!typeMap[type]) { // dont know the type
-                throw new TypeError(`unknown type ${type}`);
+                throw new TypeError(`unknown type '${type}'`);
             }
 
             return typeMap[type].serialize(data);
@@ -164,6 +173,15 @@ export class ObjectSerializer {
             for (let index in data) {
                 let date = data[index];
                 transformedData.push(ObjectSerializer.deserialize(date, subType, format));
+            }
+            return transformedData;
+        } else if (type.lastIndexOf("{ [key: string]: ", 0) === 0) { // string.startsWith pre es6
+            let subType: string = type.replace("{ [key: string]: ", ""); // { [key: string]: Type; } => Type; }
+            subType = subType.substring(0, subType.length - 3); // Type; } => Type
+            let transformedData: { [key: string]: any } = {};
+            for (let k in data) {
+                let date = data[k]
+                transformedData[k] = ObjectSerializer.deserialize(date, subType, format);
             }
             return transformedData;
         } else if (type === "Date") {
@@ -192,7 +210,7 @@ export class ObjectSerializer {
             }
 
             if (!typeMap[type]) { // dont know the type
-                throw new TypeError(`unknown type ${type}`);
+                throw new TypeError(`unknown type '${type}'`);
             }
             return typeMap[type].deserialize(data);
         }

@@ -58,7 +58,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       {{#vars}}
         {{#required}}
       if (data.{{{baseName}}} === undefined) {
-          throw new TypeError("missing required attribute {{baseName}}");
+          throw new TypeError("missing required attribute '{{baseName}}' on '{{classname}}' object");
       }
         {{/required}}
         {{#allowableValues}}
@@ -88,7 +88,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         {{#vars}}
           {{#required}}
         if (data.{{{name}}} === undefined) {
-            throw new TypeError("missing required attribute {{name}}");
+            throw new TypeError("missing required attribute '{{baseName}}' on '{{classname}}' object");
         }
           {{/required}}
           {{#allowableValues}}
