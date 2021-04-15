@@ -42,7 +42,8 @@ for (const apiVersion of Versions) {
         authMethods: {
           apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,
           appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
-        }
+        },
+        httpConfig: {compress: false}
       }
       if (process.env.DD_TEST_SITE) {
         let server = api.servers[2];
