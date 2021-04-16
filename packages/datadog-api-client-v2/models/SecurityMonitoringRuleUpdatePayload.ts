@@ -13,10 +13,12 @@ import { SecurityMonitoringRuleCase } from './SecurityMonitoringRuleCase';
 import { SecurityMonitoringRuleOptions } from './SecurityMonitoringRuleOptions';
 import { SecurityMonitoringRuleQuery } from './SecurityMonitoringRuleQuery';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Update an existing rule.
 */
+
 export class SecurityMonitoringRuleUpdatePayload {
     /**
     * Cases for generating signals.
@@ -50,61 +52,105 @@ export class SecurityMonitoringRuleUpdatePayload {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cases",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cases": {
             "baseName": "cases",
             "type": "Array<SecurityMonitoringRuleCase>",
             "format": ""
         },
-        {
-            "name": "filters",
+        "filters": {
             "baseName": "filters",
             "type": "Array<SecurityMonitoringFilter>",
             "format": ""
         },
-        {
-            "name": "isEnabled",
+        "isEnabled": {
             "baseName": "isEnabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "options",
+        "options": {
             "baseName": "options",
             "type": "SecurityMonitoringRuleOptions",
             "format": ""
         },
-        {
-            "name": "queries",
+        "queries": {
             "baseName": "queries",
             "type": "Array<SecurityMonitoringRuleQuery>",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuleUpdatePayload {
+      let res = new SecurityMonitoringRuleUpdatePayload();
+
+      res.cases = ObjectSerializer.deserialize(data.cases, "Array<SecurityMonitoringRuleCase>", "")
+
+      res.filters = ObjectSerializer.deserialize(data.filters, "Array<SecurityMonitoringFilter>", "")
+
+      res.isEnabled = ObjectSerializer.deserialize(data.isEnabled, "boolean", "")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.options = ObjectSerializer.deserialize(data.options, "SecurityMonitoringRuleOptions", "")
+
+      res.queries = ObjectSerializer.deserialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringRuleUpdatePayload): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringRuleUpdatePayload.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cases = ObjectSerializer.serialize(data.cases, "Array<SecurityMonitoringRuleCase>", "")
+
+        res.filters = ObjectSerializer.serialize(data.filters, "Array<SecurityMonitoringFilter>", "")
+
+        res.isEnabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.options = ObjectSerializer.serialize(data.options, "SecurityMonitoringRuleOptions", "")
+
+        res.queries = ObjectSerializer.serialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,22 +9,10 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A resulting object to put the given computes in over all the matching records.
 */
-export class LogsGroupByTotal {
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return LogsGroupByTotal.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type LogsGroupByTotal = boolean | number | string;

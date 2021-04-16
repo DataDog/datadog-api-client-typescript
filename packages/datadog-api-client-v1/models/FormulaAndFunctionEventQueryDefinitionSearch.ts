@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Search options.
 */
+
 export class FormulaAndFunctionEventQueryDefinitionSearch {
     /**
     * Events search string.
@@ -21,19 +23,48 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "query",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "query": {
             "baseName": "query",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): FormulaAndFunctionEventQueryDefinitionSearch {
+      let res = new FormulaAndFunctionEventQueryDefinitionSearch();
+
+      if (data.query === undefined) {
+          throw new TypeError("missing required attribute 'query' on 'FormulaAndFunctionEventQueryDefinitionSearch' object");
+      }
+      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: FormulaAndFunctionEventQueryDefinitionSearch): {[key: string]: any} {
+        let attributeTypes = FormulaAndFunctionEventQueryDefinitionSearch.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.query === undefined) {
+            throw new TypeError("missing required attribute 'query' on 'FormulaAndFunctionEventQueryDefinitionSearch' object");
+        }
+        res.query = ObjectSerializer.serialize(data.query, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the table widget.
 */
-export type TableWidgetDefinitionType = "query_table" ;
+
+export type TableWidgetDefinitionType = typeof QUERY_TABLE ;
+export const QUERY_TABLE = 'query_table';
+
+

@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Time-ascending `asc` or time-descending `desc`results.
 */
-export type LogsSort = "asc" | "desc" ;
+
+export type LogsSort = typeof TIME_ASCENDING | typeof TIME_DESCENDING ;
+export const TIME_ASCENDING = 'asc';
+export const TIME_DESCENDING = 'desc';
+
+

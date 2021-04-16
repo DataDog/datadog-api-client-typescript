@@ -10,10 +10,12 @@
 
 import { AccessRole } from './AccessRole';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Create, edit, and disable users.
 */
+
 export class User {
     'accessRole'?: AccessRole;
     /**
@@ -43,55 +45,104 @@ export class User {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "accessRole",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "accessRole": {
             "baseName": "access_role",
             "type": "AccessRole",
             "format": ""
         },
-        {
-            "name": "disabled",
+        "disabled": {
             "baseName": "disabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "email",
+        "email": {
             "baseName": "email",
             "type": "string",
             "format": "email"
         },
-        {
-            "name": "handle",
+        "handle": {
             "baseName": "handle",
             "type": "string",
             "format": "email"
         },
-        {
-            "name": "icon",
+        "icon": {
             "baseName": "icon",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "verified",
+        "verified": {
             "baseName": "verified",
             "type": "boolean",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return User.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): User {
+      let res = new User();
+
+      if (['st', 'adm', 'ro', 'ERROR', undefined].includes(data.access_role)) {
+          res.accessRole = data.access_role;
+      } else {
+          throw TypeError(`invalid enum value ${ data.access_role } for access_role`);
+      }
+
+      res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "")
+
+      res.email = ObjectSerializer.deserialize(data.email, "string", "email")
+
+      res.handle = ObjectSerializer.deserialize(data.handle, "string", "email")
+
+      res.icon = ObjectSerializer.deserialize(data.icon, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.verified = ObjectSerializer.deserialize(data.verified, "boolean", "")
+
+
+      return res;
+    }
+
+    static serialize(data: User): {[key: string]: any} {
+        let attributeTypes = User.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['st', 'adm', 'ro', 'ERROR', undefined].includes(data.accessRole)) {
+            res.access_role = data.accessRole;
+        } else {
+            throw TypeError(`invalid enum value ${ data.accessRole } for accessRole`);
+        }
+
+        res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "")
+
+        res.email = ObjectSerializer.serialize(data.email, "string", "email")
+
+        res.handle = ObjectSerializer.serialize(data.handle, "string", "email")
+
+        res.icon = ObjectSerializer.serialize(data.icon, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.verified = ObjectSerializer.serialize(data.verified, "boolean", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

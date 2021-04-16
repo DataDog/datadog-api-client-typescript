@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Represent validation endpoint responses.
 */
+
 export class AuthenticationValidationResponse {
     /**
     * Return `true` if the authentication response is valid.
@@ -21,19 +23,42 @@ export class AuthenticationValidationResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "valid",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "valid": {
             "baseName": "valid",
             "type": "boolean",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AuthenticationValidationResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AuthenticationValidationResponse {
+      let res = new AuthenticationValidationResponse();
+
+      res.valid = ObjectSerializer.deserialize(data.valid, "boolean", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AuthenticationValidationResponse): {[key: string]: any} {
+        let attributeTypes = AuthenticationValidationResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.valid = ObjectSerializer.serialize(data.valid, "boolean", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

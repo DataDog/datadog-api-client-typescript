@@ -12,10 +12,12 @@ import { ApplicationKeyRelationships } from './ApplicationKeyRelationships';
 import { ApplicationKeysType } from './ApplicationKeysType';
 import { FullApplicationKeyAttributes } from './FullApplicationKeyAttributes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Datadog application key.
 */
+
 export class FullApplicationKey {
     'attributes'?: FullApplicationKeyAttributes;
     /**
@@ -27,37 +29,77 @@ export class FullApplicationKey {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "FullApplicationKeyAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "relationships",
+        "relationships": {
             "baseName": "relationships",
             "type": "ApplicationKeyRelationships",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "ApplicationKeysType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return FullApplicationKey.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): FullApplicationKey {
+      let res = new FullApplicationKey();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "FullApplicationKeyAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      res.relationships = ObjectSerializer.deserialize(data.relationships, "ApplicationKeyRelationships", "")
+
+      if (['application_keys', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: FullApplicationKey): {[key: string]: any} {
+        let attributeTypes = FullApplicationKey.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "FullApplicationKeyAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        res.relationships = ObjectSerializer.serialize(data.relationships, "ApplicationKeyRelationships", "")
+
+        if (['application_keys', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

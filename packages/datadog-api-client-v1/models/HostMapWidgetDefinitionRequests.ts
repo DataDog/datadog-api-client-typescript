@@ -10,35 +10,63 @@
 
 import { HostMapRequest } from './HostMapRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * List of definitions.
 */
+
 export class HostMapWidgetDefinitionRequests {
     'fill'?: HostMapRequest;
     'size'?: HostMapRequest;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "fill",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "fill": {
             "baseName": "fill",
             "type": "HostMapRequest",
             "format": ""
         },
-        {
-            "name": "size",
+        "size": {
             "baseName": "size",
             "type": "HostMapRequest",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMapWidgetDefinitionRequests.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMapWidgetDefinitionRequests {
+      let res = new HostMapWidgetDefinitionRequests();
+
+      res.fill = ObjectSerializer.deserialize(data.fill, "HostMapRequest", "")
+
+      res.size = ObjectSerializer.deserialize(data.size, "HostMapRequest", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HostMapWidgetDefinitionRequests): {[key: string]: any} {
+        let attributeTypes = HostMapWidgetDefinitionRequests.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.fill = ObjectSerializer.serialize(data.fill, "HostMapRequest", "")
+
+        res.size = ObjectSerializer.serialize(data.size, "HostMapRequest", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

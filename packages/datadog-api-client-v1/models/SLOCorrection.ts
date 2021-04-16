@@ -11,10 +11,12 @@
 import { SLOCorrectionResponseAttributes } from './SLOCorrectionResponseAttributes';
 import { SLOCorrectionType } from './SLOCorrectionType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The response object of a list of SLO corrections
 */
+
 export class SLOCorrection {
     'attributes'?: SLOCorrectionResponseAttributes;
     /**
@@ -25,31 +27,68 @@ export class SLOCorrection {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "SLOCorrectionResponseAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "SLOCorrectionType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOCorrection.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOCorrection {
+      let res = new SLOCorrection();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "SLOCorrectionResponseAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['correction', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SLOCorrection): {[key: string]: any} {
+        let attributeTypes = SLOCorrection.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "SLOCorrectionResponseAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['correction', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

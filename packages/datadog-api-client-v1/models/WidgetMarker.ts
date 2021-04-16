@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Markers allow you to add visual conditional formatting for your graphs.
 */
+
 export class WidgetMarker {
     /**
     * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold 
@@ -33,37 +35,75 @@ export class WidgetMarker {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "displayType",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "displayType": {
             "baseName": "display_type",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "label",
+        "label": {
             "baseName": "label",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "value",
+        "value": {
             "baseName": "value",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetMarker.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetMarker {
+      let res = new WidgetMarker();
+
+      res.displayType = ObjectSerializer.deserialize(data.display_type, "string", "")
+
+      res.label = ObjectSerializer.deserialize(data.label, "string", "")
+
+      res.time = ObjectSerializer.deserialize(data.time, "string", "")
+
+      if (data.value === undefined) {
+          throw new TypeError("missing required attribute 'value' on 'WidgetMarker' object");
+      }
+      res.value = ObjectSerializer.deserialize(data.value, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetMarker): {[key: string]: any} {
+        let attributeTypes = WidgetMarker.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.display_type = ObjectSerializer.serialize(data.displayType, "string", "")
+
+        res.label = ObjectSerializer.serialize(data.label, "string", "")
+
+        res.time = ObjectSerializer.serialize(data.time, "string", "")
+
+        if (data.value === undefined) {
+            throw new TypeError("missing required attribute 'value' on 'WidgetMarker' object");
+        }
+        res.value = ObjectSerializer.serialize(data.value, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

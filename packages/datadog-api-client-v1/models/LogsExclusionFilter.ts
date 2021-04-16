@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
 */
+
 export class LogsExclusionFilter {
     /**
     * Default query is `*`, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
@@ -25,25 +27,57 @@ export class LogsExclusionFilter {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "query",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "query": {
             "baseName": "query",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sampleRate",
+        "sampleRate": {
             "baseName": "sample_rate",
             "type": "number",
             "format": "double"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsExclusionFilter.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsExclusionFilter {
+      let res = new LogsExclusionFilter();
+
+      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+
+      if (data.sample_rate === undefined) {
+          throw new TypeError("missing required attribute 'sample_rate' on 'LogsExclusionFilter' object");
+      }
+      res.sampleRate = ObjectSerializer.deserialize(data.sample_rate, "number", "double")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsExclusionFilter): {[key: string]: any} {
+        let attributeTypes = LogsExclusionFilter.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.query = ObjectSerializer.serialize(data.query, "string", "")
+
+        if (data.sampleRate === undefined) {
+            throw new TypeError("missing required attribute 'sample_rate' on 'LogsExclusionFilter' object");
+        }
+        res.sample_rate = ObjectSerializer.serialize(data.sampleRate, "number", "double")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -11,10 +11,12 @@
 import { IncidentFieldAttributes } from './IncidentFieldAttributes';
 import { IncidentTimelineCellCreateAttributes } from './IncidentTimelineCellCreateAttributes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The incident's attributes for a create request.
 */
+
 export class IncidentCreateAttributes {
     /**
     * A flag indicating whether the incident caused customer impact.
@@ -39,43 +41,90 @@ export class IncidentCreateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "customerImpacted",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "customerImpacted": {
             "baseName": "customer_impacted",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "fields",
+        "fields": {
             "baseName": "fields",
             "type": "{ [key: string]: IncidentFieldAttributes; }",
             "format": ""
         },
-        {
-            "name": "initialTimelineCells",
+        "initialTimelineCells": {
             "baseName": "initial_timeline_cells",
             "type": "Array<IncidentTimelineCellCreateAttributes>",
             "format": ""
         },
-        {
-            "name": "notificationHandles",
+        "notificationHandles": {
             "baseName": "notification_handles",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentCreateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentCreateAttributes {
+      let res = new IncidentCreateAttributes();
+
+      if (data.customer_impacted === undefined) {
+          throw new TypeError("missing required attribute 'customer_impacted' on 'IncidentCreateAttributes' object");
+      }
+      res.customerImpacted = ObjectSerializer.deserialize(data.customer_impacted, "boolean", "")
+
+      res.fields = ObjectSerializer.deserialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+
+      res.initialTimelineCells = ObjectSerializer.deserialize(data.initial_timeline_cells, "Array<IncidentTimelineCellCreateAttributes>", "")
+
+      res.notificationHandles = ObjectSerializer.deserialize(data.notification_handles, "Array<string>", "")
+
+      if (data.title === undefined) {
+          throw new TypeError("missing required attribute 'title' on 'IncidentCreateAttributes' object");
+      }
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentCreateAttributes): {[key: string]: any} {
+        let attributeTypes = IncidentCreateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.customerImpacted === undefined) {
+            throw new TypeError("missing required attribute 'customer_impacted' on 'IncidentCreateAttributes' object");
+        }
+        res.customer_impacted = ObjectSerializer.serialize(data.customerImpacted, "boolean", "")
+
+        res.fields = ObjectSerializer.serialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+
+        res.initial_timeline_cells = ObjectSerializer.serialize(data.initialTimelineCells, "Array<IncidentTimelineCellCreateAttributes>", "")
+
+        res.notification_handles = ObjectSerializer.serialize(data.notificationHandles, "Array<string>", "")
+
+        if (data.title === undefined) {
+            throw new TypeError("missing required attribute 'title' on 'IncidentCreateAttributes' object");
+        }
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

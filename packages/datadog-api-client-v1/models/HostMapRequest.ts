@@ -11,10 +11,12 @@
 import { LogQueryDefinition } from './LogQueryDefinition';
 import { ProcessQueryDefinition } from './ProcessQueryDefinition';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Updated host map.
 */
+
 export class HostMapRequest {
     'apmQuery'?: LogQueryDefinition;
     'eventQuery'?: LogQueryDefinition;
@@ -31,67 +33,114 @@ export class HostMapRequest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "apmQuery",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "apmQuery": {
             "baseName": "apm_query",
             "type": "LogQueryDefinition",
             "format": ""
         },
-        {
-            "name": "eventQuery",
+        "eventQuery": {
             "baseName": "event_query",
             "type": "LogQueryDefinition",
             "format": ""
         },
-        {
-            "name": "logQuery",
+        "logQuery": {
             "baseName": "log_query",
             "type": "LogQueryDefinition",
             "format": ""
         },
-        {
-            "name": "networkQuery",
+        "networkQuery": {
             "baseName": "network_query",
             "type": "LogQueryDefinition",
             "format": ""
         },
-        {
-            "name": "processQuery",
+        "processQuery": {
             "baseName": "process_query",
             "type": "ProcessQueryDefinition",
             "format": ""
         },
-        {
-            "name": "profileMetricsQuery",
+        "profileMetricsQuery": {
             "baseName": "profile_metrics_query",
             "type": "LogQueryDefinition",
             "format": ""
         },
-        {
-            "name": "q",
+        "q": {
             "baseName": "q",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "rumQuery",
+        "rumQuery": {
             "baseName": "rum_query",
             "type": "LogQueryDefinition",
             "format": ""
         },
-        {
-            "name": "securityQuery",
+        "securityQuery": {
             "baseName": "security_query",
             "type": "LogQueryDefinition",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMapRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMapRequest {
+      let res = new HostMapRequest();
+
+      res.apmQuery = ObjectSerializer.deserialize(data.apm_query, "LogQueryDefinition", "")
+
+      res.eventQuery = ObjectSerializer.deserialize(data.event_query, "LogQueryDefinition", "")
+
+      res.logQuery = ObjectSerializer.deserialize(data.log_query, "LogQueryDefinition", "")
+
+      res.networkQuery = ObjectSerializer.deserialize(data.network_query, "LogQueryDefinition", "")
+
+      res.processQuery = ObjectSerializer.deserialize(data.process_query, "ProcessQueryDefinition", "")
+
+      res.profileMetricsQuery = ObjectSerializer.deserialize(data.profile_metrics_query, "LogQueryDefinition", "")
+
+      res.q = ObjectSerializer.deserialize(data.q, "string", "")
+
+      res.rumQuery = ObjectSerializer.deserialize(data.rum_query, "LogQueryDefinition", "")
+
+      res.securityQuery = ObjectSerializer.deserialize(data.security_query, "LogQueryDefinition", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HostMapRequest): {[key: string]: any} {
+        let attributeTypes = HostMapRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.apm_query = ObjectSerializer.serialize(data.apmQuery, "LogQueryDefinition", "")
+
+        res.event_query = ObjectSerializer.serialize(data.eventQuery, "LogQueryDefinition", "")
+
+        res.log_query = ObjectSerializer.serialize(data.logQuery, "LogQueryDefinition", "")
+
+        res.network_query = ObjectSerializer.serialize(data.networkQuery, "LogQueryDefinition", "")
+
+        res.process_query = ObjectSerializer.serialize(data.processQuery, "ProcessQueryDefinition", "")
+
+        res.profile_metrics_query = ObjectSerializer.serialize(data.profileMetricsQuery, "LogQueryDefinition", "")
+
+        res.q = ObjectSerializer.serialize(data.q, "string", "")
+
+        res.rum_query = ObjectSerializer.serialize(data.rumQuery, "LogQueryDefinition", "")
+
+        res.security_query = ObjectSerializer.serialize(data.securityQuery, "LogQueryDefinition", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

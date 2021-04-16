@@ -11,10 +11,12 @@
 import { SyntheticsPrivateLocation } from './SyntheticsPrivateLocation';
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from './SyntheticsPrivateLocationCreationResponseResultEncryption';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object that contains the new private location, the public key for result encryption, and the configuration skeleton.
 */
+
 export class SyntheticsPrivateLocationCreationResponse {
     /**
     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
@@ -25,31 +27,60 @@ export class SyntheticsPrivateLocationCreationResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "config",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "config": {
             "baseName": "config",
             "type": "any",
             "format": ""
         },
-        {
-            "name": "privateLocation",
+        "privateLocation": {
             "baseName": "private_location",
             "type": "SyntheticsPrivateLocation",
             "format": ""
         },
-        {
-            "name": "resultEncryption",
+        "resultEncryption": {
             "baseName": "result_encryption",
             "type": "SyntheticsPrivateLocationCreationResponseResultEncryption",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsPrivateLocationCreationResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsPrivateLocationCreationResponse {
+      let res = new SyntheticsPrivateLocationCreationResponse();
+
+      res.config = ObjectSerializer.deserialize(data.config, "any", "")
+
+      res.privateLocation = ObjectSerializer.deserialize(data.private_location, "SyntheticsPrivateLocation", "")
+
+      res.resultEncryption = ObjectSerializer.deserialize(data.result_encryption, "SyntheticsPrivateLocationCreationResponseResultEncryption", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsPrivateLocationCreationResponse): {[key: string]: any} {
+        let attributeTypes = SyntheticsPrivateLocationCreationResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.config = ObjectSerializer.serialize(data.config, "any", "")
+
+        res.private_location = ObjectSerializer.serialize(data.privateLocation, "SyntheticsPrivateLocation", "")
+
+        res.result_encryption = ObjectSerializer.serialize(data.resultEncryption, "SyntheticsPrivateLocationCreationResponseResultEncryption", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

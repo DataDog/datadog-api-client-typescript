@@ -10,10 +10,12 @@
 
 import { DashboardTemplateVariablePresetValue } from './DashboardTemplateVariablePresetValue';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Template variables saved views.
 */
+
 export class DashboardTemplateVariablePreset {
     /**
     * The name of the variable.
@@ -26,25 +28,51 @@ export class DashboardTemplateVariablePreset {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "name",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "templateVariables",
+        "templateVariables": {
             "baseName": "template_variables",
             "type": "Array<DashboardTemplateVariablePresetValue>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardTemplateVariablePreset.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardTemplateVariablePreset {
+      let res = new DashboardTemplateVariablePreset();
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.templateVariables = ObjectSerializer.deserialize(data.template_variables, "Array<DashboardTemplateVariablePresetValue>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardTemplateVariablePreset): {[key: string]: any} {
+        let attributeTypes = DashboardTemplateVariablePreset.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.template_variables = ObjectSerializer.serialize(data.templateVariables, "Array<DashboardTemplateVariablePresetValue>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the alert graph widget.
 */
-export type AlertGraphWidgetDefinitionType = "alert_graph" ;
+
+export type AlertGraphWidgetDefinitionType = typeof ALERT_GRAPH ;
+export const ALERT_GRAPH = 'alert_graph';
+
+

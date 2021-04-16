@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Roles type.
 */
-export type RolesType = "roles" ;
+
+export type RolesType = typeof ROLES ;
+export const ROLES = 'roles';
+
+

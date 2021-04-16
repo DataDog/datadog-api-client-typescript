@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Combination of settings to mute a host.
 */
+
 export class HostMuteSettings {
     /**
     * POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
@@ -29,31 +31,60 @@ export class HostMuteSettings {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "end",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "end": {
             "baseName": "end",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "override",
+        "override": {
             "baseName": "override",
             "type": "boolean",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMuteSettings.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMuteSettings {
+      let res = new HostMuteSettings();
+
+      res.end = ObjectSerializer.deserialize(data.end, "number", "int64")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+      res.override = ObjectSerializer.deserialize(data.override, "boolean", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HostMuteSettings): {[key: string]: any} {
+        let attributeTypes = HostMuteSettings.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.end = ObjectSerializer.serialize(data.end, "number", "int64")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        res.override = ObjectSerializer.serialize(data.override, "boolean", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

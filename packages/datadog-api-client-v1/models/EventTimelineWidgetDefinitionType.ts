@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the event timeline widget.
 */
-export type EventTimelineWidgetDefinitionType = "event_timeline" ;
+
+export type EventTimelineWidgetDefinitionType = typeof EVENT_TIMELINE ;
+export const EVENT_TIMELINE = 'event_timeline';
+
+

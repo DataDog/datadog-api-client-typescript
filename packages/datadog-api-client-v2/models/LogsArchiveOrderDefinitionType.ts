@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the archive order definition.
 */
-export type LogsArchiveOrderDefinitionType = "archive_order" ;
+
+export type LogsArchiveOrderDefinitionType = typeof ARCHIVE_ORDER ;
+export const ARCHIVE_ORDER = 'archive_order';
+
+

@@ -10,10 +10,12 @@
 
 import { UsageTracingWithoutLimitsHour } from './UsageTracingWithoutLimitsHour';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing the tracing without limits usage for each hour for a given organization.
 */
+
 export class UsageTracingWithoutLimitsResponse {
     /**
     * Get hourly usage for tracing without limits.
@@ -22,19 +24,42 @@ export class UsageTracingWithoutLimitsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "usage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "usage": {
             "baseName": "usage",
             "type": "Array<UsageTracingWithoutLimitsHour>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageTracingWithoutLimitsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageTracingWithoutLimitsResponse {
+      let res = new UsageTracingWithoutLimitsResponse();
+
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageTracingWithoutLimitsHour>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageTracingWithoutLimitsResponse): {[key: string]: any} {
+        let attributeTypes = UsageTracingWithoutLimitsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageTracingWithoutLimitsHour>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

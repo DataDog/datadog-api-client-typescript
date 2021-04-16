@@ -10,10 +10,12 @@
 
 import { LogContent } from './LogContent';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing a log after being processed and stored by Datadog.
 */
+
 export class Log {
     'content'?: LogContent;
     /**
@@ -23,25 +25,51 @@ export class Log {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "content",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "content": {
             "baseName": "content",
             "type": "LogContent",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Log.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Log {
+      let res = new Log();
+
+      res.content = ObjectSerializer.deserialize(data.content, "LogContent", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: Log): {[key: string]: any} {
+        let attributeTypes = Log.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.content = ObjectSerializer.serialize(data.content, "LogContent", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

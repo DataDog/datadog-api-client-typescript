@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Returns the AWS account associated with this integration.
 */
+
 export class AWSAccount {
     /**
     * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -49,61 +51,105 @@ export class AWSAccount {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "accessKeyId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "accessKeyId": {
             "baseName": "access_key_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "accountId",
+        "accountId": {
             "baseName": "account_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "accountSpecificNamespaceRules",
+        "accountSpecificNamespaceRules": {
             "baseName": "account_specific_namespace_rules",
             "type": "{ [key: string]: boolean; }",
             "format": ""
         },
-        {
-            "name": "excludedRegions",
+        "excludedRegions": {
             "baseName": "excluded_regions",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "filterTags",
+        "filterTags": {
             "baseName": "filter_tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "hostTags",
+        "hostTags": {
             "baseName": "host_tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "roleName",
+        "roleName": {
             "baseName": "role_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "secretAccessKey",
+        "secretAccessKey": {
             "baseName": "secret_access_key",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSAccount.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSAccount {
+      let res = new AWSAccount();
+
+      res.accessKeyId = ObjectSerializer.deserialize(data.access_key_id, "string", "")
+
+      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
+
+      res.accountSpecificNamespaceRules = ObjectSerializer.deserialize(data.account_specific_namespace_rules, "{ [key: string]: boolean; }", "")
+
+      res.excludedRegions = ObjectSerializer.deserialize(data.excluded_regions, "Array<string>", "")
+
+      res.filterTags = ObjectSerializer.deserialize(data.filter_tags, "Array<string>", "")
+
+      res.hostTags = ObjectSerializer.deserialize(data.host_tags, "Array<string>", "")
+
+      res.roleName = ObjectSerializer.deserialize(data.role_name, "string", "")
+
+      res.secretAccessKey = ObjectSerializer.deserialize(data.secret_access_key, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSAccount): {[key: string]: any} {
+        let attributeTypes = AWSAccount.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.access_key_id = ObjectSerializer.serialize(data.accessKeyId, "string", "")
+
+        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
+
+        res.account_specific_namespace_rules = ObjectSerializer.serialize(data.accountSpecificNamespaceRules, "{ [key: string]: boolean; }", "")
+
+        res.excluded_regions = ObjectSerializer.serialize(data.excludedRegions, "Array<string>", "")
+
+        res.filter_tags = ObjectSerializer.serialize(data.filterTags, "Array<string>", "")
+
+        res.host_tags = ObjectSerializer.serialize(data.hostTags, "Array<string>", "")
+
+        res.role_name = ObjectSerializer.serialize(data.roleName, "string", "")
+
+        res.secret_access_key = ObjectSerializer.serialize(data.secretAccessKey, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,28 +10,59 @@
 
 import { RelationshipToIncidentPostmortemData } from './RelationshipToIncidentPostmortemData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A relationship reference for postmortems.
 */
+
 export class RelationshipToIncidentPostmortem {
     'data': RelationshipToIncidentPostmortemData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "RelationshipToIncidentPostmortemData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToIncidentPostmortem.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToIncidentPostmortem {
+      let res = new RelationshipToIncidentPostmortem();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'RelationshipToIncidentPostmortem' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "RelationshipToIncidentPostmortemData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToIncidentPostmortem): {[key: string]: any} {
+        let attributeTypes = RelationshipToIncidentPostmortem.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'RelationshipToIncidentPostmortem' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "RelationshipToIncidentPostmortemData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Paging attributes.
 */
+
 export class SecurityMonitoringSignalsListResponseMetaPage {
     /**
     * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
@@ -21,19 +23,42 @@ export class SecurityMonitoringSignalsListResponseMetaPage {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "after",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "after": {
             "baseName": "after",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringSignalsListResponseMetaPage.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalsListResponseMetaPage {
+      let res = new SecurityMonitoringSignalsListResponseMetaPage();
+
+      res.after = ObjectSerializer.deserialize(data.after, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringSignalsListResponseMetaPage): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringSignalsListResponseMetaPage.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.after = ObjectSerializer.serialize(data.after, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,10 +10,12 @@
 
 import { SlackIntegrationChannelDisplay } from './SlackIntegrationChannelDisplay';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The Slack channel configuration.
 */
+
 export class SlackIntegrationChannel {
     'display'?: SlackIntegrationChannelDisplay;
     /**
@@ -23,25 +25,51 @@ export class SlackIntegrationChannel {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "display",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "display": {
             "baseName": "display",
             "type": "SlackIntegrationChannelDisplay",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SlackIntegrationChannel.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SlackIntegrationChannel {
+      let res = new SlackIntegrationChannel();
+
+      res.display = ObjectSerializer.deserialize(data.display, "SlackIntegrationChannelDisplay", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SlackIntegrationChannel): {[key: string]: any} {
+        let attributeTypes = SlackIntegrationChannel.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.display = ObjectSerializer.serialize(data.display, "SlackIntegrationChannelDisplay", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

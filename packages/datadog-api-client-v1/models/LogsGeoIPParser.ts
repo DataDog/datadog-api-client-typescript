@@ -10,10 +10,12 @@
 
 import { LogsGeoIPParserType } from './LogsGeoIPParserType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.
 */
+
 export class LogsGeoIPParser {
     /**
     * Whether or not the processor is enabled.
@@ -35,43 +37,104 @@ export class LogsGeoIPParser {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "isEnabled",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "isEnabled": {
             "baseName": "is_enabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sources",
+        "sources": {
             "baseName": "sources",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "target",
+        "target": {
             "baseName": "target",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "LogsGeoIPParserType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsGeoIPParser.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsGeoIPParser {
+      let res = new LogsGeoIPParser();
+
+      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      if (data.sources === undefined) {
+          throw new TypeError("missing required attribute 'sources' on 'LogsGeoIPParser' object");
+      }
+      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+
+      if (data.target === undefined) {
+          throw new TypeError("missing required attribute 'target' on 'LogsGeoIPParser' object");
+      }
+      res.target = ObjectSerializer.deserialize(data.target, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'LogsGeoIPParser' object");
+      }
+      if (['geo-ip-parser', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: LogsGeoIPParser): {[key: string]: any} {
+        let attributeTypes = LogsGeoIPParser.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        if (data.sources === undefined) {
+            throw new TypeError("missing required attribute 'sources' on 'LogsGeoIPParser' object");
+        }
+        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
+
+        if (data.target === undefined) {
+            throw new TypeError("missing required attribute 'target' on 'LogsGeoIPParser' object");
+        }
+        res.target = ObjectSerializer.serialize(data.target, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'LogsGeoIPParser' object");
+        }
+        if (['geo-ip-parser', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

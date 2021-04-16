@@ -12,10 +12,12 @@ import { NoteWidgetDefinitionType } from './NoteWidgetDefinitionType';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTickEdge } from './WidgetTickEdge';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The notes and links widget is similar to free text widget, but allows for more formatting options.
 */
+
 export class NoteWidgetDefinition {
     /**
     * Background color of the note.
@@ -43,61 +45,141 @@ export class NoteWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "backgroundColor",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "backgroundColor": {
             "baseName": "background_color",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "content",
+        "content": {
             "baseName": "content",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "fontSize",
+        "fontSize": {
             "baseName": "font_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "showTick",
+        "showTick": {
             "baseName": "show_tick",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "textAlign",
+        "textAlign": {
             "baseName": "text_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "tickEdge",
+        "tickEdge": {
             "baseName": "tick_edge",
             "type": "WidgetTickEdge",
             "format": ""
         },
-        {
-            "name": "tickPos",
+        "tickPos": {
             "baseName": "tick_pos",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "NoteWidgetDefinitionType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return NoteWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): NoteWidgetDefinition {
+      let res = new NoteWidgetDefinition();
+
+      res.backgroundColor = ObjectSerializer.deserialize(data.background_color, "string", "")
+
+      if (data.content === undefined) {
+          throw new TypeError("missing required attribute 'content' on 'NoteWidgetDefinition' object");
+      }
+      res.content = ObjectSerializer.deserialize(data.content, "string", "")
+
+      res.fontSize = ObjectSerializer.deserialize(data.font_size, "string", "")
+
+      res.showTick = ObjectSerializer.deserialize(data.show_tick, "boolean", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.text_align)) {
+          res.textAlign = data.text_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.text_align } for text_align`);
+      }
+
+      if (['bottom', 'left', 'right', 'top', undefined].includes(data.tick_edge)) {
+          res.tickEdge = data.tick_edge;
+      } else {
+          throw TypeError(`invalid enum value ${ data.tick_edge } for tick_edge`);
+      }
+
+      res.tickPos = ObjectSerializer.deserialize(data.tick_pos, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'NoteWidgetDefinition' object");
+      }
+      if (['note', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: NoteWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = NoteWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.background_color = ObjectSerializer.serialize(data.backgroundColor, "string", "")
+
+        if (data.content === undefined) {
+            throw new TypeError("missing required attribute 'content' on 'NoteWidgetDefinition' object");
+        }
+        res.content = ObjectSerializer.serialize(data.content, "string", "")
+
+        res.font_size = ObjectSerializer.serialize(data.fontSize, "string", "")
+
+        res.show_tick = ObjectSerializer.serialize(data.showTick, "boolean", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.textAlign)) {
+            res.text_align = data.textAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.textAlign } for textAlign`);
+        }
+
+        if (['bottom', 'left', 'right', 'top', undefined].includes(data.tickEdge)) {
+            res.tick_edge = data.tickEdge;
+        } else {
+            throw TypeError(`invalid enum value ${ data.tickEdge } for tickEdge`);
+        }
+
+        res.tick_pos = ObjectSerializer.serialize(data.tickPos, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'NoteWidgetDefinition' object");
+        }
+        if (['note', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

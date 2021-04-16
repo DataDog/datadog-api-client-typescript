@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Define an expression alias.
 */
+
 export class TimeseriesWidgetExpressionAlias {
     /**
     * Expression alias.
@@ -25,25 +27,57 @@ export class TimeseriesWidgetExpressionAlias {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aliasName",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aliasName": {
             "baseName": "alias_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "expression",
+        "expression": {
             "baseName": "expression",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return TimeseriesWidgetExpressionAlias.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): TimeseriesWidgetExpressionAlias {
+      let res = new TimeseriesWidgetExpressionAlias();
+
+      res.aliasName = ObjectSerializer.deserialize(data.alias_name, "string", "")
+
+      if (data.expression === undefined) {
+          throw new TypeError("missing required attribute 'expression' on 'TimeseriesWidgetExpressionAlias' object");
+      }
+      res.expression = ObjectSerializer.deserialize(data.expression, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: TimeseriesWidgetExpressionAlias): {[key: string]: any} {
+        let attributeTypes = TimeseriesWidgetExpressionAlias.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.alias_name = ObjectSerializer.serialize(data.aliasName, "string", "")
+
+        if (data.expression === undefined) {
+            throw new TypeError("missing required attribute 'expression' on 'TimeseriesWidgetExpressionAlias' object");
+        }
+        res.expression = ObjectSerializer.serialize(data.expression, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

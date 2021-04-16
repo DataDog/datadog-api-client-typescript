@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
 */
+
 export class ServiceLevelObjectiveQuery {
     /**
     * A Datadog metric query for total (valid) events.
@@ -25,25 +27,63 @@ export class ServiceLevelObjectiveQuery {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "denominator",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "denominator": {
             "baseName": "denominator",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "numerator",
+        "numerator": {
             "baseName": "numerator",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ServiceLevelObjectiveQuery.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ServiceLevelObjectiveQuery {
+      let res = new ServiceLevelObjectiveQuery();
+
+      if (data.denominator === undefined) {
+          throw new TypeError("missing required attribute 'denominator' on 'ServiceLevelObjectiveQuery' object");
+      }
+      res.denominator = ObjectSerializer.deserialize(data.denominator, "string", "")
+
+      if (data.numerator === undefined) {
+          throw new TypeError("missing required attribute 'numerator' on 'ServiceLevelObjectiveQuery' object");
+      }
+      res.numerator = ObjectSerializer.deserialize(data.numerator, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ServiceLevelObjectiveQuery): {[key: string]: any} {
+        let attributeTypes = ServiceLevelObjectiveQuery.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.denominator === undefined) {
+            throw new TypeError("missing required attribute 'denominator' on 'ServiceLevelObjectiveQuery' object");
+        }
+        res.denominator = ObjectSerializer.serialize(data.denominator, "string", "")
+
+        if (data.numerator === undefined) {
+            throw new TypeError("missing required attribute 'numerator' on 'ServiceLevelObjectiveQuery' object");
+        }
+        res.numerator = ObjectSerializer.serialize(data.numerator, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

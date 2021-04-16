@@ -10,10 +10,12 @@
 
 import { UsageNetworkHostsHour } from './UsageNetworkHostsHour';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing the number of active NPM hosts for each hour for a given organization.
 */
+
 export class UsageNetworkHostsResponse {
     /**
     * Get hourly usage for NPM hosts.
@@ -22,19 +24,42 @@ export class UsageNetworkHostsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "usage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "usage": {
             "baseName": "usage",
             "type": "Array<UsageNetworkHostsHour>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageNetworkHostsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageNetworkHostsResponse {
+      let res = new UsageNetworkHostsResponse();
+
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageNetworkHostsHour>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageNetworkHostsResponse): {[key: string]: any} {
+        let attributeTypes = UsageNetworkHostsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageNetworkHostsHour>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

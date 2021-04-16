@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing the options for a Synthetic test as a monitor (for example, renotification).
 */
+
 export class SyntheticsTestOptionsMonitorOptions {
     /**
     * Time interval before renotifying if the test is still failing (in minutes).
@@ -21,19 +23,42 @@ export class SyntheticsTestOptionsMonitorOptions {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "renotifyInterval",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "renotifyInterval": {
             "baseName": "renotify_interval",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTestOptionsMonitorOptions {
+      let res = new SyntheticsTestOptionsMonitorOptions();
+
+      res.renotifyInterval = ObjectSerializer.deserialize(data.renotify_interval, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTestOptionsMonitorOptions): {[key: string]: any} {
+        let attributeTypes = SyntheticsTestOptionsMonitorOptions.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.renotify_interval = ObjectSerializer.serialize(data.renotifyInterval, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

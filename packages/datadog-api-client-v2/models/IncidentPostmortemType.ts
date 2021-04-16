@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Incident postmortem resource type.
 */
-export type IncidentPostmortemType = "incident_postmortems" ;
+
+export type IncidentPostmortemType = typeof INCIDENT_POSTMORTEMS ;
+export const INCIDENT_POSTMORTEMS = 'incident_postmortems';
+
+

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An application key with its associated metadata.
 */
+
 export class ApplicationKey {
     /**
     * Hash of an application key.
@@ -29,31 +31,60 @@ export class ApplicationKey {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "hash",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hash": {
             "baseName": "hash",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "owner",
+        "owner": {
             "baseName": "owner",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApplicationKey.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApplicationKey {
+      let res = new ApplicationKey();
+
+      res.hash = ObjectSerializer.deserialize(data.hash, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.owner = ObjectSerializer.deserialize(data.owner, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ApplicationKey): {[key: string]: any} {
+        let attributeTypes = ApplicationKey.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.hash = ObjectSerializer.serialize(data.hash, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.owner = ObjectSerializer.serialize(data.owner, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

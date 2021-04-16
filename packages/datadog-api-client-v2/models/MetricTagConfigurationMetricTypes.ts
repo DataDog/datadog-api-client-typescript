@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The metric's type.
 */
-export type MetricTagConfigurationMetricTypes = "gauge" | "count" | "distribution" ;
+
+export type MetricTagConfigurationMetricTypes = typeof GAUGE | typeof COUNT | typeof DISTRIBUTION ;
+export const GAUGE = 'gauge';
+export const COUNT = 'count';
+export const DISTRIBUTION = 'distribution';
+
+

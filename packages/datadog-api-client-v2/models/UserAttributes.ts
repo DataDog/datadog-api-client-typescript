@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes of user object returned by the API.
 */
+
 export class UserAttributes {
     /**
     * Creation time of the user.
@@ -57,73 +59,123 @@ export class UserAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "createdAt",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "createdAt": {
             "baseName": "created_at",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "disabled",
+        "disabled": {
             "baseName": "disabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "email",
+        "email": {
             "baseName": "email",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "handle",
+        "handle": {
             "baseName": "handle",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "icon",
+        "icon": {
             "baseName": "icon",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "modifiedAt",
+        "modifiedAt": {
             "baseName": "modified_at",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "verified",
+        "verified": {
             "baseName": "verified",
             "type": "boolean",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UserAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UserAttributes {
+      let res = new UserAttributes();
+
+      res.createdAt = ObjectSerializer.deserialize(data.created_at, "Date", "date-time")
+
+      res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "")
+
+      res.email = ObjectSerializer.deserialize(data.email, "string", "")
+
+      res.handle = ObjectSerializer.deserialize(data.handle, "string", "")
+
+      res.icon = ObjectSerializer.deserialize(data.icon, "string", "")
+
+      res.modifiedAt = ObjectSerializer.deserialize(data.modified_at, "Date", "date-time")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.status = ObjectSerializer.deserialize(data.status, "string", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      res.verified = ObjectSerializer.deserialize(data.verified, "boolean", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UserAttributes): {[key: string]: any} {
+        let attributeTypes = UserAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created_at = ObjectSerializer.serialize(data.createdAt, "Date", "date-time")
+
+        res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "")
+
+        res.email = ObjectSerializer.serialize(data.email, "string", "")
+
+        res.handle = ObjectSerializer.serialize(data.handle, "string", "")
+
+        res.icon = ObjectSerializer.serialize(data.icon, "string", "")
+
+        res.modified_at = ObjectSerializer.serialize(data.modifiedAt, "Date", "date-time")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.status = ObjectSerializer.serialize(data.status, "string", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        res.verified = ObjectSerializer.serialize(data.verified, "boolean", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

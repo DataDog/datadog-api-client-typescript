@@ -10,28 +10,59 @@
 
 import { RelationshipToOrganizationData } from './RelationshipToOrganizationData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Relationship to an organization.
 */
+
 export class RelationshipToOrganization {
     'data': RelationshipToOrganizationData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "RelationshipToOrganizationData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToOrganization.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToOrganization {
+      let res = new RelationshipToOrganization();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'RelationshipToOrganization' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "RelationshipToOrganizationData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToOrganization): {[key: string]: any} {
+        let attributeTypes = RelationshipToOrganization.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'RelationshipToOrganization' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "RelationshipToOrganizationData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

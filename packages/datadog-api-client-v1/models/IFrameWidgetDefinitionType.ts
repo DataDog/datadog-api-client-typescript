@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the iframe widget.
 */
-export type IFrameWidgetDefinitionType = "iframe" ;
+
+export type IFrameWidgetDefinitionType = typeof IFRAME ;
+export const IFRAME = 'iframe';
+
+

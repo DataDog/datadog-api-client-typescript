@@ -11,10 +11,12 @@
 import { APIKeyResponseIncludedItem } from './APIKeyResponseIncludedItem';
 import { FullAPIKey } from './FullAPIKey';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response for retrieving an API key.
 */
+
 export class APIKeyResponse {
     'data'?: FullAPIKey;
     /**
@@ -24,25 +26,51 @@ export class APIKeyResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "FullAPIKey",
             "format": ""
         },
-        {
-            "name": "included",
+        "included": {
             "baseName": "included",
             "type": "Array<APIKeyResponseIncludedItem>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return APIKeyResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): APIKeyResponse {
+      let res = new APIKeyResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "FullAPIKey", "")
+
+      res.included = ObjectSerializer.deserialize(data.included, "Array<APIKeyResponseIncludedItem>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: APIKeyResponse): {[key: string]: any} {
+        let attributeTypes = APIKeyResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "FullAPIKey", "")
+
+        res.included = ObjectSerializer.serialize(data.included, "Array<APIKeyResponseIncludedItem>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

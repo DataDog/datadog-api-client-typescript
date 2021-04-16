@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Fields in Usage Summary by tag(s).
 */
+
 export class UsageAttributionValues {
     /**
     * The percentage of synthetic API test usage by tag(s).
@@ -105,145 +107,231 @@ export class UsageAttributionValues {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "apiPercentage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "apiPercentage": {
             "baseName": "api_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "apiUsage",
+        "apiUsage": {
             "baseName": "api_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "apmHostPercentage",
+        "apmHostPercentage": {
             "baseName": "apm_host_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "apmHostUsage",
+        "apmHostUsage": {
             "baseName": "apm_host_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "browserPercentage",
+        "browserPercentage": {
             "baseName": "browser_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "browserUsage",
+        "browserUsage": {
             "baseName": "browser_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "containerPercentage",
+        "containerPercentage": {
             "baseName": "container_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "containerUsage",
+        "containerUsage": {
             "baseName": "container_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "customTimeseriesPercentage",
+        "customTimeseriesPercentage": {
             "baseName": "custom_timeseries_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "customTimeseriesUsage",
+        "customTimeseriesUsage": {
             "baseName": "custom_timeseries_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "infraHostPercentage",
+        "infraHostPercentage": {
             "baseName": "infra_host_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "infraHostUsage",
+        "infraHostUsage": {
             "baseName": "infra_host_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "lambdaFunctionsPercentage",
+        "lambdaFunctionsPercentage": {
             "baseName": "lambda_functions_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "lambdaFunctionsUsage",
+        "lambdaFunctionsUsage": {
             "baseName": "lambda_functions_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "lambdaInvocationsPercentage",
+        "lambdaInvocationsPercentage": {
             "baseName": "lambda_invocations_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "lambdaInvocationsUsage",
+        "lambdaInvocationsUsage": {
             "baseName": "lambda_invocations_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "lambdaPercentage",
+        "lambdaPercentage": {
             "baseName": "lambda_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "lambdaUsage",
+        "lambdaUsage": {
             "baseName": "lambda_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "npmHostPercentage",
+        "npmHostPercentage": {
             "baseName": "npm_host_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "npmHostUsage",
+        "npmHostUsage": {
             "baseName": "npm_host_usage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "snmpPercentage",
+        "snmpPercentage": {
             "baseName": "snmp_percentage",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "snmpUsage",
+        "snmpUsage": {
             "baseName": "snmp_usage",
             "type": "number",
             "format": "double"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageAttributionValues.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageAttributionValues {
+      let res = new UsageAttributionValues();
+
+      res.apiPercentage = ObjectSerializer.deserialize(data.api_percentage, "number", "double")
+
+      res.apiUsage = ObjectSerializer.deserialize(data.api_usage, "number", "double")
+
+      res.apmHostPercentage = ObjectSerializer.deserialize(data.apm_host_percentage, "number", "double")
+
+      res.apmHostUsage = ObjectSerializer.deserialize(data.apm_host_usage, "number", "double")
+
+      res.browserPercentage = ObjectSerializer.deserialize(data.browser_percentage, "number", "double")
+
+      res.browserUsage = ObjectSerializer.deserialize(data.browser_usage, "number", "double")
+
+      res.containerPercentage = ObjectSerializer.deserialize(data.container_percentage, "number", "double")
+
+      res.containerUsage = ObjectSerializer.deserialize(data.container_usage, "number", "double")
+
+      res.customTimeseriesPercentage = ObjectSerializer.deserialize(data.custom_timeseries_percentage, "number", "double")
+
+      res.customTimeseriesUsage = ObjectSerializer.deserialize(data.custom_timeseries_usage, "number", "double")
+
+      res.infraHostPercentage = ObjectSerializer.deserialize(data.infra_host_percentage, "number", "double")
+
+      res.infraHostUsage = ObjectSerializer.deserialize(data.infra_host_usage, "number", "double")
+
+      res.lambdaFunctionsPercentage = ObjectSerializer.deserialize(data.lambda_functions_percentage, "number", "double")
+
+      res.lambdaFunctionsUsage = ObjectSerializer.deserialize(data.lambda_functions_usage, "number", "double")
+
+      res.lambdaInvocationsPercentage = ObjectSerializer.deserialize(data.lambda_invocations_percentage, "number", "double")
+
+      res.lambdaInvocationsUsage = ObjectSerializer.deserialize(data.lambda_invocations_usage, "number", "double")
+
+      res.lambdaPercentage = ObjectSerializer.deserialize(data.lambda_percentage, "number", "double")
+
+      res.lambdaUsage = ObjectSerializer.deserialize(data.lambda_usage, "number", "double")
+
+      res.npmHostPercentage = ObjectSerializer.deserialize(data.npm_host_percentage, "number", "double")
+
+      res.npmHostUsage = ObjectSerializer.deserialize(data.npm_host_usage, "number", "double")
+
+      res.snmpPercentage = ObjectSerializer.deserialize(data.snmp_percentage, "number", "double")
+
+      res.snmpUsage = ObjectSerializer.deserialize(data.snmp_usage, "number", "double")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageAttributionValues): {[key: string]: any} {
+        let attributeTypes = UsageAttributionValues.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.api_percentage = ObjectSerializer.serialize(data.apiPercentage, "number", "double")
+
+        res.api_usage = ObjectSerializer.serialize(data.apiUsage, "number", "double")
+
+        res.apm_host_percentage = ObjectSerializer.serialize(data.apmHostPercentage, "number", "double")
+
+        res.apm_host_usage = ObjectSerializer.serialize(data.apmHostUsage, "number", "double")
+
+        res.browser_percentage = ObjectSerializer.serialize(data.browserPercentage, "number", "double")
+
+        res.browser_usage = ObjectSerializer.serialize(data.browserUsage, "number", "double")
+
+        res.container_percentage = ObjectSerializer.serialize(data.containerPercentage, "number", "double")
+
+        res.container_usage = ObjectSerializer.serialize(data.containerUsage, "number", "double")
+
+        res.custom_timeseries_percentage = ObjectSerializer.serialize(data.customTimeseriesPercentage, "number", "double")
+
+        res.custom_timeseries_usage = ObjectSerializer.serialize(data.customTimeseriesUsage, "number", "double")
+
+        res.infra_host_percentage = ObjectSerializer.serialize(data.infraHostPercentage, "number", "double")
+
+        res.infra_host_usage = ObjectSerializer.serialize(data.infraHostUsage, "number", "double")
+
+        res.lambda_functions_percentage = ObjectSerializer.serialize(data.lambdaFunctionsPercentage, "number", "double")
+
+        res.lambda_functions_usage = ObjectSerializer.serialize(data.lambdaFunctionsUsage, "number", "double")
+
+        res.lambda_invocations_percentage = ObjectSerializer.serialize(data.lambdaInvocationsPercentage, "number", "double")
+
+        res.lambda_invocations_usage = ObjectSerializer.serialize(data.lambdaInvocationsUsage, "number", "double")
+
+        res.lambda_percentage = ObjectSerializer.serialize(data.lambdaPercentage, "number", "double")
+
+        res.lambda_usage = ObjectSerializer.serialize(data.lambdaUsage, "number", "double")
+
+        res.npm_host_percentage = ObjectSerializer.serialize(data.npmHostPercentage, "number", "double")
+
+        res.npm_host_usage = ObjectSerializer.serialize(data.npmHostUsage, "number", "double")
+
+        res.snmp_percentage = ObjectSerializer.serialize(data.snmpPercentage, "number", "double")
+
+        res.snmp_usage = ObjectSerializer.serialize(data.snmpUsage, "number", "double")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

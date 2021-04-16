@@ -10,28 +10,59 @@
 
 import { UserUpdateData } from './UserUpdateData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Update a user.
 */
+
 export class UserUpdateRequest {
     'data': UserUpdateData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "UserUpdateData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UserUpdateRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UserUpdateRequest {
+      let res = new UserUpdateRequest();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'UserUpdateRequest' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "UserUpdateData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UserUpdateRequest): {[key: string]: any} {
+        let attributeTypes = UserUpdateRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'UserUpdateRequest' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "UserUpdateData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

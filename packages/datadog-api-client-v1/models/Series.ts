@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
 */
+
 export class Series {
     /**
     * The name of the host that produced the metric.
@@ -41,49 +43,99 @@ export class Series {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "host",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "host": {
             "baseName": "host",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "interval",
+        "interval": {
             "baseName": "interval",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "points",
+        "points": {
             "baseName": "points",
             "type": "Array<Array<number>>",
             "format": "double"
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Series.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Series {
+      let res = new Series();
+
+      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+
+      res.interval = ObjectSerializer.deserialize(data.interval, "number", "int64")
+
+      if (data.metric === undefined) {
+          throw new TypeError("missing required attribute 'metric' on 'Series' object");
+      }
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      if (data.points === undefined) {
+          throw new TypeError("missing required attribute 'points' on 'Series' object");
+      }
+      res.points = ObjectSerializer.deserialize(data.points, "Array<Array<number>>", "double")
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.type = ObjectSerializer.deserialize(data.type, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: Series): {[key: string]: any} {
+        let attributeTypes = Series.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.host = ObjectSerializer.serialize(data.host, "string", "")
+
+        res.interval = ObjectSerializer.serialize(data.interval, "number", "int64")
+
+        if (data.metric === undefined) {
+            throw new TypeError("missing required attribute 'metric' on 'Series' object");
+        }
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        if (data.points === undefined) {
+            throw new TypeError("missing required attribute 'points' on 'Series' object");
+        }
+        res.points = ObjectSerializer.serialize(data.points, "Array<Array<number>>", "double")
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.type = ObjectSerializer.serialize(data.type, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

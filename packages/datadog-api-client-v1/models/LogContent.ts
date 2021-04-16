@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * JSON object containing all log attributes and their associated values.
 */
+
 export class LogContent {
     /**
     * JSON object of attributes from your log.
@@ -41,49 +43,87 @@ export class LogContent {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "{ [key: string]: Object; }",
             "format": ""
         },
-        {
-            "name": "host",
+        "host": {
             "baseName": "host",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "service",
+        "service": {
             "baseName": "service",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<Object>",
             "format": "string"
         },
-        {
-            "name": "timestamp",
+        "timestamp": {
             "baseName": "timestamp",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogContent.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogContent {
+      let res = new LogContent();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: Object; }", "")
+
+      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+      res.service = ObjectSerializer.deserialize(data.service, "string", "")
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<Object>", "string")
+
+      res.timestamp = ObjectSerializer.deserialize(data.timestamp, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: LogContent): {[key: string]: any} {
+        let attributeTypes = LogContent.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: Object; }", "")
+
+        res.host = ObjectSerializer.serialize(data.host, "string", "")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        res.service = ObjectSerializer.serialize(data.service, "string", "")
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<Object>", "string")
+
+        res.timestamp = ObjectSerializer.serialize(data.timestamp, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

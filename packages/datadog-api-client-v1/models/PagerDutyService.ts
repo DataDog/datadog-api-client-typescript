@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The PagerDuty service that is available for integration with Datadog.
 */
+
 export class PagerDutyService {
     /**
     * Your service key in PagerDuty.
@@ -25,25 +27,63 @@ export class PagerDutyService {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "serviceKey",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "serviceKey": {
             "baseName": "service_key",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "serviceName",
+        "serviceName": {
             "baseName": "service_name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return PagerDutyService.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): PagerDutyService {
+      let res = new PagerDutyService();
+
+      if (data.service_key === undefined) {
+          throw new TypeError("missing required attribute 'service_key' on 'PagerDutyService' object");
+      }
+      res.serviceKey = ObjectSerializer.deserialize(data.service_key, "string", "")
+
+      if (data.service_name === undefined) {
+          throw new TypeError("missing required attribute 'service_name' on 'PagerDutyService' object");
+      }
+      res.serviceName = ObjectSerializer.deserialize(data.service_name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: PagerDutyService): {[key: string]: any} {
+        let attributeTypes = PagerDutyService.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.serviceKey === undefined) {
+            throw new TypeError("missing required attribute 'service_key' on 'PagerDutyService' object");
+        }
+        res.service_key = ObjectSerializer.serialize(data.serviceKey, "string", "")
+
+        if (data.serviceName === undefined) {
+            throw new TypeError("missing required attribute 'service_name' on 'PagerDutyService' object");
+        }
+        res.service_name = ObjectSerializer.serialize(data.serviceName, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

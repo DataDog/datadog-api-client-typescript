@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The view of the world that the map should render.
 */
+
 export class GeomapWidgetDefinitionView {
     /**
     * The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
@@ -21,19 +23,48 @@ export class GeomapWidgetDefinitionView {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "focus",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "focus": {
             "baseName": "focus",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return GeomapWidgetDefinitionView.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): GeomapWidgetDefinitionView {
+      let res = new GeomapWidgetDefinitionView();
+
+      if (data.focus === undefined) {
+          throw new TypeError("missing required attribute 'focus' on 'GeomapWidgetDefinitionView' object");
+      }
+      res.focus = ObjectSerializer.deserialize(data.focus, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: GeomapWidgetDefinitionView): {[key: string]: any} {
+        let attributeTypes = GeomapWidgetDefinitionView.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.focus === undefined) {
+            throw new TypeError("missing required attribute 'focus' on 'GeomapWidgetDefinitionView' object");
+        }
+        res.focus = ObjectSerializer.serialize(data.focus, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

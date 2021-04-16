@@ -10,28 +10,59 @@
 
 import { IncidentServiceCreateData } from './IncidentServiceCreateData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Create request with an incident service payload.
 */
+
 export class IncidentServiceCreateRequest {
     'data': IncidentServiceCreateData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "IncidentServiceCreateData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentServiceCreateRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentServiceCreateRequest {
+      let res = new IncidentServiceCreateRequest();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'IncidentServiceCreateRequest' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "IncidentServiceCreateData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentServiceCreateRequest): {[key: string]: any} {
+        let attributeTypes = IncidentServiceCreateRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'IncidentServiceCreateRequest' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "IncidentServiceCreateData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

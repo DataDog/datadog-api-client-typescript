@@ -10,10 +10,12 @@
 
 import { ServiceCheckStatus } from './ServiceCheckStatus';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An object containing service check and status.
 */
+
 export class ServiceCheck {
     /**
     * The check.
@@ -39,49 +41,119 @@ export class ServiceCheck {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "check",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "check": {
             "baseName": "check",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "hostName",
+        "hostName": {
             "baseName": "host_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "ServiceCheckStatus",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "timestamp",
+        "timestamp": {
             "baseName": "timestamp",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ServiceCheck.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ServiceCheck {
+      let res = new ServiceCheck();
+
+      if (data.check === undefined) {
+          throw new TypeError("missing required attribute 'check' on 'ServiceCheck' object");
+      }
+      res.check = ObjectSerializer.deserialize(data.check, "string", "")
+
+      if (data.host_name === undefined) {
+          throw new TypeError("missing required attribute 'host_name' on 'ServiceCheck' object");
+      }
+      res.hostName = ObjectSerializer.deserialize(data.host_name, "string", "")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+      if (data.status === undefined) {
+          throw new TypeError("missing required attribute 'status' on 'ServiceCheck' object");
+      }
+      if ([0, 1, 2, 3, undefined].includes(data.status)) {
+          res.status = data.status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.status } for status`);
+      }
+
+      if (data.tags === undefined) {
+          throw new TypeError("missing required attribute 'tags' on 'ServiceCheck' object");
+      }
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.timestamp = ObjectSerializer.deserialize(data.timestamp, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: ServiceCheck): {[key: string]: any} {
+        let attributeTypes = ServiceCheck.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.check === undefined) {
+            throw new TypeError("missing required attribute 'check' on 'ServiceCheck' object");
+        }
+        res.check = ObjectSerializer.serialize(data.check, "string", "")
+
+        if (data.hostName === undefined) {
+            throw new TypeError("missing required attribute 'host_name' on 'ServiceCheck' object");
+        }
+        res.host_name = ObjectSerializer.serialize(data.hostName, "string", "")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        if (data.status === undefined) {
+            throw new TypeError("missing required attribute 'status' on 'ServiceCheck' object");
+        }
+        if ([0, 1, 2, 3, undefined].includes(data.status)) {
+            res.status = data.status;
+        } else {
+            throw TypeError(`invalid enum value ${ data.status } for status`);
+        }
+
+        if (data.tags === undefined) {
+            throw new TypeError("missing required attribute 'tags' on 'ServiceCheck' object");
+        }
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.timestamp = ObjectSerializer.serialize(data.timestamp, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

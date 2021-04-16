@@ -10,10 +10,12 @@
 
 import { IncidentFieldAttributesSingleValueType } from './IncidentFieldAttributesSingleValueType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A field with a single value selected.
 */
+
 export class IncidentFieldAttributesSingleValue {
     'type'?: IncidentFieldAttributesSingleValueType;
     /**
@@ -23,25 +25,59 @@ export class IncidentFieldAttributesSingleValue {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "type",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "type": {
             "baseName": "type",
             "type": "IncidentFieldAttributesSingleValueType",
             "format": ""
         },
-        {
-            "name": "value",
+        "value": {
             "baseName": "value",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentFieldAttributesSingleValue.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentFieldAttributesSingleValue {
+      let res = new IncidentFieldAttributesSingleValue();
+
+      if (['dropdown', 'textbox', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      res.value = ObjectSerializer.deserialize(data.value, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentFieldAttributesSingleValue): {[key: string]: any} {
+        let attributeTypes = IncidentFieldAttributesSingleValue.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['dropdown', 'textbox', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        res.value = ObjectSerializer.serialize(data.value, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

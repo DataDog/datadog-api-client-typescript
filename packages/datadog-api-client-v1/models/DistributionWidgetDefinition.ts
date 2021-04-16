@@ -13,10 +13,12 @@ import { DistributionWidgetRequest } from './DistributionWidgetRequest';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTime } from './WidgetTime';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
 */
+
 export class DistributionWidgetDefinition {
     /**
     * Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
@@ -44,61 +46,133 @@ export class DistributionWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "legendSize",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "legendSize": {
             "baseName": "legend_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "requests",
+        "requests": {
             "baseName": "requests",
             "type": "Array<DistributionWidgetRequest>",
             "format": ""
         },
-        {
-            "name": "showLegend",
+        "showLegend": {
             "baseName": "show_legend",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "WidgetTime",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "titleAlign",
+        "titleAlign": {
             "baseName": "title_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "titleSize",
+        "titleSize": {
             "baseName": "title_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "DistributionWidgetDefinitionType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DistributionWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DistributionWidgetDefinition {
+      let res = new DistributionWidgetDefinition();
+
+      res.legendSize = ObjectSerializer.deserialize(data.legend_size, "string", "")
+
+      if (data.requests === undefined) {
+          throw new TypeError("missing required attribute 'requests' on 'DistributionWidgetDefinition' object");
+      }
+      res.requests = ObjectSerializer.deserialize(data.requests, "Array<DistributionWidgetRequest>", "")
+
+      res.showLegend = ObjectSerializer.deserialize(data.show_legend, "boolean", "")
+
+      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
+
+      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'DistributionWidgetDefinition' object");
+      }
+      if (['distribution', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: DistributionWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = DistributionWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "")
+
+        if (data.requests === undefined) {
+            throw new TypeError("missing required attribute 'requests' on 'DistributionWidgetDefinition' object");
+        }
+        res.requests = ObjectSerializer.serialize(data.requests, "Array<DistributionWidgetRequest>", "")
+
+        res.show_legend = ObjectSerializer.serialize(data.showLegend, "boolean", "")
+
+        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
+
+        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'DistributionWidgetDefinition' object");
+        }
+        if (['distribution', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes used to create an API Key.
 */
+
 export class APIKeyCreateAttributes {
     /**
     * Name of the API key.
@@ -21,19 +23,48 @@ export class APIKeyCreateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "name",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return APIKeyCreateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): APIKeyCreateAttributes {
+      let res = new APIKeyCreateAttributes();
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'APIKeyCreateAttributes' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: APIKeyCreateAttributes): {[key: string]: any} {
+        let attributeTypes = APIKeyCreateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'APIKeyCreateAttributes' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

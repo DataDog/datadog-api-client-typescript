@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The hourly usage of timeseries.
 */
+
 export class UsageTimeseriesHour {
     /**
     * The hour for the usage.
@@ -33,37 +35,69 @@ export class UsageTimeseriesHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "hour",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "numCustomInputTimeseries",
+        "numCustomInputTimeseries": {
             "baseName": "num_custom_input_timeseries",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "numCustomOutputTimeseries",
+        "numCustomOutputTimeseries": {
             "baseName": "num_custom_output_timeseries",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "numCustomTimeseries",
+        "numCustomTimeseries": {
             "baseName": "num_custom_timeseries",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageTimeseriesHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageTimeseriesHour {
+      let res = new UsageTimeseriesHour();
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.numCustomInputTimeseries = ObjectSerializer.deserialize(data.num_custom_input_timeseries, "number", "int64")
+
+      res.numCustomOutputTimeseries = ObjectSerializer.deserialize(data.num_custom_output_timeseries, "number", "int64")
+
+      res.numCustomTimeseries = ObjectSerializer.deserialize(data.num_custom_timeseries, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageTimeseriesHour): {[key: string]: any} {
+        let attributeTypes = UsageTimeseriesHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.num_custom_input_timeseries = ObjectSerializer.serialize(data.numCustomInputTimeseries, "number", "int64")
+
+        res.num_custom_output_timeseries = ObjectSerializer.serialize(data.numCustomOutputTimeseries, "number", "int64")
+
+        res.num_custom_timeseries = ObjectSerializer.serialize(data.numCustomTimeseries, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

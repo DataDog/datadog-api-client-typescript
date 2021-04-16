@@ -12,10 +12,12 @@ import { LogsAggregateSortType } from './LogsAggregateSortType';
 import { LogsAggregationFunction } from './LogsAggregationFunction';
 import { LogsSortOrder } from './LogsSortOrder';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A sort rule
 */
+
 export class LogsAggregateSort {
     'aggregation'?: LogsAggregationFunction;
     /**
@@ -27,37 +29,93 @@ export class LogsAggregateSort {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregation",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aggregation": {
             "baseName": "aggregation",
             "type": "LogsAggregationFunction",
             "format": ""
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "order",
+        "order": {
             "baseName": "order",
             "type": "LogsSortOrder",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "LogsAggregateSortType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAggregateSort.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAggregateSort {
+      let res = new LogsAggregateSort();
+
+      if (['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg', undefined].includes(data.aggregation)) {
+          res.aggregation = data.aggregation;
+      } else {
+          throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
+      }
+
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      if (['asc', 'desc', undefined].includes(data.order)) {
+          res.order = data.order;
+      } else {
+          throw TypeError(`invalid enum value ${ data.order } for order`);
+      }
+
+      if (['alphabetical', 'measure', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAggregateSort): {[key: string]: any} {
+        let attributeTypes = LogsAggregateSort.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg', undefined].includes(data.aggregation)) {
+            res.aggregation = data.aggregation;
+        } else {
+            throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
+        }
+
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        if (['asc', 'desc', undefined].includes(data.order)) {
+            res.order = data.order;
+        } else {
+            throw TypeError(`invalid enum value ${ data.order } for order`);
+        }
+
+        if (['alphabetical', 'measure', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

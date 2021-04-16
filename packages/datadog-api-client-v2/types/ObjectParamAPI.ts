@@ -103,7 +103,6 @@ import { LogAttributes } from '../models/LogAttributes';
 import { LogType } from '../models/LogType';
 import { LogsAggregateBucket } from '../models/LogsAggregateBucket';
 import { LogsAggregateBucketValue } from '../models/LogsAggregateBucketValue';
-import { LogsAggregateBucketValueTimeseries } from '../models/LogsAggregateBucketValueTimeseries';
 import { LogsAggregateBucketValueTimeseriesPoint } from '../models/LogsAggregateBucketValueTimeseriesPoint';
 import { LogsAggregateRequest } from '../models/LogsAggregateRequest';
 import { LogsAggregateRequestPage } from '../models/LogsAggregateRequestPage';

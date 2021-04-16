@@ -11,10 +11,12 @@
 import { MetricAllTagsAttributes } from './MetricAllTagsAttributes';
 import { MetricType } from './MetricType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object for a single metric's indexed tags.
 */
+
 export class MetricAllTags {
     'attributes'?: MetricAllTagsAttributes;
     /**
@@ -25,31 +27,68 @@ export class MetricAllTags {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "MetricAllTagsAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "MetricType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricAllTags.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricAllTags {
+      let res = new MetricAllTags();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "MetricAllTagsAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['metrics', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: MetricAllTags): {[key: string]: any} {
+        let attributeTypes = MetricAllTags.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "MetricAllTagsAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['metrics', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

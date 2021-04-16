@@ -9,8 +9,16 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Comparator to apply.
 */
-export type WidgetComparator = "&gt;" | "&gt;&#x3D;" | "&lt;" | "&lt;&#x3D;" ;
+
+export type WidgetComparator = typeof GREATER_THAN | typeof GREATER_THAN_OR_EQUAL_TO | typeof LESS_THAN | typeof LESS_THAN_OR_EQUAL_TO ;
+export const GREATER_THAN = '>';
+export const GREATER_THAN_OR_EQUAL_TO = '>=';
+export const LESS_THAN = '<';
+export const LESS_THAN_OR_EQUAL_TO = '<=';
+
+

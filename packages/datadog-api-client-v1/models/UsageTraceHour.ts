@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The hours of trace usage.
 */
+
 export class UsageTraceHour {
     /**
     * The hour for the usage.
@@ -25,25 +27,51 @@ export class UsageTraceHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "hour",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "indexedEventsCount",
+        "indexedEventsCount": {
             "baseName": "indexed_events_count",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageTraceHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageTraceHour {
+      let res = new UsageTraceHour();
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.indexedEventsCount = ObjectSerializer.deserialize(data.indexed_events_count, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageTraceHour): {[key: string]: any} {
+        let attributeTypes = UsageTraceHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.indexed_events_count = ObjectSerializer.serialize(data.indexedEventsCount, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

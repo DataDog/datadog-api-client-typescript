@@ -10,10 +10,12 @@
 
 import { DashboardListItemResponse } from './DashboardListItemResponse';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing a list of deleted dashboards.
 */
+
 export class DashboardListDeleteItemsResponse {
     /**
     * List of dashboards deleted from the dashboard list.
@@ -22,19 +24,42 @@ export class DashboardListDeleteItemsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "deletedDashboardsFromList",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "deletedDashboardsFromList": {
             "baseName": "deleted_dashboards_from_list",
             "type": "Array<DashboardListItemResponse>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardListDeleteItemsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardListDeleteItemsResponse {
+      let res = new DashboardListDeleteItemsResponse();
+
+      res.deletedDashboardsFromList = ObjectSerializer.deserialize(data.deleted_dashboards_from_list, "Array<DashboardListItemResponse>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardListDeleteItemsResponse): {[key: string]: any} {
+        let attributeTypes = DashboardListDeleteItemsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.deleted_dashboards_from_list = ObjectSerializer.serialize(data.deletedDashboardsFromList, "Array<DashboardListItemResponse>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

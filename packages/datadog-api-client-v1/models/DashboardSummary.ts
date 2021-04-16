@@ -10,10 +10,12 @@
 
 import { DashboardSummaryDefinition } from './DashboardSummaryDefinition';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Dashboard summary response.
 */
+
 export class DashboardSummary {
     /**
     * List of dashboard definitions.
@@ -22,19 +24,42 @@ export class DashboardSummary {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "dashboards",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "dashboards": {
             "baseName": "dashboards",
             "type": "Array<DashboardSummaryDefinition>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardSummary.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardSummary {
+      let res = new DashboardSummary();
+
+      res.dashboards = ObjectSerializer.deserialize(data.dashboards, "Array<DashboardSummaryDefinition>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardSummary): {[key: string]: any} {
+        let attributeTypes = DashboardSummary.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.dashboards = ObjectSerializer.serialize(data.dashboards, "Array<DashboardSummaryDefinition>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

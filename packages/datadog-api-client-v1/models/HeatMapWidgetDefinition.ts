@@ -16,10 +16,12 @@ import { WidgetEvent } from './WidgetEvent';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTime } from './WidgetTime';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
 */
+
 export class HeatMapWidgetDefinition {
     /**
     * List of custom links.
@@ -56,79 +58,160 @@ export class HeatMapWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "customLinks",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "customLinks": {
             "baseName": "custom_links",
             "type": "Array<WidgetCustomLink>",
             "format": ""
         },
-        {
-            "name": "events",
+        "events": {
             "baseName": "events",
             "type": "Array<WidgetEvent>",
             "format": ""
         },
-        {
-            "name": "legendSize",
+        "legendSize": {
             "baseName": "legend_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "requests",
+        "requests": {
             "baseName": "requests",
             "type": "Array<HeatMapWidgetRequest>",
             "format": ""
         },
-        {
-            "name": "showLegend",
+        "showLegend": {
             "baseName": "show_legend",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "WidgetTime",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "titleAlign",
+        "titleAlign": {
             "baseName": "title_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "titleSize",
+        "titleSize": {
             "baseName": "title_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "HeatMapWidgetDefinitionType",
             "format": ""
         },
-        {
-            "name": "yaxis",
+        "yaxis": {
             "baseName": "yaxis",
             "type": "WidgetAxis",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HeatMapWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HeatMapWidgetDefinition {
+      let res = new HeatMapWidgetDefinition();
+
+      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
+
+      res.events = ObjectSerializer.deserialize(data.events, "Array<WidgetEvent>", "")
+
+      res.legendSize = ObjectSerializer.deserialize(data.legend_size, "string", "")
+
+      if (data.requests === undefined) {
+          throw new TypeError("missing required attribute 'requests' on 'HeatMapWidgetDefinition' object");
+      }
+      res.requests = ObjectSerializer.deserialize(data.requests, "Array<HeatMapWidgetRequest>", "")
+
+      res.showLegend = ObjectSerializer.deserialize(data.show_legend, "boolean", "")
+
+      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
+
+      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'HeatMapWidgetDefinition' object");
+      }
+      if (['heatmap', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      res.yaxis = ObjectSerializer.deserialize(data.yaxis, "WidgetAxis", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HeatMapWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = HeatMapWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
+
+        res.events = ObjectSerializer.serialize(data.events, "Array<WidgetEvent>", "")
+
+        res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "")
+
+        if (data.requests === undefined) {
+            throw new TypeError("missing required attribute 'requests' on 'HeatMapWidgetDefinition' object");
+        }
+        res.requests = ObjectSerializer.serialize(data.requests, "Array<HeatMapWidgetRequest>", "")
+
+        res.show_legend = ObjectSerializer.serialize(data.showLegend, "boolean", "")
+
+        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
+
+        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'HeatMapWidgetDefinition' object");
+        }
+        if (['heatmap', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        res.yaxis = ObjectSerializer.serialize(data.yaxis, "WidgetAxis", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

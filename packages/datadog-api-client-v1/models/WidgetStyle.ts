@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Widget style definition.
 */
+
 export class WidgetStyle {
     /**
     * Color palette to apply to the widget.
@@ -21,19 +23,42 @@ export class WidgetStyle {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "palette",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "palette": {
             "baseName": "palette",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetStyle.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetStyle {
+      let res = new WidgetStyle();
+
+      res.palette = ObjectSerializer.deserialize(data.palette, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetStyle): {[key: string]: any} {
+        let attributeTypes = WidgetStyle.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.palette = ObjectSerializer.serialize(data.palette, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

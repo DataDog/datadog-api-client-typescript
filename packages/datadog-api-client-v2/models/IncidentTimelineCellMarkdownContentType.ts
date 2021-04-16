@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the Markdown timeline cell.
 */
-export type IncidentTimelineCellMarkdownContentType = "markdown" ;
+
+export type IncidentTimelineCellMarkdownContentType = typeof MARKDOWN ;
+export const MARKDOWN = 'markdown';
+
+

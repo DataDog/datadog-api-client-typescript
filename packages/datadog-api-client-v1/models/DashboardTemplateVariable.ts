@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Template variable.
 */
+
 export class DashboardTemplateVariable {
     /**
     * The default value for the template variable on dashboard load.
@@ -29,31 +31,66 @@ export class DashboardTemplateVariable {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "_default",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "_default": {
             "baseName": "default",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "prefix",
+        "prefix": {
             "baseName": "prefix",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardTemplateVariable.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardTemplateVariable {
+      let res = new DashboardTemplateVariable();
+
+      res._default = ObjectSerializer.deserialize(data.default, "string", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'DashboardTemplateVariable' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.prefix = ObjectSerializer.deserialize(data.prefix, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardTemplateVariable): {[key: string]: any} {
+        let attributeTypes = DashboardTemplateVariable.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.default = ObjectSerializer.serialize(data._default, "string", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'DashboardTemplateVariable' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.prefix = ObjectSerializer.serialize(data.prefix, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

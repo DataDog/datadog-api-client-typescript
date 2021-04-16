@@ -10,10 +10,12 @@
 
 import { AWSLogsAsyncError } from './AWSLogsAsyncError';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A list of all Datadog-AWS logs integrations available in your Datadog organization.
 */
+
 export class AWSLogsAsyncResponse {
     /**
     * List of errors.
@@ -26,25 +28,51 @@ export class AWSLogsAsyncResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "errors",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "errors": {
             "baseName": "errors",
             "type": "Array<AWSLogsAsyncError>",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSLogsAsyncResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSLogsAsyncResponse {
+      let res = new AWSLogsAsyncResponse();
+
+      res.errors = ObjectSerializer.deserialize(data.errors, "Array<AWSLogsAsyncError>", "")
+
+      res.status = ObjectSerializer.deserialize(data.status, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSLogsAsyncResponse): {[key: string]: any} {
+        let attributeTypes = AWSLogsAsyncResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.errors = ObjectSerializer.serialize(data.errors, "Array<AWSLogsAsyncError>", "")
+
+        res.status = ObjectSerializer.serialize(data.status, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

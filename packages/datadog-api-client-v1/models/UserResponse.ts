@@ -10,28 +10,53 @@
 
 import { User } from './User';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A Datadog User.
 */
+
 export class UserResponse {
     'user'?: User;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "user",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "user": {
             "baseName": "user",
             "type": "User",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UserResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UserResponse {
+      let res = new UserResponse();
+
+      res.user = ObjectSerializer.deserialize(data.user, "User", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UserResponse): {[key: string]: any} {
+        let attributeTypes = UserResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.user = ObjectSerializer.serialize(data.user, "User", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

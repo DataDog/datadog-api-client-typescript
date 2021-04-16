@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Description of the Lambdas.
 */
+
 export class AWSLogsLambda {
     /**
     * Available ARN IDs.
@@ -21,19 +23,42 @@ export class AWSLogsLambda {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "arn",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "arn": {
             "baseName": "arn",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSLogsLambda.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSLogsLambda {
+      let res = new AWSLogsLambda();
+
+      res.arn = ObjectSerializer.deserialize(data.arn, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSLogsLambda): {[key: string]: any} {
+        let attributeTypes = AWSLogsLambda.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.arn = ObjectSerializer.serialize(data.arn, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

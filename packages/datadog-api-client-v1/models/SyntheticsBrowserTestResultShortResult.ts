@@ -10,10 +10,12 @@
 
 import { SyntheticsDevice } from './SyntheticsDevice';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object with the result of the last browser test run.
 */
+
 export class SyntheticsBrowserTestResultShortResult {
     'device'?: SyntheticsDevice;
     /**
@@ -35,43 +37,78 @@ export class SyntheticsBrowserTestResultShortResult {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "device",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "device": {
             "baseName": "device",
             "type": "SyntheticsDevice",
             "format": ""
         },
-        {
-            "name": "duration",
+        "duration": {
             "baseName": "duration",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "errorCount",
+        "errorCount": {
             "baseName": "errorCount",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "stepCountCompleted",
+        "stepCountCompleted": {
             "baseName": "stepCountCompleted",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "stepCountTotal",
+        "stepCountTotal": {
             "baseName": "stepCountTotal",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTestResultShortResult {
+      let res = new SyntheticsBrowserTestResultShortResult();
+
+      res.device = ObjectSerializer.deserialize(data.device, "SyntheticsDevice", "")
+
+      res.duration = ObjectSerializer.deserialize(data.duration, "number", "double")
+
+      res.errorCount = ObjectSerializer.deserialize(data.errorCount, "number", "int64")
+
+      res.stepCountCompleted = ObjectSerializer.deserialize(data.stepCountCompleted, "number", "int64")
+
+      res.stepCountTotal = ObjectSerializer.deserialize(data.stepCountTotal, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsBrowserTestResultShortResult): {[key: string]: any} {
+        let attributeTypes = SyntheticsBrowserTestResultShortResult.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.device = ObjectSerializer.serialize(data.device, "SyntheticsDevice", "")
+
+        res.duration = ObjectSerializer.serialize(data.duration, "number", "double")
+
+        res.errorCount = ObjectSerializer.serialize(data.errorCount, "number", "int64")
+
+        res.stepCountCompleted = ObjectSerializer.serialize(data.stepCountCompleted, "number", "int64")
+
+        res.stepCountTotal = ObjectSerializer.serialize(data.stepCountTotal, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Number of active NPM hosts for each hour for a given organization.
 */
+
 export class UsageNetworkHostsHour {
     /**
     * Contains the number of active NPM hosts.
@@ -25,25 +27,51 @@ export class UsageNetworkHostsHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "hostCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hostCount": {
             "baseName": "host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageNetworkHostsHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageNetworkHostsHour {
+      let res = new UsageNetworkHostsHour();
+
+      res.hostCount = ObjectSerializer.deserialize(data.host_count, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageNetworkHostsHour): {[key: string]: any} {
+        let attributeTypes = UsageNetworkHostsHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.host_count = ObjectSerializer.serialize(data.hostCount, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

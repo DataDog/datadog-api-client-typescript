@@ -10,28 +10,53 @@
 
 import { MetricVolumes } from './MetricVolumes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response object which includes a single metric's volume.
 */
+
 export class MetricVolumesResponse {
     'data'?: MetricVolumes;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "MetricVolumes",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricVolumesResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricVolumesResponse {
+      let res = new MetricVolumesResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "MetricVolumes", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricVolumesResponse): {[key: string]: any} {
+        let attributeTypes = MetricVolumesResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "MetricVolumes", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

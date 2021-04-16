@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The Agent rule.
 */
+
 export class SecurityMonitoringRuntimeAgentRule {
     /**
     * The Agent rule ID. Must be unique within the rule.
@@ -25,25 +27,51 @@ export class SecurityMonitoringRuntimeAgentRule {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "agentRuleId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "agentRuleId": {
             "baseName": "agentRuleId",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "expression",
+        "expression": {
             "baseName": "expression",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringRuntimeAgentRule.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuntimeAgentRule {
+      let res = new SecurityMonitoringRuntimeAgentRule();
+
+      res.agentRuleId = ObjectSerializer.deserialize(data.agentRuleId, "string", "")
+
+      res.expression = ObjectSerializer.deserialize(data.expression, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringRuntimeAgentRule): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringRuntimeAgentRule.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.agentRuleId = ObjectSerializer.serialize(data.agentRuleId, "string", "")
+
+        res.expression = ObjectSerializer.serialize(data.expression, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

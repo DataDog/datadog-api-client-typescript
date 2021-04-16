@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object listing all metric names stored by Datadog since a given time.
 */
+
 export class MetricsListResponse {
     /**
     * Time when the metrics were active, seconds since the Unix epoch.
@@ -25,25 +27,51 @@ export class MetricsListResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "from",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "from": {
             "baseName": "from",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "metrics",
+        "metrics": {
             "baseName": "metrics",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricsListResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricsListResponse {
+      let res = new MetricsListResponse();
+
+      res.from = ObjectSerializer.deserialize(data.from, "string", "")
+
+      res.metrics = ObjectSerializer.deserialize(data.metrics, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricsListResponse): {[key: string]: any} {
+        let attributeTypes = MetricsListResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.from = ObjectSerializer.serialize(data.from, "string", "")
+
+        res.metrics = ObjectSerializer.serialize(data.metrics, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

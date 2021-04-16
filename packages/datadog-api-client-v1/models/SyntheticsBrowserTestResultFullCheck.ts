@@ -10,28 +10,59 @@
 
 import { SyntheticsTestConfig } from './SyntheticsTestConfig';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the browser test configuration.
 */
+
 export class SyntheticsBrowserTestResultFullCheck {
     'config': SyntheticsTestConfig;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "config",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "config": {
             "baseName": "config",
             "type": "SyntheticsTestConfig",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTestResultFullCheck {
+      let res = new SyntheticsBrowserTestResultFullCheck();
+
+      if (data.config === undefined) {
+          throw new TypeError("missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object");
+      }
+      res.config = ObjectSerializer.deserialize(data.config, "SyntheticsTestConfig", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsBrowserTestResultFullCheck): {[key: string]: any} {
+        let attributeTypes = SyntheticsBrowserTestResultFullCheck.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.config === undefined) {
+            throw new TypeError("missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object");
+        }
+        res.config = ObjectSerializer.serialize(data.config, "SyntheticsTestConfig", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

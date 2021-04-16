@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the timeseries widget.
 */
-export type TimeseriesWidgetDefinitionType = "timeseries" ;
+
+export type TimeseriesWidgetDefinitionType = typeof TIMESERIES ;
+export const TIMESERIES = 'timeseries';
+
+

@@ -10,10 +10,12 @@
 
 import { ServiceLevelObjective } from './ServiceLevelObjective';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A service level objective response containing a single service level objective.
 */
+
 export class SLOResponse {
     'data'?: ServiceLevelObjective;
     /**
@@ -23,25 +25,51 @@ export class SLOResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "ServiceLevelObjective",
             "format": ""
         },
-        {
-            "name": "errors",
+        "errors": {
             "baseName": "errors",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOResponse {
+      let res = new SLOResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "ServiceLevelObjective", "")
+
+      res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOResponse): {[key: string]: any} {
+        let attributeTypes = SLOResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "ServiceLevelObjective", "")
+
+        res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

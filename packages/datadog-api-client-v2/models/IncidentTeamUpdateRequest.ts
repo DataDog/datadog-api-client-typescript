@@ -10,28 +10,59 @@
 
 import { IncidentTeamUpdateData } from './IncidentTeamUpdateData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Update request with an incident team payload.
 */
+
 export class IncidentTeamUpdateRequest {
     'data': IncidentTeamUpdateData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "IncidentTeamUpdateData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentTeamUpdateRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentTeamUpdateRequest {
+      let res = new IncidentTeamUpdateRequest();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'IncidentTeamUpdateRequest' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "IncidentTeamUpdateData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentTeamUpdateRequest): {[key: string]: any} {
+        let attributeTypes = IncidentTeamUpdateRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'IncidentTeamUpdateRequest' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "IncidentTeamUpdateData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

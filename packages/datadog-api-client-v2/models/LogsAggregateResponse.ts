@@ -11,35 +11,63 @@
 import { LogsAggregateResponseData } from './LogsAggregateResponseData';
 import { LogsResponseMetadata } from './LogsResponseMetadata';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The response object for the logs aggregate API endpoint
 */
+
 export class LogsAggregateResponse {
     'data'?: LogsAggregateResponseData;
     'meta'?: LogsResponseMetadata;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "LogsAggregateResponseData",
             "format": ""
         },
-        {
-            "name": "meta",
+        "meta": {
             "baseName": "meta",
             "type": "LogsResponseMetadata",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAggregateResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAggregateResponse {
+      let res = new LogsAggregateResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "LogsAggregateResponseData", "")
+
+      res.meta = ObjectSerializer.deserialize(data.meta, "LogsResponseMetadata", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAggregateResponse): {[key: string]: any} {
+        let attributeTypes = LogsAggregateResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "LogsAggregateResponseData", "")
+
+        res.meta = ObjectSerializer.serialize(data.meta, "LogsResponseMetadata", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

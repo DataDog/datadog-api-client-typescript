@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs service remapper.
 */
-export type LogsServiceRemapperType = "service-remapper" ;
+
+export type LogsServiceRemapperType = typeof SERVICE_REMAPPER ;
+export const SERVICE_REMAPPER = 'service-remapper';
+
+

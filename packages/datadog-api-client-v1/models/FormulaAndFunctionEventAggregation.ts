@@ -9,8 +9,24 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Aggregation methods for event platform queries.
 */
-export type FormulaAndFunctionEventAggregation = "count" | "cardinality" | "median" | "pc75" | "pc90" | "pc95" | "pc98" | "pc99" | "sum" | "min" | "max" | "avg" ;
+
+export type FormulaAndFunctionEventAggregation = typeof COUNT | typeof CARDINALITY | typeof MEDIAN | typeof PC75 | typeof PC90 | typeof PC95 | typeof PC98 | typeof PC99 | typeof SUM | typeof MIN | typeof MAX | typeof AVG ;
+export const COUNT = 'count';
+export const CARDINALITY = 'cardinality';
+export const MEDIAN = 'median';
+export const PC75 = 'pc75';
+export const PC90 = 'pc90';
+export const PC95 = 'pc95';
+export const PC98 = 'pc98';
+export const PC99 = 'pc99';
+export const SUM = 'sum';
+export const MIN = 'min';
+export const MAX = 'max';
+export const AVG = 'avg';
+
+

@@ -9,8 +9,23 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An aggregation function
 */
-export type LogsAggregationFunction = "count" | "cardinality" | "pc75" | "pc90" | "pc95" | "pc98" | "pc99" | "sum" | "min" | "max" | "avg" ;
+
+export type LogsAggregationFunction = typeof COUNT | typeof CARDINALITY | typeof PERCENTILE_75 | typeof PERCENTILE_90 | typeof PERCENTILE_95 | typeof PERCENTILE_98 | typeof PERCENTILE_99 | typeof SUM | typeof MIN | typeof MAX | typeof AVG ;
+export const COUNT = 'count';
+export const CARDINALITY = 'cardinality';
+export const PERCENTILE_75 = 'pc75';
+export const PERCENTILE_90 = 'pc90';
+export const PERCENTILE_95 = 'pc95';
+export const PERCENTILE_98 = 'pc98';
+export const PERCENTILE_99 = 'pc99';
+export const SUM = 'sum';
+export const MIN = 'min';
+export const MAX = 'max';
+export const AVG = 'avg';
+
+

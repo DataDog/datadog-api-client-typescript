@@ -10,10 +10,12 @@
 
 import { SyntheticsDeletedTest } from './SyntheticsDeletedTest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response object for deleting Synthetic tests.
 */
+
 export class SyntheticsDeleteTestsResponse {
     /**
     * Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp.
@@ -22,19 +24,42 @@ export class SyntheticsDeleteTestsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "deletedTests",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "deletedTests": {
             "baseName": "deleted_tests",
             "type": "Array<SyntheticsDeletedTest>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsDeleteTestsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsDeleteTestsResponse {
+      let res = new SyntheticsDeleteTestsResponse();
+
+      res.deletedTests = ObjectSerializer.deserialize(data.deleted_tests, "Array<SyntheticsDeletedTest>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsDeleteTestsResponse): {[key: string]: any} {
+        let attributeTypes = SyntheticsDeleteTestsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.deleted_tests = ObjectSerializer.serialize(data.deletedTests, "Array<SyntheticsDeletedTest>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

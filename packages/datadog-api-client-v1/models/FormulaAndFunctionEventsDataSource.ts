@@ -9,8 +9,18 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Data source for event platform-based queries.
 */
-export type FormulaAndFunctionEventsDataSource = "logs" | "spans" | "network" | "rum" | "security_signals" | "profiles" ;
+
+export type FormulaAndFunctionEventsDataSource = typeof LOGS | typeof SPANS | typeof NETWORK | typeof RUM | typeof SECURITY_SIGNALS | typeof PROFILES ;
+export const LOGS = 'logs';
+export const SPANS = 'spans';
+export const NETWORK = 'network';
+export const RUM = 'rum';
+export const SECURITY_SIGNALS = 'security_signals';
+export const PROFILES = 'profiles';
+
+

@@ -10,10 +10,12 @@
 
 import { IncidentFieldAttributes } from './IncidentFieldAttributes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The incident's attributes for an update request.
 */
+
 export class IncidentUpdateAttributes {
     /**
     * Timestamp when customers were no longer impacted by the incident.
@@ -54,67 +56,114 @@ export class IncidentUpdateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "customerImpactEnd",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "customerImpactEnd": {
             "baseName": "customer_impact_end",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "customerImpactScope",
+        "customerImpactScope": {
             "baseName": "customer_impact_scope",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "customerImpactStart",
+        "customerImpactStart": {
             "baseName": "customer_impact_start",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "customerImpacted",
+        "customerImpacted": {
             "baseName": "customer_impacted",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "detected",
+        "detected": {
             "baseName": "detected",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "fields",
+        "fields": {
             "baseName": "fields",
             "type": "{ [key: string]: IncidentFieldAttributes; }",
             "format": ""
         },
-        {
-            "name": "notificationHandles",
+        "notificationHandles": {
             "baseName": "notification_handles",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "resolved",
+        "resolved": {
             "baseName": "resolved",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentUpdateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentUpdateAttributes {
+      let res = new IncidentUpdateAttributes();
+
+      res.customerImpactEnd = ObjectSerializer.deserialize(data.customer_impact_end, "Date", "date-time")
+
+      res.customerImpactScope = ObjectSerializer.deserialize(data.customer_impact_scope, "string", "")
+
+      res.customerImpactStart = ObjectSerializer.deserialize(data.customer_impact_start, "Date", "date-time")
+
+      res.customerImpacted = ObjectSerializer.deserialize(data.customer_impacted, "boolean", "")
+
+      res.detected = ObjectSerializer.deserialize(data.detected, "Date", "date-time")
+
+      res.fields = ObjectSerializer.deserialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+
+      res.notificationHandles = ObjectSerializer.deserialize(data.notification_handles, "Array<string>", "")
+
+      res.resolved = ObjectSerializer.deserialize(data.resolved, "Date", "date-time")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentUpdateAttributes): {[key: string]: any} {
+        let attributeTypes = IncidentUpdateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.customer_impact_end = ObjectSerializer.serialize(data.customerImpactEnd, "Date", "date-time")
+
+        res.customer_impact_scope = ObjectSerializer.serialize(data.customerImpactScope, "string", "")
+
+        res.customer_impact_start = ObjectSerializer.serialize(data.customerImpactStart, "Date", "date-time")
+
+        res.customer_impacted = ObjectSerializer.serialize(data.customerImpacted, "boolean", "")
+
+        res.detected = ObjectSerializer.serialize(data.detected, "Date", "date-time")
+
+        res.fields = ObjectSerializer.serialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+
+        res.notification_handles = ObjectSerializer.serialize(data.notificationHandles, "Array<string>", "")
+
+        res.resolved = ObjectSerializer.serialize(data.resolved, "Date", "date-time")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

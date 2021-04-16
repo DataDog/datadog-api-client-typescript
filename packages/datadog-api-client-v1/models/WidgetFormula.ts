@@ -10,10 +10,12 @@
 
 import { WidgetFormulaLimit } from './WidgetFormulaLimit';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Formula to be used in a widget query.
 */
+
 export class WidgetFormula {
     /**
     * Expression alias.
@@ -27,31 +29,66 @@ export class WidgetFormula {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "alias",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "alias": {
             "baseName": "alias",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "formula",
+        "formula": {
             "baseName": "formula",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "limit",
+        "limit": {
             "baseName": "limit",
             "type": "WidgetFormulaLimit",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetFormula.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetFormula {
+      let res = new WidgetFormula();
+
+      res.alias = ObjectSerializer.deserialize(data.alias, "string", "")
+
+      if (data.formula === undefined) {
+          throw new TypeError("missing required attribute 'formula' on 'WidgetFormula' object");
+      }
+      res.formula = ObjectSerializer.deserialize(data.formula, "string", "")
+
+      res.limit = ObjectSerializer.deserialize(data.limit, "WidgetFormulaLimit", "")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetFormula): {[key: string]: any} {
+        let attributeTypes = WidgetFormula.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.alias = ObjectSerializer.serialize(data.alias, "string", "")
+
+        if (data.formula === undefined) {
+            throw new TypeError("missing required attribute 'formula' on 'WidgetFormula' object");
+        }
+        res.formula = ObjectSerializer.serialize(data.formula, "string", "")
+
+        res.limit = ObjectSerializer.serialize(data.limit, "WidgetFormulaLimit", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -11,10 +11,12 @@
 import { SyntheticsBrowserTestResultShortResult } from './SyntheticsBrowserTestResultShortResult';
 import { SyntheticsTestMonitorStatus } from './SyntheticsTestMonitorStatus';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object with the results of a single Synthetic browser test.
 */
+
 export class SyntheticsBrowserTestResultShort {
     /**
     * Last time the browser test was performed.
@@ -33,43 +35,86 @@ export class SyntheticsBrowserTestResultShort {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "checkTime",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "checkTime": {
             "baseName": "check_time",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "probeDc",
+        "probeDc": {
             "baseName": "probe_dc",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "result",
+        "result": {
             "baseName": "result",
             "type": "SyntheticsBrowserTestResultShortResult",
             "format": ""
         },
-        {
-            "name": "resultId",
+        "resultId": {
             "baseName": "result_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "SyntheticsTestMonitorStatus",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsBrowserTestResultShort.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTestResultShort {
+      let res = new SyntheticsBrowserTestResultShort();
+
+      res.checkTime = ObjectSerializer.deserialize(data.check_time, "number", "double")
+
+      res.probeDc = ObjectSerializer.deserialize(data.probe_dc, "string", "")
+
+      res.result = ObjectSerializer.deserialize(data.result, "SyntheticsBrowserTestResultShortResult", "")
+
+      res.resultId = ObjectSerializer.deserialize(data.result_id, "string", "")
+
+      if ([0, 1, 2, undefined].includes(data.status)) {
+          res.status = data.status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.status } for status`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsBrowserTestResultShort): {[key: string]: any} {
+        let attributeTypes = SyntheticsBrowserTestResultShort.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.check_time = ObjectSerializer.serialize(data.checkTime, "number", "double")
+
+        res.probe_dc = ObjectSerializer.serialize(data.probeDc, "string", "")
+
+        res.result = ObjectSerializer.serialize(data.result, "SyntheticsBrowserTestResultShortResult", "")
+
+        res.result_id = ObjectSerializer.serialize(data.resultId, "string", "")
+
+        if ([0, 1, 2, undefined].includes(data.status)) {
+            res.status = data.status;
+        } else {
+            throw TypeError(`invalid enum value ${ data.status } for status`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

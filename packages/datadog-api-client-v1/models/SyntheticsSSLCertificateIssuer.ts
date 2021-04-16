@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the issuer of a SSL certificate.
 */
+
 export class SyntheticsSSLCertificateIssuer {
     /**
     * Country Name that issued the certificate.
@@ -41,49 +43,87 @@ export class SyntheticsSSLCertificateIssuer {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "C",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "C": {
             "baseName": "C",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "CN",
+        "CN": {
             "baseName": "CN",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "L",
+        "L": {
             "baseName": "L",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "O",
+        "O": {
             "baseName": "O",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "OU",
+        "OU": {
             "baseName": "OU",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "ST",
+        "ST": {
             "baseName": "ST",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsSSLCertificateIssuer.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsSSLCertificateIssuer {
+      let res = new SyntheticsSSLCertificateIssuer();
+
+      res.C = ObjectSerializer.deserialize(data.C, "string", "")
+
+      res.CN = ObjectSerializer.deserialize(data.CN, "string", "")
+
+      res.L = ObjectSerializer.deserialize(data.L, "string", "")
+
+      res.O = ObjectSerializer.deserialize(data.O, "string", "")
+
+      res.OU = ObjectSerializer.deserialize(data.OU, "string", "")
+
+      res.ST = ObjectSerializer.deserialize(data.ST, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsSSLCertificateIssuer): {[key: string]: any} {
+        let attributeTypes = SyntheticsSSLCertificateIssuer.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.C = ObjectSerializer.serialize(data.C, "string", "")
+
+        res.CN = ObjectSerializer.serialize(data.CN, "string", "")
+
+        res.L = ObjectSerializer.serialize(data.L, "string", "")
+
+        res.O = ObjectSerializer.serialize(data.O, "string", "")
+
+        res.OU = ObjectSerializer.serialize(data.OU, "string", "")
+
+        res.ST = ObjectSerializer.serialize(data.ST, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

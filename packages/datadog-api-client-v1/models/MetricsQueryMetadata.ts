@@ -10,10 +10,12 @@
 
 import { MetricsQueryUnit } from './MetricsQueryUnit';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing all metric names returned and their associated metadata.
 */
+
 export class MetricsQueryMetadata {
     /**
     * Aggregation type.
@@ -62,79 +64,132 @@ export class MetricsQueryMetadata {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggr",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aggr": {
             "baseName": "aggr",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "displayName",
+        "displayName": {
             "baseName": "display_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "end",
+        "end": {
             "baseName": "end",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "expression",
+        "expression": {
             "baseName": "expression",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "interval",
+        "interval": {
             "baseName": "interval",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "length",
+        "length": {
             "baseName": "length",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "pointlist",
+        "pointlist": {
             "baseName": "pointlist",
             "type": "Array<Array<number>>",
             "format": "double"
         },
-        {
-            "name": "scope",
+        "scope": {
             "baseName": "scope",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "start",
+        "start": {
             "baseName": "start",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "unit",
+        "unit": {
             "baseName": "unit",
             "type": "Array<MetricsQueryUnit>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricsQueryMetadata.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricsQueryMetadata {
+      let res = new MetricsQueryMetadata();
+
+      res.aggr = ObjectSerializer.deserialize(data.aggr, "string", "")
+
+      res.displayName = ObjectSerializer.deserialize(data.display_name, "string", "")
+
+      res.end = ObjectSerializer.deserialize(data.end, "number", "int64")
+
+      res.expression = ObjectSerializer.deserialize(data.expression, "string", "")
+
+      res.interval = ObjectSerializer.deserialize(data.interval, "number", "int64")
+
+      res.length = ObjectSerializer.deserialize(data.length, "number", "int64")
+
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      res.pointlist = ObjectSerializer.deserialize(data.pointlist, "Array<Array<number>>", "double")
+
+      res.scope = ObjectSerializer.deserialize(data.scope, "string", "")
+
+      res.start = ObjectSerializer.deserialize(data.start, "number", "int64")
+
+      res.unit = ObjectSerializer.deserialize(data.unit, "Array<MetricsQueryUnit>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricsQueryMetadata): {[key: string]: any} {
+        let attributeTypes = MetricsQueryMetadata.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.aggr = ObjectSerializer.serialize(data.aggr, "string", "")
+
+        res.display_name = ObjectSerializer.serialize(data.displayName, "string", "")
+
+        res.end = ObjectSerializer.serialize(data.end, "number", "int64")
+
+        res.expression = ObjectSerializer.serialize(data.expression, "string", "")
+
+        res.interval = ObjectSerializer.serialize(data.interval, "number", "int64")
+
+        res.length = ObjectSerializer.serialize(data.length, "number", "int64")
+
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        res.pointlist = ObjectSerializer.serialize(data.pointlist, "Array<Array<number>>", "double")
+
+        res.scope = ObjectSerializer.serialize(data.scope, "string", "")
+
+        res.start = ObjectSerializer.serialize(data.start, "number", "int64")
+
+        res.unit = ObjectSerializer.serialize(data.unit, "Array<MetricsQueryUnit>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

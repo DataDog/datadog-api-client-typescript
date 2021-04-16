@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * List of the different monitor threshold available.
 */
+
 export class MonitorThresholds {
     /**
     * The monitor `CRITICAL` threshold.
@@ -41,49 +43,87 @@ export class MonitorThresholds {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "critical",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "critical": {
             "baseName": "critical",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "criticalRecovery",
+        "criticalRecovery": {
             "baseName": "critical_recovery",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "ok",
+        "ok": {
             "baseName": "ok",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "unknown",
+        "unknown": {
             "baseName": "unknown",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "warning",
+        "warning": {
             "baseName": "warning",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "warningRecovery",
+        "warningRecovery": {
             "baseName": "warning_recovery",
             "type": "number",
             "format": "double"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MonitorThresholds.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MonitorThresholds {
+      let res = new MonitorThresholds();
+
+      res.critical = ObjectSerializer.deserialize(data.critical, "number", "double")
+
+      res.criticalRecovery = ObjectSerializer.deserialize(data.critical_recovery, "number", "double")
+
+      res.ok = ObjectSerializer.deserialize(data.ok, "number", "double")
+
+      res.unknown = ObjectSerializer.deserialize(data.unknown, "number", "double")
+
+      res.warning = ObjectSerializer.deserialize(data.warning, "number", "double")
+
+      res.warningRecovery = ObjectSerializer.deserialize(data.warning_recovery, "number", "double")
+
+
+      return res;
+    }
+
+    static serialize(data: MonitorThresholds): {[key: string]: any} {
+        let attributeTypes = MonitorThresholds.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.critical = ObjectSerializer.serialize(data.critical, "number", "double")
+
+        res.critical_recovery = ObjectSerializer.serialize(data.criticalRecovery, "number", "double")
+
+        res.ok = ObjectSerializer.serialize(data.ok, "number", "double")
+
+        res.unknown = ObjectSerializer.serialize(data.unknown, "number", "double")
+
+        res.warning = ObjectSerializer.serialize(data.warning, "number", "double")
+
+        res.warning_recovery = ObjectSerializer.serialize(data.warningRecovery, "number", "double")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

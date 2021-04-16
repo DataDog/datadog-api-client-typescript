@@ -10,10 +10,12 @@
 
 import { SyntheticsBrowserErrorType } from './SyntheticsBrowserErrorType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Error response object for a browser test.
 */
+
 export class SyntheticsBrowserError {
     /**
     * Description of the error.
@@ -31,37 +33,95 @@ export class SyntheticsBrowserError {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "description",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "description": {
             "baseName": "description",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "statusCode",
+        "statusCode": {
             "baseName": "statusCode",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "SyntheticsBrowserErrorType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsBrowserError.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsBrowserError {
+      let res = new SyntheticsBrowserError();
+
+      if (data.description === undefined) {
+          throw new TypeError("missing required attribute 'description' on 'SyntheticsBrowserError' object");
+      }
+      res.description = ObjectSerializer.deserialize(data.description, "string", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'SyntheticsBrowserError' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.statusCode = ObjectSerializer.deserialize(data.statusCode, "number", "int64")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'SyntheticsBrowserError' object");
+      }
+      if (['network', 'js', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsBrowserError): {[key: string]: any} {
+        let attributeTypes = SyntheticsBrowserError.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.description === undefined) {
+            throw new TypeError("missing required attribute 'description' on 'SyntheticsBrowserError' object");
+        }
+        res.description = ObjectSerializer.serialize(data.description, "string", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'SyntheticsBrowserError' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.statusCode = ObjectSerializer.serialize(data.statusCode, "number", "int64")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'SyntheticsBrowserError' object");
+        }
+        if (['network', 'js', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

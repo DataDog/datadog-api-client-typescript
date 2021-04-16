@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Define a display mode for the table cell.
 */
-export type TableWidgetCellDisplayMode = "number" | "bar" ;
+
+export type TableWidgetCellDisplayMode = typeof NUMBER | typeof BAR ;
+export const NUMBER = 'number';
+export const BAR = 'bar';
+
+

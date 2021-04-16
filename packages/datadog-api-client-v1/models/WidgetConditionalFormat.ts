@@ -11,10 +11,12 @@
 import { WidgetComparator } from './WidgetComparator';
 import { WidgetPalette } from './WidgetPalette';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Define a conditional format for the widget.
 */
+
 export class WidgetConditionalFormat {
     'comparator': WidgetComparator;
     /**
@@ -49,67 +51,148 @@ export class WidgetConditionalFormat {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "comparator",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "comparator": {
             "baseName": "comparator",
             "type": "WidgetComparator",
             "format": ""
         },
-        {
-            "name": "customBgColor",
+        "customBgColor": {
             "baseName": "custom_bg_color",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "customFgColor",
+        "customFgColor": {
             "baseName": "custom_fg_color",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "hideValue",
+        "hideValue": {
             "baseName": "hide_value",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "imageUrl",
+        "imageUrl": {
             "baseName": "image_url",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "palette",
+        "palette": {
             "baseName": "palette",
             "type": "WidgetPalette",
             "format": ""
         },
-        {
-            "name": "timeframe",
+        "timeframe": {
             "baseName": "timeframe",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "value",
+        "value": {
             "baseName": "value",
             "type": "number",
             "format": "double"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetConditionalFormat.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetConditionalFormat {
+      let res = new WidgetConditionalFormat();
+
+      if (data.comparator === undefined) {
+          throw new TypeError("missing required attribute 'comparator' on 'WidgetConditionalFormat' object");
+      }
+      if (['>', '>=', '<', '<=', undefined].includes(data.comparator)) {
+          res.comparator = data.comparator;
+      } else {
+          throw TypeError(`invalid enum value ${ data.comparator } for comparator`);
+      }
+
+      res.customBgColor = ObjectSerializer.deserialize(data.custom_bg_color, "string", "")
+
+      res.customFgColor = ObjectSerializer.deserialize(data.custom_fg_color, "string", "")
+
+      res.hideValue = ObjectSerializer.deserialize(data.hide_value, "boolean", "")
+
+      res.imageUrl = ObjectSerializer.deserialize(data.image_url, "string", "")
+
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      if (data.palette === undefined) {
+          throw new TypeError("missing required attribute 'palette' on 'WidgetConditionalFormat' object");
+      }
+      if (['blue', 'custom_bg', 'custom_image', 'custom_text', 'gray_on_white', 'grey', 'green', 'orange', 'red', 'red_on_white', 'white_on_gray', 'white_on_green', 'green_on_white', 'white_on_red', 'white_on_yellow', 'yellow_on_white', 'black_on_light_yellow', 'black_on_light_green', 'black_on_light_red', undefined].includes(data.palette)) {
+          res.palette = data.palette;
+      } else {
+          throw TypeError(`invalid enum value ${ data.palette } for palette`);
+      }
+
+      res.timeframe = ObjectSerializer.deserialize(data.timeframe, "string", "")
+
+      if (data.value === undefined) {
+          throw new TypeError("missing required attribute 'value' on 'WidgetConditionalFormat' object");
+      }
+      res.value = ObjectSerializer.deserialize(data.value, "number", "double")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetConditionalFormat): {[key: string]: any} {
+        let attributeTypes = WidgetConditionalFormat.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.comparator === undefined) {
+            throw new TypeError("missing required attribute 'comparator' on 'WidgetConditionalFormat' object");
+        }
+        if (['>', '>=', '<', '<=', undefined].includes(data.comparator)) {
+            res.comparator = data.comparator;
+        } else {
+            throw TypeError(`invalid enum value ${ data.comparator } for comparator`);
+        }
+
+        res.custom_bg_color = ObjectSerializer.serialize(data.customBgColor, "string", "")
+
+        res.custom_fg_color = ObjectSerializer.serialize(data.customFgColor, "string", "")
+
+        res.hide_value = ObjectSerializer.serialize(data.hideValue, "boolean", "")
+
+        res.image_url = ObjectSerializer.serialize(data.imageUrl, "string", "")
+
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        if (data.palette === undefined) {
+            throw new TypeError("missing required attribute 'palette' on 'WidgetConditionalFormat' object");
+        }
+        if (['blue', 'custom_bg', 'custom_image', 'custom_text', 'gray_on_white', 'grey', 'green', 'orange', 'red', 'red_on_white', 'white_on_gray', 'white_on_green', 'green_on_white', 'white_on_red', 'white_on_yellow', 'yellow_on_white', 'black_on_light_yellow', 'black_on_light_green', 'black_on_light_red', undefined].includes(data.palette)) {
+            res.palette = data.palette;
+        } else {
+            throw TypeError(`invalid enum value ${ data.palette } for palette`);
+        }
+
+        res.timeframe = ObjectSerializer.serialize(data.timeframe, "string", "")
+
+        if (data.value === undefined) {
+            throw new TypeError("missing required attribute 'value' on 'WidgetConditionalFormat' object");
+        }
+        res.value = ObjectSerializer.serialize(data.value, "number", "double")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

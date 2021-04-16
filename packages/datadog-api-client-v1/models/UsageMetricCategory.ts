@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Contains the metric category.
 */
-export type UsageMetricCategory = "standard" | "custom" ;
+
+export type UsageMetricCategory = typeof STANDARD | typeof CUSTOM ;
+export const STANDARD = 'standard';
+export const CUSTOM = 'custom';
+
+

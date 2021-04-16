@@ -11,10 +11,12 @@
 import { MetricIngestedIndexedVolumeAttributes } from './MetricIngestedIndexedVolumeAttributes';
 import { MetricIngestedIndexedVolumeType } from './MetricIngestedIndexedVolumeType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object for a single metric's ingested and indexed volume.
 */
+
 export class MetricIngestedIndexedVolume {
     'attributes'?: MetricIngestedIndexedVolumeAttributes;
     /**
@@ -25,31 +27,68 @@ export class MetricIngestedIndexedVolume {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "MetricIngestedIndexedVolumeAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "MetricIngestedIndexedVolumeType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricIngestedIndexedVolume.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricIngestedIndexedVolume {
+      let res = new MetricIngestedIndexedVolume();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "MetricIngestedIndexedVolumeAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['metric_volumes', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: MetricIngestedIndexedVolume): {[key: string]: any} {
+        let attributeTypes = MetricIngestedIndexedVolume.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "MetricIngestedIndexedVolumeAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['metric_volumes', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

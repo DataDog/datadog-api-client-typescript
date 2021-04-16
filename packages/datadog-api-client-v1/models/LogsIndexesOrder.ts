@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing the ordered list of log index names.
 */
+
 export class LogsIndexesOrder {
     /**
     * Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
@@ -21,19 +23,48 @@ export class LogsIndexesOrder {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "indexNames",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "indexNames": {
             "baseName": "index_names",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsIndexesOrder.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsIndexesOrder {
+      let res = new LogsIndexesOrder();
+
+      if (data.index_names === undefined) {
+          throw new TypeError("missing required attribute 'index_names' on 'LogsIndexesOrder' object");
+      }
+      res.indexNames = ObjectSerializer.deserialize(data.index_names, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsIndexesOrder): {[key: string]: any} {
+        let attributeTypes = LogsIndexesOrder.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.indexNames === undefined) {
+            throw new TypeError("missing required attribute 'index_names' on 'LogsIndexesOrder' object");
+        }
+        res.index_names = ObjectSerializer.serialize(data.indexNames, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,10 +10,12 @@
 
 import { SyntheticsAPITestResultShort } from './SyntheticsAPITestResultShort';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object with the latest Synthetic API test run.
 */
+
 export class SyntheticsGetAPITestLatestResultsResponse {
     /**
     * Timestamp of the latest API test run.
@@ -26,25 +28,51 @@ export class SyntheticsGetAPITestLatestResultsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "lastTimestampFetched",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "lastTimestampFetched": {
             "baseName": "last_timestamp_fetched",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "results",
+        "results": {
             "baseName": "results",
             "type": "Array<SyntheticsAPITestResultShort>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsGetAPITestLatestResultsResponse {
+      let res = new SyntheticsGetAPITestLatestResultsResponse();
+
+      res.lastTimestampFetched = ObjectSerializer.deserialize(data.last_timestamp_fetched, "number", "int64")
+
+      res.results = ObjectSerializer.deserialize(data.results, "Array<SyntheticsAPITestResultShort>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsGetAPITestLatestResultsResponse): {[key: string]: any} {
+        let attributeTypes = SyntheticsGetAPITestLatestResultsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.last_timestamp_fetched = ObjectSerializer.serialize(data.lastTimestampFetched, "number", "int64")
+
+        res.results = ObjectSerializer.serialize(data.results, "Array<SyntheticsAPITestResultShort>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

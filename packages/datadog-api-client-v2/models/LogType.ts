@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the event.
 */
-export type LogType = "log" ;
+
+export type LogType = typeof LOG ;
+export const LOG = 'log';
+
+

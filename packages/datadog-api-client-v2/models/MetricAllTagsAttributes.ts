@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing the definition of a metric's tags.
 */
+
 export class MetricAllTagsAttributes {
     /**
     * List of indexed tag value pairs.
@@ -21,19 +23,42 @@ export class MetricAllTagsAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "tags",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricAllTagsAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricAllTagsAttributes {
+      let res = new MetricAllTagsAttributes();
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricAllTagsAttributes): {[key: string]: any} {
+        let attributeTypes = MetricAllTagsAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Synthetic location that can be used when creating or editing a test.
 */
+
 export class SyntheticsLocation {
     /**
     * Unique identifier of the location.
@@ -25,25 +27,51 @@ export class SyntheticsLocation {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsLocation.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsLocation {
+      let res = new SyntheticsLocation();
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsLocation): {[key: string]: any} {
+        let attributeTypes = SyntheticsLocation.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

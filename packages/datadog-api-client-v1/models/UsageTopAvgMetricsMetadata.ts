@@ -10,10 +10,12 @@
 
 import { UsageAttributionPagination } from './UsageAttributionPagination';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The object containing document metadata.
 */
+
 export class UsageTopAvgMetricsMetadata {
     /**
     * The day value from the user request that contains the returned usage data. (If day was used the request)
@@ -27,31 +29,60 @@ export class UsageTopAvgMetricsMetadata {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "day",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "day": {
             "baseName": "day",
             "type": "Object",
             "format": ""
         },
-        {
-            "name": "month",
+        "month": {
             "baseName": "month",
             "type": "Object",
             "format": ""
         },
-        {
-            "name": "pagination",
+        "pagination": {
             "baseName": "pagination",
             "type": "UsageAttributionPagination",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageTopAvgMetricsMetadata.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageTopAvgMetricsMetadata {
+      let res = new UsageTopAvgMetricsMetadata();
+
+      res.day = ObjectSerializer.deserialize(data.day, "Object", "")
+
+      res.month = ObjectSerializer.deserialize(data.month, "Object", "")
+
+      res.pagination = ObjectSerializer.deserialize(data.pagination, "UsageAttributionPagination", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageTopAvgMetricsMetadata): {[key: string]: any} {
+        let attributeTypes = UsageTopAvgMetricsMetadata.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.day = ObjectSerializer.serialize(data.day, "Object", "")
+
+        res.month = ObjectSerializer.serialize(data.month, "Object", "")
+
+        res.pagination = ObjectSerializer.serialize(data.pagination, "UsageAttributionPagination", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

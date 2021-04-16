@@ -11,10 +11,12 @@
 import { SLOBulkDeleteError } from './SLOBulkDeleteError';
 import { SLOBulkDeleteResponseData } from './SLOBulkDeleteResponseData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.
 */
+
 export class SLOBulkDeleteResponse {
     'data'?: SLOBulkDeleteResponseData;
     /**
@@ -24,25 +26,51 @@ export class SLOBulkDeleteResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "SLOBulkDeleteResponseData",
             "format": ""
         },
-        {
-            "name": "errors",
+        "errors": {
             "baseName": "errors",
             "type": "Array<SLOBulkDeleteError>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOBulkDeleteResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOBulkDeleteResponse {
+      let res = new SLOBulkDeleteResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "SLOBulkDeleteResponseData", "")
+
+      res.errors = ObjectSerializer.deserialize(data.errors, "Array<SLOBulkDeleteError>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOBulkDeleteResponse): {[key: string]: any} {
+        let attributeTypes = SLOBulkDeleteResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "SLOBulkDeleteResponseData", "")
+
+        res.errors = ObjectSerializer.serialize(data.errors, "Array<SLOBulkDeleteError>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

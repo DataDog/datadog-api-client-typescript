@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing array of IDs of canceled downtimes.
 */
+
 export class CanceledDowntimesIds {
     /**
     * ID of downtimes that were canceled.
@@ -21,19 +23,42 @@ export class CanceledDowntimesIds {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cancelledIds",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cancelledIds": {
             "baseName": "cancelled_ids",
             "type": "Array<number>",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return CanceledDowntimesIds.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): CanceledDowntimesIds {
+      let res = new CanceledDowntimesIds();
+
+      res.cancelledIds = ObjectSerializer.deserialize(data.cancelled_ids, "Array<number>", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: CanceledDowntimesIds): {[key: string]: any} {
+        let attributeTypes = CanceledDowntimesIds.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cancelled_ids = ObjectSerializer.serialize(data.cancelledIds, "Array<number>", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -11,10 +11,12 @@
 import { LogsExclusion } from './LogsExclusion';
 import { LogsFilter } from './LogsFilter';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing a Datadog Log index.
 */
+
 export class LogsIndex {
     /**
     * The number of log events you can send in this index per day before you are rate-limited.
@@ -40,49 +42,99 @@ export class LogsIndex {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "dailyLimit",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "dailyLimit": {
             "baseName": "daily_limit",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "exclusionFilters",
+        "exclusionFilters": {
             "baseName": "exclusion_filters",
             "type": "Array<LogsExclusion>",
             "format": ""
         },
-        {
-            "name": "filter",
+        "filter": {
             "baseName": "filter",
             "type": "LogsFilter",
             "format": ""
         },
-        {
-            "name": "isRateLimited",
+        "isRateLimited": {
             "baseName": "is_rate_limited",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "numRetentionDays",
+        "numRetentionDays": {
             "baseName": "num_retention_days",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsIndex.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsIndex {
+      let res = new LogsIndex();
+
+      res.dailyLimit = ObjectSerializer.deserialize(data.daily_limit, "number", "int64")
+
+      res.exclusionFilters = ObjectSerializer.deserialize(data.exclusion_filters, "Array<LogsExclusion>", "")
+
+      if (data.filter === undefined) {
+          throw new TypeError("missing required attribute 'filter' on 'LogsIndex' object");
+      }
+      res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "")
+
+      res.isRateLimited = ObjectSerializer.deserialize(data.is_rate_limited, "boolean", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'LogsIndex' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.numRetentionDays = ObjectSerializer.deserialize(data.num_retention_days, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsIndex): {[key: string]: any} {
+        let attributeTypes = LogsIndex.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.daily_limit = ObjectSerializer.serialize(data.dailyLimit, "number", "int64")
+
+        res.exclusion_filters = ObjectSerializer.serialize(data.exclusionFilters, "Array<LogsExclusion>", "")
+
+        if (data.filter === undefined) {
+            throw new TypeError("missing required attribute 'filter' on 'LogsIndex' object");
+        }
+        res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "")
+
+        res.is_rate_limited = ObjectSerializer.serialize(data.isRateLimited, "boolean", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'LogsIndex' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.num_retention_days = ObjectSerializer.serialize(data.numRetentionDays, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Organizations resource type.
 */
-export type OrganizationsType = "orgs" ;
+
+export type OrganizationsType = typeof ORGS ;
+export const ORGS = 'orgs';
+
+

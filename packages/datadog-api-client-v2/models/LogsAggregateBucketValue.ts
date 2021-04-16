@@ -8,24 +8,12 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucketValueTimeseries } from './LogsAggregateBucketValueTimeseries';
+import { LogsAggregateBucketValueTimeseriesPoint } from './LogsAggregateBucketValueTimeseriesPoint';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A bucket value, can be either a timeseries or a single value
 */
-export class LogsAggregateBucketValue {
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return LogsAggregateBucketValue.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type LogsAggregateBucketValue = Array<LogsAggregateBucketValueTimeseriesPoint> | number | string;

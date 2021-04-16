@@ -10,10 +10,12 @@
 
 import { LogsArchiveCreateRequestDestination } from './LogsArchiveCreateRequestDestination';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The attributes associated with the archive.
 */
+
 export class LogsArchiveCreateRequestAttributes {
     'destination': LogsArchiveCreateRequestDestination;
     /**
@@ -35,43 +37,96 @@ export class LogsArchiveCreateRequestAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "destination",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "destination": {
             "baseName": "destination",
             "type": "LogsArchiveCreateRequestDestination",
             "format": ""
         },
-        {
-            "name": "includeTags",
+        "includeTags": {
             "baseName": "include_tags",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "query",
+        "query": {
             "baseName": "query",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "rehydrationTags",
+        "rehydrationTags": {
             "baseName": "rehydration_tags",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsArchiveCreateRequestAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsArchiveCreateRequestAttributes {
+      let res = new LogsArchiveCreateRequestAttributes();
+
+      if (data.destination === undefined) {
+          throw new TypeError("missing required attribute 'destination' on 'LogsArchiveCreateRequestAttributes' object");
+      }
+      res.destination = ObjectSerializer.deserialize(data.destination, "LogsArchiveCreateRequestDestination", "")
+
+      res.includeTags = ObjectSerializer.deserialize(data.include_tags, "boolean", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'LogsArchiveCreateRequestAttributes' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      if (data.query === undefined) {
+          throw new TypeError("missing required attribute 'query' on 'LogsArchiveCreateRequestAttributes' object");
+      }
+      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+
+      res.rehydrationTags = ObjectSerializer.deserialize(data.rehydration_tags, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsArchiveCreateRequestAttributes): {[key: string]: any} {
+        let attributeTypes = LogsArchiveCreateRequestAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.destination === undefined) {
+            throw new TypeError("missing required attribute 'destination' on 'LogsArchiveCreateRequestAttributes' object");
+        }
+        res.destination = ObjectSerializer.serialize(data.destination, "LogsArchiveCreateRequestDestination", "")
+
+        res.include_tags = ObjectSerializer.serialize(data.includeTags, "boolean", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'LogsArchiveCreateRequestAttributes' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        if (data.query === undefined) {
+            throw new TypeError("missing required attribute 'query' on 'LogsArchiveCreateRequestAttributes' object");
+        }
+        res.query = ObjectSerializer.serialize(data.query, "string", "")
+
+        res.rehydration_tags = ObjectSerializer.serialize(data.rehydrationTags, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,10 +10,12 @@
 
 import { Permission } from './Permission';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Payload with API-returned permissions.
 */
+
 export class PermissionsResponse {
     /**
     * Array of permissions.
@@ -22,19 +24,42 @@ export class PermissionsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "Array<Permission>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return PermissionsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): PermissionsResponse {
+      let res = new PermissionsResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "Array<Permission>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: PermissionsResponse): {[key: string]: any} {
+        let attributeTypes = PermissionsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "Array<Permission>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response from the delete dashboard call.
 */
+
 export class DashboardDeleteResponse {
     /**
     * ID of the deleted dashboard.
@@ -21,19 +23,42 @@ export class DashboardDeleteResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "deletedDashboardId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "deletedDashboardId": {
             "baseName": "deleted_dashboard_id",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardDeleteResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardDeleteResponse {
+      let res = new DashboardDeleteResponse();
+
+      res.deletedDashboardId = ObjectSerializer.deserialize(data.deleted_dashboard_id, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardDeleteResponse): {[key: string]: any} {
+        let attributeTypes = DashboardDeleteResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.deleted_dashboard_id = ObjectSerializer.serialize(data.deletedDashboardId, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

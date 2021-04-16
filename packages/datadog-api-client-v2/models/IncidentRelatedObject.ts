@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object related to an incident.
 */
-export type IncidentRelatedObject = "users" ;
+
+export type IncidentRelatedObject = typeof USERS ;
+export const USERS = 'users';
+
+

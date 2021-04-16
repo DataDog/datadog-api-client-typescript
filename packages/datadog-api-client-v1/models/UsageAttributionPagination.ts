@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The page count for the current pagination.
 */
+
 export class UsageAttributionPagination {
     /**
     * Maximum amount of records to be returned.
@@ -37,43 +39,78 @@ export class UsageAttributionPagination {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "limit",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "limit": {
             "baseName": "limit",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "offset",
+        "offset": {
             "baseName": "offset",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "sortDirection",
+        "sortDirection": {
             "baseName": "sort_direction",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sortName",
+        "sortName": {
             "baseName": "sort_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "totalNumberOfRecords",
+        "totalNumberOfRecords": {
             "baseName": "total_number_of_records",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageAttributionPagination.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageAttributionPagination {
+      let res = new UsageAttributionPagination();
+
+      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64")
+
+      res.offset = ObjectSerializer.deserialize(data.offset, "number", "int64")
+
+      res.sortDirection = ObjectSerializer.deserialize(data.sort_direction, "string", "")
+
+      res.sortName = ObjectSerializer.deserialize(data.sort_name, "string", "")
+
+      res.totalNumberOfRecords = ObjectSerializer.deserialize(data.total_number_of_records, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageAttributionPagination): {[key: string]: any} {
+        let attributeTypes = UsageAttributionPagination.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.limit = ObjectSerializer.serialize(data.limit, "number", "int64")
+
+        res.offset = ObjectSerializer.serialize(data.offset, "number", "int64")
+
+        res.sort_direction = ObjectSerializer.serialize(data.sortDirection, "string", "")
+
+        res.sort_name = ObjectSerializer.serialize(data.sortName, "string", "")
+
+        res.total_number_of_records = ObjectSerializer.serialize(data.totalNumberOfRecords, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

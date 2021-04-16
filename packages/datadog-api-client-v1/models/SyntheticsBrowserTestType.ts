@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the Synthetic test, `browser`.
 */
-export type SyntheticsBrowserTestType = "browser" ;
+
+export type SyntheticsBrowserTestType = typeof BROWSER ;
+export const BROWSER = 'browser';
+
+

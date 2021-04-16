@@ -11,35 +11,63 @@
 import { SyntheticsCITestMetadataCi } from './SyntheticsCITestMetadataCi';
 import { SyntheticsCITestMetadataGit } from './SyntheticsCITestMetadataGit';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Metadata for the Synthetics tests run
 */
+
 export class SyntheticsCITestMetadata {
     'ci'?: SyntheticsCITestMetadataCi;
     'git'?: SyntheticsCITestMetadataGit;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "ci",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "ci": {
             "baseName": "ci",
             "type": "SyntheticsCITestMetadataCi",
             "format": ""
         },
-        {
-            "name": "git",
+        "git": {
             "baseName": "git",
             "type": "SyntheticsCITestMetadataGit",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsCITestMetadata.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsCITestMetadata {
+      let res = new SyntheticsCITestMetadata();
+
+      res.ci = ObjectSerializer.deserialize(data.ci, "SyntheticsCITestMetadataCi", "")
+
+      res.git = ObjectSerializer.deserialize(data.git, "SyntheticsCITestMetadataGit", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsCITestMetadata): {[key: string]: any} {
+        let attributeTypes = SyntheticsCITestMetadata.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.ci = ObjectSerializer.serialize(data.ci, "SyntheticsCITestMetadataCi", "")
+
+        res.git = ObjectSerializer.serialize(data.git, "SyntheticsCITestMetadataGit", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

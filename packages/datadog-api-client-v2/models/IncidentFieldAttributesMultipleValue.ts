@@ -10,10 +10,12 @@
 
 import { IncidentFieldAttributesValueType } from './IncidentFieldAttributesValueType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A field with potentially multiple values selected.
 */
+
 export class IncidentFieldAttributesMultipleValue {
     'type'?: IncidentFieldAttributesValueType;
     /**
@@ -23,25 +25,59 @@ export class IncidentFieldAttributesMultipleValue {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "type",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "type": {
             "baseName": "type",
             "type": "IncidentFieldAttributesValueType",
             "format": ""
         },
-        {
-            "name": "value",
+        "value": {
             "baseName": "value",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentFieldAttributesMultipleValue.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentFieldAttributesMultipleValue {
+      let res = new IncidentFieldAttributesMultipleValue();
+
+      if (['multiselect', 'textarray', 'metrictag', 'autocomplete', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      res.value = ObjectSerializer.deserialize(data.value, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentFieldAttributesMultipleValue): {[key: string]: any} {
+        let attributeTypes = IncidentFieldAttributesMultipleValue.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['multiselect', 'textarray', 'metrictag', 'autocomplete', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        res.value = ObjectSerializer.serialize(data.value, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -11,10 +11,12 @@
 import { SecurityMonitoringSignalAttributes } from './SecurityMonitoringSignalAttributes';
 import { SecurityMonitoringSignalType } from './SecurityMonitoringSignalType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object description of a security signal.
 */
+
 export class SecurityMonitoringSignal {
     'attributes'?: SecurityMonitoringSignalAttributes;
     /**
@@ -25,31 +27,68 @@ export class SecurityMonitoringSignal {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "SecurityMonitoringSignalAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "SecurityMonitoringSignalType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringSignal.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignal {
+      let res = new SecurityMonitoringSignal();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "SecurityMonitoringSignalAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['signal', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringSignal): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringSignal.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "SecurityMonitoringSignalAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['signal', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

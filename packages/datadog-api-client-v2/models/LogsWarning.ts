@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A warning message indicating something that went wrong with the query
 */
+
 export class LogsWarning {
     /**
     * A unique code for this type of warning
@@ -29,31 +31,60 @@ export class LogsWarning {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "code",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "code": {
             "baseName": "code",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "detail",
+        "detail": {
             "baseName": "detail",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsWarning.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsWarning {
+      let res = new LogsWarning();
+
+      res.code = ObjectSerializer.deserialize(data.code, "string", "")
+
+      res.detail = ObjectSerializer.deserialize(data.detail, "string", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsWarning): {[key: string]: any} {
+        let attributeTypes = LogsWarning.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.code = ObjectSerializer.serialize(data.code, "string", "")
+
+        res.detail = ObjectSerializer.serialize(data.detail, "string", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

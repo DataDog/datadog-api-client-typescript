@@ -16,10 +16,12 @@ import { WidgetCustomLink } from './WidgetCustomLink';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTime } from './WidgetTime';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * This visualization displays a series of values by country on a world map.
 */
+
 export class GeomapWidgetDefinition {
     /**
     * A list of custom links.
@@ -45,67 +47,154 @@ export class GeomapWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "customLinks",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "customLinks": {
             "baseName": "custom_links",
             "type": "Array<WidgetCustomLink>",
             "format": ""
         },
-        {
-            "name": "requests",
+        "requests": {
             "baseName": "requests",
             "type": "Array<GeomapWidgetRequest>",
             "format": ""
         },
-        {
-            "name": "style",
+        "style": {
             "baseName": "style",
             "type": "GeomapWidgetDefinitionStyle",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "WidgetTime",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "titleAlign",
+        "titleAlign": {
             "baseName": "title_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "titleSize",
+        "titleSize": {
             "baseName": "title_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "GeomapWidgetDefinitionType",
             "format": ""
         },
-        {
-            "name": "view",
+        "view": {
             "baseName": "view",
             "type": "GeomapWidgetDefinitionView",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return GeomapWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): GeomapWidgetDefinition {
+      let res = new GeomapWidgetDefinition();
+
+      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
+
+      if (data.requests === undefined) {
+          throw new TypeError("missing required attribute 'requests' on 'GeomapWidgetDefinition' object");
+      }
+      res.requests = ObjectSerializer.deserialize(data.requests, "Array<GeomapWidgetRequest>", "")
+
+      if (data.style === undefined) {
+          throw new TypeError("missing required attribute 'style' on 'GeomapWidgetDefinition' object");
+      }
+      res.style = ObjectSerializer.deserialize(data.style, "GeomapWidgetDefinitionStyle", "")
+
+      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
+
+      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'GeomapWidgetDefinition' object");
+      }
+      if (['geomap', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      if (data.view === undefined) {
+          throw new TypeError("missing required attribute 'view' on 'GeomapWidgetDefinition' object");
+      }
+      res.view = ObjectSerializer.deserialize(data.view, "GeomapWidgetDefinitionView", "")
+
+
+      return res;
+    }
+
+    static serialize(data: GeomapWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = GeomapWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
+
+        if (data.requests === undefined) {
+            throw new TypeError("missing required attribute 'requests' on 'GeomapWidgetDefinition' object");
+        }
+        res.requests = ObjectSerializer.serialize(data.requests, "Array<GeomapWidgetRequest>", "")
+
+        if (data.style === undefined) {
+            throw new TypeError("missing required attribute 'style' on 'GeomapWidgetDefinition' object");
+        }
+        res.style = ObjectSerializer.serialize(data.style, "GeomapWidgetDefinitionStyle", "")
+
+        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
+
+        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'GeomapWidgetDefinition' object");
+        }
+        if (['geomap', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        if (data.view === undefined) {
+            throw new TypeError("missing required attribute 'view' on 'GeomapWidgetDefinition' object");
+        }
+        res.view = ObjectSerializer.serialize(data.view, "GeomapWidgetDefinitionView", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

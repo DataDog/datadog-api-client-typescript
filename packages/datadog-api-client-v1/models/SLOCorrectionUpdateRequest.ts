@@ -10,28 +10,53 @@
 
 import { SLOCorrectionUpdateData } from './SLOCorrectionUpdateData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An object that defines a correction to be applied to an SLO
 */
+
 export class SLOCorrectionUpdateRequest {
     'data'?: SLOCorrectionUpdateData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "SLOCorrectionUpdateData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOCorrectionUpdateRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOCorrectionUpdateRequest {
+      let res = new SLOCorrectionUpdateRequest();
+
+      res.data = ObjectSerializer.deserialize(data.data, "SLOCorrectionUpdateData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOCorrectionUpdateRequest): {[key: string]: any} {
+        let attributeTypes = SLOCorrectionUpdateRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "SLOCorrectionUpdateData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

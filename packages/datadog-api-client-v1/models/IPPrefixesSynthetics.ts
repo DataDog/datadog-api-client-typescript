@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Available prefix information for the Synthetics endpoints.
 */
+
 export class IPPrefixesSynthetics {
     /**
     * List of IPv4 prefixes.
@@ -33,37 +35,69 @@ export class IPPrefixesSynthetics {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "prefixesIpv4",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "prefixesIpv4": {
             "baseName": "prefixes_ipv4",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "prefixesIpv4ByLocation",
+        "prefixesIpv4ByLocation": {
             "baseName": "prefixes_ipv4_by_location",
             "type": "{ [key: string]: Array<string>; }",
             "format": ""
         },
-        {
-            "name": "prefixesIpv6",
+        "prefixesIpv6": {
             "baseName": "prefixes_ipv6",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "prefixesIpv6ByLocation",
+        "prefixesIpv6ByLocation": {
             "baseName": "prefixes_ipv6_by_location",
             "type": "{ [key: string]: Array<string>; }",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IPPrefixesSynthetics.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IPPrefixesSynthetics {
+      let res = new IPPrefixesSynthetics();
+
+      res.prefixesIpv4 = ObjectSerializer.deserialize(data.prefixes_ipv4, "Array<string>", "")
+
+      res.prefixesIpv4ByLocation = ObjectSerializer.deserialize(data.prefixes_ipv4_by_location, "{ [key: string]: Array<string>; }", "")
+
+      res.prefixesIpv6 = ObjectSerializer.deserialize(data.prefixes_ipv6, "Array<string>", "")
+
+      res.prefixesIpv6ByLocation = ObjectSerializer.deserialize(data.prefixes_ipv6_by_location, "{ [key: string]: Array<string>; }", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IPPrefixesSynthetics): {[key: string]: any} {
+        let attributeTypes = IPPrefixesSynthetics.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.prefixes_ipv4 = ObjectSerializer.serialize(data.prefixesIpv4, "Array<string>", "")
+
+        res.prefixes_ipv4_by_location = ObjectSerializer.serialize(data.prefixesIpv4ByLocation, "{ [key: string]: Array<string>; }", "")
+
+        res.prefixes_ipv6 = ObjectSerializer.serialize(data.prefixesIpv6, "Array<string>", "")
+
+        res.prefixes_ipv6_by_location = ObjectSerializer.serialize(data.prefixesIpv6ByLocation, "{ [key: string]: Array<string>; }", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

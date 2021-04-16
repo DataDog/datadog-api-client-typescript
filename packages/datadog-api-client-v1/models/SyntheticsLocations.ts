@@ -10,10 +10,12 @@
 
 import { SyntheticsLocation } from './SyntheticsLocation';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * List of Synthetics locations.
 */
+
 export class SyntheticsLocations {
     /**
     * List of Synthetics locations.
@@ -22,19 +24,42 @@ export class SyntheticsLocations {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "locations",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "locations": {
             "baseName": "locations",
             "type": "Array<SyntheticsLocation>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsLocations.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsLocations {
+      let res = new SyntheticsLocations();
+
+      res.locations = ObjectSerializer.deserialize(data.locations, "Array<SyntheticsLocation>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsLocations): {[key: string]: any} {
+        let attributeTypes = SyntheticsLocations.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.locations = ObjectSerializer.serialize(data.locations, "Array<SyntheticsLocation>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

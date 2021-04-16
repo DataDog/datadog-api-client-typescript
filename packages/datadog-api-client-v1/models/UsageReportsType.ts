@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The type of reports.
 */
-export type UsageReportsType = "reports" ;
+
+export type UsageReportsType = typeof REPORTS ;
+export const REPORTS = 'reports';
+
+

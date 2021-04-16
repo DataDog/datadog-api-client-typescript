@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs pipeline processor.
 */
-export type LogsPipelineProcessorType = "pipeline" ;
+
+export type LogsPipelineProcessorType = typeof PIPELINE ;
+export const PIPELINE = 'pipeline';
+
+

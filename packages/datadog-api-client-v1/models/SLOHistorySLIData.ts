@@ -10,10 +10,12 @@
 
 import { SLOHistoryResponseError } from './SLOHistoryResponseError';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
 */
+
 export class SLOHistorySLIData {
     /**
     * A mapping of threshold `timeframe` to the remaining error budget.
@@ -66,85 +68,141 @@ export class SLOHistorySLIData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "errorBudgetRemaining",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "errorBudgetRemaining": {
             "baseName": "error_budget_remaining",
             "type": "{ [key: string]: number; }",
             "format": "double"
         },
-        {
-            "name": "errors",
+        "errors": {
             "baseName": "errors",
             "type": "Array<SLOHistoryResponseError>",
             "format": ""
         },
-        {
-            "name": "group",
+        "group": {
             "baseName": "group",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "history",
+        "history": {
             "baseName": "history",
             "type": "Array<Array<number>>",
             "format": "double"
         },
-        {
-            "name": "monitorModified",
+        "monitorModified": {
             "baseName": "monitor_modified",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "monitorType",
+        "monitorType": {
             "baseName": "monitor_type",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "precision",
+        "precision": {
             "baseName": "precision",
             "type": "{ [key: string]: number; }",
             "format": "double"
         },
-        {
-            "name": "preview",
+        "preview": {
             "baseName": "preview",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "sliValue",
+        "sliValue": {
             "baseName": "sli_value",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "spanPrecision",
+        "spanPrecision": {
             "baseName": "span_precision",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "uptime",
+        "uptime": {
             "baseName": "uptime",
             "type": "number",
             "format": "double"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOHistorySLIData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOHistorySLIData {
+      let res = new SLOHistorySLIData();
+
+      res.errorBudgetRemaining = ObjectSerializer.deserialize(data.error_budget_remaining, "{ [key: string]: number; }", "double")
+
+      res.errors = ObjectSerializer.deserialize(data.errors, "Array<SLOHistoryResponseError>", "")
+
+      res.group = ObjectSerializer.deserialize(data.group, "string", "")
+
+      res.history = ObjectSerializer.deserialize(data.history, "Array<Array<number>>", "double")
+
+      res.monitorModified = ObjectSerializer.deserialize(data.monitor_modified, "number", "int64")
+
+      res.monitorType = ObjectSerializer.deserialize(data.monitor_type, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.precision = ObjectSerializer.deserialize(data.precision, "{ [key: string]: number; }", "double")
+
+      res.preview = ObjectSerializer.deserialize(data.preview, "boolean", "")
+
+      res.sliValue = ObjectSerializer.deserialize(data.sli_value, "number", "double")
+
+      res.spanPrecision = ObjectSerializer.deserialize(data.span_precision, "number", "double")
+
+      res.uptime = ObjectSerializer.deserialize(data.uptime, "number", "double")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOHistorySLIData): {[key: string]: any} {
+        let attributeTypes = SLOHistorySLIData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.error_budget_remaining = ObjectSerializer.serialize(data.errorBudgetRemaining, "{ [key: string]: number; }", "double")
+
+        res.errors = ObjectSerializer.serialize(data.errors, "Array<SLOHistoryResponseError>", "")
+
+        res.group = ObjectSerializer.serialize(data.group, "string", "")
+
+        res.history = ObjectSerializer.serialize(data.history, "Array<Array<number>>", "double")
+
+        res.monitor_modified = ObjectSerializer.serialize(data.monitorModified, "number", "int64")
+
+        res.monitor_type = ObjectSerializer.serialize(data.monitorType, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.precision = ObjectSerializer.serialize(data.precision, "{ [key: string]: number; }", "double")
+
+        res.preview = ObjectSerializer.serialize(data.preview, "boolean", "")
+
+        res.sli_value = ObjectSerializer.serialize(data.sliValue, "number", "double")
+
+        res.span_precision = ObjectSerializer.serialize(data.spanPrecision, "number", "double")
+
+        res.uptime = ObjectSerializer.serialize(data.uptime, "number", "double")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

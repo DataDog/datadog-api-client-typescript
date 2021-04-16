@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the geomap widget.
 */
-export type GeomapWidgetDefinitionType = "geomap" ;
+
+export type GeomapWidgetDefinitionType = typeof GEOMAP ;
+export const GEOMAP = 'geomap';
+
+

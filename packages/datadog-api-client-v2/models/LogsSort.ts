@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Sort parameters when querying logs.
 */
-export type LogsSort = "timestamp" | "-timestamp" ;
+
+export type LogsSort = typeof TIMESTAMP_ASCENDING | typeof TIMESTAMP_DESCENDING ;
+export const TIMESTAMP_ASCENDING = 'timestamp';
+export const TIMESTAMP_DESCENDING = '-timestamp';
+
+

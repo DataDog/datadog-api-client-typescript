@@ -10,10 +10,12 @@
 
 import { AWSNamespace } from './AWSNamespace';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The objects used to delete an AWS tag filter entry.
 */
+
 export class AWSTagFilterDeleteRequest {
     /**
     * The unique identifier of your AWS account.
@@ -23,25 +25,59 @@ export class AWSTagFilterDeleteRequest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "accountId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "accountId": {
             "baseName": "account_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "namespace",
+        "namespace": {
             "baseName": "namespace",
             "type": "AWSNamespace",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSTagFilterDeleteRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSTagFilterDeleteRequest {
+      let res = new AWSTagFilterDeleteRequest();
+
+      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
+
+      if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
+          res.namespace = data.namespace;
+      } else {
+          throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: AWSTagFilterDeleteRequest): {[key: string]: any} {
+        let attributeTypes = AWSTagFilterDeleteRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
+
+        if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
+            res.namespace = data.namespace;
+        } else {
+            throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

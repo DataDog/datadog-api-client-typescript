@@ -11,10 +11,12 @@
 import { UsageCustomReportsData } from './UsageCustomReportsData';
 import { UsageCustomReportsMeta } from './UsageCustomReportsMeta';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing available custom reports.
 */
+
 export class UsageCustomReportsResponse {
     /**
     * An array of available custom reports.
@@ -24,25 +26,51 @@ export class UsageCustomReportsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "Array<UsageCustomReportsData>",
             "format": ""
         },
-        {
-            "name": "meta",
+        "meta": {
             "baseName": "meta",
             "type": "UsageCustomReportsMeta",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageCustomReportsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageCustomReportsResponse {
+      let res = new UsageCustomReportsResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "Array<UsageCustomReportsData>", "")
+
+      res.meta = ObjectSerializer.deserialize(data.meta, "UsageCustomReportsMeta", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageCustomReportsResponse): {[key: string]: any} {
+        let attributeTypes = UsageCustomReportsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "Array<UsageCustomReportsData>", "")
+
+        res.meta = ObjectSerializer.serialize(data.meta, "UsageCustomReportsMeta", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

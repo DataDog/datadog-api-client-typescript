@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The type of the resource. The value should always be logs_metrics.
 */
-export type LogsMetricType = "logs_metrics" ;
+
+export type LogsMetricType = typeof LOGS_METRICS ;
+export const LOGS_METRICS = 'logs_metrics';
+
+

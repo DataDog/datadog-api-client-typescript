@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Host Metrics collected.
 */
+
 export class HostMetrics {
     /**
     * The percent of CPU used (everything but idle).
@@ -29,31 +31,60 @@ export class HostMetrics {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cpu",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cpu": {
             "baseName": "cpu",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "iowait",
+        "iowait": {
             "baseName": "iowait",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "load",
+        "load": {
             "baseName": "load",
             "type": "number",
             "format": "double"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMetrics.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMetrics {
+      let res = new HostMetrics();
+
+      res.cpu = ObjectSerializer.deserialize(data.cpu, "number", "double")
+
+      res.iowait = ObjectSerializer.deserialize(data.iowait, "number", "double")
+
+      res.load = ObjectSerializer.deserialize(data.load, "number", "double")
+
+
+      return res;
+    }
+
+    static serialize(data: HostMetrics): {[key: string]: any} {
+        let attributeTypes = HostMetrics.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cpu = ObjectSerializer.serialize(data.cpu, "number", "double")
+
+        res.iowait = ObjectSerializer.serialize(data.iowait, "number", "double")
+
+        res.load = ObjectSerializer.serialize(data.load, "number", "double")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

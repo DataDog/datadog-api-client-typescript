@@ -10,28 +10,59 @@
 
 import { RoleCreateData } from './RoleCreateData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Create a role.
 */
+
 export class RoleCreateRequest {
     'data': RoleCreateData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "RoleCreateData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RoleCreateRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RoleCreateRequest {
+      let res = new RoleCreateRequest();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'RoleCreateRequest' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "RoleCreateData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: RoleCreateRequest): {[key: string]: any} {
+        let attributeTypes = RoleCreateRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'RoleCreateRequest' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "RoleCreateData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

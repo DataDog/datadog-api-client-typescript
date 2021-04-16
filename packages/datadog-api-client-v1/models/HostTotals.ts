@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Total number of host currently monitored by Datadog.
 */
+
 export class HostTotals {
     /**
     * Total number of active host (UP and ???) reporting to Datadog.
@@ -25,25 +27,51 @@ export class HostTotals {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "totalActive",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "totalActive": {
             "baseName": "total_active",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "totalUp",
+        "totalUp": {
             "baseName": "total_up",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostTotals.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostTotals {
+      let res = new HostTotals();
+
+      res.totalActive = ObjectSerializer.deserialize(data.total_active, "number", "int64")
+
+      res.totalUp = ObjectSerializer.deserialize(data.total_up, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: HostTotals): {[key: string]: any} {
+        let attributeTypes = HostTotals.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.total_active = ObjectSerializer.serialize(data.totalActive, "number", "int64")
+
+        res.total_up = ObjectSerializer.serialize(data.totalUp, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

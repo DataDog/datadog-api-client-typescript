@@ -12,10 +12,12 @@ import { SyntheticsBrowserTestResultData } from './SyntheticsBrowserTestResultDa
 import { SyntheticsBrowserTestResultFullCheck } from './SyntheticsBrowserTestResultFullCheck';
 import { SyntheticsTestMonitorStatus } from './SyntheticsTestMonitorStatus';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object returned describing a browser test result.
 */
+
 export class SyntheticsBrowserTestResultFull {
     'check'?: SyntheticsBrowserTestResultFullCheck;
     /**
@@ -39,55 +41,104 @@ export class SyntheticsBrowserTestResultFull {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "check",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "check": {
             "baseName": "check",
             "type": "SyntheticsBrowserTestResultFullCheck",
             "format": ""
         },
-        {
-            "name": "checkTime",
+        "checkTime": {
             "baseName": "check_time",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "checkVersion",
+        "checkVersion": {
             "baseName": "check_version",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "probeDc",
+        "probeDc": {
             "baseName": "probe_dc",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "result",
+        "result": {
             "baseName": "result",
             "type": "SyntheticsBrowserTestResultData",
             "format": ""
         },
-        {
-            "name": "resultId",
+        "resultId": {
             "baseName": "result_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "SyntheticsTestMonitorStatus",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsBrowserTestResultFull.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTestResultFull {
+      let res = new SyntheticsBrowserTestResultFull();
+
+      res.check = ObjectSerializer.deserialize(data.check, "SyntheticsBrowserTestResultFullCheck", "")
+
+      res.checkTime = ObjectSerializer.deserialize(data.check_time, "number", "double")
+
+      res.checkVersion = ObjectSerializer.deserialize(data.check_version, "number", "int64")
+
+      res.probeDc = ObjectSerializer.deserialize(data.probe_dc, "string", "")
+
+      res.result = ObjectSerializer.deserialize(data.result, "SyntheticsBrowserTestResultData", "")
+
+      res.resultId = ObjectSerializer.deserialize(data.result_id, "string", "")
+
+      if ([0, 1, 2, undefined].includes(data.status)) {
+          res.status = data.status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.status } for status`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsBrowserTestResultFull): {[key: string]: any} {
+        let attributeTypes = SyntheticsBrowserTestResultFull.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.check = ObjectSerializer.serialize(data.check, "SyntheticsBrowserTestResultFullCheck", "")
+
+        res.check_time = ObjectSerializer.serialize(data.checkTime, "number", "double")
+
+        res.check_version = ObjectSerializer.serialize(data.checkVersion, "number", "int64")
+
+        res.probe_dc = ObjectSerializer.serialize(data.probeDc, "string", "")
+
+        res.result = ObjectSerializer.serialize(data.result, "SyntheticsBrowserTestResultData", "")
+
+        res.result_id = ObjectSerializer.serialize(data.resultId, "string", "")
+
+        if ([0, 1, 2, undefined].includes(data.status)) {
+            res.status = data.status;
+        } else {
+            throw TypeError(`invalid enum value ${ data.status } for status`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

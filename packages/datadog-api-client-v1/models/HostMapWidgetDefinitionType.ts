@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the host map widget.
 */
-export type HostMapWidgetDefinitionType = "hostmap" ;
+
+export type HostMapWidgetDefinitionType = typeof HOSTMAP ;
+export const HOSTMAP = 'hostmap';
+
+

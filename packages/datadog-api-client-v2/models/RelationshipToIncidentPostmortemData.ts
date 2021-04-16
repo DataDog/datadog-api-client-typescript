@@ -10,10 +10,12 @@
 
 import { IncidentPostmortemType } from './IncidentPostmortemType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The postmortem relationship data.
 */
+
 export class RelationshipToIncidentPostmortemData {
     /**
     * A unique identifier that represents the postmortem.
@@ -23,25 +25,71 @@ export class RelationshipToIncidentPostmortemData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "IncidentPostmortemType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToIncidentPostmortemData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToIncidentPostmortemData {
+      let res = new RelationshipToIncidentPostmortemData();
+
+      if (data.id === undefined) {
+          throw new TypeError("missing required attribute 'id' on 'RelationshipToIncidentPostmortemData' object");
+      }
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'RelationshipToIncidentPostmortemData' object");
+      }
+      if (['incident_postmortems', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToIncidentPostmortemData): {[key: string]: any} {
+        let attributeTypes = RelationshipToIncidentPostmortemData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.id === undefined) {
+            throw new TypeError("missing required attribute 'id' on 'RelationshipToIncidentPostmortemData' object");
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'RelationshipToIncidentPostmortemData' object");
+        }
+        if (['incident_postmortems', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

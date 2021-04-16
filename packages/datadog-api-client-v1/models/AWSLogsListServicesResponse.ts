@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The list of current AWS services for which Datadog offers automatic log collection.
 */
+
 export class AWSLogsListServicesResponse {
     /**
     * Key value in returned object.
@@ -25,25 +27,51 @@ export class AWSLogsListServicesResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "label",
+        "label": {
             "baseName": "label",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSLogsListServicesResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSLogsListServicesResponse {
+      let res = new AWSLogsListServicesResponse();
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      res.label = ObjectSerializer.deserialize(data.label, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSLogsListServicesResponse): {[key: string]: any} {
+        let attributeTypes = AWSLogsListServicesResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        res.label = ObjectSerializer.serialize(data.label, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

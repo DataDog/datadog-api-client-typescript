@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The GCS archive's integration destination.
 */
+
 export class LogsArchiveIntegrationGCS {
     /**
     * A client email.
@@ -25,25 +27,63 @@ export class LogsArchiveIntegrationGCS {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "clientEmail",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "clientEmail": {
             "baseName": "client_email",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "projectId",
+        "projectId": {
             "baseName": "project_id",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsArchiveIntegrationGCS.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsArchiveIntegrationGCS {
+      let res = new LogsArchiveIntegrationGCS();
+
+      if (data.client_email === undefined) {
+          throw new TypeError("missing required attribute 'client_email' on 'LogsArchiveIntegrationGCS' object");
+      }
+      res.clientEmail = ObjectSerializer.deserialize(data.client_email, "string", "")
+
+      if (data.project_id === undefined) {
+          throw new TypeError("missing required attribute 'project_id' on 'LogsArchiveIntegrationGCS' object");
+      }
+      res.projectId = ObjectSerializer.deserialize(data.project_id, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsArchiveIntegrationGCS): {[key: string]: any} {
+        let attributeTypes = LogsArchiveIntegrationGCS.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.clientEmail === undefined) {
+            throw new TypeError("missing required attribute 'client_email' on 'LogsArchiveIntegrationGCS' object");
+        }
+        res.client_email = ObjectSerializer.serialize(data.clientEmail, "string", "")
+
+        if (data.projectId === undefined) {
+            throw new TypeError("missing required attribute 'project_id' on 'LogsArchiveIntegrationGCS' object");
+        }
+        res.project_id = ObjectSerializer.serialize(data.projectId, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

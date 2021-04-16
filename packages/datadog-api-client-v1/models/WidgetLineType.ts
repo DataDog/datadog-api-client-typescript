@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of lines displayed.
 */
-export type WidgetLineType = "dashed" | "dotted" | "solid" ;
+
+export type WidgetLineType = typeof DASHED | typeof DOTTED | typeof SOLID ;
+export const DASHED = 'dashed';
+export const DOTTED = 'dotted';
+export const SOLID = 'solid';
+
+

@@ -13,10 +13,12 @@ import { SyntheticsSSLCertificate } from './SyntheticsSSLCertificate';
 import { SyntheticsTestProcessStatus } from './SyntheticsTestProcessStatus';
 import { SyntheticsTiming } from './SyntheticsTiming';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing results for your Synthetic API test.
 */
+
 export class SyntheticsAPITestResultData {
     'cert'?: SyntheticsSSLCertificate;
     'errorCode'?: SyntheticsErrorCode;
@@ -49,73 +51,139 @@ export class SyntheticsAPITestResultData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cert",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cert": {
             "baseName": "cert",
             "type": "SyntheticsSSLCertificate",
             "format": ""
         },
-        {
-            "name": "errorCode",
+        "errorCode": {
             "baseName": "errorCode",
             "type": "SyntheticsErrorCode",
             "format": ""
         },
-        {
-            "name": "errorMessage",
+        "errorMessage": {
             "baseName": "errorMessage",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "eventType",
+        "eventType": {
             "baseName": "eventType",
             "type": "SyntheticsTestProcessStatus",
             "format": ""
         },
-        {
-            "name": "httpStatusCode",
+        "httpStatusCode": {
             "baseName": "httpStatusCode",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "requestHeaders",
+        "requestHeaders": {
             "baseName": "requestHeaders",
             "type": "{ [key: string]: any; }",
             "format": ""
         },
-        {
-            "name": "responseBody",
+        "responseBody": {
             "baseName": "responseBody",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "responseHeaders",
+        "responseHeaders": {
             "baseName": "responseHeaders",
             "type": "{ [key: string]: any; }",
             "format": ""
         },
-        {
-            "name": "responseSize",
+        "responseSize": {
             "baseName": "responseSize",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "timings",
+        "timings": {
             "baseName": "timings",
             "type": "SyntheticsTiming",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsAPITestResultData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsAPITestResultData {
+      let res = new SyntheticsAPITestResultData();
+
+      res.cert = ObjectSerializer.deserialize(data.cert, "SyntheticsSSLCertificate", "")
+
+      if (['NO_ERROR', 'UNKNOWN', 'DNS', 'SSL', 'TIMEOUT', 'DENIED', 'INCORRECT_ASSERTION', undefined].includes(data.errorCode)) {
+          res.errorCode = data.errorCode;
+      } else {
+          throw TypeError(`invalid enum value ${ data.errorCode } for errorCode`);
+      }
+
+      res.errorMessage = ObjectSerializer.deserialize(data.errorMessage, "string", "")
+
+      if (['not_scheduled', 'scheduled', 'started', 'finished', 'finished_with_error', undefined].includes(data.eventType)) {
+          res.eventType = data.eventType;
+      } else {
+          throw TypeError(`invalid enum value ${ data.eventType } for eventType`);
+      }
+
+      res.httpStatusCode = ObjectSerializer.deserialize(data.httpStatusCode, "number", "int64")
+
+      res.requestHeaders = ObjectSerializer.deserialize(data.requestHeaders, "{ [key: string]: any; }", "")
+
+      res.responseBody = ObjectSerializer.deserialize(data.responseBody, "string", "")
+
+      res.responseHeaders = ObjectSerializer.deserialize(data.responseHeaders, "{ [key: string]: any; }", "")
+
+      res.responseSize = ObjectSerializer.deserialize(data.responseSize, "number", "int64")
+
+      res.timings = ObjectSerializer.deserialize(data.timings, "SyntheticsTiming", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsAPITestResultData): {[key: string]: any} {
+        let attributeTypes = SyntheticsAPITestResultData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cert = ObjectSerializer.serialize(data.cert, "SyntheticsSSLCertificate", "")
+
+        if (['NO_ERROR', 'UNKNOWN', 'DNS', 'SSL', 'TIMEOUT', 'DENIED', 'INCORRECT_ASSERTION', undefined].includes(data.errorCode)) {
+            res.errorCode = data.errorCode;
+        } else {
+            throw TypeError(`invalid enum value ${ data.errorCode } for errorCode`);
+        }
+
+        res.errorMessage = ObjectSerializer.serialize(data.errorMessage, "string", "")
+
+        if (['not_scheduled', 'scheduled', 'started', 'finished', 'finished_with_error', undefined].includes(data.eventType)) {
+            res.eventType = data.eventType;
+        } else {
+            throw TypeError(`invalid enum value ${ data.eventType } for eventType`);
+        }
+
+        res.httpStatusCode = ObjectSerializer.serialize(data.httpStatusCode, "number", "int64")
+
+        res.requestHeaders = ObjectSerializer.serialize(data.requestHeaders, "{ [key: string]: any; }", "")
+
+        res.responseBody = ObjectSerializer.serialize(data.responseBody, "string", "")
+
+        res.responseHeaders = ObjectSerializer.serialize(data.responseHeaders, "{ [key: string]: any; }", "")
+
+        res.responseSize = ObjectSerializer.serialize(data.responseSize, "number", "int64")
+
+        res.timings = ObjectSerializer.serialize(data.timings, "SyntheticsTiming", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

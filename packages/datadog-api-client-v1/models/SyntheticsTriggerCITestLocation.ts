@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Synthetics location.
 */
+
 export class SyntheticsTriggerCITestLocation {
     /**
     * Unique identifier of the location.
@@ -25,25 +27,51 @@ export class SyntheticsTriggerCITestLocation {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTriggerCITestLocation.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTriggerCITestLocation {
+      let res = new SyntheticsTriggerCITestLocation();
+
+      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTriggerCITestLocation): {[key: string]: any} {
+        let attributeTypes = SyntheticsTriggerCITestLocation.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

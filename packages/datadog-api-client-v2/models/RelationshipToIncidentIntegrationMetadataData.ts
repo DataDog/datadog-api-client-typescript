@@ -10,10 +10,12 @@
 
 import { IncidentIntegrationMetadataType } from './IncidentIntegrationMetadataType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A relationship reference for an integration metadata object.
 */
+
 export class RelationshipToIncidentIntegrationMetadataData {
     /**
     * A unique identifier that represents the integration metadata.
@@ -23,25 +25,71 @@ export class RelationshipToIncidentIntegrationMetadataData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "IncidentIntegrationMetadataType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToIncidentIntegrationMetadataData {
+      let res = new RelationshipToIncidentIntegrationMetadataData();
+
+      if (data.id === undefined) {
+          throw new TypeError("missing required attribute 'id' on 'RelationshipToIncidentIntegrationMetadataData' object");
+      }
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'RelationshipToIncidentIntegrationMetadataData' object");
+      }
+      if (['incident_integration_metadata', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToIncidentIntegrationMetadataData): {[key: string]: any} {
+        let attributeTypes = RelationshipToIncidentIntegrationMetadataData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.id === undefined) {
+            throw new TypeError("missing required attribute 'id' on 'RelationshipToIncidentIntegrationMetadataData' object");
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'RelationshipToIncidentIntegrationMetadataData' object");
+        }
+        if (['incident_integration_metadata', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

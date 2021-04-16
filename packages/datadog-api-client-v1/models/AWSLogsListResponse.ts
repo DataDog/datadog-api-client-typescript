@@ -10,10 +10,12 @@
 
 import { AWSLogsLambda } from './AWSLogsLambda';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A list of all Datadog-AWS logs integrations available in your Datadog organization.
 */
+
 export class AWSLogsListResponse {
     /**
     * Your AWS Account ID without dashes.
@@ -30,31 +32,60 @@ export class AWSLogsListResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "accountId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "accountId": {
             "baseName": "account_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "lambdas",
+        "lambdas": {
             "baseName": "lambdas",
             "type": "Array<AWSLogsLambda>",
             "format": ""
         },
-        {
-            "name": "services",
+        "services": {
             "baseName": "services",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSLogsListResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSLogsListResponse {
+      let res = new AWSLogsListResponse();
+
+      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
+
+      res.lambdas = ObjectSerializer.deserialize(data.lambdas, "Array<AWSLogsLambda>", "")
+
+      res.services = ObjectSerializer.deserialize(data.services, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSLogsListResponse): {[key: string]: any} {
+        let attributeTypes = AWSLogsListResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
+
+        res.lambdas = ObjectSerializer.serialize(data.lambdas, "Array<AWSLogsLambda>", "")
+
+        res.services = ObjectSerializer.serialize(data.services, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

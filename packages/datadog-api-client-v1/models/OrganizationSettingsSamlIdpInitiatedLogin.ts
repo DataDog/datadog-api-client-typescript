@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Has one property enabled (boolean).
 */
+
 export class OrganizationSettingsSamlIdpInitiatedLogin {
     /**
     * Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
@@ -21,19 +23,42 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "enabled",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "enabled": {
             "baseName": "enabled",
             "type": "boolean",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return OrganizationSettingsSamlIdpInitiatedLogin.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): OrganizationSettingsSamlIdpInitiatedLogin {
+      let res = new OrganizationSettingsSamlIdpInitiatedLogin();
+
+      res.enabled = ObjectSerializer.deserialize(data.enabled, "boolean", "")
+
+
+      return res;
+    }
+
+    static serialize(data: OrganizationSettingsSamlIdpInitiatedLogin): {[key: string]: any} {
+        let attributeTypes = OrganizationSettingsSamlIdpInitiatedLogin.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.enabled = ObjectSerializer.serialize(data.enabled, "boolean", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

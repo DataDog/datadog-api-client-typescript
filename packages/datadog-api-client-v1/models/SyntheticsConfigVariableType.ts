@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the configuration variable.
 */
-export type SyntheticsConfigVariableType = "text" ;
+
+export type SyntheticsConfigVariableType = typeof TEXT ;
+export const TEXT = 'text';
+
+

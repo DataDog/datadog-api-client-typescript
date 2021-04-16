@@ -11,10 +11,12 @@
 import { OrganizationAttributes } from './OrganizationAttributes';
 import { OrganizationsType } from './OrganizationsType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Organization object.
 */
+
 export class Organization {
     'attributes'?: OrganizationAttributes;
     /**
@@ -25,31 +27,74 @@ export class Organization {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "OrganizationAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "OrganizationsType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Organization.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Organization {
+      let res = new Organization();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "OrganizationAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'Organization' object");
+      }
+      if (['orgs', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: Organization): {[key: string]: any} {
+        let attributeTypes = Organization.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "OrganizationAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'Organization' object");
+        }
+        if (['orgs', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

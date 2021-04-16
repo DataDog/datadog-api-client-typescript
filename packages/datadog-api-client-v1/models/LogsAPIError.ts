@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Error returned by the Logs API
 */
+
 export class LogsAPIError {
     /**
     * Code identifying the error
@@ -29,31 +31,60 @@ export class LogsAPIError {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "code",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "code": {
             "baseName": "code",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "details",
+        "details": {
             "baseName": "details",
             "type": "Array<LogsAPIError>",
             "format": ""
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAPIError.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAPIError {
+      let res = new LogsAPIError();
+
+      res.code = ObjectSerializer.deserialize(data.code, "string", "")
+
+      res.details = ObjectSerializer.deserialize(data.details, "Array<LogsAPIError>", "")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAPIError): {[key: string]: any} {
+        let attributeTypes = LogsAPIError.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.code = ObjectSerializer.serialize(data.code, "string", "")
+
+        res.details = ObjectSerializer.serialize(data.details, "Array<LogsAPIError>", "")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

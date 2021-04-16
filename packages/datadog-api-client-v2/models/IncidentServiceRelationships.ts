@@ -10,35 +10,63 @@
 
 import { RelationshipToUser } from './RelationshipToUser';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The incident service's relationships.
 */
+
 export class IncidentServiceRelationships {
     'createdBy'?: RelationshipToUser;
     'lastModifiedBy'?: RelationshipToUser;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "createdBy",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "createdBy": {
             "baseName": "created_by",
             "type": "RelationshipToUser",
             "format": ""
         },
-        {
-            "name": "lastModifiedBy",
+        "lastModifiedBy": {
             "baseName": "last_modified_by",
             "type": "RelationshipToUser",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentServiceRelationships.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentServiceRelationships {
+      let res = new IncidentServiceRelationships();
+
+      res.createdBy = ObjectSerializer.deserialize(data.created_by, "RelationshipToUser", "")
+
+      res.lastModifiedBy = ObjectSerializer.deserialize(data.last_modified_by, "RelationshipToUser", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentServiceRelationships): {[key: string]: any} {
+        let attributeTypes = IncidentServiceRelationships.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created_by = ObjectSerializer.serialize(data.createdBy, "RelationshipToUser", "")
+
+        res.last_modified_by = ObjectSerializer.serialize(data.lastModifiedBy, "RelationshipToUser", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

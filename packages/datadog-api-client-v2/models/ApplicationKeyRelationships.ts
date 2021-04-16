@@ -10,28 +10,53 @@
 
 import { RelationshipToUser } from './RelationshipToUser';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Resources related to the application key.
 */
+
 export class ApplicationKeyRelationships {
     'createdBy'?: RelationshipToUser;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "createdBy",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "createdBy": {
             "baseName": "created_by",
             "type": "RelationshipToUser",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApplicationKeyRelationships.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApplicationKeyRelationships {
+      let res = new ApplicationKeyRelationships();
+
+      res.createdBy = ObjectSerializer.deserialize(data.created_by, "RelationshipToUser", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ApplicationKeyRelationships): {[key: string]: any} {
+        let attributeTypes = ApplicationKeyRelationships.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created_by = ObjectSerializer.serialize(data.createdBy, "RelationshipToUser", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

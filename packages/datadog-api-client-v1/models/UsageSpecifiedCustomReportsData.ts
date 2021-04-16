@@ -11,10 +11,12 @@
 import { UsageReportsType } from './UsageReportsType';
 import { UsageSpecifiedCustomReportsAttributes } from './UsageSpecifiedCustomReportsAttributes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing date and type for specified custom reports.
 */
+
 export class UsageSpecifiedCustomReportsData {
     'attributes'?: UsageSpecifiedCustomReportsAttributes;
     /**
@@ -25,31 +27,68 @@ export class UsageSpecifiedCustomReportsData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "UsageSpecifiedCustomReportsAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "UsageReportsType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageSpecifiedCustomReportsData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageSpecifiedCustomReportsData {
+      let res = new UsageSpecifiedCustomReportsData();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "UsageSpecifiedCustomReportsAttributes", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['reports', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: UsageSpecifiedCustomReportsData): {[key: string]: any} {
+        let attributeTypes = UsageSpecifiedCustomReportsData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "UsageSpecifiedCustomReportsAttributes", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['reports', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

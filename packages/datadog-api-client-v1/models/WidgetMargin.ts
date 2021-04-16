@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Size of the margins around the image.
 */
-export type WidgetMargin = "small" | "large" ;
+
+export type WidgetMargin = typeof SMALL | typeof LARGE ;
+export const SMALL = 'small';
+export const LARGE = 'large';
+
+

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object with all metric related metadata.
 */
+
 export class MetricMetadata {
     /**
     * Metric description.
@@ -45,55 +47,96 @@ export class MetricMetadata {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "description",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "description": {
             "baseName": "description",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "integration",
+        "integration": {
             "baseName": "integration",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "perUnit",
+        "perUnit": {
             "baseName": "per_unit",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "shortName",
+        "shortName": {
             "baseName": "short_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "statsdInterval",
+        "statsdInterval": {
             "baseName": "statsd_interval",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "unit",
+        "unit": {
             "baseName": "unit",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricMetadata.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricMetadata {
+      let res = new MetricMetadata();
+
+      res.description = ObjectSerializer.deserialize(data.description, "string", "")
+
+      res.integration = ObjectSerializer.deserialize(data.integration, "string", "")
+
+      res.perUnit = ObjectSerializer.deserialize(data.per_unit, "string", "")
+
+      res.shortName = ObjectSerializer.deserialize(data.short_name, "string", "")
+
+      res.statsdInterval = ObjectSerializer.deserialize(data.statsd_interval, "number", "int64")
+
+      res.type = ObjectSerializer.deserialize(data.type, "string", "")
+
+      res.unit = ObjectSerializer.deserialize(data.unit, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricMetadata): {[key: string]: any} {
+        let attributeTypes = MetricMetadata.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.description = ObjectSerializer.serialize(data.description, "string", "")
+
+        res.integration = ObjectSerializer.serialize(data.integration, "string", "")
+
+        res.per_unit = ObjectSerializer.serialize(data.perUnit, "string", "")
+
+        res.short_name = ObjectSerializer.serialize(data.shortName, "string", "")
+
+        res.statsd_interval = ObjectSerializer.serialize(data.statsdInterval, "number", "int64")
+
+        res.type = ObjectSerializer.serialize(data.type, "string", "")
+
+        res.unit = ObjectSerializer.serialize(data.unit, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

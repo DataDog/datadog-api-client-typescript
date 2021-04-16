@@ -10,10 +10,12 @@
 
 import { SLOTimeframe } from './SLOTimeframe';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * SLO thresholds (target and optionally warning) for a single time window.
 */
+
 export class SLOThreshold {
     /**
     * The target value for the service level indicator within the corresponding timeframe.
@@ -35,43 +37,98 @@ export class SLOThreshold {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "target",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "target": {
             "baseName": "target",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "targetDisplay",
+        "targetDisplay": {
             "baseName": "target_display",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "timeframe",
+        "timeframe": {
             "baseName": "timeframe",
             "type": "SLOTimeframe",
             "format": ""
         },
-        {
-            "name": "warning",
+        "warning": {
             "baseName": "warning",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "warningDisplay",
+        "warningDisplay": {
             "baseName": "warning_display",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOThreshold.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOThreshold {
+      let res = new SLOThreshold();
+
+      if (data.target === undefined) {
+          throw new TypeError("missing required attribute 'target' on 'SLOThreshold' object");
+      }
+      res.target = ObjectSerializer.deserialize(data.target, "number", "double")
+
+      res.targetDisplay = ObjectSerializer.deserialize(data.target_display, "string", "")
+
+      if (data.timeframe === undefined) {
+          throw new TypeError("missing required attribute 'timeframe' on 'SLOThreshold' object");
+      }
+      if (['7d', '30d', '90d', undefined].includes(data.timeframe)) {
+          res.timeframe = data.timeframe;
+      } else {
+          throw TypeError(`invalid enum value ${ data.timeframe } for timeframe`);
+      }
+
+      res.warning = ObjectSerializer.deserialize(data.warning, "number", "double")
+
+      res.warningDisplay = ObjectSerializer.deserialize(data.warning_display, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOThreshold): {[key: string]: any} {
+        let attributeTypes = SLOThreshold.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.target === undefined) {
+            throw new TypeError("missing required attribute 'target' on 'SLOThreshold' object");
+        }
+        res.target = ObjectSerializer.serialize(data.target, "number", "double")
+
+        res.target_display = ObjectSerializer.serialize(data.targetDisplay, "string", "")
+
+        if (data.timeframe === undefined) {
+            throw new TypeError("missing required attribute 'timeframe' on 'SLOThreshold' object");
+        }
+        if (['7d', '30d', '90d', undefined].includes(data.timeframe)) {
+            res.timeframe = data.timeframe;
+        } else {
+            throw TypeError(`invalid enum value ${ data.timeframe } for timeframe`);
+        }
+
+        res.warning = ObjectSerializer.serialize(data.warning, "number", "double")
+
+        res.warning_display = ObjectSerializer.serialize(data.warningDisplay, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

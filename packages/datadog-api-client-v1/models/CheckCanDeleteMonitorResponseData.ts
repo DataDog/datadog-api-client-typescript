@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Wrapper object with the list of monitor IDs.
 */
+
 export class CheckCanDeleteMonitorResponseData {
     /**
     * An array of of Monitor IDs that can be safely deleted.
@@ -21,19 +23,42 @@ export class CheckCanDeleteMonitorResponseData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "ok",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "ok": {
             "baseName": "ok",
             "type": "Array<number>",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return CheckCanDeleteMonitorResponseData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): CheckCanDeleteMonitorResponseData {
+      let res = new CheckCanDeleteMonitorResponseData();
+
+      res.ok = ObjectSerializer.deserialize(data.ok, "Array<number>", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: CheckCanDeleteMonitorResponseData): {[key: string]: any} {
+        let attributeTypes = CheckCanDeleteMonitorResponseData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.ok = ObjectSerializer.serialize(data.ok, "Array<number>", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

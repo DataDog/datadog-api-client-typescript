@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Incident Team resource type.
 */
-export type IncidentTeamType = "teams" ;
+
+export type IncidentTeamType = typeof TEAMS ;
+export const TEAMS = 'teams';
+
+

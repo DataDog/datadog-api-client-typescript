@@ -10,35 +10,75 @@
 
 import { ScatterPlotRequest } from './ScatterPlotRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Widget definition.
 */
+
 export class ScatterPlotWidgetDefinitionRequests {
     'x': ScatterPlotRequest;
     'y': ScatterPlotRequest;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "x",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "x": {
             "baseName": "x",
             "type": "ScatterPlotRequest",
             "format": ""
         },
-        {
-            "name": "y",
+        "y": {
             "baseName": "y",
             "type": "ScatterPlotRequest",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ScatterPlotWidgetDefinitionRequests {
+      let res = new ScatterPlotWidgetDefinitionRequests();
+
+      if (data.x === undefined) {
+          throw new TypeError("missing required attribute 'x' on 'ScatterPlotWidgetDefinitionRequests' object");
+      }
+      res.x = ObjectSerializer.deserialize(data.x, "ScatterPlotRequest", "")
+
+      if (data.y === undefined) {
+          throw new TypeError("missing required attribute 'y' on 'ScatterPlotWidgetDefinitionRequests' object");
+      }
+      res.y = ObjectSerializer.deserialize(data.y, "ScatterPlotRequest", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ScatterPlotWidgetDefinitionRequests): {[key: string]: any} {
+        let attributeTypes = ScatterPlotWidgetDefinitionRequests.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.x === undefined) {
+            throw new TypeError("missing required attribute 'x' on 'ScatterPlotWidgetDefinitionRequests' object");
+        }
+        res.x = ObjectSerializer.serialize(data.x, "ScatterPlotRequest", "")
+
+        if (data.y === undefined) {
+            throw new TypeError("missing required attribute 'y' on 'ScatterPlotWidgetDefinitionRequests' object");
+        }
+        res.y = ObjectSerializer.serialize(data.y, "ScatterPlotRequest", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -12,10 +12,12 @@ import { GroupWidgetDefinitionType } from './GroupWidgetDefinitionType';
 import { Widget } from './Widget';
 import { WidgetLayoutType } from './WidgetLayoutType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
 */
+
 export class GroupWidgetDefinition {
     'layoutType': WidgetLayoutType;
     /**
@@ -30,37 +32,103 @@ export class GroupWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "layoutType",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "layoutType": {
             "baseName": "layout_type",
             "type": "WidgetLayoutType",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "GroupWidgetDefinitionType",
             "format": ""
         },
-        {
-            "name": "widgets",
+        "widgets": {
             "baseName": "widgets",
             "type": "Array<Widget>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return GroupWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): GroupWidgetDefinition {
+      let res = new GroupWidgetDefinition();
+
+      if (data.layout_type === undefined) {
+          throw new TypeError("missing required attribute 'layout_type' on 'GroupWidgetDefinition' object");
+      }
+      if (['ordered', undefined].includes(data.layout_type)) {
+          res.layoutType = data.layout_type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.layout_type } for layout_type`);
+      }
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'GroupWidgetDefinition' object");
+      }
+      if (['group', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      if (data.widgets === undefined) {
+          throw new TypeError("missing required attribute 'widgets' on 'GroupWidgetDefinition' object");
+      }
+      res.widgets = ObjectSerializer.deserialize(data.widgets, "Array<Widget>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: GroupWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = GroupWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.layoutType === undefined) {
+            throw new TypeError("missing required attribute 'layout_type' on 'GroupWidgetDefinition' object");
+        }
+        if (['ordered', undefined].includes(data.layoutType)) {
+            res.layout_type = data.layoutType;
+        } else {
+            throw TypeError(`invalid enum value ${ data.layoutType } for layoutType`);
+        }
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'GroupWidgetDefinition' object");
+        }
+        if (['group', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        if (data.widgets === undefined) {
+            throw new TypeError("missing required attribute 'widgets' on 'GroupWidgetDefinition' object");
+        }
+        res.widgets = ObjectSerializer.serialize(data.widgets, "Array<Widget>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

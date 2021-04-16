@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Git information.
 */
+
 export class SyntheticsCITestMetadataGit {
     /**
     * Branch name.
@@ -25,25 +27,51 @@ export class SyntheticsCITestMetadataGit {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "branch",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "branch": {
             "baseName": "branch",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "commitSha",
+        "commitSha": {
             "baseName": "commit_sha",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsCITestMetadataGit.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsCITestMetadataGit {
+      let res = new SyntheticsCITestMetadataGit();
+
+      res.branch = ObjectSerializer.deserialize(data.branch, "string", "")
+
+      res.commitSha = ObjectSerializer.deserialize(data.commit_sha, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsCITestMetadataGit): {[key: string]: any} {
+        let attributeTypes = SyntheticsCITestMetadataGit.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.branch = ObjectSerializer.serialize(data.branch, "string", "")
+
+        res.commit_sha = ObjectSerializer.serialize(data.commitSha, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

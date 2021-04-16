@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The type of the service level objective.
 */
-export type SLOType = "metric" | "monitor" ;
+
+export type SLOType = typeof METRIC | typeof MONITOR ;
+export const METRIC = 'metric';
+export const MONITOR = 'monitor';
+
+

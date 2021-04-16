@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Permissions resource type.
 */
-export type PermissionsType = "permissions" ;
+
+export type PermissionsType = typeof PERMISSIONS ;
+export const PERMISSIONS = 'permissions';
+
+

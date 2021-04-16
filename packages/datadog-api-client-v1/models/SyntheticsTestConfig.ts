@@ -13,10 +13,12 @@ import { SyntheticsBrowserVariable } from './SyntheticsBrowserVariable';
 import { SyntheticsConfigVariable } from './SyntheticsConfigVariable';
 import { SyntheticsTestRequest } from './SyntheticsTestRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Configuration object for a Synthetic test.
 */
+
 export class SyntheticsTestConfig {
     /**
     * Array of assertions used for the test.
@@ -34,37 +36,81 @@ export class SyntheticsTestConfig {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "assertions",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "assertions": {
             "baseName": "assertions",
             "type": "Array<SyntheticsAssertion>",
             "format": ""
         },
-        {
-            "name": "configVariables",
+        "configVariables": {
             "baseName": "configVariables",
             "type": "Array<SyntheticsConfigVariable>",
             "format": ""
         },
-        {
-            "name": "request",
+        "request": {
             "baseName": "request",
             "type": "SyntheticsTestRequest",
             "format": ""
         },
-        {
-            "name": "variables",
+        "variables": {
             "baseName": "variables",
             "type": "Array<SyntheticsBrowserVariable>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTestConfig.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTestConfig {
+      let res = new SyntheticsTestConfig();
+
+      if (data.assertions === undefined) {
+          throw new TypeError("missing required attribute 'assertions' on 'SyntheticsTestConfig' object");
+      }
+      res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+      res.configVariables = ObjectSerializer.deserialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
+
+      if (data.request === undefined) {
+          throw new TypeError("missing required attribute 'request' on 'SyntheticsTestConfig' object");
+      }
+      res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
+
+      res.variables = ObjectSerializer.deserialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTestConfig): {[key: string]: any} {
+        let attributeTypes = SyntheticsTestConfig.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.assertions === undefined) {
+            throw new TypeError("missing required attribute 'assertions' on 'SyntheticsTestConfig' object");
+        }
+        res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+        res.configVariables = ObjectSerializer.serialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
+
+        if (data.request === undefined) {
+            throw new TypeError("missing required attribute 'request' on 'SyntheticsTestConfig' object");
+        }
+        res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
+
+        res.variables = ObjectSerializer.serialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

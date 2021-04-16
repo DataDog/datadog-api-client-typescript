@@ -10,10 +10,12 @@
 
 import { WidgetSort } from './WidgetSort';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Which column and order to sort by
 */
+
 export class WidgetFieldSort {
     /**
     * Facet path for the column
@@ -23,25 +25,71 @@ export class WidgetFieldSort {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "column",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "column": {
             "baseName": "column",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "order",
+        "order": {
             "baseName": "order",
             "type": "WidgetSort",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetFieldSort.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetFieldSort {
+      let res = new WidgetFieldSort();
+
+      if (data.column === undefined) {
+          throw new TypeError("missing required attribute 'column' on 'WidgetFieldSort' object");
+      }
+      res.column = ObjectSerializer.deserialize(data.column, "string", "")
+
+      if (data.order === undefined) {
+          throw new TypeError("missing required attribute 'order' on 'WidgetFieldSort' object");
+      }
+      if (['asc', 'desc', undefined].includes(data.order)) {
+          res.order = data.order;
+      } else {
+          throw TypeError(`invalid enum value ${ data.order } for order`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetFieldSort): {[key: string]: any} {
+        let attributeTypes = WidgetFieldSort.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.column === undefined) {
+            throw new TypeError("missing required attribute 'column' on 'WidgetFieldSort' object");
+        }
+        res.column = ObjectSerializer.serialize(data.column, "string", "")
+
+        if (data.order === undefined) {
+            throw new TypeError("missing required attribute 'order' on 'WidgetFieldSort' object");
+        }
+        if (['asc', 'desc', undefined].includes(data.order)) {
+            res.order = data.order;
+        } else {
+            throw TypeError(`invalid enum value ${ data.order } for order`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 
