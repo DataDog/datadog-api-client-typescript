@@ -39,6 +39,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'LogsApi.aggregateLogs').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -87,6 +88,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'LogsApi.listLogs').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -147,6 +149,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'LogsApi.listLogsGet').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (filterQuery !== undefined) {

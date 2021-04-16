@@ -36,6 +36,7 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'ServiceChecksApi.submitServiceCheck').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 

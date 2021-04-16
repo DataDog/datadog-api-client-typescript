@@ -39,6 +39,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'IncidentsApi.createIncident').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -93,6 +94,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'IncidentsApi.deleteIncident').makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -140,6 +142,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'IncidentsApi.getIncident').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (include !== undefined) {
@@ -186,6 +189,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'IncidentsApi.listIncidents').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (include !== undefined) {
@@ -247,6 +251,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'IncidentsApi.updateIncident').makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 

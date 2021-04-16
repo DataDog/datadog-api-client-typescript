@@ -60,6 +60,7 @@ When("the request is sent", async function (this: World) {
   const api = (datadogApiClient as any)[this.apiVersion];
   let configurationOpts = {
     authMethods: this.authMethods,
+    httpConfig: {compress: false},
   }
   if (process.env.DD_TEST_SITE) {
     let serverConf = api.servers[2].getConfiguration();

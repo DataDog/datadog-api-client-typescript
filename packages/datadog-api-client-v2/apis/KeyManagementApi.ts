@@ -44,6 +44,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.createAPIKey').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -97,6 +98,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.createCurrentUserApplicationKey').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -151,6 +153,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.deleteAPIKey').makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -196,6 +199,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.deleteApplicationKey').makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -241,6 +245,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.deleteCurrentUserApplicationKey').makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -288,6 +293,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.getAPIKey').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (include !== undefined) {
@@ -336,6 +342,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.getCurrentUserApplicationKey').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -391,6 +398,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.listAPIKeys').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (pageSize !== undefined) {
@@ -467,6 +475,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.listApplicationKeys').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (pageSize !== undefined) {
@@ -534,6 +543,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.listCurrentUserApplicationKeys').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (pageSize !== undefined) {
@@ -604,6 +614,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.updateAPIKey').makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -665,6 +676,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.updateApplicationKey').makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -726,6 +738,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = getServer(config, 'KeyManagementApi.updateCurrentUserApplicationKey').makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 

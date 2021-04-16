@@ -43,6 +43,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.checkCanDeleteSLO').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (ids !== undefined) {
@@ -90,6 +91,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.createSLO').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -146,6 +148,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.deleteSLO').makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (force !== undefined) {
@@ -193,6 +196,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -247,6 +251,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.getSLO').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -308,6 +313,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.getSLOHistory').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (fromTs !== undefined) {
@@ -362,6 +368,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.listSLOs').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
         if (ids !== undefined) {
@@ -426,6 +433,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectivesApi.updateSLO').makeRequestContext(localVarPath, HttpMethod.PUT);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 

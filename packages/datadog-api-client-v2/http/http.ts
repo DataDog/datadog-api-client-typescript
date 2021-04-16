@@ -2,7 +2,7 @@ import { userAgent } from '../../../version';
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
 // typings of url-parse are incorrect...
-// @ts-ignore 
+// @ts-ignore
 import URLParse from "url-parse";
 import { Observable, from } from '../rxjsStub';
 
@@ -44,12 +44,20 @@ export class HttpException extends Error {
 export type RequestBody = undefined | string | FormData;
 
 /**
+ * Represents an HTTP transport configuration.
+ */
+export interface HttpConfiguration {
+    compress?: boolean;
+}
+
+/**
  * Represents an HTTP request context
  */
 export class RequestContext {
     private headers: { [key: string]: string } = { 'user-agent': userAgent };
     private body: RequestBody = undefined;
     private url: URLParse;
+    private httpConfig: HttpConfiguration = {};
 
     /**
      * Creates the request context using a http method and request resource url
@@ -119,8 +127,16 @@ export class RequestContext {
         this.headers["Cookie"] += name + "=" + value + "; ";
     }
 
-    public setHeaderParam(key: string, value: string): void  { 
+    public setHeaderParam(key: string, value: string): void {
         this.headers[key] = value;
+    }
+
+    public setHttpConfig(conf: HttpConfiguration): void {
+        this.httpConfig = conf;
+    }
+
+    public getHttpConfig(): HttpConfiguration {
+        return this.httpConfig;
     }
 }
 
