@@ -8,10 +8,16 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
 
+        let compress = request.getHttpConfig().compress;
+        if (compress === undefined) {
+            compress = true;
+        }
+
         const resultPromise = fetch(request.getUrl(), {
             method: method,
             body: body as any,
             headers: request.getHeaders(),
+            compress: compress,
         }).then((resp: any) => {
             const headers: { [name: string]: string } = {};
             resp.headers.forEach((value: string, name: string) => {

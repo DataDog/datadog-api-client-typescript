@@ -38,6 +38,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectiveCorrectionsApi.createSLOCorrection').makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -92,6 +93,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection').makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -137,6 +139,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectiveCorrectionsApi.getSLOCorrection').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -174,6 +177,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectiveCorrectionsApi.listSLOCorrection').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 
@@ -226,6 +230,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
         // Make Request Context
         const requestContext = getServer(config, 'ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection').makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
 

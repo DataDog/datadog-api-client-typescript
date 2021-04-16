@@ -1,4 +1,4 @@
-import { HttpLibrary } from "./http/http";
+import { HttpLibrary, HttpConfiguration } from "./http/http";
 import { Middleware, PromiseMiddleware, PromiseMiddlewareWrapper } from "./middleware";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import { BaseServerConfiguration, server1, servers, operationServers } from "./servers";
@@ -11,6 +11,7 @@ export interface Configuration {
     readonly httpApi: HttpLibrary;
     readonly middleware: Middleware[];
     readonly authMethods: AuthMethods;
+    readonly httpConfig: HttpConfiguration;
 }
 
 
@@ -45,7 +46,11 @@ export interface ConfigurationParameters {
     /**
      * Configuration for the available authentication methods
      */
-    authMethods?: AuthMethodsConfiguration
+    authMethods?: AuthMethodsConfiguration;
+    /**
+     * Configuration for HTTP transport
+     */
+    httpConfig?: HttpConfiguration
 }
 
 /**
@@ -59,6 +64,7 @@ export interface ConfigurationParameters {
  *    - middleware: []
  *    - promiseMiddleware: []
  *    - authMethods: {}
+ *    - httpConfig: {}
  *
  * @param conf partial configuration
  */
@@ -84,7 +90,8 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
         middleware: conf.middleware || [],
-        authMethods: configureAuthMethods(authMethods)
+        authMethods: configureAuthMethods(authMethods),
+        httpConfig: conf.httpConfig || {}
     };
     if (conf.promiseMiddleware) {
         conf.promiseMiddleware.forEach(
