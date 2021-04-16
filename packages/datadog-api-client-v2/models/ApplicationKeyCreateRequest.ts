@@ -10,28 +10,59 @@
 
 import { ApplicationKeyCreateData } from './ApplicationKeyCreateData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Request used to create an application key.
 */
+
 export class ApplicationKeyCreateRequest {
     'data': ApplicationKeyCreateData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "ApplicationKeyCreateData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApplicationKeyCreateRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApplicationKeyCreateRequest {
+      let res = new ApplicationKeyCreateRequest();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'ApplicationKeyCreateRequest' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "ApplicationKeyCreateData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ApplicationKeyCreateRequest): {[key: string]: any} {
+        let attributeTypes = ApplicationKeyCreateRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'ApplicationKeyCreateRequest' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "ApplicationKeyCreateData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

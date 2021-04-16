@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of display to use for the request.
 */
-export type WidgetDisplayType = "area" | "bars" | "line" ;
+
+export type WidgetDisplayType = typeof AREA | typeof BARS | typeof LINE ;
+export const AREA = 'area';
+export const BARS = 'bars';
+export const LINE = 'line';
+
+

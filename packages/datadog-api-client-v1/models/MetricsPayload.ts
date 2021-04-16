@@ -10,10 +10,12 @@
 
 import { Series } from './Series';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The metrics' payload.
 */
+
 export class MetricsPayload {
     /**
     * A list of time series to submit to Datadog.
@@ -22,19 +24,48 @@ export class MetricsPayload {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "series",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "series": {
             "baseName": "series",
             "type": "Array<Series>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricsPayload.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricsPayload {
+      let res = new MetricsPayload();
+
+      if (data.series === undefined) {
+          throw new TypeError("missing required attribute 'series' on 'MetricsPayload' object");
+      }
+      res.series = ObjectSerializer.deserialize(data.series, "Array<Series>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricsPayload): {[key: string]: any} {
+        let attributeTypes = MetricsPayload.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.series === undefined) {
+            throw new TypeError("missing required attribute 'series' on 'MetricsPayload' object");
+        }
+        res.series = ObjectSerializer.serialize(data.series, "Array<Series>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

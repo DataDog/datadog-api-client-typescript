@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
 */
+
 export class WidgetCustomLink {
     /**
     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
@@ -25,25 +27,63 @@ export class WidgetCustomLink {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "label",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "label": {
             "baseName": "label",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "link",
+        "link": {
             "baseName": "link",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetCustomLink.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetCustomLink {
+      let res = new WidgetCustomLink();
+
+      if (data.label === undefined) {
+          throw new TypeError("missing required attribute 'label' on 'WidgetCustomLink' object");
+      }
+      res.label = ObjectSerializer.deserialize(data.label, "string", "")
+
+      if (data.link === undefined) {
+          throw new TypeError("missing required attribute 'link' on 'WidgetCustomLink' object");
+      }
+      res.link = ObjectSerializer.deserialize(data.link, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetCustomLink): {[key: string]: any} {
+        let attributeTypes = WidgetCustomLink.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.label === undefined) {
+            throw new TypeError("missing required attribute 'label' on 'WidgetCustomLink' object");
+        }
+        res.label = ObjectSerializer.serialize(data.label, "string", "")
+
+        if (data.link === undefined) {
+            throw new TypeError("missing required attribute 'link' on 'WidgetCustomLink' object");
+        }
+        res.link = ObjectSerializer.serialize(data.link, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

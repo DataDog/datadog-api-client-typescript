@@ -10,10 +10,12 @@
 
 import { MetricType } from './MetricType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object for a single metric tag configuration.
 */
+
 export class Metric {
     /**
     * The metric name for this resource.
@@ -23,25 +25,59 @@ export class Metric {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "MetricType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Metric.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Metric {
+      let res = new Metric();
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['metrics', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: Metric): {[key: string]: any} {
+        let attributeTypes = Metric.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['metrics', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

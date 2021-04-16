@@ -11,10 +11,12 @@
 import { SyntheticsGlobalVariableParseTestOptionsType } from './SyntheticsGlobalVariableParseTestOptionsType';
 import { SyntheticsVariableParser } from './SyntheticsVariableParser';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Parsing options for variables to extract.
 */
+
 export class SyntheticsParsingOptions {
     /**
     * When type is `http_header`, name of the header to use to extract the value.
@@ -29,37 +31,77 @@ export class SyntheticsParsingOptions {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "field",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "field": {
             "baseName": "field",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "parser",
+        "parser": {
             "baseName": "parser",
             "type": "SyntheticsVariableParser",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "SyntheticsGlobalVariableParseTestOptionsType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsParsingOptions.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsParsingOptions {
+      let res = new SyntheticsParsingOptions();
+
+      res.field = ObjectSerializer.deserialize(data.field, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.parser = ObjectSerializer.deserialize(data.parser, "SyntheticsVariableParser", "")
+
+      if (['http_body', 'http_header', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsParsingOptions): {[key: string]: any} {
+        let attributeTypes = SyntheticsParsingOptions.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.field = ObjectSerializer.serialize(data.field, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.parser = ObjectSerializer.serialize(data.parser, "SyntheticsVariableParser", "")
+
+        if (['http_body', 'http_header', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

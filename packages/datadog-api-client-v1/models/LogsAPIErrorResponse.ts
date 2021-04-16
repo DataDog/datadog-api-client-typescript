@@ -10,28 +10,53 @@
 
 import { LogsAPIError } from './LogsAPIError';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response returned by the Logs API when errors occur.
 */
+
 export class LogsAPIErrorResponse {
     'error'?: LogsAPIError;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "error",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "error": {
             "baseName": "error",
             "type": "LogsAPIError",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAPIErrorResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAPIErrorResponse {
+      let res = new LogsAPIErrorResponse();
+
+      res.error = ObjectSerializer.deserialize(data.error, "LogsAPIError", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAPIErrorResponse): {[key: string]: any} {
+        let attributeTypes = LogsAPIErrorResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.error = ObjectSerializer.serialize(data.error, "LogsAPIError", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

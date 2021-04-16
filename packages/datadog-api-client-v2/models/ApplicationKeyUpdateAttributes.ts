@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes used to update an application Key.
 */
+
 export class ApplicationKeyUpdateAttributes {
     /**
     * Name of the application key.
@@ -21,19 +23,48 @@ export class ApplicationKeyUpdateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "name",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApplicationKeyUpdateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApplicationKeyUpdateAttributes {
+      let res = new ApplicationKeyUpdateAttributes();
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'ApplicationKeyUpdateAttributes' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ApplicationKeyUpdateAttributes): {[key: string]: any} {
+        let attributeTypes = ApplicationKeyUpdateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'ApplicationKeyUpdateAttributes' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

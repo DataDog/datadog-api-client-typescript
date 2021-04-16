@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A JSON array of billing type.
 */
+
 export class OrganizationBilling {
     /**
     * The type of billing. Only `parent_billing` is supported.
@@ -21,19 +23,42 @@ export class OrganizationBilling {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "type",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "type": {
             "baseName": "type",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return OrganizationBilling.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): OrganizationBilling {
+      let res = new OrganizationBilling();
+
+      res.type = ObjectSerializer.deserialize(data.type, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: OrganizationBilling): {[key: string]: any} {
+        let attributeTypes = OrganizationBilling.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.type = ObjectSerializer.serialize(data.type, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

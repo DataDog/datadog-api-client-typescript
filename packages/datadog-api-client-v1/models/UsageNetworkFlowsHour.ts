@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Number of netflow events indexed for each hour for a given organization.
 */
+
 export class UsageNetworkFlowsHour {
     /**
     * The hour for the usage.
@@ -25,25 +27,51 @@ export class UsageNetworkFlowsHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "hour",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "indexedEventCount",
+        "indexedEventCount": {
             "baseName": "indexed_event_count",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageNetworkFlowsHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageNetworkFlowsHour {
+      let res = new UsageNetworkFlowsHour();
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.indexedEventCount = ObjectSerializer.deserialize(data.indexed_event_count, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageNetworkFlowsHour): {[key: string]: any} {
+        let attributeTypes = UsageNetworkFlowsHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.indexed_event_count = ObjectSerializer.serialize(data.indexedEventCount, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

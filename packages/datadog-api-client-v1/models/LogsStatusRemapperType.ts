@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs status remapper.
 */
-export type LogsStatusRemapperType = "status-remapper" ;
+
+export type LogsStatusRemapperType = typeof STATUS_REMAPPER ;
+export const STATUS_REMAPPER = 'status-remapper';
+
+

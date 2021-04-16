@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes of the created user.
 */
+
 export class UserCreateAttributes {
     /**
     * The email of the user.
@@ -29,31 +31,66 @@ export class UserCreateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "email",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "email": {
             "baseName": "email",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UserCreateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UserCreateAttributes {
+      let res = new UserCreateAttributes();
+
+      if (data.email === undefined) {
+          throw new TypeError("missing required attribute 'email' on 'UserCreateAttributes' object");
+      }
+      res.email = ObjectSerializer.deserialize(data.email, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UserCreateAttributes): {[key: string]: any} {
+        let attributeTypes = UserCreateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.email === undefined) {
+            throw new TypeError("missing required attribute 'email' on 'UserCreateAttributes' object");
+        }
+        res.email = ObjectSerializer.serialize(data.email, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

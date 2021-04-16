@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response with properties for each aggregated usage type.
 */
+
 export class UsageBillableSummaryBody {
     /**
     * The total account usage.
@@ -45,55 +47,96 @@ export class UsageBillableSummaryBody {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "accountBillableUsage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "accountBillableUsage": {
             "baseName": "account_billable_usage",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "elapsedUsageHours",
+        "elapsedUsageHours": {
             "baseName": "elapsed_usage_hours",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "firstBillableUsageHour",
+        "firstBillableUsageHour": {
             "baseName": "first_billable_usage_hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "lastBillableUsageHour",
+        "lastBillableUsageHour": {
             "baseName": "last_billable_usage_hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "orgBillableUsage",
+        "orgBillableUsage": {
             "baseName": "org_billable_usage",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "percentageInAccount",
+        "percentageInAccount": {
             "baseName": "percentage_in_account",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "usageUnit",
+        "usageUnit": {
             "baseName": "usage_unit",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageBillableSummaryBody.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageBillableSummaryBody {
+      let res = new UsageBillableSummaryBody();
+
+      res.accountBillableUsage = ObjectSerializer.deserialize(data.account_billable_usage, "number", "int64")
+
+      res.elapsedUsageHours = ObjectSerializer.deserialize(data.elapsed_usage_hours, "number", "int64")
+
+      res.firstBillableUsageHour = ObjectSerializer.deserialize(data.first_billable_usage_hour, "Date", "date-time")
+
+      res.lastBillableUsageHour = ObjectSerializer.deserialize(data.last_billable_usage_hour, "Date", "date-time")
+
+      res.orgBillableUsage = ObjectSerializer.deserialize(data.org_billable_usage, "number", "int64")
+
+      res.percentageInAccount = ObjectSerializer.deserialize(data.percentage_in_account, "number", "double")
+
+      res.usageUnit = ObjectSerializer.deserialize(data.usage_unit, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageBillableSummaryBody): {[key: string]: any} {
+        let attributeTypes = UsageBillableSummaryBody.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.account_billable_usage = ObjectSerializer.serialize(data.accountBillableUsage, "number", "int64")
+
+        res.elapsed_usage_hours = ObjectSerializer.serialize(data.elapsedUsageHours, "number", "int64")
+
+        res.first_billable_usage_hour = ObjectSerializer.serialize(data.firstBillableUsageHour, "Date", "date-time")
+
+        res.last_billable_usage_hour = ObjectSerializer.serialize(data.lastBillableUsageHour, "Date", "date-time")
+
+        res.org_billable_usage = ObjectSerializer.serialize(data.orgBillableUsage, "number", "int64")
+
+        res.percentage_in_account = ObjectSerializer.serialize(data.percentageInAccount, "number", "double")
+
+        res.usage_unit = ObjectSerializer.serialize(data.usageUnit, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

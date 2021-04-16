@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs date remapper.
 */
-export type LogsDateRemapperType = "date-remapper" ;
+
+export type LogsDateRemapperType = typeof DATE_REMAPPER ;
+export const DATE_REMAPPER = 'date-remapper';
+
+

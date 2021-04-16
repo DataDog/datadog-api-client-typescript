@@ -10,28 +10,61 @@
 
 import { SyntheticsTestPauseStatus } from './SyntheticsTestPauseStatus';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object to start or pause an existing Synthetic test.
 */
+
 export class SyntheticsUpdateTestPauseStatusPayload {
     'newStatus'?: SyntheticsTestPauseStatus;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "newStatus",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "newStatus": {
             "baseName": "new_status",
             "type": "SyntheticsTestPauseStatus",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsUpdateTestPauseStatusPayload {
+      let res = new SyntheticsUpdateTestPauseStatusPayload();
+
+      if (['live', 'paused', undefined].includes(data.new_status)) {
+          res.newStatus = data.new_status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.new_status } for new_status`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsUpdateTestPauseStatusPayload): {[key: string]: any} {
+        let attributeTypes = SyntheticsUpdateTestPauseStatusPayload.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['live', 'paused', undefined].includes(data.newStatus)) {
+            res.new_status = data.newStatus;
+        } else {
+            throw TypeError(`invalid enum value ${ data.newStatus } for newStatus`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

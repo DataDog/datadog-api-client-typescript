@@ -10,28 +10,59 @@
 
 import { RelationshipToUser } from './RelationshipToUser';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The relationships the incident will have with other resources once created.
 */
+
 export class IncidentCreateRelationships {
     'commander': RelationshipToUser;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "commander",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "commander": {
             "baseName": "commander",
             "type": "RelationshipToUser",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentCreateRelationships.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentCreateRelationships {
+      let res = new IncidentCreateRelationships();
+
+      if (data.commander === undefined) {
+          throw new TypeError("missing required attribute 'commander' on 'IncidentCreateRelationships' object");
+      }
+      res.commander = ObjectSerializer.deserialize(data.commander, "RelationshipToUser", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentCreateRelationships): {[key: string]: any} {
+        let attributeTypes = IncidentCreateRelationships.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.commander === undefined) {
+            throw new TypeError("missing required attribute 'commander' on 'IncidentCreateRelationships' object");
+        }
+        res.commander = ObjectSerializer.serialize(data.commander, "RelationshipToUser", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

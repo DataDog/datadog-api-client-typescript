@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The incident service's attributes from a response.
 */
+
 export class IncidentServiceResponseAttributes {
     /**
     * Timestamp of when the incident service was created.
@@ -29,31 +31,60 @@ export class IncidentServiceResponseAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "created",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "created": {
             "baseName": "created",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "modified",
+        "modified": {
             "baseName": "modified",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentServiceResponseAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentServiceResponseAttributes {
+      let res = new IncidentServiceResponseAttributes();
+
+      res.created = ObjectSerializer.deserialize(data.created, "Date", "date-time")
+
+      res.modified = ObjectSerializer.deserialize(data.modified, "Date", "date-time")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentServiceResponseAttributes): {[key: string]: any} {
+        let attributeTypes = IncidentServiceResponseAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created = ObjectSerializer.serialize(data.created, "Date", "date-time")
+
+        res.modified = ObjectSerializer.serialize(data.modified, "Date", "date-time")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

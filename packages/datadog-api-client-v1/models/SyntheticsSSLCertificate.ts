@@ -11,10 +11,12 @@
 import { SyntheticsSSLCertificateIssuer } from './SyntheticsSSLCertificateIssuer';
 import { SyntheticsSSLCertificateSubject } from './SyntheticsSSLCertificateSubject';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the SSL certificate used for a Synthetic test.
 */
+
 export class SyntheticsSSLCertificate {
     /**
     * Cipher used for the connection.
@@ -61,85 +63,141 @@ export class SyntheticsSSLCertificate {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cipher",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cipher": {
             "baseName": "cipher",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "exponent",
+        "exponent": {
             "baseName": "exponent",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "extKeyUsage",
+        "extKeyUsage": {
             "baseName": "extKeyUsage",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "fingerprint",
+        "fingerprint": {
             "baseName": "fingerprint",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "fingerprint256",
+        "fingerprint256": {
             "baseName": "fingerprint256",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "issuer",
+        "issuer": {
             "baseName": "issuer",
             "type": "SyntheticsSSLCertificateIssuer",
             "format": ""
         },
-        {
-            "name": "modulus",
+        "modulus": {
             "baseName": "modulus",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "protocol",
+        "protocol": {
             "baseName": "protocol",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "serialNumber",
+        "serialNumber": {
             "baseName": "serialNumber",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "subject",
+        "subject": {
             "baseName": "subject",
             "type": "SyntheticsSSLCertificateSubject",
             "format": ""
         },
-        {
-            "name": "validFrom",
+        "validFrom": {
             "baseName": "validFrom",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "validTo",
+        "validTo": {
             "baseName": "validTo",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsSSLCertificate.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsSSLCertificate {
+      let res = new SyntheticsSSLCertificate();
+
+      res.cipher = ObjectSerializer.deserialize(data.cipher, "string", "")
+
+      res.exponent = ObjectSerializer.deserialize(data.exponent, "number", "double")
+
+      res.extKeyUsage = ObjectSerializer.deserialize(data.extKeyUsage, "Array<string>", "")
+
+      res.fingerprint = ObjectSerializer.deserialize(data.fingerprint, "string", "")
+
+      res.fingerprint256 = ObjectSerializer.deserialize(data.fingerprint256, "string", "")
+
+      res.issuer = ObjectSerializer.deserialize(data.issuer, "SyntheticsSSLCertificateIssuer", "")
+
+      res.modulus = ObjectSerializer.deserialize(data.modulus, "string", "")
+
+      res.protocol = ObjectSerializer.deserialize(data.protocol, "string", "")
+
+      res.serialNumber = ObjectSerializer.deserialize(data.serialNumber, "string", "")
+
+      res.subject = ObjectSerializer.deserialize(data.subject, "SyntheticsSSLCertificateSubject", "")
+
+      res.validFrom = ObjectSerializer.deserialize(data.validFrom, "Date", "date-time")
+
+      res.validTo = ObjectSerializer.deserialize(data.validTo, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsSSLCertificate): {[key: string]: any} {
+        let attributeTypes = SyntheticsSSLCertificate.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cipher = ObjectSerializer.serialize(data.cipher, "string", "")
+
+        res.exponent = ObjectSerializer.serialize(data.exponent, "number", "double")
+
+        res.extKeyUsage = ObjectSerializer.serialize(data.extKeyUsage, "Array<string>", "")
+
+        res.fingerprint = ObjectSerializer.serialize(data.fingerprint, "string", "")
+
+        res.fingerprint256 = ObjectSerializer.serialize(data.fingerprint256, "string", "")
+
+        res.issuer = ObjectSerializer.serialize(data.issuer, "SyntheticsSSLCertificateIssuer", "")
+
+        res.modulus = ObjectSerializer.serialize(data.modulus, "string", "")
+
+        res.protocol = ObjectSerializer.serialize(data.protocol, "string", "")
+
+        res.serialNumber = ObjectSerializer.serialize(data.serialNumber, "string", "")
+
+        res.subject = ObjectSerializer.serialize(data.subject, "SyntheticsSSLCertificateSubject", "")
+
+        res.validFrom = ObjectSerializer.serialize(data.validFrom, "Date", "date-time")
+
+        res.validTo = ObjectSerializer.serialize(data.validTo, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

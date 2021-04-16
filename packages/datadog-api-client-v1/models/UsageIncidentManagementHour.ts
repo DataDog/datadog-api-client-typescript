@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Incident management usage for a given organization for a given hour.
 */
+
 export class UsageIncidentManagementHour {
     /**
     * The hour for the usage.
@@ -25,25 +27,51 @@ export class UsageIncidentManagementHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "hour",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "monthlyActiveUsers",
+        "monthlyActiveUsers": {
             "baseName": "monthly_active_users",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageIncidentManagementHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageIncidentManagementHour {
+      let res = new UsageIncidentManagementHour();
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.monthlyActiveUsers = ObjectSerializer.deserialize(data.monthly_active_users, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageIncidentManagementHour): {[key: string]: any} {
+        let attributeTypes = UsageIncidentManagementHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.monthly_active_users = ObjectSerializer.serialize(data.monthlyActiveUsers, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

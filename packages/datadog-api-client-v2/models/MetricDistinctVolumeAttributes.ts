@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing the definition of a metric's distinct volume.
 */
+
 export class MetricDistinctVolumeAttributes {
     /**
     * Distinct volume for the given metric.
@@ -21,19 +23,42 @@ export class MetricDistinctVolumeAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "distinctVolume",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "distinctVolume": {
             "baseName": "distinct_volume",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricDistinctVolumeAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricDistinctVolumeAttributes {
+      let res = new MetricDistinctVolumeAttributes();
+
+      res.distinctVolume = ObjectSerializer.deserialize(data.distinct_volume, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricDistinctVolumeAttributes): {[key: string]: any} {
+        let attributeTypes = MetricDistinctVolumeAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.distinct_volume = ObjectSerializer.serialize(data.distinctVolume, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

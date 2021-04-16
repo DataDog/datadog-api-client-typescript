@@ -11,10 +11,12 @@
 import { LogsAttributeRemapperType } from './LogsAttributeRemapperType';
 import { TargetFormatType } from './TargetFormatType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
 */
+
 export class LogsAttributeRemapper {
     /**
     * Whether or not the processor is enabled.
@@ -53,73 +55,157 @@ export class LogsAttributeRemapper {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "isEnabled",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "isEnabled": {
             "baseName": "is_enabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "overrideOnConflict",
+        "overrideOnConflict": {
             "baseName": "override_on_conflict",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "preserveSource",
+        "preserveSource": {
             "baseName": "preserve_source",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "sourceType",
+        "sourceType": {
             "baseName": "source_type",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sources",
+        "sources": {
             "baseName": "sources",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "target",
+        "target": {
             "baseName": "target",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "targetFormat",
+        "targetFormat": {
             "baseName": "target_format",
             "type": "TargetFormatType",
             "format": ""
         },
-        {
-            "name": "targetType",
+        "targetType": {
             "baseName": "target_type",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "LogsAttributeRemapperType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAttributeRemapper.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAttributeRemapper {
+      let res = new LogsAttributeRemapper();
+
+      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.overrideOnConflict = ObjectSerializer.deserialize(data.override_on_conflict, "boolean", "")
+
+      res.preserveSource = ObjectSerializer.deserialize(data.preserve_source, "boolean", "")
+
+      res.sourceType = ObjectSerializer.deserialize(data.source_type, "string", "")
+
+      if (data.sources === undefined) {
+          throw new TypeError("missing required attribute 'sources' on 'LogsAttributeRemapper' object");
+      }
+      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+
+      if (data.target === undefined) {
+          throw new TypeError("missing required attribute 'target' on 'LogsAttributeRemapper' object");
+      }
+      res.target = ObjectSerializer.deserialize(data.target, "string", "")
+
+      if (['auto', 'string', 'integer', 'double', undefined].includes(data.target_format)) {
+          res.targetFormat = data.target_format;
+      } else {
+          throw TypeError(`invalid enum value ${ data.target_format } for target_format`);
+      }
+
+      res.targetType = ObjectSerializer.deserialize(data.target_type, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'LogsAttributeRemapper' object");
+      }
+      if (['attribute-remapper', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAttributeRemapper): {[key: string]: any} {
+        let attributeTypes = LogsAttributeRemapper.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.override_on_conflict = ObjectSerializer.serialize(data.overrideOnConflict, "boolean", "")
+
+        res.preserve_source = ObjectSerializer.serialize(data.preserveSource, "boolean", "")
+
+        res.source_type = ObjectSerializer.serialize(data.sourceType, "string", "")
+
+        if (data.sources === undefined) {
+            throw new TypeError("missing required attribute 'sources' on 'LogsAttributeRemapper' object");
+        }
+        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
+
+        if (data.target === undefined) {
+            throw new TypeError("missing required attribute 'target' on 'LogsAttributeRemapper' object");
+        }
+        res.target = ObjectSerializer.serialize(data.target, "string", "")
+
+        if (['auto', 'string', 'integer', 'double', undefined].includes(data.targetFormat)) {
+            res.target_format = data.targetFormat;
+        } else {
+            throw TypeError(`invalid enum value ${ data.targetFormat } for targetFormat`);
+        }
+
+        res.target_type = ObjectSerializer.serialize(data.targetType, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'LogsAttributeRemapper' object");
+        }
+        if (['attribute-remapper', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

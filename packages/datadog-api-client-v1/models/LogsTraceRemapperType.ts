@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs trace remapper.
 */
-export type LogsTraceRemapperType = "trace-id-remapper" ;
+
+export type LogsTraceRemapperType = typeof TRACE_ID_REMAPPER ;
+export const TRACE_ID_REMAPPER = 'trace-id-remapper';
+
+

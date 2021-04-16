@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes of the organization.
 */
+
 export class OrganizationAttributes {
     /**
     * Creation time of the organization.
@@ -49,61 +51,105 @@ export class OrganizationAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "createdAt",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "createdAt": {
             "baseName": "created_at",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "description",
+        "description": {
             "baseName": "description",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "disabled",
+        "disabled": {
             "baseName": "disabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "modifiedAt",
+        "modifiedAt": {
             "baseName": "modified_at",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "publicId",
+        "publicId": {
             "baseName": "public_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sharing",
+        "sharing": {
             "baseName": "sharing",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "url",
+        "url": {
             "baseName": "url",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return OrganizationAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): OrganizationAttributes {
+      let res = new OrganizationAttributes();
+
+      res.createdAt = ObjectSerializer.deserialize(data.created_at, "Date", "date-time")
+
+      res.description = ObjectSerializer.deserialize(data.description, "string", "")
+
+      res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "")
+
+      res.modifiedAt = ObjectSerializer.deserialize(data.modified_at, "Date", "date-time")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
+
+      res.sharing = ObjectSerializer.deserialize(data.sharing, "string", "")
+
+      res.url = ObjectSerializer.deserialize(data.url, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: OrganizationAttributes): {[key: string]: any} {
+        let attributeTypes = OrganizationAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created_at = ObjectSerializer.serialize(data.createdAt, "Date", "date-time")
+
+        res.description = ObjectSerializer.serialize(data.description, "string", "")
+
+        res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "")
+
+        res.modified_at = ObjectSerializer.serialize(data.modifiedAt, "Date", "date-time")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
+
+        res.sharing = ObjectSerializer.serialize(data.sharing, "string", "")
+
+        res.url = ObjectSerializer.serialize(data.url, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

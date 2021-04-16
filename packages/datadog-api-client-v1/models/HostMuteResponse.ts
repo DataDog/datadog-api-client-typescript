@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response with the list of muted host for your organization.
 */
+
 export class HostMuteResponse {
     /**
     * Action applied to the hosts.
@@ -33,37 +35,69 @@ export class HostMuteResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "action",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "action": {
             "baseName": "action",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "end",
+        "end": {
             "baseName": "end",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hostname",
+        "hostname": {
             "baseName": "hostname",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMuteResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMuteResponse {
+      let res = new HostMuteResponse();
+
+      res.action = ObjectSerializer.deserialize(data.action, "string", "")
+
+      res.end = ObjectSerializer.deserialize(data.end, "number", "int64")
+
+      res.hostname = ObjectSerializer.deserialize(data.hostname, "string", "")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HostMuteResponse): {[key: string]: any} {
+        let attributeTypes = HostMuteResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.action = ObjectSerializer.serialize(data.action, "string", "")
+
+        res.end = ObjectSerializer.serialize(data.end, "number", "int64")
+
+        res.hostname = ObjectSerializer.serialize(data.hostname, "string", "")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

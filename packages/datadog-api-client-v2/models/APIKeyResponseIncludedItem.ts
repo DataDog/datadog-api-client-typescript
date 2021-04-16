@@ -13,52 +13,10 @@ import { UserAttributes } from './UserAttributes';
 import { UserResponseRelationships } from './UserResponseRelationships';
 import { UsersType } from './UsersType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An object related to an API key.
 */
-export class APIKeyResponseIncludedItem {
-    'attributes'?: UserAttributes;
-    /**
-    * ID of the user.
-    */
-    'id'?: string;
-    'relationships'?: UserResponseRelationships;
-    'type'?: UsersType;
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
-            "baseName": "attributes",
-            "type": "UserAttributes",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "relationships",
-            "baseName": "relationships",
-            "type": "UserResponseRelationships",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "UsersType",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return APIKeyResponseIncludedItem.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type APIKeyResponseIncludedItem = User;

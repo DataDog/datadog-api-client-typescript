@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An array of service level objective objects.
 */
+
 export class SLOBulkDeleteResponseData {
     /**
     * An array of service level objective object IDs that indicates which objects that were completely deleted.
@@ -25,25 +27,51 @@ export class SLOBulkDeleteResponseData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "deleted",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "deleted": {
             "baseName": "deleted",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "updated",
+        "updated": {
             "baseName": "updated",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOBulkDeleteResponseData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOBulkDeleteResponseData {
+      let res = new SLOBulkDeleteResponseData();
+
+      res.deleted = ObjectSerializer.deserialize(data.deleted, "Array<string>", "")
+
+      res.updated = ObjectSerializer.deserialize(data.updated, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOBulkDeleteResponseData): {[key: string]: any} {
+        let attributeTypes = SLOBulkDeleteResponseData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.deleted = ObjectSerializer.serialize(data.deleted, "Array<string>", "")
+
+        res.updated = ObjectSerializer.serialize(data.updated, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

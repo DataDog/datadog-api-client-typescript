@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * User invitations type.
 */
-export type UserInvitationsType = "user_invitations" ;
+
+export type UserInvitationsType = typeof USER_INVITATIONS ;
+export const USER_INVITATIONS = 'user_invitations';
+
+

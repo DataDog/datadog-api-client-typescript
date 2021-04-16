@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes of the role.
 */
+
 export class RoleAttributes {
     /**
     * Creation time of the role.
@@ -33,37 +35,69 @@ export class RoleAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "createdAt",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "createdAt": {
             "baseName": "created_at",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "modifiedAt",
+        "modifiedAt": {
             "baseName": "modified_at",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "userCount",
+        "userCount": {
             "baseName": "user_count",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RoleAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RoleAttributes {
+      let res = new RoleAttributes();
+
+      res.createdAt = ObjectSerializer.deserialize(data.created_at, "Date", "date-time")
+
+      res.modifiedAt = ObjectSerializer.deserialize(data.modified_at, "Date", "date-time")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.userCount = ObjectSerializer.deserialize(data.user_count, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: RoleAttributes): {[key: string]: any} {
+        let attributeTypes = RoleAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created_at = ObjectSerializer.serialize(data.createdAt, "Date", "date-time")
+
+        res.modified_at = ObjectSerializer.serialize(data.modifiedAt, "Date", "date-time")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.user_count = ObjectSerializer.serialize(data.userCount, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

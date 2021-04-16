@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the S3 archive destination.
 */
-export type LogsArchiveDestinationS3Type = "s3" ;
+
+export type LogsArchiveDestinationS3Type = typeof S3 ;
+export const S3 = 's3';
+
+

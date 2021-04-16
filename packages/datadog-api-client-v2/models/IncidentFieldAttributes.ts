@@ -12,38 +12,10 @@ import { IncidentFieldAttributesMultipleValue } from './IncidentFieldAttributesM
 import { IncidentFieldAttributesSingleValue } from './IncidentFieldAttributesSingleValue';
 import { IncidentFieldAttributesValueType } from './IncidentFieldAttributesValueType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Dynamic fields for which selections can be made, with field names as keys.
 */
-export class IncidentFieldAttributes {
-    'type': IncidentFieldAttributesValueType;
-    /**
-    * The multiple values selected for this field.
-    */
-    'value'?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "IncidentFieldAttributesValueType",
-            "format": ""
-        },
-        {
-            "name": "value",
-            "baseName": "value",
-            "type": "Array<string>",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return IncidentFieldAttributes.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type IncidentFieldAttributes = IncidentFieldAttributesMultipleValue | IncidentFieldAttributesSingleValue;

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing the ordered list of pipeline IDs.
 */
+
 export class LogsPipelinesOrder {
     /**
     * Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
@@ -21,19 +23,48 @@ export class LogsPipelinesOrder {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "pipelineIds",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "pipelineIds": {
             "baseName": "pipeline_ids",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsPipelinesOrder.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsPipelinesOrder {
+      let res = new LogsPipelinesOrder();
+
+      if (data.pipeline_ids === undefined) {
+          throw new TypeError("missing required attribute 'pipeline_ids' on 'LogsPipelinesOrder' object");
+      }
+      res.pipelineIds = ObjectSerializer.deserialize(data.pipeline_ids, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsPipelinesOrder): {[key: string]: any} {
+        let attributeTypes = LogsPipelinesOrder.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.pipelineIds === undefined) {
+            throw new TypeError("missing required attribute 'pipeline_ids' on 'LogsPipelinesOrder' object");
+        }
+        res.pipeline_ids = ObjectSerializer.serialize(data.pipelineIds, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

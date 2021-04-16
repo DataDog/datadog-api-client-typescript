@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * AWS account ID and Lambda ARN.
 */
+
 export class AWSAccountAndLambdaRequest {
     /**
     * Your AWS Account ID without dashes.
@@ -25,25 +27,63 @@ export class AWSAccountAndLambdaRequest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "accountId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "accountId": {
             "baseName": "account_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "lambdaArn",
+        "lambdaArn": {
             "baseName": "lambda_arn",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSAccountAndLambdaRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSAccountAndLambdaRequest {
+      let res = new AWSAccountAndLambdaRequest();
+
+      if (data.account_id === undefined) {
+          throw new TypeError("missing required attribute 'account_id' on 'AWSAccountAndLambdaRequest' object");
+      }
+      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
+
+      if (data.lambda_arn === undefined) {
+          throw new TypeError("missing required attribute 'lambda_arn' on 'AWSAccountAndLambdaRequest' object");
+      }
+      res.lambdaArn = ObjectSerializer.deserialize(data.lambda_arn, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSAccountAndLambdaRequest): {[key: string]: any} {
+        let attributeTypes = AWSAccountAndLambdaRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.accountId === undefined) {
+            throw new TypeError("missing required attribute 'account_id' on 'AWSAccountAndLambdaRequest' object");
+        }
+        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
+
+        if (data.lambdaArn === undefined) {
+            throw new TypeError("missing required attribute 'lambda_arn' on 'AWSAccountAndLambdaRequest' object");
+        }
+        res.lambda_arn = ObjectSerializer.serialize(data.lambdaArn, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

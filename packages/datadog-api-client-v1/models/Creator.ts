@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the creator of the shared element.
 */
+
 export class Creator {
     /**
     * Email of the creator.
@@ -29,31 +31,60 @@ export class Creator {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "email",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "email": {
             "baseName": "email",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "handle",
+        "handle": {
             "baseName": "handle",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Creator.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Creator {
+      let res = new Creator();
+
+      res.email = ObjectSerializer.deserialize(data.email, "string", "")
+
+      res.handle = ObjectSerializer.deserialize(data.handle, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: Creator): {[key: string]: any} {
+        let attributeTypes = Creator.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.email = ObjectSerializer.serialize(data.email, "string", "")
+
+        res.handle = ObjectSerializer.serialize(data.handle, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

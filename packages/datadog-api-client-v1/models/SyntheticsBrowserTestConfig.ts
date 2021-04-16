@@ -12,10 +12,12 @@ import { SyntheticsAssertion } from './SyntheticsAssertion';
 import { SyntheticsBrowserVariable } from './SyntheticsBrowserVariable';
 import { SyntheticsTestRequest } from './SyntheticsTestRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Configuration object for a Synthetic browser test.
 */
+
 export class SyntheticsBrowserTestConfig {
     /**
     * Array of assertions used for the test.
@@ -29,31 +31,72 @@ export class SyntheticsBrowserTestConfig {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "assertions",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "assertions": {
             "baseName": "assertions",
             "type": "Array<SyntheticsAssertion>",
             "format": ""
         },
-        {
-            "name": "request",
+        "request": {
             "baseName": "request",
             "type": "SyntheticsTestRequest",
             "format": ""
         },
-        {
-            "name": "variables",
+        "variables": {
             "baseName": "variables",
             "type": "Array<SyntheticsBrowserVariable>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsBrowserTestConfig.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTestConfig {
+      let res = new SyntheticsBrowserTestConfig();
+
+      if (data.assertions === undefined) {
+          throw new TypeError("missing required attribute 'assertions' on 'SyntheticsBrowserTestConfig' object");
+      }
+      res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+      if (data.request === undefined) {
+          throw new TypeError("missing required attribute 'request' on 'SyntheticsBrowserTestConfig' object");
+      }
+      res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
+
+      res.variables = ObjectSerializer.deserialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsBrowserTestConfig): {[key: string]: any} {
+        let attributeTypes = SyntheticsBrowserTestConfig.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.assertions === undefined) {
+            throw new TypeError("missing required attribute 'assertions' on 'SyntheticsBrowserTestConfig' object");
+        }
+        res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+        if (data.request === undefined) {
+            throw new TypeError("missing required attribute 'request' on 'SyntheticsBrowserTestConfig' object");
+        }
+        res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
+
+        res.variables = ObjectSerializer.serialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

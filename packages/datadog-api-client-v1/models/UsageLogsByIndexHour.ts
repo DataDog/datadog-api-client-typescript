@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Number of indexed logs for each hour and index for a given organization.
 */
+
 export class UsageLogsByIndexHour {
     /**
     * The total number of indexed logs for the queried hour.
@@ -37,43 +39,78 @@ export class UsageLogsByIndexHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "eventCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "eventCount": {
             "baseName": "event_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "indexId",
+        "indexId": {
             "baseName": "index_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "indexName",
+        "indexName": {
             "baseName": "index_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "retention",
+        "retention": {
             "baseName": "retention",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageLogsByIndexHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageLogsByIndexHour {
+      let res = new UsageLogsByIndexHour();
+
+      res.eventCount = ObjectSerializer.deserialize(data.event_count, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.indexId = ObjectSerializer.deserialize(data.index_id, "string", "")
+
+      res.indexName = ObjectSerializer.deserialize(data.index_name, "string", "")
+
+      res.retention = ObjectSerializer.deserialize(data.retention, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageLogsByIndexHour): {[key: string]: any} {
+        let attributeTypes = UsageLogsByIndexHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.event_count = ObjectSerializer.serialize(data.eventCount, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.index_id = ObjectSerializer.serialize(data.indexId, "string", "")
+
+        res.index_name = ObjectSerializer.serialize(data.indexName, "string", "")
+
+        res.retention = ObjectSerializer.serialize(data.retention, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

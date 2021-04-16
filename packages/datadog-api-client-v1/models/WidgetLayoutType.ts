@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Layout type of the group.
 */
-export type WidgetLayoutType = "ordered" ;
+
+export type WidgetLayoutType = typeof ORDERED ;
+export const ORDERED = 'ordered';
+
+

@@ -10,28 +10,53 @@
 
 import { ProcessSummariesMetaPage } from './ProcessSummariesMetaPage';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response metadata object.
 */
+
 export class ProcessSummariesMeta {
     'page'?: ProcessSummariesMetaPage;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "page",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "page": {
             "baseName": "page",
             "type": "ProcessSummariesMetaPage",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ProcessSummariesMeta.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ProcessSummariesMeta {
+      let res = new ProcessSummariesMeta();
+
+      res.page = ObjectSerializer.deserialize(data.page, "ProcessSummariesMetaPage", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ProcessSummariesMeta): {[key: string]: any} {
+        let attributeTypes = ProcessSummariesMeta.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.page = ObjectSerializer.serialize(data.page, "ProcessSummariesMetaPage", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

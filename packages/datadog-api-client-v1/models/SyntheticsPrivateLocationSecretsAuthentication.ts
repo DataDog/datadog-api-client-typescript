@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Authentication part of the secrets.
 */
+
 export class SyntheticsPrivateLocationSecretsAuthentication {
     /**
     * Access key for the private location.
@@ -25,25 +27,51 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "key",
+        "key": {
             "baseName": "key",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsPrivateLocationSecretsAuthentication {
+      let res = new SyntheticsPrivateLocationSecretsAuthentication();
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      res.key = ObjectSerializer.deserialize(data.key, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsPrivateLocationSecretsAuthentication): {[key: string]: any} {
+        let attributeTypes = SyntheticsPrivateLocationSecretsAuthentication.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        res.key = ObjectSerializer.serialize(data.key, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -11,10 +11,12 @@
 import { APIKeyUpdateAttributes } from './APIKeyUpdateAttributes';
 import { APIKeysType } from './APIKeysType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object used to update an API key.
 */
+
 export class APIKeyUpdateData {
     'attributes': APIKeyUpdateAttributes;
     /**
@@ -25,31 +27,86 @@ export class APIKeyUpdateData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "APIKeyUpdateAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "APIKeysType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return APIKeyUpdateData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): APIKeyUpdateData {
+      let res = new APIKeyUpdateData();
+
+      if (data.attributes === undefined) {
+          throw new TypeError("missing required attribute 'attributes' on 'APIKeyUpdateData' object");
+      }
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "APIKeyUpdateAttributes", "")
+
+      if (data.id === undefined) {
+          throw new TypeError("missing required attribute 'id' on 'APIKeyUpdateData' object");
+      }
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'APIKeyUpdateData' object");
+      }
+      if (['api_keys', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: APIKeyUpdateData): {[key: string]: any} {
+        let attributeTypes = APIKeyUpdateData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.attributes === undefined) {
+            throw new TypeError("missing required attribute 'attributes' on 'APIKeyUpdateData' object");
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "APIKeyUpdateAttributes", "")
+
+        if (data.id === undefined) {
+            throw new TypeError("missing required attribute 'id' on 'APIKeyUpdateData' object");
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'APIKeyUpdateData' object");
+        }
+        if (['api_keys', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

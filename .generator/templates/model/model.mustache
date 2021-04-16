@@ -5,13 +5,14 @@
 import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
 {{/tsImports}}
 import { HttpFile } from '../http/http{{extensionForDeno}}';
+import { ObjectSerializer } from './ObjectSerializer';
 
 {{#description}}
 /**
 * {{{description}}}
 */
 {{/description}}
-{{^isEnum}}
+{{^isEnum}}{{^oneOf}}
 export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 {{#vars}}
 {{#description}}
@@ -30,17 +31,16 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     {{/discriminator}}
 
     {{^isArray}}
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         {{#vars}}
-        {
-            "name": "{{name}}",
+        "{{name}}": {
             "baseName": "{{baseName}}",
             "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
             "format": "{{dataFormat}}"
         }{{^-last}},
         {{/-last}}
         {{/vars}}
-    ];
+    };
 
     static getAttributeTypeMap() {
         {{#parent}}
@@ -51,6 +51,60 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         {{/parent}}
     }
     {{/isArray}}
+
+    static deserialize(data: {[key: string]: any}): {{classname}} {
+      let res = new {{classname}}();
+
+      {{#vars}}
+        {{#required}}
+      if (data.{{{baseName}}} === undefined) {
+          throw new TypeError("missing required attribute '{{baseName}}' on '{{classname}}' object");
+      }
+        {{/required}}
+        {{#allowableValues}}
+      if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
+          res.{{name}} = data.{{{baseName}}};
+      } else {
+          throw TypeError(`invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
+      }
+        {{/allowableValues}}
+        {{^allowableValues}}
+      res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
+        {{/allowableValues}}
+
+      {{/vars}}
+
+      return res;
+    }
+
+    static serialize(data: {{classname}}): {[key: string]: any} {
+        let attributeTypes = {{{classname}}}.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        {{#vars}}
+          {{#required}}
+        if (data.{{{name}}} === undefined) {
+            throw new TypeError("missing required attribute '{{baseName}}' on '{{classname}}' object");
+        }
+          {{/required}}
+          {{#allowableValues}}
+        if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{name}}})) {
+            res.{{baseName}} = data.{{{name}}};
+        } else {
+            throw TypeError(`invalid enum value ${ data.{{{name}}} } for {{name}}`);
+        }
+          {{/allowableValues}}
+          {{^allowableValues}}
+        res.{{{baseName}}} = ObjectSerializer.serialize(data.{{{name}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
+          {{/allowableValues}}
+
+        {{/vars}}
+        return res
+    }
     
     public constructor() {
         {{#parent}}
@@ -76,9 +130,13 @@ export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {
 {{/vars}}
 
 {{/hasEnums}}
-{{/isEnum}}
+{{/oneOf}}{{/isEnum}}
 {{#isEnum}}
-export type {{classname}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}};
+export type {{classname}} = {{#allowableValues}}{{#enumVars}}typeof {{#enumClassPrefix}}{{{classname.toUpperCase}}}_{{/enumClassPrefix}}{{name}} {{^-last}}| {{/-last}}{{/enumVars}};
+{{#enumVars}}
+export const {{#enumClassPrefix}}{{{classname.toUpperCase}}}_{{/enumClassPrefix}}{{name}} = {{{value}}};
+{{/enumVars}}{{/allowableValues}}
 {{/isEnum}}
+{{#oneOf}}{{#-first}}export type {{classname}} = {{/-first}}{{{.}}}{{^-last}} | {{/-last}}{{#-last}};{{/-last}}{{/oneOf}}
 {{/model}}
 {{/models}}

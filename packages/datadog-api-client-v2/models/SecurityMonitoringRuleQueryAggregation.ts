@@ -9,8 +9,17 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The aggregation type.
 */
-export type SecurityMonitoringRuleQueryAggregation = "count" | "cardinality" | "sum" | "max" | "new_value" ;
+
+export type SecurityMonitoringRuleQueryAggregation = typeof COUNT | typeof CARDINALITY | typeof SUM | typeof MAX | typeof NEW_VALUE ;
+export const COUNT = 'count';
+export const CARDINALITY = 'cardinality';
+export const SUM = 'sum';
+export const MAX = 'max';
+export const NEW_VALUE = 'new_value';
+
+

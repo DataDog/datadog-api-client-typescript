@@ -121,7 +121,6 @@ models/LogAttributes.ts
 models/LogType.ts
 models/LogsAggregateBucket.ts
 models/LogsAggregateBucketValue.ts
-models/LogsAggregateBucketValueTimeseries.ts
 models/LogsAggregateBucketValueTimeseriesPoint.ts
 models/LogsAggregateRequest.ts
 models/LogsAggregateRequestPage.ts

@@ -10,10 +10,12 @@
 
 import { UsageAttributionValues } from './UsageAttributionValues';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Usage Summary by tag for a given organization.
 */
+
 export class UsageAttributionBody {
     /**
     * Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM].
@@ -39,49 +41,87 @@ export class UsageAttributionBody {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "month",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "month": {
             "baseName": "month",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "orgName",
+        "orgName": {
             "baseName": "org_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "publicId",
+        "publicId": {
             "baseName": "public_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "{ [key: string]: Array<string>; }",
             "format": ""
         },
-        {
-            "name": "updatedAt",
+        "updatedAt": {
             "baseName": "updated_at",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "values",
+        "values": {
             "baseName": "values",
             "type": "UsageAttributionValues",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageAttributionBody.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageAttributionBody {
+      let res = new UsageAttributionBody();
+
+      res.month = ObjectSerializer.deserialize(data.month, "Date", "date-time")
+
+      res.orgName = ObjectSerializer.deserialize(data.org_name, "string", "")
+
+      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "{ [key: string]: Array<string>; }", "")
+
+      res.updatedAt = ObjectSerializer.deserialize(data.updated_at, "string", "")
+
+      res.values = ObjectSerializer.deserialize(data.values, "UsageAttributionValues", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageAttributionBody): {[key: string]: any} {
+        let attributeTypes = UsageAttributionBody.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.month = ObjectSerializer.serialize(data.month, "Date", "date-time")
+
+        res.org_name = ObjectSerializer.serialize(data.orgName, "string", "")
+
+        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
+
+        res.tags = ObjectSerializer.serialize(data.tags, "{ [key: string]: Array<string>; }", "")
+
+        res.updated_at = ObjectSerializer.serialize(data.updatedAt, "string", "")
+
+        res.values = ObjectSerializer.serialize(data.values, "UsageAttributionValues", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

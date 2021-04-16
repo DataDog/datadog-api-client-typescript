@@ -10,28 +10,53 @@
 
 import { UsageCustomReportsPage } from './UsageCustomReportsPage';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The object containing document metadata.
 */
+
 export class UsageCustomReportsMeta {
     'page'?: UsageCustomReportsPage;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "page",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "page": {
             "baseName": "page",
             "type": "UsageCustomReportsPage",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageCustomReportsMeta.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageCustomReportsMeta {
+      let res = new UsageCustomReportsMeta();
+
+      res.page = ObjectSerializer.deserialize(data.page, "UsageCustomReportsPage", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageCustomReportsMeta): {[key: string]: any} {
+        let attributeTypes = UsageCustomReportsMeta.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.page = ObjectSerializer.serialize(data.page, "UsageCustomReportsPage", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

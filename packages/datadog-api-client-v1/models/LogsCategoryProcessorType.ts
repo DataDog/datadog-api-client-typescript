@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs category processor.
 */
-export type LogsCategoryProcessorType = "category-processor" ;
+
+export type LogsCategoryProcessorType = typeof CATEGORY_PROCESSOR ;
+export const CATEGORY_PROCESSOR = 'category-processor';
+
+

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Metadata associated with your host.
 */
+
 export class HostMeta {
     /**
     * Array of Unix versions.
@@ -21,19 +23,42 @@ export class HostMeta {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "nixV",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "nixV": {
             "baseName": "nixV",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMeta.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMeta {
+      let res = new HostMeta();
+
+      res.nixV = ObjectSerializer.deserialize(data.nixV, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HostMeta): {[key: string]: any} {
+        let attributeTypes = HostMeta.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.nixV = ObjectSerializer.serialize(data.nixV, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

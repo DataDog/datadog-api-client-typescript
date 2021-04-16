@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Layout type of the dashboard.
 */
-export type DashboardLayoutType = "ordered" | "free" ;
+
+export type DashboardLayoutType = typeof ORDERED | typeof FREE ;
+export const ORDERED = 'ordered';
+export const FREE = 'free';
+
+

@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the Synthetic test, `api`.
 */
-export type SyntheticsAPITestType = "api" ;
+
+export type SyntheticsAPITestType = typeof API ;
+export const API = 'api';
+
+

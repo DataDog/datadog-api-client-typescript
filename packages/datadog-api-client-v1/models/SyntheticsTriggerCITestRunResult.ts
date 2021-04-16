@@ -10,10 +10,12 @@
 
 import { SyntheticsDeviceID } from './SyntheticsDeviceID';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Information about a single test run.
 */
+
 export class SyntheticsTriggerCITestRunResult {
     'device'?: SyntheticsDeviceID;
     /**
@@ -31,37 +33,77 @@ export class SyntheticsTriggerCITestRunResult {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "device",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "device": {
             "baseName": "device",
             "type": "SyntheticsDeviceID",
             "format": ""
         },
-        {
-            "name": "location",
+        "location": {
             "baseName": "location",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "publicId",
+        "publicId": {
             "baseName": "public_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "resultId",
+        "resultId": {
             "baseName": "result_id",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTriggerCITestRunResult.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTriggerCITestRunResult {
+      let res = new SyntheticsTriggerCITestRunResult();
+
+      if (['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', undefined].includes(data.device)) {
+          res.device = data.device;
+      } else {
+          throw TypeError(`invalid enum value ${ data.device } for device`);
+      }
+
+      res.location = ObjectSerializer.deserialize(data.location, "number", "int64")
+
+      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
+
+      res.resultId = ObjectSerializer.deserialize(data.result_id, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTriggerCITestRunResult): {[key: string]: any} {
+        let attributeTypes = SyntheticsTriggerCITestRunResult.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['laptop_large', 'tablet', 'mobile_small', 'chrome.laptop_large', 'chrome.tablet', 'chrome.mobile_small', 'firefox.laptop_large', 'firefox.tablet', 'firefox.mobile_small', undefined].includes(data.device)) {
+            res.device = data.device;
+        } else {
+            throw TypeError(`invalid enum value ${ data.device } for device`);
+        }
+
+        res.location = ObjectSerializer.serialize(data.location, "number", "int64")
+
+        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
+
+        res.result_id = ObjectSerializer.serialize(data.resultId, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The process query to use in the widget.
 */
+
 export class ProcessQueryDefinition {
     /**
     * List of processes.
@@ -33,37 +35,75 @@ export class ProcessQueryDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "filterBy",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "filterBy": {
             "baseName": "filter_by",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "limit",
+        "limit": {
             "baseName": "limit",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "searchBy",
+        "searchBy": {
             "baseName": "search_by",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ProcessQueryDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ProcessQueryDefinition {
+      let res = new ProcessQueryDefinition();
+
+      res.filterBy = ObjectSerializer.deserialize(data.filter_by, "Array<string>", "")
+
+      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64")
+
+      if (data.metric === undefined) {
+          throw new TypeError("missing required attribute 'metric' on 'ProcessQueryDefinition' object");
+      }
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      res.searchBy = ObjectSerializer.deserialize(data.search_by, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ProcessQueryDefinition): {[key: string]: any} {
+        let attributeTypes = ProcessQueryDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.filter_by = ObjectSerializer.serialize(data.filterBy, "Array<string>", "")
+
+        res.limit = ObjectSerializer.serialize(data.limit, "number", "int64")
+
+        if (data.metric === undefined) {
+            throw new TypeError("missing required attribute 'metric' on 'ProcessQueryDefinition' object");
+        }
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        res.search_by = ObjectSerializer.serialize(data.searchBy, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

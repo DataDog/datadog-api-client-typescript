@@ -10,28 +10,53 @@
 
 import { RelationshipToRoles } from './RelationshipToRoles';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Relationships of the user object.
 */
+
 export class UserRelationships {
     'roles'?: RelationshipToRoles;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "roles",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "roles": {
             "baseName": "roles",
             "type": "RelationshipToRoles",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UserRelationships.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UserRelationships {
+      let res = new UserRelationships();
+
+      res.roles = ObjectSerializer.deserialize(data.roles, "RelationshipToRoles", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UserRelationships): {[key: string]: any} {
+        let attributeTypes = UserRelationships.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.roles = ObjectSerializer.serialize(data.roles, "RelationshipToRoles", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

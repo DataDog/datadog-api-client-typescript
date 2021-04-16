@@ -10,10 +10,12 @@
 
 import { RelationshipToOrganizationData } from './RelationshipToOrganizationData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Relationship to organizations.
 */
+
 export class RelationshipToOrganizations {
     /**
     * Relationships to organization objects.
@@ -22,19 +24,48 @@ export class RelationshipToOrganizations {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "Array<RelationshipToOrganizationData>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToOrganizations.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToOrganizations {
+      let res = new RelationshipToOrganizations();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'RelationshipToOrganizations' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "Array<RelationshipToOrganizationData>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToOrganizations): {[key: string]: any} {
+        let attributeTypes = RelationshipToOrganizations.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'RelationshipToOrganizations' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "Array<RelationshipToOrganizationData>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -15,10 +15,12 @@ import { WidgetCustomLink } from './WidgetCustomLink';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTime } from './WidgetTime';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
 */
+
 export class ScatterPlotWidgetDefinition {
     /**
     * List of groups used for colors.
@@ -45,73 +47,151 @@ export class ScatterPlotWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "colorByGroups",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "colorByGroups": {
             "baseName": "color_by_groups",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "customLinks",
+        "customLinks": {
             "baseName": "custom_links",
             "type": "Array<WidgetCustomLink>",
             "format": ""
         },
-        {
-            "name": "requests",
+        "requests": {
             "baseName": "requests",
             "type": "ScatterPlotWidgetDefinitionRequests",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "WidgetTime",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "titleAlign",
+        "titleAlign": {
             "baseName": "title_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "titleSize",
+        "titleSize": {
             "baseName": "title_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "ScatterPlotWidgetDefinitionType",
             "format": ""
         },
-        {
-            "name": "xaxis",
+        "xaxis": {
             "baseName": "xaxis",
             "type": "WidgetAxis",
             "format": ""
         },
-        {
-            "name": "yaxis",
+        "yaxis": {
             "baseName": "yaxis",
             "type": "WidgetAxis",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ScatterPlotWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ScatterPlotWidgetDefinition {
+      let res = new ScatterPlotWidgetDefinition();
+
+      res.colorByGroups = ObjectSerializer.deserialize(data.color_by_groups, "Array<string>", "")
+
+      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
+
+      if (data.requests === undefined) {
+          throw new TypeError("missing required attribute 'requests' on 'ScatterPlotWidgetDefinition' object");
+      }
+      res.requests = ObjectSerializer.deserialize(data.requests, "ScatterPlotWidgetDefinitionRequests", "")
+
+      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
+
+      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'ScatterPlotWidgetDefinition' object");
+      }
+      if (['scatterplot', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      res.xaxis = ObjectSerializer.deserialize(data.xaxis, "WidgetAxis", "")
+
+      res.yaxis = ObjectSerializer.deserialize(data.yaxis, "WidgetAxis", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ScatterPlotWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = ScatterPlotWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.color_by_groups = ObjectSerializer.serialize(data.colorByGroups, "Array<string>", "")
+
+        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
+
+        if (data.requests === undefined) {
+            throw new TypeError("missing required attribute 'requests' on 'ScatterPlotWidgetDefinition' object");
+        }
+        res.requests = ObjectSerializer.serialize(data.requests, "ScatterPlotWidgetDefinitionRequests", "")
+
+        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
+
+        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'ScatterPlotWidgetDefinition' object");
+        }
+        if (['scatterplot', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        res.xaxis = ObjectSerializer.serialize(data.xaxis, "WidgetAxis", "")
+
+        res.yaxis = ObjectSerializer.serialize(data.yaxis, "WidgetAxis", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

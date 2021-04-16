@@ -10,10 +10,12 @@
 
 import { LogsArchiveCreateRequestAttributes } from './LogsArchiveCreateRequestAttributes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The definition of an archive.
 */
+
 export class LogsArchiveCreateRequestDefinition {
     'attributes'?: LogsArchiveCreateRequestAttributes;
     /**
@@ -23,25 +25,57 @@ export class LogsArchiveCreateRequestDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "LogsArchiveCreateRequestAttributes",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsArchiveCreateRequestDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsArchiveCreateRequestDefinition {
+      let res = new LogsArchiveCreateRequestDefinition();
+
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "LogsArchiveCreateRequestAttributes", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'LogsArchiveCreateRequestDefinition' object");
+      }
+      res.type = ObjectSerializer.deserialize(data.type, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsArchiveCreateRequestDefinition): {[key: string]: any} {
+        let attributeTypes = LogsArchiveCreateRequestDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "LogsArchiveCreateRequestAttributes", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'LogsArchiveCreateRequestDefinition' object");
+        }
+        res.type = ObjectSerializer.serialize(data.type, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

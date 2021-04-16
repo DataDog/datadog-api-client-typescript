@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response from the delete monitor call.
 */
+
 export class DeletedMonitor {
     /**
     * ID of the deleted monitor.
@@ -21,19 +23,42 @@ export class DeletedMonitor {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "deletedMonitorId",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "deletedMonitorId": {
             "baseName": "deleted_monitor_id",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DeletedMonitor.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DeletedMonitor {
+      let res = new DeletedMonitor();
+
+      res.deletedMonitorId = ObjectSerializer.deserialize(data.deleted_monitor_id, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: DeletedMonitor): {[key: string]: any} {
+        let attributeTypes = DeletedMonitor.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.deleted_monitor_id = ObjectSerializer.serialize(data.deletedMonitorId, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

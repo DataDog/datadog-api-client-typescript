@@ -10,10 +10,12 @@
 
 import { MonitorStateGroup } from './MonitorStateGroup';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Wrapper object with the different monitor states.
 */
+
 export class MonitorState {
     /**
     * Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on.
@@ -22,19 +24,42 @@ export class MonitorState {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "groups",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "groups": {
             "baseName": "groups",
             "type": "{ [key: string]: MonitorStateGroup; }",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MonitorState.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MonitorState {
+      let res = new MonitorState();
+
+      res.groups = ObjectSerializer.deserialize(data.groups, "{ [key: string]: MonitorStateGroup; }", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MonitorState): {[key: string]: any} {
+        let attributeTypes = MonitorState.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.groups = ObjectSerializer.serialize(data.groups, "{ [key: string]: MonitorStateGroup; }", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

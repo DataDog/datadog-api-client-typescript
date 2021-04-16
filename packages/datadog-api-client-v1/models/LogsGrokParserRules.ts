@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Set of rules for the grok parser.
 */
+
 export class LogsGrokParserRules {
     /**
     * List of match rules for the grok parser, separated by a new line.
@@ -25,25 +27,57 @@ export class LogsGrokParserRules {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "matchRules",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "matchRules": {
             "baseName": "match_rules",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "supportRules",
+        "supportRules": {
             "baseName": "support_rules",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsGrokParserRules.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsGrokParserRules {
+      let res = new LogsGrokParserRules();
+
+      if (data.match_rules === undefined) {
+          throw new TypeError("missing required attribute 'match_rules' on 'LogsGrokParserRules' object");
+      }
+      res.matchRules = ObjectSerializer.deserialize(data.match_rules, "string", "")
+
+      res.supportRules = ObjectSerializer.deserialize(data.support_rules, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsGrokParserRules): {[key: string]: any} {
+        let attributeTypes = LogsGrokParserRules.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.matchRules === undefined) {
+            throw new TypeError("missing required attribute 'match_rules' on 'LogsGrokParserRules' object");
+        }
+        res.match_rules = ObjectSerializer.serialize(data.matchRules, "string", "")
+
+        res.support_rules = ObjectSerializer.serialize(data.supportRules, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

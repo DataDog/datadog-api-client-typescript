@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * What to display on the widget.
 */
-export type WidgetMonitorSummaryDisplayFormat = "counts" | "countsAndList" | "list" ;
+
+export type WidgetMonitorSummaryDisplayFormat = typeof COUNTS | typeof COUNTS_AND_LIST | typeof LIST ;
+export const COUNTS = 'counts';
+export const COUNTS_AND_LIST = 'countsAndList';
+export const LIST = 'list';
+
+

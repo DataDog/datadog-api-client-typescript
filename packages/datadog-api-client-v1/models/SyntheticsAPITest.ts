@@ -14,10 +14,12 @@ import { SyntheticsTestDetailsSubType } from './SyntheticsTestDetailsSubType';
 import { SyntheticsTestOptions } from './SyntheticsTestOptions';
 import { SyntheticsTestPauseStatus } from './SyntheticsTestPauseStatus';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing details about a Synthetic API test.
 */
+
 export class SyntheticsAPITest {
     'config'?: SyntheticsAPITestConfig;
     /**
@@ -51,79 +53,156 @@ export class SyntheticsAPITest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "config",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "config": {
             "baseName": "config",
             "type": "SyntheticsAPITestConfig",
             "format": ""
         },
-        {
-            "name": "locations",
+        "locations": {
             "baseName": "locations",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "monitorId",
+        "monitorId": {
             "baseName": "monitor_id",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "options",
+        "options": {
             "baseName": "options",
             "type": "SyntheticsTestOptions",
             "format": ""
         },
-        {
-            "name": "publicId",
+        "publicId": {
             "baseName": "public_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "SyntheticsTestPauseStatus",
             "format": ""
         },
-        {
-            "name": "subtype",
+        "subtype": {
             "baseName": "subtype",
             "type": "SyntheticsTestDetailsSubType",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "SyntheticsAPITestType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsAPITest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsAPITest {
+      let res = new SyntheticsAPITest();
+
+      res.config = ObjectSerializer.deserialize(data.config, "SyntheticsAPITestConfig", "")
+
+      res.locations = ObjectSerializer.deserialize(data.locations, "Array<string>", "")
+
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+      res.monitorId = ObjectSerializer.deserialize(data.monitor_id, "number", "int64")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.options = ObjectSerializer.deserialize(data.options, "SyntheticsTestOptions", "")
+
+      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
+
+      if (['live', 'paused', undefined].includes(data.status)) {
+          res.status = data.status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.status } for status`);
+      }
+
+      if (['http', 'ssl', 'tcp', 'dns', 'multi', undefined].includes(data.subtype)) {
+          res.subtype = data.subtype;
+      } else {
+          throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
+      }
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      if (['api', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsAPITest): {[key: string]: any} {
+        let attributeTypes = SyntheticsAPITest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.config = ObjectSerializer.serialize(data.config, "SyntheticsAPITestConfig", "")
+
+        res.locations = ObjectSerializer.serialize(data.locations, "Array<string>", "")
+
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        res.monitor_id = ObjectSerializer.serialize(data.monitorId, "number", "int64")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.options = ObjectSerializer.serialize(data.options, "SyntheticsTestOptions", "")
+
+        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
+
+        if (['live', 'paused', undefined].includes(data.status)) {
+            res.status = data.status;
+        } else {
+            throw TypeError(`invalid enum value ${ data.status } for status`);
+        }
+
+        if (['http', 'ssl', 'tcp', 'dns', 'multi', undefined].includes(data.subtype)) {
+            res.subtype = data.subtype;
+        } else {
+            throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
+        }
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        if (['api', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

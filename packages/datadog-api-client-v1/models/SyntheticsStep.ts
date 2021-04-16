@@ -10,10 +10,12 @@
 
 import { SyntheticsStepType } from './SyntheticsStepType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The steps used in a Synthetics browser test.
 */
+
 export class SyntheticsStep {
     /**
     * A boolean set to allow this step to fail.
@@ -35,43 +37,86 @@ export class SyntheticsStep {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "allowFailure",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "allowFailure": {
             "baseName": "allowFailure",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "params",
+        "params": {
             "baseName": "params",
             "type": "any",
             "format": ""
         },
-        {
-            "name": "timeout",
+        "timeout": {
             "baseName": "timeout",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "SyntheticsStepType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsStep.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsStep {
+      let res = new SyntheticsStep();
+
+      res.allowFailure = ObjectSerializer.deserialize(data.allowFailure, "boolean", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.params = ObjectSerializer.deserialize(data.params, "any", "")
+
+      res.timeout = ObjectSerializer.deserialize(data.timeout, "number", "int64")
+
+      if (['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsStep): {[key: string]: any} {
+        let attributeTypes = SyntheticsStep.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.allowFailure = ObjectSerializer.serialize(data.allowFailure, "boolean", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.params = ObjectSerializer.serialize(data.params, "any", "")
+
+        res.timeout = ObjectSerializer.serialize(data.timeout, "number", "int64")
+
+        if (['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

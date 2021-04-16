@@ -10,10 +10,12 @@
 
 import { UsageLogsByIndexHour } from './UsageLogsByIndexHour';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing the number of indexed logs for each hour and index for a given organization.
 */
+
 export class UsageLogsByIndexResponse {
     /**
     * An array of objects regarding hourly usage of logs by index response.
@@ -22,19 +24,42 @@ export class UsageLogsByIndexResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "usage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "usage": {
             "baseName": "usage",
             "type": "Array<UsageLogsByIndexHour>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageLogsByIndexResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageLogsByIndexResponse {
+      let res = new UsageLogsByIndexResponse();
+
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageLogsByIndexHour>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageLogsByIndexResponse): {[key: string]: any} {
+        let attributeTypes = UsageLogsByIndexResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageLogsByIndexHour>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

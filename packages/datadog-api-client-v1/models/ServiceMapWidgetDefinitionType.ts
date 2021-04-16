@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the service map widget.
 */
-export type ServiceMapWidgetDefinitionType = "servicemap" ;
+
+export type ServiceMapWidgetDefinitionType = typeof SERVICEMAP ;
+export const SERVICEMAP = 'servicemap';
+
+

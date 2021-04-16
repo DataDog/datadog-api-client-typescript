@@ -13,10 +13,12 @@ import { ApplicationKey } from './ApplicationKey';
 import { Organization } from './Organization';
 import { User } from './User';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response object for an organization creation.
 */
+
 export class OrganizationCreateResponse {
     'apiKey'?: ApiKey;
     'applicationKey'?: ApplicationKey;
@@ -25,37 +27,69 @@ export class OrganizationCreateResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "apiKey",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "apiKey": {
             "baseName": "api_key",
             "type": "ApiKey",
             "format": ""
         },
-        {
-            "name": "applicationKey",
+        "applicationKey": {
             "baseName": "application_key",
             "type": "ApplicationKey",
             "format": ""
         },
-        {
-            "name": "org",
+        "org": {
             "baseName": "org",
             "type": "Organization",
             "format": ""
         },
-        {
-            "name": "user",
+        "user": {
             "baseName": "user",
             "type": "User",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return OrganizationCreateResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): OrganizationCreateResponse {
+      let res = new OrganizationCreateResponse();
+
+      res.apiKey = ObjectSerializer.deserialize(data.api_key, "ApiKey", "")
+
+      res.applicationKey = ObjectSerializer.deserialize(data.application_key, "ApplicationKey", "")
+
+      res.org = ObjectSerializer.deserialize(data.org, "Organization", "")
+
+      res.user = ObjectSerializer.deserialize(data.user, "User", "")
+
+
+      return res;
+    }
+
+    static serialize(data: OrganizationCreateResponse): {[key: string]: any} {
+        let attributeTypes = OrganizationCreateResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.api_key = ObjectSerializer.serialize(data.apiKey, "ApiKey", "")
+
+        res.application_key = ObjectSerializer.serialize(data.applicationKey, "ApplicationKey", "")
+
+        res.org = ObjectSerializer.serialize(data.org, "Organization", "")
+
+        res.user = ObjectSerializer.serialize(data.user, "User", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

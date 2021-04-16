@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Number of Synthetics Browser tests run for each hour for a given organization.
 */
+
 export class UsageSyntheticsBrowserHour {
     /**
     * Contains the number of Synthetics Browser tests run.
@@ -25,25 +27,51 @@ export class UsageSyntheticsBrowserHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "browserCheckCallsCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "browserCheckCallsCount": {
             "baseName": "browser_check_calls_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageSyntheticsBrowserHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageSyntheticsBrowserHour {
+      let res = new UsageSyntheticsBrowserHour();
+
+      res.browserCheckCallsCount = ObjectSerializer.deserialize(data.browser_check_calls_count, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageSyntheticsBrowserHour): {[key: string]: any} {
+        let attributeTypes = UsageSyntheticsBrowserHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.browser_check_calls_count = ObjectSerializer.serialize(data.browserCheckCallsCount, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

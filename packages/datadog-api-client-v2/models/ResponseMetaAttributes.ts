@@ -10,28 +10,53 @@
 
 import { Pagination } from './Pagination';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing meta attributes of response.
 */
+
 export class ResponseMetaAttributes {
     'page'?: Pagination;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "page",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "page": {
             "baseName": "page",
             "type": "Pagination",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ResponseMetaAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ResponseMetaAttributes {
+      let res = new ResponseMetaAttributes();
+
+      res.page = ObjectSerializer.deserialize(data.page, "Pagination", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ResponseMetaAttributes): {[key: string]: any} {
+        let attributeTypes = ResponseMetaAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.page = ObjectSerializer.serialize(data.page, "Pagination", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

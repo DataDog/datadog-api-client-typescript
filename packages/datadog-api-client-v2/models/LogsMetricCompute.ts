@@ -10,10 +10,12 @@
 
 import { LogsMetricComputeAggregationType } from './LogsMetricComputeAggregationType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The compute rule to compute the log-based metric.
 */
+
 export class LogsMetricCompute {
     'aggregationType': LogsMetricComputeAggregationType;
     /**
@@ -23,25 +25,65 @@ export class LogsMetricCompute {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregationType",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aggregationType": {
             "baseName": "aggregation_type",
             "type": "LogsMetricComputeAggregationType",
             "format": ""
         },
-        {
-            "name": "path",
+        "path": {
             "baseName": "path",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsMetricCompute.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsMetricCompute {
+      let res = new LogsMetricCompute();
+
+      if (data.aggregation_type === undefined) {
+          throw new TypeError("missing required attribute 'aggregation_type' on 'LogsMetricCompute' object");
+      }
+      if (['count', 'distribution', undefined].includes(data.aggregation_type)) {
+          res.aggregationType = data.aggregation_type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.aggregation_type } for aggregation_type`);
+      }
+
+      res.path = ObjectSerializer.deserialize(data.path, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsMetricCompute): {[key: string]: any} {
+        let attributeTypes = LogsMetricCompute.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.aggregationType === undefined) {
+            throw new TypeError("missing required attribute 'aggregation_type' on 'LogsMetricCompute' object");
+        }
+        if (['count', 'distribution', undefined].includes(data.aggregationType)) {
+            res.aggregation_type = data.aggregationType;
+        } else {
+            throw TypeError(`invalid enum value ${ data.aggregationType } for aggregationType`);
+        }
+
+        res.path = ObjectSerializer.serialize(data.path, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Hour usage for logs.
 */
+
 export class UsageLogsHour {
     /**
     * Contains the number of billable log bytes ingested.
@@ -49,61 +51,105 @@ export class UsageLogsHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "billableIngestedBytes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "billableIngestedBytes": {
             "baseName": "billable_ingested_bytes",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "indexedEventsCount",
+        "indexedEventsCount": {
             "baseName": "indexed_events_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "ingestedEventsBytes",
+        "ingestedEventsBytes": {
             "baseName": "ingested_events_bytes",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "logsLiveIndexedCount",
+        "logsLiveIndexedCount": {
             "baseName": "logs_live_indexed_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "logsLiveIngestedBytes",
+        "logsLiveIngestedBytes": {
             "baseName": "logs_live_ingested_bytes",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "logsRehydratedIndexedCount",
+        "logsRehydratedIndexedCount": {
             "baseName": "logs_rehydrated_indexed_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "logsRehydratedIngestedBytes",
+        "logsRehydratedIngestedBytes": {
             "baseName": "logs_rehydrated_ingested_bytes",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageLogsHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageLogsHour {
+      let res = new UsageLogsHour();
+
+      res.billableIngestedBytes = ObjectSerializer.deserialize(data.billable_ingested_bytes, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.indexedEventsCount = ObjectSerializer.deserialize(data.indexed_events_count, "number", "int64")
+
+      res.ingestedEventsBytes = ObjectSerializer.deserialize(data.ingested_events_bytes, "number", "int64")
+
+      res.logsLiveIndexedCount = ObjectSerializer.deserialize(data.logs_live_indexed_count, "number", "int64")
+
+      res.logsLiveIngestedBytes = ObjectSerializer.deserialize(data.logs_live_ingested_bytes, "number", "int64")
+
+      res.logsRehydratedIndexedCount = ObjectSerializer.deserialize(data.logs_rehydrated_indexed_count, "number", "int64")
+
+      res.logsRehydratedIngestedBytes = ObjectSerializer.deserialize(data.logs_rehydrated_ingested_bytes, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageLogsHour): {[key: string]: any} {
+        let attributeTypes = UsageLogsHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.billable_ingested_bytes = ObjectSerializer.serialize(data.billableIngestedBytes, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.indexed_events_count = ObjectSerializer.serialize(data.indexedEventsCount, "number", "int64")
+
+        res.ingested_events_bytes = ObjectSerializer.serialize(data.ingestedEventsBytes, "number", "int64")
+
+        res.logs_live_indexed_count = ObjectSerializer.serialize(data.logsLiveIndexedCount, "number", "int64")
+
+        res.logs_live_ingested_bytes = ObjectSerializer.serialize(data.logsLiveIngestedBytes, "number", "int64")
+
+        res.logs_rehydrated_indexed_count = ObjectSerializer.serialize(data.logsRehydratedIndexedCount, "number", "int64")
+
+        res.logs_rehydrated_ingested_bytes = ObjectSerializer.serialize(data.logsRehydratedIngestedBytes, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

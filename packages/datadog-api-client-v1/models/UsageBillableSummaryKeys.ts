@@ -10,10 +10,12 @@
 
 import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response with aggregated usage types.
 */
+
 export class UsageBillableSummaryKeys {
     'apmHostSum'?: UsageBillableSummaryBody;
     'apmHostTop99p'?: UsageBillableSummaryBody;
@@ -37,127 +39,204 @@ export class UsageBillableSummaryKeys {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "apmHostSum",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "apmHostSum": {
             "baseName": "apm_host_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "apmHostTop99p",
+        "apmHostTop99p": {
             "baseName": "apm_host_top99p",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "apmTraceSearchSum",
+        "apmTraceSearchSum": {
             "baseName": "apm_trace_search_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "fargateContainerAverage",
+        "fargateContainerAverage": {
             "baseName": "fargate_container_average",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "infraContainerSum",
+        "infraContainerSum": {
             "baseName": "infra_container_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "infraHostSum",
+        "infraHostSum": {
             "baseName": "infra_host_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "infraHostTop99p",
+        "infraHostTop99p": {
             "baseName": "infra_host_top99p",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "iotTop99p",
+        "iotTop99p": {
             "baseName": "iot_top99p",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "lambdaFunctionAverage",
+        "lambdaFunctionAverage": {
             "baseName": "lambda_function_average",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "logsIndexedSum",
+        "logsIndexedSum": {
             "baseName": "logs_indexed_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "logsIngestedSum",
+        "logsIngestedSum": {
             "baseName": "logs_ingested_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "npmFlowSum",
+        "npmFlowSum": {
             "baseName": "npm_flow_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "npmHostTop99p",
+        "npmHostTop99p": {
             "baseName": "npm_host_top99p",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "rumSum",
+        "rumSum": {
             "baseName": "rum_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "serverlessInvocationSum",
+        "serverlessInvocationSum": {
             "baseName": "serverless_invocation_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "siemSum",
+        "siemSum": {
             "baseName": "siem_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "syntheticsApiTestsSum",
+        "syntheticsApiTestsSum": {
             "baseName": "synthetics_api_tests_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "syntheticsBrowserChecksSum",
+        "syntheticsBrowserChecksSum": {
             "baseName": "synthetics_browser_checks_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
-        {
-            "name": "timeseriesAverage",
+        "timeseriesAverage": {
             "baseName": "timeseries_average",
             "type": "UsageBillableSummaryBody",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageBillableSummaryKeys.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageBillableSummaryKeys {
+      let res = new UsageBillableSummaryKeys();
+
+      res.apmHostSum = ObjectSerializer.deserialize(data.apm_host_sum, "UsageBillableSummaryBody", "")
+
+      res.apmHostTop99p = ObjectSerializer.deserialize(data.apm_host_top99p, "UsageBillableSummaryBody", "")
+
+      res.apmTraceSearchSum = ObjectSerializer.deserialize(data.apm_trace_search_sum, "UsageBillableSummaryBody", "")
+
+      res.fargateContainerAverage = ObjectSerializer.deserialize(data.fargate_container_average, "UsageBillableSummaryBody", "")
+
+      res.infraContainerSum = ObjectSerializer.deserialize(data.infra_container_sum, "UsageBillableSummaryBody", "")
+
+      res.infraHostSum = ObjectSerializer.deserialize(data.infra_host_sum, "UsageBillableSummaryBody", "")
+
+      res.infraHostTop99p = ObjectSerializer.deserialize(data.infra_host_top99p, "UsageBillableSummaryBody", "")
+
+      res.iotTop99p = ObjectSerializer.deserialize(data.iot_top99p, "UsageBillableSummaryBody", "")
+
+      res.lambdaFunctionAverage = ObjectSerializer.deserialize(data.lambda_function_average, "UsageBillableSummaryBody", "")
+
+      res.logsIndexedSum = ObjectSerializer.deserialize(data.logs_indexed_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIngestedSum = ObjectSerializer.deserialize(data.logs_ingested_sum, "UsageBillableSummaryBody", "")
+
+      res.npmFlowSum = ObjectSerializer.deserialize(data.npm_flow_sum, "UsageBillableSummaryBody", "")
+
+      res.npmHostTop99p = ObjectSerializer.deserialize(data.npm_host_top99p, "UsageBillableSummaryBody", "")
+
+      res.rumSum = ObjectSerializer.deserialize(data.rum_sum, "UsageBillableSummaryBody", "")
+
+      res.serverlessInvocationSum = ObjectSerializer.deserialize(data.serverless_invocation_sum, "UsageBillableSummaryBody", "")
+
+      res.siemSum = ObjectSerializer.deserialize(data.siem_sum, "UsageBillableSummaryBody", "")
+
+      res.syntheticsApiTestsSum = ObjectSerializer.deserialize(data.synthetics_api_tests_sum, "UsageBillableSummaryBody", "")
+
+      res.syntheticsBrowserChecksSum = ObjectSerializer.deserialize(data.synthetics_browser_checks_sum, "UsageBillableSummaryBody", "")
+
+      res.timeseriesAverage = ObjectSerializer.deserialize(data.timeseries_average, "UsageBillableSummaryBody", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageBillableSummaryKeys): {[key: string]: any} {
+        let attributeTypes = UsageBillableSummaryKeys.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.apm_host_sum = ObjectSerializer.serialize(data.apmHostSum, "UsageBillableSummaryBody", "")
+
+        res.apm_host_top99p = ObjectSerializer.serialize(data.apmHostTop99p, "UsageBillableSummaryBody", "")
+
+        res.apm_trace_search_sum = ObjectSerializer.serialize(data.apmTraceSearchSum, "UsageBillableSummaryBody", "")
+
+        res.fargate_container_average = ObjectSerializer.serialize(data.fargateContainerAverage, "UsageBillableSummaryBody", "")
+
+        res.infra_container_sum = ObjectSerializer.serialize(data.infraContainerSum, "UsageBillableSummaryBody", "")
+
+        res.infra_host_sum = ObjectSerializer.serialize(data.infraHostSum, "UsageBillableSummaryBody", "")
+
+        res.infra_host_top99p = ObjectSerializer.serialize(data.infraHostTop99p, "UsageBillableSummaryBody", "")
+
+        res.iot_top99p = ObjectSerializer.serialize(data.iotTop99p, "UsageBillableSummaryBody", "")
+
+        res.lambda_function_average = ObjectSerializer.serialize(data.lambdaFunctionAverage, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_sum = ObjectSerializer.serialize(data.logsIndexedSum, "UsageBillableSummaryBody", "")
+
+        res.logs_ingested_sum = ObjectSerializer.serialize(data.logsIngestedSum, "UsageBillableSummaryBody", "")
+
+        res.npm_flow_sum = ObjectSerializer.serialize(data.npmFlowSum, "UsageBillableSummaryBody", "")
+
+        res.npm_host_top99p = ObjectSerializer.serialize(data.npmHostTop99p, "UsageBillableSummaryBody", "")
+
+        res.rum_sum = ObjectSerializer.serialize(data.rumSum, "UsageBillableSummaryBody", "")
+
+        res.serverless_invocation_sum = ObjectSerializer.serialize(data.serverlessInvocationSum, "UsageBillableSummaryBody", "")
+
+        res.siem_sum = ObjectSerializer.serialize(data.siemSum, "UsageBillableSummaryBody", "")
+
+        res.synthetics_api_tests_sum = ObjectSerializer.serialize(data.syntheticsApiTestsSum, "UsageBillableSummaryBody", "")
+
+        res.synthetics_browser_checks_sum = ObjectSerializer.serialize(data.syntheticsBrowserChecksSum, "UsageBillableSummaryBody", "")
+
+        res.timeseries_average = ObjectSerializer.serialize(data.timeseriesAverage, "UsageBillableSummaryBody", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

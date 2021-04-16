@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the SLO widget.
 */
-export type SLOWidgetDefinitionType = "slo" ;
+
+export type SLOWidgetDefinitionType = typeof SLO ;
+export const SLO = 'slo';
+
+

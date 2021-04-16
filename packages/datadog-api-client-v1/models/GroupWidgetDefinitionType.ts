@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the group widget.
 */
-export type GroupWidgetDefinitionType = "group" ;
+
+export type GroupWidgetDefinitionType = typeof GROUP ;
+export const GROUP = 'group';
+
+

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The payload accepted for intake.
 */
+
 export class IntakePayloadAccepted {
     /**
     * The status of the intake payload.
@@ -21,19 +23,42 @@ export class IntakePayloadAccepted {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "status",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "status": {
             "baseName": "status",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IntakePayloadAccepted.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IntakePayloadAccepted {
+      let res = new IntakePayloadAccepted();
+
+      res.status = ObjectSerializer.deserialize(data.status, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IntakePayloadAccepted): {[key: string]: any} {
+        let attributeTypes = IntakePayloadAccepted.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.status = ObjectSerializer.serialize(data.status, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

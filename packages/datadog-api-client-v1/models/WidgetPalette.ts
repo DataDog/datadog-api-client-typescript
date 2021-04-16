@@ -9,8 +9,31 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Color palette to apply.
 */
-export type WidgetPalette = "blue" | "custom_bg" | "custom_image" | "custom_text" | "gray_on_white" | "grey" | "green" | "orange" | "red" | "red_on_white" | "white_on_gray" | "white_on_green" | "green_on_white" | "white_on_red" | "white_on_yellow" | "yellow_on_white" | "black_on_light_yellow" | "black_on_light_green" | "black_on_light_red" ;
+
+export type WidgetPalette = typeof BLUE | typeof CUSTOM_BACKGROUND | typeof CUSTOM_IMAGE | typeof CUSTOM_TEXT | typeof GRAY_ON_WHITE | typeof GREY | typeof GREEN | typeof ORANGE | typeof RED | typeof RED_ON_WHITE | typeof WHITE_ON_GRAY | typeof WHITE_ON_GREEN | typeof GREEN_ON_WHITE | typeof WHITE_ON_RED | typeof WHITE_ON_YELLOW | typeof YELLOW_ON_WHITE | typeof BlackOnLightYellow | typeof BlackOnLightGreen | typeof BlackOnLightRed ;
+export const BLUE = 'blue';
+export const CUSTOM_BACKGROUND = 'custom_bg';
+export const CUSTOM_IMAGE = 'custom_image';
+export const CUSTOM_TEXT = 'custom_text';
+export const GRAY_ON_WHITE = 'gray_on_white';
+export const GREY = 'grey';
+export const GREEN = 'green';
+export const ORANGE = 'orange';
+export const RED = 'red';
+export const RED_ON_WHITE = 'red_on_white';
+export const WHITE_ON_GRAY = 'white_on_gray';
+export const WHITE_ON_GREEN = 'white_on_green';
+export const GREEN_ON_WHITE = 'green_on_white';
+export const WHITE_ON_RED = 'white_on_red';
+export const WHITE_ON_YELLOW = 'white_on_yellow';
+export const YELLOW_ON_WHITE = 'yellow_on_white';
+export const BlackOnLightYellow = 'black_on_light_yellow';
+export const BlackOnLightGreen = 'black_on_light_green';
+export const BlackOnLightRed = 'black_on_light_red';
+
+

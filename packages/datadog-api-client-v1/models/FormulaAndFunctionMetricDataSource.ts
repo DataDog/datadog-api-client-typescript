@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Data source for metrics queries.
 */
-export type FormulaAndFunctionMetricDataSource = "metrics" ;
+
+export type FormulaAndFunctionMetricDataSource = typeof METRICS ;
+export const METRICS = 'metrics';
+
+

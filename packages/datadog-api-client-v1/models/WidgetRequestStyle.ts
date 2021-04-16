@@ -11,10 +11,12 @@
 import { WidgetLineType } from './WidgetLineType';
 import { WidgetLineWidth } from './WidgetLineWidth';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Define request widget style.
 */
+
 export class WidgetRequestStyle {
     'lineType'?: WidgetLineType;
     'lineWidth'?: WidgetLineWidth;
@@ -25,31 +27,76 @@ export class WidgetRequestStyle {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "lineType",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "lineType": {
             "baseName": "line_type",
             "type": "WidgetLineType",
             "format": ""
         },
-        {
-            "name": "lineWidth",
+        "lineWidth": {
             "baseName": "line_width",
             "type": "WidgetLineWidth",
             "format": ""
         },
-        {
-            "name": "palette",
+        "palette": {
             "baseName": "palette",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetRequestStyle.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetRequestStyle {
+      let res = new WidgetRequestStyle();
+
+      if (['dashed', 'dotted', 'solid', undefined].includes(data.line_type)) {
+          res.lineType = data.line_type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.line_type } for line_type`);
+      }
+
+      if (['normal', 'thick', 'thin', undefined].includes(data.line_width)) {
+          res.lineWidth = data.line_width;
+      } else {
+          throw TypeError(`invalid enum value ${ data.line_width } for line_width`);
+      }
+
+      res.palette = ObjectSerializer.deserialize(data.palette, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetRequestStyle): {[key: string]: any} {
+        let attributeTypes = WidgetRequestStyle.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['dashed', 'dotted', 'solid', undefined].includes(data.lineType)) {
+            res.line_type = data.lineType;
+        } else {
+            throw TypeError(`invalid enum value ${ data.lineType } for lineType`);
+        }
+
+        if (['normal', 'thick', 'thin', undefined].includes(data.lineWidth)) {
+            res.line_width = data.lineWidth;
+        } else {
+            throw TypeError(`invalid enum value ${ data.lineWidth } for lineWidth`);
+        }
+
+        res.palette = ObjectSerializer.serialize(data.palette, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

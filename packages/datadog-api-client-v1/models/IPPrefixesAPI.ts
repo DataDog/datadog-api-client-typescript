@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Available prefix information for the API endpoints.
 */
+
 export class IPPrefixesAPI {
     /**
     * List of IPv4 prefixes.
@@ -25,25 +27,51 @@ export class IPPrefixesAPI {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "prefixesIpv4",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "prefixesIpv4": {
             "baseName": "prefixes_ipv4",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "prefixesIpv6",
+        "prefixesIpv6": {
             "baseName": "prefixes_ipv6",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IPPrefixesAPI.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IPPrefixesAPI {
+      let res = new IPPrefixesAPI();
+
+      res.prefixesIpv4 = ObjectSerializer.deserialize(data.prefixes_ipv4, "Array<string>", "")
+
+      res.prefixesIpv6 = ObjectSerializer.deserialize(data.prefixes_ipv6, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IPPrefixesAPI): {[key: string]: any} {
+        let attributeTypes = IPPrefixesAPI.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.prefixes_ipv4 = ObjectSerializer.serialize(data.prefixesIpv4, "Array<string>", "")
+
+        res.prefixes_ipv6 = ObjectSerializer.serialize(data.prefixesIpv6, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -12,10 +12,12 @@ import { LogsMetricCompute } from './LogsMetricCompute';
 import { LogsMetricFilter } from './LogsMetricFilter';
 import { LogsMetricGroupBy } from './LogsMetricGroupBy';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The object describing the Datadog log-based metric to create.
 */
+
 export class LogsMetricCreateAttributes {
     'compute': LogsMetricCompute;
     'filter'?: LogsMetricFilter;
@@ -26,31 +28,66 @@ export class LogsMetricCreateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "compute",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "compute": {
             "baseName": "compute",
             "type": "LogsMetricCompute",
             "format": ""
         },
-        {
-            "name": "filter",
+        "filter": {
             "baseName": "filter",
             "type": "LogsMetricFilter",
             "format": ""
         },
-        {
-            "name": "groupBy",
+        "groupBy": {
             "baseName": "group_by",
             "type": "Array<LogsMetricGroupBy>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsMetricCreateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsMetricCreateAttributes {
+      let res = new LogsMetricCreateAttributes();
+
+      if (data.compute === undefined) {
+          throw new TypeError("missing required attribute 'compute' on 'LogsMetricCreateAttributes' object");
+      }
+      res.compute = ObjectSerializer.deserialize(data.compute, "LogsMetricCompute", "")
+
+      res.filter = ObjectSerializer.deserialize(data.filter, "LogsMetricFilter", "")
+
+      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<LogsMetricGroupBy>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsMetricCreateAttributes): {[key: string]: any} {
+        let attributeTypes = LogsMetricCreateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.compute === undefined) {
+            throw new TypeError("missing required attribute 'compute' on 'LogsMetricCreateAttributes' object");
+        }
+        res.compute = ObjectSerializer.serialize(data.compute, "LogsMetricCompute", "")
+
+        res.filter = ObjectSerializer.serialize(data.filter, "LogsMetricFilter", "")
+
+        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<LogsMetricGroupBy>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

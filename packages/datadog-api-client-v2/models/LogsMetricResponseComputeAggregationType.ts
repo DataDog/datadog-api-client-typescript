@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The type of aggregation to use.
 */
-export type LogsMetricResponseComputeAggregationType = "count" | "distribution" ;
+
+export type LogsMetricResponseComputeAggregationType = typeof COUNT | typeof DISTRIBUTION ;
+export const COUNT = 'count';
+export const DISTRIBUTION = 'distribution';
+
+

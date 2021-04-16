@@ -12,10 +12,12 @@ import { HTTPMethod } from './HTTPMethod';
 import { SyntheticsBasicAuth } from './SyntheticsBasicAuth';
 import { SyntheticsTestRequestCertificate } from './SyntheticsTestRequestCertificate';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the Synthetic test request.
 */
+
 export class SyntheticsTestRequest {
     'basicAuth'?: SyntheticsBasicAuth;
     /**
@@ -59,85 +61,149 @@ export class SyntheticsTestRequest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "basicAuth",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "basicAuth": {
             "baseName": "basicAuth",
             "type": "SyntheticsBasicAuth",
             "format": ""
         },
-        {
-            "name": "body",
+        "body": {
             "baseName": "body",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "certificate",
+        "certificate": {
             "baseName": "certificate",
             "type": "SyntheticsTestRequestCertificate",
             "format": ""
         },
-        {
-            "name": "dnsServer",
+        "dnsServer": {
             "baseName": "dnsServer",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "headers",
+        "headers": {
             "baseName": "headers",
             "type": "{ [key: string]: string; }",
             "format": ""
         },
-        {
-            "name": "host",
+        "host": {
             "baseName": "host",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "method",
+        "method": {
             "baseName": "method",
             "type": "HTTPMethod",
             "format": ""
         },
-        {
-            "name": "noSavingResponseBody",
+        "noSavingResponseBody": {
             "baseName": "noSavingResponseBody",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "port",
+        "port": {
             "baseName": "port",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "query",
+        "query": {
             "baseName": "query",
             "type": "any",
             "format": ""
         },
-        {
-            "name": "timeout",
+        "timeout": {
             "baseName": "timeout",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "url",
+        "url": {
             "baseName": "url",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTestRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTestRequest {
+      let res = new SyntheticsTestRequest();
+
+      res.basicAuth = ObjectSerializer.deserialize(data.basicAuth, "SyntheticsBasicAuth", "")
+
+      res.body = ObjectSerializer.deserialize(data.body, "string", "")
+
+      res.certificate = ObjectSerializer.deserialize(data.certificate, "SyntheticsTestRequestCertificate", "")
+
+      res.dnsServer = ObjectSerializer.deserialize(data.dnsServer, "string", "")
+
+      res.headers = ObjectSerializer.deserialize(data.headers, "{ [key: string]: string; }", "")
+
+      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+
+      if (['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', undefined].includes(data.method)) {
+          res.method = data.method;
+      } else {
+          throw TypeError(`invalid enum value ${ data.method } for method`);
+      }
+
+      res.noSavingResponseBody = ObjectSerializer.deserialize(data.noSavingResponseBody, "boolean", "")
+
+      res.port = ObjectSerializer.deserialize(data.port, "number", "int64")
+
+      res.query = ObjectSerializer.deserialize(data.query, "any", "")
+
+      res.timeout = ObjectSerializer.deserialize(data.timeout, "number", "double")
+
+      res.url = ObjectSerializer.deserialize(data.url, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTestRequest): {[key: string]: any} {
+        let attributeTypes = SyntheticsTestRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.basicAuth = ObjectSerializer.serialize(data.basicAuth, "SyntheticsBasicAuth", "")
+
+        res.body = ObjectSerializer.serialize(data.body, "string", "")
+
+        res.certificate = ObjectSerializer.serialize(data.certificate, "SyntheticsTestRequestCertificate", "")
+
+        res.dnsServer = ObjectSerializer.serialize(data.dnsServer, "string", "")
+
+        res.headers = ObjectSerializer.serialize(data.headers, "{ [key: string]: string; }", "")
+
+        res.host = ObjectSerializer.serialize(data.host, "string", "")
+
+        if (['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', undefined].includes(data.method)) {
+            res.method = data.method;
+        } else {
+            throw TypeError(`invalid enum value ${ data.method } for method`);
+        }
+
+        res.noSavingResponseBody = ObjectSerializer.serialize(data.noSavingResponseBody, "boolean", "")
+
+        res.port = ObjectSerializer.serialize(data.port, "number", "int64")
+
+        res.query = ObjectSerializer.serialize(data.query, "any", "")
+
+        res.timeout = ObjectSerializer.serialize(data.timeout, "number", "double")
+
+        res.url = ObjectSerializer.serialize(data.url, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,28 +10,61 @@
 
 import { WidgetLiveSpan } from './WidgetLiveSpan';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Time setting for the widget.
 */
+
 export class WidgetTime {
     'liveSpan'?: WidgetLiveSpan;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "liveSpan",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "liveSpan": {
             "baseName": "live_span",
             "type": "WidgetLiveSpan",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetTime.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetTime {
+      let res = new WidgetTime();
+
+      if (['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert', undefined].includes(data.live_span)) {
+          res.liveSpan = data.live_span;
+      } else {
+          throw TypeError(`invalid enum value ${ data.live_span } for live_span`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetTime): {[key: string]: any} {
+        let attributeTypes = WidgetTime.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert', undefined].includes(data.liveSpan)) {
+            res.live_span = data.liveSpan;
+        } else {
+            throw TypeError(`invalid enum value ${ data.liveSpan } for liveSpan`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

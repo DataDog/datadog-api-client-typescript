@@ -12,45 +12,10 @@ import { IncidentTimelineCellMarkdownContentType } from './IncidentTimelineCellM
 import { IncidentTimelineCellMarkdownCreateAttributes } from './IncidentTimelineCellMarkdownCreateAttributes';
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from './IncidentTimelineCellMarkdownCreateAttributesContent';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The timeline cell's attributes for a create request.
 */
-export class IncidentTimelineCellCreateAttributes {
-    'cellType': IncidentTimelineCellMarkdownContentType;
-    'content': IncidentTimelineCellMarkdownCreateAttributesContent;
-    /**
-    * A flag indicating whether the timeline cell is important and should be highlighted.
-    */
-    'important'?: boolean;
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cellType",
-            "baseName": "cell_type",
-            "type": "IncidentTimelineCellMarkdownContentType",
-            "format": ""
-        },
-        {
-            "name": "content",
-            "baseName": "content",
-            "type": "IncidentTimelineCellMarkdownCreateAttributesContent",
-            "format": ""
-        },
-        {
-            "name": "important",
-            "baseName": "important",
-            "type": "boolean",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return IncidentTimelineCellCreateAttributes.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type IncidentTimelineCellCreateAttributes = IncidentTimelineCellMarkdownCreateAttributes;

@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Define how you want the SLO to be displayed.
 */
-export type WidgetViewMode = "overall" | "component" | "both" ;
+
+export type WidgetViewMode = typeof OVERALL | typeof COMPONENT | typeof BOTH ;
+export const OVERALL = 'overall';
+export const COMPONENT = 'component';
+export const BOTH = 'both';
+
+

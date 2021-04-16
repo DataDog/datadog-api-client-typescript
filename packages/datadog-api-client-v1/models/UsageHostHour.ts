@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Number of hosts/containers recorded for each hour for a given organization.
 */
+
 export class UsageHostHour {
     /**
     * Contains the total number of infrastructure hosts reporting during a given hour that were running the Datadog Agent.
@@ -69,91 +71,150 @@ export class UsageHostHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "agentHostCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "agentHostCount": {
             "baseName": "agent_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "alibabaHostCount",
+        "alibabaHostCount": {
             "baseName": "alibaba_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "apmAzureAppServiceHostCount",
+        "apmAzureAppServiceHostCount": {
             "baseName": "apm_azure_app_service_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "apmHostCount",
+        "apmHostCount": {
             "baseName": "apm_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "awsHostCount",
+        "awsHostCount": {
             "baseName": "aws_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "azureHostCount",
+        "azureHostCount": {
             "baseName": "azure_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "containerCount",
+        "containerCount": {
             "baseName": "container_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "gcpHostCount",
+        "gcpHostCount": {
             "baseName": "gcp_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "herokuHostCount",
+        "herokuHostCount": {
             "baseName": "heroku_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hostCount",
+        "hostCount": {
             "baseName": "host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "infraAzureAppService",
+        "infraAzureAppService": {
             "baseName": "infra_azure_app_service",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "opentelemetryHostCount",
+        "opentelemetryHostCount": {
             "baseName": "opentelemetry_host_count",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageHostHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageHostHour {
+      let res = new UsageHostHour();
+
+      res.agentHostCount = ObjectSerializer.deserialize(data.agent_host_count, "number", "int64")
+
+      res.alibabaHostCount = ObjectSerializer.deserialize(data.alibaba_host_count, "number", "int64")
+
+      res.apmAzureAppServiceHostCount = ObjectSerializer.deserialize(data.apm_azure_app_service_host_count, "number", "int64")
+
+      res.apmHostCount = ObjectSerializer.deserialize(data.apm_host_count, "number", "int64")
+
+      res.awsHostCount = ObjectSerializer.deserialize(data.aws_host_count, "number", "int64")
+
+      res.azureHostCount = ObjectSerializer.deserialize(data.azure_host_count, "number", "int64")
+
+      res.containerCount = ObjectSerializer.deserialize(data.container_count, "number", "int64")
+
+      res.gcpHostCount = ObjectSerializer.deserialize(data.gcp_host_count, "number", "int64")
+
+      res.herokuHostCount = ObjectSerializer.deserialize(data.heroku_host_count, "number", "int64")
+
+      res.hostCount = ObjectSerializer.deserialize(data.host_count, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+      res.infraAzureAppService = ObjectSerializer.deserialize(data.infra_azure_app_service, "number", "int64")
+
+      res.opentelemetryHostCount = ObjectSerializer.deserialize(data.opentelemetry_host_count, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageHostHour): {[key: string]: any} {
+        let attributeTypes = UsageHostHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.agent_host_count = ObjectSerializer.serialize(data.agentHostCount, "number", "int64")
+
+        res.alibaba_host_count = ObjectSerializer.serialize(data.alibabaHostCount, "number", "int64")
+
+        res.apm_azure_app_service_host_count = ObjectSerializer.serialize(data.apmAzureAppServiceHostCount, "number", "int64")
+
+        res.apm_host_count = ObjectSerializer.serialize(data.apmHostCount, "number", "int64")
+
+        res.aws_host_count = ObjectSerializer.serialize(data.awsHostCount, "number", "int64")
+
+        res.azure_host_count = ObjectSerializer.serialize(data.azureHostCount, "number", "int64")
+
+        res.container_count = ObjectSerializer.serialize(data.containerCount, "number", "int64")
+
+        res.gcp_host_count = ObjectSerializer.serialize(data.gcpHostCount, "number", "int64")
+
+        res.heroku_host_count = ObjectSerializer.serialize(data.herokuHostCount, "number", "int64")
+
+        res.host_count = ObjectSerializer.serialize(data.hostCount, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        res.infra_azure_app_service = ObjectSerializer.serialize(data.infraAzureAppService, "number", "int64")
+
+        res.opentelemetry_host_count = ObjectSerializer.serialize(data.opentelemetryHostCount, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

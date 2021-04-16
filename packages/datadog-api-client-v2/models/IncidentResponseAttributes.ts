@@ -10,10 +10,12 @@
 
 import { IncidentFieldAttributes } from './IncidentFieldAttributes';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The incident's attributes from a response.
 */
+
 export class IncidentResponseAttributes {
     /**
     * Timestamp when the incident was created.
@@ -90,121 +92,201 @@ export class IncidentResponseAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "created",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "created": {
             "baseName": "created",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "customerImpactDuration",
+        "customerImpactDuration": {
             "baseName": "customer_impact_duration",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "customerImpactEnd",
+        "customerImpactEnd": {
             "baseName": "customer_impact_end",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "customerImpactScope",
+        "customerImpactScope": {
             "baseName": "customer_impact_scope",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "customerImpactStart",
+        "customerImpactStart": {
             "baseName": "customer_impact_start",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "customerImpacted",
+        "customerImpacted": {
             "baseName": "customer_impacted",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "detected",
+        "detected": {
             "baseName": "detected",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "fields",
+        "fields": {
             "baseName": "fields",
             "type": "{ [key: string]: IncidentFieldAttributes; }",
             "format": ""
         },
-        {
-            "name": "modified",
+        "modified": {
             "baseName": "modified",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "notificationHandles",
+        "notificationHandles": {
             "baseName": "notification_handles",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "postmortemId",
+        "postmortemId": {
             "baseName": "postmortem_id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "publicId",
+        "publicId": {
             "baseName": "public_id",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "resolved",
+        "resolved": {
             "baseName": "resolved",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "timeToDetect",
+        "timeToDetect": {
             "baseName": "time_to_detect",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "timeToInternalResponse",
+        "timeToInternalResponse": {
             "baseName": "time_to_internal_response",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "timeToRepair",
+        "timeToRepair": {
             "baseName": "time_to_repair",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "timeToResolve",
+        "timeToResolve": {
             "baseName": "time_to_resolve",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentResponseAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentResponseAttributes {
+      let res = new IncidentResponseAttributes();
+
+      res.created = ObjectSerializer.deserialize(data.created, "Date", "date-time")
+
+      res.customerImpactDuration = ObjectSerializer.deserialize(data.customer_impact_duration, "number", "int64")
+
+      res.customerImpactEnd = ObjectSerializer.deserialize(data.customer_impact_end, "Date", "date-time")
+
+      res.customerImpactScope = ObjectSerializer.deserialize(data.customer_impact_scope, "string", "")
+
+      res.customerImpactStart = ObjectSerializer.deserialize(data.customer_impact_start, "Date", "date-time")
+
+      res.customerImpacted = ObjectSerializer.deserialize(data.customer_impacted, "boolean", "")
+
+      res.detected = ObjectSerializer.deserialize(data.detected, "Date", "date-time")
+
+      res.fields = ObjectSerializer.deserialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+
+      res.modified = ObjectSerializer.deserialize(data.modified, "Date", "date-time")
+
+      res.notificationHandles = ObjectSerializer.deserialize(data.notification_handles, "Array<string>", "")
+
+      res.postmortemId = ObjectSerializer.deserialize(data.postmortem_id, "string", "")
+
+      res.publicId = ObjectSerializer.deserialize(data.public_id, "number", "int64")
+
+      res.resolved = ObjectSerializer.deserialize(data.resolved, "Date", "date-time")
+
+      res.timeToDetect = ObjectSerializer.deserialize(data.time_to_detect, "number", "int64")
+
+      res.timeToInternalResponse = ObjectSerializer.deserialize(data.time_to_internal_response, "number", "int64")
+
+      res.timeToRepair = ObjectSerializer.deserialize(data.time_to_repair, "number", "int64")
+
+      res.timeToResolve = ObjectSerializer.deserialize(data.time_to_resolve, "number", "int64")
+
+      if (data.title === undefined) {
+          throw new TypeError("missing required attribute 'title' on 'IncidentResponseAttributes' object");
+      }
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentResponseAttributes): {[key: string]: any} {
+        let attributeTypes = IncidentResponseAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created = ObjectSerializer.serialize(data.created, "Date", "date-time")
+
+        res.customer_impact_duration = ObjectSerializer.serialize(data.customerImpactDuration, "number", "int64")
+
+        res.customer_impact_end = ObjectSerializer.serialize(data.customerImpactEnd, "Date", "date-time")
+
+        res.customer_impact_scope = ObjectSerializer.serialize(data.customerImpactScope, "string", "")
+
+        res.customer_impact_start = ObjectSerializer.serialize(data.customerImpactStart, "Date", "date-time")
+
+        res.customer_impacted = ObjectSerializer.serialize(data.customerImpacted, "boolean", "")
+
+        res.detected = ObjectSerializer.serialize(data.detected, "Date", "date-time")
+
+        res.fields = ObjectSerializer.serialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+
+        res.modified = ObjectSerializer.serialize(data.modified, "Date", "date-time")
+
+        res.notification_handles = ObjectSerializer.serialize(data.notificationHandles, "Array<string>", "")
+
+        res.postmortem_id = ObjectSerializer.serialize(data.postmortemId, "string", "")
+
+        res.public_id = ObjectSerializer.serialize(data.publicId, "number", "int64")
+
+        res.resolved = ObjectSerializer.serialize(data.resolved, "Date", "date-time")
+
+        res.time_to_detect = ObjectSerializer.serialize(data.timeToDetect, "number", "int64")
+
+        res.time_to_internal_response = ObjectSerializer.serialize(data.timeToInternalResponse, "number", "int64")
+
+        res.time_to_repair = ObjectSerializer.serialize(data.timeToRepair, "number", "int64")
+
+        res.time_to_resolve = ObjectSerializer.serialize(data.timeToResolve, "number", "int64")
+
+        if (data.title === undefined) {
+            throw new TypeError("missing required attribute 'title' on 'IncidentResponseAttributes' object");
+        }
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

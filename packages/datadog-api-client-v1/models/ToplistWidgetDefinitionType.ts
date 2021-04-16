@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the top list widget.
 */
-export type ToplistWidgetDefinitionType = "toplist" ;
+
+export type ToplistWidgetDefinitionType = typeof TOPLIST ;
+export const TOPLIST = 'toplist';
+
+

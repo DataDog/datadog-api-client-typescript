@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of process summary.
 */
-export type ProcessSummaryType = "process" ;
+
+export type ProcessSummaryType = typeof PROCESS ;
+export const PROCESS = 'process';
+
+

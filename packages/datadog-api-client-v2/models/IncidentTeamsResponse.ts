@@ -12,10 +12,12 @@ import { IncidentServicesResponseMeta } from './IncidentServicesResponseMeta';
 import { IncidentTeamIncludedItems } from './IncidentTeamIncludedItems';
 import { IncidentTeamResponseData } from './IncidentTeamResponseData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response with a list of incident team payloads.
 */
+
 export class IncidentTeamsResponse {
     /**
     * An array of incident teams.
@@ -29,31 +31,66 @@ export class IncidentTeamsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "Array<IncidentTeamResponseData>",
             "format": ""
         },
-        {
-            "name": "included",
+        "included": {
             "baseName": "included",
             "type": "Array<IncidentTeamIncludedItems>",
             "format": ""
         },
-        {
-            "name": "meta",
+        "meta": {
             "baseName": "meta",
             "type": "IncidentServicesResponseMeta",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentTeamsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentTeamsResponse {
+      let res = new IncidentTeamsResponse();
+
+      if (data.data === undefined) {
+          throw new TypeError("missing required attribute 'data' on 'IncidentTeamsResponse' object");
+      }
+      res.data = ObjectSerializer.deserialize(data.data, "Array<IncidentTeamResponseData>", "")
+
+      res.included = ObjectSerializer.deserialize(data.included, "Array<IncidentTeamIncludedItems>", "")
+
+      res.meta = ObjectSerializer.deserialize(data.meta, "IncidentServicesResponseMeta", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentTeamsResponse): {[key: string]: any} {
+        let attributeTypes = IncidentTeamsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.data === undefined) {
+            throw new TypeError("missing required attribute 'data' on 'IncidentTeamsResponse' object");
+        }
+        res.data = ObjectSerializer.serialize(data.data, "Array<IncidentTeamResponseData>", "")
+
+        res.included = ObjectSerializer.serialize(data.included, "Array<IncidentTeamIncludedItems>", "")
+
+        res.meta = ObjectSerializer.serialize(data.meta, "IncidentServicesResponseMeta", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

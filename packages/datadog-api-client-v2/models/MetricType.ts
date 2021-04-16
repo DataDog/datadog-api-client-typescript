@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The metric resource type.
 */
-export type MetricType = "metrics" ;
+
+export type MetricType = typeof METRICS ;
+export const METRICS = 'metrics';
+
+

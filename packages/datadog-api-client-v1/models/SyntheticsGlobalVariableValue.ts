@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Value of the global variable.
 */
+
 export class SyntheticsGlobalVariableValue {
     /**
     * Determines if the variable is secure.
@@ -25,25 +27,57 @@ export class SyntheticsGlobalVariableValue {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "secure",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "secure": {
             "baseName": "secure",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "value",
+        "value": {
             "baseName": "value",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsGlobalVariableValue.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsGlobalVariableValue {
+      let res = new SyntheticsGlobalVariableValue();
+
+      res.secure = ObjectSerializer.deserialize(data.secure, "boolean", "")
+
+      if (data.value === undefined) {
+          throw new TypeError("missing required attribute 'value' on 'SyntheticsGlobalVariableValue' object");
+      }
+      res.value = ObjectSerializer.deserialize(data.value, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsGlobalVariableValue): {[key: string]: any} {
+        let attributeTypes = SyntheticsGlobalVariableValue.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.secure = ObjectSerializer.serialize(data.secure, "boolean", "")
+
+        if (data.value === undefined) {
+            throw new TypeError("missing required attribute 'value' on 'SyntheticsGlobalVariableValue' object");
+        }
+        res.value = ObjectSerializer.serialize(data.value, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

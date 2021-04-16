@@ -10,10 +10,12 @@
 
 import { DashboardListItem } from './DashboardListItem';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Dashboards within a list.
 */
+
 export class DashboardListItems {
     /**
     * List of dashboards in the dashboard list.
@@ -26,25 +28,57 @@ export class DashboardListItems {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "dashboards",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "dashboards": {
             "baseName": "dashboards",
             "type": "Array<DashboardListItem>",
             "format": ""
         },
-        {
-            "name": "total",
+        "total": {
             "baseName": "total",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardListItems.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardListItems {
+      let res = new DashboardListItems();
+
+      if (data.dashboards === undefined) {
+          throw new TypeError("missing required attribute 'dashboards' on 'DashboardListItems' object");
+      }
+      res.dashboards = ObjectSerializer.deserialize(data.dashboards, "Array<DashboardListItem>", "")
+
+      res.total = ObjectSerializer.deserialize(data.total, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardListItems): {[key: string]: any} {
+        let attributeTypes = DashboardListItems.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.dashboards === undefined) {
+            throw new TypeError("missing required attribute 'dashboards' on 'DashboardListItems' object");
+        }
+        res.dashboards = ObjectSerializer.serialize(data.dashboards, "Array<DashboardListItem>", "")
+
+        res.total = ObjectSerializer.serialize(data.total, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

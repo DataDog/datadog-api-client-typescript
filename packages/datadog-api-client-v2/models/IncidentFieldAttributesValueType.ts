@@ -9,8 +9,16 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the single value field definitions.
 */
-export type IncidentFieldAttributesValueType = "multiselect" | "textarray" | "metrictag" | "autocomplete" ;
+
+export type IncidentFieldAttributesValueType = typeof MULTISELECT | typeof TEXTARRAY | typeof METRICTAG | typeof AUTOCOMPLETE ;
+export const MULTISELECT = 'multiselect';
+export const TEXTARRAY = 'textarray';
+export const METRICTAG = 'metrictag';
+export const AUTOCOMPLETE = 'autocomplete';
+
+

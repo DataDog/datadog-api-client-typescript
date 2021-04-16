@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Users resource type.
 */
-export type UsersType = "users" ;
+
+export type UsersType = typeof USERS ;
+export const USERS = 'users';
+
+

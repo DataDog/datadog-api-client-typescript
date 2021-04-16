@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the log stream widget.
 */
-export type LogStreamWidgetDefinitionType = "log_stream" ;
+
+export type LogStreamWidgetDefinitionType = typeof LOG_STREAM ;
+export const LOG_STREAM = 'log_stream';
+
+

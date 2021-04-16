@@ -13,10 +13,12 @@ import { WidgetGrouping } from './WidgetGrouping';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTime } from './WidgetTime';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Check status shows the current status or number of results for any check performed.
 */
+
 export class CheckStatusWidgetDefinition {
     /**
     * Name of the check to use in the widget.
@@ -49,73 +51,165 @@ export class CheckStatusWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "check",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "check": {
             "baseName": "check",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "group",
+        "group": {
             "baseName": "group",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "groupBy",
+        "groupBy": {
             "baseName": "group_by",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "grouping",
+        "grouping": {
             "baseName": "grouping",
             "type": "WidgetGrouping",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "WidgetTime",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "titleAlign",
+        "titleAlign": {
             "baseName": "title_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "titleSize",
+        "titleSize": {
             "baseName": "title_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "CheckStatusWidgetDefinitionType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return CheckStatusWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): CheckStatusWidgetDefinition {
+      let res = new CheckStatusWidgetDefinition();
+
+      if (data.check === undefined) {
+          throw new TypeError("missing required attribute 'check' on 'CheckStatusWidgetDefinition' object");
+      }
+      res.check = ObjectSerializer.deserialize(data.check, "string", "")
+
+      res.group = ObjectSerializer.deserialize(data.group, "string", "")
+
+      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<string>", "")
+
+      if (data.grouping === undefined) {
+          throw new TypeError("missing required attribute 'grouping' on 'CheckStatusWidgetDefinition' object");
+      }
+      if (['check', 'cluster', undefined].includes(data.grouping)) {
+          res.grouping = data.grouping;
+      } else {
+          throw TypeError(`invalid enum value ${ data.grouping } for grouping`);
+      }
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
+
+      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'CheckStatusWidgetDefinition' object");
+      }
+      if (['check_status', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: CheckStatusWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = CheckStatusWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.check === undefined) {
+            throw new TypeError("missing required attribute 'check' on 'CheckStatusWidgetDefinition' object");
+        }
+        res.check = ObjectSerializer.serialize(data.check, "string", "")
+
+        res.group = ObjectSerializer.serialize(data.group, "string", "")
+
+        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<string>", "")
+
+        if (data.grouping === undefined) {
+            throw new TypeError("missing required attribute 'grouping' on 'CheckStatusWidgetDefinition' object");
+        }
+        if (['check', 'cluster', undefined].includes(data.grouping)) {
+            res.grouping = data.grouping;
+        } else {
+            throw TypeError(`invalid enum value ${ data.grouping } for grouping`);
+        }
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
+
+        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'CheckStatusWidgetDefinition' object");
+        }
+        if (['check_status', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

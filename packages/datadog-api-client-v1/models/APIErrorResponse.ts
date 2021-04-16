@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Error response object.
 */
+
 export class APIErrorResponse {
     /**
     * Array of errors returned by the API.
@@ -21,19 +23,48 @@ export class APIErrorResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "errors",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "errors": {
             "baseName": "errors",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return APIErrorResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): APIErrorResponse {
+      let res = new APIErrorResponse();
+
+      if (data.errors === undefined) {
+          throw new TypeError("missing required attribute 'errors' on 'APIErrorResponse' object");
+      }
+      res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: APIErrorResponse): {[key: string]: any} {
+        let attributeTypes = APIErrorResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.errors === undefined) {
+            throw new TypeError("missing required attribute 'errors' on 'APIErrorResponse' object");
+        }
+        res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

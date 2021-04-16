@@ -12,10 +12,12 @@ import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricA
 import { FormulaAndFunctionProcessQueryDataSource } from './FormulaAndFunctionProcessQueryDataSource';
 import { QuerySortOrder } from './QuerySortOrder';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Process query using formulas and functions.
 */
+
 export class FormulaAndFunctionProcessQueryDefinition {
     'aggregator'?: FormulaAndFunctionMetricAggregation;
     'dataSource': FormulaAndFunctionProcessQueryDataSource;
@@ -47,67 +49,156 @@ export class FormulaAndFunctionProcessQueryDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregator",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aggregator": {
             "baseName": "aggregator",
             "type": "FormulaAndFunctionMetricAggregation",
             "format": ""
         },
-        {
-            "name": "dataSource",
+        "dataSource": {
             "baseName": "data_source",
             "type": "FormulaAndFunctionProcessQueryDataSource",
             "format": ""
         },
-        {
-            "name": "isNormalizedCpu",
+        "isNormalizedCpu": {
             "baseName": "is_normalized_cpu",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "limit",
+        "limit": {
             "baseName": "limit",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sort",
+        "sort": {
             "baseName": "sort",
             "type": "QuerySortOrder",
             "format": ""
         },
-        {
-            "name": "tagFilters",
+        "tagFilters": {
             "baseName": "tag_filters",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "textFilter",
+        "textFilter": {
             "baseName": "text_filter",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return FormulaAndFunctionProcessQueryDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): FormulaAndFunctionProcessQueryDefinition {
+      let res = new FormulaAndFunctionProcessQueryDefinition();
+
+      if (['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', undefined].includes(data.aggregator)) {
+          res.aggregator = data.aggregator;
+      } else {
+          throw TypeError(`invalid enum value ${ data.aggregator } for aggregator`);
+      }
+
+      if (data.data_source === undefined) {
+          throw new TypeError("missing required attribute 'data_source' on 'FormulaAndFunctionProcessQueryDefinition' object");
+      }
+      if (['process', 'container', undefined].includes(data.data_source)) {
+          res.dataSource = data.data_source;
+      } else {
+          throw TypeError(`invalid enum value ${ data.data_source } for data_source`);
+      }
+
+      res.isNormalizedCpu = ObjectSerializer.deserialize(data.is_normalized_cpu, "boolean", "")
+
+      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64")
+
+      if (data.metric === undefined) {
+          throw new TypeError("missing required attribute 'metric' on 'FormulaAndFunctionProcessQueryDefinition' object");
+      }
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'FormulaAndFunctionProcessQueryDefinition' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      if (['asc', 'desc', undefined].includes(data.sort)) {
+          res.sort = data.sort;
+      } else {
+          throw TypeError(`invalid enum value ${ data.sort } for sort`);
+      }
+
+      res.tagFilters = ObjectSerializer.deserialize(data.tag_filters, "Array<string>", "")
+
+      res.textFilter = ObjectSerializer.deserialize(data.text_filter, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: FormulaAndFunctionProcessQueryDefinition): {[key: string]: any} {
+        let attributeTypes = FormulaAndFunctionProcessQueryDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['avg', 'min', 'max', 'sum', 'last', 'area', 'l2norm', undefined].includes(data.aggregator)) {
+            res.aggregator = data.aggregator;
+        } else {
+            throw TypeError(`invalid enum value ${ data.aggregator } for aggregator`);
+        }
+
+        if (data.dataSource === undefined) {
+            throw new TypeError("missing required attribute 'data_source' on 'FormulaAndFunctionProcessQueryDefinition' object");
+        }
+        if (['process', 'container', undefined].includes(data.dataSource)) {
+            res.data_source = data.dataSource;
+        } else {
+            throw TypeError(`invalid enum value ${ data.dataSource } for dataSource`);
+        }
+
+        res.is_normalized_cpu = ObjectSerializer.serialize(data.isNormalizedCpu, "boolean", "")
+
+        res.limit = ObjectSerializer.serialize(data.limit, "number", "int64")
+
+        if (data.metric === undefined) {
+            throw new TypeError("missing required attribute 'metric' on 'FormulaAndFunctionProcessQueryDefinition' object");
+        }
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'FormulaAndFunctionProcessQueryDefinition' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        if (['asc', 'desc', undefined].includes(data.sort)) {
+            res.sort = data.sort;
+        } else {
+            throw TypeError(`invalid enum value ${ data.sort } for sort`);
+        }
+
+        res.tag_filters = ObjectSerializer.serialize(data.tagFilters, "Array<string>", "")
+
+        res.text_filter = ObjectSerializer.serialize(data.textFilter, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

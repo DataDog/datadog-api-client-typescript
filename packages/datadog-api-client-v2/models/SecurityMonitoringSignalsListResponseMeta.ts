@@ -10,28 +10,53 @@
 
 import { SecurityMonitoringSignalsListResponseMetaPage } from './SecurityMonitoringSignalsListResponseMetaPage';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Meta attributes.
 */
+
 export class SecurityMonitoringSignalsListResponseMeta {
     'page'?: SecurityMonitoringSignalsListResponseMetaPage;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "page",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "page": {
             "baseName": "page",
             "type": "SecurityMonitoringSignalsListResponseMetaPage",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalsListResponseMeta {
+      let res = new SecurityMonitoringSignalsListResponseMeta();
+
+      res.page = ObjectSerializer.deserialize(data.page, "SecurityMonitoringSignalsListResponseMetaPage", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringSignalsListResponseMeta): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringSignalsListResponseMeta.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.page = ObjectSerializer.serialize(data.page, "SecurityMonitoringSignalsListResponseMetaPage", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

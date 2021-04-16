@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A group by rule.
 */
+
 export class LogsMetricGroupBy {
     /**
     * The path to the value the log-based metric will be aggregated over.
@@ -25,25 +27,57 @@ export class LogsMetricGroupBy {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "path",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "path": {
             "baseName": "path",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "tagName",
+        "tagName": {
             "baseName": "tag_name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsMetricGroupBy.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsMetricGroupBy {
+      let res = new LogsMetricGroupBy();
+
+      if (data.path === undefined) {
+          throw new TypeError("missing required attribute 'path' on 'LogsMetricGroupBy' object");
+      }
+      res.path = ObjectSerializer.deserialize(data.path, "string", "")
+
+      res.tagName = ObjectSerializer.deserialize(data.tag_name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsMetricGroupBy): {[key: string]: any} {
+        let attributeTypes = LogsMetricGroupBy.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.path === undefined) {
+            throw new TypeError("missing required attribute 'path' on 'LogsMetricGroupBy' object");
+        }
+        res.path = ObjectSerializer.serialize(data.path, "string", "")
+
+        res.tag_name = ObjectSerializer.serialize(data.tagName, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,28 +10,53 @@
 
 import { SLOCorrection } from './SLOCorrection';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The response object of an SLO correction
 */
+
 export class SLOCorrectionResponse {
     'data'?: SLOCorrection;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "SLOCorrection",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOCorrectionResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOCorrectionResponse {
+      let res = new SLOCorrectionResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "SLOCorrection", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOCorrectionResponse): {[key: string]: any} {
+        let attributeTypes = SLOCorrectionResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "SLOCorrection", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

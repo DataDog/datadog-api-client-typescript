@@ -13,10 +13,12 @@ import { SyntheticsAssertion } from './SyntheticsAssertion';
 import { SyntheticsConfigVariable } from './SyntheticsConfigVariable';
 import { SyntheticsTestRequest } from './SyntheticsTestRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Configuration object for a Synthetic API test.
 */
+
 export class SyntheticsAPITestConfig {
     /**
     * Array of assertions used for the test.
@@ -34,37 +36,75 @@ export class SyntheticsAPITestConfig {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "assertions",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "assertions": {
             "baseName": "assertions",
             "type": "Array<SyntheticsAssertion>",
             "format": ""
         },
-        {
-            "name": "configVariables",
+        "configVariables": {
             "baseName": "configVariables",
             "type": "Array<SyntheticsConfigVariable>",
             "format": ""
         },
-        {
-            "name": "request",
+        "request": {
             "baseName": "request",
             "type": "SyntheticsTestRequest",
             "format": ""
         },
-        {
-            "name": "steps",
+        "steps": {
             "baseName": "steps",
             "type": "Array<SyntheticsAPIStep>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsAPITestConfig.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsAPITestConfig {
+      let res = new SyntheticsAPITestConfig();
+
+      if (data.assertions === undefined) {
+          throw new TypeError("missing required attribute 'assertions' on 'SyntheticsAPITestConfig' object");
+      }
+      res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+      res.configVariables = ObjectSerializer.deserialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
+
+      res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
+
+      res.steps = ObjectSerializer.deserialize(data.steps, "Array<SyntheticsAPIStep>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsAPITestConfig): {[key: string]: any} {
+        let attributeTypes = SyntheticsAPITestConfig.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.assertions === undefined) {
+            throw new TypeError("missing required attribute 'assertions' on 'SyntheticsAPITestConfig' object");
+        }
+        res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+        res.configVariables = ObjectSerializer.serialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
+
+        res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
+
+        res.steps = ObjectSerializer.serialize(data.steps, "Array<SyntheticsAPIStep>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

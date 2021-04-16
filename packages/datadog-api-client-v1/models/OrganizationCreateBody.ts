@@ -11,10 +11,12 @@
 import { OrganizationBilling } from './OrganizationBilling';
 import { OrganizationSubscription } from './OrganizationSubscription';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing an organization to create.
 */
+
 export class OrganizationCreateBody {
     'billing'?: OrganizationBilling;
     /**
@@ -25,31 +27,66 @@ export class OrganizationCreateBody {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "billing",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "billing": {
             "baseName": "billing",
             "type": "OrganizationBilling",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "subscription",
+        "subscription": {
             "baseName": "subscription",
             "type": "OrganizationSubscription",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return OrganizationCreateBody.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): OrganizationCreateBody {
+      let res = new OrganizationCreateBody();
+
+      res.billing = ObjectSerializer.deserialize(data.billing, "OrganizationBilling", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'OrganizationCreateBody' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.subscription = ObjectSerializer.deserialize(data.subscription, "OrganizationSubscription", "")
+
+
+      return res;
+    }
+
+    static serialize(data: OrganizationCreateBody): {[key: string]: any} {
+        let attributeTypes = OrganizationCreateBody.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.billing = ObjectSerializer.serialize(data.billing, "OrganizationBilling", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'OrganizationCreateBody' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.subscription = ObjectSerializer.serialize(data.subscription, "OrganizationSubscription", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

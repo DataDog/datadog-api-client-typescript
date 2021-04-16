@@ -66,6 +66,7 @@
     "@types/pollyjs__persister-fs": "^2.0.1",
     "@types/pollyjs__utils": "^2.6.1",
     "@types/url-parse": "^1.4.3",
+    "@types/react": ">=16",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "chai": "^4.2.0",

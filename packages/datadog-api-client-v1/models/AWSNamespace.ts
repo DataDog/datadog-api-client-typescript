@@ -9,8 +9,19 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The namespace associated with the tag filter entry.
 */
-export type AWSNamespace = "elb" | "application_elb" | "sqs" | "rds" | "custom" | "network_elb" | "lambda" ;
+
+export type AWSNamespace = typeof ELB | typeof APPLICATION_ELB | typeof SQS | typeof RDS | typeof CUSTOM | typeof NETWORK_ELB | typeof LAMBDA ;
+export const ELB = 'elb';
+export const APPLICATION_ELB = 'application_elb';
+export const SQS = 'sqs';
+export const RDS = 'rds';
+export const CUSTOM = 'custom';
+export const NETWORK_ELB = 'network_elb';
+export const LAMBDA = 'lambda';
+
+

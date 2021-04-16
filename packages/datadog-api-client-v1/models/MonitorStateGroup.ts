@@ -10,10 +10,12 @@
 
 import { MonitorOverallStates } from './MonitorOverallStates';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Monitor state for a single group.
 */
+
 export class MonitorStateGroup {
     /**
     * Latest timestamp the monitor was in NO_DATA state.
@@ -39,49 +41,95 @@ export class MonitorStateGroup {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "lastNodataTs",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "lastNodataTs": {
             "baseName": "last_nodata_ts",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "lastNotifiedTs",
+        "lastNotifiedTs": {
             "baseName": "last_notified_ts",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "lastResolvedTs",
+        "lastResolvedTs": {
             "baseName": "last_resolved_ts",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "lastTriggeredTs",
+        "lastTriggeredTs": {
             "baseName": "last_triggered_ts",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "MonitorOverallStates",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MonitorStateGroup.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MonitorStateGroup {
+      let res = new MonitorStateGroup();
+
+      res.lastNodataTs = ObjectSerializer.deserialize(data.last_nodata_ts, "number", "int64")
+
+      res.lastNotifiedTs = ObjectSerializer.deserialize(data.last_notified_ts, "number", "int64")
+
+      res.lastResolvedTs = ObjectSerializer.deserialize(data.last_resolved_ts, "number", "int64")
+
+      res.lastTriggeredTs = ObjectSerializer.deserialize(data.last_triggered_ts, "number", "int64")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      if (['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn', undefined].includes(data.status)) {
+          res.status = data.status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.status } for status`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: MonitorStateGroup): {[key: string]: any} {
+        let attributeTypes = MonitorStateGroup.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.last_nodata_ts = ObjectSerializer.serialize(data.lastNodataTs, "number", "int64")
+
+        res.last_notified_ts = ObjectSerializer.serialize(data.lastNotifiedTs, "number", "int64")
+
+        res.last_resolved_ts = ObjectSerializer.serialize(data.lastResolvedTs, "number", "int64")
+
+        res.last_triggered_ts = ObjectSerializer.serialize(data.lastTriggeredTs, "number", "int64")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        if (['Alert', 'Ignored', 'No Data', 'OK', 'Skipped', 'Unknown', 'Warn', undefined].includes(data.status)) {
+            res.status = data.status;
+        } else {
+            throw TypeError(`invalid enum value ${ data.status } for status`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

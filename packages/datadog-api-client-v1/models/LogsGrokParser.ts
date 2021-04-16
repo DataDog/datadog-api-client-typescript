@@ -11,10 +11,12 @@
 import { LogsGrokParserRules } from './LogsGrokParserRules';
 import { LogsGrokParserType } from './LogsGrokParserType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/processing/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/processing/parsing).
 */
+
 export class LogsGrokParser {
     'grok': LogsGrokParserRules;
     /**
@@ -37,49 +39,113 @@ export class LogsGrokParser {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "grok",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "grok": {
             "baseName": "grok",
             "type": "LogsGrokParserRules",
             "format": ""
         },
-        {
-            "name": "isEnabled",
+        "isEnabled": {
             "baseName": "is_enabled",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "samples",
+        "samples": {
             "baseName": "samples",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "source",
+        "source": {
             "baseName": "source",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "LogsGrokParserType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsGrokParser.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsGrokParser {
+      let res = new LogsGrokParser();
+
+      if (data.grok === undefined) {
+          throw new TypeError("missing required attribute 'grok' on 'LogsGrokParser' object");
+      }
+      res.grok = ObjectSerializer.deserialize(data.grok, "LogsGrokParserRules", "")
+
+      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.samples = ObjectSerializer.deserialize(data.samples, "Array<string>", "")
+
+      if (data.source === undefined) {
+          throw new TypeError("missing required attribute 'source' on 'LogsGrokParser' object");
+      }
+      res.source = ObjectSerializer.deserialize(data.source, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'LogsGrokParser' object");
+      }
+      if (['grok-parser', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: LogsGrokParser): {[key: string]: any} {
+        let attributeTypes = LogsGrokParser.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.grok === undefined) {
+            throw new TypeError("missing required attribute 'grok' on 'LogsGrokParser' object");
+        }
+        res.grok = ObjectSerializer.serialize(data.grok, "LogsGrokParserRules", "")
+
+        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.samples = ObjectSerializer.serialize(data.samples, "Array<string>", "")
+
+        if (data.source === undefined) {
+            throw new TypeError("missing required attribute 'source' on 'LogsGrokParser' object");
+        }
+        res.source = ObjectSerializer.serialize(data.source, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'LogsGrokParser' object");
+        }
+        if (['grok-parser', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

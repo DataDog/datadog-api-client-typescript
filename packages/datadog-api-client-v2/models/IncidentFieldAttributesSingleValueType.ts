@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the single value field definitions.
 */
-export type IncidentFieldAttributesSingleValueType = "dropdown" | "textbox" ;
+
+export type IncidentFieldAttributesSingleValueType = typeof DROPDOWN | typeof TEXTBOX ;
+export const DROPDOWN = 'dropdown';
+export const TEXTBOX = 'textbox';
+
+

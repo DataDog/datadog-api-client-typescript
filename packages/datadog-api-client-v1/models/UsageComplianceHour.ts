@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Compliance Monitoring usage for a given organization for a given hour.
 */
+
 export class UsageComplianceHour {
     /**
     * The total number of compliance container hours from the start of the given hour's month until the given hour.
@@ -29,31 +31,60 @@ export class UsageComplianceHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "complianceContainerCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "complianceContainerCount": {
             "baseName": "compliance_container_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "complianceHostCount",
+        "complianceHostCount": {
             "baseName": "compliance_host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageComplianceHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageComplianceHour {
+      let res = new UsageComplianceHour();
+
+      res.complianceContainerCount = ObjectSerializer.deserialize(data.compliance_container_count, "number", "int64")
+
+      res.complianceHostCount = ObjectSerializer.deserialize(data.compliance_host_count, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageComplianceHour): {[key: string]: any} {
+        let attributeTypes = UsageComplianceHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.compliance_container_count = ObjectSerializer.serialize(data.complianceContainerCount, "number", "int64")
+
+        res.compliance_host_count = ObjectSerializer.serialize(data.complianceHostCount, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

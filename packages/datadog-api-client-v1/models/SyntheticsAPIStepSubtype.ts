@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
 */
-export type SyntheticsAPIStepSubtype = "http" ;
+
+export type SyntheticsAPIStepSubtype = typeof HTTP ;
+export const HTTP = 'http';
+
+

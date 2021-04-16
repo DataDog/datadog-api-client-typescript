@@ -10,10 +10,12 @@
 
 import { Log } from './Log';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response object with all logs matching the request and pagination information.
 */
+
 export class LogsListResponse {
     /**
     * Array of logs matching the request and the `nextLogId` if sent.
@@ -30,31 +32,60 @@ export class LogsListResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "logs",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "logs": {
             "baseName": "logs",
             "type": "Array<Log>",
             "format": ""
         },
-        {
-            "name": "nextLogId",
+        "nextLogId": {
             "baseName": "nextLogId",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsListResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsListResponse {
+      let res = new LogsListResponse();
+
+      res.logs = ObjectSerializer.deserialize(data.logs, "Array<Log>", "")
+
+      res.nextLogId = ObjectSerializer.deserialize(data.nextLogId, "string", "")
+
+      res.status = ObjectSerializer.deserialize(data.status, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsListResponse): {[key: string]: any} {
+        let attributeTypes = LogsListResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.logs = ObjectSerializer.serialize(data.logs, "Array<Log>", "")
+
+        res.nextLogId = ObjectSerializer.serialize(data.nextLogId, "string", "")
+
+        res.status = ObjectSerializer.serialize(data.status, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

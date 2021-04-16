@@ -10,35 +10,63 @@
 
 import { RelationshipToUser } from './RelationshipToUser';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Resources related to the API key.
 */
+
 export class APIKeyRelationships {
     'createdBy'?: RelationshipToUser;
     'modifiedBy'?: RelationshipToUser;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "createdBy",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "createdBy": {
             "baseName": "created_by",
             "type": "RelationshipToUser",
             "format": ""
         },
-        {
-            "name": "modifiedBy",
+        "modifiedBy": {
             "baseName": "modified_by",
             "type": "RelationshipToUser",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return APIKeyRelationships.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): APIKeyRelationships {
+      let res = new APIKeyRelationships();
+
+      res.createdBy = ObjectSerializer.deserialize(data.created_by, "RelationshipToUser", "")
+
+      res.modifiedBy = ObjectSerializer.deserialize(data.modified_by, "RelationshipToUser", "")
+
+
+      return res;
+    }
+
+    static serialize(data: APIKeyRelationships): {[key: string]: any} {
+        let attributeTypes = APIKeyRelationships.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created_by = ObjectSerializer.serialize(data.createdBy, "RelationshipToUser", "")
+
+        res.modified_by = ObjectSerializer.serialize(data.modifiedBy, "RelationshipToUser", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

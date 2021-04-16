@@ -11,10 +11,12 @@
 import { LogsAggregationFunction } from './LogsAggregationFunction';
 import { LogsComputeType } from './LogsComputeType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A compute rule to compute metrics or timeseries
 */
+
 export class LogsCompute {
     'aggregation': LogsAggregationFunction;
     /**
@@ -29,37 +31,91 @@ export class LogsCompute {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregation",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aggregation": {
             "baseName": "aggregation",
             "type": "LogsAggregationFunction",
             "format": ""
         },
-        {
-            "name": "interval",
+        "interval": {
             "baseName": "interval",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "metric",
+        "metric": {
             "baseName": "metric",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "LogsComputeType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsCompute.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsCompute {
+      let res = new LogsCompute();
+
+      if (data.aggregation === undefined) {
+          throw new TypeError("missing required attribute 'aggregation' on 'LogsCompute' object");
+      }
+      if (['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg', undefined].includes(data.aggregation)) {
+          res.aggregation = data.aggregation;
+      } else {
+          throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
+      }
+
+      res.interval = ObjectSerializer.deserialize(data.interval, "string", "")
+
+      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+
+      if (['timeseries', 'total', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: LogsCompute): {[key: string]: any} {
+        let attributeTypes = LogsCompute.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.aggregation === undefined) {
+            throw new TypeError("missing required attribute 'aggregation' on 'LogsCompute' object");
+        }
+        if (['count', 'cardinality', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg', undefined].includes(data.aggregation)) {
+            res.aggregation = data.aggregation;
+        } else {
+            throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
+        }
+
+        res.interval = ObjectSerializer.serialize(data.interval, "string", "")
+
+        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+
+        if (['timeseries', 'total', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

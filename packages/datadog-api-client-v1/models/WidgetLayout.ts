@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The layout for a widget on a free dashboard.
 */
+
 export class WidgetLayout {
     /**
     * The height of the widget. Should be a non-negative integer.
@@ -33,37 +35,93 @@ export class WidgetLayout {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "height",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "height": {
             "baseName": "height",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "width",
+        "width": {
             "baseName": "width",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "x",
+        "x": {
             "baseName": "x",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "y",
+        "y": {
             "baseName": "y",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return WidgetLayout.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): WidgetLayout {
+      let res = new WidgetLayout();
+
+      if (data.height === undefined) {
+          throw new TypeError("missing required attribute 'height' on 'WidgetLayout' object");
+      }
+      res.height = ObjectSerializer.deserialize(data.height, "number", "int64")
+
+      if (data.width === undefined) {
+          throw new TypeError("missing required attribute 'width' on 'WidgetLayout' object");
+      }
+      res.width = ObjectSerializer.deserialize(data.width, "number", "int64")
+
+      if (data.x === undefined) {
+          throw new TypeError("missing required attribute 'x' on 'WidgetLayout' object");
+      }
+      res.x = ObjectSerializer.deserialize(data.x, "number", "int64")
+
+      if (data.y === undefined) {
+          throw new TypeError("missing required attribute 'y' on 'WidgetLayout' object");
+      }
+      res.y = ObjectSerializer.deserialize(data.y, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: WidgetLayout): {[key: string]: any} {
+        let attributeTypes = WidgetLayout.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.height === undefined) {
+            throw new TypeError("missing required attribute 'height' on 'WidgetLayout' object");
+        }
+        res.height = ObjectSerializer.serialize(data.height, "number", "int64")
+
+        if (data.width === undefined) {
+            throw new TypeError("missing required attribute 'width' on 'WidgetLayout' object");
+        }
+        res.width = ObjectSerializer.serialize(data.width, "number", "int64")
+
+        if (data.x === undefined) {
+            throw new TypeError("missing required attribute 'x' on 'WidgetLayout' object");
+        }
+        res.x = ObjectSerializer.serialize(data.x, "number", "int64")
+
+        if (data.y === undefined) {
+            throw new TypeError("missing required attribute 'y' on 'WidgetLayout' object");
+        }
+        res.y = ObjectSerializer.serialize(data.y, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

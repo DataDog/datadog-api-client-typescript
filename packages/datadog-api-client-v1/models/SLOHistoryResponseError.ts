@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A service level objective response containing the requested history.
 */
+
 export class SLOHistoryResponseError {
     /**
     * Human readable error.
@@ -21,19 +23,42 @@ export class SLOHistoryResponseError {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "error",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "error": {
             "baseName": "error",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOHistoryResponseError.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOHistoryResponseError {
+      let res = new SLOHistoryResponseError();
+
+      res.error = ObjectSerializer.deserialize(data.error, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOHistoryResponseError): {[key: string]: any} {
+        let attributeTypes = SLOHistoryResponseError.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.error = ObjectSerializer.serialize(data.error, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

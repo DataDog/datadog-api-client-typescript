@@ -10,10 +10,12 @@
 
 import { DashboardListItemRequest } from './DashboardListItemRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Request containing the list of dashboards to update to.
 */
+
 export class DashboardListUpdateItemsRequest {
     /**
     * List of dashboards to update the dashboard list to.
@@ -22,19 +24,42 @@ export class DashboardListUpdateItemsRequest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "dashboards",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "dashboards": {
             "baseName": "dashboards",
             "type": "Array<DashboardListItemRequest>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardListUpdateItemsRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardListUpdateItemsRequest {
+      let res = new DashboardListUpdateItemsRequest();
+
+      res.dashboards = ObjectSerializer.deserialize(data.dashboards, "Array<DashboardListItemRequest>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardListUpdateItemsRequest): {[key: string]: any} {
+        let attributeTypes = DashboardListUpdateItemsRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.dashboards = ObjectSerializer.serialize(data.dashboards, "Array<DashboardListItemRequest>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

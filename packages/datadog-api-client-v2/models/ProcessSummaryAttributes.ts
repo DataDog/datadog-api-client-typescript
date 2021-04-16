@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Attributes for a process summary.
 */
+
 export class ProcessSummaryAttributes {
     /**
     * Process command line.
@@ -49,61 +51,105 @@ export class ProcessSummaryAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cmdline",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cmdline": {
             "baseName": "cmdline",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "host",
+        "host": {
             "baseName": "host",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "pid",
+        "pid": {
             "baseName": "pid",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "ppid",
+        "ppid": {
             "baseName": "ppid",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "start",
+        "start": {
             "baseName": "start",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "timestamp",
+        "timestamp": {
             "baseName": "timestamp",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "user",
+        "user": {
             "baseName": "user",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ProcessSummaryAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ProcessSummaryAttributes {
+      let res = new ProcessSummaryAttributes();
+
+      res.cmdline = ObjectSerializer.deserialize(data.cmdline, "string", "")
+
+      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+
+      res.pid = ObjectSerializer.deserialize(data.pid, "number", "int64")
+
+      res.ppid = ObjectSerializer.deserialize(data.ppid, "number", "int64")
+
+      res.start = ObjectSerializer.deserialize(data.start, "string", "")
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.timestamp = ObjectSerializer.deserialize(data.timestamp, "string", "")
+
+      res.user = ObjectSerializer.deserialize(data.user, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ProcessSummaryAttributes): {[key: string]: any} {
+        let attributeTypes = ProcessSummaryAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cmdline = ObjectSerializer.serialize(data.cmdline, "string", "")
+
+        res.host = ObjectSerializer.serialize(data.host, "string", "")
+
+        res.pid = ObjectSerializer.serialize(data.pid, "number", "int64")
+
+        res.ppid = ObjectSerializer.serialize(data.ppid, "number", "int64")
+
+        res.start = ObjectSerializer.serialize(data.start, "string", "")
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.timestamp = ObjectSerializer.serialize(data.timestamp, "string", "")
+
+        res.user = ObjectSerializer.serialize(data.user, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

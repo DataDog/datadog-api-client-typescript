@@ -9,8 +9,17 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Navigate between different tabs for your browser test.
 */
-export type SyntheticsPlayingTab = "-1" | "0" | "1" | "2" | "3" ;
+
+export type SyntheticsPlayingTab = typeof MAIN_TAB | typeof NEW_TAB | typeof TAB_1 | typeof TAB_2 | typeof TAB_3 ;
+export const MAIN_TAB = -1;
+export const NEW_TAB = 0;
+export const TAB_1 = 1;
+export const TAB_2 = 2;
+export const TAB_3 = 3;
+
+

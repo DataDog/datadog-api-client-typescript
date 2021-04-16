@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The number of profiled hosts for each hour for a given organization.
 */
+
 export class UsageProfilingHour {
     /**
     * Get average number of container agents for that hour.
@@ -29,31 +31,60 @@ export class UsageProfilingHour {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "avgContainerAgentCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "avgContainerAgentCount": {
             "baseName": "avg_container_agent_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hostCount",
+        "hostCount": {
             "baseName": "host_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "hour",
+        "hour": {
             "baseName": "hour",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageProfilingHour.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageProfilingHour {
+      let res = new UsageProfilingHour();
+
+      res.avgContainerAgentCount = ObjectSerializer.deserialize(data.avg_container_agent_count, "number", "int64")
+
+      res.hostCount = ObjectSerializer.deserialize(data.host_count, "number", "int64")
+
+      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageProfilingHour): {[key: string]: any} {
+        let attributeTypes = UsageProfilingHour.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.avg_container_agent_count = ObjectSerializer.serialize(data.avgContainerAgentCount, "number", "int64")
+
+        res.host_count = ObjectSerializer.serialize(data.hostCount, "number", "int64")
+
+        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

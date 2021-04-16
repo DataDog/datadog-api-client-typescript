@@ -10,10 +10,12 @@
 
 import { PermissionsType } from './PermissionsType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Relationship to permission object.
 */
+
 export class RelationshipToPermissionData {
     /**
     * ID of the permission.
@@ -23,25 +25,59 @@ export class RelationshipToPermissionData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "PermissionsType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToPermissionData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToPermissionData {
+      let res = new RelationshipToPermissionData();
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (['permissions', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToPermissionData): {[key: string]: any} {
+        let attributeTypes = RelationshipToPermissionData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (['permissions', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

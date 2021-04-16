@@ -11,10 +11,12 @@
 import { LogsListRequestTime } from './LogsListRequestTime';
 import { LogsSort } from './LogsSort';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object to send with the request to retrieve a list of logs from your Organization.
 */
+
 export class LogsListRequest {
     /**
     * The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified.
@@ -37,49 +39,101 @@ export class LogsListRequest {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "index",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "index": {
             "baseName": "index",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "limit",
+        "limit": {
             "baseName": "limit",
             "type": "number",
             "format": "int32"
         },
-        {
-            "name": "query",
+        "query": {
             "baseName": "query",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sort",
+        "sort": {
             "baseName": "sort",
             "type": "LogsSort",
             "format": ""
         },
-        {
-            "name": "startAt",
+        "startAt": {
             "baseName": "startAt",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "time",
+        "time": {
             "baseName": "time",
             "type": "LogsListRequestTime",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsListRequest.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsListRequest {
+      let res = new LogsListRequest();
+
+      res.index = ObjectSerializer.deserialize(data.index, "string", "")
+
+      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int32")
+
+      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+
+      if (['asc', 'desc', undefined].includes(data.sort)) {
+          res.sort = data.sort;
+      } else {
+          throw TypeError(`invalid enum value ${ data.sort } for sort`);
+      }
+
+      res.startAt = ObjectSerializer.deserialize(data.startAt, "string", "")
+
+      if (data.time === undefined) {
+          throw new TypeError("missing required attribute 'time' on 'LogsListRequest' object");
+      }
+      res.time = ObjectSerializer.deserialize(data.time, "LogsListRequestTime", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsListRequest): {[key: string]: any} {
+        let attributeTypes = LogsListRequest.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.index = ObjectSerializer.serialize(data.index, "string", "")
+
+        res.limit = ObjectSerializer.serialize(data.limit, "number", "int32")
+
+        res.query = ObjectSerializer.serialize(data.query, "string", "")
+
+        if (['asc', 'desc', undefined].includes(data.sort)) {
+            res.sort = data.sort;
+        } else {
+            throw TypeError(`invalid enum value ${ data.sort } for sort`);
+        }
+
+        res.startAt = ObjectSerializer.serialize(data.startAt, "string", "")
+
+        if (data.time === undefined) {
+            throw new TypeError("missing required attribute 'time' on 'LogsListRequest' object");
+        }
+        res.time = ObjectSerializer.serialize(data.time, "LogsListRequestTime", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

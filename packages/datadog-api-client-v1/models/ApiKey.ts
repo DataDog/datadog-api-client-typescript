@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Datadog API key.
 */
+
 export class ApiKey {
     /**
     * Date of creation of the API key.
@@ -33,37 +35,69 @@ export class ApiKey {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "created",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "created": {
             "baseName": "created",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "createdBy",
+        "createdBy": {
             "baseName": "created_by",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "key",
+        "key": {
             "baseName": "key",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApiKey.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApiKey {
+      let res = new ApiKey();
+
+      res.created = ObjectSerializer.deserialize(data.created, "string", "")
+
+      res.createdBy = ObjectSerializer.deserialize(data.created_by, "string", "")
+
+      res.key = ObjectSerializer.deserialize(data.key, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ApiKey): {[key: string]: any} {
+        let attributeTypes = ApiKey.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.created = ObjectSerializer.serialize(data.created, "string", "")
+
+        res.created_by = ObjectSerializer.serialize(data.createdBy, "string", "")
+
+        res.key = ObjectSerializer.serialize(data.key, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * How to align the text on the widget.
 */
-export type WidgetTextAlign = "center" | "left" | "right" ;
+
+export type WidgetTextAlign = typeof CENTER | typeof LEFT | typeof RIGHT ;
+export const CENTER = 'center';
+export const LEFT = 'left';
+export const RIGHT = 'right';
+
+

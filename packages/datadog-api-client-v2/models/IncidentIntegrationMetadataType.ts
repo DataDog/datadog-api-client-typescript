@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Integration metadata resource type.
 */
-export type IncidentIntegrationMetadataType = "incident_integration_metadata" ;
+
+export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATION_METADATA ;
+export const INCIDENT_INTEGRATION_METADATA = 'incident_integration_metadata';
+
+

@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The paging attributes for listing security signals.
 */
+
 export class SecurityMonitoringSignalListRequestPage {
     /**
     * A list of results using the cursor provided in the previous query.
@@ -25,25 +27,51 @@ export class SecurityMonitoringSignalListRequestPage {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cursor",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cursor": {
             "baseName": "cursor",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "limit",
+        "limit": {
             "baseName": "limit",
             "type": "number",
             "format": "int32"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringSignalListRequestPage.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalListRequestPage {
+      let res = new SecurityMonitoringSignalListRequestPage();
+
+      res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "")
+
+      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int32")
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringSignalListRequestPage): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringSignalListRequestPage.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cursor = ObjectSerializer.serialize(data.cursor, "string", "")
+
+        res.limit = ObjectSerializer.serialize(data.limit, "number", "int32")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

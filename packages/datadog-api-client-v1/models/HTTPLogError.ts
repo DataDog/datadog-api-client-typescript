@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Invalid query performed.
 */
+
 export class HTTPLogError {
     /**
     * Error code.
@@ -25,25 +27,63 @@ export class HTTPLogError {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "code",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "code": {
             "baseName": "code",
             "type": "number",
             "format": "int32"
         },
-        {
-            "name": "message",
+        "message": {
             "baseName": "message",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HTTPLogError.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HTTPLogError {
+      let res = new HTTPLogError();
+
+      if (data.code === undefined) {
+          throw new TypeError("missing required attribute 'code' on 'HTTPLogError' object");
+      }
+      res.code = ObjectSerializer.deserialize(data.code, "number", "int32")
+
+      if (data.message === undefined) {
+          throw new TypeError("missing required attribute 'message' on 'HTTPLogError' object");
+      }
+      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: HTTPLogError): {[key: string]: any} {
+        let attributeTypes = HTTPLogError.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.code === undefined) {
+            throw new TypeError("missing required attribute 'code' on 'HTTPLogError' object");
+        }
+        res.code = ObjectSerializer.serialize(data.code, "number", "int32")
+
+        if (data.message === undefined) {
+            throw new TypeError("missing required attribute 'message' on 'HTTPLogError' object");
+        }
+        res.message = ObjectSerializer.serialize(data.message, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

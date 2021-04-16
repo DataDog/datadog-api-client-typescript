@@ -11,10 +11,12 @@
 import { LogsArchiveDestinationGCSType } from './LogsArchiveDestinationGCSType';
 import { LogsArchiveIntegrationGCS } from './LogsArchiveIntegrationGCS';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The GCS archive destination.
 */
+
 export class LogsArchiveDestinationGCS {
     /**
     * The bucket where the archive will be stored.
@@ -29,37 +31,95 @@ export class LogsArchiveDestinationGCS {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "bucket",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "bucket": {
             "baseName": "bucket",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "integration",
+        "integration": {
             "baseName": "integration",
             "type": "LogsArchiveIntegrationGCS",
             "format": ""
         },
-        {
-            "name": "path",
+        "path": {
             "baseName": "path",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "LogsArchiveDestinationGCSType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsArchiveDestinationGCS.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsArchiveDestinationGCS {
+      let res = new LogsArchiveDestinationGCS();
+
+      if (data.bucket === undefined) {
+          throw new TypeError("missing required attribute 'bucket' on 'LogsArchiveDestinationGCS' object");
+      }
+      res.bucket = ObjectSerializer.deserialize(data.bucket, "string", "")
+
+      if (data.integration === undefined) {
+          throw new TypeError("missing required attribute 'integration' on 'LogsArchiveDestinationGCS' object");
+      }
+      res.integration = ObjectSerializer.deserialize(data.integration, "LogsArchiveIntegrationGCS", "")
+
+      res.path = ObjectSerializer.deserialize(data.path, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'LogsArchiveDestinationGCS' object");
+      }
+      if (['gcs', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: LogsArchiveDestinationGCS): {[key: string]: any} {
+        let attributeTypes = LogsArchiveDestinationGCS.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.bucket === undefined) {
+            throw new TypeError("missing required attribute 'bucket' on 'LogsArchiveDestinationGCS' object");
+        }
+        res.bucket = ObjectSerializer.serialize(data.bucket, "string", "")
+
+        if (data.integration === undefined) {
+            throw new TypeError("missing required attribute 'integration' on 'LogsArchiveDestinationGCS' object");
+        }
+        res.integration = ObjectSerializer.serialize(data.integration, "LogsArchiveIntegrationGCS", "")
+
+        res.path = ObjectSerializer.serialize(data.path, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'LogsArchiveDestinationGCS' object");
+        }
+        if (['gcs', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

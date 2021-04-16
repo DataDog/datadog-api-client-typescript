@@ -10,28 +10,53 @@
 
 import { ApiKey } from './ApiKey';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * An API key with its associated metadata.
 */
+
 export class ApiKeyResponse {
     'apiKey'?: ApiKey;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "apiKey",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "apiKey": {
             "baseName": "api_key",
             "type": "ApiKey",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApiKeyResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApiKeyResponse {
+      let res = new ApiKeyResponse();
+
+      res.apiKey = ObjectSerializer.deserialize(data.api_key, "ApiKey", "")
+
+
+      return res;
+    }
+
+    static serialize(data: ApiKeyResponse): {[key: string]: any} {
+        let attributeTypes = ApiKeyResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.api_key = ObjectSerializer.serialize(data.apiKey, "ApiKey", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

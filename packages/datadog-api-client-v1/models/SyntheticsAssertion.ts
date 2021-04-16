@@ -14,52 +14,10 @@ import { SyntheticsAssertionJSONPathTargetTarget } from './SyntheticsAssertionJS
 import { SyntheticsAssertionTarget } from './SyntheticsAssertionTarget';
 import { SyntheticsAssertionType } from './SyntheticsAssertionType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the assertions type, their associated operator, which property they apply, and upon which target.
 */
-export class SyntheticsAssertion {
-    'operator': SyntheticsAssertionJSONPathOperator;
-    /**
-    * The associated assertion property.
-    */
-    'property'?: string;
-    'target'?: SyntheticsAssertionJSONPathTargetTarget;
-    'type': SyntheticsAssertionType;
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "operator",
-            "baseName": "operator",
-            "type": "SyntheticsAssertionJSONPathOperator",
-            "format": ""
-        },
-        {
-            "name": "property",
-            "baseName": "property",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "target",
-            "baseName": "target",
-            "type": "SyntheticsAssertionJSONPathTargetTarget",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "SyntheticsAssertionType",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return SyntheticsAssertion.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type SyntheticsAssertion = SyntheticsAssertionJSONPathTarget | SyntheticsAssertionTarget;

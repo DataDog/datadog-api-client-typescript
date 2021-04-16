@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The search and filter query settings
 */
+
 export class LogsQueryFilter {
     /**
     * The minimum time for the requested logs, supports date math and regular timestamps
@@ -33,37 +35,69 @@ export class LogsQueryFilter {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "from",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "from": {
             "baseName": "from",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "indexes",
+        "indexes": {
             "baseName": "indexes",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "query",
+        "query": {
             "baseName": "query",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "to",
+        "to": {
             "baseName": "to",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsQueryFilter.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsQueryFilter {
+      let res = new LogsQueryFilter();
+
+      res.from = ObjectSerializer.deserialize(data.from, "string", "")
+
+      res.indexes = ObjectSerializer.deserialize(data.indexes, "Array<string>", "")
+
+      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+
+      res.to = ObjectSerializer.deserialize(data.to, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsQueryFilter): {[key: string]: any} {
+        let attributeTypes = LogsQueryFilter.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.from = ObjectSerializer.serialize(data.from, "string", "")
+
+        res.indexes = ObjectSerializer.serialize(data.indexes, "Array<string>", "")
+
+        res.query = ObjectSerializer.serialize(data.query, "string", "")
+
+        res.to = ObjectSerializer.serialize(data.to, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

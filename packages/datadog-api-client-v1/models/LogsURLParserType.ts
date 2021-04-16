@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of logs URL parser.
 */
-export type LogsURLParserType = "url-parser" ;
+
+export type LogsURLParserType = typeof URL_PARSER ;
+export const URL_PARSER = 'url-parser';
+
+

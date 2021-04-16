@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Paging settings
 */
+
 export class LogsAggregateRequestPage {
     /**
     * The returned paging point to use to get the next results
@@ -21,19 +23,42 @@ export class LogsAggregateRequestPage {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "cursor",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "cursor": {
             "baseName": "cursor",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAggregateRequestPage.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAggregateRequestPage {
+      let res = new LogsAggregateRequestPage();
+
+      res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAggregateRequestPage): {[key: string]: any} {
+        let attributeTypes = LogsAggregateRequestPage.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.cursor = ObjectSerializer.serialize(data.cursor, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

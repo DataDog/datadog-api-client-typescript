@@ -10,28 +10,53 @@
 
 import { RoleCreateResponseData } from './RoleCreateResponseData';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing information about a created role.
 */
+
 export class RoleCreateResponse {
     'data'?: RoleCreateResponseData;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "RoleCreateResponseData",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RoleCreateResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RoleCreateResponse {
+      let res = new RoleCreateResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "RoleCreateResponseData", "")
+
+
+      return res;
+    }
+
+    static serialize(data: RoleCreateResponse): {[key: string]: any} {
+        let attributeTypes = RoleCreateResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "RoleCreateResponseData", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

@@ -10,10 +10,12 @@
 
 import { LogsAggregateBucketValue } from './LogsAggregateBucketValue';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A bucket values
 */
+
 export class LogsAggregateBucket {
     /**
     * The key, value pairs for each group by
@@ -26,25 +28,51 @@ export class LogsAggregateBucket {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "by",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "by": {
             "baseName": "by",
             "type": "{ [key: string]: string; }",
             "format": ""
         },
-        {
-            "name": "computes",
+        "computes": {
             "baseName": "computes",
             "type": "{ [key: string]: LogsAggregateBucketValue; }",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return LogsAggregateBucket.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): LogsAggregateBucket {
+      let res = new LogsAggregateBucket();
+
+      res.by = ObjectSerializer.deserialize(data.by, "{ [key: string]: string; }", "")
+
+      res.computes = ObjectSerializer.deserialize(data.computes, "{ [key: string]: LogsAggregateBucketValue; }", "")
+
+
+      return res;
+    }
+
+    static serialize(data: LogsAggregateBucket): {[key: string]: any} {
+        let attributeTypes = LogsAggregateBucket.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.by = ObjectSerializer.serialize(data.by, "{ [key: string]: string; }", "")
+
+        res.computes = ObjectSerializer.serialize(data.computes, "{ [key: string]: LogsAggregateBucketValue; }", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

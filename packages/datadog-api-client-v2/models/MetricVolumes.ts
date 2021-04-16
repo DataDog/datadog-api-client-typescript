@@ -13,45 +13,10 @@ import { MetricIngestedIndexedVolume } from './MetricIngestedIndexedVolume';
 import { MetricIngestedIndexedVolumeAttributes } from './MetricIngestedIndexedVolumeAttributes';
 import { MetricIngestedIndexedVolumeType } from './MetricIngestedIndexedVolumeType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Possible response objects for a metric's volume.
 */
-export class MetricVolumes {
-    'attributes'?: MetricIngestedIndexedVolumeAttributes;
-    /**
-    * The metric name for this resource.
-    */
-    'id'?: string;
-    'type'?: MetricIngestedIndexedVolumeType;
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
-            "baseName": "attributes",
-            "type": "MetricIngestedIndexedVolumeAttributes",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "MetricIngestedIndexedVolumeType",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return MetricVolumes.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type MetricVolumes = MetricDistinctVolume | MetricIngestedIndexedVolume;

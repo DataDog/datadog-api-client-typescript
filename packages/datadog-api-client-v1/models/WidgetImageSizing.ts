@@ -9,8 +9,15 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * How to size the image on the widget.
 */
-export type WidgetImageSizing = "zoom" | "fit" | "center" ;
+
+export type WidgetImageSizing = typeof ZOOM | typeof FIT | typeof CENTER ;
+export const ZOOM = 'zoom';
+export const FIT = 'fit';
+export const CENTER = 'center';
+
+

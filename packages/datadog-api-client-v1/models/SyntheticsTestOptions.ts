@@ -13,10 +13,12 @@ import { SyntheticsTestOptionsMonitorOptions } from './SyntheticsTestOptionsMoni
 import { SyntheticsTestOptionsRetry } from './SyntheticsTestOptionsRetry';
 import { SyntheticsTickInterval } from './SyntheticsTickInterval';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object describing the extra options for a Synthetic test.
 */
+
 export class SyntheticsTestOptions {
     /**
     * For SSL test, whether or not the test should allow self signed certificates.
@@ -56,79 +58,140 @@ export class SyntheticsTestOptions {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "acceptSelfSigned",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "acceptSelfSigned": {
             "baseName": "accept_self_signed",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "allowInsecure",
+        "allowInsecure": {
             "baseName": "allow_insecure",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "deviceIds",
+        "deviceIds": {
             "baseName": "device_ids",
             "type": "Array<SyntheticsDeviceID>",
             "format": ""
         },
-        {
-            "name": "disableCors",
+        "disableCors": {
             "baseName": "disableCors",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "followRedirects",
+        "followRedirects": {
             "baseName": "follow_redirects",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "minFailureDuration",
+        "minFailureDuration": {
             "baseName": "min_failure_duration",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "minLocationFailed",
+        "minLocationFailed": {
             "baseName": "min_location_failed",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "monitorOptions",
+        "monitorOptions": {
             "baseName": "monitor_options",
             "type": "SyntheticsTestOptionsMonitorOptions",
             "format": ""
         },
-        {
-            "name": "noScreenshot",
+        "noScreenshot": {
             "baseName": "noScreenshot",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "retry",
+        "retry": {
             "baseName": "retry",
             "type": "SyntheticsTestOptionsRetry",
             "format": ""
         },
-        {
-            "name": "tickEvery",
+        "tickEvery": {
             "baseName": "tick_every",
             "type": "SyntheticsTickInterval",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTestOptions.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTestOptions {
+      let res = new SyntheticsTestOptions();
+
+      res.acceptSelfSigned = ObjectSerializer.deserialize(data.accept_self_signed, "boolean", "")
+
+      res.allowInsecure = ObjectSerializer.deserialize(data.allow_insecure, "boolean", "")
+
+      res.deviceIds = ObjectSerializer.deserialize(data.device_ids, "Array<SyntheticsDeviceID>", "")
+
+      res.disableCors = ObjectSerializer.deserialize(data.disableCors, "boolean", "")
+
+      res.followRedirects = ObjectSerializer.deserialize(data.follow_redirects, "boolean", "")
+
+      res.minFailureDuration = ObjectSerializer.deserialize(data.min_failure_duration, "number", "int64")
+
+      res.minLocationFailed = ObjectSerializer.deserialize(data.min_location_failed, "number", "int64")
+
+      res.monitorOptions = ObjectSerializer.deserialize(data.monitor_options, "SyntheticsTestOptionsMonitorOptions", "")
+
+      res.noScreenshot = ObjectSerializer.deserialize(data.noScreenshot, "boolean", "")
+
+      res.retry = ObjectSerializer.deserialize(data.retry, "SyntheticsTestOptionsRetry", "")
+
+      if ([60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tick_every)) {
+          res.tickEvery = data.tick_every;
+      } else {
+          throw TypeError(`invalid enum value ${ data.tick_every } for tick_every`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTestOptions): {[key: string]: any} {
+        let attributeTypes = SyntheticsTestOptions.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.accept_self_signed = ObjectSerializer.serialize(data.acceptSelfSigned, "boolean", "")
+
+        res.allow_insecure = ObjectSerializer.serialize(data.allowInsecure, "boolean", "")
+
+        res.device_ids = ObjectSerializer.serialize(data.deviceIds, "Array<SyntheticsDeviceID>", "")
+
+        res.disableCors = ObjectSerializer.serialize(data.disableCors, "boolean", "")
+
+        res.follow_redirects = ObjectSerializer.serialize(data.followRedirects, "boolean", "")
+
+        res.min_failure_duration = ObjectSerializer.serialize(data.minFailureDuration, "number", "int64")
+
+        res.min_location_failed = ObjectSerializer.serialize(data.minLocationFailed, "number", "int64")
+
+        res.monitor_options = ObjectSerializer.serialize(data.monitorOptions, "SyntheticsTestOptionsMonitorOptions", "")
+
+        res.noScreenshot = ObjectSerializer.serialize(data.noScreenshot, "boolean", "")
+
+        res.retry = ObjectSerializer.serialize(data.retry, "SyntheticsTestOptionsRetry", "")
+
+        if ([60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tickEvery)) {
+            res.tick_every = data.tickEvery;
+        } else {
+            throw TypeError(`invalid enum value ${ data.tickEvery } for tickEvery`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

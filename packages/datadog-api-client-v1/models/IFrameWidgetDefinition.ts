@@ -10,10 +10,12 @@
 
 import { IFrameWidgetDefinitionType } from './IFrameWidgetDefinitionType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
 */
+
 export class IFrameWidgetDefinition {
     'type': IFrameWidgetDefinitionType;
     /**
@@ -23,25 +25,71 @@ export class IFrameWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "type",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "type": {
             "baseName": "type",
             "type": "IFrameWidgetDefinitionType",
             "format": ""
         },
-        {
-            "name": "url",
+        "url": {
             "baseName": "url",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IFrameWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IFrameWidgetDefinition {
+      let res = new IFrameWidgetDefinition();
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'IFrameWidgetDefinition' object");
+      }
+      if (['iframe', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+      if (data.url === undefined) {
+          throw new TypeError("missing required attribute 'url' on 'IFrameWidgetDefinition' object");
+      }
+      res.url = ObjectSerializer.deserialize(data.url, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IFrameWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = IFrameWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'IFrameWidgetDefinition' object");
+        }
+        if (['iframe', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        if (data.url === undefined) {
+            throw new TypeError("missing required attribute 'url' on 'IFrameWidgetDefinition' object");
+        }
+        res.url = ObjectSerializer.serialize(data.url, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

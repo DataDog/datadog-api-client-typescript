@@ -11,10 +11,12 @@
 import { EventAlertType } from './EventAlertType';
 import { EventPriority } from './EventPriority';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object representing an event.
 */
+
 export class Event {
     'alertType'?: EventAlertType;
     /**
@@ -61,85 +63,157 @@ export class Event {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "alertType",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "alertType": {
             "baseName": "alert_type",
             "type": "EventAlertType",
             "format": ""
         },
-        {
-            "name": "dateHappened",
+        "dateHappened": {
             "baseName": "date_happened",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "deviceName",
+        "deviceName": {
             "baseName": "device_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "host",
+        "host": {
             "baseName": "host",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "payload",
+        "payload": {
             "baseName": "payload",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "priority",
+        "priority": {
             "baseName": "priority",
             "type": "EventPriority",
             "format": ""
         },
-        {
-            "name": "sourceTypeName",
+        "sourceTypeName": {
             "baseName": "source_type_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "tags",
+        "tags": {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "text",
+        "text": {
             "baseName": "text",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "url",
+        "url": {
             "baseName": "url",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Event.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Event {
+      let res = new Event();
+
+      if (['error', 'warning', 'info', 'success', 'user_update', 'recommendation', 'snapshot', undefined].includes(data.alert_type)) {
+          res.alertType = data.alert_type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.alert_type } for alert_type`);
+      }
+
+      res.dateHappened = ObjectSerializer.deserialize(data.date_happened, "number", "int64")
+
+      res.deviceName = ObjectSerializer.deserialize(data.device_name, "string", "")
+
+      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+
+      res.payload = ObjectSerializer.deserialize(data.payload, "string", "")
+
+      if (['normal', 'low', undefined].includes(data.priority)) {
+          res.priority = data.priority;
+      } else {
+          throw TypeError(`invalid enum value ${ data.priority } for priority`);
+      }
+
+      res.sourceTypeName = ObjectSerializer.deserialize(data.source_type_name, "string", "")
+
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.text = ObjectSerializer.deserialize(data.text, "string", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      res.url = ObjectSerializer.deserialize(data.url, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: Event): {[key: string]: any} {
+        let attributeTypes = Event.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['error', 'warning', 'info', 'success', 'user_update', 'recommendation', 'snapshot', undefined].includes(data.alertType)) {
+            res.alert_type = data.alertType;
+        } else {
+            throw TypeError(`invalid enum value ${ data.alertType } for alertType`);
+        }
+
+        res.date_happened = ObjectSerializer.serialize(data.dateHappened, "number", "int64")
+
+        res.device_name = ObjectSerializer.serialize(data.deviceName, "string", "")
+
+        res.host = ObjectSerializer.serialize(data.host, "string", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
+
+        res.payload = ObjectSerializer.serialize(data.payload, "string", "")
+
+        if (['normal', 'low', undefined].includes(data.priority)) {
+            res.priority = data.priority;
+        } else {
+            throw TypeError(`invalid enum value ${ data.priority } for priority`);
+        }
+
+        res.source_type_name = ObjectSerializer.serialize(data.sourceTypeName, "string", "")
+
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.text = ObjectSerializer.serialize(data.text, "string", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        res.url = ObjectSerializer.serialize(data.url, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

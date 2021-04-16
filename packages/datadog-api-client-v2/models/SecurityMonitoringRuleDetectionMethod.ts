@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The detection method.
 */
-export type SecurityMonitoringRuleDetectionMethod = "threshold" | "new_value" ;
+
+export type SecurityMonitoringRuleDetectionMethod = typeof THRESHOLD | typeof NEW_VALUE ;
+export const THRESHOLD = 'threshold';
+export const NEW_VALUE = 'new_value';
+
+

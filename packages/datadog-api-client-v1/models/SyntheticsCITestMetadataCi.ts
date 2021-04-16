@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Describe CI provider.
 */
+
 export class SyntheticsCITestMetadataCi {
     /**
     * Name of the pipeline.
@@ -25,25 +27,51 @@ export class SyntheticsCITestMetadataCi {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "pipeline",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "pipeline": {
             "baseName": "pipeline",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "provider",
+        "provider": {
             "baseName": "provider",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsCITestMetadataCi.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsCITestMetadataCi {
+      let res = new SyntheticsCITestMetadataCi();
+
+      res.pipeline = ObjectSerializer.deserialize(data.pipeline, "string", "")
+
+      res.provider = ObjectSerializer.deserialize(data.provider, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsCITestMetadataCi): {[key: string]: any} {
+        let attributeTypes = SyntheticsCITestMetadataCi.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.pipeline = ObjectSerializer.serialize(data.pipeline, "string", "")
+
+        res.provider = ObjectSerializer.serialize(data.provider, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

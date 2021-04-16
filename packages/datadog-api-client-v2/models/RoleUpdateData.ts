@@ -11,10 +11,12 @@
 import { RoleUpdateAttributes } from './RoleUpdateAttributes';
 import { RolesType } from './RolesType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Data related to the update of a role.
 */
+
 export class RoleUpdateData {
     'attributes': RoleUpdateAttributes;
     /**
@@ -25,31 +27,86 @@ export class RoleUpdateData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "RoleUpdateAttributes",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "RolesType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RoleUpdateData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RoleUpdateData {
+      let res = new RoleUpdateData();
+
+      if (data.attributes === undefined) {
+          throw new TypeError("missing required attribute 'attributes' on 'RoleUpdateData' object");
+      }
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "RoleUpdateAttributes", "")
+
+      if (data.id === undefined) {
+          throw new TypeError("missing required attribute 'id' on 'RoleUpdateData' object");
+      }
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'RoleUpdateData' object");
+      }
+      if (['roles', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: RoleUpdateData): {[key: string]: any} {
+        let attributeTypes = RoleUpdateData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.attributes === undefined) {
+            throw new TypeError("missing required attribute 'attributes' on 'RoleUpdateData' object");
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "RoleUpdateAttributes", "")
+
+        if (data.id === undefined) {
+            throw new TypeError("missing required attribute 'id' on 'RoleUpdateData' object");
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'RoleUpdateData' object");
+        }
+        if (['roles', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

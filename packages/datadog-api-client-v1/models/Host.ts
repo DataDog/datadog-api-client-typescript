@@ -11,10 +11,12 @@
 import { HostMeta } from './HostMeta';
 import { HostMetrics } from './HostMetrics';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object representing a host.
 */
+
 export class Host {
     /**
     * Host aliases collected by Datadog.
@@ -69,97 +71,159 @@ export class Host {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aliases",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "aliases": {
             "baseName": "aliases",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "apps",
+        "apps": {
             "baseName": "apps",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "awsName",
+        "awsName": {
             "baseName": "aws_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "hostName",
+        "hostName": {
             "baseName": "host_name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "isMuted",
+        "isMuted": {
             "baseName": "is_muted",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "lastReportedTime",
+        "lastReportedTime": {
             "baseName": "last_reported_time",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "meta",
+        "meta": {
             "baseName": "meta",
             "type": "HostMeta",
             "format": ""
         },
-        {
-            "name": "metrics",
+        "metrics": {
             "baseName": "metrics",
             "type": "HostMetrics",
             "format": ""
         },
-        {
-            "name": "muteTimeout",
+        "muteTimeout": {
             "baseName": "mute_timeout",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "sources",
+        "sources": {
             "baseName": "sources",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "tagsBySource",
+        "tagsBySource": {
             "baseName": "tags_by_source",
             "type": "{ [key: string]: Array<string>; }",
             "format": ""
         },
-        {
-            "name": "up",
+        "up": {
             "baseName": "up",
             "type": "boolean",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Host.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Host {
+      let res = new Host();
+
+      res.aliases = ObjectSerializer.deserialize(data.aliases, "Array<string>", "")
+
+      res.apps = ObjectSerializer.deserialize(data.apps, "Array<string>", "")
+
+      res.awsName = ObjectSerializer.deserialize(data.aws_name, "string", "")
+
+      res.hostName = ObjectSerializer.deserialize(data.host_name, "string", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+
+      res.isMuted = ObjectSerializer.deserialize(data.is_muted, "boolean", "")
+
+      res.lastReportedTime = ObjectSerializer.deserialize(data.last_reported_time, "number", "int64")
+
+      res.meta = ObjectSerializer.deserialize(data.meta, "HostMeta", "")
+
+      res.metrics = ObjectSerializer.deserialize(data.metrics, "HostMetrics", "")
+
+      res.muteTimeout = ObjectSerializer.deserialize(data.mute_timeout, "number", "int64")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+
+      res.tagsBySource = ObjectSerializer.deserialize(data.tags_by_source, "{ [key: string]: Array<string>; }", "")
+
+      res.up = ObjectSerializer.deserialize(data.up, "boolean", "")
+
+
+      return res;
+    }
+
+    static serialize(data: Host): {[key: string]: any} {
+        let attributeTypes = Host.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.aliases = ObjectSerializer.serialize(data.aliases, "Array<string>", "")
+
+        res.apps = ObjectSerializer.serialize(data.apps, "Array<string>", "")
+
+        res.aws_name = ObjectSerializer.serialize(data.awsName, "string", "")
+
+        res.host_name = ObjectSerializer.serialize(data.hostName, "string", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
+
+        res.is_muted = ObjectSerializer.serialize(data.isMuted, "boolean", "")
+
+        res.last_reported_time = ObjectSerializer.serialize(data.lastReportedTime, "number", "int64")
+
+        res.meta = ObjectSerializer.serialize(data.meta, "HostMeta", "")
+
+        res.metrics = ObjectSerializer.serialize(data.metrics, "HostMetrics", "")
+
+        res.mute_timeout = ObjectSerializer.serialize(data.muteTimeout, "number", "int64")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
+
+        res.tags_by_source = ObjectSerializer.serialize(data.tagsBySource, "{ [key: string]: Array<string>; }", "")
+
+        res.up = ObjectSerializer.serialize(data.up, "boolean", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

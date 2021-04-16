@@ -13,45 +13,10 @@ import { MetricTagConfiguration } from './MetricTagConfiguration';
 import { MetricTagConfigurationAttributes } from './MetricTagConfigurationAttributes';
 import { MetricTagConfigurationType } from './MetricTagConfigurationType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object for a metrics and metric tag configurations.
 */
-export class MetricsAndMetricTagConfigurations {
-    /**
-    * The metric name for this resource.
-    */
-    'id'?: string;
-    'type'?: MetricTagConfigurationType;
-    'attributes'?: MetricTagConfigurationAttributes;
 
-    static readonly discriminator: string | undefined = undefined;
-
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "MetricTagConfigurationType",
-            "format": ""
-        },
-        {
-            "name": "attributes",
-            "baseName": "attributes",
-            "type": "MetricTagConfigurationAttributes",
-            "format": ""
-        }    ];
-
-    static getAttributeTypeMap() {
-        return MetricsAndMetricTagConfigurations.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
-}
-
+export type MetricsAndMetricTagConfigurations = Metric | MetricTagConfiguration;

@@ -10,10 +10,12 @@
 
 import { SecurityMonitoringRuleSeverity } from './SecurityMonitoringRuleSeverity';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Case when signal is generated.
 */
+
 export class SecurityMonitoringRuleCaseCreate {
     /**
     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
@@ -31,37 +33,83 @@ export class SecurityMonitoringRuleCaseCreate {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "condition",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "condition": {
             "baseName": "condition",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "notifications",
+        "notifications": {
             "baseName": "notifications",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "status",
+        "status": {
             "baseName": "status",
             "type": "SecurityMonitoringRuleSeverity",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringRuleCaseCreate.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuleCaseCreate {
+      let res = new SecurityMonitoringRuleCaseCreate();
+
+      res.condition = ObjectSerializer.deserialize(data.condition, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.notifications = ObjectSerializer.deserialize(data.notifications, "Array<string>", "")
+
+      if (data.status === undefined) {
+          throw new TypeError("missing required attribute 'status' on 'SecurityMonitoringRuleCaseCreate' object");
+      }
+      if (['info', 'low', 'medium', 'high', 'critical', undefined].includes(data.status)) {
+          res.status = data.status;
+      } else {
+          throw TypeError(`invalid enum value ${ data.status } for status`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringRuleCaseCreate): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringRuleCaseCreate.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.condition = ObjectSerializer.serialize(data.condition, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.notifications = ObjectSerializer.serialize(data.notifications, "Array<string>", "")
+
+        if (data.status === undefined) {
+            throw new TypeError("missing required attribute 'status' on 'SecurityMonitoringRuleCaseCreate' object");
+        }
+        if (['info', 'low', 'medium', 'high', 'critical', undefined].includes(data.status)) {
+            res.status = data.status;
+        } else {
+            throw TypeError(`invalid enum value ${ data.status } for status`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

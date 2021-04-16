@@ -10,10 +10,12 @@
 
 import { AWSNamespace } from './AWSNamespace';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A tag filter.
 */
+
 export class AWSTagFilter {
     'namespace'?: AWSNamespace;
     /**
@@ -23,25 +25,59 @@ export class AWSTagFilter {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "namespace",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "namespace": {
             "baseName": "namespace",
             "type": "AWSNamespace",
             "format": ""
         },
-        {
-            "name": "tagFilterStr",
+        "tagFilterStr": {
             "baseName": "tag_filter_str",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return AWSTagFilter.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): AWSTagFilter {
+      let res = new AWSTagFilter();
+
+      if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
+          res.namespace = data.namespace;
+      } else {
+          throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
+      }
+
+      res.tagFilterStr = ObjectSerializer.deserialize(data.tag_filter_str, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: AWSTagFilter): {[key: string]: any} {
+        let attributeTypes = AWSTagFilter.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
+            res.namespace = data.namespace;
+        } else {
+            throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
+        }
+
+        res.tag_filter_str = ObjectSerializer.serialize(data.tagFilterStr, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

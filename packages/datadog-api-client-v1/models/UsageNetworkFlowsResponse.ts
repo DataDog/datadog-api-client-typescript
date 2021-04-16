@@ -10,10 +10,12 @@
 
 import { UsageNetworkFlowsHour } from './UsageNetworkFlowsHour';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing the number of netflow events indexed for each hour for a given organization.
 */
+
 export class UsageNetworkFlowsResponse {
     /**
     * Get hourly usage for Network Flows.
@@ -22,19 +24,42 @@ export class UsageNetworkFlowsResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "usage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "usage": {
             "baseName": "usage",
             "type": "Array<UsageNetworkFlowsHour>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageNetworkFlowsResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageNetworkFlowsResponse {
+      let res = new UsageNetworkFlowsResponse();
+
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageNetworkFlowsHour>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageNetworkFlowsResponse): {[key: string]: any} {
+        let attributeTypes = UsageNetworkFlowsResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageNetworkFlowsHour>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

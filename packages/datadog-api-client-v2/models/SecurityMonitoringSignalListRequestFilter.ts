@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Search filters for listing security signals.
 */
+
 export class SecurityMonitoringSignalListRequestFilter {
     /**
     * The minimum timestamp for requested security signals.
@@ -29,31 +31,60 @@ export class SecurityMonitoringSignalListRequestFilter {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "from",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "from": {
             "baseName": "from",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "query",
+        "query": {
             "baseName": "query",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "to",
+        "to": {
             "baseName": "to",
             "type": "Date",
             "format": "date-time"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalListRequestFilter {
+      let res = new SecurityMonitoringSignalListRequestFilter();
+
+      res.from = ObjectSerializer.deserialize(data.from, "Date", "date-time")
+
+      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+
+      res.to = ObjectSerializer.deserialize(data.to, "Date", "date-time")
+
+
+      return res;
+    }
+
+    static serialize(data: SecurityMonitoringSignalListRequestFilter): {[key: string]: any} {
+        let attributeTypes = SecurityMonitoringSignalListRequestFilter.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.from = ObjectSerializer.serialize(data.from, "Date", "date-time")
+
+        res.query = ObjectSerializer.serialize(data.query, "string", "")
+
+        res.to = ObjectSerializer.serialize(data.to, "Date", "date-time")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

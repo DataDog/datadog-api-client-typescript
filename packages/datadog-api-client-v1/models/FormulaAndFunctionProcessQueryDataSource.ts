@@ -9,8 +9,14 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Data sources that rely on the process backend.
 */
-export type FormulaAndFunctionProcessQueryDataSource = "process" | "container" ;
+
+export type FormulaAndFunctionProcessQueryDataSource = typeof PROCESS | typeof CONTAINER ;
+export const PROCESS = 'process';
+export const CONTAINER = 'container';
+
+

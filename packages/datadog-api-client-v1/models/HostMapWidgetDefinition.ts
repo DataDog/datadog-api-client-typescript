@@ -15,10 +15,12 @@ import { WidgetCustomLink } from './WidgetCustomLink';
 import { WidgetNodeType } from './WidgetNodeType';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
 */
+
 export class HostMapWidgetDefinition {
     /**
     * List of custom links.
@@ -60,91 +62,186 @@ export class HostMapWidgetDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "customLinks",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "customLinks": {
             "baseName": "custom_links",
             "type": "Array<WidgetCustomLink>",
             "format": ""
         },
-        {
-            "name": "group",
+        "group": {
             "baseName": "group",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "noGroupHosts",
+        "noGroupHosts": {
             "baseName": "no_group_hosts",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "noMetricHosts",
+        "noMetricHosts": {
             "baseName": "no_metric_hosts",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "nodeType",
+        "nodeType": {
             "baseName": "node_type",
             "type": "WidgetNodeType",
             "format": ""
         },
-        {
-            "name": "notes",
+        "notes": {
             "baseName": "notes",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "requests",
+        "requests": {
             "baseName": "requests",
             "type": "HostMapWidgetDefinitionRequests",
             "format": ""
         },
-        {
-            "name": "scope",
+        "scope": {
             "baseName": "scope",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "style",
+        "style": {
             "baseName": "style",
             "type": "HostMapWidgetDefinitionStyle",
             "format": ""
         },
-        {
-            "name": "title",
+        "title": {
             "baseName": "title",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "titleAlign",
+        "titleAlign": {
             "baseName": "title_align",
             "type": "WidgetTextAlign",
             "format": ""
         },
-        {
-            "name": "titleSize",
+        "titleSize": {
             "baseName": "title_size",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "HostMapWidgetDefinitionType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return HostMapWidgetDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): HostMapWidgetDefinition {
+      let res = new HostMapWidgetDefinition();
+
+      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
+
+      res.group = ObjectSerializer.deserialize(data.group, "Array<string>", "")
+
+      res.noGroupHosts = ObjectSerializer.deserialize(data.no_group_hosts, "boolean", "")
+
+      res.noMetricHosts = ObjectSerializer.deserialize(data.no_metric_hosts, "boolean", "")
+
+      if (['host', 'container', undefined].includes(data.node_type)) {
+          res.nodeType = data.node_type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.node_type } for node_type`);
+      }
+
+      res.notes = ObjectSerializer.deserialize(data.notes, "string", "")
+
+      if (data.requests === undefined) {
+          throw new TypeError("missing required attribute 'requests' on 'HostMapWidgetDefinition' object");
+      }
+      res.requests = ObjectSerializer.deserialize(data.requests, "HostMapWidgetDefinitionRequests", "")
+
+      res.scope = ObjectSerializer.deserialize(data.scope, "Array<string>", "")
+
+      res.style = ObjectSerializer.deserialize(data.style, "HostMapWidgetDefinitionStyle", "")
+
+      res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
+
+      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'HostMapWidgetDefinition' object");
+      }
+      if (['hostmap', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: HostMapWidgetDefinition): {[key: string]: any} {
+        let attributeTypes = HostMapWidgetDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
+
+        res.group = ObjectSerializer.serialize(data.group, "Array<string>", "")
+
+        res.no_group_hosts = ObjectSerializer.serialize(data.noGroupHosts, "boolean", "")
+
+        res.no_metric_hosts = ObjectSerializer.serialize(data.noMetricHosts, "boolean", "")
+
+        if (['host', 'container', undefined].includes(data.nodeType)) {
+            res.node_type = data.nodeType;
+        } else {
+            throw TypeError(`invalid enum value ${ data.nodeType } for nodeType`);
+        }
+
+        res.notes = ObjectSerializer.serialize(data.notes, "string", "")
+
+        if (data.requests === undefined) {
+            throw new TypeError("missing required attribute 'requests' on 'HostMapWidgetDefinition' object");
+        }
+        res.requests = ObjectSerializer.serialize(data.requests, "HostMapWidgetDefinitionRequests", "")
+
+        res.scope = ObjectSerializer.serialize(data.scope, "Array<string>", "")
+
+        res.style = ObjectSerializer.serialize(data.style, "HostMapWidgetDefinitionStyle", "")
+
+        res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
+
+        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'HostMapWidgetDefinition' object");
+        }
+        if (['hostmap', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

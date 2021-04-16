@@ -10,10 +10,12 @@
 
 import { UsersType } from './UsersType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Relationship to user object.
 */
+
 export class RelationshipToUserData {
     /**
     * A unique identifier that represents the user.
@@ -23,25 +25,71 @@ export class RelationshipToUserData {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "id": {
             "baseName": "id",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "UsersType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return RelationshipToUserData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): RelationshipToUserData {
+      let res = new RelationshipToUserData();
+
+      if (data.id === undefined) {
+          throw new TypeError("missing required attribute 'id' on 'RelationshipToUserData' object");
+      }
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'RelationshipToUserData' object");
+      }
+      if (['users', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: RelationshipToUserData): {[key: string]: any} {
+        let attributeTypes = RelationshipToUserData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.id === undefined) {
+            throw new TypeError("missing required attribute 'id' on 'RelationshipToUserData' object");
+        }
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'RelationshipToUserData' object");
+        }
+        if (['users', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

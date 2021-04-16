@@ -13,10 +13,12 @@ import { SyntheticsAssertion } from './SyntheticsAssertion';
 import { SyntheticsParsingOptions } from './SyntheticsParsingOptions';
 import { SyntheticsTestRequest } from './SyntheticsTestRequest';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The steps used in a Synthetics multistep API test.
 */
+
 export class SyntheticsAPIStep {
     /**
     * Array of assertions used for the test.
@@ -35,43 +37,86 @@ export class SyntheticsAPIStep {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "assertions",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "assertions": {
             "baseName": "assertions",
             "type": "Array<SyntheticsAssertion>",
             "format": ""
         },
-        {
-            "name": "extractedValues",
+        "extractedValues": {
             "baseName": "extractedValues",
             "type": "Array<SyntheticsParsingOptions>",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "request",
+        "request": {
             "baseName": "request",
             "type": "SyntheticsTestRequest",
             "format": ""
         },
-        {
-            "name": "subtype",
+        "subtype": {
             "baseName": "subtype",
             "type": "SyntheticsAPIStepSubtype",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsAPIStep.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsAPIStep {
+      let res = new SyntheticsAPIStep();
+
+      res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+      res.extractedValues = ObjectSerializer.deserialize(data.extractedValues, "Array<SyntheticsParsingOptions>", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
+
+      if (['http', undefined].includes(data.subtype)) {
+          res.subtype = data.subtype;
+      } else {
+          throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsAPIStep): {[key: string]: any} {
+        let attributeTypes = SyntheticsAPIStep.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
+
+        res.extractedValues = ObjectSerializer.serialize(data.extractedValues, "Array<SyntheticsParsingOptions>", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
+
+        if (['http', undefined].includes(data.subtype)) {
+            res.subtype = data.subtype;
+        } else {
+            throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

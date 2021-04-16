@@ -9,8 +9,22 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the assertion.
 */
-export type SyntheticsAssertionType = "body" | "header" | "statusCode" | "certificate" | "responseTime" | "property" | "recordEvery" | "recordSome" | "tlsVersion" | "minTlsVersion" ;
+
+export type SyntheticsAssertionType = typeof BODY | typeof HEADER | typeof STATUS_CODE | typeof CERTIFICATE | typeof RESPONSE_TIME | typeof PROPERTY | typeof RECORD_EVERY | typeof RECORD_SOME | typeof TLS_VERSION | typeof MIN_TLS_VERSION ;
+export const BODY = 'body';
+export const HEADER = 'header';
+export const STATUS_CODE = 'statusCode';
+export const CERTIFICATE = 'certificate';
+export const RESPONSE_TIME = 'responseTime';
+export const PROPERTY = 'property';
+export const RECORD_EVERY = 'recordEvery';
+export const RECORD_SOME = 'recordSome';
+export const TLS_VERSION = 'tlsVersion';
+export const MIN_TLS_VERSION = 'minTlsVersion';
+
+

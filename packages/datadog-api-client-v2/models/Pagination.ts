@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Pagination object.
 */
+
 export class Pagination {
     /**
     * Total count.
@@ -25,25 +27,51 @@ export class Pagination {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "totalCount",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "totalCount": {
             "baseName": "total_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "totalFilteredCount",
+        "totalFilteredCount": {
             "baseName": "total_filtered_count",
             "type": "number",
             "format": "int64"
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return Pagination.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): Pagination {
+      let res = new Pagination();
+
+      res.totalCount = ObjectSerializer.deserialize(data.total_count, "number", "int64")
+
+      res.totalFilteredCount = ObjectSerializer.deserialize(data.total_filtered_count, "number", "int64")
+
+
+      return res;
+    }
+
+    static serialize(data: Pagination): {[key: string]: any} {
+        let attributeTypes = Pagination.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.total_count = ObjectSerializer.serialize(data.totalCount, "number", "int64")
+
+        res.total_filtered_count = ObjectSerializer.serialize(data.totalFilteredCount, "number", "int64")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

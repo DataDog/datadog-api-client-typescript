@@ -11,10 +11,12 @@
 import { UsageAttributionBody } from './UsageAttributionBody';
 import { UsageAttributionMetadata } from './UsageAttributionMetadata';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response containing the Usage Summary by tag(s).
 */
+
 export class UsageAttributionResponse {
     'metadata'?: UsageAttributionMetadata;
     /**
@@ -24,25 +26,51 @@ export class UsageAttributionResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "metadata",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "metadata": {
             "baseName": "metadata",
             "type": "UsageAttributionMetadata",
             "format": ""
         },
-        {
-            "name": "usage",
+        "usage": {
             "baseName": "usage",
             "type": "Array<UsageAttributionBody>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageAttributionResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageAttributionResponse {
+      let res = new UsageAttributionResponse();
+
+      res.metadata = ObjectSerializer.deserialize(data.metadata, "UsageAttributionMetadata", "")
+
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageAttributionBody>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageAttributionResponse): {[key: string]: any} {
+        let attributeTypes = UsageAttributionResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.metadata = ObjectSerializer.serialize(data.metadata, "UsageAttributionMetadata", "")
+
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageAttributionBody>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

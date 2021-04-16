@@ -10,10 +10,12 @@
 
 import { ServiceLevelObjective } from './ServiceLevelObjective';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A response with one or more service level objective.
 */
+
 export class SLOListResponse {
     /**
     * An array of service level objective objects.
@@ -26,25 +28,51 @@ export class SLOListResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "data": {
             "baseName": "data",
             "type": "Array<ServiceLevelObjective>",
             "format": ""
         },
-        {
-            "name": "errors",
+        "errors": {
             "baseName": "errors",
             "type": "Array<string>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOListResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOListResponse {
+      let res = new SLOListResponse();
+
+      res.data = ObjectSerializer.deserialize(data.data, "Array<ServiceLevelObjective>", "")
+
+      res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOListResponse): {[key: string]: any} {
+        let attributeTypes = SLOListResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.data = ObjectSerializer.serialize(data.data, "Array<ServiceLevelObjective>", "")
+
+        res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

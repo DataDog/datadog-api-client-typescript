@@ -10,10 +10,12 @@
 
 import { SLOCorrectionCategory } from './SLOCorrectionCategory';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The attribute object associated with the SLO correction to be updated
 */
+
 export class SLOCorrectionUpdateRequestAttributes {
     'category'?: SLOCorrectionCategory;
     /**
@@ -35,43 +37,86 @@ export class SLOCorrectionUpdateRequestAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "category",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "category": {
             "baseName": "category",
             "type": "SLOCorrectionCategory",
             "format": ""
         },
-        {
-            "name": "description",
+        "description": {
             "baseName": "description",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "end",
+        "end": {
             "baseName": "end",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "start",
+        "start": {
             "baseName": "start",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "timezone",
+        "timezone": {
             "baseName": "timezone",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SLOCorrectionUpdateRequestAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SLOCorrectionUpdateRequestAttributes {
+      let res = new SLOCorrectionUpdateRequestAttributes();
+
+      if (['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other', undefined].includes(data.category)) {
+          res.category = data.category;
+      } else {
+          throw TypeError(`invalid enum value ${ data.category } for category`);
+      }
+
+      res.description = ObjectSerializer.deserialize(data.description, "string", "")
+
+      res.end = ObjectSerializer.deserialize(data.end, "number", "int64")
+
+      res.start = ObjectSerializer.deserialize(data.start, "number", "int64")
+
+      res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SLOCorrectionUpdateRequestAttributes): {[key: string]: any} {
+        let attributeTypes = SLOCorrectionUpdateRequestAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (['Scheduled Maintenance', 'Outside Business Hours', 'Deployment', 'Other', undefined].includes(data.category)) {
+            res.category = data.category;
+        } else {
+            throw TypeError(`invalid enum value ${ data.category } for category`);
+        }
+
+        res.description = ObjectSerializer.serialize(data.description, "string", "")
+
+        res.end = ObjectSerializer.serialize(data.end, "number", "int64")
+
+        res.start = ObjectSerializer.serialize(data.start, "number", "int64")
+
+        res.timezone = ObjectSerializer.serialize(data.timezone, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

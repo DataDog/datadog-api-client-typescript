@@ -13,10 +13,12 @@ import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFuncti
 import { FormulaAndFunctionEventQueryGroupBy } from './FormulaAndFunctionEventQueryGroupBy';
 import { FormulaAndFunctionEventsDataSource } from './FormulaAndFunctionEventsDataSource';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * A formula and functions events query.
 */
+
 export class FormulaAndFunctionEventQueryDefinition {
     'compute': FormulaAndFunctionEventQueryDefinitionCompute;
     'dataSource': FormulaAndFunctionEventsDataSource;
@@ -36,49 +38,113 @@ export class FormulaAndFunctionEventQueryDefinition {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "compute",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "compute": {
             "baseName": "compute",
             "type": "FormulaAndFunctionEventQueryDefinitionCompute",
             "format": ""
         },
-        {
-            "name": "dataSource",
+        "dataSource": {
             "baseName": "data_source",
             "type": "FormulaAndFunctionEventsDataSource",
             "format": ""
         },
-        {
-            "name": "groupBy",
+        "groupBy": {
             "baseName": "group_by",
             "type": "Array<FormulaAndFunctionEventQueryGroupBy>",
             "format": ""
         },
-        {
-            "name": "indexes",
+        "indexes": {
             "baseName": "indexes",
             "type": "Array<string>",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "search",
+        "search": {
             "baseName": "search",
             "type": "FormulaAndFunctionEventQueryDefinitionSearch",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): FormulaAndFunctionEventQueryDefinition {
+      let res = new FormulaAndFunctionEventQueryDefinition();
+
+      if (data.compute === undefined) {
+          throw new TypeError("missing required attribute 'compute' on 'FormulaAndFunctionEventQueryDefinition' object");
+      }
+      res.compute = ObjectSerializer.deserialize(data.compute, "FormulaAndFunctionEventQueryDefinitionCompute", "")
+
+      if (data.data_source === undefined) {
+          throw new TypeError("missing required attribute 'data_source' on 'FormulaAndFunctionEventQueryDefinition' object");
+      }
+      if (['logs', 'spans', 'network', 'rum', 'security_signals', 'profiles', undefined].includes(data.data_source)) {
+          res.dataSource = data.data_source;
+      } else {
+          throw TypeError(`invalid enum value ${ data.data_source } for data_source`);
+      }
+
+      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<FormulaAndFunctionEventQueryGroupBy>", "")
+
+      res.indexes = ObjectSerializer.deserialize(data.indexes, "Array<string>", "")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'FormulaAndFunctionEventQueryDefinition' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.search = ObjectSerializer.deserialize(data.search, "FormulaAndFunctionEventQueryDefinitionSearch", "")
+
+
+      return res;
+    }
+
+    static serialize(data: FormulaAndFunctionEventQueryDefinition): {[key: string]: any} {
+        let attributeTypes = FormulaAndFunctionEventQueryDefinition.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.compute === undefined) {
+            throw new TypeError("missing required attribute 'compute' on 'FormulaAndFunctionEventQueryDefinition' object");
+        }
+        res.compute = ObjectSerializer.serialize(data.compute, "FormulaAndFunctionEventQueryDefinitionCompute", "")
+
+        if (data.dataSource === undefined) {
+            throw new TypeError("missing required attribute 'data_source' on 'FormulaAndFunctionEventQueryDefinition' object");
+        }
+        if (['logs', 'spans', 'network', 'rum', 'security_signals', 'profiles', undefined].includes(data.dataSource)) {
+            res.data_source = data.dataSource;
+        } else {
+            throw TypeError(`invalid enum value ${ data.dataSource } for dataSource`);
+        }
+
+        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<FormulaAndFunctionEventQueryGroupBy>", "")
+
+        res.indexes = ObjectSerializer.serialize(data.indexes, "Array<string>", "")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'FormulaAndFunctionEventQueryDefinition' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.search = ObjectSerializer.serialize(data.search, "FormulaAndFunctionEventQueryDefinitionSearch", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

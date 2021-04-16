@@ -11,35 +11,83 @@
 import { UserInvitationRelationships } from './UserInvitationRelationships';
 import { UserInvitationsType } from './UserInvitationsType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object to create a user invitation.
 */
+
 export class UserInvitationData {
     'relationships': UserInvitationRelationships;
     'type': UserInvitationsType;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "relationships",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "relationships": {
             "baseName": "relationships",
             "type": "UserInvitationRelationships",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "UserInvitationsType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UserInvitationData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UserInvitationData {
+      let res = new UserInvitationData();
+
+      if (data.relationships === undefined) {
+          throw new TypeError("missing required attribute 'relationships' on 'UserInvitationData' object");
+      }
+      res.relationships = ObjectSerializer.deserialize(data.relationships, "UserInvitationRelationships", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'UserInvitationData' object");
+      }
+      if (['user_invitations', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: UserInvitationData): {[key: string]: any} {
+        let attributeTypes = UserInvitationData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.relationships === undefined) {
+            throw new TypeError("missing required attribute 'relationships' on 'UserInvitationData' object");
+        }
+        res.relationships = ObjectSerializer.serialize(data.relationships, "UserInvitationRelationships", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'UserInvitationData' object");
+        }
+        if (['user_invitations', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

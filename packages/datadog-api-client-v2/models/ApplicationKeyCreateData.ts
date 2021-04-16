@@ -11,35 +11,83 @@
 import { ApplicationKeyCreateAttributes } from './ApplicationKeyCreateAttributes';
 import { ApplicationKeysType } from './ApplicationKeysType';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object used to create an application key.
 */
+
 export class ApplicationKeyCreateData {
     'attributes': ApplicationKeyCreateAttributes;
     'type': ApplicationKeysType;
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "attributes",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "attributes": {
             "baseName": "attributes",
             "type": "ApplicationKeyCreateAttributes",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "ApplicationKeysType",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return ApplicationKeyCreateData.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): ApplicationKeyCreateData {
+      let res = new ApplicationKeyCreateData();
+
+      if (data.attributes === undefined) {
+          throw new TypeError("missing required attribute 'attributes' on 'ApplicationKeyCreateData' object");
+      }
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "ApplicationKeyCreateAttributes", "")
+
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'ApplicationKeyCreateData' object");
+      }
+      if (['application_keys', undefined].includes(data.type)) {
+          res.type = data.type;
+      } else {
+          throw TypeError(`invalid enum value ${ data.type } for type`);
+      }
+
+
+      return res;
+    }
+
+    static serialize(data: ApplicationKeyCreateData): {[key: string]: any} {
+        let attributeTypes = ApplicationKeyCreateData.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.attributes === undefined) {
+            throw new TypeError("missing required attribute 'attributes' on 'ApplicationKeyCreateData' object");
+        }
+        res.attributes = ObjectSerializer.serialize(data.attributes, "ApplicationKeyCreateAttributes", "")
+
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'ApplicationKeyCreateData' object");
+        }
+        if (['application_keys', undefined].includes(data.type)) {
+            res.type = data.type;
+        } else {
+            throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

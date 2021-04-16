@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The incident service's attributes for a create request.
 */
+
 export class IncidentServiceCreateAttributes {
     /**
     * Name of the incident service.
@@ -21,19 +23,48 @@ export class IncidentServiceCreateAttributes {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "name",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return IncidentServiceCreateAttributes.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): IncidentServiceCreateAttributes {
+      let res = new IncidentServiceCreateAttributes();
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'IncidentServiceCreateAttributes' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: IncidentServiceCreateAttributes): {[key: string]: any} {
+        let attributeTypes = IncidentServiceCreateAttributes.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'IncidentServiceCreateAttributes' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

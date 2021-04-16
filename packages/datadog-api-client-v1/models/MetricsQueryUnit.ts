@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Object containing the metric unit family, scale factor, name, and short name.
 */
+
 export class MetricsQueryUnit {
     /**
     * Unit family, allows for conversion between units of the same family, for scaling.
@@ -37,43 +39,78 @@ export class MetricsQueryUnit {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "family",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "family": {
             "baseName": "family",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "plural",
+        "plural": {
             "baseName": "plural",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "scaleFactor",
+        "scaleFactor": {
             "baseName": "scale_factor",
             "type": "number",
             "format": "double"
         },
-        {
-            "name": "shortName",
+        "shortName": {
             "baseName": "short_name",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return MetricsQueryUnit.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): MetricsQueryUnit {
+      let res = new MetricsQueryUnit();
+
+      res.family = ObjectSerializer.deserialize(data.family, "string", "")
+
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.plural = ObjectSerializer.deserialize(data.plural, "string", "")
+
+      res.scaleFactor = ObjectSerializer.deserialize(data.scale_factor, "number", "double")
+
+      res.shortName = ObjectSerializer.deserialize(data.short_name, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: MetricsQueryUnit): {[key: string]: any} {
+        let attributeTypes = MetricsQueryUnit.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.family = ObjectSerializer.serialize(data.family, "string", "")
+
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.plural = ObjectSerializer.serialize(data.plural, "string", "")
+
+        res.scale_factor = ObjectSerializer.serialize(data.scaleFactor, "number", "double")
+
+        res.short_name = ObjectSerializer.serialize(data.shortName, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

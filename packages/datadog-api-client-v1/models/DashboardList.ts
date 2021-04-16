@@ -10,10 +10,12 @@
 
 import { Creator } from './Creator';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Your Datadog Dashboards.
 */
+
 export class DashboardList {
     'author'?: Creator;
     /**
@@ -47,61 +49,111 @@ export class DashboardList {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "author",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "author": {
             "baseName": "author",
             "type": "Creator",
             "format": ""
         },
-        {
-            "name": "created",
+        "created": {
             "baseName": "created",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "dashboardCount",
+        "dashboardCount": {
             "baseName": "dashboard_count",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "id",
+        "id": {
             "baseName": "id",
             "type": "number",
             "format": "int64"
         },
-        {
-            "name": "isFavorite",
+        "isFavorite": {
             "baseName": "is_favorite",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "modified",
+        "modified": {
             "baseName": "modified",
             "type": "Date",
             "format": "date-time"
         },
-        {
-            "name": "name",
+        "name": {
             "baseName": "name",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "type",
+        "type": {
             "baseName": "type",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return DashboardList.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): DashboardList {
+      let res = new DashboardList();
+
+      res.author = ObjectSerializer.deserialize(data.author, "Creator", "")
+
+      res.created = ObjectSerializer.deserialize(data.created, "Date", "date-time")
+
+      res.dashboardCount = ObjectSerializer.deserialize(data.dashboard_count, "number", "int64")
+
+      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+
+      res.isFavorite = ObjectSerializer.deserialize(data.is_favorite, "boolean", "")
+
+      res.modified = ObjectSerializer.deserialize(data.modified, "Date", "date-time")
+
+      if (data.name === undefined) {
+          throw new TypeError("missing required attribute 'name' on 'DashboardList' object");
+      }
+      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+
+      res.type = ObjectSerializer.deserialize(data.type, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: DashboardList): {[key: string]: any} {
+        let attributeTypes = DashboardList.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.author = ObjectSerializer.serialize(data.author, "Creator", "")
+
+        res.created = ObjectSerializer.serialize(data.created, "Date", "date-time")
+
+        res.dashboard_count = ObjectSerializer.serialize(data.dashboardCount, "number", "int64")
+
+        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
+
+        res.is_favorite = ObjectSerializer.serialize(data.isFavorite, "boolean", "")
+
+        res.modified = ObjectSerializer.serialize(data.modified, "Date", "date-time")
+
+        if (data.name === undefined) {
+            throw new TypeError("missing required attribute 'name' on 'DashboardList' object");
+        }
+        res.name = ObjectSerializer.serialize(data.name, "string", "")
+
+        res.type = ObjectSerializer.serialize(data.type, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

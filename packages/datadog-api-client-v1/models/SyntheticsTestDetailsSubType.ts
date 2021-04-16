@@ -9,8 +9,17 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`, `dns` or `multi`.
 */
-export type SyntheticsTestDetailsSubType = "http" | "ssl" | "tcp" | "dns" | "multi" ;
+
+export type SyntheticsTestDetailsSubType = typeof HTTP | typeof SSL | typeof TCP | typeof DNS | typeof MULTI ;
+export const HTTP = 'http';
+export const SSL = 'ssl';
+export const TCP = 'tcp';
+export const DNS = 'dns';
+export const MULTI = 'multi';
+
+

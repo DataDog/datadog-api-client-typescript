@@ -9,8 +9,13 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Type of the change widget.
 */
-export type ChangeWidgetDefinitionType = "change" ;
+
+export type ChangeWidgetDefinitionType = typeof CHANGE ;
+export const CHANGE = 'change';
+
+

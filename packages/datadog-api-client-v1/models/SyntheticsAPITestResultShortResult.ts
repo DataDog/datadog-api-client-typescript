@@ -10,10 +10,12 @@
 
 import { SyntheticsTiming } from './SyntheticsTiming';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Result of the last API test run.
 */
+
 export class SyntheticsAPITestResultShortResult {
     /**
     * Describes if the test run has passed or failed.
@@ -23,25 +25,51 @@ export class SyntheticsAPITestResultShortResult {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "passed",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "passed": {
             "baseName": "passed",
             "type": "boolean",
             "format": ""
         },
-        {
-            "name": "timings",
+        "timings": {
             "baseName": "timings",
             "type": "SyntheticsTiming",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsAPITestResultShortResult.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsAPITestResultShortResult {
+      let res = new SyntheticsAPITestResultShortResult();
+
+      res.passed = ObjectSerializer.deserialize(data.passed, "boolean", "")
+
+      res.timings = ObjectSerializer.deserialize(data.timings, "SyntheticsTiming", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsAPITestResultShortResult): {[key: string]: any} {
+        let attributeTypes = SyntheticsAPITestResultShortResult.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.passed = ObjectSerializer.serialize(data.passed, "boolean", "")
+
+        res.timings = ObjectSerializer.serialize(data.timings, "SyntheticsTiming", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

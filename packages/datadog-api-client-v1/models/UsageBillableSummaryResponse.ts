@@ -10,10 +10,12 @@
 
 import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response with monthly summary of data billed by Datadog.
 */
+
 export class UsageBillableSummaryResponse {
     /**
     * An array of objects regarding usage of billable summary.
@@ -22,19 +24,42 @@ export class UsageBillableSummaryResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "usage",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "usage": {
             "baseName": "usage",
             "type": "Array<UsageBillableSummaryHour>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return UsageBillableSummaryResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): UsageBillableSummaryResponse {
+      let res = new UsageBillableSummaryResponse();
+
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageBillableSummaryHour>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: UsageBillableSummaryResponse): {[key: string]: any} {
+        let attributeTypes = UsageBillableSummaryResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageBillableSummaryHour>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

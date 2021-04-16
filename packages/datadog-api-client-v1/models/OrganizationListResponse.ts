@@ -10,10 +10,12 @@
 
 import { Organization } from './Organization';
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Response with the list of organizations.
 */
+
 export class OrganizationListResponse {
     /**
     * Array of organization objects.
@@ -22,19 +24,42 @@ export class OrganizationListResponse {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "orgs",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "orgs": {
             "baseName": "orgs",
             "type": "Array<Organization>",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return OrganizationListResponse.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): OrganizationListResponse {
+      let res = new OrganizationListResponse();
+
+      res.orgs = ObjectSerializer.deserialize(data.orgs, "Array<Organization>", "")
+
+
+      return res;
+    }
+
+    static serialize(data: OrganizationListResponse): {[key: string]: any} {
+        let attributeTypes = OrganizationListResponse.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.orgs = ObjectSerializer.serialize(data.orgs, "Array<Organization>", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 

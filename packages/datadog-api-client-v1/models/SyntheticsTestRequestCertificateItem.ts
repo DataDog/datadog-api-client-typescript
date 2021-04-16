@@ -9,10 +9,12 @@
  */
 
 import { HttpFile } from '../http/http';
+import { ObjectSerializer } from './ObjectSerializer';
 
 /**
 * Define a request certificate.
 */
+
 export class SyntheticsTestRequestCertificateItem {
     /**
     * Content of the certificate or key.
@@ -29,31 +31,60 @@ export class SyntheticsTestRequestCertificateItem {
 
     static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "content",
+    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "content": {
             "baseName": "content",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "filename",
+        "filename": {
             "baseName": "filename",
             "type": "string",
             "format": ""
         },
-        {
-            "name": "updatedAt",
+        "updatedAt": {
             "baseName": "updatedAt",
             "type": "string",
             "format": ""
-        }    ];
+        }    };
 
     static getAttributeTypeMap() {
         return SyntheticsTestRequestCertificateItem.attributeTypeMap;
+    }
+
+    static deserialize(data: {[key: string]: any}): SyntheticsTestRequestCertificateItem {
+      let res = new SyntheticsTestRequestCertificateItem();
+
+      res.content = ObjectSerializer.deserialize(data.content, "string", "")
+
+      res.filename = ObjectSerializer.deserialize(data.filename, "string", "")
+
+      res.updatedAt = ObjectSerializer.deserialize(data.updatedAt, "string", "")
+
+
+      return res;
+    }
+
+    static serialize(data: SyntheticsTestRequestCertificateItem): {[key: string]: any} {
+        let attributeTypes = SyntheticsTestRequestCertificateItem.getAttributeTypeMap();
+        let res: {[index: string]: any} = {};
+        for (let [key, value] of Object.entries(data)) {
+            if (!(key in attributeTypes)) {
+                throw new TypeError(`${key} attribute not in schema`);
+            }
+        }
+        res.content = ObjectSerializer.serialize(data.content, "string", "")
+
+        res.filename = ObjectSerializer.serialize(data.filename, "string", "")
+
+        res.updatedAt = ObjectSerializer.serialize(data.updatedAt, "string", "")
+
+        return res
     }
     
     public constructor() {
     }
 }
+
+
 
