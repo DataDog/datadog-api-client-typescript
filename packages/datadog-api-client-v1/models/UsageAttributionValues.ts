@@ -97,6 +97,22 @@ export class UsageAttributionValues {
     */
     'npmHostUsage'?: number;
     /**
+    * The percentage of profiled containers usage by tag(s).
+    */
+    'profiledContainersPercentage'?: number;
+    /**
+    * The profiled container usage by tag(s).
+    */
+    'profiledContainersUsage'?: number;
+    /**
+    * The percentage of profiled hosts usage by tag(s).
+    */
+    'profiledHostsPercentage'?: number;
+    /**
+    * The profiled host usage by tag(s).
+    */
+    'profiledHostsUsage'?: number;
+    /**
     * The percentage of network device usage by tag(s).
     */
     'snmpPercentage'?: number;
@@ -208,6 +224,26 @@ export class UsageAttributionValues {
             "type": "number",
             "format": "double"
         },
+        "profiledContainersPercentage": {
+            "baseName": "profiled_containers_percentage",
+            "type": "number",
+            "format": "double"
+        },
+        "profiledContainersUsage": {
+            "baseName": "profiled_containers_usage",
+            "type": "number",
+            "format": "double"
+        },
+        "profiledHostsPercentage": {
+            "baseName": "profiled_hosts_percentage",
+            "type": "number",
+            "format": "double"
+        },
+        "profiledHostsUsage": {
+            "baseName": "profiled_hosts_usage",
+            "type": "number",
+            "format": "double"
+        },
         "snmpPercentage": {
             "baseName": "snmp_percentage",
             "type": "number",
@@ -266,6 +302,14 @@ export class UsageAttributionValues {
 
       res.npmHostUsage = ObjectSerializer.deserialize(data.npm_host_usage, "number", "double")
 
+      res.profiledContainersPercentage = ObjectSerializer.deserialize(data.profiled_containers_percentage, "number", "double")
+
+      res.profiledContainersUsage = ObjectSerializer.deserialize(data.profiled_containers_usage, "number", "double")
+
+      res.profiledHostsPercentage = ObjectSerializer.deserialize(data.profiled_hosts_percentage, "number", "double")
+
+      res.profiledHostsUsage = ObjectSerializer.deserialize(data.profiled_hosts_usage, "number", "double")
+
       res.snmpPercentage = ObjectSerializer.deserialize(data.snmp_percentage, "number", "double")
 
       res.snmpUsage = ObjectSerializer.deserialize(data.snmp_usage, "number", "double")
@@ -321,6 +365,14 @@ export class UsageAttributionValues {
         res.npm_host_percentage = ObjectSerializer.serialize(data.npmHostPercentage, "number", "double")
 
         res.npm_host_usage = ObjectSerializer.serialize(data.npmHostUsage, "number", "double")
+
+        res.profiled_containers_percentage = ObjectSerializer.serialize(data.profiledContainersPercentage, "number", "double")
+
+        res.profiled_containers_usage = ObjectSerializer.serialize(data.profiledContainersUsage, "number", "double")
+
+        res.profiled_hosts_percentage = ObjectSerializer.serialize(data.profiledHostsPercentage, "number", "double")
+
+        res.profiled_hosts_usage = ObjectSerializer.serialize(data.profiledHostsUsage, "number", "double")
 
         res.snmp_percentage = ObjectSerializer.serialize(data.snmpPercentage, "number", "double")
 
