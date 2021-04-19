@@ -82,11 +82,11 @@ Before(function (
   this.fixtures["now_iso"] = date.toISOString();
   const hourLater = new Date(JSON.stringify(date));
   hourLater.setTime(date.getTime() + 60*60*1000);
-  this.fixtures["hour_later_ts"] = hourLater.getTime() / 1000;
+  this.fixtures["hour_later_ts"] = Math.floor(hourLater.getTime() / 1000);
   this.fixtures["hour_later_iso"] = hourLater.toISOString();
   const hourAgo = new Date(JSON.stringify(date));
   hourAgo.setTime(date.getTime() - 60*60*1000);
-  this.fixtures["hour_ago_ts"] = hourAgo.getTime() / 1000;
+  this.fixtures["hour_ago_ts"] = Math.floor(hourAgo.getTime() / 1000);
   this.fixtures["hour_ago_iso"] = hourAgo.toISOString();
 
   // make sure that we are not recording APM traces
