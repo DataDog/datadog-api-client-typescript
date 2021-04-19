@@ -166,9 +166,11 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
      * Get all dashboards
+     * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
      */
-    public async listDashboards(options?: Configuration): Promise<RequestContext> {
+    public async listDashboards(filterShared?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
+
 
         // Path Params
         const localVarPath = '/api/v1/dashboard';
@@ -179,6 +181,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
+        if (filterShared !== undefined) {
+            requestContext.setQueryParam("filter[shared]", ObjectSerializer.serialize(filterShared, "boolean", ""));
+        }
 
         // Header Params
 
