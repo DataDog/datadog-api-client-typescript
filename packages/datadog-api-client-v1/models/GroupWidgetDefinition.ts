@@ -11,6 +11,7 @@
 import { GroupWidgetDefinitionType } from './GroupWidgetDefinitionType';
 import { Widget } from './Widget';
 import { WidgetLayoutType } from './WidgetLayoutType';
+import { WidgetTextAlign } from './WidgetTextAlign';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
@@ -19,11 +20,16 @@ import { ObjectSerializer } from './ObjectSerializer';
 */
 
 export class GroupWidgetDefinition {
+    /**
+    * Background color of the group title.
+    */
+    'backgroundColor'?: string;
     'layoutType': WidgetLayoutType;
     /**
     * Title of the widget.
     */
     'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
     'type': GroupWidgetDefinitionType;
     /**
     * List of widget groups.
@@ -33,6 +39,11 @@ export class GroupWidgetDefinition {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "backgroundColor": {
+            "baseName": "background_color",
+            "type": "string",
+            "format": ""
+        },
         "layoutType": {
             "baseName": "layout_type",
             "type": "WidgetLayoutType",
@@ -41,6 +52,11 @@ export class GroupWidgetDefinition {
         "title": {
             "baseName": "title",
             "type": "string",
+            "format": ""
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
             "format": ""
         },
         "type": {
@@ -61,6 +77,8 @@ export class GroupWidgetDefinition {
     static deserialize(data: {[key: string]: any}): GroupWidgetDefinition {
       let res = new GroupWidgetDefinition();
 
+      res.backgroundColor = ObjectSerializer.deserialize(data.background_color, "string", "")
+
       if (data.layout_type === undefined) {
           throw new TypeError("missing required attribute 'layout_type' on 'GroupWidgetDefinition' object");
       }
@@ -71,6 +89,12 @@ export class GroupWidgetDefinition {
       }
 
       res.title = ObjectSerializer.deserialize(data.title, "string", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
+          res.titleAlign = data.title_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
+      }
 
       if (data.type === undefined) {
           throw new TypeError("missing required attribute 'type' on 'GroupWidgetDefinition' object");
@@ -98,6 +122,8 @@ export class GroupWidgetDefinition {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
+        res.background_color = ObjectSerializer.serialize(data.backgroundColor, "string", "")
+
         if (data.layoutType === undefined) {
             throw new TypeError("missing required attribute 'layout_type' on 'GroupWidgetDefinition' object");
         }
@@ -108,6 +134,12 @@ export class GroupWidgetDefinition {
         }
 
         res.title = ObjectSerializer.serialize(data.title, "string", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
+            res.title_align = data.titleAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
+        }
 
         if (data.type === undefined) {
             throw new TypeError("missing required attribute 'type' on 'GroupWidgetDefinition' object");
