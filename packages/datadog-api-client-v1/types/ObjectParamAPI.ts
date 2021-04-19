@@ -1092,6 +1092,12 @@ export interface DashboardsApiGetDashboardRequest {
 }
 
 export interface DashboardsApiListDashboardsRequest {
+    /**
+     * When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
+     * @type boolean
+     * @memberof DashboardsApilistDashboards
+     */
+    filterShared?: boolean
 }
 
 export interface DashboardsApiUpdateDashboardRequest {
@@ -1149,7 +1155,7 @@ export class ObjectDashboardsApi {
      * @param param the request object
      */
     public listDashboards(param: DashboardsApiListDashboardsRequest, options?: Configuration): Promise<DashboardSummary> {
-        return this.api.listDashboards( options).toPromise();
+        return this.api.listDashboards(param.filterShared,  options).toPromise();
     }
 
     /**

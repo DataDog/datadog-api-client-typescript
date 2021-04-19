@@ -926,9 +926,10 @@ export class PromiseDashboardsApi {
     /**
      * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
      * Get all dashboards
+     * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
      */
-    public listDashboards(options?: Configuration): Promise<DashboardSummary> {
-        const result = this.api.listDashboards(options);
+    public listDashboards(filterShared?: boolean, options?: Configuration): Promise<DashboardSummary> {
+        const result = this.api.listDashboards(filterShared, options);
         return result.toPromise();
     }
 

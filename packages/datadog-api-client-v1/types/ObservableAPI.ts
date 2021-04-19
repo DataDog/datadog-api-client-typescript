@@ -1345,9 +1345,10 @@ export class ObservableDashboardsApi {
     /**
      * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
      * Get all dashboards
+     * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
      */
-    public listDashboards(options?: Configuration): Observable<DashboardSummary> {
-        const requestContextPromise = this.requestFactory.listDashboards(options);
+    public listDashboards(filterShared?: boolean, options?: Configuration): Observable<DashboardSummary> {
+        const requestContextPromise = this.requestFactory.listDashboards(filterShared, options);
 
         // build promise chain
         let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
