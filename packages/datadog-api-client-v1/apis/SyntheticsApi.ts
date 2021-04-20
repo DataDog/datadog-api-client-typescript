@@ -557,7 +557,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get the last 50 test results summaries for a given Synthetics API test.
-     * Get the test's latest results summaries (API)
+     * Get an API test's latest results summaries
      * @param publicId The public ID of the test for which to search results for.
      * @param fromTs Timestamp from which to start querying results.
      * @param toTs Timestamp up to which to query results.
@@ -618,7 +618,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get a specific full result from a given (API) Synthetic test.
-     * Get a test result (API)
+     * Get an API test result
      * @param publicId The public ID of the API test to which the target result belongs.
      * @param resultId The ID of the result to get.
      */
@@ -672,7 +672,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get the detailed configuration (including steps) associated with a Synthetic browser test.
-     * Get a test configuration (browser)
+     * Get a browser test
      * @param publicId The public ID of the test to get details from.
      */
     public async getBrowserTest(publicId: string, options?: Configuration): Promise<RequestContext> {
@@ -718,7 +718,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get the last 50 test results summaries for a given Synthetics Browser test.
-     * Get the test's latest results summaries (browser)
+     * Get a browser test's latest results summaries
      * @param publicId The public ID of the browser test for which to search results for.
      * @param fromTs Timestamp from which to start querying results.
      * @param toTs Timestamp up to which to query results.
@@ -779,7 +779,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get a specific full result from a given (browser) Synthetic test.
-     * Get a test result (browser)
+     * Get a browser test result
      * @param publicId The public ID of the browser test to which the target result belongs.
      * @param resultId The ID of the result to get.
      */
@@ -1047,7 +1047,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Trigger a set of Synthetics tests for continuous integration.
-     * Trigger some Synthetics tests for CI
+     * Trigger tests from CI/CD pipelines
      * @param body Details of the test to trigger.
      */
     public async triggerCITests(body: SyntheticsCITestBody, options?: Configuration): Promise<RequestContext> {
