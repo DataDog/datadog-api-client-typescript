@@ -3623,7 +3623,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Get the last 50 test results summaries for a given Synthetics API test.
-     * Get the test's latest results summaries (API)
+     * Get an API test's latest results summaries
      * @param param the request object
      */
     public getAPITestLatestResults(param: SyntheticsApiGetAPITestLatestResultsRequest, options?: Configuration): Promise<SyntheticsGetAPITestLatestResultsResponse> {
@@ -3632,7 +3632,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Get a specific full result from a given (API) Synthetic test.
-     * Get a test result (API)
+     * Get an API test result
      * @param param the request object
      */
     public getAPITestResult(param: SyntheticsApiGetAPITestResultRequest, options?: Configuration): Promise<SyntheticsAPITestResultFull> {
@@ -3641,7 +3641,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Get the detailed configuration (including steps) associated with a Synthetic browser test.
-     * Get a test configuration (browser)
+     * Get a browser test
      * @param param the request object
      */
     public getBrowserTest(param: SyntheticsApiGetBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
@@ -3650,7 +3650,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Get the last 50 test results summaries for a given Synthetics Browser test.
-     * Get the test's latest results summaries (browser)
+     * Get a browser test's latest results summaries
      * @param param the request object
      */
     public getBrowserTestLatestResults(param: SyntheticsApiGetBrowserTestLatestResultsRequest, options?: Configuration): Promise<SyntheticsGetBrowserTestLatestResultsResponse> {
@@ -3659,7 +3659,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Get a specific full result from a given (browser) Synthetic test.
-     * Get a test result (browser)
+     * Get a browser test result
      * @param param the request object
      */
     public getBrowserTestResult(param: SyntheticsApiGetBrowserTestResultRequest, options?: Configuration): Promise<SyntheticsBrowserTestResultFull> {
@@ -3713,7 +3713,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Trigger a set of Synthetics tests for continuous integration.
-     * Trigger some Synthetics tests for CI
+     * Trigger tests from CI/CD pipelines
      * @param param the request object
      */
     public triggerCITests(param: SyntheticsApiTriggerCITestsRequest, options?: Configuration): Promise<SyntheticsTriggerCITestsResponse> {
