@@ -96,6 +96,8 @@ models/DeletedMonitor.ts
 models/DistributionWidgetDefinition.ts
 models/DistributionWidgetDefinitionType.ts
 models/DistributionWidgetRequest.ts
+models/DistributionWidgetXAxis.ts
+models/DistributionWidgetYAxis.ts
 models/Downtime.ts
 models/DowntimeRecurrence.ts
 models/Event.ts

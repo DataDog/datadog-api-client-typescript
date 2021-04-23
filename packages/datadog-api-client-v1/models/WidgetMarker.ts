@@ -17,7 +17,7 @@ import { ObjectSerializer } from './ObjectSerializer';
 
 export class WidgetMarker {
     /**
-    * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold 
+    * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be `x_axis_percentile`. 
     */
     'displayType'?: string;
     /**

@@ -63,6 +63,8 @@ import { DeletedMonitor } from '../models/DeletedMonitor';
 import { DistributionWidgetDefinition } from '../models/DistributionWidgetDefinition';
 import { DistributionWidgetDefinitionType } from '../models/DistributionWidgetDefinitionType';
 import { DistributionWidgetRequest } from '../models/DistributionWidgetRequest';
+import { DistributionWidgetXAxis } from '../models/DistributionWidgetXAxis';
+import { DistributionWidgetYAxis } from '../models/DistributionWidgetYAxis';
 import { Downtime } from '../models/Downtime';
 import { DowntimeRecurrence } from '../models/DowntimeRecurrence';
 import { Event } from '../models/Event';
