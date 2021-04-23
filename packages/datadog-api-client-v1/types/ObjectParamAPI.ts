@@ -3686,7 +3686,7 @@ export class ObjectSyntheticsApi {
 
     /**
      * Get the detailed configuration associated with a Synthetics test.
-     * Get a test configuration (API)
+     * Get a test configuration
      * @param param the request object
      */
     public getTest(param: SyntheticsApiGetTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
