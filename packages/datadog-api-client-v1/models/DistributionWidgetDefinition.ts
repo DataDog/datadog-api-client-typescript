@@ -10,6 +10,9 @@
 
 import { DistributionWidgetDefinitionType } from './DistributionWidgetDefinitionType';
 import { DistributionWidgetRequest } from './DistributionWidgetRequest';
+import { DistributionWidgetXAxis } from './DistributionWidgetXAxis';
+import { DistributionWidgetYAxis } from './DistributionWidgetYAxis';
+import { WidgetMarker } from './WidgetMarker';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTime } from './WidgetTime';
 import { HttpFile } from '../http/http';
@@ -21,15 +24,19 @@ import { ObjectSerializer } from './ObjectSerializer';
 
 export class DistributionWidgetDefinition {
     /**
-    * Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
+    * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     */
     'legendSize'?: string;
+    /**
+    * List of markers.
+    */
+    'markers'?: Array<WidgetMarker>;
     /**
     * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.
     */
     'requests': Array<DistributionWidgetRequest>;
     /**
-    * Whether or not to display the legend on this widget.
+    * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
     */
     'showLegend'?: boolean;
     'time'?: WidgetTime;
@@ -43,6 +50,8 @@ export class DistributionWidgetDefinition {
     */
     'titleSize'?: string;
     'type': DistributionWidgetDefinitionType;
+    'xaxis'?: DistributionWidgetXAxis;
+    'yaxis'?: DistributionWidgetYAxis;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -50,6 +59,11 @@ export class DistributionWidgetDefinition {
         "legendSize": {
             "baseName": "legend_size",
             "type": "string",
+            "format": ""
+        },
+        "markers": {
+            "baseName": "markers",
+            "type": "Array<WidgetMarker>",
             "format": ""
         },
         "requests": {
@@ -86,6 +100,16 @@ export class DistributionWidgetDefinition {
             "baseName": "type",
             "type": "DistributionWidgetDefinitionType",
             "format": ""
+        },
+        "xaxis": {
+            "baseName": "xaxis",
+            "type": "DistributionWidgetXAxis",
+            "format": ""
+        },
+        "yaxis": {
+            "baseName": "yaxis",
+            "type": "DistributionWidgetYAxis",
+            "format": ""
         }    };
 
     static getAttributeTypeMap() {
@@ -96,6 +120,8 @@ export class DistributionWidgetDefinition {
       let res = new DistributionWidgetDefinition();
 
       res.legendSize = ObjectSerializer.deserialize(data.legend_size, "string", "")
+
+      res.markers = ObjectSerializer.deserialize(data.markers, "Array<WidgetMarker>", "")
 
       if (data.requests === undefined) {
           throw new TypeError("missing required attribute 'requests' on 'DistributionWidgetDefinition' object");
@@ -125,6 +151,10 @@ export class DistributionWidgetDefinition {
           throw TypeError(`invalid enum value ${ data.type } for type`);
       }
 
+      res.xaxis = ObjectSerializer.deserialize(data.xaxis, "DistributionWidgetXAxis", "")
+
+      res.yaxis = ObjectSerializer.deserialize(data.yaxis, "DistributionWidgetYAxis", "")
+
 
       return res;
     }
@@ -138,6 +168,8 @@ export class DistributionWidgetDefinition {
             }
         }
         res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "")
+
+        res.markers = ObjectSerializer.serialize(data.markers, "Array<WidgetMarker>", "")
 
         if (data.requests === undefined) {
             throw new TypeError("missing required attribute 'requests' on 'DistributionWidgetDefinition' object");
@@ -166,6 +198,10 @@ export class DistributionWidgetDefinition {
         } else {
             throw TypeError(`invalid enum value ${ data.type } for type`);
         }
+
+        res.xaxis = ObjectSerializer.serialize(data.xaxis, "DistributionWidgetXAxis", "")
+
+        res.yaxis = ObjectSerializer.serialize(data.yaxis, "DistributionWidgetYAxis", "")
 
         return res
     }

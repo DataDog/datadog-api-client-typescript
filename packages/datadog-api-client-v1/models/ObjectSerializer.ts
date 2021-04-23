@@ -59,6 +59,8 @@ import { DeletedMonitor } from './DeletedMonitor';
 import { DistributionWidgetDefinition } from './DistributionWidgetDefinition';
 import { DistributionWidgetDefinitionType } from './DistributionWidgetDefinitionType';
 import { DistributionWidgetRequest } from './DistributionWidgetRequest';
+import { DistributionWidgetXAxis } from './DistributionWidgetXAxis';
+import { DistributionWidgetYAxis } from './DistributionWidgetYAxis';
 import { Downtime } from './Downtime';
 import { DowntimeRecurrence } from './DowntimeRecurrence';
 import { Event } from './Event';
@@ -712,6 +714,8 @@ let typeMap: {[index: string]: any} = {
     "DeletedMonitor": DeletedMonitor,
     "DistributionWidgetDefinition": DistributionWidgetDefinition,
     "DistributionWidgetRequest": DistributionWidgetRequest,
+    "DistributionWidgetXAxis": DistributionWidgetXAxis,
+    "DistributionWidgetYAxis": DistributionWidgetYAxis,
     "Downtime": Downtime,
     "DowntimeRecurrence": DowntimeRecurrence,
     "Event": Event,
