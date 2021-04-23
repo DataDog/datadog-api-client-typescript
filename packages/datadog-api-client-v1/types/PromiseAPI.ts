@@ -2393,7 +2393,7 @@ export class PromiseSyntheticsApi {
 
     /**
      * Get the detailed configuration associated with a Synthetics test.
-     * Get a test configuration (API)
+     * Get a test configuration
      * @param publicId The public ID of the test to get details from.
      */
     public getTest(publicId: string, options?: Configuration): Promise<SyntheticsTestDetails> {
