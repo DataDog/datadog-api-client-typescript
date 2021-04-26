@@ -172,6 +172,10 @@ export class UsageSummaryDateOrg {
     * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.
     */
     'twolIngestedEventsBytesSum'?: number;
+    /**
+    * Shows the 99th percentile of all vSphere hosts over all hours in the current date for the given org.
+    */
+    'vsphereHostTop99p'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -370,6 +374,11 @@ export class UsageSummaryDateOrg {
             "baseName": "twol_ingested_events_bytes_sum",
             "type": "number",
             "format": "int64"
+        },
+        "vsphereHostTop99p": {
+            "baseName": "vsphere_host_top99p",
+            "type": "number",
+            "format": "int64"
         }    };
 
     static getAttributeTypeMap() {
@@ -456,6 +465,8 @@ export class UsageSummaryDateOrg {
       res.traceSearchIndexedEventsCountSum = ObjectSerializer.deserialize(data.trace_search_indexed_events_count_sum, "number", "int64")
 
       res.twolIngestedEventsBytesSum = ObjectSerializer.deserialize(data.twol_ingested_events_bytes_sum, "number", "int64")
+
+      res.vsphereHostTop99p = ObjectSerializer.deserialize(data.vsphere_host_top99p, "number", "int64")
 
 
       return res;
@@ -546,6 +557,8 @@ export class UsageSummaryDateOrg {
         res.trace_search_indexed_events_count_sum = ObjectSerializer.serialize(data.traceSearchIndexedEventsCountSum, "number", "int64")
 
         res.twol_ingested_events_bytes_sum = ObjectSerializer.serialize(data.twolIngestedEventsBytesSum, "number", "int64")
+
+        res.vsphere_host_top99p = ObjectSerializer.serialize(data.vsphereHostTop99p, "number", "int64")
 
         return res
     }

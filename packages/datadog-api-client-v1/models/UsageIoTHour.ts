@@ -21,7 +21,7 @@ export class UsageIoTHour {
     */
     'hour'?: Date;
     /**
-    * The total number of IoT device hours from the start of the given hour's month until the given hour.
+    * The total number of IoT devices during a given hour.
     */
     'iotDeviceCount'?: number;
 

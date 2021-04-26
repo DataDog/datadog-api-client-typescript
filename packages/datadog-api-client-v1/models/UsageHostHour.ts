@@ -68,6 +68,10 @@ export class UsageHostHour {
     * Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
     */
     'opentelemetryHostCount'?: number;
+    /**
+    * Contains the total number of hosts that reported via vSphere integration (and were NOT running the Datadog Agent).
+    */
+    'vsphereHostCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -136,6 +140,11 @@ export class UsageHostHour {
             "baseName": "opentelemetry_host_count",
             "type": "number",
             "format": "int64"
+        },
+        "vsphereHostCount": {
+            "baseName": "vsphere_host_count",
+            "type": "number",
+            "format": "int64"
         }    };
 
     static getAttributeTypeMap() {
@@ -170,6 +179,8 @@ export class UsageHostHour {
       res.infraAzureAppService = ObjectSerializer.deserialize(data.infra_azure_app_service, "number", "int64")
 
       res.opentelemetryHostCount = ObjectSerializer.deserialize(data.opentelemetry_host_count, "number", "int64")
+
+      res.vsphereHostCount = ObjectSerializer.deserialize(data.vsphere_host_count, "number", "int64")
 
 
       return res;
@@ -208,6 +219,8 @@ export class UsageHostHour {
         res.infra_azure_app_service = ObjectSerializer.serialize(data.infraAzureAppService, "number", "int64")
 
         res.opentelemetry_host_count = ObjectSerializer.serialize(data.opentelemetryHostCount, "number", "int64")
+
+        res.vsphere_host_count = ObjectSerializer.serialize(data.vsphereHostCount, "number", "int64")
 
         return res
     }

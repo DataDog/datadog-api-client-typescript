@@ -201,6 +201,10 @@ export class UsageSummaryResponse {
     * An array of objects regarding hourly usage.
     */
     'usage'?: Array<UsageSummaryDate>;
+    /**
+    * Shows the 99th percentile of all vSphere hosts over all hours in the current months for all organizations.
+    */
+    'vsphereHostTop99pSum'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -434,6 +438,11 @@ export class UsageSummaryResponse {
             "baseName": "usage",
             "type": "Array<UsageSummaryDate>",
             "format": ""
+        },
+        "vsphereHostTop99pSum": {
+            "baseName": "vsphere_host_top99p_sum",
+            "type": "number",
+            "format": "int64"
         }    };
 
     static getAttributeTypeMap() {
@@ -534,6 +543,8 @@ export class UsageSummaryResponse {
       res.twolIngestedEventsBytesAggSum = ObjectSerializer.deserialize(data.twol_ingested_events_bytes_agg_sum, "number", "int64")
 
       res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageSummaryDate>", "")
+
+      res.vsphereHostTop99pSum = ObjectSerializer.deserialize(data.vsphere_host_top99p_sum, "number", "int64")
 
 
       return res;
@@ -638,6 +649,8 @@ export class UsageSummaryResponse {
         res.twol_ingested_events_bytes_agg_sum = ObjectSerializer.serialize(data.twolIngestedEventsBytesAggSum, "number", "int64")
 
         res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageSummaryDate>", "")
+
+        res.vsphere_host_top99p_sum = ObjectSerializer.serialize(data.vsphereHostTop99pSum, "number", "int64")
 
         return res
     }
