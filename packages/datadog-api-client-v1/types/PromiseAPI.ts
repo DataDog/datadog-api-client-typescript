@@ -2255,16 +2255,6 @@ export class PromiseSyntheticsApi {
     }
 
     /**
-     * Create a Synthetic test.
-     * Create a test
-     * @param body Details of the test to create.
-     */
-    public createTest(body: SyntheticsTestDetails, options?: Configuration): Promise<SyntheticsTestDetails> {
-        const result = this.api.createTest(body, options);
-        return result.toPromise();
-    }
-
-    /**
      * Delete a Synthetics global variable.
      * Delete a global variable
      * @param variableId The ID of the global variable.
@@ -2461,17 +2451,6 @@ export class PromiseSyntheticsApi {
      */
     public updatePrivateLocation(locationId: string, body: SyntheticsPrivateLocation, options?: Configuration): Promise<SyntheticsPrivateLocation> {
         const result = this.api.updatePrivateLocation(locationId, body, options);
-        return result.toPromise();
-    }
-
-    /**
-     * Edit the configuration of a Synthetic test.
-     * Edit a test
-     * @param publicId The public ID of the test to get details from.
-     * @param body New test details to be saved.
-     */
-    public updateTest(publicId: string, body: SyntheticsTestDetails, options?: Configuration): Promise<SyntheticsTestDetails> {
-        const result = this.api.updateTest(publicId, body, options);
         return result.toPromise();
     }
 

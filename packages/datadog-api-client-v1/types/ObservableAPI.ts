@@ -3943,30 +3943,6 @@ export class ObservableSyntheticsApi {
     }
  
     /**
-     * Create a Synthetic test.
-     * Create a test
-     * @param body Details of the test to create.
-     */
-    public createTest(body: SyntheticsTestDetails, options?: Configuration): Observable<SyntheticsTestDetails> {
-        const requestContextPromise = this.requestFactory.createTest(body, options);
-
-        // build promise chain
-        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createTest(rsp)));
-            }));
-    }
- 
-    /**
      * Delete a Synthetics global variable.
      * Delete a global variable
      * @param variableId The ID of the global variable.
@@ -4429,31 +4405,6 @@ export class ObservableSyntheticsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updatePrivateLocation(rsp)));
-            }));
-    }
- 
-    /**
-     * Edit the configuration of a Synthetic test.
-     * Edit a test
-     * @param publicId The public ID of the test to get details from.
-     * @param body New test details to be saved.
-     */
-    public updateTest(publicId: string, body: SyntheticsTestDetails, options?: Configuration): Observable<SyntheticsTestDetails> {
-        const requestContextPromise = this.requestFactory.updateTest(publicId, body, options);
-
-        // build promise chain
-        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateTest(rsp)));
             }));
     }
  
