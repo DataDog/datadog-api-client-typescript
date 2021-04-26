@@ -88,7 +88,7 @@ export class UsageSummaryDate {
     /**
     * Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations.
     */
-    'herokuHostTop99pSum'?: number;
+    'herokuHostTop99p'?: number;
     /**
     * Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.
     */
@@ -108,11 +108,11 @@ export class UsageSummaryDate {
     /**
     * Shows the sum of all IoT devices over all hours in the current date for all organizations.
     */
-    'iotDeviceAggSum'?: number;
+    'iotDeviceSum'?: number;
     /**
     * Shows the 99th percentile of all IoT devices over all hours in the current date all organizations.
     */
-    'iotDeviceTop99pSum'?: number;
+    'iotDeviceTop99p'?: number;
     /**
     * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations.
     */
@@ -136,7 +136,7 @@ export class UsageSummaryDate {
     /**
     * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
     */
-    'opentelemetryHostTop99pSum'?: number;
+    'opentelemetryHostTop99p'?: number;
     /**
     * Organizations associated with a user.
     */
@@ -169,6 +169,10 @@ export class UsageSummaryDate {
     * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations.
     */
     'twolIngestedEventsBytesSum'?: number;
+    /**
+    * Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.
+    */
+    'vsphereHostTop99p'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -258,8 +262,8 @@ export class UsageSummaryDate {
             "type": "number",
             "format": "int64"
         },
-        "herokuHostTop99pSum": {
-            "baseName": "heroku_host_top99p_sum",
+        "herokuHostTop99p": {
+            "baseName": "heroku_host_top99p",
             "type": "number",
             "format": "int64"
         },
@@ -283,13 +287,13 @@ export class UsageSummaryDate {
             "type": "number",
             "format": "int64"
         },
-        "iotDeviceAggSum": {
-            "baseName": "iot_device_agg_sum",
+        "iotDeviceSum": {
+            "baseName": "iot_device_sum",
             "type": "number",
             "format": "int64"
         },
-        "iotDeviceTop99pSum": {
-            "baseName": "iot_device_top99p_sum",
+        "iotDeviceTop99p": {
+            "baseName": "iot_device_top99p",
             "type": "number",
             "format": "int64"
         },
@@ -318,8 +322,8 @@ export class UsageSummaryDate {
             "type": "number",
             "format": "int64"
         },
-        "opentelemetryHostTop99pSum": {
-            "baseName": "opentelemetry_host_top99p_sum",
+        "opentelemetryHostTop99p": {
+            "baseName": "opentelemetry_host_top99p",
             "type": "number",
             "format": "int64"
         },
@@ -360,6 +364,11 @@ export class UsageSummaryDate {
         },
         "twolIngestedEventsBytesSum": {
             "baseName": "twol_ingested_events_bytes_sum",
+            "type": "number",
+            "format": "int64"
+        },
+        "vsphereHostTop99p": {
+            "baseName": "vsphere_host_top99p",
             "type": "number",
             "format": "int64"
         }    };
@@ -405,7 +414,7 @@ export class UsageSummaryDate {
 
       res.gcpHostTop99p = ObjectSerializer.deserialize(data.gcp_host_top99p, "number", "int64")
 
-      res.herokuHostTop99pSum = ObjectSerializer.deserialize(data.heroku_host_top99p_sum, "number", "int64")
+      res.herokuHostTop99p = ObjectSerializer.deserialize(data.heroku_host_top99p, "number", "int64")
 
       res.incidentManagementMonthlyActiveUsersHwm = ObjectSerializer.deserialize(data.incident_management_monthly_active_users_hwm, "number", "int64")
 
@@ -415,9 +424,9 @@ export class UsageSummaryDate {
 
       res.ingestedEventsBytesSum = ObjectSerializer.deserialize(data.ingested_events_bytes_sum, "number", "int64")
 
-      res.iotDeviceAggSum = ObjectSerializer.deserialize(data.iot_device_agg_sum, "number", "int64")
+      res.iotDeviceSum = ObjectSerializer.deserialize(data.iot_device_sum, "number", "int64")
 
-      res.iotDeviceTop99pSum = ObjectSerializer.deserialize(data.iot_device_top99p_sum, "number", "int64")
+      res.iotDeviceTop99p = ObjectSerializer.deserialize(data.iot_device_top99p, "number", "int64")
 
       res.mobileRumSessionCountAndroidSum = ObjectSerializer.deserialize(data.mobile_rum_session_count_android_sum, "number", "int64")
 
@@ -429,7 +438,7 @@ export class UsageSummaryDate {
 
       res.npmHostTop99p = ObjectSerializer.deserialize(data.npm_host_top99p, "number", "int64")
 
-      res.opentelemetryHostTop99pSum = ObjectSerializer.deserialize(data.opentelemetry_host_top99p_sum, "number", "int64")
+      res.opentelemetryHostTop99p = ObjectSerializer.deserialize(data.opentelemetry_host_top99p, "number", "int64")
 
       res.orgs = ObjectSerializer.deserialize(data.orgs, "Array<UsageSummaryDateOrg>", "")
 
@@ -446,6 +455,8 @@ export class UsageSummaryDate {
       res.traceSearchIndexedEventsCountSum = ObjectSerializer.deserialize(data.trace_search_indexed_events_count_sum, "number", "int64")
 
       res.twolIngestedEventsBytesSum = ObjectSerializer.deserialize(data.twol_ingested_events_bytes_sum, "number", "int64")
+
+      res.vsphereHostTop99p = ObjectSerializer.deserialize(data.vsphere_host_top99p, "number", "int64")
 
 
       return res;
@@ -493,7 +504,7 @@ export class UsageSummaryDate {
 
         res.gcp_host_top99p = ObjectSerializer.serialize(data.gcpHostTop99p, "number", "int64")
 
-        res.heroku_host_top99p_sum = ObjectSerializer.serialize(data.herokuHostTop99pSum, "number", "int64")
+        res.heroku_host_top99p = ObjectSerializer.serialize(data.herokuHostTop99p, "number", "int64")
 
         res.incident_management_monthly_active_users_hwm = ObjectSerializer.serialize(data.incidentManagementMonthlyActiveUsersHwm, "number", "int64")
 
@@ -503,9 +514,9 @@ export class UsageSummaryDate {
 
         res.ingested_events_bytes_sum = ObjectSerializer.serialize(data.ingestedEventsBytesSum, "number", "int64")
 
-        res.iot_device_agg_sum = ObjectSerializer.serialize(data.iotDeviceAggSum, "number", "int64")
+        res.iot_device_sum = ObjectSerializer.serialize(data.iotDeviceSum, "number", "int64")
 
-        res.iot_device_top99p_sum = ObjectSerializer.serialize(data.iotDeviceTop99pSum, "number", "int64")
+        res.iot_device_top99p = ObjectSerializer.serialize(data.iotDeviceTop99p, "number", "int64")
 
         res.mobile_rum_session_count_android_sum = ObjectSerializer.serialize(data.mobileRumSessionCountAndroidSum, "number", "int64")
 
@@ -517,7 +528,7 @@ export class UsageSummaryDate {
 
         res.npm_host_top99p = ObjectSerializer.serialize(data.npmHostTop99p, "number", "int64")
 
-        res.opentelemetry_host_top99p_sum = ObjectSerializer.serialize(data.opentelemetryHostTop99pSum, "number", "int64")
+        res.opentelemetry_host_top99p = ObjectSerializer.serialize(data.opentelemetryHostTop99p, "number", "int64")
 
         res.orgs = ObjectSerializer.serialize(data.orgs, "Array<UsageSummaryDateOrg>", "")
 
@@ -534,6 +545,8 @@ export class UsageSummaryDate {
         res.trace_search_indexed_events_count_sum = ObjectSerializer.serialize(data.traceSearchIndexedEventsCountSum, "number", "int64")
 
         res.twol_ingested_events_bytes_sum = ObjectSerializer.serialize(data.twolIngestedEventsBytesSum, "number", "int64")
+
+        res.vsphere_host_top99p = ObjectSerializer.serialize(data.vsphereHostTop99p, "number", "int64")
 
         return res
     }
