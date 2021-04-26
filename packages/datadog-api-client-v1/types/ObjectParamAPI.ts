@@ -3256,15 +3256,6 @@ export interface SyntheticsApiCreateSyntheticsBrowserTestRequest {
     body: SyntheticsBrowserTest
 }
 
-export interface SyntheticsApiCreateTestRequest {
-    /**
-     * Details of the test to create.
-     * @type SyntheticsTestDetails
-     * @memberof SyntheticsApicreateTest
-     */
-    body: SyntheticsTestDetails
-}
-
 export interface SyntheticsApiDeleteGlobalVariableRequest {
     /**
      * The ID of the global variable.
@@ -3496,21 +3487,6 @@ export interface SyntheticsApiUpdatePrivateLocationRequest {
     body: SyntheticsPrivateLocation
 }
 
-export interface SyntheticsApiUpdateTestRequest {
-    /**
-     * The public ID of the test to get details from.
-     * @type string
-     * @memberof SyntheticsApiupdateTest
-     */
-    publicId: string
-    /**
-     * New test details to be saved.
-     * @type SyntheticsTestDetails
-     * @memberof SyntheticsApiupdateTest
-     */
-    body: SyntheticsTestDetails
-}
-
 export interface SyntheticsApiUpdateTestPauseStatusRequest {
     /**
      * The public ID of the Synthetic test to update.
@@ -3567,15 +3543,6 @@ export class ObjectSyntheticsApi {
      */
     public createSyntheticsBrowserTest(param: SyntheticsApiCreateSyntheticsBrowserTestRequest, options?: Configuration): Promise<SyntheticsBrowserTest> {
         return this.api.createSyntheticsBrowserTest(param.body,  options).toPromise();
-    }
-
-    /**
-     * Create a Synthetic test.
-     * Create a test
-     * @param param the request object
-     */
-    public createTest(param: SyntheticsApiCreateTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
-        return this.api.createTest(param.body,  options).toPromise();
     }
 
     /**
@@ -3747,15 +3714,6 @@ export class ObjectSyntheticsApi {
      */
     public updatePrivateLocation(param: SyntheticsApiUpdatePrivateLocationRequest, options?: Configuration): Promise<SyntheticsPrivateLocation> {
         return this.api.updatePrivateLocation(param.locationId, param.body,  options).toPromise();
-    }
-
-    /**
-     * Edit the configuration of a Synthetic test.
-     * Edit a test
-     * @param param the request object
-     */
-    public updateTest(param: SyntheticsApiUpdateTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
-        return this.api.updateTest(param.publicId, param.body,  options).toPromise();
     }
 
     /**
