@@ -43,6 +43,10 @@ export class SyntheticsTestRequest {
     */
     'noSavingResponseBody'?: boolean;
     /**
+    * Number of pings to use per test.
+    */
+    'numberOfPackets'?: number;
+    /**
     * Port to use when performing the test.
     */
     'port'?: number;
@@ -50,6 +54,10 @@ export class SyntheticsTestRequest {
     * Query to use for the test.
     */
     'query'?: any;
+    /**
+    * Turns on a traceroute probe to discover all gateways along the path to the host destination.
+    */
+    'shouldTrackHops'?: boolean;
     /**
     * Timeout in seconds for the test.
     */
@@ -102,6 +110,11 @@ export class SyntheticsTestRequest {
             "type": "boolean",
             "format": ""
         },
+        "numberOfPackets": {
+            "baseName": "numberOfPackets",
+            "type": "number",
+            "format": "int32"
+        },
         "port": {
             "baseName": "port",
             "type": "number",
@@ -110,6 +123,11 @@ export class SyntheticsTestRequest {
         "query": {
             "baseName": "query",
             "type": "any",
+            "format": ""
+        },
+        "shouldTrackHops": {
+            "baseName": "shouldTrackHops",
+            "type": "boolean",
             "format": ""
         },
         "timeout": {
@@ -150,9 +168,13 @@ export class SyntheticsTestRequest {
 
       res.noSavingResponseBody = ObjectSerializer.deserialize(data.noSavingResponseBody, "boolean", "")
 
+      res.numberOfPackets = ObjectSerializer.deserialize(data.numberOfPackets, "number", "int32")
+
       res.port = ObjectSerializer.deserialize(data.port, "number", "int64")
 
       res.query = ObjectSerializer.deserialize(data.query, "any", "")
+
+      res.shouldTrackHops = ObjectSerializer.deserialize(data.shouldTrackHops, "boolean", "")
 
       res.timeout = ObjectSerializer.deserialize(data.timeout, "number", "double")
 
@@ -190,9 +212,13 @@ export class SyntheticsTestRequest {
 
         res.noSavingResponseBody = ObjectSerializer.serialize(data.noSavingResponseBody, "boolean", "")
 
+        res.numberOfPackets = ObjectSerializer.serialize(data.numberOfPackets, "number", "int32")
+
         res.port = ObjectSerializer.serialize(data.port, "number", "int64")
 
         res.query = ObjectSerializer.serialize(data.query, "any", "")
+
+        res.shouldTrackHops = ObjectSerializer.serialize(data.shouldTrackHops, "boolean", "")
 
         res.timeout = ObjectSerializer.serialize(data.timeout, "number", "double")
 

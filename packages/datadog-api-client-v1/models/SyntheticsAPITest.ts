@@ -137,7 +137,7 @@ export class SyntheticsAPITest {
           throw TypeError(`invalid enum value ${ data.status } for status`);
       }
 
-      if (['http', 'ssl', 'tcp', 'dns', 'multi', undefined].includes(data.subtype)) {
+      if (['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', undefined].includes(data.subtype)) {
           res.subtype = data.subtype;
       } else {
           throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
@@ -183,7 +183,7 @@ export class SyntheticsAPITest {
             throw TypeError(`invalid enum value ${ data.status } for status`);
         }
 
-        if (['http', 'ssl', 'tcp', 'dns', 'multi', undefined].includes(data.subtype)) {
+        if (['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', undefined].includes(data.subtype)) {
             res.subtype = data.subtype;
         } else {
             throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
