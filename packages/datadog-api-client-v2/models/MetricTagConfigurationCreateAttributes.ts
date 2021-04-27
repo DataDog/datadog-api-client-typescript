@@ -58,7 +58,7 @@ export class MetricTagConfigurationCreateAttributes {
       if (data.metric_type === undefined) {
           throw new TypeError("missing required attribute 'metric_type' on 'MetricTagConfigurationCreateAttributes' object");
       }
-      if (['gauge', 'count', 'distribution', undefined].includes(data.metric_type)) {
+      if (['gauge', 'count', 'rate', 'distribution', undefined].includes(data.metric_type)) {
           res.metricType = data.metric_type;
       } else {
           throw TypeError(`invalid enum value ${ data.metric_type } for metric_type`);
@@ -86,7 +86,7 @@ export class MetricTagConfigurationCreateAttributes {
         if (data.metricType === undefined) {
             throw new TypeError("missing required attribute 'metric_type' on 'MetricTagConfigurationCreateAttributes' object");
         }
-        if (['gauge', 'count', 'distribution', undefined].includes(data.metricType)) {
+        if (['gauge', 'count', 'rate', 'distribution', undefined].includes(data.metricType)) {
             res.metric_type = data.metricType;
         } else {
             throw TypeError(`invalid enum value ${ data.metricType } for metricType`);

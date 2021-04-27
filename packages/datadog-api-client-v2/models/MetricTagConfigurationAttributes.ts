@@ -75,7 +75,7 @@ export class MetricTagConfigurationAttributes {
 
       res.includePercentiles = ObjectSerializer.deserialize(data.include_percentiles, "boolean", "")
 
-      if (['gauge', 'count', 'distribution', undefined].includes(data.metric_type)) {
+      if (['gauge', 'count', 'rate', 'distribution', undefined].includes(data.metric_type)) {
           res.metricType = data.metric_type;
       } else {
           throw TypeError(`invalid enum value ${ data.metric_type } for metric_type`);
@@ -101,7 +101,7 @@ export class MetricTagConfigurationAttributes {
 
         res.include_percentiles = ObjectSerializer.serialize(data.includePercentiles, "boolean", "")
 
-        if (['gauge', 'count', 'distribution', undefined].includes(data.metricType)) {
+        if (['gauge', 'count', 'rate', 'distribution', undefined].includes(data.metricType)) {
             res.metric_type = data.metricType;
         } else {
             throw TypeError(`invalid enum value ${ data.metricType } for metricType`);
