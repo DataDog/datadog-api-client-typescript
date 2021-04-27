@@ -76,7 +76,7 @@ export class SyntheticsAssertionTarget {
       if (data.type === undefined) {
           throw new TypeError("missing required attribute 'type' on 'SyntheticsAssertionTarget' object");
       }
-      if (['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', undefined].includes(data.type)) {
+      if (['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', undefined].includes(data.type)) {
           res.type = data.type;
       } else {
           throw TypeError(`invalid enum value ${ data.type } for type`);
@@ -110,7 +110,7 @@ export class SyntheticsAssertionTarget {
         if (data.type === undefined) {
             throw new TypeError("missing required attribute 'type' on 'SyntheticsAssertionTarget' object");
         }
-        if (['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', undefined].includes(data.type)) {
+        if (['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', undefined].includes(data.type)) {
             res.type = data.type;
         } else {
             throw TypeError(`invalid enum value ${ data.type } for type`);

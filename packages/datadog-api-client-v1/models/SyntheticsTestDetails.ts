@@ -149,7 +149,7 @@ export class SyntheticsTestDetails {
 
       res.steps = ObjectSerializer.deserialize(data.steps, "Array<SyntheticsStep>", "")
 
-      if (['http', 'ssl', 'tcp', 'dns', 'multi', undefined].includes(data.subtype)) {
+      if (['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', undefined].includes(data.subtype)) {
           res.subtype = data.subtype;
       } else {
           throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
@@ -197,7 +197,7 @@ export class SyntheticsTestDetails {
 
         res.steps = ObjectSerializer.serialize(data.steps, "Array<SyntheticsStep>", "")
 
-        if (['http', 'ssl', 'tcp', 'dns', 'multi', undefined].includes(data.subtype)) {
+        if (['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', undefined].includes(data.subtype)) {
             res.subtype = data.subtype;
         } else {
             throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
