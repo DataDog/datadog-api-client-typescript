@@ -6,6 +6,8 @@ import { fixKeys, pathLookup } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
+import fs from "fs";
+import path from "path";
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
@@ -28,8 +30,15 @@ Given(
   }
 );
 
-Given(/body (.*)/, function (this: World, body: string) {
+Given(/body with value (.*)/, function (this: World, body: string) {
   this.opts["body"] = JSON.parse(body.templated(this.fixtures), fixKeys);
+});
+
+Given(/body from file "(.*)"/, function (this: World, filename: string) {
+  const content = fs
+    .readFileSync(path.join(__dirname, `../${this.apiVersion}`, filename))
+    .toString();
+  this.opts["body"] = JSON.parse(content.templated(this.fixtures), fixKeys);
 });
 
 Given(
