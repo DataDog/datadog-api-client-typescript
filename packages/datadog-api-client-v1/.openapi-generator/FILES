@@ -524,6 +524,7 @@ models/WidgetFieldSort.ts
 models/WidgetFormula.ts
 models/WidgetFormulaLimit.ts
 models/WidgetGrouping.ts
+models/WidgetHorizontalAlign.ts
 models/WidgetImageSizing.ts
 models/WidgetLayout.ts
 models/WidgetLayoutType.ts
@@ -548,6 +549,7 @@ models/WidgetTextAlign.ts
 models/WidgetTickEdge.ts
 models/WidgetTime.ts
 models/WidgetTimeWindows.ts
+models/WidgetVerticalAlign.ts
 models/WidgetViewMode.ts
 models/WidgetVizType.ts
 models/all.ts

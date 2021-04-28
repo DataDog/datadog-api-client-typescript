@@ -11,6 +11,7 @@
 import { NoteWidgetDefinitionType } from './NoteWidgetDefinitionType';
 import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTickEdge } from './WidgetTickEdge';
+import { WidgetVerticalAlign } from './WidgetVerticalAlign';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
@@ -32,6 +33,10 @@ export class NoteWidgetDefinition {
     */
     'fontSize'?: string;
     /**
+    * Whether to add padding or not.
+    */
+    'hasPadding'?: boolean;
+    /**
     * Whether to show a tick or not.
     */
     'showTick'?: boolean;
@@ -42,6 +47,7 @@ export class NoteWidgetDefinition {
     */
     'tickPos'?: string;
     'type': NoteWidgetDefinitionType;
+    'verticalAlign'?: WidgetVerticalAlign;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -59,6 +65,11 @@ export class NoteWidgetDefinition {
         "fontSize": {
             "baseName": "font_size",
             "type": "string",
+            "format": ""
+        },
+        "hasPadding": {
+            "baseName": "has_padding",
+            "type": "boolean",
             "format": ""
         },
         "showTick": {
@@ -85,6 +96,11 @@ export class NoteWidgetDefinition {
             "baseName": "type",
             "type": "NoteWidgetDefinitionType",
             "format": ""
+        },
+        "verticalAlign": {
+            "baseName": "vertical_align",
+            "type": "WidgetVerticalAlign",
+            "format": ""
         }    };
 
     static getAttributeTypeMap() {
@@ -102,6 +118,8 @@ export class NoteWidgetDefinition {
       res.content = ObjectSerializer.deserialize(data.content, "string", "")
 
       res.fontSize = ObjectSerializer.deserialize(data.font_size, "string", "")
+
+      res.hasPadding = ObjectSerializer.deserialize(data.has_padding, "boolean", "")
 
       res.showTick = ObjectSerializer.deserialize(data.show_tick, "boolean", "")
 
@@ -128,6 +146,12 @@ export class NoteWidgetDefinition {
           throw TypeError(`invalid enum value ${ data.type } for type`);
       }
 
+      if (['center', 'top', 'bottom', undefined].includes(data.vertical_align)) {
+          res.verticalAlign = data.vertical_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.vertical_align } for vertical_align`);
+      }
+
 
       return res;
     }
@@ -148,6 +172,8 @@ export class NoteWidgetDefinition {
         res.content = ObjectSerializer.serialize(data.content, "string", "")
 
         res.font_size = ObjectSerializer.serialize(data.fontSize, "string", "")
+
+        res.has_padding = ObjectSerializer.serialize(data.hasPadding, "boolean", "")
 
         res.show_tick = ObjectSerializer.serialize(data.showTick, "boolean", "")
 
@@ -172,6 +198,12 @@ export class NoteWidgetDefinition {
             res.type = data.type;
         } else {
             throw TypeError(`invalid enum value ${ data.type } for type`);
+        }
+
+        if (['center', 'top', 'bottom', undefined].includes(data.verticalAlign)) {
+            res.vertical_align = data.verticalAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.verticalAlign } for verticalAlign`);
         }
 
         return res

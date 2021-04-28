@@ -12,7 +12,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The layout for a widget on a free dashboard.
+* The layout for a widget on a `free` or **new dashboard layout** dashboard.
 */
 
 export class WidgetLayout {
@@ -20,6 +20,10 @@ export class WidgetLayout {
     * The height of the widget. Should be a non-negative integer.
     */
     'height': number;
+    /**
+    * Whether the widget should be the first one on the second column in high density or not. **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
+    */
+    'isColumnBreak'?: boolean;
     /**
     * The width of the widget. Should be a non-negative integer.
     */
@@ -40,6 +44,11 @@ export class WidgetLayout {
             "baseName": "height",
             "type": "number",
             "format": "int64"
+        },
+        "isColumnBreak": {
+            "baseName": "is_column_break",
+            "type": "boolean",
+            "format": ""
         },
         "width": {
             "baseName": "width",
@@ -68,6 +77,8 @@ export class WidgetLayout {
           throw new TypeError("missing required attribute 'height' on 'WidgetLayout' object");
       }
       res.height = ObjectSerializer.deserialize(data.height, "number", "int64")
+
+      res.isColumnBreak = ObjectSerializer.deserialize(data.is_column_break, "boolean", "")
 
       if (data.width === undefined) {
           throw new TypeError("missing required attribute 'width' on 'WidgetLayout' object");
@@ -100,6 +111,8 @@ export class WidgetLayout {
             throw new TypeError("missing required attribute 'height' on 'WidgetLayout' object");
         }
         res.height = ObjectSerializer.serialize(data.height, "number", "int64")
+
+        res.is_column_break = ObjectSerializer.serialize(data.isColumnBreak, "boolean", "")
 
         if (data.width === undefined) {
             throw new TypeError("missing required attribute 'width' on 'WidgetLayout' object");

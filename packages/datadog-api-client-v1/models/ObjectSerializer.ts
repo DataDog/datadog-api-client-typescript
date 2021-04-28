@@ -486,6 +486,7 @@ import { WidgetFieldSort } from './WidgetFieldSort';
 import { WidgetFormula } from './WidgetFormula';
 import { WidgetFormulaLimit } from './WidgetFormulaLimit';
 import { WidgetGrouping } from './WidgetGrouping';
+import { WidgetHorizontalAlign } from './WidgetHorizontalAlign';
 import { WidgetImageSizing } from './WidgetImageSizing';
 import { WidgetLayout } from './WidgetLayout';
 import { WidgetLayoutType } from './WidgetLayoutType';
@@ -510,6 +511,7 @@ import { WidgetTextAlign } from './WidgetTextAlign';
 import { WidgetTickEdge } from './WidgetTickEdge';
 import { WidgetTime } from './WidgetTime';
 import { WidgetTimeWindows } from './WidgetTimeWindows';
+import { WidgetVerticalAlign } from './WidgetVerticalAlign';
 import { WidgetViewMode } from './WidgetViewMode';
 import { WidgetVizType } from './WidgetVizType';
 
@@ -640,6 +642,7 @@ let enumsMap: Set<string> = new Set<string>([
     "WidgetDisplayType",
     "WidgetEventSize",
     "WidgetGrouping",
+    "WidgetHorizontalAlign",
     "WidgetImageSizing",
     "WidgetLayoutType",
     "WidgetLineType",
@@ -659,6 +662,7 @@ let enumsMap: Set<string> = new Set<string>([
     "WidgetTextAlign",
     "WidgetTickEdge",
     "WidgetTimeWindows",
+    "WidgetVerticalAlign",
     "WidgetViewMode",
     "WidgetVizType",
 ]);

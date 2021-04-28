@@ -12,14 +12,12 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* Size of the margins around the image. **Note**: `small` and `large` values are deprecated.
+* Vertical alignment.
 */
 
-export type WidgetMargin = typeof SM | typeof MD | typeof LG | typeof SMALL | typeof LARGE ;
-export const SM = 'sm';
-export const MD = 'md';
-export const LG = 'lg';
-export const SMALL = 'small';
-export const LARGE = 'large';
+export type WidgetVerticalAlign = typeof CENTER | typeof TOP | typeof BOTTOM ;
+export const CENTER = 'center';
+export const TOP = 'top';
+export const BOTTOM = 'bottom';
 
 
