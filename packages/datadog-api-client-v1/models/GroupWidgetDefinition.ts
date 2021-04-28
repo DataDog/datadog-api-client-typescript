@@ -24,7 +24,15 @@ export class GroupWidgetDefinition {
     * Background color of the group title.
     */
     'backgroundColor'?: string;
+    /**
+    * URL of image to display as a banner for the group.
+    */
+    'bannerImg'?: string;
     'layoutType': WidgetLayoutType;
+    /**
+    * Whether to show the title or not.
+    */
+    'showTitle'?: boolean;
     /**
     * Title of the widget.
     */
@@ -44,9 +52,19 @@ export class GroupWidgetDefinition {
             "type": "string",
             "format": ""
         },
+        "bannerImg": {
+            "baseName": "banner_img",
+            "type": "string",
+            "format": ""
+        },
         "layoutType": {
             "baseName": "layout_type",
             "type": "WidgetLayoutType",
+            "format": ""
+        },
+        "showTitle": {
+            "baseName": "show_title",
+            "type": "boolean",
             "format": ""
         },
         "title": {
@@ -79,6 +97,8 @@ export class GroupWidgetDefinition {
 
       res.backgroundColor = ObjectSerializer.deserialize(data.background_color, "string", "")
 
+      res.bannerImg = ObjectSerializer.deserialize(data.banner_img, "string", "")
+
       if (data.layout_type === undefined) {
           throw new TypeError("missing required attribute 'layout_type' on 'GroupWidgetDefinition' object");
       }
@@ -87,6 +107,8 @@ export class GroupWidgetDefinition {
       } else {
           throw TypeError(`invalid enum value ${ data.layout_type } for layout_type`);
       }
+
+      res.showTitle = ObjectSerializer.deserialize(data.show_title, "boolean", "")
 
       res.title = ObjectSerializer.deserialize(data.title, "string", "")
 
@@ -124,6 +146,8 @@ export class GroupWidgetDefinition {
         }
         res.background_color = ObjectSerializer.serialize(data.backgroundColor, "string", "")
 
+        res.banner_img = ObjectSerializer.serialize(data.bannerImg, "string", "")
+
         if (data.layoutType === undefined) {
             throw new TypeError("missing required attribute 'layout_type' on 'GroupWidgetDefinition' object");
         }
@@ -132,6 +156,8 @@ export class GroupWidgetDefinition {
         } else {
             throw TypeError(`invalid enum value ${ data.layoutType } for layoutType`);
         }
+
+        res.show_title = ObjectSerializer.serialize(data.showTitle, "boolean", "")
 
         res.title = ObjectSerializer.serialize(data.title, "string", "")
 

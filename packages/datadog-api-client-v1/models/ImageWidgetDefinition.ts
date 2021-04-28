@@ -9,8 +9,10 @@
  */
 
 import { ImageWidgetDefinitionType } from './ImageWidgetDefinitionType';
+import { WidgetHorizontalAlign } from './WidgetHorizontalAlign';
 import { WidgetImageSizing } from './WidgetImageSizing';
 import { WidgetMargin } from './WidgetMargin';
+import { WidgetVerticalAlign } from './WidgetVerticalAlign';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
@@ -19,6 +21,15 @@ import { ObjectSerializer } from './ObjectSerializer';
 */
 
 export class ImageWidgetDefinition {
+    /**
+    * Whether to display a background or not.
+    */
+    'hasBackground'?: boolean;
+    /**
+    * Whether to display a border or not.
+    */
+    'hasBorder'?: boolean;
+    'horizontalAlign'?: WidgetHorizontalAlign;
     'margin'?: WidgetMargin;
     'sizing'?: WidgetImageSizing;
     'type': ImageWidgetDefinitionType;
@@ -26,10 +37,30 @@ export class ImageWidgetDefinition {
     * URL of the image.
     */
     'url': string;
+    /**
+    * URL of the image in dark mode.
+    */
+    'urlDarkTheme'?: string;
+    'verticalAlign'?: WidgetVerticalAlign;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "hasBackground": {
+            "baseName": "has_background",
+            "type": "boolean",
+            "format": ""
+        },
+        "hasBorder": {
+            "baseName": "has_border",
+            "type": "boolean",
+            "format": ""
+        },
+        "horizontalAlign": {
+            "baseName": "horizontal_align",
+            "type": "WidgetHorizontalAlign",
+            "format": ""
+        },
         "margin": {
             "baseName": "margin",
             "type": "WidgetMargin",
@@ -49,6 +80,16 @@ export class ImageWidgetDefinition {
             "baseName": "url",
             "type": "string",
             "format": ""
+        },
+        "urlDarkTheme": {
+            "baseName": "url_dark_theme",
+            "type": "string",
+            "format": ""
+        },
+        "verticalAlign": {
+            "baseName": "vertical_align",
+            "type": "WidgetVerticalAlign",
+            "format": ""
         }    };
 
     static getAttributeTypeMap() {
@@ -58,13 +99,23 @@ export class ImageWidgetDefinition {
     static deserialize(data: {[key: string]: any}): ImageWidgetDefinition {
       let res = new ImageWidgetDefinition();
 
-      if (['small', 'large', undefined].includes(data.margin)) {
+      res.hasBackground = ObjectSerializer.deserialize(data.has_background, "boolean", "")
+
+      res.hasBorder = ObjectSerializer.deserialize(data.has_border, "boolean", "")
+
+      if (['center', 'left', 'right', undefined].includes(data.horizontal_align)) {
+          res.horizontalAlign = data.horizontal_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.horizontal_align } for horizontal_align`);
+      }
+
+      if (['sm', 'md', 'lg', 'small', 'large', undefined].includes(data.margin)) {
           res.margin = data.margin;
       } else {
           throw TypeError(`invalid enum value ${ data.margin } for margin`);
       }
 
-      if (['zoom', 'fit', 'center', undefined].includes(data.sizing)) {
+      if (['fill', 'contain', 'cover', 'none', 'scale-down', 'zoom', 'fit', 'center', undefined].includes(data.sizing)) {
           res.sizing = data.sizing;
       } else {
           throw TypeError(`invalid enum value ${ data.sizing } for sizing`);
@@ -84,6 +135,14 @@ export class ImageWidgetDefinition {
       }
       res.url = ObjectSerializer.deserialize(data.url, "string", "")
 
+      res.urlDarkTheme = ObjectSerializer.deserialize(data.url_dark_theme, "string", "")
+
+      if (['center', 'top', 'bottom', undefined].includes(data.vertical_align)) {
+          res.verticalAlign = data.vertical_align;
+      } else {
+          throw TypeError(`invalid enum value ${ data.vertical_align } for vertical_align`);
+      }
+
 
       return res;
     }
@@ -96,13 +155,23 @@ export class ImageWidgetDefinition {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        if (['small', 'large', undefined].includes(data.margin)) {
+        res.has_background = ObjectSerializer.serialize(data.hasBackground, "boolean", "")
+
+        res.has_border = ObjectSerializer.serialize(data.hasBorder, "boolean", "")
+
+        if (['center', 'left', 'right', undefined].includes(data.horizontalAlign)) {
+            res.horizontal_align = data.horizontalAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.horizontalAlign } for horizontalAlign`);
+        }
+
+        if (['sm', 'md', 'lg', 'small', 'large', undefined].includes(data.margin)) {
             res.margin = data.margin;
         } else {
             throw TypeError(`invalid enum value ${ data.margin } for margin`);
         }
 
-        if (['zoom', 'fit', 'center', undefined].includes(data.sizing)) {
+        if (['fill', 'contain', 'cover', 'none', 'scale-down', 'zoom', 'fit', 'center', undefined].includes(data.sizing)) {
             res.sizing = data.sizing;
         } else {
             throw TypeError(`invalid enum value ${ data.sizing } for sizing`);
@@ -121,6 +190,14 @@ export class ImageWidgetDefinition {
             throw new TypeError("missing required attribute 'url' on 'ImageWidgetDefinition' object");
         }
         res.url = ObjectSerializer.serialize(data.url, "string", "")
+
+        res.url_dark_theme = ObjectSerializer.serialize(data.urlDarkTheme, "string", "")
+
+        if (['center', 'top', 'bottom', undefined].includes(data.verticalAlign)) {
+            res.vertical_align = data.verticalAlign;
+        } else {
+            throw TypeError(`invalid enum value ${ data.verticalAlign } for verticalAlign`);
+        }
 
         return res
     }
