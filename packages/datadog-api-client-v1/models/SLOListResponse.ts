@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { SLOListResponseMetadata } from './SLOListResponseMetadata';
 import { ServiceLevelObjective } from './ServiceLevelObjective';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
@@ -25,6 +26,7 @@ export class SLOListResponse {
     * An array of error messages. Each endpoint documents how/whether this field is used.
     */
     'errors'?: Array<string>;
+    'metadata'?: SLOListResponseMetadata;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,6 +40,11 @@ export class SLOListResponse {
             "baseName": "errors",
             "type": "Array<string>",
             "format": ""
+        },
+        "metadata": {
+            "baseName": "metadata",
+            "type": "SLOListResponseMetadata",
+            "format": ""
         }    };
 
     static getAttributeTypeMap() {
@@ -50,6 +57,8 @@ export class SLOListResponse {
       res.data = ObjectSerializer.deserialize(data.data, "Array<ServiceLevelObjective>", "")
 
       res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+
+      res.metadata = ObjectSerializer.deserialize(data.metadata, "SLOListResponseMetadata", "")
 
 
       return res;
@@ -66,6 +75,8 @@ export class SLOListResponse {
         res.data = ObjectSerializer.serialize(data.data, "Array<ServiceLevelObjective>", "")
 
         res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
+
+        res.metadata = ObjectSerializer.serialize(data.metadata, "SLOListResponseMetadata", "")
 
         return res
     }

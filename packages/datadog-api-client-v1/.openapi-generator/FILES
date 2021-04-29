@@ -298,6 +298,8 @@ models/SLOHistoryResponseData.ts
 models/SLOHistoryResponseError.ts
 models/SLOHistorySLIData.ts
 models/SLOListResponse.ts
+models/SLOListResponseMetadata.ts
+models/SLOListResponseMetadataPage.ts
 models/SLOResponse.ts
 models/SLOThreshold.ts
 models/SLOTimeframe.ts
