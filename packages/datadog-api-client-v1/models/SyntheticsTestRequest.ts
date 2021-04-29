@@ -30,6 +30,10 @@ export class SyntheticsTestRequest {
     */
     'dnsServer'?: string;
     /**
+    * DNS server port to use for DNS tests.
+    */
+    'dnsServerPort'?: number;
+    /**
     * Headers to include when performing the test.
     */
     'headers'?: { [key: string]: string; };
@@ -89,6 +93,11 @@ export class SyntheticsTestRequest {
             "baseName": "dnsServer",
             "type": "string",
             "format": ""
+        },
+        "dnsServerPort": {
+            "baseName": "dnsServerPort",
+            "type": "number",
+            "format": "int32"
         },
         "headers": {
             "baseName": "headers",
@@ -156,6 +165,8 @@ export class SyntheticsTestRequest {
 
       res.dnsServer = ObjectSerializer.deserialize(data.dnsServer, "string", "")
 
+      res.dnsServerPort = ObjectSerializer.deserialize(data.dnsServerPort, "number", "int32")
+
       res.headers = ObjectSerializer.deserialize(data.headers, "{ [key: string]: string; }", "")
 
       res.host = ObjectSerializer.deserialize(data.host, "string", "")
@@ -199,6 +210,8 @@ export class SyntheticsTestRequest {
         res.certificate = ObjectSerializer.serialize(data.certificate, "SyntheticsTestRequestCertificate", "")
 
         res.dnsServer = ObjectSerializer.serialize(data.dnsServer, "string", "")
+
+        res.dnsServerPort = ObjectSerializer.serialize(data.dnsServerPort, "number", "int32")
 
         res.headers = ObjectSerializer.serialize(data.headers, "{ [key: string]: string; }", "")
 

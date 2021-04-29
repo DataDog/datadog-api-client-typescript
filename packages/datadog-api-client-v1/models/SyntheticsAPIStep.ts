@@ -21,6 +21,10 @@ import { ObjectSerializer } from './ObjectSerializer';
 
 export class SyntheticsAPIStep {
     /**
+    * Determines whether or not to continue with test if this step fails.
+    */
+    'allowFailure'?: boolean;
+    /**
     * Array of assertions used for the test.
     */
     'assertions'?: Array<SyntheticsAssertion>;
@@ -28,6 +32,10 @@ export class SyntheticsAPIStep {
     * Array of values to parse and save as variables from the response.
     */
     'extractedValues'?: Array<SyntheticsParsingOptions>;
+    /**
+    * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+    */
+    'isCritical'?: boolean;
     /**
     * The name of the step.
     */
@@ -38,6 +46,11 @@ export class SyntheticsAPIStep {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "allowFailure": {
+            "baseName": "allowFailure",
+            "type": "boolean",
+            "format": ""
+        },
         "assertions": {
             "baseName": "assertions",
             "type": "Array<SyntheticsAssertion>",
@@ -46,6 +59,11 @@ export class SyntheticsAPIStep {
         "extractedValues": {
             "baseName": "extractedValues",
             "type": "Array<SyntheticsParsingOptions>",
+            "format": ""
+        },
+        "isCritical": {
+            "baseName": "isCritical",
+            "type": "boolean",
             "format": ""
         },
         "name": {
@@ -71,9 +89,13 @@ export class SyntheticsAPIStep {
     static deserialize(data: {[key: string]: any}): SyntheticsAPIStep {
       let res = new SyntheticsAPIStep();
 
+      res.allowFailure = ObjectSerializer.deserialize(data.allowFailure, "boolean", "")
+
       res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
 
       res.extractedValues = ObjectSerializer.deserialize(data.extractedValues, "Array<SyntheticsParsingOptions>", "")
+
+      res.isCritical = ObjectSerializer.deserialize(data.isCritical, "boolean", "")
 
       res.name = ObjectSerializer.deserialize(data.name, "string", "")
 
@@ -97,9 +119,13 @@ export class SyntheticsAPIStep {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
+        res.allowFailure = ObjectSerializer.serialize(data.allowFailure, "boolean", "")
+
         res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
 
         res.extractedValues = ObjectSerializer.serialize(data.extractedValues, "Array<SyntheticsParsingOptions>", "")
+
+        res.isCritical = ObjectSerializer.serialize(data.isCritical, "boolean", "")
 
         res.name = ObjectSerializer.serialize(data.name, "string", "")
 

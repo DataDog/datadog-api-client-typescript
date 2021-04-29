@@ -25,6 +25,10 @@ export class SyntheticsBrowserTestConfig {
     'assertions': Array<SyntheticsAssertion>;
     'request': SyntheticsTestRequest;
     /**
+    * Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+    */
+    'setCookie'?: string;
+    /**
     * Array of variables used for the test steps.
     */
     'variables'?: Array<SyntheticsBrowserVariable>;
@@ -40,6 +44,11 @@ export class SyntheticsBrowserTestConfig {
         "request": {
             "baseName": "request",
             "type": "SyntheticsTestRequest",
+            "format": ""
+        },
+        "setCookie": {
+            "baseName": "setCookie",
+            "type": "string",
             "format": ""
         },
         "variables": {
@@ -65,6 +74,8 @@ export class SyntheticsBrowserTestConfig {
       }
       res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
 
+      res.setCookie = ObjectSerializer.deserialize(data.setCookie, "string", "")
+
       res.variables = ObjectSerializer.deserialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
 
 
@@ -88,6 +99,8 @@ export class SyntheticsBrowserTestConfig {
             throw new TypeError("missing required attribute 'request' on 'SyntheticsBrowserTestConfig' object");
         }
         res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
+
+        res.setCookie = ObjectSerializer.serialize(data.setCookie, "string", "")
 
         res.variables = ObjectSerializer.serialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
 
