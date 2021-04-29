@@ -264,6 +264,8 @@ import { SLOHistoryResponseData } from '../models/SLOHistoryResponseData';
 import { SLOHistoryResponseError } from '../models/SLOHistoryResponseError';
 import { SLOHistorySLIData } from '../models/SLOHistorySLIData';
 import { SLOListResponse } from '../models/SLOListResponse';
+import { SLOListResponseMetadata } from '../models/SLOListResponseMetadata';
+import { SLOListResponseMetadataPage } from '../models/SLOListResponseMetadataPage';
 import { SLOResponse } from '../models/SLOResponse';
 import { SLOThreshold } from '../models/SLOThreshold';
 import { SLOTimeframe } from '../models/SLOTimeframe';

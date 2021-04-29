@@ -260,6 +260,8 @@ import { SLOHistoryResponseData } from './SLOHistoryResponseData';
 import { SLOHistoryResponseError } from './SLOHistoryResponseError';
 import { SLOHistorySLIData } from './SLOHistorySLIData';
 import { SLOListResponse } from './SLOListResponse';
+import { SLOListResponseMetadata } from './SLOListResponseMetadata';
+import { SLOListResponseMetadataPage } from './SLOListResponseMetadataPage';
 import { SLOResponse } from './SLOResponse';
 import { SLOThreshold } from './SLOThreshold';
 import { SLOTimeframe } from './SLOTimeframe';
@@ -872,6 +874,8 @@ let typeMap: {[index: string]: any} = {
     "SLOHistoryResponseError": SLOHistoryResponseError,
     "SLOHistorySLIData": SLOHistorySLIData,
     "SLOListResponse": SLOListResponse,
+    "SLOListResponseMetadata": SLOListResponseMetadata,
+    "SLOListResponseMetadataPage": SLOListResponseMetadataPage,
     "SLOResponse": SLOResponse,
     "SLOThreshold": SLOThreshold,
     "SLOWidgetDefinition": SLOWidgetDefinition,
