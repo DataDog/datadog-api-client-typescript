@@ -234,14 +234,16 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      * Get a service level objective object.
      * Get an SLO's details
      * @param sloId The ID of the service level objective object.
+     * @param withConfiguredAlertIds Get the IDs of SLO monitors that reference this SLO.
      */
-    public async getSLO(sloId: string, options?: Configuration): Promise<RequestContext> {
+    public async getSLO(sloId: string, withConfiguredAlertIds?: boolean, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'sloId' is not null or undefined
         if (sloId === null || sloId === undefined) {
             throw new RequiredError('Required parameter sloId was null or undefined when calling getSLO.');
         }
+
 
 
         // Path Params
@@ -254,6 +256,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         requestContext.setHttpConfig(config.httpConfig);
 
         // Query Params
+        if (withConfiguredAlertIds !== undefined) {
+            requestContext.setQueryParam("with_configured_alert_ids", ObjectSerializer.serialize(withConfiguredAlertIds, "boolean", ""));
+        }
 
         // Header Params
 

@@ -267,6 +267,7 @@ import { SLOListResponse } from '../models/SLOListResponse';
 import { SLOListResponseMetadata } from '../models/SLOListResponseMetadata';
 import { SLOListResponseMetadataPage } from '../models/SLOListResponseMetadataPage';
 import { SLOResponse } from '../models/SLOResponse';
+import { SLOResponseData } from '../models/SLOResponseData';
 import { SLOThreshold } from '../models/SLOThreshold';
 import { SLOTimeframe } from '../models/SLOTimeframe';
 import { SLOType } from '../models/SLOType';
@@ -2050,9 +2051,10 @@ export class PromiseServiceLevelObjectivesApi {
      * Get a service level objective object.
      * Get an SLO's details
      * @param sloId The ID of the service level objective object.
+     * @param withConfiguredAlertIds Get the IDs of SLO monitors that reference this SLO.
      */
-    public getSLO(sloId: string, options?: Configuration): Promise<SLOResponse> {
-        const result = this.api.getSLO(sloId, options);
+    public getSLO(sloId: string, withConfiguredAlertIds?: boolean, options?: Configuration): Promise<SLOResponse> {
+        const result = this.api.getSLO(sloId, withConfiguredAlertIds, options);
         return result.toPromise();
     }
 

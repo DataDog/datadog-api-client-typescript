@@ -263,6 +263,7 @@ import { SLOListResponse } from './SLOListResponse';
 import { SLOListResponseMetadata } from './SLOListResponseMetadata';
 import { SLOListResponseMetadataPage } from './SLOListResponseMetadataPage';
 import { SLOResponse } from './SLOResponse';
+import { SLOResponseData } from './SLOResponseData';
 import { SLOThreshold } from './SLOThreshold';
 import { SLOTimeframe } from './SLOTimeframe';
 import { SLOType } from './SLOType';
@@ -877,6 +878,7 @@ let typeMap: {[index: string]: any} = {
     "SLOListResponseMetadata": SLOListResponseMetadata,
     "SLOListResponseMetadataPage": SLOListResponseMetadataPage,
     "SLOResponse": SLOResponse,
+    "SLOResponseData": SLOResponseData,
     "SLOThreshold": SLOThreshold,
     "SLOWidgetDefinition": SLOWidgetDefinition,
     "ScatterPlotRequest": ScatterPlotRequest,
