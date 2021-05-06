@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { ServiceLevelObjective } from './ServiceLevelObjective';
+import { SLOResponseData } from './SLOResponseData';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
@@ -17,7 +17,7 @@ import { ObjectSerializer } from './ObjectSerializer';
 */
 
 export class SLOResponse {
-    'data'?: ServiceLevelObjective;
+    'data'?: SLOResponseData;
     /**
     * An array of error messages. Each endpoint documents how/whether this field is used.
     */
@@ -28,7 +28,7 @@ export class SLOResponse {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "data": {
             "baseName": "data",
-            "type": "ServiceLevelObjective",
+            "type": "SLOResponseData",
             "format": ""
         },
         "errors": {
@@ -44,7 +44,7 @@ export class SLOResponse {
     static deserialize(data: {[key: string]: any}): SLOResponse {
       let res = new SLOResponse();
 
-      res.data = ObjectSerializer.deserialize(data.data, "ServiceLevelObjective", "")
+      res.data = ObjectSerializer.deserialize(data.data, "SLOResponseData", "")
 
       res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
 
@@ -60,7 +60,7 @@ export class SLOResponse {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.data = ObjectSerializer.serialize(data.data, "ServiceLevelObjective", "")
+        res.data = ObjectSerializer.serialize(data.data, "SLOResponseData", "")
 
         res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
 

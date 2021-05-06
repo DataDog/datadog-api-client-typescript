@@ -267,6 +267,7 @@ import { SLOListResponse } from '../models/SLOListResponse';
 import { SLOListResponseMetadata } from '../models/SLOListResponseMetadata';
 import { SLOListResponseMetadataPage } from '../models/SLOListResponseMetadataPage';
 import { SLOResponse } from '../models/SLOResponse';
+import { SLOResponseData } from '../models/SLOResponseData';
 import { SLOThreshold } from '../models/SLOThreshold';
 import { SLOTimeframe } from '../models/SLOTimeframe';
 import { SLOType } from '../models/SLOType';
@@ -2889,6 +2890,12 @@ export interface ServiceLevelObjectivesApiGetSLORequest {
      * @memberof ServiceLevelObjectivesApigetSLO
      */
     sloId: string
+    /**
+     * Get the IDs of SLO monitors that reference this SLO.
+     * @type boolean
+     * @memberof ServiceLevelObjectivesApigetSLO
+     */
+    withConfiguredAlertIds?: boolean
 }
 
 export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
@@ -3009,7 +3016,7 @@ export class ObjectServiceLevelObjectivesApi {
      * @param param the request object
      */
     public getSLO(param: ServiceLevelObjectivesApiGetSLORequest, options?: Configuration): Promise<SLOResponse> {
-        return this.api.getSLO(param.sloId,  options).toPromise();
+        return this.api.getSLO(param.sloId, param.withConfiguredAlertIds,  options).toPromise();
     }
 
     /**
