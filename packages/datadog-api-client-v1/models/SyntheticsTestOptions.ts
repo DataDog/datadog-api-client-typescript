@@ -33,7 +33,7 @@ export class SyntheticsTestOptions {
     */
     'deviceIds'?: Array<SyntheticsDeviceID>;
     /**
-    * Whether or not to disable CORS mechanism. Currently only available for Chrome.
+    * Whether or not to disable CORS mechanism.
     */
     'disableCors'?: boolean;
     /**
