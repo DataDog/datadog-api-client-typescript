@@ -63,7 +63,7 @@ export class SecurityMonitoringRuleOptions {
     static deserialize(data: {[key: string]: any}): SecurityMonitoringRuleOptions {
       let res = new SecurityMonitoringRuleOptions();
 
-      if (['threshold', 'new_value', undefined].includes(data.detectionMethod)) {
+      if (['threshold', 'new_value', 'anomaly_detection', undefined].includes(data.detectionMethod)) {
           res.detectionMethod = data.detectionMethod;
       } else {
           throw TypeError(`invalid enum value ${ data.detectionMethod } for detectionMethod`);
@@ -101,7 +101,7 @@ export class SecurityMonitoringRuleOptions {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        if (['threshold', 'new_value', undefined].includes(data.detectionMethod)) {
+        if (['threshold', 'new_value', 'anomaly_detection', undefined].includes(data.detectionMethod)) {
             res.detectionMethod = data.detectionMethod;
         } else {
             throw TypeError(`invalid enum value ${ data.detectionMethod } for detectionMethod`);
