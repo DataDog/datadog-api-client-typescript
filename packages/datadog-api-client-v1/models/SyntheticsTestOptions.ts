@@ -142,7 +142,7 @@ export class SyntheticsTestOptions {
 
       res.retry = ObjectSerializer.deserialize(data.retry, "SyntheticsTestOptionsRetry", "")
 
-      if ([60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tick_every)) {
+      if ([30, 60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tick_every)) {
           res.tickEvery = data.tick_every;
       } else {
           throw TypeError(`invalid enum value ${ data.tick_every } for tick_every`);
@@ -180,7 +180,7 @@ export class SyntheticsTestOptions {
 
         res.retry = ObjectSerializer.serialize(data.retry, "SyntheticsTestOptionsRetry", "")
 
-        if ([60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tickEvery)) {
+        if ([30, 60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tickEvery)) {
             res.tick_every = data.tickEvery;
         } else {
             throw TypeError(`invalid enum value ${ data.tickEvery } for tickEvery`);
