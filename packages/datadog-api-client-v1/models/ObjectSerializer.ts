@@ -148,6 +148,10 @@ import { LogsArithmeticProcessor } from './LogsArithmeticProcessor';
 import { LogsArithmeticProcessorType } from './LogsArithmeticProcessorType';
 import { LogsAttributeRemapper } from './LogsAttributeRemapper';
 import { LogsAttributeRemapperType } from './LogsAttributeRemapperType';
+import { LogsByRetention } from './LogsByRetention';
+import { LogsByRetentionMonthlyUsage } from './LogsByRetentionMonthlyUsage';
+import { LogsByRetentionOrgUsage } from './LogsByRetentionOrgUsage';
+import { LogsByRetentionOrgs } from './LogsByRetentionOrgs';
 import { LogsCategoryProcessor } from './LogsCategoryProcessor';
 import { LogsCategoryProcessorCategory } from './LogsCategoryProcessorCategory';
 import { LogsCategoryProcessorType } from './LogsCategoryProcessorType';
@@ -178,6 +182,8 @@ import { LogsPipelineProcessorType } from './LogsPipelineProcessorType';
 import { LogsPipelinesOrder } from './LogsPipelinesOrder';
 import { LogsProcessor } from './LogsProcessor';
 import { LogsQueryCompute } from './LogsQueryCompute';
+import { LogsRetentionAggSumUsage } from './LogsRetentionAggSumUsage';
+import { LogsRetentionSumUsage } from './LogsRetentionSumUsage';
 import { LogsServiceRemapper } from './LogsServiceRemapper';
 import { LogsServiceRemapperType } from './LogsServiceRemapperType';
 import { LogsSort } from './LogsSort';
@@ -429,6 +435,8 @@ import { UsageLambdaHour } from './UsageLambdaHour';
 import { UsageLambdaResponse } from './UsageLambdaResponse';
 import { UsageLogsByIndexHour } from './UsageLogsByIndexHour';
 import { UsageLogsByIndexResponse } from './UsageLogsByIndexResponse';
+import { UsageLogsByRetentionHour } from './UsageLogsByRetentionHour';
+import { UsageLogsByRetentionResponse } from './UsageLogsByRetentionResponse';
 import { UsageLogsHour } from './UsageLogsHour';
 import { UsageLogsResponse } from './UsageLogsResponse';
 import { UsageMetricCategory } from './UsageMetricCategory';
@@ -788,6 +796,10 @@ let typeMap: {[index: string]: any} = {
     "LogsAPIErrorResponse": LogsAPIErrorResponse,
     "LogsArithmeticProcessor": LogsArithmeticProcessor,
     "LogsAttributeRemapper": LogsAttributeRemapper,
+    "LogsByRetention": LogsByRetention,
+    "LogsByRetentionMonthlyUsage": LogsByRetentionMonthlyUsage,
+    "LogsByRetentionOrgUsage": LogsByRetentionOrgUsage,
+    "LogsByRetentionOrgs": LogsByRetentionOrgs,
     "LogsCategoryProcessor": LogsCategoryProcessor,
     "LogsCategoryProcessorCategory": LogsCategoryProcessorCategory,
     "LogsDateRemapper": LogsDateRemapper,
@@ -810,6 +822,8 @@ let typeMap: {[index: string]: any} = {
     "LogsPipelineProcessor": LogsPipelineProcessor,
     "LogsPipelinesOrder": LogsPipelinesOrder,
     "LogsQueryCompute": LogsQueryCompute,
+    "LogsRetentionAggSumUsage": LogsRetentionAggSumUsage,
+    "LogsRetentionSumUsage": LogsRetentionSumUsage,
     "LogsServiceRemapper": LogsServiceRemapper,
     "LogsStatusRemapper": LogsStatusRemapper,
     "LogsStringBuilderProcessor": LogsStringBuilderProcessor,
@@ -1003,6 +1017,8 @@ let typeMap: {[index: string]: any} = {
     "UsageLambdaResponse": UsageLambdaResponse,
     "UsageLogsByIndexHour": UsageLogsByIndexHour,
     "UsageLogsByIndexResponse": UsageLogsByIndexResponse,
+    "UsageLogsByRetentionHour": UsageLogsByRetentionHour,
+    "UsageLogsByRetentionResponse": UsageLogsByRetentionResponse,
     "UsageLogsHour": UsageLogsHour,
     "UsageLogsResponse": UsageLogsResponse,
     "UsageNetworkFlowsHour": UsageNetworkFlowsHour,
