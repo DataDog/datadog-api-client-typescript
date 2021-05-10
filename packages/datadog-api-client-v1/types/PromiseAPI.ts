@@ -152,6 +152,10 @@ import { LogsArithmeticProcessor } from '../models/LogsArithmeticProcessor';
 import { LogsArithmeticProcessorType } from '../models/LogsArithmeticProcessorType';
 import { LogsAttributeRemapper } from '../models/LogsAttributeRemapper';
 import { LogsAttributeRemapperType } from '../models/LogsAttributeRemapperType';
+import { LogsByRetention } from '../models/LogsByRetention';
+import { LogsByRetentionMonthlyUsage } from '../models/LogsByRetentionMonthlyUsage';
+import { LogsByRetentionOrgUsage } from '../models/LogsByRetentionOrgUsage';
+import { LogsByRetentionOrgs } from '../models/LogsByRetentionOrgs';
 import { LogsCategoryProcessor } from '../models/LogsCategoryProcessor';
 import { LogsCategoryProcessorCategory } from '../models/LogsCategoryProcessorCategory';
 import { LogsCategoryProcessorType } from '../models/LogsCategoryProcessorType';
@@ -182,6 +186,8 @@ import { LogsPipelineProcessorType } from '../models/LogsPipelineProcessorType';
 import { LogsPipelinesOrder } from '../models/LogsPipelinesOrder';
 import { LogsProcessor } from '../models/LogsProcessor';
 import { LogsQueryCompute } from '../models/LogsQueryCompute';
+import { LogsRetentionAggSumUsage } from '../models/LogsRetentionAggSumUsage';
+import { LogsRetentionSumUsage } from '../models/LogsRetentionSumUsage';
 import { LogsServiceRemapper } from '../models/LogsServiceRemapper';
 import { LogsServiceRemapperType } from '../models/LogsServiceRemapperType';
 import { LogsSort } from '../models/LogsSort';
@@ -433,6 +439,8 @@ import { UsageLambdaHour } from '../models/UsageLambdaHour';
 import { UsageLambdaResponse } from '../models/UsageLambdaResponse';
 import { UsageLogsByIndexHour } from '../models/UsageLogsByIndexHour';
 import { UsageLogsByIndexResponse } from '../models/UsageLogsByIndexResponse';
+import { UsageLogsByRetentionHour } from '../models/UsageLogsByRetentionHour';
+import { UsageLogsByRetentionResponse } from '../models/UsageLogsByRetentionResponse';
 import { UsageLogsHour } from '../models/UsageLogsHour';
 import { UsageLogsResponse } from '../models/UsageLogsResponse';
 import { UsageMetricCategory } from '../models/UsageMetricCategory';
@@ -2767,6 +2775,17 @@ export class PromiseUsageMeteringApi {
      */
     public getUsageLogsByIndex(startHr: Date, endHr?: Date, indexName?: Array<string>, options?: Configuration): Promise<UsageLogsByIndexResponse> {
         const result = this.api.getUsageLogsByIndex(startHr, endHr, indexName, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get hourly usage for indexed logs by retention period.
+     * Get hourly logs usage by retention
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageLogsByRetention(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageLogsByRetentionResponse> {
+        const result = this.api.getUsageLogsByRetention(startHr, endHr, options);
         return result.toPromise();
     }
 
