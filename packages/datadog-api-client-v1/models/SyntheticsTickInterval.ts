@@ -15,7 +15,8 @@ import { ObjectSerializer } from './ObjectSerializer';
 * The frequency at which to run the Synthetic test (in seconds).
 */
 
-export type SyntheticsTickInterval = typeof MINUTE | typeof FIVE_MINUTES | typeof FIFTEEN_MINUTES | typeof THIRTY_MINUTES | typeof HOUR | typeof SIX_HOURS | typeof TWELVE_HOURS | typeof DAY | typeof WEEK ;
+export type SyntheticsTickInterval = typeof THIRTY_SECONDS | typeof MINUTE | typeof FIVE_MINUTES | typeof FIFTEEN_MINUTES | typeof THIRTY_MINUTES | typeof HOUR | typeof SIX_HOURS | typeof TWELVE_HOURS | typeof DAY | typeof WEEK ;
+export const THIRTY_SECONDS = 30;
 export const MINUTE = 60;
 export const FIVE_MINUTES = 300;
 export const FIFTEEN_MINUTES = 900;

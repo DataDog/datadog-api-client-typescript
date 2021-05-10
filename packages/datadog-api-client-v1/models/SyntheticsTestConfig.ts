@@ -28,7 +28,7 @@ export class SyntheticsTestConfig {
     * API tests only - array of variables used for the test.
     */
     'configVariables'?: Array<SyntheticsConfigVariable>;
-    'request': SyntheticsTestRequest;
+    'request'?: SyntheticsTestRequest;
     /**
     * Browser tests only - array of variables used for the test steps.
     */
@@ -72,9 +72,6 @@ export class SyntheticsTestConfig {
 
       res.configVariables = ObjectSerializer.deserialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
 
-      if (data.request === undefined) {
-          throw new TypeError("missing required attribute 'request' on 'SyntheticsTestConfig' object");
-      }
       res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
 
       res.variables = ObjectSerializer.deserialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
@@ -98,9 +95,6 @@ export class SyntheticsTestConfig {
 
         res.configVariables = ObjectSerializer.serialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
 
-        if (data.request === undefined) {
-            throw new TypeError("missing required attribute 'request' on 'SyntheticsTestConfig' object");
-        }
         res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
 
         res.variables = ObjectSerializer.serialize(data.variables, "Array<SyntheticsBrowserVariable>", "")
