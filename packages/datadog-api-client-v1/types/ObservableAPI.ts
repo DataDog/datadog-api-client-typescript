@@ -412,6 +412,7 @@ import { UsageAttributionMetadata } from '../models/UsageAttributionMetadata';
 import { UsageAttributionPagination } from '../models/UsageAttributionPagination';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
@@ -4817,12 +4818,12 @@ export class ObservableUsageMeteringApi {
      * Get Usage Attribution.
      * Get Usage Attribution
      * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-     * @param fields The specified field to search results for.
+     * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
      * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
      * @param sortName The field to sort by.
      */
-    public getUsageAttribution(startMonth: Date, fields: string, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Observable<UsageAttributionResponse> {
+    public getUsageAttribution(startMonth: Date, fields: UsageAttributionSupportedMetrics, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Observable<UsageAttributionResponse> {
         const requestContextPromise = this.requestFactory.getUsageAttribution(startMonth, fields, endMonth, sortDirection, sortName, options);
 
         // build promise chain

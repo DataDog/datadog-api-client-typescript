@@ -411,6 +411,7 @@ import { UsageAttributionMetadata } from '../models/UsageAttributionMetadata';
 import { UsageAttributionPagination } from '../models/UsageAttributionPagination';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
@@ -4039,11 +4040,11 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
      */
     startMonth: Date
     /**
-     * The specified field to search results for.
-     * @type string
+     * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+     * @type UsageAttributionSupportedMetrics
      * @memberof UsageMeteringApigetUsageAttribution
      */
-    fields: string
+    fields: UsageAttributionSupportedMetrics
     /**
      * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
      * @type Date
