@@ -11,6 +11,7 @@ import { APIErrorResponse } from '../models/APIErrorResponse';
 import { UsageAnalyzedLogsResponse } from '../models/UsageAnalyzedLogsResponse';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
 import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
 import { UsageCustomReportsResponse } from '../models/UsageCustomReportsResponse';
@@ -470,12 +471,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      * Get Usage Attribution.
      * Get Usage Attribution
      * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-     * @param fields The specified field to search results for.
+     * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
      * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
      * @param sortName The field to sort by.
      */
-    public async getUsageAttribution(startMonth: Date, fields: string, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Promise<RequestContext> {
+    public async getUsageAttribution(startMonth: Date, fields: UsageAttributionSupportedMetrics, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'startMonth' is not null or undefined
@@ -506,7 +507,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("start_month", ObjectSerializer.serialize(startMonth, "Date", "date-time"));
         }
         if (fields !== undefined) {
-            requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "string", ""));
+            requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "UsageAttributionSupportedMetrics", ""));
         }
         if (endMonth !== undefined) {
             requestContext.setQueryParam("end_month", ObjectSerializer.serialize(endMonth, "Date", "date-time"));

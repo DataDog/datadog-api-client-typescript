@@ -445,6 +445,7 @@ models/UsageAttributionMetadata.ts
 models/UsageAttributionPagination.ts
 models/UsageAttributionResponse.ts
 models/UsageAttributionSort.ts
+models/UsageAttributionSupportedMetrics.ts
 models/UsageAttributionValues.ts
 models/UsageBillableSummaryBody.ts
 models/UsageBillableSummaryHour.ts

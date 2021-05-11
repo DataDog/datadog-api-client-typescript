@@ -407,6 +407,7 @@ import { UsageAttributionMetadata } from './UsageAttributionMetadata';
 import { UsageAttributionPagination } from './UsageAttributionPagination';
 import { UsageAttributionResponse } from './UsageAttributionResponse';
 import { UsageAttributionSort } from './UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from './UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from './UsageAttributionValues';
 import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
@@ -641,6 +642,7 @@ let enumsMap: Set<string> = new Set<string>([
     "TimeseriesWidgetLegendLayout",
     "ToplistWidgetDefinitionType",
     "UsageAttributionSort",
+    "UsageAttributionSupportedMetrics",
     "UsageMetricCategory",
     "UsageReportsType",
     "UsageSort",
