@@ -67,6 +67,7 @@ import { DistributionWidgetRequest } from '../models/DistributionWidgetRequest';
 import { DistributionWidgetXAxis } from '../models/DistributionWidgetXAxis';
 import { DistributionWidgetYAxis } from '../models/DistributionWidgetYAxis';
 import { Downtime } from '../models/Downtime';
+import { DowntimeChild } from '../models/DowntimeChild';
 import { DowntimeRecurrence } from '../models/DowntimeRecurrence';
 import { Event } from '../models/Event';
 import { EventAlertType } from '../models/EventAlertType';
