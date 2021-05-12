@@ -224,6 +224,43 @@ import { MonitorType } from '../models/MonitorType';
 import { MonitorUpdateRequest } from '../models/MonitorUpdateRequest';
 import { NoteWidgetDefinition } from '../models/NoteWidgetDefinition';
 import { NoteWidgetDefinitionType } from '../models/NoteWidgetDefinitionType';
+import { NotebookAbsoluteTime } from '../models/NotebookAbsoluteTime';
+import { NotebookAuthor } from '../models/NotebookAuthor';
+import { NotebookCellCreateRequest } from '../models/NotebookCellCreateRequest';
+import { NotebookCellCreateRequestAttributes } from '../models/NotebookCellCreateRequestAttributes';
+import { NotebookCellResourceType } from '../models/NotebookCellResourceType';
+import { NotebookCellResponse } from '../models/NotebookCellResponse';
+import { NotebookCellResponseAttributes } from '../models/NotebookCellResponseAttributes';
+import { NotebookCellTime } from '../models/NotebookCellTime';
+import { NotebookCellUpdateRequest } from '../models/NotebookCellUpdateRequest';
+import { NotebookCellUpdateRequestAttributes } from '../models/NotebookCellUpdateRequestAttributes';
+import { NotebookCreateData } from '../models/NotebookCreateData';
+import { NotebookCreateDataAttributes } from '../models/NotebookCreateDataAttributes';
+import { NotebookCreateRequest } from '../models/NotebookCreateRequest';
+import { NotebookDistributionCellAttributes } from '../models/NotebookDistributionCellAttributes';
+import { NotebookGlobalTime } from '../models/NotebookGlobalTime';
+import { NotebookGraphSize } from '../models/NotebookGraphSize';
+import { NotebookHeatMapCellAttributes } from '../models/NotebookHeatMapCellAttributes';
+import { NotebookLogStreamCellAttributes } from '../models/NotebookLogStreamCellAttributes';
+import { NotebookMarkdownCellAttributes } from '../models/NotebookMarkdownCellAttributes';
+import { NotebookMarkdownCellDefinition } from '../models/NotebookMarkdownCellDefinition';
+import { NotebookMarkdownCellDefinitionType } from '../models/NotebookMarkdownCellDefinitionType';
+import { NotebookRelativeTime } from '../models/NotebookRelativeTime';
+import { NotebookResourceType } from '../models/NotebookResourceType';
+import { NotebookResponse } from '../models/NotebookResponse';
+import { NotebookResponseData } from '../models/NotebookResponseData';
+import { NotebookResponseDataAttributes } from '../models/NotebookResponseDataAttributes';
+import { NotebookSplitBy } from '../models/NotebookSplitBy';
+import { NotebookStatus } from '../models/NotebookStatus';
+import { NotebookTimeseriesCellAttributes } from '../models/NotebookTimeseriesCellAttributes';
+import { NotebookToplistCellAttributes } from '../models/NotebookToplistCellAttributes';
+import { NotebookUpdateCell } from '../models/NotebookUpdateCell';
+import { NotebookUpdateData } from '../models/NotebookUpdateData';
+import { NotebookUpdateDataAttributes } from '../models/NotebookUpdateDataAttributes';
+import { NotebookUpdateRequest } from '../models/NotebookUpdateRequest';
+import { NotebooksResponse } from '../models/NotebooksResponse';
+import { NotebooksResponseMeta } from '../models/NotebooksResponseMeta';
+import { NotebooksResponsePage } from '../models/NotebooksResponsePage';
 import { Organization } from '../models/Organization';
 import { OrganizationBilling } from '../models/OrganizationBilling';
 import { OrganizationCreateBody } from '../models/OrganizationCreateBody';
@@ -1765,6 +1802,83 @@ export class PromiseMonitorsApi {
      */
     public validateMonitor(body: Monitor, options?: Configuration): Promise<Monitor> {
         const result = this.api.validateMonitor(body, options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableNotebooksApi } from './ObservableAPI';
+
+import { NotebooksApiRequestFactory, NotebooksApiResponseProcessor} from "../apis/NotebooksApi";
+export class PromiseNotebooksApi {
+    private api: ObservableNotebooksApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: NotebooksApiRequestFactory,
+        responseProcessor?: NotebooksApiResponseProcessor
+    ) {
+        this.api = new ObservableNotebooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create a notebook using the specified options.
+     * Create a notebook
+     * @param body The JSON description of the notebook you want to create.
+     */
+    public createNotebook(body: NotebookCreateRequest, options?: Configuration): Promise<NotebookResponse> {
+        const result = this.api.createNotebook(body, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete a notebook using the specified ID.
+     * Delete a notebook
+     * @param notebookId Unique ID, assigned when you create the notebook.
+     */
+    public deleteNotebook(notebookId: number, options?: Configuration): Promise<void> {
+        const result = this.api.deleteNotebook(notebookId, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get a notebook using the specified notebook ID.
+     * Get a notebook
+     * @param notebookId Unique ID, assigned when you create the notebook.
+     */
+    public getNotebook(notebookId: number, options?: Configuration): Promise<NotebookResponse> {
+        const result = this.api.getNotebook(notebookId, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+     * Get all notebooks
+     * @param authorHandle Return notebooks created by the given &#x60;author_handle&#x60;.
+     * @param excludeAuthorHandle Return notebooks not created by the given &#x60;author_handle&#x60;.
+     * @param start The index of the first notebook you want returned.
+     * @param count The number of notebooks to be returned.
+     * @param sortField Sort by field &#x60;modified&#x60; or &#x60;name&#x60;.
+     * @param sortDir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
+     * @param query Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
+     * @param includeCells Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+     */
+    public listNotebooks(authorHandle?: string, excludeAuthorHandle?: string, start?: number, count?: number, sortField?: string, sortDir?: string, query?: string, includeCells?: boolean, options?: Configuration): Promise<NotebooksResponse> {
+        const result = this.api.listNotebooks(authorHandle, excludeAuthorHandle, start, count, sortField, sortDir, query, includeCells, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update a notebook using the specified ID.
+     * Update a notebook
+     * @param notebookId Unique ID, assigned when you create the notebook.
+     * @param body Update notebook request body.
+     */
+    public updateNotebook(notebookId: number, body: NotebookUpdateRequest, options?: Configuration): Promise<NotebookResponse> {
+        const result = this.api.updateNotebook(notebookId, body, options);
         return result.toPromise();
     }
 
