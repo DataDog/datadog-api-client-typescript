@@ -152,6 +152,10 @@ import { LogsArithmeticProcessor } from '../models/LogsArithmeticProcessor';
 import { LogsArithmeticProcessorType } from '../models/LogsArithmeticProcessorType';
 import { LogsAttributeRemapper } from '../models/LogsAttributeRemapper';
 import { LogsAttributeRemapperType } from '../models/LogsAttributeRemapperType';
+import { LogsByRetention } from '../models/LogsByRetention';
+import { LogsByRetentionMonthlyUsage } from '../models/LogsByRetentionMonthlyUsage';
+import { LogsByRetentionOrgUsage } from '../models/LogsByRetentionOrgUsage';
+import { LogsByRetentionOrgs } from '../models/LogsByRetentionOrgs';
 import { LogsCategoryProcessor } from '../models/LogsCategoryProcessor';
 import { LogsCategoryProcessorCategory } from '../models/LogsCategoryProcessorCategory';
 import { LogsCategoryProcessorType } from '../models/LogsCategoryProcessorType';
@@ -182,6 +186,8 @@ import { LogsPipelineProcessorType } from '../models/LogsPipelineProcessorType';
 import { LogsPipelinesOrder } from '../models/LogsPipelinesOrder';
 import { LogsProcessor } from '../models/LogsProcessor';
 import { LogsQueryCompute } from '../models/LogsQueryCompute';
+import { LogsRetentionAggSumUsage } from '../models/LogsRetentionAggSumUsage';
+import { LogsRetentionSumUsage } from '../models/LogsRetentionSumUsage';
 import { LogsServiceRemapper } from '../models/LogsServiceRemapper';
 import { LogsServiceRemapperType } from '../models/LogsServiceRemapperType';
 import { LogsSort } from '../models/LogsSort';
@@ -267,6 +273,7 @@ import { SLOListResponse } from '../models/SLOListResponse';
 import { SLOListResponseMetadata } from '../models/SLOListResponseMetadata';
 import { SLOListResponseMetadataPage } from '../models/SLOListResponseMetadataPage';
 import { SLOResponse } from '../models/SLOResponse';
+import { SLOResponseData } from '../models/SLOResponseData';
 import { SLOThreshold } from '../models/SLOThreshold';
 import { SLOTimeframe } from '../models/SLOTimeframe';
 import { SLOType } from '../models/SLOType';
@@ -404,6 +411,7 @@ import { UsageAttributionMetadata } from '../models/UsageAttributionMetadata';
 import { UsageAttributionPagination } from '../models/UsageAttributionPagination';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
@@ -432,6 +440,8 @@ import { UsageLambdaHour } from '../models/UsageLambdaHour';
 import { UsageLambdaResponse } from '../models/UsageLambdaResponse';
 import { UsageLogsByIndexHour } from '../models/UsageLogsByIndexHour';
 import { UsageLogsByIndexResponse } from '../models/UsageLogsByIndexResponse';
+import { UsageLogsByRetentionHour } from '../models/UsageLogsByRetentionHour';
+import { UsageLogsByRetentionResponse } from '../models/UsageLogsByRetentionResponse';
 import { UsageLogsHour } from '../models/UsageLogsHour';
 import { UsageLogsResponse } from '../models/UsageLogsResponse';
 import { UsageMetricCategory } from '../models/UsageMetricCategory';
@@ -2889,6 +2899,12 @@ export interface ServiceLevelObjectivesApiGetSLORequest {
      * @memberof ServiceLevelObjectivesApigetSLO
      */
     sloId: string
+    /**
+     * Get the IDs of SLO monitors that reference this SLO.
+     * @type boolean
+     * @memberof ServiceLevelObjectivesApigetSLO
+     */
+    withConfiguredAlertIds?: boolean
 }
 
 export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
@@ -3009,7 +3025,7 @@ export class ObjectServiceLevelObjectivesApi {
      * @param param the request object
      */
     public getSLO(param: ServiceLevelObjectivesApiGetSLORequest, options?: Configuration): Promise<SLOResponse> {
-        return this.api.getSLO(param.sloId,  options).toPromise();
+        return this.api.getSLO(param.sloId, param.withConfiguredAlertIds,  options).toPromise();
     }
 
     /**
@@ -4024,11 +4040,11 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
      */
     startMonth: Date
     /**
-     * The specified field to search results for.
-     * @type string
+     * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+     * @type UsageAttributionSupportedMetrics
      * @memberof UsageMeteringApigetUsageAttribution
      */
-    fields: string
+    fields: UsageAttributionSupportedMetrics
     /**
      * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
      * @type Date
@@ -4182,6 +4198,21 @@ export interface UsageMeteringApiGetUsageLogsByIndexRequest {
      * @memberof UsageMeteringApigetUsageLogsByIndex
      */
     indexName?: Array<string>
+}
+
+export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageLogsByRetention
+     */
+    startHr: Date
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageLogsByRetention
+     */
+    endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageNetworkFlowsRequest {
@@ -4555,6 +4586,15 @@ export class ObjectUsageMeteringApi {
      */
     public getUsageLogsByIndex(param: UsageMeteringApiGetUsageLogsByIndexRequest, options?: Configuration): Promise<UsageLogsByIndexResponse> {
         return this.api.getUsageLogsByIndex(param.startHr, param.endHr, param.indexName,  options).toPromise();
+    }
+
+    /**
+     * Get hourly usage for indexed logs by retention period.
+     * Get hourly logs usage by retention
+     * @param param the request object
+     */
+    public getUsageLogsByRetention(param: UsageMeteringApiGetUsageLogsByRetentionRequest, options?: Configuration): Promise<UsageLogsByRetentionResponse> {
+        return this.api.getUsageLogsByRetention(param.startHr, param.endHr,  options).toPromise();
     }
 
     /**

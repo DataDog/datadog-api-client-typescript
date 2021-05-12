@@ -185,6 +185,10 @@ models/LogsArithmeticProcessor.ts
 models/LogsArithmeticProcessorType.ts
 models/LogsAttributeRemapper.ts
 models/LogsAttributeRemapperType.ts
+models/LogsByRetention.ts
+models/LogsByRetentionMonthlyUsage.ts
+models/LogsByRetentionOrgUsage.ts
+models/LogsByRetentionOrgs.ts
 models/LogsCategoryProcessor.ts
 models/LogsCategoryProcessorCategory.ts
 models/LogsCategoryProcessorType.ts
@@ -215,6 +219,8 @@ models/LogsPipelineProcessorType.ts
 models/LogsPipelinesOrder.ts
 models/LogsProcessor.ts
 models/LogsQueryCompute.ts
+models/LogsRetentionAggSumUsage.ts
+models/LogsRetentionSumUsage.ts
 models/LogsServiceRemapper.ts
 models/LogsServiceRemapperType.ts
 models/LogsSort.ts
@@ -301,6 +307,7 @@ models/SLOListResponse.ts
 models/SLOListResponseMetadata.ts
 models/SLOListResponseMetadataPage.ts
 models/SLOResponse.ts
+models/SLOResponseData.ts
 models/SLOThreshold.ts
 models/SLOTimeframe.ts
 models/SLOType.ts
@@ -438,6 +445,7 @@ models/UsageAttributionMetadata.ts
 models/UsageAttributionPagination.ts
 models/UsageAttributionResponse.ts
 models/UsageAttributionSort.ts
+models/UsageAttributionSupportedMetrics.ts
 models/UsageAttributionValues.ts
 models/UsageBillableSummaryBody.ts
 models/UsageBillableSummaryHour.ts
@@ -466,6 +474,8 @@ models/UsageLambdaHour.ts
 models/UsageLambdaResponse.ts
 models/UsageLogsByIndexHour.ts
 models/UsageLogsByIndexResponse.ts
+models/UsageLogsByRetentionHour.ts
+models/UsageLogsByRetentionResponse.ts
 models/UsageLogsHour.ts
 models/UsageLogsResponse.ts
 models/UsageMetricCategory.ts

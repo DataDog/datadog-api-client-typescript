@@ -11,6 +11,7 @@ import { APIErrorResponse } from '../models/APIErrorResponse';
 import { UsageAnalyzedLogsResponse } from '../models/UsageAnalyzedLogsResponse';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
 import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
 import { UsageCustomReportsResponse } from '../models/UsageCustomReportsResponse';
@@ -22,6 +23,7 @@ import { UsageIngestedSpansResponse } from '../models/UsageIngestedSpansResponse
 import { UsageIoTResponse } from '../models/UsageIoTResponse';
 import { UsageLambdaResponse } from '../models/UsageLambdaResponse';
 import { UsageLogsByIndexResponse } from '../models/UsageLogsByIndexResponse';
+import { UsageLogsByRetentionResponse } from '../models/UsageLogsByRetentionResponse';
 import { UsageLogsResponse } from '../models/UsageLogsResponse';
 import { UsageNetworkFlowsResponse } from '../models/UsageNetworkFlowsResponse';
 import { UsageNetworkHostsResponse } from '../models/UsageNetworkHostsResponse';
@@ -469,12 +471,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
      * Get Usage Attribution.
      * Get Usage Attribution
      * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-     * @param fields The specified field to search results for.
+     * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
      * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
      * @param sortName The field to sort by.
      */
-    public async getUsageAttribution(startMonth: Date, fields: string, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Promise<RequestContext> {
+    public async getUsageAttribution(startMonth: Date, fields: UsageAttributionSupportedMetrics, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'startMonth' is not null or undefined
@@ -505,7 +507,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("start_month", ObjectSerializer.serialize(startMonth, "Date", "date-time"));
         }
         if (fields !== undefined) {
-            requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "string", ""));
+            requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "UsageAttributionSupportedMetrics", ""));
         }
         if (endMonth !== undefined) {
             requestContext.setQueryParam("end_month", ObjectSerializer.serialize(endMonth, "Date", "date-time"));
@@ -987,6 +989,59 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         }
         if (indexName !== undefined) {
             requestContext.setQueryParam("index_name", ObjectSerializer.serialize(indexName, "Array<string>", ""));
+        }
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Get hourly usage for indexed logs by retention period.
+     * Get hourly logs usage by retention
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public async getUsageLogsByRetention(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+        // verify required parameter 'startHr' is not null or undefined
+        if (startHr === null || startHr === undefined) {
+            throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageLogsByRetention.');
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/usage/logs-by-retention';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'UsageMeteringApi.getUsageLogsByRetention').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
+
+        // Query Params
+        if (startHr !== undefined) {
+            requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"));
+        }
+        if (endHr !== undefined) {
+            requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
 
         // Header Params
@@ -2436,6 +2491,50 @@ export class UsageMeteringApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "UsageLogsByIndexResponse", ""
             ) as UsageLogsByIndexResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getUsageLogsByRetention
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUsageLogsByRetention(response: ResponseContext): Promise<UsageLogsByRetentionResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UsageLogsByRetentionResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UsageLogsByRetentionResponse", ""
+            ) as UsageLogsByRetentionResponse;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UsageLogsByRetentionResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UsageLogsByRetentionResponse", ""
+            ) as UsageLogsByRetentionResponse;
             return body;
         }
 

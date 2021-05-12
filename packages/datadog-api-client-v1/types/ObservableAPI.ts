@@ -153,6 +153,10 @@ import { LogsArithmeticProcessor } from '../models/LogsArithmeticProcessor';
 import { LogsArithmeticProcessorType } from '../models/LogsArithmeticProcessorType';
 import { LogsAttributeRemapper } from '../models/LogsAttributeRemapper';
 import { LogsAttributeRemapperType } from '../models/LogsAttributeRemapperType';
+import { LogsByRetention } from '../models/LogsByRetention';
+import { LogsByRetentionMonthlyUsage } from '../models/LogsByRetentionMonthlyUsage';
+import { LogsByRetentionOrgUsage } from '../models/LogsByRetentionOrgUsage';
+import { LogsByRetentionOrgs } from '../models/LogsByRetentionOrgs';
 import { LogsCategoryProcessor } from '../models/LogsCategoryProcessor';
 import { LogsCategoryProcessorCategory } from '../models/LogsCategoryProcessorCategory';
 import { LogsCategoryProcessorType } from '../models/LogsCategoryProcessorType';
@@ -183,6 +187,8 @@ import { LogsPipelineProcessorType } from '../models/LogsPipelineProcessorType';
 import { LogsPipelinesOrder } from '../models/LogsPipelinesOrder';
 import { LogsProcessor } from '../models/LogsProcessor';
 import { LogsQueryCompute } from '../models/LogsQueryCompute';
+import { LogsRetentionAggSumUsage } from '../models/LogsRetentionAggSumUsage';
+import { LogsRetentionSumUsage } from '../models/LogsRetentionSumUsage';
 import { LogsServiceRemapper } from '../models/LogsServiceRemapper';
 import { LogsServiceRemapperType } from '../models/LogsServiceRemapperType';
 import { LogsSort } from '../models/LogsSort';
@@ -268,6 +274,7 @@ import { SLOListResponse } from '../models/SLOListResponse';
 import { SLOListResponseMetadata } from '../models/SLOListResponseMetadata';
 import { SLOListResponseMetadataPage } from '../models/SLOListResponseMetadataPage';
 import { SLOResponse } from '../models/SLOResponse';
+import { SLOResponseData } from '../models/SLOResponseData';
 import { SLOThreshold } from '../models/SLOThreshold';
 import { SLOTimeframe } from '../models/SLOTimeframe';
 import { SLOType } from '../models/SLOType';
@@ -405,6 +412,7 @@ import { UsageAttributionMetadata } from '../models/UsageAttributionMetadata';
 import { UsageAttributionPagination } from '../models/UsageAttributionPagination';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
+import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
@@ -433,6 +441,8 @@ import { UsageLambdaHour } from '../models/UsageLambdaHour';
 import { UsageLambdaResponse } from '../models/UsageLambdaResponse';
 import { UsageLogsByIndexHour } from '../models/UsageLogsByIndexHour';
 import { UsageLogsByIndexResponse } from '../models/UsageLogsByIndexResponse';
+import { UsageLogsByRetentionHour } from '../models/UsageLogsByRetentionHour';
+import { UsageLogsByRetentionResponse } from '../models/UsageLogsByRetentionResponse';
 import { UsageLogsHour } from '../models/UsageLogsHour';
 import { UsageLogsResponse } from '../models/UsageLogsResponse';
 import { UsageMetricCategory } from '../models/UsageMetricCategory';
@@ -3545,9 +3555,10 @@ export class ObservableServiceLevelObjectivesApi {
      * Get a service level objective object.
      * Get an SLO's details
      * @param sloId The ID of the service level objective object.
+     * @param withConfiguredAlertIds Get the IDs of SLO monitors that reference this SLO.
      */
-    public getSLO(sloId: string, options?: Configuration): Observable<SLOResponse> {
-        const requestContextPromise = this.requestFactory.getSLO(sloId, options);
+    public getSLO(sloId: string, withConfiguredAlertIds?: boolean, options?: Configuration): Observable<SLOResponse> {
+        const requestContextPromise = this.requestFactory.getSLO(sloId, withConfiguredAlertIds, options);
 
         // build promise chain
         let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4807,12 +4818,12 @@ export class ObservableUsageMeteringApi {
      * Get Usage Attribution.
      * Get Usage Attribution
      * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-     * @param fields The specified field to search results for.
+     * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
      * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
      * @param sortName The field to sort by.
      */
-    public getUsageAttribution(startMonth: Date, fields: string, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Observable<UsageAttributionResponse> {
+    public getUsageAttribution(startMonth: Date, fields: UsageAttributionSupportedMetrics, endMonth?: Date, sortDirection?: UsageSortDirection, sortName?: UsageAttributionSort, options?: Configuration): Observable<UsageAttributionResponse> {
         const requestContextPromise = this.requestFactory.getUsageAttribution(startMonth, fields, endMonth, sortDirection, sortName, options);
 
         // build promise chain
@@ -5053,6 +5064,31 @@ export class ObservableUsageMeteringApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageLogsByIndex(rsp)));
+            }));
+    }
+ 
+    /**
+     * Get hourly usage for indexed logs by retention period.
+     * Get hourly logs usage by retention
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageLogsByRetention(startHr: Date, endHr?: Date, options?: Configuration): Observable<UsageLogsByRetentionResponse> {
+        const requestContextPromise = this.requestFactory.getUsageLogsByRetention(startHr, endHr, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageLogsByRetention(rsp)));
             }));
     }
  

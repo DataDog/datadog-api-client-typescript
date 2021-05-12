@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { LogsByRetention } from './LogsByRetention';
 import { UsageSummaryDate } from './UsageSummaryDate';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
@@ -129,6 +130,7 @@ export class UsageSummaryResponse {
     * Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020).
     */
     'liveIngestedBytesAggSum'?: number;
+    'logsByRetention'?: LogsByRetention;
     /**
     * Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
     */
@@ -349,6 +351,11 @@ export class UsageSummaryResponse {
             "type": "number",
             "format": "int64"
         },
+        "logsByRetention": {
+            "baseName": "logs_by_retention",
+            "type": "LogsByRetention",
+            "format": ""
+        },
         "mobileRumSessionCountAggSum": {
             "baseName": "mobile_rum_session_count_agg_sum",
             "type": "number",
@@ -508,6 +515,8 @@ export class UsageSummaryResponse {
 
       res.liveIngestedBytesAggSum = ObjectSerializer.deserialize(data.live_ingested_bytes_agg_sum, "number", "int64")
 
+      res.logsByRetention = ObjectSerializer.deserialize(data.logs_by_retention, "LogsByRetention", "")
+
       res.mobileRumSessionCountAggSum = ObjectSerializer.deserialize(data.mobile_rum_session_count_agg_sum, "number", "int64")
 
       res.mobileRumSessionCountAndroidAggSum = ObjectSerializer.deserialize(data.mobile_rum_session_count_android_agg_sum, "number", "int64")
@@ -613,6 +622,8 @@ export class UsageSummaryResponse {
         res.live_indexed_events_agg_sum = ObjectSerializer.serialize(data.liveIndexedEventsAggSum, "number", "int64")
 
         res.live_ingested_bytes_agg_sum = ObjectSerializer.serialize(data.liveIngestedBytesAggSum, "number", "int64")
+
+        res.logs_by_retention = ObjectSerializer.serialize(data.logsByRetention, "LogsByRetention", "")
 
         res.mobile_rum_session_count_agg_sum = ObjectSerializer.serialize(data.mobileRumSessionCountAggSum, "number", "int64")
 

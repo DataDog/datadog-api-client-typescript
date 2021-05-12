@@ -8,61 +8,51 @@
  * Do not edit the class manually.
  */
 
-import { SLOResponseData } from './SLOResponseData';
+import { UsageLogsByRetentionHour } from './UsageLogsByRetentionHour';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* A service level objective response containing a single service level objective.
+* Response containing the indexed logs usage broken down by retention period for an organization during a given hour.
 */
 
-export class SLOResponse {
-    'data'?: SLOResponseData;
+export class UsageLogsByRetentionResponse {
     /**
-    * An array of error messages. Each endpoint documents how/whether this field is used.
+    * Get hourly usage for indexed logs by retention period.
     */
-    'errors'?: Array<string>;
+    'usage'?: Array<UsageLogsByRetentionHour>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "SLOResponseData",
-            "format": ""
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "Array<string>",
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageLogsByRetentionHour>",
             "format": ""
         }    };
 
     static getAttributeTypeMap() {
-        return SLOResponse.attributeTypeMap;
+        return UsageLogsByRetentionResponse.attributeTypeMap;
     }
 
-    static deserialize(data: {[key: string]: any}): SLOResponse {
-      let res = new SLOResponse();
+    static deserialize(data: {[key: string]: any}): UsageLogsByRetentionResponse {
+      let res = new UsageLogsByRetentionResponse();
 
-      res.data = ObjectSerializer.deserialize(data.data, "SLOResponseData", "")
-
-      res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageLogsByRetentionHour>", "")
 
 
       return res;
     }
 
-    static serialize(data: SLOResponse): {[key: string]: any} {
-        let attributeTypes = SLOResponse.getAttributeTypeMap();
+    static serialize(data: UsageLogsByRetentionResponse): {[key: string]: any} {
+        let attributeTypes = UsageLogsByRetentionResponse.getAttributeTypeMap();
         let res: {[index: string]: any} = {};
         for (let [key, value] of Object.entries(data)) {
             if (!(key in attributeTypes)) {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.data = ObjectSerializer.serialize(data.data, "SLOResponseData", "")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
+        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageLogsByRetentionHour>", "")
 
         return res
     }
