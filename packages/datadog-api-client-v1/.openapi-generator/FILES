@@ -100,6 +100,7 @@ models/DistributionWidgetRequest.ts
 models/DistributionWidgetXAxis.ts
 models/DistributionWidgetYAxis.ts
 models/Downtime.ts
+models/DowntimeChild.ts
 models/DowntimeRecurrence.ts
 models/Event.ts
 models/EventAlertType.ts
