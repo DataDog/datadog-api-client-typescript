@@ -12,7 +12,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The page count for the current pagination.
+* The metadata for the current pagination.
 */
 
 export class UsageAttributionPagination {
@@ -21,19 +21,11 @@ export class UsageAttributionPagination {
     */
     'limit'?: number;
     /**
-    * Records to be skipped before beginning to return.
+    * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of this next_record_id.
     */
-    'offset'?: number;
+    'nextRecordId'?: string;
     /**
-    * Direction to sort by.
-    */
-    'sortDirection'?: string;
-    /**
-    * Field to sort by.
-    */
-    'sortName'?: string;
-    /**
-    * Total number of records.
+    * Total number of records. (deprecated after May 1st, 2021)
     */
     'totalNumberOfRecords'?: number;
 
@@ -45,18 +37,8 @@ export class UsageAttributionPagination {
             "type": "number",
             "format": "int64"
         },
-        "offset": {
-            "baseName": "offset",
-            "type": "number",
-            "format": "int64"
-        },
-        "sortDirection": {
-            "baseName": "sort_direction",
-            "type": "string",
-            "format": ""
-        },
-        "sortName": {
-            "baseName": "sort_name",
+        "nextRecordId": {
+            "baseName": "next_record_id",
             "type": "string",
             "format": ""
         },
@@ -75,11 +57,7 @@ export class UsageAttributionPagination {
 
       res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64")
 
-      res.offset = ObjectSerializer.deserialize(data.offset, "number", "int64")
-
-      res.sortDirection = ObjectSerializer.deserialize(data.sort_direction, "string", "")
-
-      res.sortName = ObjectSerializer.deserialize(data.sort_name, "string", "")
+      res.nextRecordId = ObjectSerializer.deserialize(data.next_record_id, "string", "")
 
       res.totalNumberOfRecords = ObjectSerializer.deserialize(data.total_number_of_records, "number", "int64")
 
@@ -97,11 +75,7 @@ export class UsageAttributionPagination {
         }
         res.limit = ObjectSerializer.serialize(data.limit, "number", "int64")
 
-        res.offset = ObjectSerializer.serialize(data.offset, "number", "int64")
-
-        res.sort_direction = ObjectSerializer.serialize(data.sortDirection, "string", "")
-
-        res.sort_name = ObjectSerializer.serialize(data.sortName, "string", "")
+        res.next_record_id = ObjectSerializer.serialize(data.nextRecordId, "string", "")
 
         res.total_number_of_records = ObjectSerializer.serialize(data.totalNumberOfRecords, "number", "int64")
 
