@@ -66,6 +66,7 @@ import { DistributionWidgetRequest } from '../models/DistributionWidgetRequest';
 import { DistributionWidgetXAxis } from '../models/DistributionWidgetXAxis';
 import { DistributionWidgetYAxis } from '../models/DistributionWidgetYAxis';
 import { Downtime } from '../models/Downtime';
+import { DowntimeChild } from '../models/DowntimeChild';
 import { DowntimeRecurrence } from '../models/DowntimeRecurrence';
 import { Event } from '../models/Event';
 import { EventAlertType } from '../models/EventAlertType';
@@ -224,6 +225,43 @@ import { MonitorType } from '../models/MonitorType';
 import { MonitorUpdateRequest } from '../models/MonitorUpdateRequest';
 import { NoteWidgetDefinition } from '../models/NoteWidgetDefinition';
 import { NoteWidgetDefinitionType } from '../models/NoteWidgetDefinitionType';
+import { NotebookAbsoluteTime } from '../models/NotebookAbsoluteTime';
+import { NotebookAuthor } from '../models/NotebookAuthor';
+import { NotebookCellCreateRequest } from '../models/NotebookCellCreateRequest';
+import { NotebookCellCreateRequestAttributes } from '../models/NotebookCellCreateRequestAttributes';
+import { NotebookCellResourceType } from '../models/NotebookCellResourceType';
+import { NotebookCellResponse } from '../models/NotebookCellResponse';
+import { NotebookCellResponseAttributes } from '../models/NotebookCellResponseAttributes';
+import { NotebookCellTime } from '../models/NotebookCellTime';
+import { NotebookCellUpdateRequest } from '../models/NotebookCellUpdateRequest';
+import { NotebookCellUpdateRequestAttributes } from '../models/NotebookCellUpdateRequestAttributes';
+import { NotebookCreateData } from '../models/NotebookCreateData';
+import { NotebookCreateDataAttributes } from '../models/NotebookCreateDataAttributes';
+import { NotebookCreateRequest } from '../models/NotebookCreateRequest';
+import { NotebookDistributionCellAttributes } from '../models/NotebookDistributionCellAttributes';
+import { NotebookGlobalTime } from '../models/NotebookGlobalTime';
+import { NotebookGraphSize } from '../models/NotebookGraphSize';
+import { NotebookHeatMapCellAttributes } from '../models/NotebookHeatMapCellAttributes';
+import { NotebookLogStreamCellAttributes } from '../models/NotebookLogStreamCellAttributes';
+import { NotebookMarkdownCellAttributes } from '../models/NotebookMarkdownCellAttributes';
+import { NotebookMarkdownCellDefinition } from '../models/NotebookMarkdownCellDefinition';
+import { NotebookMarkdownCellDefinitionType } from '../models/NotebookMarkdownCellDefinitionType';
+import { NotebookRelativeTime } from '../models/NotebookRelativeTime';
+import { NotebookResourceType } from '../models/NotebookResourceType';
+import { NotebookResponse } from '../models/NotebookResponse';
+import { NotebookResponseData } from '../models/NotebookResponseData';
+import { NotebookResponseDataAttributes } from '../models/NotebookResponseDataAttributes';
+import { NotebookSplitBy } from '../models/NotebookSplitBy';
+import { NotebookStatus } from '../models/NotebookStatus';
+import { NotebookTimeseriesCellAttributes } from '../models/NotebookTimeseriesCellAttributes';
+import { NotebookToplistCellAttributes } from '../models/NotebookToplistCellAttributes';
+import { NotebookUpdateCell } from '../models/NotebookUpdateCell';
+import { NotebookUpdateData } from '../models/NotebookUpdateData';
+import { NotebookUpdateDataAttributes } from '../models/NotebookUpdateDataAttributes';
+import { NotebookUpdateRequest } from '../models/NotebookUpdateRequest';
+import { NotebooksResponse } from '../models/NotebooksResponse';
+import { NotebooksResponseMeta } from '../models/NotebooksResponseMeta';
+import { NotebooksResponsePage } from '../models/NotebooksResponsePage';
 import { Organization } from '../models/Organization';
 import { OrganizationBilling } from '../models/OrganizationBilling';
 import { OrganizationCreateBody } from '../models/OrganizationCreateBody';
@@ -2517,6 +2555,156 @@ export class ObjectMonitorsApi {
 
 }
 
+import { ObservableNotebooksApi } from "./ObservableAPI";
+import { NotebooksApiRequestFactory, NotebooksApiResponseProcessor} from "../apis/NotebooksApi";
+
+export interface NotebooksApiCreateNotebookRequest {
+    /**
+     * The JSON description of the notebook you want to create.
+     * @type NotebookCreateRequest
+     * @memberof NotebooksApicreateNotebook
+     */
+    body: NotebookCreateRequest
+}
+
+export interface NotebooksApiDeleteNotebookRequest {
+    /**
+     * Unique ID, assigned when you create the notebook.
+     * @type number
+     * @memberof NotebooksApideleteNotebook
+     */
+    notebookId: number
+}
+
+export interface NotebooksApiGetNotebookRequest {
+    /**
+     * Unique ID, assigned when you create the notebook.
+     * @type number
+     * @memberof NotebooksApigetNotebook
+     */
+    notebookId: number
+}
+
+export interface NotebooksApiListNotebooksRequest {
+    /**
+     * Return notebooks created by the given &#x60;author_handle&#x60;.
+     * @type string
+     * @memberof NotebooksApilistNotebooks
+     */
+    authorHandle?: string
+    /**
+     * Return notebooks not created by the given &#x60;author_handle&#x60;.
+     * @type string
+     * @memberof NotebooksApilistNotebooks
+     */
+    excludeAuthorHandle?: string
+    /**
+     * The index of the first notebook you want returned.
+     * @type number
+     * @memberof NotebooksApilistNotebooks
+     */
+    start?: number
+    /**
+     * The number of notebooks to be returned.
+     * @type number
+     * @memberof NotebooksApilistNotebooks
+     */
+    count?: number
+    /**
+     * Sort by field &#x60;modified&#x60; or &#x60;name&#x60;.
+     * @type string
+     * @memberof NotebooksApilistNotebooks
+     */
+    sortField?: string
+    /**
+     * Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
+     * @type string
+     * @memberof NotebooksApilistNotebooks
+     */
+    sortDir?: string
+    /**
+     * Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
+     * @type string
+     * @memberof NotebooksApilistNotebooks
+     */
+    query?: string
+    /**
+     * Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+     * @type boolean
+     * @memberof NotebooksApilistNotebooks
+     */
+    includeCells?: boolean
+}
+
+export interface NotebooksApiUpdateNotebookRequest {
+    /**
+     * Unique ID, assigned when you create the notebook.
+     * @type number
+     * @memberof NotebooksApiupdateNotebook
+     */
+    notebookId: number
+    /**
+     * Update notebook request body.
+     * @type NotebookUpdateRequest
+     * @memberof NotebooksApiupdateNotebook
+     */
+    body: NotebookUpdateRequest
+}
+
+export class ObjectNotebooksApi {
+    private api: ObservableNotebooksApi
+
+    public constructor(configuration: Configuration, requestFactory?: NotebooksApiRequestFactory, responseProcessor?: NotebooksApiResponseProcessor) {
+        this.api = new ObservableNotebooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create a notebook using the specified options.
+     * Create a notebook
+     * @param param the request object
+     */
+    public createNotebook(param: NotebooksApiCreateNotebookRequest, options?: Configuration): Promise<NotebookResponse> {
+        return this.api.createNotebook(param.body,  options).toPromise();
+    }
+
+    /**
+     * Delete a notebook using the specified ID.
+     * Delete a notebook
+     * @param param the request object
+     */
+    public deleteNotebook(param: NotebooksApiDeleteNotebookRequest, options?: Configuration): Promise<void> {
+        return this.api.deleteNotebook(param.notebookId,  options).toPromise();
+    }
+
+    /**
+     * Get a notebook using the specified notebook ID.
+     * Get a notebook
+     * @param param the request object
+     */
+    public getNotebook(param: NotebooksApiGetNotebookRequest, options?: Configuration): Promise<NotebookResponse> {
+        return this.api.getNotebook(param.notebookId,  options).toPromise();
+    }
+
+    /**
+     * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+     * Get all notebooks
+     * @param param the request object
+     */
+    public listNotebooks(param: NotebooksApiListNotebooksRequest, options?: Configuration): Promise<NotebooksResponse> {
+        return this.api.listNotebooks(param.authorHandle, param.excludeAuthorHandle, param.start, param.count, param.sortField, param.sortDir, param.query, param.includeCells,  options).toPromise();
+    }
+
+    /**
+     * Update a notebook using the specified ID.
+     * Update a notebook
+     * @param param the request object
+     */
+    public updateNotebook(param: NotebooksApiUpdateNotebookRequest, options?: Configuration): Promise<NotebookResponse> {
+        return this.api.updateNotebook(param.notebookId, param.body,  options).toPromise();
+    }
+
+}
+
 import { ObservableOrganizationsApi } from "./ObservableAPI";
 import { OrganizationsApiRequestFactory, OrganizationsApiResponseProcessor} from "../apis/OrganizationsApi";
 
@@ -4402,6 +4590,12 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
      * @memberof UsageMeteringApigetUsageTopAvgMetrics
      */
     limit?: number
+    /**
+     * List following results with a next_record_id provided in the previous query.
+     * @type string
+     * @memberof UsageMeteringApigetUsageTopAvgMetrics
+     */
+    nextRecordId?: string
 }
 
 export interface UsageMeteringApiGetUsageTraceRequest {
@@ -4688,12 +4882,12 @@ export class ObjectUsageMeteringApi {
     }
 
     /**
-     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
-     * Get top custom metrics by hourly average
+     * Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+     * Get all custom metrics by hourly average
      * @param param the request object
      */
     public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
-        return this.api.getUsageTopAvgMetrics(param.month, param.day, param.names, param.limit,  options).toPromise();
+        return this.api.getUsageTopAvgMetrics(param.month, param.day, param.names, param.limit, param.nextRecordId,  options).toPromise();
     }
 
     /**

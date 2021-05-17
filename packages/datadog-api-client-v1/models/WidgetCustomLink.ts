@@ -17,17 +17,30 @@ import { ObjectSerializer } from './ObjectSerializer';
 
 export class WidgetCustomLink {
     /**
+    * The flag for toggling context menu link visibility.
+    */
+    'isHidden'?: boolean;
+    /**
     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
     */
-    'label': string;
+    'label'?: string;
     /**
     * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
     */
-    'link': string;
+    'link'?: string;
+    /**
+    * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+    */
+    'overrideLabel'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
+        "isHidden": {
+            "baseName": "is_hidden",
+            "type": "boolean",
+            "format": ""
+        },
         "label": {
             "baseName": "label",
             "type": "string",
@@ -35,6 +48,11 @@ export class WidgetCustomLink {
         },
         "link": {
             "baseName": "link",
+            "type": "string",
+            "format": ""
+        },
+        "overrideLabel": {
+            "baseName": "override_label",
             "type": "string",
             "format": ""
         }    };
@@ -46,15 +64,13 @@ export class WidgetCustomLink {
     static deserialize(data: {[key: string]: any}): WidgetCustomLink {
       let res = new WidgetCustomLink();
 
-      if (data.label === undefined) {
-          throw new TypeError("missing required attribute 'label' on 'WidgetCustomLink' object");
-      }
+      res.isHidden = ObjectSerializer.deserialize(data.is_hidden, "boolean", "")
+
       res.label = ObjectSerializer.deserialize(data.label, "string", "")
 
-      if (data.link === undefined) {
-          throw new TypeError("missing required attribute 'link' on 'WidgetCustomLink' object");
-      }
       res.link = ObjectSerializer.deserialize(data.link, "string", "")
+
+      res.overrideLabel = ObjectSerializer.deserialize(data.override_label, "string", "")
 
 
       return res;
@@ -68,15 +84,13 @@ export class WidgetCustomLink {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        if (data.label === undefined) {
-            throw new TypeError("missing required attribute 'label' on 'WidgetCustomLink' object");
-        }
+        res.is_hidden = ObjectSerializer.serialize(data.isHidden, "boolean", "")
+
         res.label = ObjectSerializer.serialize(data.label, "string", "")
 
-        if (data.link === undefined) {
-            throw new TypeError("missing required attribute 'link' on 'WidgetCustomLink' object");
-        }
         res.link = ObjectSerializer.serialize(data.link, "string", "")
+
+        res.override_label = ObjectSerializer.serialize(data.overrideLabel, "string", "")
 
         return res
     }

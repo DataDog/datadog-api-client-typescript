@@ -1606,15 +1606,17 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
-     * Get top custom metrics by hourly average
+     * Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+     * Get all custom metrics by hourly average
      * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
      * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
      * @param names Comma-separated list of metric names.
      * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
+     * @param nextRecordId List following results with a next_record_id provided in the previous query.
      */
-    public async getUsageTopAvgMetrics(month?: Date, day?: Date, names?: Array<string>, limit?: number, options?: Configuration): Promise<RequestContext> {
+    public async getUsageTopAvgMetrics(month?: Date, day?: Date, names?: Array<string>, limit?: number, nextRecordId?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
+
 
 
 
@@ -1640,6 +1642,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         }
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int32"));
+        }
+        if (nextRecordId !== undefined) {
+            requestContext.setQueryParam("next_record_id", ObjectSerializer.serialize(nextRecordId, "string", ""));
         }
 
         // Header Params

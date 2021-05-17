@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { DowntimeChild } from './DowntimeChild';
 import { DowntimeRecurrence } from './DowntimeRecurrence';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
@@ -21,6 +22,7 @@ export class Downtime {
     * If a scheduled downtime currently exists.
     */
     'active'?: boolean;
+    'activeChild'?: DowntimeChild;
     /**
     * If a scheduled downtime is canceled.
     */
@@ -85,6 +87,11 @@ export class Downtime {
         "active": {
             "baseName": "active",
             "type": "boolean",
+            "format": ""
+        },
+        "activeChild": {
+            "baseName": "active_child",
+            "type": "DowntimeChild",
             "format": ""
         },
         "canceled": {
@@ -172,6 +179,8 @@ export class Downtime {
 
       res.active = ObjectSerializer.deserialize(data.active, "boolean", "")
 
+      res.activeChild = ObjectSerializer.deserialize(data.active_child, "DowntimeChild", "")
+
       res.canceled = ObjectSerializer.deserialize(data.canceled, "number", "int64")
 
       res.creatorId = ObjectSerializer.deserialize(data.creator_id, "number", "int32")
@@ -215,6 +224,8 @@ export class Downtime {
             }
         }
         res.active = ObjectSerializer.serialize(data.active, "boolean", "")
+
+        res.active_child = ObjectSerializer.serialize(data.activeChild, "DowntimeChild", "")
 
         res.canceled = ObjectSerializer.serialize(data.canceled, "number", "int64")
 

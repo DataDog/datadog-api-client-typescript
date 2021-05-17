@@ -23,7 +23,7 @@ export class SyntheticsGlobalVariableValue {
     /**
     * Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
     */
-    'value': string;
+    'value'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -48,9 +48,6 @@ export class SyntheticsGlobalVariableValue {
 
       res.secure = ObjectSerializer.deserialize(data.secure, "boolean", "")
 
-      if (data.value === undefined) {
-          throw new TypeError("missing required attribute 'value' on 'SyntheticsGlobalVariableValue' object");
-      }
       res.value = ObjectSerializer.deserialize(data.value, "string", "")
 
 
@@ -67,9 +64,6 @@ export class SyntheticsGlobalVariableValue {
         }
         res.secure = ObjectSerializer.serialize(data.secure, "boolean", "")
 
-        if (data.value === undefined) {
-            throw new TypeError("missing required attribute 'value' on 'SyntheticsGlobalVariableValue' object");
-        }
         res.value = ObjectSerializer.serialize(data.value, "string", "")
 
         return res

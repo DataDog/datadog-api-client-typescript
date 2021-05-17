@@ -58,7 +58,7 @@ function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
 }
 
 function fixKeys(key: string, value: any) {
-  if (typeof value === 'object') {
+  if (typeof value === 'object' && value != null) {
     const keys = Object.keys(value);
     keys.forEach((k) => {
       if (k.toAttributeName() != k) {

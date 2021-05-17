@@ -62,6 +62,7 @@ import { DistributionWidgetRequest } from './DistributionWidgetRequest';
 import { DistributionWidgetXAxis } from './DistributionWidgetXAxis';
 import { DistributionWidgetYAxis } from './DistributionWidgetYAxis';
 import { Downtime } from './Downtime';
+import { DowntimeChild } from './DowntimeChild';
 import { DowntimeRecurrence } from './DowntimeRecurrence';
 import { Event } from './Event';
 import { EventAlertType } from './EventAlertType';
@@ -220,6 +221,43 @@ import { MonitorType } from './MonitorType';
 import { MonitorUpdateRequest } from './MonitorUpdateRequest';
 import { NoteWidgetDefinition } from './NoteWidgetDefinition';
 import { NoteWidgetDefinitionType } from './NoteWidgetDefinitionType';
+import { NotebookAbsoluteTime } from './NotebookAbsoluteTime';
+import { NotebookAuthor } from './NotebookAuthor';
+import { NotebookCellCreateRequest } from './NotebookCellCreateRequest';
+import { NotebookCellCreateRequestAttributes } from './NotebookCellCreateRequestAttributes';
+import { NotebookCellResourceType } from './NotebookCellResourceType';
+import { NotebookCellResponse } from './NotebookCellResponse';
+import { NotebookCellResponseAttributes } from './NotebookCellResponseAttributes';
+import { NotebookCellTime } from './NotebookCellTime';
+import { NotebookCellUpdateRequest } from './NotebookCellUpdateRequest';
+import { NotebookCellUpdateRequestAttributes } from './NotebookCellUpdateRequestAttributes';
+import { NotebookCreateData } from './NotebookCreateData';
+import { NotebookCreateDataAttributes } from './NotebookCreateDataAttributes';
+import { NotebookCreateRequest } from './NotebookCreateRequest';
+import { NotebookDistributionCellAttributes } from './NotebookDistributionCellAttributes';
+import { NotebookGlobalTime } from './NotebookGlobalTime';
+import { NotebookGraphSize } from './NotebookGraphSize';
+import { NotebookHeatMapCellAttributes } from './NotebookHeatMapCellAttributes';
+import { NotebookLogStreamCellAttributes } from './NotebookLogStreamCellAttributes';
+import { NotebookMarkdownCellAttributes } from './NotebookMarkdownCellAttributes';
+import { NotebookMarkdownCellDefinition } from './NotebookMarkdownCellDefinition';
+import { NotebookMarkdownCellDefinitionType } from './NotebookMarkdownCellDefinitionType';
+import { NotebookRelativeTime } from './NotebookRelativeTime';
+import { NotebookResourceType } from './NotebookResourceType';
+import { NotebookResponse } from './NotebookResponse';
+import { NotebookResponseData } from './NotebookResponseData';
+import { NotebookResponseDataAttributes } from './NotebookResponseDataAttributes';
+import { NotebookSplitBy } from './NotebookSplitBy';
+import { NotebookStatus } from './NotebookStatus';
+import { NotebookTimeseriesCellAttributes } from './NotebookTimeseriesCellAttributes';
+import { NotebookToplistCellAttributes } from './NotebookToplistCellAttributes';
+import { NotebookUpdateCell } from './NotebookUpdateCell';
+import { NotebookUpdateData } from './NotebookUpdateData';
+import { NotebookUpdateDataAttributes } from './NotebookUpdateDataAttributes';
+import { NotebookUpdateRequest } from './NotebookUpdateRequest';
+import { NotebooksResponse } from './NotebooksResponse';
+import { NotebooksResponseMeta } from './NotebooksResponseMeta';
+import { NotebooksResponsePage } from './NotebooksResponsePage';
 import { Organization } from './Organization';
 import { OrganizationBilling } from './OrganizationBilling';
 import { OrganizationCreateBody } from './OrganizationCreateBody';
@@ -597,6 +635,11 @@ let enumsMap: Set<string> = new Set<string>([
     "MonitorSummaryWidgetDefinitionType",
     "MonitorType",
     "NoteWidgetDefinitionType",
+    "NotebookCellResourceType",
+    "NotebookGraphSize",
+    "NotebookMarkdownCellDefinitionType",
+    "NotebookResourceType",
+    "NotebookStatus",
     "QuerySortOrder",
     "QueryValueWidgetDefinitionType",
     "SLOCorrectionCategory",
@@ -734,6 +777,7 @@ let typeMap: {[index: string]: any} = {
     "DistributionWidgetXAxis": DistributionWidgetXAxis,
     "DistributionWidgetYAxis": DistributionWidgetYAxis,
     "Downtime": Downtime,
+    "DowntimeChild": DowntimeChild,
     "DowntimeRecurrence": DowntimeRecurrence,
     "Event": Event,
     "EventCreateRequest": EventCreateRequest,
@@ -850,6 +894,32 @@ let typeMap: {[index: string]: any} = {
     "MonitorThresholds": MonitorThresholds,
     "MonitorUpdateRequest": MonitorUpdateRequest,
     "NoteWidgetDefinition": NoteWidgetDefinition,
+    "NotebookAbsoluteTime": NotebookAbsoluteTime,
+    "NotebookAuthor": NotebookAuthor,
+    "NotebookCellCreateRequest": NotebookCellCreateRequest,
+    "NotebookCellResponse": NotebookCellResponse,
+    "NotebookCellUpdateRequest": NotebookCellUpdateRequest,
+    "NotebookCreateData": NotebookCreateData,
+    "NotebookCreateDataAttributes": NotebookCreateDataAttributes,
+    "NotebookCreateRequest": NotebookCreateRequest,
+    "NotebookDistributionCellAttributes": NotebookDistributionCellAttributes,
+    "NotebookHeatMapCellAttributes": NotebookHeatMapCellAttributes,
+    "NotebookLogStreamCellAttributes": NotebookLogStreamCellAttributes,
+    "NotebookMarkdownCellAttributes": NotebookMarkdownCellAttributes,
+    "NotebookMarkdownCellDefinition": NotebookMarkdownCellDefinition,
+    "NotebookRelativeTime": NotebookRelativeTime,
+    "NotebookResponse": NotebookResponse,
+    "NotebookResponseData": NotebookResponseData,
+    "NotebookResponseDataAttributes": NotebookResponseDataAttributes,
+    "NotebookSplitBy": NotebookSplitBy,
+    "NotebookTimeseriesCellAttributes": NotebookTimeseriesCellAttributes,
+    "NotebookToplistCellAttributes": NotebookToplistCellAttributes,
+    "NotebookUpdateData": NotebookUpdateData,
+    "NotebookUpdateDataAttributes": NotebookUpdateDataAttributes,
+    "NotebookUpdateRequest": NotebookUpdateRequest,
+    "NotebooksResponse": NotebooksResponse,
+    "NotebooksResponseMeta": NotebooksResponseMeta,
+    "NotebooksResponsePage": NotebooksResponsePage,
     "Organization": Organization,
     "OrganizationBilling": OrganizationBilling,
     "OrganizationCreateBody": OrganizationCreateBody,
@@ -1078,6 +1148,12 @@ let typeMap: {[index: string]: any} = {
 let oneOfMap: {[index: string]: string[]} = {
   "FormulaAndFunctionQueryDefinition": ["FormulaAndFunctionEventQueryDefinition", "FormulaAndFunctionMetricQueryDefinition", "FormulaAndFunctionProcessQueryDefinition"],
   "LogsProcessor": ["LogsArithmeticProcessor", "LogsAttributeRemapper", "LogsCategoryProcessor", "LogsDateRemapper", "LogsGeoIPParser", "LogsGrokParser", "LogsLookupProcessor", "LogsMessageRemapper", "LogsPipelineProcessor", "LogsServiceRemapper", "LogsStatusRemapper", "LogsStringBuilderProcessor", "LogsTraceRemapper", "LogsURLParser", "LogsUserAgentParser"],
+  "NotebookCellCreateRequestAttributes": ["NotebookDistributionCellAttributes", "NotebookHeatMapCellAttributes", "NotebookLogStreamCellAttributes", "NotebookMarkdownCellAttributes", "NotebookTimeseriesCellAttributes", "NotebookToplistCellAttributes"],
+  "NotebookCellResponseAttributes": ["NotebookDistributionCellAttributes", "NotebookHeatMapCellAttributes", "NotebookLogStreamCellAttributes", "NotebookMarkdownCellAttributes", "NotebookTimeseriesCellAttributes", "NotebookToplistCellAttributes"],
+  "NotebookCellTime": ["NotebookAbsoluteTime", "NotebookRelativeTime"],
+  "NotebookCellUpdateRequestAttributes": ["NotebookDistributionCellAttributes", "NotebookHeatMapCellAttributes", "NotebookLogStreamCellAttributes", "NotebookMarkdownCellAttributes", "NotebookTimeseriesCellAttributes", "NotebookToplistCellAttributes"],
+  "NotebookGlobalTime": ["NotebookAbsoluteTime", "NotebookRelativeTime"],
+  "NotebookUpdateCell": ["NotebookCellCreateRequest", "NotebookCellUpdateRequest"],
   "SyntheticsAssertion": ["SyntheticsAssertionJSONPathTarget", "SyntheticsAssertionTarget"],
   "WidgetDefinition": ["AlertGraphWidgetDefinition", "AlertValueWidgetDefinition", "ChangeWidgetDefinition", "CheckStatusWidgetDefinition", "DistributionWidgetDefinition", "EventStreamWidgetDefinition", "EventTimelineWidgetDefinition", "FreeTextWidgetDefinition", "GeomapWidgetDefinition", "GroupWidgetDefinition", "HeatMapWidgetDefinition", "HostMapWidgetDefinition", "IFrameWidgetDefinition", "ImageWidgetDefinition", "LogStreamWidgetDefinition", "MonitorSummaryWidgetDefinition", "NoteWidgetDefinition", "QueryValueWidgetDefinition", "SLOWidgetDefinition", "ScatterPlotWidgetDefinition", "ServiceMapWidgetDefinition", "ServiceSummaryWidgetDefinition", "TableWidgetDefinition", "TimeseriesWidgetDefinition", "ToplistWidgetDefinition"],
   
