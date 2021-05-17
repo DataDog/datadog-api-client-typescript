@@ -62,6 +62,7 @@ import { DistributionWidgetRequest } from './DistributionWidgetRequest';
 import { DistributionWidgetXAxis } from './DistributionWidgetXAxis';
 import { DistributionWidgetYAxis } from './DistributionWidgetYAxis';
 import { Downtime } from './Downtime';
+import { DowntimeChild } from './DowntimeChild';
 import { DowntimeRecurrence } from './DowntimeRecurrence';
 import { Event } from './Event';
 import { EventAlertType } from './EventAlertType';
@@ -776,6 +777,7 @@ let typeMap: {[index: string]: any} = {
     "DistributionWidgetXAxis": DistributionWidgetXAxis,
     "DistributionWidgetYAxis": DistributionWidgetYAxis,
     "Downtime": Downtime,
+    "DowntimeChild": DowntimeChild,
     "DowntimeRecurrence": DowntimeRecurrence,
     "Event": Event,
     "EventCreateRequest": EventCreateRequest,

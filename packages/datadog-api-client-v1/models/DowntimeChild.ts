@@ -8,21 +8,19 @@
  * Do not edit the class manually.
  */
 
-import { DowntimeChild } from './DowntimeChild';
 import { DowntimeRecurrence } from './DowntimeRecurrence';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
+* The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
 */
 
-export class Downtime {
+export class DowntimeChild {
     /**
     * If a scheduled downtime currently exists.
     */
     'active'?: boolean;
-    'activeChild'?: DowntimeChild;
     /**
     * If a scheduled downtime is canceled.
     */
@@ -87,11 +85,6 @@ export class Downtime {
         "active": {
             "baseName": "active",
             "type": "boolean",
-            "format": ""
-        },
-        "activeChild": {
-            "baseName": "active_child",
-            "type": "DowntimeChild",
             "format": ""
         },
         "canceled": {
@@ -171,15 +164,13 @@ export class Downtime {
         }    };
 
     static getAttributeTypeMap() {
-        return Downtime.attributeTypeMap;
+        return DowntimeChild.attributeTypeMap;
     }
 
-    static deserialize(data: {[key: string]: any}): Downtime {
-      let res = new Downtime();
+    static deserialize(data: {[key: string]: any}): DowntimeChild {
+      let res = new DowntimeChild();
 
       res.active = ObjectSerializer.deserialize(data.active, "boolean", "")
-
-      res.activeChild = ObjectSerializer.deserialize(data.active_child, "DowntimeChild", "")
 
       res.canceled = ObjectSerializer.deserialize(data.canceled, "number", "int64")
 
@@ -215,8 +206,8 @@ export class Downtime {
       return res;
     }
 
-    static serialize(data: Downtime): {[key: string]: any} {
-        let attributeTypes = Downtime.getAttributeTypeMap();
+    static serialize(data: DowntimeChild): {[key: string]: any} {
+        let attributeTypes = DowntimeChild.getAttributeTypeMap();
         let res: {[index: string]: any} = {};
         for (let [key, value] of Object.entries(data)) {
             if (!(key in attributeTypes)) {
@@ -224,8 +215,6 @@ export class Downtime {
             }
         }
         res.active = ObjectSerializer.serialize(data.active, "boolean", "")
-
-        res.active_child = ObjectSerializer.serialize(data.activeChild, "DowntimeChild", "")
 
         res.canceled = ObjectSerializer.serialize(data.canceled, "number", "int64")
 

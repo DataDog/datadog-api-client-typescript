@@ -66,6 +66,7 @@ import { DistributionWidgetRequest } from '../models/DistributionWidgetRequest';
 import { DistributionWidgetXAxis } from '../models/DistributionWidgetXAxis';
 import { DistributionWidgetYAxis } from '../models/DistributionWidgetYAxis';
 import { Downtime } from '../models/Downtime';
+import { DowntimeChild } from '../models/DowntimeChild';
 import { DowntimeRecurrence } from '../models/DowntimeRecurrence';
 import { Event } from '../models/Event';
 import { EventAlertType } from '../models/EventAlertType';
@@ -4589,6 +4590,12 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
      * @memberof UsageMeteringApigetUsageTopAvgMetrics
      */
     limit?: number
+    /**
+     * List following results with a next_record_id provided in the previous query.
+     * @type string
+     * @memberof UsageMeteringApigetUsageTopAvgMetrics
+     */
+    nextRecordId?: string
 }
 
 export interface UsageMeteringApiGetUsageTraceRequest {
@@ -4875,12 +4882,12 @@ export class ObjectUsageMeteringApi {
     }
 
     /**
-     * Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
-     * Get top custom metrics by hourly average
+     * Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+     * Get all custom metrics by hourly average
      * @param param the request object
      */
     public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
-        return this.api.getUsageTopAvgMetrics(param.month, param.day, param.names, param.limit,  options).toPromise();
+        return this.api.getUsageTopAvgMetrics(param.month, param.day, param.names, param.limit, param.nextRecordId,  options).toPromise();
     }
 
     /**
