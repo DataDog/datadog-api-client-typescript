@@ -247,6 +247,22 @@ import { RoleUpdateResponseData } from './RoleUpdateResponseData';
 import { RolesResponse } from './RolesResponse';
 import { RolesSort } from './RolesSort';
 import { RolesType } from './RolesType';
+import { SecurityFilter } from './SecurityFilter';
+import { SecurityFilterAttributes } from './SecurityFilterAttributes';
+import { SecurityFilterCreateAttributes } from './SecurityFilterCreateAttributes';
+import { SecurityFilterCreateData } from './SecurityFilterCreateData';
+import { SecurityFilterCreateRequest } from './SecurityFilterCreateRequest';
+import { SecurityFilterDeleteResponse } from './SecurityFilterDeleteResponse';
+import { SecurityFilterExclusionFilter } from './SecurityFilterExclusionFilter';
+import { SecurityFilterExclusionFilterResponse } from './SecurityFilterExclusionFilterResponse';
+import { SecurityFilterFilteredDataType } from './SecurityFilterFilteredDataType';
+import { SecurityFilterMeta } from './SecurityFilterMeta';
+import { SecurityFilterResponse } from './SecurityFilterResponse';
+import { SecurityFilterType } from './SecurityFilterType';
+import { SecurityFilterUpdateAttributes } from './SecurityFilterUpdateAttributes';
+import { SecurityFilterUpdateData } from './SecurityFilterUpdateData';
+import { SecurityFilterUpdateRequest } from './SecurityFilterUpdateRequest';
+import { SecurityFiltersResponse } from './SecurityFiltersResponse';
 import { SecurityMonitoringFilter } from './SecurityMonitoringFilter';
 import { SecurityMonitoringFilterAction } from './SecurityMonitoringFilterAction';
 import { SecurityMonitoringListRulesResponse } from './SecurityMonitoringListRulesResponse';
@@ -361,6 +377,8 @@ let enumsMap: Set<string> = new Set<string>([
     "QuerySortOrder",
     "RolesSort",
     "RolesType",
+    "SecurityFilterFilteredDataType",
+    "SecurityFilterType",
     "SecurityMonitoringFilterAction",
     "SecurityMonitoringRuleDetectionMethod",
     "SecurityMonitoringRuleEvaluationWindow",
@@ -572,6 +590,20 @@ let typeMap: {[index: string]: any} = {
     "RoleUpdateResponse": RoleUpdateResponse,
     "RoleUpdateResponseData": RoleUpdateResponseData,
     "RolesResponse": RolesResponse,
+    "SecurityFilter": SecurityFilter,
+    "SecurityFilterAttributes": SecurityFilterAttributes,
+    "SecurityFilterCreateAttributes": SecurityFilterCreateAttributes,
+    "SecurityFilterCreateData": SecurityFilterCreateData,
+    "SecurityFilterCreateRequest": SecurityFilterCreateRequest,
+    "SecurityFilterDeleteResponse": SecurityFilterDeleteResponse,
+    "SecurityFilterExclusionFilter": SecurityFilterExclusionFilter,
+    "SecurityFilterExclusionFilterResponse": SecurityFilterExclusionFilterResponse,
+    "SecurityFilterMeta": SecurityFilterMeta,
+    "SecurityFilterResponse": SecurityFilterResponse,
+    "SecurityFilterUpdateAttributes": SecurityFilterUpdateAttributes,
+    "SecurityFilterUpdateData": SecurityFilterUpdateData,
+    "SecurityFilterUpdateRequest": SecurityFilterUpdateRequest,
+    "SecurityFiltersResponse": SecurityFiltersResponse,
     "SecurityMonitoringFilter": SecurityMonitoringFilter,
     "SecurityMonitoringListRulesResponse": SecurityMonitoringListRulesResponse,
     "SecurityMonitoringRuleCase": SecurityMonitoringRuleCase,
