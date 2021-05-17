@@ -252,6 +252,22 @@ import { RoleUpdateResponseData } from '../models/RoleUpdateResponseData';
 import { RolesResponse } from '../models/RolesResponse';
 import { RolesSort } from '../models/RolesSort';
 import { RolesType } from '../models/RolesType';
+import { SecurityFilter } from '../models/SecurityFilter';
+import { SecurityFilterAttributes } from '../models/SecurityFilterAttributes';
+import { SecurityFilterCreateAttributes } from '../models/SecurityFilterCreateAttributes';
+import { SecurityFilterCreateData } from '../models/SecurityFilterCreateData';
+import { SecurityFilterCreateRequest } from '../models/SecurityFilterCreateRequest';
+import { SecurityFilterDeleteResponse } from '../models/SecurityFilterDeleteResponse';
+import { SecurityFilterExclusionFilter } from '../models/SecurityFilterExclusionFilter';
+import { SecurityFilterExclusionFilterResponse } from '../models/SecurityFilterExclusionFilterResponse';
+import { SecurityFilterFilteredDataType } from '../models/SecurityFilterFilteredDataType';
+import { SecurityFilterMeta } from '../models/SecurityFilterMeta';
+import { SecurityFilterResponse } from '../models/SecurityFilterResponse';
+import { SecurityFilterType } from '../models/SecurityFilterType';
+import { SecurityFilterUpdateAttributes } from '../models/SecurityFilterUpdateAttributes';
+import { SecurityFilterUpdateData } from '../models/SecurityFilterUpdateData';
+import { SecurityFilterUpdateRequest } from '../models/SecurityFilterUpdateRequest';
+import { SecurityFiltersResponse } from '../models/SecurityFiltersResponse';
 import { SecurityMonitoringFilter } from '../models/SecurityMonitoringFilter';
 import { SecurityMonitoringFilterAction } from '../models/SecurityMonitoringFilterAction';
 import { SecurityMonitoringListRulesResponse } from '../models/SecurityMonitoringListRulesResponse';
@@ -2271,6 +2287,30 @@ export class ObservableSecurityMonitoringApi {
     }
 
     /**
+     * Create a security filter.
+     * Create a security filter
+     * @param body The definition of the new security filter.
+     */
+    public createSecurityFilter(body: SecurityFilterCreateRequest, options?: Configuration): Observable<SecurityFilterResponse> {
+        const requestContextPromise = this.requestFactory.createSecurityFilter(body, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createSecurityFilter(rsp)));
+            }));
+    }
+ 
+    /**
      * Create a detection rule.
      * Create a detection rule
      * @param body 
@@ -2291,6 +2331,30 @@ export class ObservableSecurityMonitoringApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createSecurityMonitoringRule(rsp)));
+            }));
+    }
+ 
+    /**
+     * Delete a specific security filter.
+     * Delete a security filter
+     * @param securityFilterId The ID of the security filter.
+     */
+    public deleteSecurityFilter(securityFilterId: string, options?: Configuration): Observable<SecurityFilterDeleteResponse | void> {
+        const requestContextPromise = this.requestFactory.deleteSecurityFilter(securityFilterId, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deleteSecurityFilter(rsp)));
             }));
     }
  
@@ -2319,6 +2383,30 @@ export class ObservableSecurityMonitoringApi {
     }
  
     /**
+     * Get the details of a specific security filter.
+     * Get a security filter
+     * @param securityFilterId The ID of the security filter.
+     */
+    public getSecurityFilter(securityFilterId: string, options?: Configuration): Observable<SecurityFilterResponse> {
+        const requestContextPromise = this.requestFactory.getSecurityFilter(securityFilterId, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getSecurityFilter(rsp)));
+            }));
+    }
+ 
+    /**
      * Get a rule's details.
      * Get a rule's details
      * @param ruleId The ID of the rule.
@@ -2339,6 +2427,29 @@ export class ObservableSecurityMonitoringApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getSecurityMonitoringRule(rsp)));
+            }));
+    }
+ 
+    /**
+     * Get the list of configured security filters with their definitions.
+     * Get all security filters
+     */
+    public listSecurityFilters(options?: Configuration): Observable<SecurityFiltersResponse> {
+        const requestContextPromise = this.requestFactory.listSecurityFilters(options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listSecurityFilters(rsp)));
             }));
     }
  
@@ -2417,6 +2528,31 @@ export class ObservableSecurityMonitoringApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.searchSecurityMonitoringSignals(rsp)));
+            }));
+    }
+ 
+    /**
+     * Update a specific security filter. Returns the security filter object when the request is successful.
+     * Update a security filter
+     * @param securityFilterId The ID of the security filter.
+     * @param body New definition of the security filter.
+     */
+    public updateSecurityFilter(securityFilterId: string, body: SecurityFilterUpdateRequest, options?: Configuration): Observable<SecurityFilterResponse> {
+        const requestContextPromise = this.requestFactory.updateSecurityFilter(securityFilterId, body, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateSecurityFilter(rsp)));
             }));
     }
  
