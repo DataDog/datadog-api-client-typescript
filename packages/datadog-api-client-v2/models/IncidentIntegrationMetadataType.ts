@@ -15,7 +15,7 @@ import { ObjectSerializer } from './ObjectSerializer';
 * Integration metadata resource type.
 */
 
-export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATION_METADATA ;
-export const INCIDENT_INTEGRATION_METADATA = 'incident_integration_metadata';
+export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS ;
+export const INCIDENT_INTEGRATIONS = 'incident_integrations';
 
 
