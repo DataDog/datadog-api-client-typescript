@@ -52,7 +52,7 @@ export class RelationshipToIncidentIntegrationMetadataData {
       if (data.type === undefined) {
           throw new TypeError("missing required attribute 'type' on 'RelationshipToIncidentIntegrationMetadataData' object");
       }
-      if (['incident_integration_metadata', undefined].includes(data.type)) {
+      if (['incident_integrations', undefined].includes(data.type)) {
           res.type = data.type;
       } else {
           throw TypeError(`invalid enum value ${ data.type } for type`);
@@ -78,7 +78,7 @@ export class RelationshipToIncidentIntegrationMetadataData {
         if (data.type === undefined) {
             throw new TypeError("missing required attribute 'type' on 'RelationshipToIncidentIntegrationMetadataData' object");
         }
-        if (['incident_integration_metadata', undefined].includes(data.type)) {
+        if (['incident_integrations', undefined].includes(data.type)) {
             res.type = data.type;
         } else {
             throw TypeError(`invalid enum value ${ data.type } for type`);
