@@ -1,4 +1,4 @@
-# {{moduleName}}.{{classname}}{{#description}}
+# {{projectName}}.{{moduleName}}.{{classname}}{{#description}}
 
 {{description}}{{/description}}
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 {{#operations}}
 {{#operation}}
-# **{{{operationId}}}**
+## **{{{operationId}}}**
 > {{#returnType}}{{{returnType}}} {{/returnType}}{{{operationId}}}({{#requiredParams}}{{^defaultValue}}{{paramName}}{{^-last}}, {{/-last}}{{/defaultValue}}{{/requiredParams}})
 
 {{#notes}}
@@ -23,17 +23,26 @@ Method | HTTP request | Description
 
 ```typescript
 import { {{{moduleName}}} } from '{{{projectName}}}';
+import * as fs from 'fs';
 
-const apiInstance = new {{{moduleName}}}.{{classname}}();
+const configuration = {{{moduleName}}}.createConfiguration();
+const apiInstance = new {{{moduleName}}}.{{classname}}(configuration);
 
+{{#hasParams}}
+let body:{{{moduleName}}}.{{classname}}{{operationIdCamelCase}}Request = {
 {{#allParams}}
-// {{{dataType}}}{{#description}} | {{{description}}}{{/description}}{{^required}} (optional){{/required}}
-let {{paramName}} = {{{example}}};
-
+  // {{{dataType}}}{{#description}} | {{{description}}}{{/description}}{{^required}} (optional){{/required}}
+  {{paramName}}: {{{example}}},
 {{/allParams}}
-apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}}).then((data) => {
+};
+{{/hasParams}}
+{{^hasParams}}
+let body:any = {};
+{{/hasParams}}
+
+apiInstance.{{{operationId}}}(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
-}).catch((error) => console.error(error));
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -72,4 +81,3 @@ Name | Type | Description  | Notes
 
 {{/operation}}
 {{/operations}}
-

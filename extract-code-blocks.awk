@@ -35,11 +35,11 @@ function camel(value) {
     return head;
 }
 
-/^# datadog_api_client\.v[0-9]*\.(.+)Api/ {
-    tag = slug(substr($2, 23, length($2)-25));
+/^# datadog-api-client\.v[0-9]*\.(.+)Api/ {
+    tag = substr($2, 23, length($2)-25);
 }
-/^##? \*\*.+\*\*/ {
-    operation_id = camel(substr($2, 3, length($2)-4));
+match($0, /^##? \*\*(.+)\*\*/) {
+    operation_id = substr($2, 3, length($2)-4)
 }
 /^```typescript/ {
     if (in_code_block == 0) {
