@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The attributes of a notebook log stream cell.
+* The attributes of a notebook `log_stream` cell.
 */
 
 export class NotebookLogStreamCellAttributes {

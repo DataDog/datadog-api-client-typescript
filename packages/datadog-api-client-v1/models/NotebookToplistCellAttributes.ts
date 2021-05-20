@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The attributes of a notebook toplist cell.
+* The attributes of a notebook `toplist` cell.
 */
 
 export class NotebookToplistCellAttributes {

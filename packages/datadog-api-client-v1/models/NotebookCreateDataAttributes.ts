@@ -24,7 +24,7 @@ export class NotebookCreateDataAttributes {
     */
     'cells': Array<NotebookCellCreateRequest>;
     /**
-    * Notebook name.
+    * The name of the notebook.
     */
     'name': string;
     'status'?: NotebookStatus;

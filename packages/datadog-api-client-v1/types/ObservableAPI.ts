@@ -261,6 +261,8 @@ import { NotebookUpdateData } from '../models/NotebookUpdateData';
 import { NotebookUpdateDataAttributes } from '../models/NotebookUpdateDataAttributes';
 import { NotebookUpdateRequest } from '../models/NotebookUpdateRequest';
 import { NotebooksResponse } from '../models/NotebooksResponse';
+import { NotebooksResponseData } from '../models/NotebooksResponseData';
+import { NotebooksResponseDataAttributes } from '../models/NotebooksResponseDataAttributes';
 import { NotebooksResponseMeta } from '../models/NotebooksResponseMeta';
 import { NotebooksResponsePage } from '../models/NotebooksResponsePage';
 import { Organization } from '../models/Organization';

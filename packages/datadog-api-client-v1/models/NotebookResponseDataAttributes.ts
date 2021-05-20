@@ -26,15 +26,15 @@ export class NotebookResponseDataAttributes {
     */
     'cells': Array<NotebookCellResponse>;
     /**
-    * UTC time stamp.
+    * UTC time stamp for when the notebook was created.
     */
     'created'?: Date;
     /**
-    * UTC time stamp.
+    * UTC time stamp for when the notebook was last modified.
     */
     'modified'?: Date;
     /**
-    * Notebook name.
+    * The name of the notebook.
     */
     'name': string;
     'status'?: NotebookStatus;
