@@ -13,7 +13,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The attributes of a notebooks markdown cell.
+* The attributes of a notebook `markdown` cell.
 */
 
 export class NotebookMarkdownCellAttributes {

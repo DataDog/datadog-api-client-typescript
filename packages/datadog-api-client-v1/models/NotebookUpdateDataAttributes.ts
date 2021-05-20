@@ -24,7 +24,7 @@ export class NotebookUpdateDataAttributes {
     */
     'cells': Array<NotebookUpdateCell>;
     /**
-    * Notebook name.
+    * The name of the notebook.
     */
     'name': string;
     'status'?: NotebookStatus;

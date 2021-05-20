@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The attributes of a notebook distribution cell.
+* The attributes of a notebook `distribution` cell.
 */
 
 export class NotebookDistributionCellAttributes {

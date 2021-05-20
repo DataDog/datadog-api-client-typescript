@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { NotebookResponseData } from './NotebookResponseData';
+import { NotebooksResponseData } from './NotebooksResponseData';
 import { NotebooksResponseMeta } from './NotebooksResponseMeta';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
@@ -21,7 +21,7 @@ export class NotebooksResponse {
     /**
     * List of notebook definitions.
     */
-    'data'?: Array<NotebookResponseData>;
+    'data'?: Array<NotebooksResponseData>;
     'meta'?: NotebooksResponseMeta;
 
     static readonly discriminator: string | undefined = undefined;
@@ -29,7 +29,7 @@ export class NotebooksResponse {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "data": {
             "baseName": "data",
-            "type": "Array<NotebookResponseData>",
+            "type": "Array<NotebooksResponseData>",
             "format": ""
         },
         "meta": {
@@ -45,7 +45,7 @@ export class NotebooksResponse {
     static deserialize(data: {[key: string]: any}): NotebooksResponse {
       let res = new NotebooksResponse();
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<NotebookResponseData>", "")
+      res.data = ObjectSerializer.deserialize(data.data, "Array<NotebooksResponseData>", "")
 
       res.meta = ObjectSerializer.deserialize(data.meta, "NotebooksResponseMeta", "")
 
@@ -61,7 +61,7 @@ export class NotebooksResponse {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.data = ObjectSerializer.serialize(data.data, "Array<NotebookResponseData>", "")
+        res.data = ObjectSerializer.serialize(data.data, "Array<NotebooksResponseData>", "")
 
         res.meta = ObjectSerializer.serialize(data.meta, "NotebooksResponseMeta", "")
 

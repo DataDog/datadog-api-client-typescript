@@ -251,6 +251,22 @@ import { RoleUpdateResponseData } from '../models/RoleUpdateResponseData';
 import { RolesResponse } from '../models/RolesResponse';
 import { RolesSort } from '../models/RolesSort';
 import { RolesType } from '../models/RolesType';
+import { SecurityFilter } from '../models/SecurityFilter';
+import { SecurityFilterAttributes } from '../models/SecurityFilterAttributes';
+import { SecurityFilterCreateAttributes } from '../models/SecurityFilterCreateAttributes';
+import { SecurityFilterCreateData } from '../models/SecurityFilterCreateData';
+import { SecurityFilterCreateRequest } from '../models/SecurityFilterCreateRequest';
+import { SecurityFilterDeleteResponse } from '../models/SecurityFilterDeleteResponse';
+import { SecurityFilterExclusionFilter } from '../models/SecurityFilterExclusionFilter';
+import { SecurityFilterExclusionFilterResponse } from '../models/SecurityFilterExclusionFilterResponse';
+import { SecurityFilterFilteredDataType } from '../models/SecurityFilterFilteredDataType';
+import { SecurityFilterMeta } from '../models/SecurityFilterMeta';
+import { SecurityFilterResponse } from '../models/SecurityFilterResponse';
+import { SecurityFilterType } from '../models/SecurityFilterType';
+import { SecurityFilterUpdateAttributes } from '../models/SecurityFilterUpdateAttributes';
+import { SecurityFilterUpdateData } from '../models/SecurityFilterUpdateData';
+import { SecurityFilterUpdateRequest } from '../models/SecurityFilterUpdateRequest';
+import { SecurityFiltersResponse } from '../models/SecurityFiltersResponse';
 import { SecurityMonitoringFilter } from '../models/SecurityMonitoringFilter';
 import { SecurityMonitoringFilterAction } from '../models/SecurityMonitoringFilterAction';
 import { SecurityMonitoringListRulesResponse } from '../models/SecurityMonitoringListRulesResponse';
@@ -1298,12 +1314,32 @@ export class PromiseSecurityMonitoringApi {
     }
 
     /**
+     * Create a security filter.
+     * Create a security filter
+     * @param body The definition of the new security filter.
+     */
+    public createSecurityFilter(body: SecurityFilterCreateRequest, options?: Configuration): Promise<SecurityFilterResponse> {
+        const result = this.api.createSecurityFilter(body, options);
+        return result.toPromise();
+    }
+
+    /**
      * Create a detection rule.
      * Create a detection rule
      * @param body 
      */
     public createSecurityMonitoringRule(body: SecurityMonitoringRuleCreatePayload, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         const result = this.api.createSecurityMonitoringRule(body, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete a specific security filter.
+     * Delete a security filter
+     * @param securityFilterId The ID of the security filter.
+     */
+    public deleteSecurityFilter(securityFilterId: string, options?: Configuration): Promise<SecurityFilterDeleteResponse | void> {
+        const result = this.api.deleteSecurityFilter(securityFilterId, options);
         return result.toPromise();
     }
 
@@ -1318,12 +1354,31 @@ export class PromiseSecurityMonitoringApi {
     }
 
     /**
+     * Get the details of a specific security filter.
+     * Get a security filter
+     * @param securityFilterId The ID of the security filter.
+     */
+    public getSecurityFilter(securityFilterId: string, options?: Configuration): Promise<SecurityFilterResponse> {
+        const result = this.api.getSecurityFilter(securityFilterId, options);
+        return result.toPromise();
+    }
+
+    /**
      * Get a rule's details.
      * Get a rule's details
      * @param ruleId The ID of the rule.
      */
     public getSecurityMonitoringRule(ruleId: string, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         const result = this.api.getSecurityMonitoringRule(ruleId, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get the list of configured security filters with their definitions.
+     * Get all security filters
+     */
+    public listSecurityFilters(options?: Configuration): Promise<SecurityFiltersResponse> {
+        const result = this.api.listSecurityFilters(options);
         return result.toPromise();
     }
 
@@ -1360,6 +1415,17 @@ export class PromiseSecurityMonitoringApi {
      */
     public searchSecurityMonitoringSignals(body?: SecurityMonitoringSignalListRequest, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
         const result = this.api.searchSecurityMonitoringSignals(body, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update a specific security filter. Returns the security filter object when the request is successful.
+     * Update a security filter
+     * @param securityFilterId The ID of the security filter.
+     * @param body New definition of the security filter.
+     */
+    public updateSecurityFilter(securityFilterId: string, body: SecurityFilterUpdateRequest, options?: Configuration): Promise<SecurityFilterResponse> {
+        const result = this.api.updateSecurityFilter(securityFilterId, body, options);
         return result.toPromise();
     }
 

@@ -251,6 +251,22 @@ import { RoleUpdateResponseData } from '../models/RoleUpdateResponseData';
 import { RolesResponse } from '../models/RolesResponse';
 import { RolesSort } from '../models/RolesSort';
 import { RolesType } from '../models/RolesType';
+import { SecurityFilter } from '../models/SecurityFilter';
+import { SecurityFilterAttributes } from '../models/SecurityFilterAttributes';
+import { SecurityFilterCreateAttributes } from '../models/SecurityFilterCreateAttributes';
+import { SecurityFilterCreateData } from '../models/SecurityFilterCreateData';
+import { SecurityFilterCreateRequest } from '../models/SecurityFilterCreateRequest';
+import { SecurityFilterDeleteResponse } from '../models/SecurityFilterDeleteResponse';
+import { SecurityFilterExclusionFilter } from '../models/SecurityFilterExclusionFilter';
+import { SecurityFilterExclusionFilterResponse } from '../models/SecurityFilterExclusionFilterResponse';
+import { SecurityFilterFilteredDataType } from '../models/SecurityFilterFilteredDataType';
+import { SecurityFilterMeta } from '../models/SecurityFilterMeta';
+import { SecurityFilterResponse } from '../models/SecurityFilterResponse';
+import { SecurityFilterType } from '../models/SecurityFilterType';
+import { SecurityFilterUpdateAttributes } from '../models/SecurityFilterUpdateAttributes';
+import { SecurityFilterUpdateData } from '../models/SecurityFilterUpdateData';
+import { SecurityFilterUpdateRequest } from '../models/SecurityFilterUpdateRequest';
+import { SecurityFiltersResponse } from '../models/SecurityFiltersResponse';
 import { SecurityMonitoringFilter } from '../models/SecurityMonitoringFilter';
 import { SecurityMonitoringFilterAction } from '../models/SecurityMonitoringFilterAction';
 import { SecurityMonitoringListRulesResponse } from '../models/SecurityMonitoringListRulesResponse';
@@ -2115,6 +2131,15 @@ export class ObjectRolesApi {
 import { ObservableSecurityMonitoringApi } from "./ObservableAPI";
 import { SecurityMonitoringApiRequestFactory, SecurityMonitoringApiResponseProcessor} from "../apis/SecurityMonitoringApi";
 
+export interface SecurityMonitoringApiCreateSecurityFilterRequest {
+    /**
+     * The definition of the new security filter.
+     * @type SecurityFilterCreateRequest
+     * @memberof SecurityMonitoringApicreateSecurityFilter
+     */
+    body: SecurityFilterCreateRequest
+}
+
 export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
     /**
      * 
@@ -2122,6 +2147,15 @@ export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
      * @memberof SecurityMonitoringApicreateSecurityMonitoringRule
      */
     body: SecurityMonitoringRuleCreatePayload
+}
+
+export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
+    /**
+     * The ID of the security filter.
+     * @type string
+     * @memberof SecurityMonitoringApideleteSecurityFilter
+     */
+    securityFilterId: string
 }
 
 export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
@@ -2133,6 +2167,15 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
     ruleId: string
 }
 
+export interface SecurityMonitoringApiGetSecurityFilterRequest {
+    /**
+     * The ID of the security filter.
+     * @type string
+     * @memberof SecurityMonitoringApigetSecurityFilter
+     */
+    securityFilterId: string
+}
+
 export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
     /**
      * The ID of the rule.
@@ -2140,6 +2183,9 @@ export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
      * @memberof SecurityMonitoringApigetSecurityMonitoringRule
      */
     ruleId: string
+}
+
+export interface SecurityMonitoringApiListSecurityFiltersRequest {
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
@@ -2205,6 +2251,21 @@ export interface SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest {
     body?: SecurityMonitoringSignalListRequest
 }
 
+export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
+    /**
+     * The ID of the security filter.
+     * @type string
+     * @memberof SecurityMonitoringApiupdateSecurityFilter
+     */
+    securityFilterId: string
+    /**
+     * New definition of the security filter.
+     * @type SecurityFilterUpdateRequest
+     * @memberof SecurityMonitoringApiupdateSecurityFilter
+     */
+    body: SecurityFilterUpdateRequest
+}
+
 export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
     /**
      * The ID of the rule.
@@ -2228,12 +2289,30 @@ export class ObjectSecurityMonitoringApi {
     }
 
     /**
+     * Create a security filter.
+     * Create a security filter
+     * @param param the request object
+     */
+    public createSecurityFilter(param: SecurityMonitoringApiCreateSecurityFilterRequest, options?: Configuration): Promise<SecurityFilterResponse> {
+        return this.api.createSecurityFilter(param.body,  options).toPromise();
+    }
+
+    /**
      * Create a detection rule.
      * Create a detection rule
      * @param param the request object
      */
     public createSecurityMonitoringRule(param: SecurityMonitoringApiCreateSecurityMonitoringRuleRequest, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         return this.api.createSecurityMonitoringRule(param.body,  options).toPromise();
+    }
+
+    /**
+     * Delete a specific security filter.
+     * Delete a security filter
+     * @param param the request object
+     */
+    public deleteSecurityFilter(param: SecurityMonitoringApiDeleteSecurityFilterRequest, options?: Configuration): Promise<SecurityFilterDeleteResponse | void> {
+        return this.api.deleteSecurityFilter(param.securityFilterId,  options).toPromise();
     }
 
     /**
@@ -2246,12 +2325,30 @@ export class ObjectSecurityMonitoringApi {
     }
 
     /**
+     * Get the details of a specific security filter.
+     * Get a security filter
+     * @param param the request object
+     */
+    public getSecurityFilter(param: SecurityMonitoringApiGetSecurityFilterRequest, options?: Configuration): Promise<SecurityFilterResponse> {
+        return this.api.getSecurityFilter(param.securityFilterId,  options).toPromise();
+    }
+
+    /**
      * Get a rule's details.
      * Get a rule's details
      * @param param the request object
      */
     public getSecurityMonitoringRule(param: SecurityMonitoringApiGetSecurityMonitoringRuleRequest, options?: Configuration): Promise<SecurityMonitoringRuleResponse> {
         return this.api.getSecurityMonitoringRule(param.ruleId,  options).toPromise();
+    }
+
+    /**
+     * Get the list of configured security filters with their definitions.
+     * Get all security filters
+     * @param param the request object
+     */
+    public listSecurityFilters(param: SecurityMonitoringApiListSecurityFiltersRequest, options?: Configuration): Promise<SecurityFiltersResponse> {
+        return this.api.listSecurityFilters( options).toPromise();
     }
 
     /**
@@ -2279,6 +2376,15 @@ export class ObjectSecurityMonitoringApi {
      */
     public searchSecurityMonitoringSignals(param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
         return this.api.searchSecurityMonitoringSignals(param.body,  options).toPromise();
+    }
+
+    /**
+     * Update a specific security filter. Returns the security filter object when the request is successful.
+     * Update a security filter
+     * @param param the request object
+     */
+    public updateSecurityFilter(param: SecurityMonitoringApiUpdateSecurityFilterRequest, options?: Configuration): Promise<SecurityFilterResponse> {
+        return this.api.updateSecurityFilter(param.securityFilterId, param.body,  options).toPromise();
     }
 
     /**
