@@ -294,6 +294,8 @@ models/NotebookUpdateData.ts
 models/NotebookUpdateDataAttributes.ts
 models/NotebookUpdateRequest.ts
 models/NotebooksResponse.ts
+models/NotebooksResponseData.ts
+models/NotebooksResponseDataAttributes.ts
 models/NotebooksResponseMeta.ts
 models/NotebooksResponsePage.ts
 models/ObjectSerializer.ts

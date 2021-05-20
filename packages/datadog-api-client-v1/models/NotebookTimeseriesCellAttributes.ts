@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The attributes of a notebook timeseries cell.
+* The attributes of a notebook `timeseries` cell.
 */
 
 export class NotebookTimeseriesCellAttributes {

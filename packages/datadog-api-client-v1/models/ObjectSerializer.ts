@@ -256,6 +256,8 @@ import { NotebookUpdateData } from './NotebookUpdateData';
 import { NotebookUpdateDataAttributes } from './NotebookUpdateDataAttributes';
 import { NotebookUpdateRequest } from './NotebookUpdateRequest';
 import { NotebooksResponse } from './NotebooksResponse';
+import { NotebooksResponseData } from './NotebooksResponseData';
+import { NotebooksResponseDataAttributes } from './NotebooksResponseDataAttributes';
 import { NotebooksResponseMeta } from './NotebooksResponseMeta';
 import { NotebooksResponsePage } from './NotebooksResponsePage';
 import { Organization } from './Organization';
@@ -918,6 +920,8 @@ let typeMap: {[index: string]: any} = {
     "NotebookUpdateDataAttributes": NotebookUpdateDataAttributes,
     "NotebookUpdateRequest": NotebookUpdateRequest,
     "NotebooksResponse": NotebooksResponse,
+    "NotebooksResponseData": NotebooksResponseData,
+    "NotebooksResponseDataAttributes": NotebooksResponseDataAttributes,
     "NotebooksResponseMeta": NotebooksResponseMeta,
     "NotebooksResponsePage": NotebooksResponsePage,
     "Organization": Organization,

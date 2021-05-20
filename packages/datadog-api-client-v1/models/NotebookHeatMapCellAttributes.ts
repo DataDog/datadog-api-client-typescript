@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* The attributes of a notebook heat map cell.
+* The attributes of a notebook `heatmap` cell.
 */
 
 export class NotebookHeatMapCellAttributes {
