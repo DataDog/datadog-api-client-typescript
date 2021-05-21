@@ -13,8 +13,6 @@ yarn
 # temporary fix to compile example files
 find examples/$1 -type f -name "*.ts" | xargs sed -i.bak 's_datadog-api-client_../../../index_1'
 
-# cp tsconfig.json examples/$1
-
 touch examples/$1/tsconfig.json
 
 echo '{"compilerOptions":{"strict":true,"target":"es5","module":"commonjs","moduleResolution":"node","declaration":true,"esModuleInterop":true,"resolveJsonModule":true,"noImplicitAny":true,"noImplicitThis":true,"noUnusedLocals":false,"noUnusedParameters":false,"noImplicitReturns":true,"noFallthroughCasesInSwitch":true,"sourceMap":true,"noLib":false,"lib":["es5","es6","es7"]},"exclude":["dist","features","node_modules"],"include":["./**/*.ts"]}' > examples/$1/tsconfig.json

@@ -10,9 +10,9 @@ BEGIN {
 function slug(value) {
     head = "";
     tail = value;
-    while ( match(tail,/[[:upper:]][[:lower:]]/) ) {
+    while ( match(tail,/[A-Z][a-z]/) ) {
         tgt = substr(tail,RSTART,1);
-        if ( substr(tail,RSTART-1,1) ~ /[[:lower:]]/ || RSTART > 1 ) {
+        if ( substr(tail,RSTART-1,1) ~ /[a-z]/ || RSTART > 1 ) {
             tgt = "-" tolower(tgt);
         }
         head = head substr(tail,1,RSTART-1) tgt;
@@ -25,7 +25,7 @@ function camel(value) {
     gsub("_ip_", "_iP_", value);
     gsub("_id_", "_iD_", value);
 
-    head = toupper(substr(value,0,1)) substr(value,2);
+    head = toupper(substr(value,1,1)) substr(value,2);
     while ( match(head, /_([a-z])/) ) {
         head = substr(head,0,RSTART-1) toupper(substr(head,RSTART+1, 1)) substr(head,RSTART+2)
     }
@@ -36,10 +36,10 @@ function camel(value) {
 }
 
 /^# datadog-api-client\.v[0-9]*\.(.+)Api/ {
-    tag = substr($2, 23, length($2)-25);
+    tag = slug(substr($2, 23, length($2)-25));
 }
-match($0, /^##? \*\*(.+)\*\*/) {
-    operation_id = substr($2, 3, length($2)-4)
+/^##? \*\*.+\*\*/ {
+    operation_id = camel(substr($2, 3, length($2)-4))
 }
 /^```typescript/ {
     if (in_code_block == 0) {
