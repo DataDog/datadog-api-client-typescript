@@ -3,4 +3,12 @@ node_modules
 package-lock.json
 @rerun.txt
 
-node_modules
+examples
+
+*.js
+*.js.map
+*.d.ts
+
+!cucumber.js
+!bin/check-licenses.js
+!.eslintrc.js
