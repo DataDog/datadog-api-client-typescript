@@ -1,4 +1,17 @@
+DashboardListsApi.md
+IncidentServicesApi.md
+IncidentTeamsApi.md
+IncidentsApi.md
+KeyManagementApi.md
+LogsApi.md
+LogsArchivesApi.md
+LogsMetricsApi.md
+MetricsApi.md
+ProcessesApi.md
 README.md
+RolesApi.md
+SecurityMonitoringApi.md
+UsersApi.md
 apis/DashboardListsApi.ts
 apis/IncidentServicesApi.ts
 apis/IncidentTeamsApi.ts
