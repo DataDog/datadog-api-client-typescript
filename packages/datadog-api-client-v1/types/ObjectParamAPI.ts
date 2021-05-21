@@ -2551,7 +2551,7 @@ export class ObjectMonitorsApi {
      * Validate a monitor
      * @param param the request object
      */
-    public validateMonitor(param: MonitorsApiValidateMonitorRequest, options?: Configuration): Promise<Monitor> {
+    public validateMonitor(param: MonitorsApiValidateMonitorRequest, options?: Configuration): Promise<any> {
         return this.api.validateMonitor(param.body,  options).toPromise();
     }
 

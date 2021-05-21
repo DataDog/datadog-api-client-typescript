@@ -59,7 +59,7 @@ export class Monitor {
     /**
     * The monitor query.
     */
-    'query'?: string;
+    'query': string;
     /**
     * A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
     */
@@ -69,7 +69,7 @@ export class Monitor {
     * Tags associated to your monitor.
     */
     'tags'?: Array<string>;
-    'type'?: MonitorType;
+    'type': MonitorType;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -188,6 +188,9 @@ export class Monitor {
 
       res.priority = ObjectSerializer.deserialize(data.priority, "number", "int64")
 
+      if (data.query === undefined) {
+          throw new TypeError("missing required attribute 'query' on 'Monitor' object");
+      }
       res.query = ObjectSerializer.deserialize(data.query, "string", "")
 
       res.restrictedRoles = ObjectSerializer.deserialize(data.restricted_roles, "Array<string>", "")
@@ -196,6 +199,9 @@ export class Monitor {
 
       res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
 
+      if (data.type === undefined) {
+          throw new TypeError("missing required attribute 'type' on 'Monitor' object");
+      }
       if (['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', undefined].includes(data.type)) {
           res.type = data.type;
       } else {
@@ -240,6 +246,9 @@ export class Monitor {
 
         res.priority = ObjectSerializer.serialize(data.priority, "number", "int64")
 
+        if (data.query === undefined) {
+            throw new TypeError("missing required attribute 'query' on 'Monitor' object");
+        }
         res.query = ObjectSerializer.serialize(data.query, "string", "")
 
         res.restricted_roles = ObjectSerializer.serialize(data.restrictedRoles, "Array<string>", "")
@@ -248,6 +257,9 @@ export class Monitor {
 
         res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
 
+        if (data.type === undefined) {
+            throw new TypeError("missing required attribute 'type' on 'Monitor' object");
+        }
         if (['composite', 'event alert', 'log alert', 'metric alert', 'process alert', 'query alert', 'rum alert', 'service check', 'synthetics alert', 'trace-analytics alert', 'slo alert', 'event-v2 alert', undefined].includes(data.type)) {
             res.type = data.type;
         } else {

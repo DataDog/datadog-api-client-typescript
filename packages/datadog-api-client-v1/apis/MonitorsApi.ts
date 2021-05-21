@@ -733,13 +733,13 @@ export class MonitorsApiResponseProcessor {
      * @params response Response returned by the server for a request to validateMonitor
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async validateMonitor(response: ResponseContext): Promise<Monitor > {
+     public async validateMonitor(response: ResponseContext): Promise<any > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Monitor = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Monitor", ""
-            ) as Monitor;
+                "any", ""
+            ) as any;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -759,10 +759,10 @@ export class MonitorsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Monitor = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Monitor", ""
-            ) as Monitor;
+                "any", ""
+            ) as any;
             return body;
         }
 
