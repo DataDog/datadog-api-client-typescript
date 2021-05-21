@@ -3023,7 +3023,7 @@ export class ObservableMonitorsApi {
      * Validate a monitor
      * @param body Monitor request object
      */
-    public validateMonitor(body: Monitor, options?: Configuration): Observable<Monitor> {
+    public validateMonitor(body: Monitor, options?: Configuration): Observable<any> {
         const requestContextPromise = this.requestFactory.validateMonitor(body, options);
 
         // build promise chain

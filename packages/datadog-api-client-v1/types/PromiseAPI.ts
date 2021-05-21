@@ -1803,7 +1803,7 @@ export class PromiseMonitorsApi {
      * Validate a monitor
      * @param body Monitor request object
      */
-    public validateMonitor(body: Monitor, options?: Configuration): Promise<Monitor> {
+    public validateMonitor(body: Monitor, options?: Configuration): Promise<any> {
         const result = this.api.validateMonitor(body, options);
         return result.toPromise();
     }
