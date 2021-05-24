@@ -30,6 +30,10 @@ export class UsageAttributionBody {
     */
     'publicId'?: string;
     /**
+    * The source of the usage attribution tag configuration and the selected tags in the format `<source_org_name>:<selected tag 1>-<selected tag 2>-<selected tag 3>`.
+    */
+    'tagConfigSource'?: string;
+    /**
     * Usage Summary by tag name.
     */
     'tags'?: { [key: string]: Array<string>; };
@@ -54,6 +58,11 @@ export class UsageAttributionBody {
         },
         "publicId": {
             "baseName": "public_id",
+            "type": "string",
+            "format": ""
+        },
+        "tagConfigSource": {
+            "baseName": "tag_config_source",
             "type": "string",
             "format": ""
         },
@@ -86,6 +95,8 @@ export class UsageAttributionBody {
 
       res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
 
+      res.tagConfigSource = ObjectSerializer.deserialize(data.tag_config_source, "string", "")
+
       res.tags = ObjectSerializer.deserialize(data.tags, "{ [key: string]: Array<string>; }", "")
 
       res.updatedAt = ObjectSerializer.deserialize(data.updated_at, "string", "")
@@ -109,6 +120,8 @@ export class UsageAttributionBody {
         res.org_name = ObjectSerializer.serialize(data.orgName, "string", "")
 
         res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
+
+        res.tag_config_source = ObjectSerializer.serialize(data.tagConfigSource, "string", "")
 
         res.tags = ObjectSerializer.serialize(data.tags, "{ [key: string]: Array<string>; }", "")
 
