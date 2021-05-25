@@ -29,7 +29,7 @@ const configuration = {{{moduleName}}}.createConfiguration();
 const apiInstance = new {{{moduleName}}}.{{classname}}(configuration);
 
 {{#hasParams}}
-let body:{{{moduleName}}}.{{classname}}{{operationIdCamelCase}}Request = {
+let params:{{{moduleName}}}.{{classname}}{{operationIdCamelCase}}Request = {
 {{#allParams}}
   // {{{dataType}}}{{#description}} | {{{description}}}{{/description}}{{^required}} (optional){{/required}}
   {{paramName}}: {{{example}}},
@@ -37,10 +37,10 @@ let body:{{{moduleName}}}.{{classname}}{{operationIdCamelCase}}Request = {
 };
 {{/hasParams}}
 {{^hasParams}}
-let body:any = {};
+let params:any = {};
 {{/hasParams}}
 
-apiInstance.{{{operationId}}}(body).then((data:any) => {
+apiInstance.{{{operationId}}}(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
