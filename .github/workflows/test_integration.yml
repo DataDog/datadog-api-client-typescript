@@ -39,7 +39,7 @@ jobs:
       shell: bash
       env:
         CI: "true"
-        DD_AGENT_HOST: datadog-agent
+        DD_AGENT_HOST: localhost
         DD_ENV: prod
         DD_SERVICE: datadog-api-client-typescript
         DD_TAGS: "team:integration-tools-and-libraries"
