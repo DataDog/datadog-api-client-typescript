@@ -24,9 +24,11 @@ export abstract class AbstractObject{{classname}} {
      {{#summary}}
      * {{&summary}}
      {{/summary}}
+     {{#hasParams}}
      * @param param the request object
+     {{/hasParams}}
      */
-    public abstract {{nickname}}(param: req.{{classname}}{{operationIdCamelCase}}Request, options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}>;
+    public abstract {{nickname}}({{#hasParams}}param: req.{{classname}}{{operationIdCamelCase}}Request, {{/hasParams}}options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}>;
 
     {{/operation}}
 }

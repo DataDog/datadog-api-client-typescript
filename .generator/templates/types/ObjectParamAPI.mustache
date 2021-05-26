@@ -45,10 +45,12 @@ export class Object{{classname}} {
      {{#summary}}
      * {{&summary}}
      {{/summary}}
+     {{#hasParams}}
      * @param param the request object
+     {{/hasParams}}
      */
     public {{nickname}}({{#hasParams}}param: {{classname}}{{operationIdCamelCase}}Request, {{/hasParams}}options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {
-        return this.api.{{nickname}}({{#hasParams}}{{#allParams}}param.{{paramName}}, {{/allParams}} {{/hasParams}}options){{^useRxJS}}.toPromise(){{/useRxJS}};
+        return this.api.{{nickname}}({{#allParams}}param.{{paramName}}, {{/allParams}}options){{^useRxJS}}.toPromise(){{/useRxJS}};
     }
 
 {{/operation}}
