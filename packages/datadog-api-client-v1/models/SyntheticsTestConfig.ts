@@ -23,7 +23,7 @@ export class SyntheticsTestConfig {
     /**
     * Array of assertions used for the test.
     */
-    'assertions': Array<SyntheticsAssertion>;
+    'assertions'?: Array<SyntheticsAssertion>;
     /**
     * API tests only - array of variables used for the test.
     */
@@ -65,9 +65,6 @@ export class SyntheticsTestConfig {
     static deserialize(data: {[key: string]: any}): SyntheticsTestConfig {
       let res = new SyntheticsTestConfig();
 
-      if (data.assertions === undefined) {
-          throw new TypeError("missing required attribute 'assertions' on 'SyntheticsTestConfig' object");
-      }
       res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
 
       res.configVariables = ObjectSerializer.deserialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
@@ -87,9 +84,6 @@ export class SyntheticsTestConfig {
             if (!(key in attributeTypes)) {
                 throw new TypeError(`${key} attribute not in schema`);
             }
-        }
-        if (data.assertions === undefined) {
-            throw new TypeError("missing required attribute 'assertions' on 'SyntheticsTestConfig' object");
         }
         res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
 

@@ -193,9 +193,10 @@ let body:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       configVariables: [
         {
           example: "example_example",
+          id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "text",
+          type: "global",
         },
       ],
       request: {
@@ -1518,9 +1519,10 @@ let body:v1.SyntheticsApiUpdateAPITestRequest = {
       configVariables: [
         {
           example: "example_example",
+          id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "text",
+          type: "global",
         },
       ],
       request: {

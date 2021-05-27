@@ -20,7 +20,11 @@ export class SyntheticsConfigVariable {
     /**
     * Example for the variable.
     */
-    'example': string;
+    'example'?: string;
+    /**
+    * ID of the variable for global variables.
+    */
+    'id'?: string;
     /**
     * Name of the variable.
     */
@@ -36,6 +40,11 @@ export class SyntheticsConfigVariable {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "example": {
             "baseName": "example",
+            "type": "string",
+            "format": ""
+        },
+        "id": {
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
@@ -62,10 +71,9 @@ export class SyntheticsConfigVariable {
     static deserialize(data: {[key: string]: any}): SyntheticsConfigVariable {
       let res = new SyntheticsConfigVariable();
 
-      if (data.example === undefined) {
-          throw new TypeError("missing required attribute 'example' on 'SyntheticsConfigVariable' object");
-      }
       res.example = ObjectSerializer.deserialize(data.example, "string", "")
+
+      res.id = ObjectSerializer.deserialize(data.id, "string", "")
 
       if (data.name === undefined) {
           throw new TypeError("missing required attribute 'name' on 'SyntheticsConfigVariable' object");
@@ -77,7 +85,7 @@ export class SyntheticsConfigVariable {
       if (data.type === undefined) {
           throw new TypeError("missing required attribute 'type' on 'SyntheticsConfigVariable' object");
       }
-      if (['text', undefined].includes(data.type)) {
+      if (['global', 'text', undefined].includes(data.type)) {
           res.type = data.type;
       } else {
           throw TypeError(`invalid enum value ${ data.type } for type`);
@@ -95,10 +103,9 @@ export class SyntheticsConfigVariable {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        if (data.example === undefined) {
-            throw new TypeError("missing required attribute 'example' on 'SyntheticsConfigVariable' object");
-        }
         res.example = ObjectSerializer.serialize(data.example, "string", "")
+
+        res.id = ObjectSerializer.serialize(data.id, "string", "")
 
         if (data.name === undefined) {
             throw new TypeError("missing required attribute 'name' on 'SyntheticsConfigVariable' object");
@@ -110,7 +117,7 @@ export class SyntheticsConfigVariable {
         if (data.type === undefined) {
             throw new TypeError("missing required attribute 'type' on 'SyntheticsConfigVariable' object");
         }
-        if (['text', undefined].includes(data.type)) {
+        if (['global', 'text', undefined].includes(data.type)) {
             res.type = data.type;
         } else {
             throw TypeError(`invalid enum value ${ data.type } for type`);

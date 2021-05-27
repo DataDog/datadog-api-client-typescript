@@ -15,7 +15,8 @@ import { ObjectSerializer } from './ObjectSerializer';
 * Type of the configuration variable.
 */
 
-export type SyntheticsConfigVariableType = typeof TEXT ;
+export type SyntheticsConfigVariableType = typeof GLOBAL | typeof TEXT ;
+export const GLOBAL = 'global';
 export const TEXT = 'text';
 
 
