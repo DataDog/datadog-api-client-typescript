@@ -212,9 +212,17 @@ import { MetricsQueryResponse } from '../models/MetricsQueryResponse';
 import { MetricsQueryUnit } from '../models/MetricsQueryUnit';
 import { Monitor } from '../models/Monitor';
 import { MonitorDeviceID } from '../models/MonitorDeviceID';
+import { MonitorGroupSearchResponse } from '../models/MonitorGroupSearchResponse';
+import { MonitorGroupSearchResponseCounts } from '../models/MonitorGroupSearchResponseCounts';
+import { MonitorGroupSearchResult } from '../models/MonitorGroupSearchResult';
 import { MonitorOptions } from '../models/MonitorOptions';
 import { MonitorOptionsAggregation } from '../models/MonitorOptionsAggregation';
 import { MonitorOverallStates } from '../models/MonitorOverallStates';
+import { MonitorSearchResponse } from '../models/MonitorSearchResponse';
+import { MonitorSearchResponseCounts } from '../models/MonitorSearchResponseCounts';
+import { MonitorSearchResponseMetadata } from '../models/MonitorSearchResponseMetadata';
+import { MonitorSearchResult } from '../models/MonitorSearchResult';
+import { MonitorSearchResultNotification } from '../models/MonitorSearchResultNotification';
 import { MonitorState } from '../models/MonitorState';
 import { MonitorStateGroup } from '../models/MonitorStateGroup';
 import { MonitorSummaryWidgetDefinition } from '../models/MonitorSummaryWidgetDefinition';
@@ -1784,6 +1792,32 @@ export class PromiseMonitorsApi {
      */
     public listMonitors(groupStates?: string, name?: string, tags?: string, monitorTags?: string, withDowntimes?: boolean, idOffset?: number, page?: number, pageSize?: number, options?: Configuration): Promise<Array<Monitor>> {
         const result = this.api.listMonitors(groupStates, name, tags, monitorTags, withDowntimes, idOffset, page, pageSize, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Search and filter your monitor groups details.
+     * Monitors group search
+     * @param query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+     * @param page Page to start paginating from.
+     * @param perPage Number of monitors to return per page.
+     * @param sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+     */
+    public searchMonitorGroups(query?: string, page?: number, perPage?: number, sort?: string, options?: Configuration): Promise<MonitorGroupSearchResponse> {
+        const result = this.api.searchMonitorGroups(query, page, perPage, sort, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Search and filter your monitors details.
+     * Monitors search
+     * @param query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+     * @param page Page to start paginating from.
+     * @param perPage Number of monitors to return per page.
+     * @param sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+     */
+    public searchMonitors(query?: string, page?: number, perPage?: number, sort?: string, options?: Configuration): Promise<MonitorSearchResponse> {
+        const result = this.api.searchMonitors(query, page, perPage, sort, options);
         return result.toPromise();
     }
 

@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
 [**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details
 [**listMonitors**](MonitorsApi.md#listMonitors) | **GET** /api/v1/monitor | Get all monitor details
+[**searchMonitorGroups**](MonitorsApi.md#searchMonitorGroups) | **GET** /api/v1/monitor/groups/search | Monitors group search
+[**searchMonitors**](MonitorsApi.md#searchMonitors) | **GET** /api/v1/monitor/search | Monitors search
 [**updateMonitor**](MonitorsApi.md#updateMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
 [**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | Validate a monitor
 
@@ -351,6 +353,136 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Array<Monitor>**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **searchMonitorGroups**
+> MonitorGroupSearchResponse searchMonitorGroups()
+
+Search and filter your monitor groups details.
+
+### Example
+
+
+```typescript
+import { v1 } from 'datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.MonitorsApi(configuration);
+
+let body:v1.MonitorsApiSearchMonitorGroupsRequest = {
+  // string | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors (optional)
+  query: "query_example",
+  // number | Page to start paginating from. (optional)
+  page: 0,
+  // number | Number of monitors to return per page. (optional)
+  perPage: 30,
+  // string | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags` (optional)
+  sort: "sort_example",
+};
+
+apiInstance.searchMonitorGroups(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | [**string**] | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors | (optional) defaults to undefined
+ **page** | [**number**] | Page to start paginating from. | (optional) defaults to 0
+ **perPage** | [**number**] | Number of monitors to return per page. | (optional) defaults to 30
+ **sort** | [**string**] | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; | (optional) defaults to undefined
+
+
+### Return type
+
+**MonitorGroupSearchResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **searchMonitors**
+> MonitorSearchResponse searchMonitors()
+
+Search and filter your monitors details.
+
+### Example
+
+
+```typescript
+import { v1 } from 'datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.MonitorsApi(configuration);
+
+let body:v1.MonitorsApiSearchMonitorsRequest = {
+  // string | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors (optional)
+  query: "query_example",
+  // number | Page to start paginating from. (optional)
+  page: 0,
+  // number | Number of monitors to return per page. (optional)
+  perPage: 30,
+  // string | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags` (optional)
+  sort: "sort_example",
+};
+
+apiInstance.searchMonitors(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | [**string**] | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors | (optional) defaults to undefined
+ **page** | [**number**] | Page to start paginating from. | (optional) defaults to 0
+ **perPage** | [**number**] | Number of monitors to return per page. | (optional) defaults to 30
+ **sort** | [**string**] | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; | (optional) defaults to undefined
+
+
+### Return type
+
+**MonitorSearchResponse**
 
 ### Authorization
 

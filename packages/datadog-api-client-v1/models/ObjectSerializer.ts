@@ -208,9 +208,17 @@ import { MetricsQueryResponse } from './MetricsQueryResponse';
 import { MetricsQueryUnit } from './MetricsQueryUnit';
 import { Monitor } from './Monitor';
 import { MonitorDeviceID } from './MonitorDeviceID';
+import { MonitorGroupSearchResponse } from './MonitorGroupSearchResponse';
+import { MonitorGroupSearchResponseCounts } from './MonitorGroupSearchResponseCounts';
+import { MonitorGroupSearchResult } from './MonitorGroupSearchResult';
 import { MonitorOptions } from './MonitorOptions';
 import { MonitorOptionsAggregation } from './MonitorOptionsAggregation';
 import { MonitorOverallStates } from './MonitorOverallStates';
+import { MonitorSearchResponse } from './MonitorSearchResponse';
+import { MonitorSearchResponseCounts } from './MonitorSearchResponseCounts';
+import { MonitorSearchResponseMetadata } from './MonitorSearchResponseMetadata';
+import { MonitorSearchResult } from './MonitorSearchResult';
+import { MonitorSearchResultNotification } from './MonitorSearchResultNotification';
 import { MonitorState } from './MonitorState';
 import { MonitorStateGroup } from './MonitorStateGroup';
 import { MonitorSummaryWidgetDefinition } from './MonitorSummaryWidgetDefinition';
@@ -887,8 +895,16 @@ let typeMap: {[index: string]: any} = {
     "MetricsQueryResponse": MetricsQueryResponse,
     "MetricsQueryUnit": MetricsQueryUnit,
     "Monitor": Monitor,
+    "MonitorGroupSearchResponse": MonitorGroupSearchResponse,
+    "MonitorGroupSearchResponseCounts": MonitorGroupSearchResponseCounts,
+    "MonitorGroupSearchResult": MonitorGroupSearchResult,
     "MonitorOptions": MonitorOptions,
     "MonitorOptionsAggregation": MonitorOptionsAggregation,
+    "MonitorSearchResponse": MonitorSearchResponse,
+    "MonitorSearchResponseCounts": MonitorSearchResponseCounts,
+    "MonitorSearchResponseMetadata": MonitorSearchResponseMetadata,
+    "MonitorSearchResult": MonitorSearchResult,
+    "MonitorSearchResultNotification": MonitorSearchResultNotification,
     "MonitorState": MonitorState,
     "MonitorStateGroup": MonitorStateGroup,
     "MonitorSummaryWidgetDefinition": MonitorSummaryWidgetDefinition,

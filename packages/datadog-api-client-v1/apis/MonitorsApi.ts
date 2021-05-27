@@ -11,6 +11,8 @@ import { APIErrorResponse } from '../models/APIErrorResponse';
 import { CheckCanDeleteMonitorResponse } from '../models/CheckCanDeleteMonitorResponse';
 import { DeletedMonitor } from '../models/DeletedMonitor';
 import { Monitor } from '../models/Monitor';
+import { MonitorGroupSearchResponse } from '../models/MonitorGroupSearchResponse';
+import { MonitorSearchResponse } from '../models/MonitorSearchResponse';
 import { MonitorUpdateRequest } from '../models/MonitorUpdateRequest';
 
 /**
@@ -277,6 +279,122 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
         }
         if (pageSize !== undefined) {
             requestContext.setQueryParam("page_size", ObjectSerializer.serialize(pageSize, "number", "int32"));
+        }
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Search and filter your monitor groups details.
+     * Monitors group search
+     * @param query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+     * @param page Page to start paginating from.
+     * @param perPage Number of monitors to return per page.
+     * @param sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+     */
+    public async searchMonitorGroups(query?: string, page?: number, perPage?: number, sort?: string, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/monitor/groups/search';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'MonitorsApi.searchMonitorGroups').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
+
+        // Query Params
+        if (query !== undefined) {
+            requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
+        }
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", "int64"));
+        }
+        if (perPage !== undefined) {
+            requestContext.setQueryParam("per_page", ObjectSerializer.serialize(perPage, "number", "int64"));
+        }
+        if (sort !== undefined) {
+            requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "string", ""));
+        }
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Search and filter your monitors details.
+     * Monitors search
+     * @param query After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+     * @param page Page to start paginating from.
+     * @param perPage Number of monitors to return per page.
+     * @param sort String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60;
+     */
+    public async searchMonitors(query?: string, page?: number, perPage?: number, sort?: string, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/monitor/search';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'MonitorsApi.searchMonitors').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
+
+        // Query Params
+        if (query !== undefined) {
+            requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
+        }
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", "int64"));
+        }
+        if (perPage !== undefined) {
+            requestContext.setQueryParam("per_page", ObjectSerializer.serialize(perPage, "number", "int64"));
+        }
+        if (sort !== undefined) {
+            requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "string", ""));
         }
 
         // Header Params
@@ -661,6 +779,94 @@ export class MonitorsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "Array<Monitor>", ""
             ) as Array<Monitor>;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to searchMonitorGroups
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async searchMonitorGroups(response: ResponseContext): Promise<MonitorGroupSearchResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: MonitorGroupSearchResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "MonitorGroupSearchResponse", ""
+            ) as MonitorGroupSearchResponse;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: MonitorGroupSearchResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "MonitorGroupSearchResponse", ""
+            ) as MonitorGroupSearchResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to searchMonitors
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async searchMonitors(response: ResponseContext): Promise<MonitorSearchResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: MonitorSearchResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "MonitorSearchResponse", ""
+            ) as MonitorSearchResponse;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: MonitorSearchResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "MonitorSearchResponse", ""
+            ) as MonitorSearchResponse;
             return body;
         }
 
