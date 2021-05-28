@@ -397,6 +397,7 @@ import { SyntheticsGlobalVariableParseTestOptions } from '../models/SyntheticsGl
 import { SyntheticsGlobalVariableParseTestOptionsType } from '../models/SyntheticsGlobalVariableParseTestOptionsType';
 import { SyntheticsGlobalVariableParserType } from '../models/SyntheticsGlobalVariableParserType';
 import { SyntheticsGlobalVariableValue } from '../models/SyntheticsGlobalVariableValue';
+import { SyntheticsListGlobalVariablesResponse } from '../models/SyntheticsListGlobalVariablesResponse';
 import { SyntheticsListTestsResponse } from '../models/SyntheticsListTestsResponse';
 import { SyntheticsLocation } from '../models/SyntheticsLocation';
 import { SyntheticsLocations } from '../models/SyntheticsLocations';
@@ -4525,6 +4526,29 @@ export class ObservableSyntheticsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getTest(rsp)));
+            }));
+    }
+ 
+    /**
+     * Get the list of all Synthetics global variables.
+     * Get all global variables
+     */
+    public listGlobalVariables(options?: Configuration): Observable<SyntheticsListGlobalVariablesResponse> {
+        const requestContextPromise = this.requestFactory.listGlobalVariables(options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listGlobalVariables(rsp)));
             }));
     }
  

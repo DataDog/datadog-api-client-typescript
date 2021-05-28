@@ -18,6 +18,7 @@ import { SyntheticsDeleteTestsResponse } from '../models/SyntheticsDeleteTestsRe
 import { SyntheticsGetAPITestLatestResultsResponse } from '../models/SyntheticsGetAPITestLatestResultsResponse';
 import { SyntheticsGetBrowserTestLatestResultsResponse } from '../models/SyntheticsGetBrowserTestLatestResultsResponse';
 import { SyntheticsGlobalVariable } from '../models/SyntheticsGlobalVariable';
+import { SyntheticsListGlobalVariablesResponse } from '../models/SyntheticsListGlobalVariablesResponse';
 import { SyntheticsListTestsResponse } from '../models/SyntheticsListTestsResponse';
 import { SyntheticsLocations } from '../models/SyntheticsLocations';
 import { SyntheticsPrivateLocation } from '../models/SyntheticsPrivateLocation';
@@ -889,6 +890,44 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Make Request Context
         const requestContext = getServer(config, 'SyntheticsApi.getTest').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
+
+        // Query Params
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Get the list of all Synthetics global variables.
+     * Get all global variables
+     */
+    public async listGlobalVariables(options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/api/v1/synthetics/variables';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'SyntheticsApi.listGlobalVariables').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
         requestContext.setHttpConfig(config.httpConfig);
 
@@ -2044,6 +2083,43 @@ export class SyntheticsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "SyntheticsTestDetails", ""
             ) as SyntheticsTestDetails;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to listGlobalVariables
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async listGlobalVariables(response: ResponseContext): Promise<SyntheticsListGlobalVariablesResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SyntheticsListGlobalVariablesResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsListGlobalVariablesResponse", ""
+            ) as SyntheticsListGlobalVariablesResponse;
+            return body;
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SyntheticsListGlobalVariablesResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SyntheticsListGlobalVariablesResponse", ""
+            ) as SyntheticsListGlobalVariablesResponse;
             return body;
         }
 
