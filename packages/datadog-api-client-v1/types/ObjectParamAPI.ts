@@ -396,6 +396,7 @@ import { SyntheticsGlobalVariableParseTestOptions } from '../models/SyntheticsGl
 import { SyntheticsGlobalVariableParseTestOptionsType } from '../models/SyntheticsGlobalVariableParseTestOptionsType';
 import { SyntheticsGlobalVariableParserType } from '../models/SyntheticsGlobalVariableParserType';
 import { SyntheticsGlobalVariableValue } from '../models/SyntheticsGlobalVariableValue';
+import { SyntheticsListGlobalVariablesResponse } from '../models/SyntheticsListGlobalVariablesResponse';
 import { SyntheticsListTestsResponse } from '../models/SyntheticsListTestsResponse';
 import { SyntheticsLocation } from '../models/SyntheticsLocation';
 import { SyntheticsLocations } from '../models/SyntheticsLocations';
@@ -3729,6 +3730,9 @@ export interface SyntheticsApiGetTestRequest {
     publicId: string
 }
 
+export interface SyntheticsApiListGlobalVariablesRequest {
+}
+
 export interface SyntheticsApiListLocationsRequest {
 }
 
@@ -3962,6 +3966,15 @@ export class ObjectSyntheticsApi {
      */
     public getTest(param: SyntheticsApiGetTestRequest, options?: Configuration): Promise<SyntheticsTestDetails> {
         return this.api.getTest(param.publicId,  options).toPromise();
+    }
+
+    /**
+     * Get the list of all Synthetics global variables.
+     * Get all global variables
+     * @param param the request object
+     */
+    public listGlobalVariables(param: SyntheticsApiListGlobalVariablesRequest, options?: Configuration): Promise<SyntheticsListGlobalVariablesResponse> {
+        return this.api.listGlobalVariables( options).toPromise();
     }
 
     /**

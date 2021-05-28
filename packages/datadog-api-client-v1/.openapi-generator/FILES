@@ -460,6 +460,7 @@ models/SyntheticsGlobalVariableParseTestOptions.ts
 models/SyntheticsGlobalVariableParseTestOptionsType.ts
 models/SyntheticsGlobalVariableParserType.ts
 models/SyntheticsGlobalVariableValue.ts
+models/SyntheticsListGlobalVariablesResponse.ts
 models/SyntheticsListTestsResponse.ts
 models/SyntheticsLocation.ts
 models/SyntheticsLocations.ts
