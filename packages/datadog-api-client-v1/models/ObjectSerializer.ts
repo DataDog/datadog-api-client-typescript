@@ -392,6 +392,7 @@ import { SyntheticsGlobalVariableParseTestOptions } from './SyntheticsGlobalVari
 import { SyntheticsGlobalVariableParseTestOptionsType } from './SyntheticsGlobalVariableParseTestOptionsType';
 import { SyntheticsGlobalVariableParserType } from './SyntheticsGlobalVariableParserType';
 import { SyntheticsGlobalVariableValue } from './SyntheticsGlobalVariableValue';
+import { SyntheticsListGlobalVariablesResponse } from './SyntheticsListGlobalVariablesResponse';
 import { SyntheticsListTestsResponse } from './SyntheticsListTestsResponse';
 import { SyntheticsLocation } from './SyntheticsLocation';
 import { SyntheticsLocations } from './SyntheticsLocations';
@@ -1036,6 +1037,7 @@ let typeMap: {[index: string]: any} = {
     "SyntheticsGlobalVariable": SyntheticsGlobalVariable,
     "SyntheticsGlobalVariableParseTestOptions": SyntheticsGlobalVariableParseTestOptions,
     "SyntheticsGlobalVariableValue": SyntheticsGlobalVariableValue,
+    "SyntheticsListGlobalVariablesResponse": SyntheticsListGlobalVariablesResponse,
     "SyntheticsListTestsResponse": SyntheticsListTestsResponse,
     "SyntheticsLocation": SyntheticsLocation,
     "SyntheticsLocations": SyntheticsLocations,
