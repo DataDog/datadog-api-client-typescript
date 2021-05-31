@@ -10,7 +10,7 @@ This project does not have a strict release schedule. However, we would make a r
 
 ### Prerequisites
 - Install [datadog_checks_dev](https://datadog-checks-base.readthedocs.io/en/latest/datadog_checks_dev.cli.html#installation) using Python 3
-- Have [Node.js 10+](https://nodejs.org/en/)
+- Have [Node.js 12+](https://nodejs.org/en/)
 - Ensure all CIs are passing on the master branch that we're about to release.
 
 ## Release
@@ -22,6 +22,7 @@ Releasing a new version of `@datadog/datadog-api-client` unfolds as follow:
 
 - See changes ready for release by running `ddev release show changes . --tag-prefix v` at the root of this project. Add any missing labels to PRs if needed.
 - Run `ddev release changelog . <NEW_VERSION> --tag-prefix v` to update the `CHANGELOG.md` file at the root of this repository
+- Update the version in `package.json` you want to release, following semver.
 - Commit the changes to the repository in a release branch and get it approved/merged after you:
     - Make sure that all CIs are passing, as this is the commit we will be releasing!
 - Merge the Pull Request.
