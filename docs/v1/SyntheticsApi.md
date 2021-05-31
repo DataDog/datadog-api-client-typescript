@@ -46,7 +46,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiCreateGlobalVariableRequest = {
+let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
   // SyntheticsGlobalVariable | Details of the global variable to create.
   body: {
     description: "Example description",
@@ -68,7 +68,7 @@ let body:v1.SyntheticsApiCreateGlobalVariableRequest = {
   },
 };
 
-apiInstance.createGlobalVariable(body).then((data:any) => {
+apiInstance.createGlobalVariable(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -119,7 +119,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiCreatePrivateLocationRequest = {
+let params:v1.SyntheticsApiCreatePrivateLocationRequest = {
   // SyntheticsPrivateLocation | Details of the private location to create.
   body: {
     description: "Description of private location",
@@ -128,7 +128,7 @@ let body:v1.SyntheticsApiCreatePrivateLocationRequest = {
   },
 };
 
-apiInstance.createPrivateLocation(body).then((data:any) => {
+apiInstance.createPrivateLocation(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -179,7 +179,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
+let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   // SyntheticsAPITest | Details of the test to create.
   body: {
     config: {
@@ -328,7 +328,7 @@ let body:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   },
 };
 
-apiInstance.createSyntheticsAPITest(body).then((data:any) => {
+apiInstance.createSyntheticsAPITest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -380,7 +380,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
+let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   // SyntheticsBrowserTest | Details of the test to create.
   body: {
     config: {
@@ -478,7 +478,7 @@ let body:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   },
 };
 
-apiInstance.createSyntheticsBrowserTest(body).then((data:any) => {
+apiInstance.createSyntheticsBrowserTest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -530,12 +530,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiDeleteGlobalVariableRequest = {
+let params:v1.SyntheticsApiDeleteGlobalVariableRequest = {
   // string | The ID of the global variable.
   variableId: "variable_id_example",
 };
 
-apiInstance.deleteGlobalVariable(body).then((data:any) => {
+apiInstance.deleteGlobalVariable(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -587,12 +587,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiDeletePrivateLocationRequest = {
+let params:v1.SyntheticsApiDeletePrivateLocationRequest = {
   // string | The ID of the private location.
   locationId: "location_id_example",
 };
 
-apiInstance.deletePrivateLocation(body).then((data:any) => {
+apiInstance.deletePrivateLocation(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -642,14 +642,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiDeleteTestsRequest = {
+let params:v1.SyntheticsApiDeleteTestsRequest = {
   // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
   body: {
     publicIds: [],
   },
 };
 
-apiInstance.deleteTests(body).then((data:any) => {
+apiInstance.deleteTests(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -701,7 +701,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiEditGlobalVariableRequest = {
+let params:v1.SyntheticsApiEditGlobalVariableRequest = {
   // string | The ID of the global variable.
   variableId: "variable_id_example",
   // SyntheticsGlobalVariable | Details of the global variable to update.
@@ -725,7 +725,7 @@ let body:v1.SyntheticsApiEditGlobalVariableRequest = {
   },
 };
 
-apiInstance.editGlobalVariable(body).then((data:any) => {
+apiInstance.editGlobalVariable(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -777,12 +777,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetAPITestRequest = {
+let params:v1.SyntheticsApiGetAPITestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance.getAPITest(body).then((data:any) => {
+apiInstance.getAPITest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -833,7 +833,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetAPITestLatestResultsRequest = {
+let params:v1.SyntheticsApiGetAPITestLatestResultsRequest = {
   // string | The public ID of the test for which to search results for.
   publicId: "public_id_example",
   // number | Timestamp from which to start querying results. (optional)
@@ -846,7 +846,7 @@ let body:v1.SyntheticsApiGetAPITestLatestResultsRequest = {
   ],
 };
 
-apiInstance.getAPITestLatestResults(body).then((data:any) => {
+apiInstance.getAPITestLatestResults(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -900,14 +900,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetAPITestResultRequest = {
+let params:v1.SyntheticsApiGetAPITestResultRequest = {
   // string | The public ID of the API test to which the target result belongs.
   publicId: "public_id_example",
   // string | The ID of the result to get.
   resultId: "result_id_example",
 };
 
-apiInstance.getAPITestResult(body).then((data:any) => {
+apiInstance.getAPITestResult(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -959,12 +959,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetBrowserTestRequest = {
+let params:v1.SyntheticsApiGetBrowserTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance.getBrowserTest(body).then((data:any) => {
+apiInstance.getBrowserTest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1015,7 +1015,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
+let params:v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
   // string | The public ID of the browser test for which to search results for.
   publicId: "public_id_example",
   // number | Timestamp from which to start querying results. (optional)
@@ -1028,7 +1028,7 @@ let body:v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
   ],
 };
 
-apiInstance.getBrowserTestLatestResults(body).then((data:any) => {
+apiInstance.getBrowserTestLatestResults(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1082,14 +1082,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetBrowserTestResultRequest = {
+let params:v1.SyntheticsApiGetBrowserTestResultRequest = {
   // string | The public ID of the browser test to which the target result belongs.
   publicId: "public_id_example",
   // string | The ID of the result to get.
   resultId: "result_id_example",
 };
 
-apiInstance.getBrowserTestResult(body).then((data:any) => {
+apiInstance.getBrowserTestResult(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1141,12 +1141,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetGlobalVariableRequest = {
+let params:v1.SyntheticsApiGetGlobalVariableRequest = {
   // string | The ID of the global variable.
   variableId: "variable_id_example",
 };
 
-apiInstance.getGlobalVariable(body).then((data:any) => {
+apiInstance.getGlobalVariable(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1197,12 +1197,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetPrivateLocationRequest = {
+let params:v1.SyntheticsApiGetPrivateLocationRequest = {
   // string | The ID of the private location.
   locationId: "location_id_example",
 };
 
-apiInstance.getPrivateLocation(body).then((data:any) => {
+apiInstance.getPrivateLocation(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1252,12 +1252,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiGetTestRequest = {
+let params:v1.SyntheticsApiGetTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance.getTest(body).then((data:any) => {
+apiInstance.getTest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1308,9 +1308,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listGlobalVariables(body).then((data:any) => {
+apiInstance.listGlobalVariables().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1357,9 +1356,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listLocations(body).then((data:any) => {
+apiInstance.listLocations().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1405,9 +1403,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listTests(body).then((data:any) => {
+apiInstance.listTests().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1455,7 +1452,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiTriggerCITestsRequest = {
+let params:v1.SyntheticsApiTriggerCITestsRequest = {
   // SyntheticsCITestBody | Details of the test to trigger.
   body: {
     tests: [
@@ -1502,7 +1499,7 @@ let body:v1.SyntheticsApiTriggerCITestsRequest = {
   },
 };
 
-apiInstance.triggerCITests(body).then((data:any) => {
+apiInstance.triggerCITests(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1552,7 +1549,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiUpdateAPITestRequest = {
+let params:v1.SyntheticsApiUpdateAPITestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
   // SyntheticsAPITest | New test details to be saved.
@@ -1703,7 +1700,7 @@ let body:v1.SyntheticsApiUpdateAPITestRequest = {
   },
 };
 
-apiInstance.updateAPITest(body).then((data:any) => {
+apiInstance.updateAPITest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1756,7 +1753,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiUpdateBrowserTestRequest = {
+let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
   // SyntheticsBrowserTest | New test details to be saved.
@@ -1856,7 +1853,7 @@ let body:v1.SyntheticsApiUpdateBrowserTestRequest = {
   },
 };
 
-apiInstance.updateBrowserTest(body).then((data:any) => {
+apiInstance.updateBrowserTest(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1909,7 +1906,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiUpdatePrivateLocationRequest = {
+let params:v1.SyntheticsApiUpdatePrivateLocationRequest = {
   // string | The ID of the private location.
   locationId: "location_id_example",
   // SyntheticsPrivateLocation | Details of the private location to be updated.
@@ -1920,7 +1917,7 @@ let body:v1.SyntheticsApiUpdatePrivateLocationRequest = {
   },
 };
 
-apiInstance.updatePrivateLocation(body).then((data:any) => {
+apiInstance.updatePrivateLocation(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1971,7 +1968,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let body:v1.SyntheticsApiUpdateTestPauseStatusRequest = {
+let params:v1.SyntheticsApiUpdateTestPauseStatusRequest = {
   // string | The public ID of the Synthetic test to update.
   publicId: "public_id_example",
   // SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
@@ -1980,7 +1977,7 @@ let body:v1.SyntheticsApiUpdateTestPauseStatusRequest = {
   },
 };
 
-apiInstance.updateTestPauseStatus(body).then((data:any) => {
+apiInstance.updateTestPauseStatus(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

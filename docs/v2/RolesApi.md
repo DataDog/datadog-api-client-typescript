@@ -33,7 +33,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiAddPermissionToRoleRequest = {
+let params:v2.RolesApiAddPermissionToRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
   // RelationshipToPermission
@@ -45,7 +45,7 @@ let body:v2.RolesApiAddPermissionToRoleRequest = {
   },
 };
 
-apiInstance.addPermissionToRole(body).then((data:any) => {
+apiInstance.addPermissionToRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -98,7 +98,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiAddUserToRoleRequest = {
+let params:v2.RolesApiAddUserToRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
   // RelationshipToUser
@@ -110,7 +110,7 @@ let body:v2.RolesApiAddUserToRoleRequest = {
   },
 };
 
-apiInstance.addUserToRole(body).then((data:any) => {
+apiInstance.addUserToRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -163,7 +163,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiCreateRoleRequest = {
+let params:v2.RolesApiCreateRoleRequest = {
   // RoleCreateRequest
   body: {
     data: {
@@ -193,7 +193,7 @@ let body:v2.RolesApiCreateRoleRequest = {
   },
 };
 
-apiInstance.createRole(body).then((data:any) => {
+apiInstance.createRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -244,12 +244,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiDeleteRoleRequest = {
+let params:v2.RolesApiDeleteRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
 };
 
-apiInstance.deleteRole(body).then((data:any) => {
+apiInstance.deleteRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -300,12 +300,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiGetRoleRequest = {
+let params:v2.RolesApiGetRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
 };
 
-apiInstance.getRole(body).then((data:any) => {
+apiInstance.getRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -356,9 +356,8 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:any = {};
 
-apiInstance.listPermissions(body).then((data:any) => {
+apiInstance.listPermissions().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -406,12 +405,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiListRolePermissionsRequest = {
+let params:v2.RolesApiListRolePermissionsRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
 };
 
-apiInstance.listRolePermissions(body).then((data:any) => {
+apiInstance.listRolePermissions(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -462,7 +461,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiListRoleUsersRequest = {
+let params:v2.RolesApiListRoleUsersRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
   // number | Size for a given page. (optional)
@@ -475,7 +474,7 @@ let body:v2.RolesApiListRoleUsersRequest = {
   filter: "filter_example",
 };
 
-apiInstance.listRoleUsers(body).then((data:any) => {
+apiInstance.listRoleUsers(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -530,7 +529,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiListRolesRequest = {
+let params:v2.RolesApiListRolesRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -541,7 +540,7 @@ let body:v2.RolesApiListRolesRequest = {
   filter: "filter_example",
 };
 
-apiInstance.listRoles(body).then((data:any) => {
+apiInstance.listRoles(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -594,7 +593,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiRemovePermissionFromRoleRequest = {
+let params:v2.RolesApiRemovePermissionFromRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
   // RelationshipToPermission
@@ -606,7 +605,7 @@ let body:v2.RolesApiRemovePermissionFromRoleRequest = {
   },
 };
 
-apiInstance.removePermissionFromRole(body).then((data:any) => {
+apiInstance.removePermissionFromRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -659,7 +658,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiRemoveUserFromRoleRequest = {
+let params:v2.RolesApiRemoveUserFromRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
   // RelationshipToUser
@@ -671,7 +670,7 @@ let body:v2.RolesApiRemoveUserFromRoleRequest = {
   },
 };
 
-apiInstance.removeUserFromRole(body).then((data:any) => {
+apiInstance.removeUserFromRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -724,7 +723,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
-let body:v2.RolesApiUpdateRoleRequest = {
+let params:v2.RolesApiUpdateRoleRequest = {
   // string | The ID of the role.
   roleId: "role_id_example",
   // RoleUpdateRequest
@@ -739,7 +738,7 @@ let body:v2.RolesApiUpdateRoleRequest = {
   },
 };
 
-apiInstance.updateRole(body).then((data:any) => {
+apiInstance.updateRole(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

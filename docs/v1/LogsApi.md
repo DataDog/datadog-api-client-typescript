@@ -23,7 +23,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsApi(configuration);
 
-let body:v1.LogsApiListLogsRequest = {
+let params:v1.LogsApiListLogsRequest = {
   // LogsListRequest | Logs filter
   body: {
     index: "retention-3,retention-15",
@@ -39,7 +39,7 @@ let body:v1.LogsApiListLogsRequest = {
   },
 };
 
-apiInstance.listLogs(body).then((data:any) => {
+apiInstance.listLogs(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -90,7 +90,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsApi(configuration);
 
-let body:v1.LogsApiSubmitLogRequest = {
+let params:v1.LogsApiSubmitLogRequest = {
   // Array<HTTPLogItem> | Log to send (JSON format).
   body: [
     {
@@ -107,7 +107,7 @@ let body:v1.LogsApiSubmitLogRequest = {
   ddtags: "env:prod,user:my-user",
 };
 
-apiInstance.submitLog(body).then((data:any) => {
+apiInstance.submitLog(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

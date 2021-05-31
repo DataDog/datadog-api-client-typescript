@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.TagsApi(configuration);
 
-let body:v1.TagsApiCreateHostTagsRequest = {
+let params:v1.TagsApiCreateHostTagsRequest = {
   // string | This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
   hostName: "host_name_example",
   // HostTags | Update host tags request body.
@@ -40,7 +40,7 @@ let body:v1.TagsApiCreateHostTagsRequest = {
   source: "chef",
 };
 
-apiInstance.createHostTags(body).then((data:any) => {
+apiInstance.createHostTags(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -93,14 +93,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.TagsApi(configuration);
 
-let body:v1.TagsApiDeleteHostTagsRequest = {
+let params:v1.TagsApiDeleteHostTagsRequest = {
   // string | This endpoint allows you to remove all user-assigned tags for a single host.
   hostName: "host_name_example",
   // string | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). (optional)
   source: "source_example",
 };
 
-apiInstance.deleteHostTags(body).then((data:any) => {
+apiInstance.deleteHostTags(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -152,14 +152,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.TagsApi(configuration);
 
-let body:v1.TagsApiGetHostTagsRequest = {
+let params:v1.TagsApiGetHostTagsRequest = {
   // string | When specified, filters list of tags to those tags with the specified source.
   hostName: "host_name_example",
   // string | Source to filter. (optional)
   source: "source_example",
 };
 
-apiInstance.getHostTags(body).then((data:any) => {
+apiInstance.getHostTags(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -211,12 +211,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.TagsApi(configuration);
 
-let body:v1.TagsApiListHostTagsRequest = {
+let params:v1.TagsApiListHostTagsRequest = {
   // string | When specified, filters host list to those tags with the specified source. (optional)
   source: "source_example",
 };
 
-apiInstance.listHostTags(body).then((data:any) => {
+apiInstance.listHostTags(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -267,7 +267,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.TagsApi(configuration);
 
-let body:v1.TagsApiUpdateHostTagsRequest = {
+let params:v1.TagsApiUpdateHostTagsRequest = {
   // string | This endpoint allows you to update/replace all in an integration source with those supplied in the request.
   hostName: "host_name_example",
   // HostTags | Add tags to host
@@ -281,7 +281,7 @@ let body:v1.TagsApiUpdateHostTagsRequest = {
   source: "source_example",
 };
 
-apiInstance.updateHostTags(body).then((data:any) => {
+apiInstance.updateHostTags(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

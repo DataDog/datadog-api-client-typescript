@@ -34,7 +34,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiCreateAPIKeyRequest = {
+let params:v2.KeyManagementApiCreateAPIKeyRequest = {
   // APIKeyCreateRequest
   body: {
     data: {
@@ -46,7 +46,7 @@ let body:v2.KeyManagementApiCreateAPIKeyRequest = {
   },
 };
 
-apiInstance.createAPIKey(body).then((data:any) => {
+apiInstance.createAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -97,7 +97,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
+let params:v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
   // ApplicationKeyCreateRequest
   body: {
     data: {
@@ -109,7 +109,7 @@ let body:v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
   },
 };
 
-apiInstance.createCurrentUserApplicationKey(body).then((data:any) => {
+apiInstance.createCurrentUserApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -160,12 +160,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiDeleteAPIKeyRequest = {
+let params:v2.KeyManagementApiDeleteAPIKeyRequest = {
   // string | The ID of the API key.
   apiKeyId: "api_key_id_example",
 };
 
-apiInstance.deleteAPIKey(body).then((data:any) => {
+apiInstance.deleteAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -216,12 +216,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiDeleteApplicationKeyRequest = {
+let params:v2.KeyManagementApiDeleteApplicationKeyRequest = {
   // string | The ID of the application key.
   appKeyId: "app_key_id_example",
 };
 
-apiInstance.deleteApplicationKey(body).then((data:any) => {
+apiInstance.deleteApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -272,12 +272,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiDeleteCurrentUserApplicationKeyRequest = {
+let params:v2.KeyManagementApiDeleteCurrentUserApplicationKeyRequest = {
   // string | The ID of the application key.
   appKeyId: "app_key_id_example",
 };
 
-apiInstance.deleteCurrentUserApplicationKey(body).then((data:any) => {
+apiInstance.deleteCurrentUserApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -328,14 +328,14 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiGetAPIKeyRequest = {
+let params:v2.KeyManagementApiGetAPIKeyRequest = {
   // string | The ID of the API key.
   apiKeyId: "api_key_id_example",
   // string | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`. (optional)
   include: "created_by,modified_by",
 };
 
-apiInstance.getAPIKey(body).then((data:any) => {
+apiInstance.getAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -387,12 +387,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiGetCurrentUserApplicationKeyRequest = {
+let params:v2.KeyManagementApiGetCurrentUserApplicationKeyRequest = {
   // string | The ID of the application key.
   appKeyId: "app_key_id_example",
 };
 
-apiInstance.getCurrentUserApplicationKey(body).then((data:any) => {
+apiInstance.getCurrentUserApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -443,7 +443,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiListAPIKeysRequest = {
+let params:v2.KeyManagementApiListAPIKeysRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -464,7 +464,7 @@ let body:v2.KeyManagementApiListAPIKeysRequest = {
   include: "created_by,modified_by",
 };
 
-apiInstance.listAPIKeys(body).then((data:any) => {
+apiInstance.listAPIKeys(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -523,7 +523,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiListApplicationKeysRequest = {
+let params:v2.KeyManagementApiListApplicationKeysRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -538,7 +538,7 @@ let body:v2.KeyManagementApiListApplicationKeysRequest = {
   filterCreatedAtEnd: "2020-11-24T18:46:21+00:00",
 };
 
-apiInstance.listApplicationKeys(body).then((data:any) => {
+apiInstance.listApplicationKeys(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -595,7 +595,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiListCurrentUserApplicationKeysRequest = {
+let params:v2.KeyManagementApiListCurrentUserApplicationKeysRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -610,7 +610,7 @@ let body:v2.KeyManagementApiListCurrentUserApplicationKeysRequest = {
   filterCreatedAtEnd: "2020-11-24T18:46:21+00:00",
 };
 
-apiInstance.listCurrentUserApplicationKeys(body).then((data:any) => {
+apiInstance.listCurrentUserApplicationKeys(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -667,7 +667,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiUpdateAPIKeyRequest = {
+let params:v2.KeyManagementApiUpdateAPIKeyRequest = {
   // string | The ID of the API key.
   apiKeyId: "api_key_id_example",
   // APIKeyUpdateRequest
@@ -682,7 +682,7 @@ let body:v2.KeyManagementApiUpdateAPIKeyRequest = {
   },
 };
 
-apiInstance.updateAPIKey(body).then((data:any) => {
+apiInstance.updateAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -735,7 +735,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiUpdateApplicationKeyRequest = {
+let params:v2.KeyManagementApiUpdateApplicationKeyRequest = {
   // string | The ID of the application key.
   appKeyId: "app_key_id_example",
   // ApplicationKeyUpdateRequest
@@ -750,7 +750,7 @@ let body:v2.KeyManagementApiUpdateApplicationKeyRequest = {
   },
 };
 
-apiInstance.updateApplicationKey(body).then((data:any) => {
+apiInstance.updateApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -803,7 +803,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let body:v2.KeyManagementApiUpdateCurrentUserApplicationKeyRequest = {
+let params:v2.KeyManagementApiUpdateCurrentUserApplicationKeyRequest = {
   // string | The ID of the application key.
   appKeyId: "app_key_id_example",
   // ApplicationKeyUpdateRequest
@@ -818,7 +818,7 @@ let body:v2.KeyManagementApiUpdateCurrentUserApplicationKeyRequest = {
   },
 };
 
-apiInstance.updateCurrentUserApplicationKey(body).then((data:any) => {
+apiInstance.updateCurrentUserApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

@@ -52,7 +52,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetDailyCustomReportsRequest = {
+let params:v1.UsageMeteringApiGetDailyCustomReportsRequest = {
   // number | The number of files to return in the response. `[default=60]`. (optional)
   pageSize: 1,
   // number | The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`. (optional)
@@ -63,7 +63,7 @@ let body:v1.UsageMeteringApiGetDailyCustomReportsRequest = {
   sort: "start_date",
 };
 
-apiInstance.getDailyCustomReports(body).then((data:any) => {
+apiInstance.getDailyCustomReports(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -116,14 +116,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetIncidentManagementRequest = {
+let params:v1.UsageMeteringApiGetIncidentManagementRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getIncidentManagement(body).then((data:any) => {
+apiInstance.getIncidentManagement(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -175,14 +175,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetIngestedSpansRequest = {
+let params:v1.UsageMeteringApiGetIngestedSpansRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getIngestedSpans(body).then((data:any) => {
+apiInstance.getIngestedSpans(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -234,7 +234,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetMonthlyCustomReportsRequest = {
+let params:v1.UsageMeteringApiGetMonthlyCustomReportsRequest = {
   // number | The number of files to return in the response `[default=60].` (optional)
   pageSize: 1,
   // number | The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`. (optional)
@@ -245,7 +245,7 @@ let body:v1.UsageMeteringApiGetMonthlyCustomReportsRequest = {
   sort: "start_date",
 };
 
-apiInstance.getMonthlyCustomReports(body).then((data:any) => {
+apiInstance.getMonthlyCustomReports(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -298,12 +298,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest = {
+let params:v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest = {
   // string | The specified ID to search results for.
   reportId: "report_id_example",
 };
 
-apiInstance.getSpecifiedDailyCustomReports(body).then((data:any) => {
+apiInstance.getSpecifiedDailyCustomReports(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -354,12 +354,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest = {
+let params:v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest = {
   // string | The specified ID to search results for.
   reportId: "report_id_example",
 };
 
-apiInstance.getSpecifiedMonthlyCustomReports(body).then((data:any) => {
+apiInstance.getSpecifiedMonthlyCustomReports(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -411,14 +411,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetTracingWithoutLimitsRequest = {
+let params:v1.UsageMeteringApiGetTracingWithoutLimitsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getTracingWithoutLimits(body).then((data:any) => {
+apiInstance.getTracingWithoutLimits(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -470,14 +470,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageAnalyzedLogsRequest = {
+let params:v1.UsageMeteringApiGetUsageAnalyzedLogsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageAnalyzedLogs(body).then((data:any) => {
+apiInstance.getUsageAnalyzedLogs(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -529,7 +529,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageAttributionRequest = {
+let params:v1.UsageMeteringApiGetUsageAttributionRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
   startMonth: new Date('1970-01-01T00:00:00.00Z'),
   // UsageAttributionSupportedMetrics | Comma-separated list of usage types to return, or `*` for all usage types.
@@ -542,7 +542,7 @@ let body:v1.UsageMeteringApiGetUsageAttributionRequest = {
   sortName: "custom_timeseries_usage",
 };
 
-apiInstance.getUsageAttribution(body).then((data:any) => {
+apiInstance.getUsageAttribution(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -596,12 +596,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageBillableSummaryRequest = {
+let params:v1.UsageMeteringApiGetUsageBillableSummaryRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month. (optional)
   month: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageBillableSummary(body).then((data:any) => {
+apiInstance.getUsageBillableSummary(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -652,14 +652,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageComplianceMonitoringRequest = {
+let params:v1.UsageMeteringApiGetUsageComplianceMonitoringRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageComplianceMonitoring(body).then((data:any) => {
+apiInstance.getUsageComplianceMonitoring(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -711,14 +711,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageFargateRequest = {
+let params:v1.UsageMeteringApiGetUsageFargateRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageFargate(body).then((data:any) => {
+apiInstance.getUsageFargate(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -770,14 +770,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageHostsRequest = {
+let params:v1.UsageMeteringApiGetUsageHostsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageHosts(body).then((data:any) => {
+apiInstance.getUsageHosts(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -829,14 +829,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageIndexedSpansRequest = {
+let params:v1.UsageMeteringApiGetUsageIndexedSpansRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageIndexedSpans(body).then((data:any) => {
+apiInstance.getUsageIndexedSpans(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -888,14 +888,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageInternetOfThingsRequest = {
+let params:v1.UsageMeteringApiGetUsageInternetOfThingsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageInternetOfThings(body).then((data:any) => {
+apiInstance.getUsageInternetOfThings(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -947,14 +947,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageLambdaRequest = {
+let params:v1.UsageMeteringApiGetUsageLambdaRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageLambda(body).then((data:any) => {
+apiInstance.getUsageLambda(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1006,14 +1006,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageLogsRequest = {
+let params:v1.UsageMeteringApiGetUsageLogsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageLogs(body).then((data:any) => {
+apiInstance.getUsageLogs(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1065,7 +1065,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageLogsByIndexRequest = {
+let params:v1.UsageMeteringApiGetUsageLogsByIndexRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
@@ -1076,7 +1076,7 @@ let body:v1.UsageMeteringApiGetUsageLogsByIndexRequest = {
   ],
 };
 
-apiInstance.getUsageLogsByIndex(body).then((data:any) => {
+apiInstance.getUsageLogsByIndex(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1129,14 +1129,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageLogsByRetentionRequest = {
+let params:v1.UsageMeteringApiGetUsageLogsByRetentionRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageLogsByRetention(body).then((data:any) => {
+apiInstance.getUsageLogsByRetention(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1188,14 +1188,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageNetworkFlowsRequest = {
+let params:v1.UsageMeteringApiGetUsageNetworkFlowsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageNetworkFlows(body).then((data:any) => {
+apiInstance.getUsageNetworkFlows(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1247,14 +1247,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageNetworkHostsRequest = {
+let params:v1.UsageMeteringApiGetUsageNetworkHostsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageNetworkHosts(body).then((data:any) => {
+apiInstance.getUsageNetworkHosts(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1306,14 +1306,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageProfilingRequest = {
+let params:v1.UsageMeteringApiGetUsageProfilingRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageProfiling(body).then((data:any) => {
+apiInstance.getUsageProfiling(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1365,7 +1365,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageRumSessionsRequest = {
+let params:v1.UsageMeteringApiGetUsageRumSessionsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
@@ -1374,7 +1374,7 @@ let body:v1.UsageMeteringApiGetUsageRumSessionsRequest = {
   type: "type_example",
 };
 
-apiInstance.getUsageRumSessions(body).then((data:any) => {
+apiInstance.getUsageRumSessions(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1427,14 +1427,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageSNMPRequest = {
+let params:v1.UsageMeteringApiGetUsageSNMPRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageSNMP(body).then((data:any) => {
+apiInstance.getUsageSNMP(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1486,7 +1486,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageSummaryRequest = {
+let params:v1.UsageMeteringApiGetUsageSummaryRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
   startMonth: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month. (optional)
@@ -1495,7 +1495,7 @@ let body:v1.UsageMeteringApiGetUsageSummaryRequest = {
   includeOrgDetails: true,
 };
 
-apiInstance.getUsageSummary(body).then((data:any) => {
+apiInstance.getUsageSummary(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1548,14 +1548,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageSyntheticsRequest = {
+let params:v1.UsageMeteringApiGetUsageSyntheticsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageSynthetics(body).then((data:any) => {
+apiInstance.getUsageSynthetics(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1607,14 +1607,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageSyntheticsAPIRequest = {
+let params:v1.UsageMeteringApiGetUsageSyntheticsAPIRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageSyntheticsAPI(body).then((data:any) => {
+apiInstance.getUsageSyntheticsAPI(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1666,14 +1666,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageSyntheticsBrowserRequest = {
+let params:v1.UsageMeteringApiGetUsageSyntheticsBrowserRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageSyntheticsBrowser(body).then((data:any) => {
+apiInstance.getUsageSyntheticsBrowser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1725,14 +1725,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageTimeseriesRequest = {
+let params:v1.UsageMeteringApiGetUsageTimeseriesRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageTimeseries(body).then((data:any) => {
+apiInstance.getUsageTimeseries(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1784,7 +1784,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageTopAvgMetricsRequest = {
+let params:v1.UsageMeteringApiGetUsageTopAvgMetricsRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both) (optional)
   month: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) (optional)
@@ -1799,7 +1799,7 @@ let body:v1.UsageMeteringApiGetUsageTopAvgMetricsRequest = {
   nextRecordId: "next_record_id_example",
 };
 
-apiInstance.getUsageTopAvgMetrics(body).then((data:any) => {
+apiInstance.getUsageTopAvgMetrics(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -1854,14 +1854,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let body:v1.UsageMeteringApiGetUsageTraceRequest = {
+let params:v1.UsageMeteringApiGetUsageTraceRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageTrace(body).then((data:any) => {
+apiInstance.getUsageTrace(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

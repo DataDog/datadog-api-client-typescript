@@ -25,12 +25,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.HostsApi(configuration);
 
-let body:v1.HostsApiGetHostTotalsRequest = {
+let params:v1.HostsApiGetHostTotalsRequest = {
   // number | Number of seconds from which you want to get total number of active hosts. (optional)
   from: 1,
 };
 
-apiInstance.getHostTotals(body).then((data:any) => {
+apiInstance.getHostTotals(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -81,7 +81,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.HostsApi(configuration);
 
-let body:v1.HostsApiListHostsRequest = {
+let params:v1.HostsApiListHostsRequest = {
   // string | String to filter search results. (optional)
   filter: "filter_example",
   // string | Sort hosts by this field. (optional)
@@ -100,7 +100,7 @@ let body:v1.HostsApiListHostsRequest = {
   includeHostsMetadata: true,
 };
 
-apiInstance.listHosts(body).then((data:any) => {
+apiInstance.listHosts(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -158,7 +158,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.HostsApi(configuration);
 
-let body:v1.HostsApiMuteHostRequest = {
+let params:v1.HostsApiMuteHostRequest = {
   // string | Name of the host to mute.
   hostName: "host_name_example",
   // HostMuteSettings | Mute a host request body.
@@ -169,7 +169,7 @@ let body:v1.HostsApiMuteHostRequest = {
   },
 };
 
-apiInstance.muteHost(body).then((data:any) => {
+apiInstance.muteHost(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -221,12 +221,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.HostsApi(configuration);
 
-let body:v1.HostsApiUnmuteHostRequest = {
+let params:v1.HostsApiUnmuteHostRequest = {
   // string | Name of the host to unmute.
   hostName: "host_name_example",
 };
 
-apiInstance.unmuteHost(body).then((data:any) => {
+apiInstance.unmuteHost(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

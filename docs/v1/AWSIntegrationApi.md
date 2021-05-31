@@ -30,7 +30,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiCreateAWSAccountRequest = {
+let params:v1.AWSIntegrationApiCreateAWSAccountRequest = {
   // AWSAccount | AWS Request Object
   body: {
     accessKeyId: "accessKeyId_example",
@@ -46,7 +46,7 @@ let body:v1.AWSIntegrationApiCreateAWSAccountRequest = {
   },
 };
 
-apiInstance.createAWSAccount(body).then((data:any) => {
+apiInstance.createAWSAccount(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -98,7 +98,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiCreateAWSTagFilterRequest = {
+let params:v1.AWSIntegrationApiCreateAWSTagFilterRequest = {
   // AWSTagFilterCreateRequest | Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
   body: {
     accountId: "1234567",
@@ -107,7 +107,7 @@ let body:v1.AWSIntegrationApiCreateAWSTagFilterRequest = {
   },
 };
 
-apiInstance.createAWSTagFilter(body).then((data:any) => {
+apiInstance.createAWSTagFilter(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -158,7 +158,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
+let params:v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
   // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
   body: {
     accessKeyId: "accessKeyId_example",
@@ -174,7 +174,7 @@ let body:v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
   },
 };
 
-apiInstance.createNewAWSExternalID(body).then((data:any) => {
+apiInstance.createNewAWSExternalID(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -225,7 +225,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiDeleteAWSAccountRequest = {
+let params:v1.AWSIntegrationApiDeleteAWSAccountRequest = {
   // AWSAccount | AWS request object
   body: {
     accessKeyId: "accessKeyId_example",
@@ -241,7 +241,7 @@ let body:v1.AWSIntegrationApiDeleteAWSAccountRequest = {
   },
 };
 
-apiInstance.deleteAWSAccount(body).then((data:any) => {
+apiInstance.deleteAWSAccount(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -293,7 +293,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiDeleteAWSTagFilterRequest = {
+let params:v1.AWSIntegrationApiDeleteAWSTagFilterRequest = {
   // AWSTagFilterDeleteRequest | Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
   body: {
     accountId: "FAKEAC0FAKEAC2FAKEAC",
@@ -301,7 +301,7 @@ let body:v1.AWSIntegrationApiDeleteAWSTagFilterRequest = {
   },
 };
 
-apiInstance.deleteAWSTagFilter(body).then((data:any) => {
+apiInstance.deleteAWSTagFilter(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -352,7 +352,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiListAWSAccountsRequest = {
+let params:v1.AWSIntegrationApiListAWSAccountsRequest = {
   // string | Only return AWS accounts that matches this `account_id`. (optional)
   accountId: "account_id_example",
   // string | Only return AWS accounts that matches this role_name. (optional)
@@ -361,7 +361,7 @@ let body:v1.AWSIntegrationApiListAWSAccountsRequest = {
   accessKeyId: "access_key_id_example",
 };
 
-apiInstance.listAWSAccounts(body).then((data:any) => {
+apiInstance.listAWSAccounts(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -414,12 +414,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiListAWSTagFiltersRequest = {
+let params:v1.AWSIntegrationApiListAWSTagFiltersRequest = {
   // string | Only return AWS filters that matches this `account_id`.
   accountId: "account_id_example",
 };
 
-apiInstance.listAWSTagFilters(body).then((data:any) => {
+apiInstance.listAWSTagFilters(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -470,9 +470,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:any = {};
 
-apiInstance.listAvailableAWSNamespaces(body).then((data:any) => {
+apiInstance.listAvailableAWSNamespaces().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -519,7 +518,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
-let body:v1.AWSIntegrationApiUpdateAWSAccountRequest = {
+let params:v1.AWSIntegrationApiUpdateAWSAccountRequest = {
   // AWSAccount | AWS request object
   body: {
     accessKeyId: "accessKeyId_example",
@@ -541,7 +540,7 @@ let body:v1.AWSIntegrationApiUpdateAWSAccountRequest = {
   accessKeyId: "access_key_id_example",
 };
 
-apiInstance.updateAWSAccount(body).then((data:any) => {
+apiInstance.updateAWSAccount(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

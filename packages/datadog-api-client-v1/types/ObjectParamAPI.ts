@@ -745,7 +745,7 @@ export class ObjectAWSIntegrationApi {
      * List all AWS integrations
      * @param param the request object
      */
-    public listAWSAccounts(param: AWSIntegrationApiListAWSAccountsRequest, options?: Configuration): Promise<AWSAccountListResponse> {
+    public listAWSAccounts(param: AWSIntegrationApiListAWSAccountsRequest = {}, options?: Configuration): Promise<AWSAccountListResponse> {
         return this.api.listAWSAccounts(param.accountId, param.roleName, param.accessKeyId,  options).toPromise();
     }
 
@@ -763,7 +763,7 @@ export class ObjectAWSIntegrationApi {
      * List namespace rules
      * @param param the request object
      */
-    public listAvailableAWSNamespaces(param: AWSIntegrationApiListAvailableAWSNamespacesRequest, options?: Configuration): Promise<Array<string>> {
+    public listAvailableAWSNamespaces(param: AWSIntegrationApiListAvailableAWSNamespacesRequest = {}, options?: Configuration): Promise<Array<string>> {
         return this.api.listAvailableAWSNamespaces( options).toPromise();
     }
 
@@ -889,7 +889,7 @@ export class ObjectAWSLogsIntegrationApi {
      * List all AWS Logs integrations
      * @param param the request object
      */
-    public listAWSLogsIntegrations(param: AWSLogsIntegrationApiListAWSLogsIntegrationsRequest, options?: Configuration): Promise<Array<AWSLogsListResponse>> {
+    public listAWSLogsIntegrations(param: AWSLogsIntegrationApiListAWSLogsIntegrationsRequest = {}, options?: Configuration): Promise<Array<AWSLogsListResponse>> {
         return this.api.listAWSLogsIntegrations( options).toPromise();
     }
 
@@ -898,7 +898,7 @@ export class ObjectAWSLogsIntegrationApi {
      * Get list of AWS log ready services
      * @param param the request object
      */
-    public listAWSLogsServices(param: AWSLogsIntegrationApiListAWSLogsServicesRequest, options?: Configuration): Promise<Array<AWSLogsListServicesResponse>> {
+    public listAWSLogsServices(param: AWSLogsIntegrationApiListAWSLogsServicesRequest = {}, options?: Configuration): Promise<Array<AWSLogsListServicesResponse>> {
         return this.api.listAWSLogsServices( options).toPromise();
     }
 
@@ -922,7 +922,7 @@ export class ObjectAuthenticationApi {
      * Validate API key
      * @param param the request object
      */
-    public validate(param: AuthenticationApiValidateRequest, options?: Configuration): Promise<AuthenticationValidationResponse> {
+    public validate(param: AuthenticationApiValidateRequest = {}, options?: Configuration): Promise<AuthenticationValidationResponse> {
         return this.api.validate( options).toPromise();
     }
 
@@ -1000,7 +1000,7 @@ export class ObjectAzureIntegrationApi {
      * List all Azure integrations
      * @param param the request object
      */
-    public listAzureIntegration(param: AzureIntegrationApiListAzureIntegrationRequest, options?: Configuration): Promise<Array<AzureAccount>> {
+    public listAzureIntegration(param: AzureIntegrationApiListAzureIntegrationRequest = {}, options?: Configuration): Promise<Array<AzureAccount>> {
         return this.api.listAzureIntegration( options).toPromise();
     }
 
@@ -1111,7 +1111,7 @@ export class ObjectDashboardListsApi {
      * Get all dashboard lists
      * @param param the request object
      */
-    public listDashboardLists(param: DashboardListsApiListDashboardListsRequest, options?: Configuration): Promise<DashboardListListResponse> {
+    public listDashboardLists(param: DashboardListsApiListDashboardListsRequest = {}, options?: Configuration): Promise<DashboardListListResponse> {
         return this.api.listDashboardLists( options).toPromise();
     }
 
@@ -1219,7 +1219,7 @@ export class ObjectDashboardsApi {
      * Get all dashboards
      * @param param the request object
      */
-    public listDashboards(param: DashboardsApiListDashboardsRequest, options?: Configuration): Promise<DashboardSummary> {
+    public listDashboards(param: DashboardsApiListDashboardsRequest = {}, options?: Configuration): Promise<DashboardSummary> {
         return this.api.listDashboards(param.filterShared,  options).toPromise();
     }
 
@@ -1354,7 +1354,7 @@ export class ObjectDowntimesApi {
      * Get all downtimes
      * @param param the request object
      */
-    public listDowntimes(param: DowntimesApiListDowntimesRequest, options?: Configuration): Promise<Array<Downtime>> {
+    public listDowntimes(param: DowntimesApiListDowntimesRequest = {}, options?: Configuration): Promise<Array<Downtime>> {
         return this.api.listDowntimes(param.currentOnly,  options).toPromise();
     }
 
@@ -1549,7 +1549,7 @@ export class ObjectGCPIntegrationApi {
      * List all GCP integrations
      * @param param the request object
      */
-    public listGCPIntegration(param: GCPIntegrationApiListGCPIntegrationRequest, options?: Configuration): Promise<Array<GCPAccount>> {
+    public listGCPIntegration(param: GCPIntegrationApiListGCPIntegrationRequest = {}, options?: Configuration): Promise<Array<GCPAccount>> {
         return this.api.listGCPIntegration( options).toPromise();
     }
 
@@ -1663,7 +1663,7 @@ export class ObjectHostsApi {
      * Get the total number of active hosts
      * @param param the request object
      */
-    public getHostTotals(param: HostsApiGetHostTotalsRequest, options?: Configuration): Promise<HostTotals> {
+    public getHostTotals(param: HostsApiGetHostTotalsRequest = {}, options?: Configuration): Promise<HostTotals> {
         return this.api.getHostTotals(param.from,  options).toPromise();
     }
 
@@ -1672,7 +1672,7 @@ export class ObjectHostsApi {
      * Get all hosts for your organization
      * @param param the request object
      */
-    public listHosts(param: HostsApiListHostsRequest, options?: Configuration): Promise<HostListResponse> {
+    public listHosts(param: HostsApiListHostsRequest = {}, options?: Configuration): Promise<HostListResponse> {
         return this.api.listHosts(param.filter, param.sortField, param.sortDir, param.start, param.count, param.from, param.includeMutedHostsData, param.includeHostsMetadata,  options).toPromise();
     }
 
@@ -1714,7 +1714,7 @@ export class ObjectIPRangesApi {
      * List IP Ranges
      * @param param the request object
      */
-    public getIPRanges(param: IPRangesApiGetIPRangesRequest, options?: Configuration): Promise<IPRanges> {
+    public getIPRanges(param: IPRangesApiGetIPRangesRequest = {}, options?: Configuration): Promise<IPRanges> {
         return this.api.getIPRanges( options).toPromise();
     }
 
@@ -1879,7 +1879,7 @@ export class ObjectKeyManagementApi {
      * Get all API keys
      * @param param the request object
      */
-    public listAPIKeys(param: KeyManagementApiListAPIKeysRequest, options?: Configuration): Promise<ApiKeyListResponse> {
+    public listAPIKeys(param: KeyManagementApiListAPIKeysRequest = {}, options?: Configuration): Promise<ApiKeyListResponse> {
         return this.api.listAPIKeys( options).toPromise();
     }
 
@@ -1888,7 +1888,7 @@ export class ObjectKeyManagementApi {
      * Get all application keys
      * @param param the request object
      */
-    public listApplicationKeys(param: KeyManagementApiListApplicationKeysRequest, options?: Configuration): Promise<ApplicationKeyListResponse> {
+    public listApplicationKeys(param: KeyManagementApiListApplicationKeysRequest = {}, options?: Configuration): Promise<ApplicationKeyListResponse> {
         return this.api.listApplicationKeys( options).toPromise();
     }
 
@@ -2053,7 +2053,7 @@ export class ObjectLogsIndexesApi {
      * Get indexes order
      * @param param the request object
      */
-    public getLogsIndexOrder(param: LogsIndexesApiGetLogsIndexOrderRequest, options?: Configuration): Promise<LogsIndexesOrder> {
+    public getLogsIndexOrder(param: LogsIndexesApiGetLogsIndexOrderRequest = {}, options?: Configuration): Promise<LogsIndexesOrder> {
         return this.api.getLogsIndexOrder( options).toPromise();
     }
 
@@ -2062,7 +2062,7 @@ export class ObjectLogsIndexesApi {
      * Get all indexes
      * @param param the request object
      */
-    public listLogIndexes(param: LogsIndexesApiListLogIndexesRequest, options?: Configuration): Promise<LogsIndexListResponse> {
+    public listLogIndexes(param: LogsIndexesApiListLogIndexesRequest = {}, options?: Configuration): Promise<LogsIndexListResponse> {
         return this.api.listLogIndexes( options).toPromise();
     }
 
@@ -2185,7 +2185,7 @@ export class ObjectLogsPipelinesApi {
      * Get pipeline order
      * @param param the request object
      */
-    public getLogsPipelineOrder(param: LogsPipelinesApiGetLogsPipelineOrderRequest, options?: Configuration): Promise<LogsPipelinesOrder> {
+    public getLogsPipelineOrder(param: LogsPipelinesApiGetLogsPipelineOrderRequest = {}, options?: Configuration): Promise<LogsPipelinesOrder> {
         return this.api.getLogsPipelineOrder( options).toPromise();
     }
 
@@ -2194,7 +2194,7 @@ export class ObjectLogsPipelinesApi {
      * Get all pipelines
      * @param param the request object
      */
-    public listLogsPipelines(param: LogsPipelinesApiListLogsPipelinesRequest, options?: Configuration): Promise<Array<LogsPipeline>> {
+    public listLogsPipelines(param: LogsPipelinesApiListLogsPipelinesRequest = {}, options?: Configuration): Promise<Array<LogsPipeline>> {
         return this.api.listLogsPipelines( options).toPromise();
     }
 
@@ -2596,7 +2596,7 @@ export class ObjectMonitorsApi {
      * Get all monitor details
      * @param param the request object
      */
-    public listMonitors(param: MonitorsApiListMonitorsRequest, options?: Configuration): Promise<Array<Monitor>> {
+    public listMonitors(param: MonitorsApiListMonitorsRequest = {}, options?: Configuration): Promise<Array<Monitor>> {
         return this.api.listMonitors(param.groupStates, param.name, param.tags, param.monitorTags, param.withDowntimes, param.idOffset, param.page, param.pageSize,  options).toPromise();
     }
 
@@ -2605,7 +2605,7 @@ export class ObjectMonitorsApi {
      * Monitors group search
      * @param param the request object
      */
-    public searchMonitorGroups(param: MonitorsApiSearchMonitorGroupsRequest, options?: Configuration): Promise<MonitorGroupSearchResponse> {
+    public searchMonitorGroups(param: MonitorsApiSearchMonitorGroupsRequest = {}, options?: Configuration): Promise<MonitorGroupSearchResponse> {
         return this.api.searchMonitorGroups(param.query, param.page, param.perPage, param.sort,  options).toPromise();
     }
 
@@ -2614,7 +2614,7 @@ export class ObjectMonitorsApi {
      * Monitors search
      * @param param the request object
      */
-    public searchMonitors(param: MonitorsApiSearchMonitorsRequest, options?: Configuration): Promise<MonitorSearchResponse> {
+    public searchMonitors(param: MonitorsApiSearchMonitorsRequest = {}, options?: Configuration): Promise<MonitorSearchResponse> {
         return this.api.searchMonitors(param.query, param.page, param.perPage, param.sort,  options).toPromise();
     }
 
@@ -2773,7 +2773,7 @@ export class ObjectNotebooksApi {
      * Get all notebooks
      * @param param the request object
      */
-    public listNotebooks(param: NotebooksApiListNotebooksRequest, options?: Configuration): Promise<NotebooksResponse> {
+    public listNotebooks(param: NotebooksApiListNotebooksRequest = {}, options?: Configuration): Promise<NotebooksResponse> {
         return this.api.listNotebooks(param.authorHandle, param.excludeAuthorHandle, param.start, param.count, param.sortField, param.sortDir, param.query, param.includeCells,  options).toPromise();
     }
 
@@ -2872,7 +2872,7 @@ export class ObjectOrganizationsApi {
      * List your managed organizations
      * @param param the request object
      */
-    public listOrgs(param: OrganizationsApiListOrgsRequest, options?: Configuration): Promise<OrganizationListResponse> {
+    public listOrgs(param: OrganizationsApiListOrgsRequest = {}, options?: Configuration): Promise<OrganizationListResponse> {
         return this.api.listOrgs( options).toPromise();
     }
 
@@ -3103,7 +3103,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
      * Get all SLO corrections
      * @param param the request object
      */
-    public listSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionListResponse> {
+    public listSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest = {}, options?: Configuration): Promise<SLOCorrectionListResponse> {
         return this.api.listSLOCorrection( options).toPromise();
     }
 
@@ -3313,7 +3313,7 @@ export class ObjectServiceLevelObjectivesApi {
      * Get all SLOs
      * @param param the request object
      */
-    public listSLOs(param: ServiceLevelObjectivesApiListSLOsRequest, options?: Configuration): Promise<SLOListResponse> {
+    public listSLOs(param: ServiceLevelObjectivesApiListSLOsRequest = {}, options?: Configuration): Promise<SLOListResponse> {
         return this.api.listSLOs(param.ids, param.query, param.tagsQuery, param.metricsQuery,  options).toPromise();
     }
 
@@ -3973,7 +3973,7 @@ export class ObjectSyntheticsApi {
      * Get all global variables
      * @param param the request object
      */
-    public listGlobalVariables(param: SyntheticsApiListGlobalVariablesRequest, options?: Configuration): Promise<SyntheticsListGlobalVariablesResponse> {
+    public listGlobalVariables(param: SyntheticsApiListGlobalVariablesRequest = {}, options?: Configuration): Promise<SyntheticsListGlobalVariablesResponse> {
         return this.api.listGlobalVariables( options).toPromise();
     }
 
@@ -3982,7 +3982,7 @@ export class ObjectSyntheticsApi {
      * Get all locations (public and private)
      * @param param the request object
      */
-    public listLocations(param: SyntheticsApiListLocationsRequest, options?: Configuration): Promise<SyntheticsLocations> {
+    public listLocations(param: SyntheticsApiListLocationsRequest = {}, options?: Configuration): Promise<SyntheticsLocations> {
         return this.api.listLocations( options).toPromise();
     }
 
@@ -3991,7 +3991,7 @@ export class ObjectSyntheticsApi {
      * Get the list of all tests
      * @param param the request object
      */
-    public listTests(param: SyntheticsApiListTestsRequest, options?: Configuration): Promise<SyntheticsListTestsResponse> {
+    public listTests(param: SyntheticsApiListTestsRequest = {}, options?: Configuration): Promise<SyntheticsListTestsResponse> {
         return this.api.listTests( options).toPromise();
     }
 
@@ -4165,7 +4165,7 @@ export class ObjectTagsApi {
      * Get Tags
      * @param param the request object
      */
-    public listHostTags(param: TagsApiListHostTagsRequest, options?: Configuration): Promise<TagToHosts> {
+    public listHostTags(param: TagsApiListHostTagsRequest = {}, options?: Configuration): Promise<TagToHosts> {
         return this.api.listHostTags(param.source,  options).toPromise();
     }
 
@@ -4720,7 +4720,7 @@ export class ObjectUsageMeteringApi {
      * Get the list of available daily custom reports
      * @param param the request object
      */
-    public getDailyCustomReports(param: UsageMeteringApiGetDailyCustomReportsRequest, options?: Configuration): Promise<UsageCustomReportsResponse> {
+    public getDailyCustomReports(param: UsageMeteringApiGetDailyCustomReportsRequest = {}, options?: Configuration): Promise<UsageCustomReportsResponse> {
         return this.api.getDailyCustomReports(param.pageSize, param.pageNumber, param.sortDir, param.sort,  options).toPromise();
     }
 
@@ -4747,7 +4747,7 @@ export class ObjectUsageMeteringApi {
      * Get the list of available monthly custom reports
      * @param param the request object
      */
-    public getMonthlyCustomReports(param: UsageMeteringApiGetMonthlyCustomReportsRequest, options?: Configuration): Promise<UsageCustomReportsResponse> {
+    public getMonthlyCustomReports(param: UsageMeteringApiGetMonthlyCustomReportsRequest = {}, options?: Configuration): Promise<UsageCustomReportsResponse> {
         return this.api.getMonthlyCustomReports(param.pageSize, param.pageNumber, param.sortDir, param.sort,  options).toPromise();
     }
 
@@ -4801,7 +4801,7 @@ export class ObjectUsageMeteringApi {
      * Get billable usage across your account
      * @param param the request object
      */
-    public getUsageBillableSummary(param: UsageMeteringApiGetUsageBillableSummaryRequest, options?: Configuration): Promise<UsageBillableSummaryResponse> {
+    public getUsageBillableSummary(param: UsageMeteringApiGetUsageBillableSummaryRequest = {}, options?: Configuration): Promise<UsageBillableSummaryResponse> {
         return this.api.getUsageBillableSummary(param.month,  options).toPromise();
     }
 
@@ -4981,7 +4981,7 @@ export class ObjectUsageMeteringApi {
      * Get all custom metrics by hourly average
      * @param param the request object
      */
-    public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
+    public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest = {}, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
         return this.api.getUsageTopAvgMetrics(param.month, param.day, param.names, param.limit, param.nextRecordId,  options).toPromise();
     }
 
@@ -5083,7 +5083,7 @@ export class ObjectUsersApi {
      * List all users
      * @param param the request object
      */
-    public listUsers(param: UsersApiListUsersRequest, options?: Configuration): Promise<UserListResponse> {
+    public listUsers(param: UsersApiListUsersRequest = {}, options?: Configuration): Promise<UserListResponse> {
         return this.api.listUsers( options).toPromise();
     }
 

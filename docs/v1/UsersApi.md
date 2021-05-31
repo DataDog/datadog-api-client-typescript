@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsersApi(configuration);
 
-let body:v1.UsersApiCreateUserRequest = {
+let params:v1.UsersApiCreateUserRequest = {
   // User | User object that needs to be created.
   body: {
     accessRole: "st",
@@ -37,7 +37,7 @@ let body:v1.UsersApiCreateUserRequest = {
   },
 };
 
-apiInstance.createUser(body).then((data:any) => {
+apiInstance.createUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -89,12 +89,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsersApi(configuration);
 
-let body:v1.UsersApiDisableUserRequest = {
+let params:v1.UsersApiDisableUserRequest = {
   // string | The handle of the user.
   userHandle: "test@datadoghq.com",
 };
 
-apiInstance.disableUser(body).then((data:any) => {
+apiInstance.disableUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -146,12 +146,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsersApi(configuration);
 
-let body:v1.UsersApiGetUserRequest = {
+let params:v1.UsersApiGetUserRequest = {
   // string | The ID of the user.
   userHandle: "test@datadoghq.com",
 };
 
-apiInstance.getUser(body).then((data:any) => {
+apiInstance.getUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -202,9 +202,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsersApi(configuration);
 
-let body:any = {};
 
-apiInstance.listUsers(body).then((data:any) => {
+apiInstance.listUsers().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -251,7 +250,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsersApi(configuration);
 
-let body:v1.UsersApiUpdateUserRequest = {
+let params:v1.UsersApiUpdateUserRequest = {
   // string | The ID of the user.
   userHandle: "test@datadoghq.com",
   // User | Description of the update.
@@ -264,7 +263,7 @@ let body:v1.UsersApiUpdateUserRequest = {
   },
 };
 
-apiInstance.updateUser(body).then((data:any) => {
+apiInstance.updateUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

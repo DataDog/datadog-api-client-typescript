@@ -24,7 +24,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let body:v2.LogsApiAggregateLogsRequest = {
+let params:v2.LogsApiAggregateLogsRequest = {
   // LogsAggregateRequest
   body: {
     compute: [
@@ -70,7 +70,7 @@ let body:v2.LogsApiAggregateLogsRequest = {
   },
 };
 
-apiInstance.aggregateLogs(body).then((data:any) => {
+apiInstance.aggregateLogs(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -121,7 +121,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let body:v2.LogsApiListLogsRequest = {
+let params:v2.LogsApiListLogsRequest = {
   // LogsListRequest (optional)
   body: {
     filter: {
@@ -142,7 +142,7 @@ let body:v2.LogsApiListLogsRequest = {
   },
 };
 
-apiInstance.listLogs(body).then((data:any) => {
+apiInstance.listLogs(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -193,7 +193,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let body:v2.LogsApiListLogsGetRequest = {
+let params:v2.LogsApiListLogsGetRequest = {
   // string | Search query following logs syntax. (optional)
   filterQuery: "@datacenter:us @role:db",
   // string | For customers with multiple indexes, the indexes to search Defaults to '*' which means all indexes (optional)
@@ -210,7 +210,7 @@ let body:v2.LogsApiListLogsGetRequest = {
   pageLimit: 25,
 };
 
-apiInstance.listLogsGet(body).then((data:any) => {
+apiInstance.listLogsGet(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

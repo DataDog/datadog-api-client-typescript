@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let body:v1.OrganizationsApiCreateChildOrgRequest = {
+let params:v1.OrganizationsApiCreateChildOrgRequest = {
   // OrganizationCreateBody | Organization object that needs to be created
   body: {
     billing: {
@@ -39,7 +39,7 @@ let body:v1.OrganizationsApiCreateChildOrgRequest = {
   },
 };
 
-apiInstance.createChildOrg(body).then((data:any) => {
+apiInstance.createChildOrg(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -90,12 +90,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let body:v1.OrganizationsApiGetOrgRequest = {
+let params:v1.OrganizationsApiGetOrgRequest = {
   // string | The `public_id` of the organization you are operating within.
   publicId: "abc123",
 };
 
-apiInstance.getOrg(body).then((data:any) => {
+apiInstance.getOrg(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -146,9 +146,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listOrgs(body).then((data:any) => {
+apiInstance.listOrgs().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -195,7 +194,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let body:v1.OrganizationsApiUpdateOrgRequest = {
+let params:v1.OrganizationsApiUpdateOrgRequest = {
   // string | The `public_id` of the organization you are operating within.
   publicId: "abc123",
   // Organization
@@ -235,7 +234,7 @@ let body:v1.OrganizationsApiUpdateOrgRequest = {
   },
 };
 
-apiInstance.updateOrg(body).then((data:any) => {
+apiInstance.updateOrg(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -287,14 +286,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let body:v1.OrganizationsApiUploadIdPForOrgRequest = {
+let params:v1.OrganizationsApiUploadIdPForOrgRequest = {
   // string | The `public_id` of the organization you are operating with
   publicId: "abc123",
   // HttpFile | The path to the XML metadata file you wish to upload.
   idpFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
 };
 
-apiInstance.uploadIdPForOrg(body).then((data:any) => {
+apiInstance.uploadIdPForOrg(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

@@ -31,7 +31,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiAddReadRoleToArchiveRequest = {
+let params:v2.LogsArchivesApiAddReadRoleToArchiveRequest = {
   // string | The ID of the archive.
   archiveId: "archive_id_example",
   // RelationshipToRole
@@ -43,7 +43,7 @@ let body:v2.LogsArchivesApiAddReadRoleToArchiveRequest = {
   },
 };
 
-apiInstance.addReadRoleToArchive(body).then((data:any) => {
+apiInstance.addReadRoleToArchive(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -96,7 +96,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiCreateLogsArchiveRequest = {
+let params:v2.LogsArchivesApiCreateLogsArchiveRequest = {
   // LogsArchiveCreateRequest | The definition of the new archive.
   body: {
     data: {
@@ -122,7 +122,7 @@ let body:v2.LogsArchivesApiCreateLogsArchiveRequest = {
   },
 };
 
-apiInstance.createLogsArchive(body).then((data:any) => {
+apiInstance.createLogsArchive(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -173,12 +173,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiDeleteLogsArchiveRequest = {
+let params:v2.LogsArchivesApiDeleteLogsArchiveRequest = {
   // string | The ID of the archive.
   archiveId: "archive_id_example",
 };
 
-apiInstance.deleteLogsArchive(body).then((data:any) => {
+apiInstance.deleteLogsArchive(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -230,12 +230,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiGetLogsArchiveRequest = {
+let params:v2.LogsArchivesApiGetLogsArchiveRequest = {
   // string | The ID of the archive.
   archiveId: "archive_id_example",
 };
 
-apiInstance.getLogsArchive(body).then((data:any) => {
+apiInstance.getLogsArchive(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -287,9 +287,8 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:any = {};
 
-apiInstance.getLogsArchiveOrder(body).then((data:any) => {
+apiInstance.getLogsArchiveOrder().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -336,12 +335,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiListArchiveReadRolesRequest = {
+let params:v2.LogsArchivesApiListArchiveReadRolesRequest = {
   // string | The ID of the archive.
   archiveId: "archive_id_example",
 };
 
-apiInstance.listArchiveReadRoles(body).then((data:any) => {
+apiInstance.listArchiveReadRoles(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -393,9 +392,8 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:any = {};
 
-apiInstance.listLogsArchives(body).then((data:any) => {
+apiInstance.listLogsArchives().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -442,7 +440,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiRemoveRoleFromArchiveRequest = {
+let params:v2.LogsArchivesApiRemoveRoleFromArchiveRequest = {
   // string | The ID of the archive.
   archiveId: "archive_id_example",
   // RelationshipToRole
@@ -454,7 +452,7 @@ let body:v2.LogsArchivesApiRemoveRoleFromArchiveRequest = {
   },
 };
 
-apiInstance.removeRoleFromArchive(body).then((data:any) => {
+apiInstance.removeRoleFromArchive(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -507,7 +505,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiUpdateLogsArchiveRequest = {
+let params:v2.LogsArchivesApiUpdateLogsArchiveRequest = {
   // string | The ID of the archive.
   archiveId: "archive_id_example",
   // LogsArchiveCreateRequest | New definition of the archive.
@@ -535,7 +533,7 @@ let body:v2.LogsArchivesApiUpdateLogsArchiveRequest = {
   },
 };
 
-apiInstance.updateLogsArchive(body).then((data:any) => {
+apiInstance.updateLogsArchive(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -588,7 +586,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsArchivesApi(configuration);
 
-let body:v2.LogsArchivesApiUpdateLogsArchiveOrderRequest = {
+let params:v2.LogsArchivesApiUpdateLogsArchiveOrderRequest = {
   // LogsArchiveOrder | An object containing the new ordered list of archive IDs.
   body: {
     data: {
@@ -600,7 +598,7 @@ let body:v2.LogsArchivesApiUpdateLogsArchiveOrderRequest = {
   },
 };
 
-apiInstance.updateLogsArchiveOrder(body).then((data:any) => {
+apiInstance.updateLogsArchiveOrder(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

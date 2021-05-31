@@ -25,7 +25,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.DashboardListsApi(configuration);
 
-let body:v2.DashboardListsApiCreateDashboardListItemsRequest = {
+let params:v2.DashboardListsApiCreateDashboardListItemsRequest = {
   // number | ID of the dashboard list to add items to.
   dashboardListId: 1,
   // DashboardListAddItemsRequest | Dashboards to add to the dashboard list.
@@ -39,7 +39,7 @@ let body:v2.DashboardListsApiCreateDashboardListItemsRequest = {
   },
 };
 
-apiInstance.createDashboardListItems(body).then((data:any) => {
+apiInstance.createDashboardListItems(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -92,7 +92,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.DashboardListsApi(configuration);
 
-let body:v2.DashboardListsApiDeleteDashboardListItemsRequest = {
+let params:v2.DashboardListsApiDeleteDashboardListItemsRequest = {
   // number | ID of the dashboard list to delete items from.
   dashboardListId: 1,
   // DashboardListDeleteItemsRequest | Dashboards to delete from the dashboard list.
@@ -106,7 +106,7 @@ let body:v2.DashboardListsApiDeleteDashboardListItemsRequest = {
   },
 };
 
-apiInstance.deleteDashboardListItems(body).then((data:any) => {
+apiInstance.deleteDashboardListItems(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -159,12 +159,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.DashboardListsApi(configuration);
 
-let body:v2.DashboardListsApiGetDashboardListItemsRequest = {
+let params:v2.DashboardListsApiGetDashboardListItemsRequest = {
   // number | ID of the dashboard list to get items from.
   dashboardListId: 1,
 };
 
-apiInstance.getDashboardListItems(body).then((data:any) => {
+apiInstance.getDashboardListItems(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -215,7 +215,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.DashboardListsApi(configuration);
 
-let body:v2.DashboardListsApiUpdateDashboardListItemsRequest = {
+let params:v2.DashboardListsApiUpdateDashboardListItemsRequest = {
   // number | ID of the dashboard list to update items from.
   dashboardListId: 1,
   // DashboardListUpdateItemsRequest | New dashboards of the dashboard list.
@@ -229,7 +229,7 @@ let body:v2.DashboardListsApiUpdateDashboardListItemsRequest = {
   },
 };
 
-apiInstance.updateDashboardListItems(body).then((data:any) => {
+apiInstance.updateDashboardListItems(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

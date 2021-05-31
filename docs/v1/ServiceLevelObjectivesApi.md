@@ -29,12 +29,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiCheckCanDeleteSLORequest = {
+let params:v1.ServiceLevelObjectivesApiCheckCanDeleteSLORequest = {
   // string | A comma separated list of the IDs of the service level objectives objects.
   ids: "id1, id2, id3",
 };
 
-apiInstance.checkCanDeleteSLO(body).then((data:any) => {
+apiInstance.checkCanDeleteSLO(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -86,7 +86,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiCreateSLORequest = {
+let params:v1.ServiceLevelObjectivesApiCreateSLORequest = {
   // ServiceLevelObjectiveRequest | Service level objective request object.
   body: {
     description: "description_example",
@@ -113,7 +113,7 @@ let body:v1.ServiceLevelObjectivesApiCreateSLORequest = {
   },
 };
 
-apiInstance.createSLO(body).then((data:any) => {
+apiInstance.createSLO(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -164,14 +164,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiDeleteSLORequest = {
+let params:v1.ServiceLevelObjectivesApiDeleteSLORequest = {
   // string | The ID of the service level objective.
   sloId: "slo_id_example",
   // string | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor). (optional)
   force: "force_example",
 };
 
-apiInstance.deleteSLO(body).then((data:any) => {
+apiInstance.deleteSLO(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -224,7 +224,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest = {
+let params:v1.ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest = {
   // { [key: string]: Array<SLOTimeframe>; } | Delete multiple service level objective objects request body.
   body: {
     "key": [
@@ -233,7 +233,7 @@ let body:v1.ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest = {
   },
 };
 
-apiInstance.deleteSLOTimeframeInBulk(body).then((data:any) => {
+apiInstance.deleteSLOTimeframeInBulk(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -284,14 +284,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiGetSLORequest = {
+let params:v1.ServiceLevelObjectivesApiGetSLORequest = {
   // string | The ID of the service level objective object.
   sloId: "slo_id_example",
   // boolean | Get the IDs of SLO monitors that reference this SLO. (optional)
   withConfiguredAlertIds: true,
 };
 
-apiInstance.getSLO(body).then((data:any) => {
+apiInstance.getSLO(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -343,7 +343,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
+let params:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   // string | The ID of the service level objective object.
   sloId: "slo_id_example",
   // number | The `from` timestamp for the query window in epoch seconds.
@@ -354,7 +354,7 @@ let body:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   target: 0,
 };
 
-apiInstance.getSLOHistory(body).then((data:any) => {
+apiInstance.getSLOHistory(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -409,7 +409,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiListSLOsRequest = {
+let params:v1.ServiceLevelObjectivesApiListSLOsRequest = {
   // string | A comma separated list of the IDs of the service level objectives objects. (optional)
   ids: "id1, id2, id3",
   // string | The query string to filter results based on SLO names. (optional)
@@ -420,7 +420,7 @@ let body:v1.ServiceLevelObjectivesApiListSLOsRequest = {
   metricsQuery: "aws.elb.request_count",
 };
 
-apiInstance.listSLOs(body).then((data:any) => {
+apiInstance.listSLOs(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -475,7 +475,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let body:v1.ServiceLevelObjectivesApiUpdateSLORequest = {
+let params:v1.ServiceLevelObjectivesApiUpdateSLORequest = {
   // string | The ID of the service level objective object.
   sloId: "slo_id_example",
   // ServiceLevelObjective | The edited service level objective request object.
@@ -507,7 +507,7 @@ let body:v1.ServiceLevelObjectivesApiUpdateSLORequest = {
   },
 };
 
-apiInstance.updateSLO(body).then((data:any) => {
+apiInstance.updateSLO(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

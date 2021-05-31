@@ -27,12 +27,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let body:v1.MetricsApiGetMetricMetadataRequest = {
+let params:v1.MetricsApiGetMetricMetadataRequest = {
   // string | Name of the metric for which to get metadata.
   metricName: "metric_name_example",
 };
 
-apiInstance.getMetricMetadata(body).then((data:any) => {
+apiInstance.getMetricMetadata(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -83,7 +83,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let body:v1.MetricsApiListActiveMetricsRequest = {
+let params:v1.MetricsApiListActiveMetricsRequest = {
   // number | Seconds since the Unix epoch.
   from: 1,
   // string | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. (optional)
@@ -92,7 +92,7 @@ let body:v1.MetricsApiListActiveMetricsRequest = {
   tagFilter: "env IN (staging,test) AND service:web",
 };
 
-apiInstance.listActiveMetrics(body).then((data:any) => {
+apiInstance.listActiveMetrics(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -145,12 +145,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let body:v1.MetricsApiListMetricsRequest = {
+let params:v1.MetricsApiListMetricsRequest = {
   // string | Query string to search metrics upon. Must be prefixed with `metrics:`.
   q: "q_example",
 };
 
-apiInstance.listMetrics(body).then((data:any) => {
+apiInstance.listMetrics(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -201,7 +201,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let body:v1.MetricsApiQueryMetricsRequest = {
+let params:v1.MetricsApiQueryMetricsRequest = {
   // number | Start of the queried time period, seconds since the Unix epoch.
   from: 1,
   // number | End of the queried time period, seconds since the Unix epoch.
@@ -210,7 +210,7 @@ let body:v1.MetricsApiQueryMetricsRequest = {
   query: "query_example",
 };
 
-apiInstance.queryMetrics(body).then((data:any) => {
+apiInstance.queryMetrics(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -263,7 +263,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let body:v1.MetricsApiSubmitMetricsRequest = {
+let params:v1.MetricsApiSubmitMetricsRequest = {
   // MetricsPayload
   body: {
     series: [
@@ -279,7 +279,7 @@ let body:v1.MetricsApiSubmitMetricsRequest = {
   },
 };
 
-apiInstance.submitMetrics(body).then((data:any) => {
+apiInstance.submitMetrics(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -332,7 +332,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let body:v1.MetricsApiUpdateMetricMetadataRequest = {
+let params:v1.MetricsApiUpdateMetricMetadataRequest = {
   // string | Name of the metric for which to edit metadata.
   metricName: "metric_name_example",
   // MetricMetadata | New metadata.
@@ -346,7 +346,7 @@ let body:v1.MetricsApiUpdateMetricMetadataRequest = {
   },
 };
 
-apiInstance.updateMetricMetadata(body).then((data:any) => {
+apiInstance.updateMetricMetadata(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

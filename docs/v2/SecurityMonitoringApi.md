@@ -33,7 +33,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
+let params:v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
   // SecurityFilterCreateRequest | The definition of the new security filter.
   body: {
     data: {
@@ -54,7 +54,7 @@ let body:v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
   },
 };
 
-apiInstance.createSecurityFilter(body).then((data:any) => {
+apiInstance.createSecurityFilter(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -107,7 +107,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
+let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   // SecurityMonitoringRuleCreatePayload
   body: {
     cases: [
@@ -161,7 +161,7 @@ let body:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   },
 };
 
-apiInstance.createSecurityMonitoringRule(body).then((data:any) => {
+apiInstance.createSecurityMonitoringRule(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -212,12 +212,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiDeleteSecurityFilterRequest = {
+let params:v2.SecurityMonitoringApiDeleteSecurityFilterRequest = {
   // string | The ID of the security filter.
   securityFilterId: "security_filter_id_example",
 };
 
-apiInstance.deleteSecurityFilter(body).then((data:any) => {
+apiInstance.deleteSecurityFilter(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -270,12 +270,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest = {
+let params:v2.SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest = {
   // string | The ID of the rule.
   ruleId: "rule_id_example",
 };
 
-apiInstance.deleteSecurityMonitoringRule(body).then((data:any) => {
+apiInstance.deleteSecurityMonitoringRule(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -326,12 +326,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiGetSecurityFilterRequest = {
+let params:v2.SecurityMonitoringApiGetSecurityFilterRequest = {
   // string | The ID of the security filter.
   securityFilterId: "security_filter_id_example",
 };
 
-apiInstance.getSecurityFilter(body).then((data:any) => {
+apiInstance.getSecurityFilter(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -383,12 +383,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiGetSecurityMonitoringRuleRequest = {
+let params:v2.SecurityMonitoringApiGetSecurityMonitoringRuleRequest = {
   // string | The ID of the rule.
   ruleId: "rule_id_example",
 };
 
-apiInstance.getSecurityMonitoringRule(body).then((data:any) => {
+apiInstance.getSecurityMonitoringRule(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -438,9 +438,8 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:any = {};
 
-apiInstance.listSecurityFilters(body).then((data:any) => {
+apiInstance.listSecurityFilters().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -488,14 +487,14 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiListSecurityMonitoringRulesRequest = {
+let params:v2.SecurityMonitoringApiListSecurityMonitoringRulesRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
   pageNumber: 0,
 };
 
-apiInstance.listSecurityMonitoringRules(body).then((data:any) => {
+apiInstance.listSecurityMonitoringRules(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -546,7 +545,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {
+let params:v2.SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {
   // string | The search query for security signals. (optional)
   filterQuery: "security:attack status:high",
   // Date | The minimum timestamp for requested security signals. (optional)
@@ -561,7 +560,7 @@ let body:v2.SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {
   pageLimit: 25,
 };
 
-apiInstance.listSecurityMonitoringSignals(body).then((data:any) => {
+apiInstance.listSecurityMonitoringSignals(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -617,7 +616,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
+let params:v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
   // SecurityMonitoringSignalListRequest (optional)
   body: {
     filter: {
@@ -633,7 +632,7 @@ let body:v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
   },
 };
 
-apiInstance.searchSecurityMonitoringSignals(body).then((data:any) => {
+apiInstance.searchSecurityMonitoringSignals(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -684,7 +683,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
+let params:v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
   // string | The ID of the security filter.
   securityFilterId: "security_filter_id_example",
   // SecurityFilterUpdateRequest | New definition of the security filter.
@@ -708,7 +707,7 @@ let body:v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
   },
 };
 
-apiInstance.updateSecurityFilter(body).then((data:any) => {
+apiInstance.updateSecurityFilter(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -763,7 +762,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let body:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
+let params:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
   // string | The ID of the rule.
   ruleId: "rule_id_example",
   // SecurityMonitoringRuleUpdatePayload
@@ -821,7 +820,7 @@ let body:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
   },
 };
 
-apiInstance.updateSecurityMonitoringRule(body).then((data:any) => {
+apiInstance.updateSecurityMonitoringRule(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

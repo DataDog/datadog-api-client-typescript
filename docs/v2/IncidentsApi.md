@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let body:v2.IncidentsApiCreateIncidentRequest = {
+let params:v2.IncidentsApiCreateIncidentRequest = {
   // IncidentCreateRequest | Incident payload.
   body: {
     data: {
@@ -65,7 +65,7 @@ let body:v2.IncidentsApiCreateIncidentRequest = {
   },
 };
 
-apiInstance.createIncident(body).then((data:any) => {
+apiInstance.createIncident(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -118,12 +118,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let body:v2.IncidentsApiDeleteIncidentRequest = {
+let params:v2.IncidentsApiDeleteIncidentRequest = {
   // string | The UUID the incident.
   incidentId: "incident_id_example",
 };
 
-apiInstance.deleteIncident(body).then((data:any) => {
+apiInstance.deleteIncident(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -176,7 +176,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let body:v2.IncidentsApiGetIncidentRequest = {
+let params:v2.IncidentsApiGetIncidentRequest = {
   // string | The UUID the incident.
   incidentId: "incident_id_example",
   // Array<IncidentRelatedObject> | Specifies which types of related objects should be included in the response. (optional)
@@ -185,7 +185,7 @@ let body:v2.IncidentsApiGetIncidentRequest = {
   ],
 };
 
-apiInstance.getIncident(body).then((data:any) => {
+apiInstance.getIncident(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -239,7 +239,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let body:v2.IncidentsApiListIncidentsRequest = {
+let params:v2.IncidentsApiListIncidentsRequest = {
   // Array<IncidentRelatedObject> | Specifies which types of related objects should be included in the response. (optional)
   include: [
     "users",
@@ -250,7 +250,7 @@ let body:v2.IncidentsApiListIncidentsRequest = {
   pageOffset: 0,
 };
 
-apiInstance.listIncidents(body).then((data:any) => {
+apiInstance.listIncidents(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -305,7 +305,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let body:v2.IncidentsApiUpdateIncidentRequest = {
+let params:v2.IncidentsApiUpdateIncidentRequest = {
   // string | The UUID the incident.
   incidentId: "incident_id_example",
   // IncidentUpdateRequest | Incident Payload.
@@ -369,7 +369,7 @@ let body:v2.IncidentsApiUpdateIncidentRequest = {
   },
 };
 
-apiInstance.updateIncident(body).then((data:any) => {
+apiInstance.updateIncident(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

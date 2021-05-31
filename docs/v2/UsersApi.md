@@ -30,7 +30,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiCreateUserRequest = {
+let params:v2.UsersApiCreateUserRequest = {
   // UserCreateRequest
   body: {
     data: {
@@ -54,7 +54,7 @@ let body:v2.UsersApiCreateUserRequest = {
   },
 };
 
-apiInstance.createUser(body).then((data:any) => {
+apiInstance.createUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -105,12 +105,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiDisableUserRequest = {
+let params:v2.UsersApiDisableUserRequest = {
   // string | The ID of the user.
   userId: "00000000-0000-0000-0000-000000000000",
 };
 
-apiInstance.disableUser(body).then((data:any) => {
+apiInstance.disableUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -161,12 +161,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiGetInvitationRequest = {
+let params:v2.UsersApiGetInvitationRequest = {
   // string | The UUID of the user invitation.
   userInvitationUuid: "00000000-0000-0000-0000-000000000000",
 };
 
-apiInstance.getInvitation(body).then((data:any) => {
+apiInstance.getInvitation(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -217,12 +217,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiGetUserRequest = {
+let params:v2.UsersApiGetUserRequest = {
   // string | The ID of the user.
   userId: "00000000-0000-0000-0000-000000000000",
 };
 
-apiInstance.getUser(body).then((data:any) => {
+apiInstance.getUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -273,12 +273,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiListUserOrganizationsRequest = {
+let params:v2.UsersApiListUserOrganizationsRequest = {
   // string | The ID of the user.
   userId: "00000000-0000-0000-0000-000000000000",
 };
 
-apiInstance.listUserOrganizations(body).then((data:any) => {
+apiInstance.listUserOrganizations(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -329,12 +329,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiListUserPermissionsRequest = {
+let params:v2.UsersApiListUserPermissionsRequest = {
   // string | The ID of the user.
   userId: "00000000-0000-0000-0000-000000000000",
 };
 
-apiInstance.listUserPermissions(body).then((data:any) => {
+apiInstance.listUserPermissions(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -385,7 +385,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiListUsersRequest = {
+let params:v2.UsersApiListUsersRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -400,7 +400,7 @@ let body:v2.UsersApiListUsersRequest = {
   filterStatus: "Active",
 };
 
-apiInstance.listUsers(body).then((data:any) => {
+apiInstance.listUsers(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -456,7 +456,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiSendInvitationsRequest = {
+let params:v2.UsersApiSendInvitationsRequest = {
   // UserInvitationsRequest
   body: {
     data: [
@@ -475,7 +475,7 @@ let body:v2.UsersApiSendInvitationsRequest = {
   },
 };
 
-apiInstance.sendInvitations(body).then((data:any) => {
+apiInstance.sendInvitations(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -526,7 +526,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let body:v2.UsersApiUpdateUserRequest = {
+let params:v2.UsersApiUpdateUserRequest = {
   // string | The ID of the user.
   userId: "00000000-0000-0000-0000-000000000000",
   // UserUpdateRequest
@@ -543,7 +543,7 @@ let body:v2.UsersApiUpdateUserRequest = {
   },
 };
 
-apiInstance.updateUser(body).then((data:any) => {
+apiInstance.updateUser(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

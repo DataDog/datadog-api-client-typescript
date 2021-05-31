@@ -22,7 +22,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.ProcessesApi(configuration);
 
-let body:v2.ProcessesApiListProcessesRequest = {
+let params:v2.ProcessesApiListProcessesRequest = {
   // string | String to search processes by. (optional)
   search: "search_example",
   // string | Comma-separated list of tags to filter processes by. (optional)
@@ -37,7 +37,7 @@ let body:v2.ProcessesApiListProcessesRequest = {
   pageCursor: "page[cursor]_example",
 };
 
-apiInstance.listProcesses(body).then((data:any) => {
+apiInstance.listProcesses(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

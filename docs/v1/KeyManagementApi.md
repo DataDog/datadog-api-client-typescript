@@ -31,14 +31,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiCreateAPIKeyRequest = {
+let params:v1.KeyManagementApiCreateAPIKeyRequest = {
   // ApiKey
   body: {
     name: "example user",
   },
 };
 
-apiInstance.createAPIKey(body).then((data:any) => {
+apiInstance.createAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -89,14 +89,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiCreateApplicationKeyRequest = {
+let params:v1.KeyManagementApiCreateApplicationKeyRequest = {
   // ApplicationKey
   body: {
     name: "example user",
   },
 };
 
-apiInstance.createApplicationKey(body).then((data:any) => {
+apiInstance.createApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -148,12 +148,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiDeleteAPIKeyRequest = {
+let params:v1.KeyManagementApiDeleteAPIKeyRequest = {
   // string | The specific API key you are working with.
   key: "key_example",
 };
 
-apiInstance.deleteAPIKey(body).then((data:any) => {
+apiInstance.deleteAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -205,12 +205,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiDeleteApplicationKeyRequest = {
+let params:v1.KeyManagementApiDeleteApplicationKeyRequest = {
   // string | The specific APP key you are working with.
   key: "key_example",
 };
 
-apiInstance.deleteApplicationKey(body).then((data:any) => {
+apiInstance.deleteApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -261,12 +261,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiGetAPIKeyRequest = {
+let params:v1.KeyManagementApiGetAPIKeyRequest = {
   // string | The specific API key you are working with.
   key: "key_example",
 };
 
-apiInstance.getAPIKey(body).then((data:any) => {
+apiInstance.getAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -317,12 +317,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiGetApplicationKeyRequest = {
+let params:v1.KeyManagementApiGetApplicationKeyRequest = {
   // string | The specific APP key you are working with.
   key: "key_example",
 };
 
-apiInstance.getApplicationKey(body).then((data:any) => {
+apiInstance.getApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -373,9 +373,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:any = {};
 
-apiInstance.listAPIKeys(body).then((data:any) => {
+apiInstance.listAPIKeys().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -422,9 +421,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:any = {};
 
-apiInstance.listApplicationKeys(body).then((data:any) => {
+apiInstance.listApplicationKeys().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -471,7 +469,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiUpdateAPIKeyRequest = {
+let params:v1.KeyManagementApiUpdateAPIKeyRequest = {
   // string | The specific API key you are working with.
   key: "key_example",
   // ApiKey
@@ -480,7 +478,7 @@ let body:v1.KeyManagementApiUpdateAPIKeyRequest = {
   },
 };
 
-apiInstance.updateAPIKey(body).then((data:any) => {
+apiInstance.updateAPIKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -533,7 +531,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.KeyManagementApi(configuration);
 
-let body:v1.KeyManagementApiUpdateApplicationKeyRequest = {
+let params:v1.KeyManagementApiUpdateApplicationKeyRequest = {
   // string | The specific APP key you are working with.
   key: "key_example",
   // ApplicationKey
@@ -542,7 +540,7 @@ let body:v1.KeyManagementApiUpdateApplicationKeyRequest = {
   },
 };
 
-apiInstance.updateApplicationKey(body).then((data:any) => {
+apiInstance.updateApplicationKey(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
