@@ -24,7 +24,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.EventsApi(configuration);
 
-let body:v1.EventsApiCreateEventRequest = {
+let params:v1.EventsApiCreateEventRequest = {
   // EventCreateRequest | Event request object
   body: {
     aggregationKey: "aggregationKey_example",
@@ -41,7 +41,7 @@ let body:v1.EventsApiCreateEventRequest = {
   },
 };
 
-apiInstance.createEvent(body).then((data:any) => {
+apiInstance.createEvent(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -91,12 +91,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.EventsApi(configuration);
 
-let body:v1.EventsApiGetEventRequest = {
+let params:v1.EventsApiGetEventRequest = {
   // number | The ID of the event.
   eventId: 1,
 };
 
-apiInstance.getEvent(body).then((data:any) => {
+apiInstance.getEvent(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -147,7 +147,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.EventsApi(configuration);
 
-let body:v1.EventsApiListEventsRequest = {
+let params:v1.EventsApiListEventsRequest = {
   // number | POSIX timestamp.
   start: 1,
   // number | POSIX timestamp.
@@ -166,7 +166,7 @@ let body:v1.EventsApiListEventsRequest = {
   page: 1,
 };
 
-apiInstance.listEvents(body).then((data:any) => {
+apiInstance.listEvents(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

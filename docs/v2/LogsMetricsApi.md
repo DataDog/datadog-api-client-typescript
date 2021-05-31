@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-let body:v2.LogsMetricsApiCreateLogsMetricRequest = {
+let params:v2.LogsMetricsApiCreateLogsMetricRequest = {
   // LogsMetricCreateRequest | The definition of the new log-based metric.
   body: {
     data: {
@@ -51,7 +51,7 @@ let body:v2.LogsMetricsApiCreateLogsMetricRequest = {
   },
 };
 
-apiInstance.createLogsMetric(body).then((data:any) => {
+apiInstance.createLogsMetric(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -104,12 +104,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-let body:v2.LogsMetricsApiDeleteLogsMetricRequest = {
+let params:v2.LogsMetricsApiDeleteLogsMetricRequest = {
   // string | The name of the log-based metric.
   metricId: "metric_id_example",
 };
 
-apiInstance.deleteLogsMetric(body).then((data:any) => {
+apiInstance.deleteLogsMetric(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -161,12 +161,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-let body:v2.LogsMetricsApiGetLogsMetricRequest = {
+let params:v2.LogsMetricsApiGetLogsMetricRequest = {
   // string | The name of the log-based metric.
   metricId: "metric_id_example",
 };
 
-apiInstance.getLogsMetric(body).then((data:any) => {
+apiInstance.getLogsMetric(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -218,9 +218,8 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listLogsMetrics(body).then((data:any) => {
+apiInstance.listLogsMetrics().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -268,7 +267,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-let body:v2.LogsMetricsApiUpdateLogsMetricRequest = {
+let params:v2.LogsMetricsApiUpdateLogsMetricRequest = {
   // string | The name of the log-based metric.
   metricId: "metric_id_example",
   // LogsMetricUpdateRequest | New definition of the log-based metric.
@@ -290,7 +289,7 @@ let body:v2.LogsMetricsApiUpdateLogsMetricRequest = {
   },
 };
 
-apiInstance.updateLogsMetric(body).then((data:any) => {
+apiInstance.updateLogsMetric(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

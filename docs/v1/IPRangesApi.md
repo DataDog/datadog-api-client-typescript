@@ -22,9 +22,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.IPRangesApi(configuration);
 
-let body:any = {};
 
-apiInstance.getIPRanges(body).then((data:any) => {
+apiInstance.getIPRanges().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
-let body:v2.IncidentServicesApiCreateIncidentServiceRequest = {
+let params:v2.IncidentServicesApiCreateIncidentServiceRequest = {
   // IncidentServiceCreateRequest | Incident Service Payload.
   body: {
     data: {
@@ -38,7 +38,7 @@ let body:v2.IncidentServicesApiCreateIncidentServiceRequest = {
   },
 };
 
-apiInstance.createIncidentService(body).then((data:any) => {
+apiInstance.createIncidentService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -91,12 +91,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
-let body:v2.IncidentServicesApiDeleteIncidentServiceRequest = {
+let params:v2.IncidentServicesApiDeleteIncidentServiceRequest = {
   // string | The ID of the incident service.
   serviceId: "service_id_example",
 };
 
-apiInstance.deleteIncidentService(body).then((data:any) => {
+apiInstance.deleteIncidentService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -149,14 +149,14 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
-let body:v2.IncidentServicesApiGetIncidentServiceRequest = {
+let params:v2.IncidentServicesApiGetIncidentServiceRequest = {
   // string | The ID of the incident service.
   serviceId: "service_id_example",
   // IncidentRelatedObject | Specifies which types of related objects should be included in the response. (optional)
   include: "users",
 };
 
-apiInstance.getIncidentService(body).then((data:any) => {
+apiInstance.getIncidentService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -210,7 +210,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
-let body:v2.IncidentServicesApiListIncidentServicesRequest = {
+let params:v2.IncidentServicesApiListIncidentServicesRequest = {
   // IncidentRelatedObject | Specifies which types of related objects should be included in the response. (optional)
   include: "users",
   // number | Size for a given page. (optional)
@@ -221,7 +221,7 @@ let body:v2.IncidentServicesApiListIncidentServicesRequest = {
   filter: "ExampleServiceName",
 };
 
-apiInstance.listIncidentServices(body).then((data:any) => {
+apiInstance.listIncidentServices(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -277,7 +277,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
-let body:v2.IncidentServicesApiUpdateIncidentServiceRequest = {
+let params:v2.IncidentServicesApiUpdateIncidentServiceRequest = {
   // string | The ID of the incident service.
   serviceId: "service_id_example",
   // IncidentServiceUpdateRequest | Incident Service Payload.
@@ -292,7 +292,7 @@ let body:v2.IncidentServicesApiUpdateIncidentServiceRequest = {
   },
 };
 
-apiInstance.updateIncidentService(body).then((data:any) => {
+apiInstance.updateIncidentService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

@@ -541,7 +541,7 @@ export class ObjectIncidentServicesApi {
      * Get a list of all incident services
      * @param param the request object
      */
-    public listIncidentServices(param: IncidentServicesApiListIncidentServicesRequest, options?: Configuration): Promise<IncidentServicesResponse> {
+    public listIncidentServices(param: IncidentServicesApiListIncidentServicesRequest = {}, options?: Configuration): Promise<IncidentServicesResponse> {
         return this.api.listIncidentServices(param.include, param.pageSize, param.pageOffset, param.filter,  options).toPromise();
     }
 
@@ -673,7 +673,7 @@ export class ObjectIncidentTeamsApi {
      * Get a list of all incident teams
      * @param param the request object
      */
-    public listIncidentTeams(param: IncidentTeamsApiListIncidentTeamsRequest, options?: Configuration): Promise<IncidentTeamsResponse> {
+    public listIncidentTeams(param: IncidentTeamsApiListIncidentTeamsRequest = {}, options?: Configuration): Promise<IncidentTeamsResponse> {
         return this.api.listIncidentTeams(param.include, param.pageSize, param.pageOffset, param.filter,  options).toPromise();
     }
 
@@ -799,7 +799,7 @@ export class ObjectIncidentsApi {
      * Get a list of incidents
      * @param param the request object
      */
-    public listIncidents(param: IncidentsApiListIncidentsRequest, options?: Configuration): Promise<IncidentsResponse> {
+    public listIncidents(param: IncidentsApiListIncidentsRequest = {}, options?: Configuration): Promise<IncidentsResponse> {
         return this.api.listIncidents(param.include, param.pageSize, param.pageOffset,  options).toPromise();
     }
 
@@ -1141,7 +1141,7 @@ export class ObjectKeyManagementApi {
      * Get all API keys
      * @param param the request object
      */
-    public listAPIKeys(param: KeyManagementApiListAPIKeysRequest, options?: Configuration): Promise<APIKeysResponse> {
+    public listAPIKeys(param: KeyManagementApiListAPIKeysRequest = {}, options?: Configuration): Promise<APIKeysResponse> {
         return this.api.listAPIKeys(param.pageSize, param.pageNumber, param.sort, param.filter, param.filterCreatedAtStart, param.filterCreatedAtEnd, param.filterModifiedAtStart, param.filterModifiedAtEnd, param.include,  options).toPromise();
     }
 
@@ -1150,7 +1150,7 @@ export class ObjectKeyManagementApi {
      * Get all application keys
      * @param param the request object
      */
-    public listApplicationKeys(param: KeyManagementApiListApplicationKeysRequest, options?: Configuration): Promise<ListApplicationKeysResponse> {
+    public listApplicationKeys(param: KeyManagementApiListApplicationKeysRequest = {}, options?: Configuration): Promise<ListApplicationKeysResponse> {
         return this.api.listApplicationKeys(param.pageSize, param.pageNumber, param.sort, param.filter, param.filterCreatedAtStart, param.filterCreatedAtEnd,  options).toPromise();
     }
 
@@ -1159,7 +1159,7 @@ export class ObjectKeyManagementApi {
      * Get all application keys owned by current user
      * @param param the request object
      */
-    public listCurrentUserApplicationKeys(param: KeyManagementApiListCurrentUserApplicationKeysRequest, options?: Configuration): Promise<ListApplicationKeysResponse> {
+    public listCurrentUserApplicationKeys(param: KeyManagementApiListCurrentUserApplicationKeysRequest = {}, options?: Configuration): Promise<ListApplicationKeysResponse> {
         return this.api.listCurrentUserApplicationKeys(param.pageSize, param.pageNumber, param.sort, param.filter, param.filterCreatedAtStart, param.filterCreatedAtEnd,  options).toPromise();
     }
 
@@ -1279,7 +1279,7 @@ export class ObjectLogsApi {
      * Search logs
      * @param param the request object
      */
-    public listLogs(param: LogsApiListLogsRequest, options?: Configuration): Promise<LogsListResponse> {
+    public listLogs(param: LogsApiListLogsRequest = {}, options?: Configuration): Promise<LogsListResponse> {
         return this.api.listLogs(param.body,  options).toPromise();
     }
 
@@ -1288,7 +1288,7 @@ export class ObjectLogsApi {
      * Get a list of logs
      * @param param the request object
      */
-    public listLogsGet(param: LogsApiListLogsGetRequest, options?: Configuration): Promise<LogsListResponse> {
+    public listLogsGet(param: LogsApiListLogsGetRequest = {}, options?: Configuration): Promise<LogsListResponse> {
         return this.api.listLogsGet(param.filterQuery, param.filterIndex, param.filterFrom, param.filterTo, param.sort, param.pageCursor, param.pageLimit,  options).toPromise();
     }
 
@@ -1441,7 +1441,7 @@ export class ObjectLogsArchivesApi {
      * Get archive order
      * @param param the request object
      */
-    public getLogsArchiveOrder(param: LogsArchivesApiGetLogsArchiveOrderRequest, options?: Configuration): Promise<LogsArchiveOrder> {
+    public getLogsArchiveOrder(param: LogsArchivesApiGetLogsArchiveOrderRequest = {}, options?: Configuration): Promise<LogsArchiveOrder> {
         return this.api.getLogsArchiveOrder( options).toPromise();
     }
 
@@ -1459,7 +1459,7 @@ export class ObjectLogsArchivesApi {
      * Get all archives
      * @param param the request object
      */
-    public listLogsArchives(param: LogsArchivesApiListLogsArchivesRequest, options?: Configuration): Promise<LogsArchives> {
+    public listLogsArchives(param: LogsArchivesApiListLogsArchivesRequest = {}, options?: Configuration): Promise<LogsArchives> {
         return this.api.listLogsArchives( options).toPromise();
     }
 
@@ -1579,7 +1579,7 @@ export class ObjectLogsMetricsApi {
      * Get all log-based metrics
      * @param param the request object
      */
-    public listLogsMetrics(param: LogsMetricsApiListLogsMetricsRequest, options?: Configuration): Promise<LogsMetricsResponse> {
+    public listLogsMetrics(param: LogsMetricsApiListLogsMetricsRequest = {}, options?: Configuration): Promise<LogsMetricsResponse> {
         return this.api.listLogsMetrics( options).toPromise();
     }
 
@@ -1741,7 +1741,7 @@ export class ObjectMetricsApi {
      * List tag configurations
      * @param param the request object
      */
-    public listTagConfigurations(param: MetricsApiListTagConfigurationsRequest, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
+    public listTagConfigurations(param: MetricsApiListTagConfigurationsRequest = {}, options?: Configuration): Promise<MetricsAndMetricTagConfigurationsResponse> {
         return this.api.listTagConfigurations(param.filterConfigured, param.filterTagsConfigured, param.filterMetricType, param.filterIncludePercentiles, param.filterTags, param.windowSeconds,  options).toPromise();
     }
 
@@ -1828,7 +1828,7 @@ export class ObjectProcessesApi {
      * Get all processes
      * @param param the request object
      */
-    public listProcesses(param: ProcessesApiListProcessesRequest, options?: Configuration): Promise<ProcessSummariesResponse> {
+    public listProcesses(param: ProcessesApiListProcessesRequest = {}, options?: Configuration): Promise<ProcessSummariesResponse> {
         return this.api.listProcesses(param.search, param.tags, param.from, param.to, param.pageLimit, param.pageCursor,  options).toPromise();
     }
 
@@ -2068,7 +2068,7 @@ export class ObjectRolesApi {
      * List permissions
      * @param param the request object
      */
-    public listPermissions(param: RolesApiListPermissionsRequest, options?: Configuration): Promise<PermissionsResponse> {
+    public listPermissions(param: RolesApiListPermissionsRequest = {}, options?: Configuration): Promise<PermissionsResponse> {
         return this.api.listPermissions( options).toPromise();
     }
 
@@ -2095,7 +2095,7 @@ export class ObjectRolesApi {
      * List roles
      * @param param the request object
      */
-    public listRoles(param: RolesApiListRolesRequest, options?: Configuration): Promise<RolesResponse> {
+    public listRoles(param: RolesApiListRolesRequest = {}, options?: Configuration): Promise<RolesResponse> {
         return this.api.listRoles(param.pageSize, param.pageNumber, param.sort, param.filter,  options).toPromise();
     }
 
@@ -2347,7 +2347,7 @@ export class ObjectSecurityMonitoringApi {
      * Get all security filters
      * @param param the request object
      */
-    public listSecurityFilters(param: SecurityMonitoringApiListSecurityFiltersRequest, options?: Configuration): Promise<SecurityFiltersResponse> {
+    public listSecurityFilters(param: SecurityMonitoringApiListSecurityFiltersRequest = {}, options?: Configuration): Promise<SecurityFiltersResponse> {
         return this.api.listSecurityFilters( options).toPromise();
     }
 
@@ -2356,7 +2356,7 @@ export class ObjectSecurityMonitoringApi {
      * List rules
      * @param param the request object
      */
-    public listSecurityMonitoringRules(param: SecurityMonitoringApiListSecurityMonitoringRulesRequest, options?: Configuration): Promise<SecurityMonitoringListRulesResponse> {
+    public listSecurityMonitoringRules(param: SecurityMonitoringApiListSecurityMonitoringRulesRequest = {}, options?: Configuration): Promise<SecurityMonitoringListRulesResponse> {
         return this.api.listSecurityMonitoringRules(param.pageSize, param.pageNumber,  options).toPromise();
     }
 
@@ -2365,7 +2365,7 @@ export class ObjectSecurityMonitoringApi {
      * Get a quick list of security signals
      * @param param the request object
      */
-    public listSecurityMonitoringSignals(param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
+    public listSecurityMonitoringSignals(param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {}, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
         return this.api.listSecurityMonitoringSignals(param.filterQuery, param.filterFrom, param.filterTo, param.sort, param.pageCursor, param.pageLimit,  options).toPromise();
     }
 
@@ -2374,7 +2374,7 @@ export class ObjectSecurityMonitoringApi {
      * Get a list of security signals
      * @param param the request object
      */
-    public searchSecurityMonitoringSignals(param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
+    public searchSecurityMonitoringSignals(param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {}, options?: Configuration): Promise<SecurityMonitoringSignalsListResponse> {
         return this.api.searchSecurityMonitoringSignals(param.body,  options).toPromise();
     }
 
@@ -2584,7 +2584,7 @@ export class ObjectUsersApi {
      * List all users
      * @param param the request object
      */
-    public listUsers(param: UsersApiListUsersRequest, options?: Configuration): Promise<UsersResponse> {
+    public listUsers(param: UsersApiListUsersRequest = {}, options?: Configuration): Promise<UsersResponse> {
         return this.api.listUsers(param.pageSize, param.pageNumber, param.sort, param.sortDir, param.filter, param.filterStatus,  options).toPromise();
     }
 

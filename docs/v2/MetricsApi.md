@@ -28,7 +28,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiCreateTagConfigurationRequest = {
+let params:v2.MetricsApiCreateTagConfigurationRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
   // MetricTagConfigurationCreateRequest
@@ -45,7 +45,7 @@ let body:v2.MetricsApiCreateTagConfigurationRequest = {
   },
 };
 
-apiInstance.createTagConfiguration(body).then((data:any) => {
+apiInstance.createTagConfiguration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -99,12 +99,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiDeleteTagConfigurationRequest = {
+let params:v2.MetricsApiDeleteTagConfigurationRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
 };
 
-apiInstance.deleteTagConfiguration(body).then((data:any) => {
+apiInstance.deleteTagConfiguration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -156,12 +156,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiListTagConfigurationByNameRequest = {
+let params:v2.MetricsApiListTagConfigurationByNameRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
 };
 
-apiInstance.listTagConfigurationByName(body).then((data:any) => {
+apiInstance.listTagConfigurationByName(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -213,7 +213,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiListTagConfigurationsRequest = {
+let params:v2.MetricsApiListTagConfigurationsRequest = {
   // boolean | Filter metrics that have configured tags. (optional)
   filterConfigured: true,
   // string | Filter tag configurations by configured tags. (optional)
@@ -228,7 +228,7 @@ let body:v2.MetricsApiListTagConfigurationsRequest = {
   windowSeconds: 3600,
 };
 
-apiInstance.listTagConfigurations(body).then((data:any) => {
+apiInstance.listTagConfigurations(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -285,12 +285,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiListTagsByMetricNameRequest = {
+let params:v2.MetricsApiListTagsByMetricNameRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
 };
 
-apiInstance.listTagsByMetricName(body).then((data:any) => {
+apiInstance.listTagsByMetricName(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -343,12 +343,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiListVolumesByMetricNameRequest = {
+let params:v2.MetricsApiListVolumesByMetricNameRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
 };
 
-apiInstance.listVolumesByMetricName(body).then((data:any) => {
+apiInstance.listVolumesByMetricName(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -401,7 +401,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let body:v2.MetricsApiUpdateTagConfigurationRequest = {
+let params:v2.MetricsApiUpdateTagConfigurationRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
   // MetricTagConfigurationUpdateRequest
@@ -417,7 +417,7 @@ let body:v2.MetricsApiUpdateTagConfigurationRequest = {
   },
 };
 
-apiInstance.updateTagConfiguration(body).then((data:any) => {
+apiInstance.updateTagConfiguration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

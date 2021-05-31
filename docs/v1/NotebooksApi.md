@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let body:v1.NotebooksApiCreateNotebookRequest = {
+let params:v1.NotebooksApiCreateNotebookRequest = {
   // NotebookCreateRequest | The JSON description of the notebook you want to create.
   body: {
     data: {
@@ -54,7 +54,7 @@ example content`,
   },
 };
 
-apiInstance.createNotebook(body).then((data:any) => {
+apiInstance.createNotebook(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -105,12 +105,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let body:v1.NotebooksApiDeleteNotebookRequest = {
+let params:v1.NotebooksApiDeleteNotebookRequest = {
   // number | Unique ID, assigned when you create the notebook.
   notebookId: 1,
 };
 
-apiInstance.deleteNotebook(body).then((data:any) => {
+apiInstance.deleteNotebook(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -162,12 +162,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let body:v1.NotebooksApiGetNotebookRequest = {
+let params:v1.NotebooksApiGetNotebookRequest = {
   // number | Unique ID, assigned when you create the notebook.
   notebookId: 1,
 };
 
-apiInstance.getNotebook(body).then((data:any) => {
+apiInstance.getNotebook(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -219,7 +219,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let body:v1.NotebooksApiListNotebooksRequest = {
+let params:v1.NotebooksApiListNotebooksRequest = {
   // string | Return notebooks created by the given `author_handle`. (optional)
   authorHandle: "test@datadoghq.com",
   // string | Return notebooks not created by the given `author_handle`. (optional)
@@ -238,7 +238,7 @@ let body:v1.NotebooksApiListNotebooksRequest = {
   includeCells: false,
 };
 
-apiInstance.listNotebooks(body).then((data:any) => {
+apiInstance.listNotebooks(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -296,7 +296,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let body:v1.NotebooksApiUpdateNotebookRequest = {
+let params:v1.NotebooksApiUpdateNotebookRequest = {
   // number | Unique ID, assigned when you create the notebook.
   notebookId: 1,
   // NotebookUpdateRequest | Update notebook request body.
@@ -326,7 +326,7 @@ example content`,
   },
 };
 
-apiInstance.updateNotebook(body).then((data:any) => {
+apiInstance.updateNotebook(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

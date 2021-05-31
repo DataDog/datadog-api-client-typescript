@@ -28,7 +28,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:v1.LogsPipelinesApiCreateLogsPipelineRequest = {
+let params:v1.LogsPipelinesApiCreateLogsPipelineRequest = {
   // LogsPipeline | Definition of the new pipeline.
   body: {
     filter: {
@@ -58,7 +58,7 @@ rule_name_2 bar
   },
 };
 
-apiInstance.createLogsPipeline(body).then((data:any) => {
+apiInstance.createLogsPipeline(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -109,12 +109,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:v1.LogsPipelinesApiDeleteLogsPipelineRequest = {
+let params:v1.LogsPipelinesApiDeleteLogsPipelineRequest = {
   // string | ID of the pipeline to delete.
   pipelineId: "pipeline_id_example",
 };
 
-apiInstance.deleteLogsPipeline(body).then((data:any) => {
+apiInstance.deleteLogsPipeline(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -165,12 +165,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:v1.LogsPipelinesApiGetLogsPipelineRequest = {
+let params:v1.LogsPipelinesApiGetLogsPipelineRequest = {
   // string | ID of the pipeline to get.
   pipelineId: "pipeline_id_example",
 };
 
-apiInstance.getLogsPipeline(body).then((data:any) => {
+apiInstance.getLogsPipeline(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -221,9 +221,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:any = {};
 
-apiInstance.getLogsPipelineOrder(body).then((data:any) => {
+apiInstance.getLogsPipelineOrder().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -270,9 +269,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:any = {};
 
-apiInstance.listLogsPipelines(body).then((data:any) => {
+apiInstance.listLogsPipelines().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -319,7 +317,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:v1.LogsPipelinesApiUpdateLogsPipelineRequest = {
+let params:v1.LogsPipelinesApiUpdateLogsPipelineRequest = {
   // string | ID of the pipeline to delete.
   pipelineId: "pipeline_id_example",
   // LogsPipeline | New definition of the pipeline.
@@ -351,7 +349,7 @@ rule_name_2 bar
   },
 };
 
-apiInstance.updateLogsPipeline(body).then((data:any) => {
+apiInstance.updateLogsPipeline(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -403,14 +401,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsPipelinesApi(configuration);
 
-let body:v1.LogsPipelinesApiUpdateLogsPipelineOrderRequest = {
+let params:v1.LogsPipelinesApiUpdateLogsPipelineOrderRequest = {
   // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
   body: {
     pipelineIds: ["tags","org_ids","products"],
   },
 };
 
-apiInstance.updateLogsPipelineOrder(body).then((data:any) => {
+apiInstance.updateLogsPipelineOrder(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

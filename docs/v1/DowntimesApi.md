@@ -28,12 +28,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiCancelDowntimeRequest = {
+let params:v1.DowntimesApiCancelDowntimeRequest = {
   // number | ID of the downtime to cancel.
   downtimeId: 123456,
 };
 
-apiInstance.cancelDowntime(body).then((data:any) => {
+apiInstance.cancelDowntime(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -84,14 +84,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiCancelDowntimesByScopeRequest = {
+let params:v1.DowntimesApiCancelDowntimesByScopeRequest = {
   // CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
   body: {
     scope: "host:myserver",
   },
 };
 
-apiInstance.cancelDowntimesByScope(body).then((data:any) => {
+apiInstance.cancelDowntimesByScope(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -143,7 +143,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiCreateDowntimeRequest = {
+let params:v1.DowntimesApiCreateDowntimeRequest = {
   // Downtime | Schedule a downtime request body.
   body: {
     disabled: false,
@@ -166,7 +166,7 @@ let body:v1.DowntimesApiCreateDowntimeRequest = {
   },
 };
 
-apiInstance.createDowntime(body).then((data:any) => {
+apiInstance.createDowntime(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -217,12 +217,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiGetDowntimeRequest = {
+let params:v1.DowntimesApiGetDowntimeRequest = {
   // number | ID of the downtime to fetch.
   downtimeId: 123456,
 };
 
-apiInstance.getDowntime(body).then((data:any) => {
+apiInstance.getDowntime(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -273,12 +273,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiListDowntimesRequest = {
+let params:v1.DowntimesApiListDowntimesRequest = {
   // boolean | Only return downtimes that are active when the request is made. (optional)
   currentOnly: true,
 };
 
-apiInstance.listDowntimes(body).then((data:any) => {
+apiInstance.listDowntimes(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -328,12 +328,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiListMonitorDowntimesRequest = {
+let params:v1.DowntimesApiListMonitorDowntimesRequest = {
   // number | The id of the monitor
   monitorId: 1,
 };
 
-apiInstance.listMonitorDowntimes(body).then((data:any) => {
+apiInstance.listMonitorDowntimes(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -384,7 +384,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let body:v1.DowntimesApiUpdateDowntimeRequest = {
+let params:v1.DowntimesApiUpdateDowntimeRequest = {
   // number | ID of the downtime to update.
   downtimeId: 123456,
   // Downtime | Update a downtime request body.
@@ -409,7 +409,7 @@ let body:v1.DowntimesApiUpdateDowntimeRequest = {
   },
 };
 
-apiInstance.updateDowntime(body).then((data:any) => {
+apiInstance.updateDowntime(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
-let body:v2.IncidentTeamsApiCreateIncidentTeamRequest = {
+let params:v2.IncidentTeamsApiCreateIncidentTeamRequest = {
   // IncidentTeamCreateRequest | Incident Team Payload.
   body: {
     data: {
@@ -38,7 +38,7 @@ let body:v2.IncidentTeamsApiCreateIncidentTeamRequest = {
   },
 };
 
-apiInstance.createIncidentTeam(body).then((data:any) => {
+apiInstance.createIncidentTeam(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -91,12 +91,12 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
-let body:v2.IncidentTeamsApiDeleteIncidentTeamRequest = {
+let params:v2.IncidentTeamsApiDeleteIncidentTeamRequest = {
   // string | The ID of the incident team.
   teamId: "team_id_example",
 };
 
-apiInstance.deleteIncidentTeam(body).then((data:any) => {
+apiInstance.deleteIncidentTeam(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -149,14 +149,14 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
-let body:v2.IncidentTeamsApiGetIncidentTeamRequest = {
+let params:v2.IncidentTeamsApiGetIncidentTeamRequest = {
   // string | The ID of the incident team.
   teamId: "team_id_example",
   // IncidentRelatedObject | Specifies which types of related objects should be included in the response. (optional)
   include: "users",
 };
 
-apiInstance.getIncidentTeam(body).then((data:any) => {
+apiInstance.getIncidentTeam(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -210,7 +210,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
-let body:v2.IncidentTeamsApiListIncidentTeamsRequest = {
+let params:v2.IncidentTeamsApiListIncidentTeamsRequest = {
   // IncidentRelatedObject | Specifies which types of related objects should be included in the response. (optional)
   include: "users",
   // number | Size for a given page. (optional)
@@ -221,7 +221,7 @@ let body:v2.IncidentTeamsApiListIncidentTeamsRequest = {
   filter: "ExampleTeamName",
 };
 
-apiInstance.listIncidentTeams(body).then((data:any) => {
+apiInstance.listIncidentTeams(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -277,7 +277,7 @@ import * as fs from 'fs';
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
-let body:v2.IncidentTeamsApiUpdateIncidentTeamRequest = {
+let params:v2.IncidentTeamsApiUpdateIncidentTeamRequest = {
   // string | The ID of the incident team.
   teamId: "team_id_example",
   // IncidentTeamUpdateRequest | Incident Team Payload.
@@ -292,7 +292,7 @@ let body:v2.IncidentTeamsApiUpdateIncidentTeamRequest = {
   },
 };
 
-apiInstance.updateIncidentTeam(body).then((data:any) => {
+apiInstance.updateIncidentTeam(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

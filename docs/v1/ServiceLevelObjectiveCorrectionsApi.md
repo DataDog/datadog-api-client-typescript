@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
-let body:v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
+let params:v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
   // SLOCorrectionCreateRequest | Create an SLO Correction
   body: {
     data: {
@@ -43,7 +43,7 @@ let body:v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
   },
 };
 
-apiInstance.createSLOCorrection(body).then((data:any) => {
+apiInstance.createSLOCorrection(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -95,12 +95,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
-let body:v1.ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest = {
+let params:v1.ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest = {
   // string | The ID of the SLO correction object
   sloCorrectionId: "slo_correction_id_example",
 };
 
-apiInstance.deleteSLOCorrection(body).then((data:any) => {
+apiInstance.deleteSLOCorrection(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -151,12 +151,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
-let body:v1.ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest = {
+let params:v1.ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest = {
   // string | The ID of the SLO correction object
   sloCorrectionId: "slo_correction_id_example",
 };
 
-apiInstance.getSLOCorrection(body).then((data:any) => {
+apiInstance.getSLOCorrection(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -207,9 +207,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listSLOCorrection(body).then((data:any) => {
+apiInstance.listSLOCorrection().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -256,7 +255,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
-let body:v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest = {
+let params:v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest = {
   // string | The ID of the SLO correction object
   sloCorrectionId: "slo_correction_id_example",
   // SLOCorrectionUpdateRequest | The edited SLO correction object.
@@ -274,7 +273,7 @@ let body:v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest = {
   },
 };
 
-apiInstance.updateSLOCorrection(body).then((data:any) => {
+apiInstance.updateSLOCorrection(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

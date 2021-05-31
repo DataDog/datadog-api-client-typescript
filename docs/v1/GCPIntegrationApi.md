@@ -25,7 +25,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.GCPIntegrationApi(configuration);
 
-let body:v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
+let params:v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
   // GCPAccount | Create a Datadog-GCP integration.
   body: {
     authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",
@@ -44,7 +44,7 @@ let body:v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
   },
 };
 
-apiInstance.createGCPIntegration(body).then((data:any) => {
+apiInstance.createGCPIntegration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -95,7 +95,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.GCPIntegrationApi(configuration);
 
-let body:v1.GCPIntegrationApiDeleteGCPIntegrationRequest = {
+let params:v1.GCPIntegrationApiDeleteGCPIntegrationRequest = {
   // GCPAccount | Delete a given Datadog-GCP integration.
   body: {
     authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",
@@ -114,7 +114,7 @@ let body:v1.GCPIntegrationApiDeleteGCPIntegrationRequest = {
   },
 };
 
-apiInstance.deleteGCPIntegration(body).then((data:any) => {
+apiInstance.deleteGCPIntegration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -165,9 +165,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.GCPIntegrationApi(configuration);
 
-let body:any = {};
 
-apiInstance.listGCPIntegration(body).then((data:any) => {
+apiInstance.listGCPIntegration().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -215,7 +214,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.GCPIntegrationApi(configuration);
 
-let body:v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
+let params:v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
   // GCPAccount | Update a Datadog-GCP integration.
   body: {
     authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",
@@ -234,7 +233,7 @@ let body:v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
   },
 };
 
-apiInstance.updateGCPIntegration(body).then((data:any) => {
+apiInstance.updateGCPIntegration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

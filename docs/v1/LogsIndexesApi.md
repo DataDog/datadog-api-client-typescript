@@ -27,7 +27,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let body:v1.LogsIndexesApiCreateLogsIndexRequest = {
+let params:v1.LogsIndexesApiCreateLogsIndexRequest = {
   // LogsIndex | Object containing the new index.
   body: {
     dailyLimit: 300000000,
@@ -49,7 +49,7 @@ let body:v1.LogsIndexesApiCreateLogsIndexRequest = {
   },
 };
 
-apiInstance.createLogsIndex(body).then((data:any) => {
+apiInstance.createLogsIndex(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -100,12 +100,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let body:v1.LogsIndexesApiGetLogsIndexRequest = {
+let params:v1.LogsIndexesApiGetLogsIndexRequest = {
   // string | Name of the log index.
   name: "name_example",
 };
 
-apiInstance.getLogsIndex(body).then((data:any) => {
+apiInstance.getLogsIndex(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -156,9 +156,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let body:any = {};
 
-apiInstance.getLogsIndexOrder(body).then((data:any) => {
+apiInstance.getLogsIndexOrder().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -205,9 +204,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let body:any = {};
 
-apiInstance.listLogIndexes(body).then((data:any) => {
+apiInstance.listLogIndexes().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -254,7 +252,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let body:v1.LogsIndexesApiUpdateLogsIndexRequest = {
+let params:v1.LogsIndexesApiUpdateLogsIndexRequest = {
   // string | Name of the log index.
   name: "name_example",
   // LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
@@ -278,7 +276,7 @@ let body:v1.LogsIndexesApiUpdateLogsIndexRequest = {
   },
 };
 
-apiInstance.updateLogsIndex(body).then((data:any) => {
+apiInstance.updateLogsIndex(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -331,14 +329,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let body:v1.LogsIndexesApiUpdateLogsIndexOrderRequest = {
+let params:v1.LogsIndexesApiUpdateLogsIndexOrderRequest = {
   // LogsIndexesOrder | Object containing the new ordered list of index names
   body: {
     indexNames: ["main","payments","web"],
   },
 };
 
-apiInstance.updateLogsIndexOrder(body).then((data:any) => {
+apiInstance.updateLogsIndexOrder(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

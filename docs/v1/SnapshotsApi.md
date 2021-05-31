@@ -22,7 +22,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SnapshotsApi(configuration);
 
-let body:v1.SnapshotsApiGetGraphSnapshotRequest = {
+let params:v1.SnapshotsApiGetGraphSnapshotRequest = {
   // number | The POSIX timestamp of the start of the query.
   start: 1,
   // number | The POSIX timestamp of the end of the query.
@@ -37,7 +37,7 @@ let body:v1.SnapshotsApiGetGraphSnapshotRequest = {
   title: "title_example",
 };
 
-apiInstance.getGraphSnapshot(body).then((data:any) => {
+apiInstance.getGraphSnapshot(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

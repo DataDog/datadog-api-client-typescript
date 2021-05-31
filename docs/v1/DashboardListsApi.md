@@ -26,14 +26,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
-let body:v1.DashboardListsApiCreateDashboardListRequest = {
+let params:v1.DashboardListsApiCreateDashboardListRequest = {
   // DashboardList | Create a dashboard list request body.
   body: {
     name: "My Dashboard",
   },
 };
 
-apiInstance.createDashboardList(body).then((data:any) => {
+apiInstance.createDashboardList(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -84,12 +84,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
-let body:v1.DashboardListsApiDeleteDashboardListRequest = {
+let params:v1.DashboardListsApiDeleteDashboardListRequest = {
   // number | ID of the dashboard list to delete.
   listId: 1,
 };
 
-apiInstance.deleteDashboardList(body).then((data:any) => {
+apiInstance.deleteDashboardList(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -140,12 +140,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
-let body:v1.DashboardListsApiGetDashboardListRequest = {
+let params:v1.DashboardListsApiGetDashboardListRequest = {
   // number | ID of the dashboard list to fetch.
   listId: 1,
 };
 
-apiInstance.getDashboardList(body).then((data:any) => {
+apiInstance.getDashboardList(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -196,9 +196,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
-let body:any = {};
 
-apiInstance.listDashboardLists(body).then((data:any) => {
+apiInstance.listDashboardLists().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -245,7 +244,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
-let body:v1.DashboardListsApiUpdateDashboardListRequest = {
+let params:v1.DashboardListsApiUpdateDashboardListRequest = {
   // number | ID of the dashboard list to update.
   listId: 1,
   // DashboardList | Update a dashboard list request body.
@@ -254,7 +253,7 @@ let body:v1.DashboardListsApiUpdateDashboardListRequest = {
   },
 };
 
-apiInstance.updateDashboardList(body).then((data:any) => {
+apiInstance.updateDashboardList(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

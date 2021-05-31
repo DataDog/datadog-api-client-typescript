@@ -28,7 +28,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:v1.AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest = {
+let params:v1.AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest = {
   // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
   body: {
     accountId: "1234567",
@@ -36,7 +36,7 @@ let body:v1.AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest = {
   },
 };
 
-apiInstance.checkAWSLogsLambdaAsync(body).then((data:any) => {
+apiInstance.checkAWSLogsLambdaAsync(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -87,7 +87,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:v1.AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest = {
+let params:v1.AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest = {
   // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
   body: {
     accountId: "1234567",
@@ -95,7 +95,7 @@ let body:v1.AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest = {
   },
 };
 
-apiInstance.checkAWSLogsServicesAsync(body).then((data:any) => {
+apiInstance.checkAWSLogsServicesAsync(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -146,7 +146,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:v1.AWSLogsIntegrationApiCreateAWSLambdaARNRequest = {
+let params:v1.AWSLogsIntegrationApiCreateAWSLambdaARNRequest = {
   // AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
   body: {
     accountId: "1234567",
@@ -154,7 +154,7 @@ let body:v1.AWSLogsIntegrationApiCreateAWSLambdaARNRequest = {
   },
 };
 
-apiInstance.createAWSLambdaARN(body).then((data:any) => {
+apiInstance.createAWSLambdaARN(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -205,7 +205,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:v1.AWSLogsIntegrationApiDeleteAWSLambdaARNRequest = {
+let params:v1.AWSLogsIntegrationApiDeleteAWSLambdaARNRequest = {
   // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
   body: {
     accountId: "1234567",
@@ -213,7 +213,7 @@ let body:v1.AWSLogsIntegrationApiDeleteAWSLambdaARNRequest = {
   },
 };
 
-apiInstance.deleteAWSLambdaARN(body).then((data:any) => {
+apiInstance.deleteAWSLambdaARN(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -264,7 +264,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:v1.AWSLogsIntegrationApiEnableAWSLogServicesRequest = {
+let params:v1.AWSLogsIntegrationApiEnableAWSLogServicesRequest = {
   // AWSLogsServicesRequest | Enable AWS Log Services request body.
   body: {
     accountId: "1234567",
@@ -272,7 +272,7 @@ let body:v1.AWSLogsIntegrationApiEnableAWSLogServicesRequest = {
   },
 };
 
-apiInstance.enableAWSLogServices(body).then((data:any) => {
+apiInstance.enableAWSLogServices(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -323,9 +323,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:any = {};
 
-apiInstance.listAWSLogsIntegrations(body).then((data:any) => {
+apiInstance.listAWSLogsIntegrations().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -373,9 +372,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
-let body:any = {};
 
-apiInstance.listAWSLogsServices(body).then((data:any) => {
+apiInstance.listAWSLogsServices().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

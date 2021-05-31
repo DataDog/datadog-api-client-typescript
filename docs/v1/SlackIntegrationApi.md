@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SlackIntegrationApi(configuration);
 
-let body:v1.SlackIntegrationApiCreateSlackIntegrationChannelRequest = {
+let params:v1.SlackIntegrationApiCreateSlackIntegrationChannelRequest = {
   // string | Your Slack account name.
   accountName: "account_name_example",
   // SlackIntegrationChannel | Payload describing Slack channel to be created
@@ -41,7 +41,7 @@ let body:v1.SlackIntegrationApiCreateSlackIntegrationChannelRequest = {
   },
 };
 
-apiInstance.createSlackIntegrationChannel(body).then((data:any) => {
+apiInstance.createSlackIntegrationChannel(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -94,14 +94,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SlackIntegrationApi(configuration);
 
-let body:v1.SlackIntegrationApiGetSlackIntegrationChannelRequest = {
+let params:v1.SlackIntegrationApiGetSlackIntegrationChannelRequest = {
   // string | Your Slack account name.
   accountName: "account_name_example",
   // string | The name of the Slack channel being operated on.
   channelName: "channel_name_example",
 };
 
-apiInstance.getSlackIntegrationChannel(body).then((data:any) => {
+apiInstance.getSlackIntegrationChannel(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -154,12 +154,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SlackIntegrationApi(configuration);
 
-let body:v1.SlackIntegrationApiGetSlackIntegrationChannelsRequest = {
+let params:v1.SlackIntegrationApiGetSlackIntegrationChannelsRequest = {
   // string | Your Slack account name.
   accountName: "account_name_example",
 };
 
-apiInstance.getSlackIntegrationChannels(body).then((data:any) => {
+apiInstance.getSlackIntegrationChannels(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -211,14 +211,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SlackIntegrationApi(configuration);
 
-let body:v1.SlackIntegrationApiRemoveSlackIntegrationChannelRequest = {
+let params:v1.SlackIntegrationApiRemoveSlackIntegrationChannelRequest = {
   // string | Your Slack account name.
   accountName: "account_name_example",
   // string | The name of the Slack channel being operated on.
   channelName: "channel_name_example",
 };
 
-apiInstance.removeSlackIntegrationChannel(body).then((data:any) => {
+apiInstance.removeSlackIntegrationChannel(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -271,7 +271,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SlackIntegrationApi(configuration);
 
-let body:v1.SlackIntegrationApiUpdateSlackIntegrationChannelRequest = {
+let params:v1.SlackIntegrationApiUpdateSlackIntegrationChannelRequest = {
   // string | Your Slack account name.
   accountName: "account_name_example",
   // string | The name of the Slack channel being operated on.
@@ -288,7 +288,7 @@ let body:v1.SlackIntegrationApiUpdateSlackIntegrationChannelRequest = {
   },
 };
 
-apiInstance.updateSlackIntegrationChannel(body).then((data:any) => {
+apiInstance.updateSlackIntegrationChannel(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

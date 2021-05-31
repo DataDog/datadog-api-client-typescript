@@ -22,9 +22,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AuthenticationApi(configuration);
 
-let body:any = {};
 
-apiInstance.validate(body).then((data:any) => {
+apiInstance.validate().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

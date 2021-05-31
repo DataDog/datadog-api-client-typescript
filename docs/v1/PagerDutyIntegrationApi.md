@@ -25,7 +25,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.PagerDutyIntegrationApi(configuration);
 
-let body:v1.PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest = {
+let params:v1.PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest = {
   // PagerDutyService | Create a new service object request body.
   body: {
     serviceKey: "",
@@ -33,7 +33,7 @@ let body:v1.PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest = {
   },
 };
 
-apiInstance.createPagerDutyIntegrationService(body).then((data:any) => {
+apiInstance.createPagerDutyIntegrationService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -84,12 +84,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.PagerDutyIntegrationApi(configuration);
 
-let body:v1.PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest = {
+let params:v1.PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest = {
   // string | The service name
   serviceName: "service_name_example",
 };
 
-apiInstance.deletePagerDutyIntegrationService(body).then((data:any) => {
+apiInstance.deletePagerDutyIntegrationService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -140,12 +140,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.PagerDutyIntegrationApi(configuration);
 
-let body:v1.PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest = {
+let params:v1.PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest = {
   // string | The service name.
   serviceName: "service_name_example",
 };
 
-apiInstance.getPagerDutyIntegrationService(body).then((data:any) => {
+apiInstance.getPagerDutyIntegrationService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -196,7 +196,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.PagerDutyIntegrationApi(configuration);
 
-let body:v1.PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest = {
+let params:v1.PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest = {
   // string | The service name
   serviceName: "service_name_example",
   // PagerDutyServiceKey | Update an existing service object request body.
@@ -205,7 +205,7 @@ let body:v1.PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest = {
   },
 };
 
-apiInstance.updatePagerDutyIntegrationService(body).then((data:any) => {
+apiInstance.updatePagerDutyIntegrationService(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let body:v1.DashboardsApiCreateDashboardRequest = {
+let params:v1.DashboardsApiCreateDashboardRequest = {
   // Dashboard | Create a dashboard request body.
   body: {
     description: "description_example",
@@ -81,7 +81,7 @@ let body:v1.DashboardsApiCreateDashboardRequest = {
   },
 };
 
-apiInstance.createDashboard(body).then((data:any) => {
+apiInstance.createDashboard(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -132,12 +132,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let body:v1.DashboardsApiDeleteDashboardRequest = {
+let params:v1.DashboardsApiDeleteDashboardRequest = {
   // string | The ID of the dashboard.
   dashboardId: "dashboard_id_example",
 };
 
-apiInstance.deleteDashboard(body).then((data:any) => {
+apiInstance.deleteDashboard(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -188,12 +188,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let body:v1.DashboardsApiGetDashboardRequest = {
+let params:v1.DashboardsApiGetDashboardRequest = {
   // string | The ID of the dashboard.
   dashboardId: "dashboard_id_example",
 };
 
-apiInstance.getDashboard(body).then((data:any) => {
+apiInstance.getDashboard(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -244,12 +244,12 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let body:v1.DashboardsApiListDashboardsRequest = {
+let params:v1.DashboardsApiListDashboardsRequest = {
   // boolean | When `true`, this query only returns shared custom created or cloned dashboards. (optional)
   filterShared: true,
 };
 
-apiInstance.listDashboards(body).then((data:any) => {
+apiInstance.listDashboards(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -299,7 +299,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let body:v1.DashboardsApiUpdateDashboardRequest = {
+let params:v1.DashboardsApiUpdateDashboardRequest = {
   // string | The ID of the dashboard.
   dashboardId: "dashboard_id_example",
   // Dashboard | Update Dashboard request body.
@@ -356,7 +356,7 @@ let body:v1.DashboardsApiUpdateDashboardRequest = {
   },
 };
 
-apiInstance.updateDashboard(body).then((data:any) => {
+apiInstance.updateDashboard(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

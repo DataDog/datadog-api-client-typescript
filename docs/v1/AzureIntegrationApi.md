@@ -26,7 +26,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AzureIntegrationApi(configuration);
 
-let body:v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
+let params:v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
   // AzureAccount | Create a Datadog-Azure integration for your Datadog account request body.
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
@@ -39,7 +39,7 @@ let body:v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
   },
 };
 
-apiInstance.createAzureIntegration(body).then((data:any) => {
+apiInstance.createAzureIntegration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -90,7 +90,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AzureIntegrationApi(configuration);
 
-let body:v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
+let params:v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
   // AzureAccount | Delete a given Datadog-Azure integration request body.
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
@@ -103,7 +103,7 @@ let body:v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
   },
 };
 
-apiInstance.deleteAzureIntegration(body).then((data:any) => {
+apiInstance.deleteAzureIntegration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -154,9 +154,8 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AzureIntegrationApi(configuration);
 
-let body:any = {};
 
-apiInstance.listAzureIntegration(body).then((data:any) => {
+apiInstance.listAzureIntegration().then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -204,7 +203,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AzureIntegrationApi(configuration);
 
-let body:v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
+let params:v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
   // AzureAccount | Update a Datadog-Azure integration's host filters request body.
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
@@ -217,7 +216,7 @@ let body:v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
   },
 };
 
-apiInstance.updateAzureHostFilters(body).then((data:any) => {
+apiInstance.updateAzureHostFilters(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -268,7 +267,7 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.AzureIntegrationApi(configuration);
 
-let body:v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
+let params:v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
   // AzureAccount | Update a Datadog-Azure integration request body.
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
@@ -281,7 +280,7 @@ let body:v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
   },
 };
 
-apiInstance.updateAzureIntegration(body).then((data:any) => {
+apiInstance.updateAzureIntegration(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
