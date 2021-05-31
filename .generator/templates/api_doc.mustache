@@ -38,7 +38,7 @@ let params:{{{moduleName}}}.{{classname}}{{operationIdCamelCase}}Request = {
 {{/hasParams}}
 
 apiInstance.{{{operationId}}}({{#hasParams}}params{{/hasParams}}).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
