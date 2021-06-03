@@ -462,12 +462,16 @@ import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
 import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
+import { UsageAuditLogsHour } from '../models/UsageAuditLogsHour';
+import { UsageAuditLogsResponse } from '../models/UsageAuditLogsResponse';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
-import { UsageComplianceHour } from '../models/UsageComplianceHour';
-import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
+import { UsageCWSHour } from '../models/UsageCWSHour';
+import { UsageCWSResponse } from '../models/UsageCWSResponse';
+import { UsageCloudSecurityPostureManagementHour } from '../models/UsageCloudSecurityPostureManagementHour';
+import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from '../models/UsageCustomReportsData';
 import { UsageCustomReportsMeta } from '../models/UsageCustomReportsMeta';
@@ -4348,6 +4352,21 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
     sortName?: UsageAttributionSort
 }
 
+export interface UsageMeteringApiGetUsageAuditLogsRequest {
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageAuditLogs
+     */
+    startHr: Date
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageAuditLogs
+     */
+    endHr?: Date
+}
+
 export interface UsageMeteringApiGetUsageBillableSummaryRequest {
     /**
      * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
@@ -4357,17 +4376,32 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
     month?: Date
 }
 
-export interface UsageMeteringApiGetUsageComplianceMonitoringRequest {
+export interface UsageMeteringApiGetUsageCWSRequest {
     /**
      * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
      * @type Date
-     * @memberof UsageMeteringApigetUsageComplianceMonitoring
+     * @memberof UsageMeteringApigetUsageCWS
      */
     startHr: Date
     /**
      * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      * @type Date
-     * @memberof UsageMeteringApigetUsageComplianceMonitoring
+     * @memberof UsageMeteringApigetUsageCWS
+     */
+    endHr?: Date
+}
+
+export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageCloudSecurityPostureManagement
+     */
+    startHr: Date
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageCloudSecurityPostureManagement
      */
     endHr?: Date
 }
@@ -4797,6 +4831,15 @@ export class ObjectUsageMeteringApi {
     }
 
     /**
+     * Get hourly usage for audit logs.
+     * Get hourly usage for audit logs
+     * @param param the request object
+     */
+    public getUsageAuditLogs(param: UsageMeteringApiGetUsageAuditLogsRequest, options?: Configuration): Promise<UsageAuditLogsResponse> {
+        return this.api.getUsageAuditLogs(param.startHr, param.endHr,  options).toPromise();
+    }
+
+    /**
      * Get billable usage across your account.
      * Get billable usage across your account
      * @param param the request object
@@ -4806,12 +4849,21 @@ export class ObjectUsageMeteringApi {
     }
 
     /**
-     * Get hourly usage for Compliance Monitoring.
-     * Get hourly usage for Compliance Monitoring
+     * Get hourly usage for Cloud Workload Security.
+     * Get hourly usage for Cloud Workload Security
      * @param param the request object
      */
-    public getUsageComplianceMonitoring(param: UsageMeteringApiGetUsageComplianceMonitoringRequest, options?: Configuration): Promise<UsageComplianceResponse> {
-        return this.api.getUsageComplianceMonitoring(param.startHr, param.endHr,  options).toPromise();
+    public getUsageCWS(param: UsageMeteringApiGetUsageCWSRequest, options?: Configuration): Promise<UsageCWSResponse> {
+        return this.api.getUsageCWS(param.startHr, param.endHr,  options).toPromise();
+    }
+
+    /**
+     * Get hourly usage for Cloud Security Posture Management (CSPM).
+     * Get hourly usage for CSPM
+     * @param param the request object
+     */
+    public getUsageCloudSecurityPostureManagement(param: UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest, options?: Configuration): Promise<UsageCloudSecurityPostureManagementResponse> {
+        return this.api.getUsageCloudSecurityPostureManagement(param.startHr, param.endHr,  options).toPromise();
     }
 
     /**

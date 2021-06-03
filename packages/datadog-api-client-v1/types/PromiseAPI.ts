@@ -462,12 +462,16 @@ import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
 import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
+import { UsageAuditLogsHour } from '../models/UsageAuditLogsHour';
+import { UsageAuditLogsResponse } from '../models/UsageAuditLogsResponse';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
-import { UsageComplianceHour } from '../models/UsageComplianceHour';
-import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
+import { UsageCWSHour } from '../models/UsageCWSHour';
+import { UsageCWSResponse } from '../models/UsageCWSResponse';
+import { UsageCloudSecurityPostureManagementHour } from '../models/UsageCloudSecurityPostureManagementHour';
+import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from '../models/UsageCustomReportsData';
 import { UsageCustomReportsMeta } from '../models/UsageCustomReportsMeta';
@@ -2842,6 +2846,17 @@ export class PromiseUsageMeteringApi {
     }
 
     /**
+     * Get hourly usage for audit logs.
+     * Get hourly usage for audit logs
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageAuditLogs(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageAuditLogsResponse> {
+        const result = this.api.getUsageAuditLogs(startHr, endHr, options);
+        return result.toPromise();
+    }
+
+    /**
      * Get billable usage across your account.
      * Get billable usage across your account
      * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
@@ -2852,13 +2867,24 @@ export class PromiseUsageMeteringApi {
     }
 
     /**
-     * Get hourly usage for Compliance Monitoring.
-     * Get hourly usage for Compliance Monitoring
+     * Get hourly usage for Cloud Workload Security.
+     * Get hourly usage for Cloud Workload Security
      * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
-    public getUsageComplianceMonitoring(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageComplianceResponse> {
-        const result = this.api.getUsageComplianceMonitoring(startHr, endHr, options);
+    public getUsageCWS(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageCWSResponse> {
+        const result = this.api.getUsageCWS(startHr, endHr, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get hourly usage for Cloud Security Posture Management (CSPM).
+     * Get hourly usage for CSPM
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageCloudSecurityPostureManagement(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageCloudSecurityPostureManagementResponse> {
+        const result = this.api.getUsageCloudSecurityPostureManagement(startHr, endHr, options);
         return result.toPromise();
     }
 

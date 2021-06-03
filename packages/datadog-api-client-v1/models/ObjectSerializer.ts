@@ -458,12 +458,16 @@ import { UsageAttributionResponse } from './UsageAttributionResponse';
 import { UsageAttributionSort } from './UsageAttributionSort';
 import { UsageAttributionSupportedMetrics } from './UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from './UsageAttributionValues';
+import { UsageAuditLogsHour } from './UsageAuditLogsHour';
+import { UsageAuditLogsResponse } from './UsageAuditLogsResponse';
 import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from './UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from './UsageBillableSummaryResponse';
-import { UsageComplianceHour } from './UsageComplianceHour';
-import { UsageComplianceResponse } from './UsageComplianceResponse';
+import { UsageCWSHour } from './UsageCWSHour';
+import { UsageCWSResponse } from './UsageCWSResponse';
+import { UsageCloudSecurityPostureManagementHour } from './UsageCloudSecurityPostureManagementHour';
+import { UsageCloudSecurityPostureManagementResponse } from './UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from './UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from './UsageCustomReportsData';
 import { UsageCustomReportsMeta } from './UsageCustomReportsMeta';
@@ -1084,12 +1088,16 @@ let typeMap: {[index: string]: any} = {
     "UsageAttributionPagination": UsageAttributionPagination,
     "UsageAttributionResponse": UsageAttributionResponse,
     "UsageAttributionValues": UsageAttributionValues,
+    "UsageAuditLogsHour": UsageAuditLogsHour,
+    "UsageAuditLogsResponse": UsageAuditLogsResponse,
     "UsageBillableSummaryBody": UsageBillableSummaryBody,
     "UsageBillableSummaryHour": UsageBillableSummaryHour,
     "UsageBillableSummaryKeys": UsageBillableSummaryKeys,
     "UsageBillableSummaryResponse": UsageBillableSummaryResponse,
-    "UsageComplianceHour": UsageComplianceHour,
-    "UsageComplianceResponse": UsageComplianceResponse,
+    "UsageCWSHour": UsageCWSHour,
+    "UsageCWSResponse": UsageCWSResponse,
+    "UsageCloudSecurityPostureManagementHour": UsageCloudSecurityPostureManagementHour,
+    "UsageCloudSecurityPostureManagementResponse": UsageCloudSecurityPostureManagementResponse,
     "UsageCustomReportsAttributes": UsageCustomReportsAttributes,
     "UsageCustomReportsData": UsageCustomReportsData,
     "UsageCustomReportsMeta": UsageCustomReportsMeta,

@@ -57,6 +57,22 @@ export class UsageAttributionValues {
     */
     'customTimeseriesUsage'?: number;
     /**
+    * The percentage of Cloud Workload Security container usage by tag(s)
+    */
+    'cwsContainerPercentage'?: number;
+    /**
+    * The Cloud Workload Security container usage by tag(s)
+    */
+    'cwsContainerUsage'?: number;
+    /**
+    * The percentage of Cloud Workload Security host usage by tag(s)
+    */
+    'cwsHostPercentage'?: number;
+    /**
+    * The Cloud Workload Security host usage by tag(s)
+    */
+    'cwsHostUsage'?: number;
+    /**
     * The percentage of infrastructure host usage by tag(s).
     */
     'infraHostPercentage'?: number;
@@ -174,6 +190,26 @@ export class UsageAttributionValues {
             "type": "number",
             "format": "double"
         },
+        "cwsContainerPercentage": {
+            "baseName": "cws_container_percentage",
+            "type": "number",
+            "format": "double"
+        },
+        "cwsContainerUsage": {
+            "baseName": "cws_container_usage",
+            "type": "number",
+            "format": "double"
+        },
+        "cwsHostPercentage": {
+            "baseName": "cws_host_percentage",
+            "type": "number",
+            "format": "double"
+        },
+        "cwsHostUsage": {
+            "baseName": "cws_host_usage",
+            "type": "number",
+            "format": "double"
+        },
         "infraHostPercentage": {
             "baseName": "infra_host_percentage",
             "type": "number",
@@ -282,6 +318,14 @@ export class UsageAttributionValues {
 
       res.customTimeseriesUsage = ObjectSerializer.deserialize(data.custom_timeseries_usage, "number", "double")
 
+      res.cwsContainerPercentage = ObjectSerializer.deserialize(data.cws_container_percentage, "number", "double")
+
+      res.cwsContainerUsage = ObjectSerializer.deserialize(data.cws_container_usage, "number", "double")
+
+      res.cwsHostPercentage = ObjectSerializer.deserialize(data.cws_host_percentage, "number", "double")
+
+      res.cwsHostUsage = ObjectSerializer.deserialize(data.cws_host_usage, "number", "double")
+
       res.infraHostPercentage = ObjectSerializer.deserialize(data.infra_host_percentage, "number", "double")
 
       res.infraHostUsage = ObjectSerializer.deserialize(data.infra_host_usage, "number", "double")
@@ -345,6 +389,14 @@ export class UsageAttributionValues {
         res.custom_timeseries_percentage = ObjectSerializer.serialize(data.customTimeseriesPercentage, "number", "double")
 
         res.custom_timeseries_usage = ObjectSerializer.serialize(data.customTimeseriesUsage, "number", "double")
+
+        res.cws_container_percentage = ObjectSerializer.serialize(data.cwsContainerPercentage, "number", "double")
+
+        res.cws_container_usage = ObjectSerializer.serialize(data.cwsContainerUsage, "number", "double")
+
+        res.cws_host_percentage = ObjectSerializer.serialize(data.cwsHostPercentage, "number", "double")
+
+        res.cws_host_usage = ObjectSerializer.serialize(data.cwsHostUsage, "number", "double")
 
         res.infra_host_percentage = ObjectSerializer.serialize(data.infraHostPercentage, "number", "double")
 
