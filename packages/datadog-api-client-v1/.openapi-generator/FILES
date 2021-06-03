@@ -526,12 +526,14 @@ models/UsageAttributionResponse.ts
 models/UsageAttributionSort.ts
 models/UsageAttributionSupportedMetrics.ts
 models/UsageAttributionValues.ts
+models/UsageAuditLogsHour.ts
+models/UsageAuditLogsResponse.ts
 models/UsageBillableSummaryBody.ts
 models/UsageBillableSummaryHour.ts
 models/UsageBillableSummaryKeys.ts
 models/UsageBillableSummaryResponse.ts
-models/UsageComplianceHour.ts
-models/UsageComplianceResponse.ts
+models/UsageCloudSecurityPostureManagementHour.ts
+models/UsageCloudSecurityPostureManagementResponse.ts
 models/UsageCustomReportsAttributes.ts
 models/UsageCustomReportsData.ts
 models/UsageCustomReportsMeta.ts

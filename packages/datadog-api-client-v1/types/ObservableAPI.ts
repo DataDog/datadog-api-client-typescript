@@ -463,12 +463,14 @@ import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
 import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAttributionValues } from '../models/UsageAttributionValues';
+import { UsageAuditLogsHour } from '../models/UsageAuditLogsHour';
+import { UsageAuditLogsResponse } from '../models/UsageAuditLogsResponse';
 import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
-import { UsageComplianceHour } from '../models/UsageComplianceHour';
-import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
+import { UsageCloudSecurityPostureManagementHour } from '../models/UsageCloudSecurityPostureManagementHour';
+import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
 import { UsageCustomReportsData } from '../models/UsageCustomReportsData';
 import { UsageCustomReportsMeta } from '../models/UsageCustomReportsMeta';
@@ -5115,6 +5117,31 @@ export class ObservableUsageMeteringApi {
     }
  
     /**
+     * Get hourly usage for audit logs.
+     * Get hourly usage for audit logs
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageAuditLogs(startHr: Date, endHr?: Date, options?: Configuration): Observable<UsageAuditLogsResponse> {
+        const requestContextPromise = this.requestFactory.getUsageAuditLogs(startHr, endHr, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageAuditLogs(rsp)));
+            }));
+    }
+ 
+    /**
      * Get billable usage across your account.
      * Get billable usage across your account
      * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
@@ -5139,13 +5166,13 @@ export class ObservableUsageMeteringApi {
     }
  
     /**
-     * Get hourly usage for Compliance Monitoring.
-     * Get hourly usage for Compliance Monitoring
+     * Get hourly usage for Cloud Security Posture Management (CSPM).
+     * Get hourly usage for CSPM
      * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
-    public getUsageComplianceMonitoring(startHr: Date, endHr?: Date, options?: Configuration): Observable<UsageComplianceResponse> {
-        const requestContextPromise = this.requestFactory.getUsageComplianceMonitoring(startHr, endHr, options);
+    public getUsageCloudSecurityPostureManagement(startHr: Date, endHr?: Date, options?: Configuration): Observable<UsageCloudSecurityPostureManagementResponse> {
+        const requestContextPromise = this.requestFactory.getUsageCloudSecurityPostureManagement(startHr, endHr, options);
 
         // build promise chain
         let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5159,7 +5186,7 @@ export class ObservableUsageMeteringApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageComplianceMonitoring(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageCloudSecurityPostureManagement(rsp)));
             }));
     }
  

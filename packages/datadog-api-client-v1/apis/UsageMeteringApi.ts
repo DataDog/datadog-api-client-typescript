@@ -12,8 +12,9 @@ import { UsageAnalyzedLogsResponse } from '../models/UsageAnalyzedLogsResponse';
 import { UsageAttributionResponse } from '../models/UsageAttributionResponse';
 import { UsageAttributionSort } from '../models/UsageAttributionSort';
 import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
+import { UsageAuditLogsResponse } from '../models/UsageAuditLogsResponse';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
-import { UsageComplianceResponse } from '../models/UsageComplianceResponse';
+import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsResponse } from '../models/UsageCustomReportsResponse';
 import { UsageFargateResponse } from '../models/UsageFargateResponse';
 import { UsageHostsResponse } from '../models/UsageHostsResponse';
@@ -541,6 +542,59 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * Get hourly usage for audit logs.
+     * Get hourly usage for audit logs
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public async getUsageAuditLogs(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+        // verify required parameter 'startHr' is not null or undefined
+        if (startHr === null || startHr === undefined) {
+            throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageAuditLogs.');
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/usage/audit_logs';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'UsageMeteringApi.getUsageAuditLogs').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
+
+        // Query Params
+        if (startHr !== undefined) {
+            requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"));
+        }
+        if (endHr !== undefined) {
+            requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
+        }
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * Get billable usage across your account.
      * Get billable usage across your account
      * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
@@ -584,26 +638,26 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get hourly usage for Compliance Monitoring.
-     * Get hourly usage for Compliance Monitoring
+     * Get hourly usage for Cloud Security Posture Management (CSPM).
+     * Get hourly usage for CSPM
      * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
      */
-    public async getUsageComplianceMonitoring(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
+    public async getUsageCloudSecurityPostureManagement(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'startHr' is not null or undefined
         if (startHr === null || startHr === undefined) {
-            throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageComplianceMonitoring.');
+            throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageCloudSecurityPostureManagement.');
         }
 
 
 
         // Path Params
-        const localVarPath = '/api/v1/usage/compliance-monitoring';
+        const localVarPath = '/api/v1/usage/cspm';
 
         // Make Request Context
-        const requestContext = getServer(config, 'UsageMeteringApi.getUsageComplianceMonitoring').makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = getServer(config, 'UsageMeteringApi.getUsageCloudSecurityPostureManagement').makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
         requestContext.setHttpConfig(config.httpConfig);
 
@@ -2111,6 +2165,50 @@ export class UsageMeteringApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to getUsageAuditLogs
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUsageAuditLogs(response: ResponseContext): Promise<UsageAuditLogsResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UsageAuditLogsResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UsageAuditLogsResponse", ""
+            ) as UsageAuditLogsResponse;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UsageAuditLogsResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UsageAuditLogsResponse", ""
+            ) as UsageAuditLogsResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to getUsageBillableSummary
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2155,16 +2253,16 @@ export class UsageMeteringApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getUsageComplianceMonitoring
+     * @params response Response returned by the server for a request to getUsageCloudSecurityPostureManagement
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getUsageComplianceMonitoring(response: ResponseContext): Promise<UsageComplianceResponse > {
+     public async getUsageCloudSecurityPostureManagement(response: ResponseContext): Promise<UsageCloudSecurityPostureManagementResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UsageComplianceResponse = ObjectSerializer.deserialize(
+            const body: UsageCloudSecurityPostureManagementResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "UsageComplianceResponse", ""
-            ) as UsageComplianceResponse;
+                "UsageCloudSecurityPostureManagementResponse", ""
+            ) as UsageCloudSecurityPostureManagementResponse;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -2184,10 +2282,10 @@ export class UsageMeteringApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UsageComplianceResponse = ObjectSerializer.deserialize(
+            const body: UsageCloudSecurityPostureManagementResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "UsageComplianceResponse", ""
-            ) as UsageComplianceResponse;
+                "UsageCloudSecurityPostureManagementResponse", ""
+            ) as UsageCloudSecurityPostureManagementResponse;
             return body;
         }
 
