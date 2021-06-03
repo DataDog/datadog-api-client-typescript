@@ -77,6 +77,14 @@ export class UsageSummaryDateOrg {
     */
     'customTsAvg'?: number;
     /**
+    * Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for the given org.
+    */
+    'cwsContainerCountAvg'?: number;
+    /**
+    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for the given org.
+    */
+    'cwsHostTop99p'?: number;
+    /**
     * The average task count for Fargate.
     */
     'fargateTasksCountAvg'?: number;
@@ -263,6 +271,16 @@ export class UsageSummaryDateOrg {
             "type": "number",
             "format": "int64"
         },
+        "cwsContainerCountAvg": {
+            "baseName": "cws_container_count_avg",
+            "type": "number",
+            "format": "int64"
+        },
+        "cwsHostTop99p": {
+            "baseName": "cws_host_top99p",
+            "type": "number",
+            "format": "int64"
+        },
         "fargateTasksCountAvg": {
             "baseName": "fargate_tasks_count_avg",
             "type": "number",
@@ -436,6 +454,10 @@ export class UsageSummaryDateOrg {
 
       res.customTsAvg = ObjectSerializer.deserialize(data.custom_ts_avg, "number", "int64")
 
+      res.cwsContainerCountAvg = ObjectSerializer.deserialize(data.cws_container_count_avg, "number", "int64")
+
+      res.cwsHostTop99p = ObjectSerializer.deserialize(data.cws_host_top99p, "number", "int64")
+
       res.fargateTasksCountAvg = ObjectSerializer.deserialize(data.fargate_tasks_count_avg, "number", "int64")
 
       res.fargateTasksCountHwm = ObjectSerializer.deserialize(data.fargate_tasks_count_hwm, "number", "int64")
@@ -531,6 +553,10 @@ export class UsageSummaryDateOrg {
         res.cspm_host_top99p = ObjectSerializer.serialize(data.cspmHostTop99p, "number", "int64")
 
         res.custom_ts_avg = ObjectSerializer.serialize(data.customTsAvg, "number", "int64")
+
+        res.cws_container_count_avg = ObjectSerializer.serialize(data.cwsContainerCountAvg, "number", "int64")
+
+        res.cws_host_top99p = ObjectSerializer.serialize(data.cwsHostTop99p, "number", "int64")
 
         res.fargate_tasks_count_avg = ObjectSerializer.serialize(data.fargateTasksCountAvg, "number", "int64")
 

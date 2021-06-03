@@ -469,6 +469,8 @@ import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
+import { UsageCWSHour } from '../models/UsageCWSHour';
+import { UsageCWSResponse } from '../models/UsageCWSResponse';
 import { UsageCloudSecurityPostureManagementHour } from '../models/UsageCloudSecurityPostureManagementHour';
 import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
@@ -5162,6 +5164,31 @@ export class ObservableUsageMeteringApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageBillableSummary(rsp)));
+            }));
+    }
+ 
+    /**
+     * Get hourly usage for Cloud Workload Security.
+     * Get hourly usage for Cloud Workload Security
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageCWS(startHr: Date, endHr?: Date, options?: Configuration): Observable<UsageCWSResponse> {
+        const requestContextPromise = this.requestFactory.getUsageCWS(startHr, endHr, options);
+
+        // build promise chain
+        let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getUsageCWS(rsp)));
             }));
     }
  

@@ -83,6 +83,14 @@ export class UsageSummaryResponse {
     */
     'customTsSum'?: number;
     /**
+    * Shows the average of all distinct Cloud Workload Security containers over all hours in the current months for all organizations.
+    */
+    'cwsContainersAvgSum'?: number;
+    /**
+    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current months for all organizations.
+    */
+    'cwsHostTop99pSum'?: number;
+    /**
     * Shows the last date of usage in the current months for all organizations.
     */
     'endDate'?: Date;
@@ -299,6 +307,16 @@ export class UsageSummaryResponse {
             "type": "number",
             "format": "int64"
         },
+        "cwsContainersAvgSum": {
+            "baseName": "cws_containers_avg_sum",
+            "type": "number",
+            "format": "int64"
+        },
+        "cwsHostTop99pSum": {
+            "baseName": "cws_host_top99p_sum",
+            "type": "number",
+            "format": "int64"
+        },
         "endDate": {
             "baseName": "end_date",
             "type": "Date",
@@ -509,6 +527,10 @@ export class UsageSummaryResponse {
 
       res.customTsSum = ObjectSerializer.deserialize(data.custom_ts_sum, "number", "int64")
 
+      res.cwsContainersAvgSum = ObjectSerializer.deserialize(data.cws_containers_avg_sum, "number", "int64")
+
+      res.cwsHostTop99pSum = ObjectSerializer.deserialize(data.cws_host_top99p_sum, "number", "int64")
+
       res.endDate = ObjectSerializer.deserialize(data.end_date, "Date", "date-time")
 
       res.fargateTasksCountAvgSum = ObjectSerializer.deserialize(data.fargate_tasks_count_avg_sum, "number", "int64")
@@ -620,6 +642,10 @@ export class UsageSummaryResponse {
         res.cspm_host_top99p_sum = ObjectSerializer.serialize(data.cspmHostTop99pSum, "number", "int64")
 
         res.custom_ts_sum = ObjectSerializer.serialize(data.customTsSum, "number", "int64")
+
+        res.cws_containers_avg_sum = ObjectSerializer.serialize(data.cwsContainersAvgSum, "number", "int64")
+
+        res.cws_host_top99p_sum = ObjectSerializer.serialize(data.cwsHostTop99pSum, "number", "int64")
 
         res.end_date = ObjectSerializer.serialize(data.endDate, "Date", "date-time")
 

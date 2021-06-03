@@ -468,6 +468,8 @@ import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
+import { UsageCWSHour } from '../models/UsageCWSHour';
+import { UsageCWSResponse } from '../models/UsageCWSResponse';
 import { UsageCloudSecurityPostureManagementHour } from '../models/UsageCloudSecurityPostureManagementHour';
 import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
@@ -2861,6 +2863,17 @@ export class PromiseUsageMeteringApi {
      */
     public getUsageBillableSummary(month?: Date, options?: Configuration): Promise<UsageBillableSummaryResponse> {
         const result = this.api.getUsageBillableSummary(month, options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get hourly usage for Cloud Workload Security.
+     * Get hourly usage for Cloud Workload Security
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public getUsageCWS(startHr: Date, endHr?: Date, options?: Configuration): Promise<UsageCWSResponse> {
+        const result = this.api.getUsageCWS(startHr, endHr, options);
         return result.toPromise();
     }
 

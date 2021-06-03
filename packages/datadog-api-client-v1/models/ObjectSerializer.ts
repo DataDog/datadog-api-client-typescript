@@ -464,6 +464,8 @@ import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from './UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from './UsageBillableSummaryResponse';
+import { UsageCWSHour } from './UsageCWSHour';
+import { UsageCWSResponse } from './UsageCWSResponse';
 import { UsageCloudSecurityPostureManagementHour } from './UsageCloudSecurityPostureManagementHour';
 import { UsageCloudSecurityPostureManagementResponse } from './UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from './UsageCustomReportsAttributes';
@@ -1092,6 +1094,8 @@ let typeMap: {[index: string]: any} = {
     "UsageBillableSummaryHour": UsageBillableSummaryHour,
     "UsageBillableSummaryKeys": UsageBillableSummaryKeys,
     "UsageBillableSummaryResponse": UsageBillableSummaryResponse,
+    "UsageCWSHour": UsageCWSHour,
+    "UsageCWSResponse": UsageCWSResponse,
     "UsageCloudSecurityPostureManagementHour": UsageCloudSecurityPostureManagementHour,
     "UsageCloudSecurityPostureManagementResponse": UsageCloudSecurityPostureManagementResponse,
     "UsageCustomReportsAttributes": UsageCustomReportsAttributes,

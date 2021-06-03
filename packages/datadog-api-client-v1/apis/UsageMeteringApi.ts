@@ -14,6 +14,7 @@ import { UsageAttributionSort } from '../models/UsageAttributionSort';
 import { UsageAttributionSupportedMetrics } from '../models/UsageAttributionSupportedMetrics';
 import { UsageAuditLogsResponse } from '../models/UsageAuditLogsResponse';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
+import { UsageCWSResponse } from '../models/UsageCWSResponse';
 import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsResponse } from '../models/UsageCustomReportsResponse';
 import { UsageFargateResponse } from '../models/UsageFargateResponse';
@@ -614,6 +615,59 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (month !== undefined) {
             requestContext.setQueryParam("month", ObjectSerializer.serialize(month, "Date", "date-time"));
+        }
+
+        // Header Params
+
+        // Form Params
+
+
+        // Body Params
+
+        let authMethod = null;
+        // Apply auth methods
+        authMethod = config.authMethods["apiKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+        authMethod = config.authMethods["appKeyAuth"]
+        if (authMethod) {
+            await authMethod.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Get hourly usage for Cloud Workload Security.
+     * Get hourly usage for Cloud Workload Security
+     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     */
+    public async getUsageCWS(startHr: Date, endHr?: Date, options?: Configuration): Promise<RequestContext> {
+        let config = options || this.configuration;
+
+        // verify required parameter 'startHr' is not null or undefined
+        if (startHr === null || startHr === undefined) {
+            throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageCWS.');
+        }
+
+
+
+        // Path Params
+        const localVarPath = '/api/v1/usage/cws';
+
+        // Make Request Context
+        const requestContext = getServer(config, 'UsageMeteringApi.getUsageCWS').makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        requestContext.setHttpConfig(config.httpConfig);
+
+        // Query Params
+        if (startHr !== undefined) {
+            requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"));
+        }
+        if (endHr !== undefined) {
+            requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
         }
 
         // Header Params
@@ -2242,6 +2296,50 @@ export class UsageMeteringApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "UsageBillableSummaryResponse", ""
             ) as UsageBillableSummaryResponse;
+            return body;
+        }
+
+        let body = response.body || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getUsageCWS
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getUsageCWS(response: ResponseContext): Promise<UsageCWSResponse > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UsageCWSResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UsageCWSResponse", ""
+            ) as UsageCWSResponse;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(400, body);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: APIErrorResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "APIErrorResponse", ""
+            ) as APIErrorResponse;
+            throw new ApiException<APIErrorResponse>(403, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UsageCWSResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UsageCWSResponse", ""
+            ) as UsageCWSResponse;
             return body;
         }
 
