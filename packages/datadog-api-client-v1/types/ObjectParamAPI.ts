@@ -468,6 +468,8 @@ import { UsageBillableSummaryBody } from '../models/UsageBillableSummaryBody';
 import { UsageBillableSummaryHour } from '../models/UsageBillableSummaryHour';
 import { UsageBillableSummaryKeys } from '../models/UsageBillableSummaryKeys';
 import { UsageBillableSummaryResponse } from '../models/UsageBillableSummaryResponse';
+import { UsageCWSHour } from '../models/UsageCWSHour';
+import { UsageCWSResponse } from '../models/UsageCWSResponse';
 import { UsageCloudSecurityPostureManagementHour } from '../models/UsageCloudSecurityPostureManagementHour';
 import { UsageCloudSecurityPostureManagementResponse } from '../models/UsageCloudSecurityPostureManagementResponse';
 import { UsageCustomReportsAttributes } from '../models/UsageCustomReportsAttributes';
@@ -4374,6 +4376,21 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
     month?: Date
 }
 
+export interface UsageMeteringApiGetUsageCWSRequest {
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageCWS
+     */
+    startHr: Date
+    /**
+     * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+     * @type Date
+     * @memberof UsageMeteringApigetUsageCWS
+     */
+    endHr?: Date
+}
+
 export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
     /**
      * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -4829,6 +4846,15 @@ export class ObjectUsageMeteringApi {
      */
     public getUsageBillableSummary(param: UsageMeteringApiGetUsageBillableSummaryRequest = {}, options?: Configuration): Promise<UsageBillableSummaryResponse> {
         return this.api.getUsageBillableSummary(param.month,  options).toPromise();
+    }
+
+    /**
+     * Get hourly usage for Cloud Workload Security.
+     * Get hourly usage for Cloud Workload Security
+     * @param param the request object
+     */
+    public getUsageCWS(param: UsageMeteringApiGetUsageCWSRequest, options?: Configuration): Promise<UsageCWSResponse> {
+        return this.api.getUsageCWS(param.startHr, param.endHr,  options).toPromise();
     }
 
     /**
