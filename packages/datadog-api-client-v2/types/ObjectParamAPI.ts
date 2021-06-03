@@ -2289,7 +2289,7 @@ export class ObjectSecurityMonitoringApi {
     }
 
     /**
-     * Create a security filter.
+     * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
      * Create a security filter
      * @param param the request object
      */
@@ -2325,7 +2325,7 @@ export class ObjectSecurityMonitoringApi {
     }
 
     /**
-     * Get the details of a specific security filter.
+     * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
      * Get a security filter
      * @param param the request object
      */
