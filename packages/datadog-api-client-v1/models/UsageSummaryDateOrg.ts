@@ -29,6 +29,10 @@ export class UsageSummaryDateOrg {
     */
     'apmHostTop99p'?: number;
     /**
+    * Shows the sum of all audit logs lines indexed over all hours in the current date for the given org.
+    */
+    'auditLogsLinesIndexedSum'?: number;
+    /**
     * Shows the 99th percentile of all AWS hosts over all hours in the current date for the given org.
     */
     'awsHostTop99p'?: number;
@@ -49,14 +53,6 @@ export class UsageSummaryDateOrg {
     */
     'billableIngestedBytesSum'?: number;
     /**
-    * Shows the sum of all compliance containers over all hours in the current date for the given org.
-    */
-    'complianceContainerAggSum'?: Object;
-    /**
-    * Shows the sum of all compliance hosts over all hours in the current date for the given org.
-    */
-    'complianceHostAggSum'?: number;
-    /**
     * Shows the average of all distinct containers over all hours in the current date for the given org.
     */
     'containerAvg'?: number;
@@ -65,9 +61,29 @@ export class UsageSummaryDateOrg {
     */
     'containerHwm'?: number;
     /**
+    * Shows the average number of Cloud Security Posture Management containers over all hours in the current date for the given org.
+    */
+    'cspmContainerAvg'?: number;
+    /**
+    * Shows the high-water mark of Cloud Security Posture Management containers over all hours in the current date for the given org.
+    */
+    'cspmContainerHwm'?: number;
+    /**
+    * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for the given org.
+    */
+    'cspmHostTop99p'?: number;
+    /**
     * Shows the average number of distinct custom metrics over all hours in the current date for the given org.
     */
     'customTsAvg'?: number;
+    /**
+    * Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for the given org.
+    */
+    'cwsContainerCountAvg'?: number;
+    /**
+    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for the given org.
+    */
+    'cwsHostTop99p'?: number;
     /**
     * The average task count for Fargate.
     */
@@ -195,6 +211,11 @@ export class UsageSummaryDateOrg {
             "type": "number",
             "format": "int64"
         },
+        "auditLogsLinesIndexedSum": {
+            "baseName": "audit_logs_lines_indexed_sum",
+            "type": "number",
+            "format": "int64"
+        },
         "awsHostTop99p": {
             "baseName": "aws_host_top99p",
             "type": "number",
@@ -220,16 +241,6 @@ export class UsageSummaryDateOrg {
             "type": "number",
             "format": "int64"
         },
-        "complianceContainerAggSum": {
-            "baseName": "compliance_container_agg_sum",
-            "type": "Object",
-            "format": ""
-        },
-        "complianceHostAggSum": {
-            "baseName": "compliance_host_agg_sum",
-            "type": "number",
-            "format": "int64"
-        },
         "containerAvg": {
             "baseName": "container_avg",
             "type": "number",
@@ -240,8 +251,33 @@ export class UsageSummaryDateOrg {
             "type": "number",
             "format": "int64"
         },
+        "cspmContainerAvg": {
+            "baseName": "cspm_container_avg",
+            "type": "number",
+            "format": "int64"
+        },
+        "cspmContainerHwm": {
+            "baseName": "cspm_container_hwm",
+            "type": "number",
+            "format": "int64"
+        },
+        "cspmHostTop99p": {
+            "baseName": "cspm_host_top99p",
+            "type": "number",
+            "format": "int64"
+        },
         "customTsAvg": {
             "baseName": "custom_ts_avg",
+            "type": "number",
+            "format": "int64"
+        },
+        "cwsContainerCountAvg": {
+            "baseName": "cws_container_count_avg",
+            "type": "number",
+            "format": "int64"
+        },
+        "cwsHostTop99p": {
+            "baseName": "cws_host_top99p",
             "type": "number",
             "format": "int64"
         },
@@ -394,6 +430,8 @@ export class UsageSummaryDateOrg {
 
       res.apmHostTop99p = ObjectSerializer.deserialize(data.apm_host_top99p, "number", "int64")
 
+      res.auditLogsLinesIndexedSum = ObjectSerializer.deserialize(data.audit_logs_lines_indexed_sum, "number", "int64")
+
       res.awsHostTop99p = ObjectSerializer.deserialize(data.aws_host_top99p, "number", "int64")
 
       res.awsLambdaFuncCount = ObjectSerializer.deserialize(data.aws_lambda_func_count, "number", "int64")
@@ -404,15 +442,21 @@ export class UsageSummaryDateOrg {
 
       res.billableIngestedBytesSum = ObjectSerializer.deserialize(data.billable_ingested_bytes_sum, "number", "int64")
 
-      res.complianceContainerAggSum = ObjectSerializer.deserialize(data.compliance_container_agg_sum, "Object", "")
-
-      res.complianceHostAggSum = ObjectSerializer.deserialize(data.compliance_host_agg_sum, "number", "int64")
-
       res.containerAvg = ObjectSerializer.deserialize(data.container_avg, "number", "int64")
 
       res.containerHwm = ObjectSerializer.deserialize(data.container_hwm, "number", "int64")
 
+      res.cspmContainerAvg = ObjectSerializer.deserialize(data.cspm_container_avg, "number", "int64")
+
+      res.cspmContainerHwm = ObjectSerializer.deserialize(data.cspm_container_hwm, "number", "int64")
+
+      res.cspmHostTop99p = ObjectSerializer.deserialize(data.cspm_host_top99p, "number", "int64")
+
       res.customTsAvg = ObjectSerializer.deserialize(data.custom_ts_avg, "number", "int64")
+
+      res.cwsContainerCountAvg = ObjectSerializer.deserialize(data.cws_container_count_avg, "number", "int64")
+
+      res.cwsHostTop99p = ObjectSerializer.deserialize(data.cws_host_top99p, "number", "int64")
 
       res.fargateTasksCountAvg = ObjectSerializer.deserialize(data.fargate_tasks_count_avg, "number", "int64")
 
@@ -486,6 +530,8 @@ export class UsageSummaryDateOrg {
 
         res.apm_host_top99p = ObjectSerializer.serialize(data.apmHostTop99p, "number", "int64")
 
+        res.audit_logs_lines_indexed_sum = ObjectSerializer.serialize(data.auditLogsLinesIndexedSum, "number", "int64")
+
         res.aws_host_top99p = ObjectSerializer.serialize(data.awsHostTop99p, "number", "int64")
 
         res.aws_lambda_func_count = ObjectSerializer.serialize(data.awsLambdaFuncCount, "number", "int64")
@@ -496,15 +542,21 @@ export class UsageSummaryDateOrg {
 
         res.billable_ingested_bytes_sum = ObjectSerializer.serialize(data.billableIngestedBytesSum, "number", "int64")
 
-        res.compliance_container_agg_sum = ObjectSerializer.serialize(data.complianceContainerAggSum, "Object", "")
-
-        res.compliance_host_agg_sum = ObjectSerializer.serialize(data.complianceHostAggSum, "number", "int64")
-
         res.container_avg = ObjectSerializer.serialize(data.containerAvg, "number", "int64")
 
         res.container_hwm = ObjectSerializer.serialize(data.containerHwm, "number", "int64")
 
+        res.cspm_container_avg = ObjectSerializer.serialize(data.cspmContainerAvg, "number", "int64")
+
+        res.cspm_container_hwm = ObjectSerializer.serialize(data.cspmContainerHwm, "number", "int64")
+
+        res.cspm_host_top99p = ObjectSerializer.serialize(data.cspmHostTop99p, "number", "int64")
+
         res.custom_ts_avg = ObjectSerializer.serialize(data.customTsAvg, "number", "int64")
+
+        res.cws_container_count_avg = ObjectSerializer.serialize(data.cwsContainerCountAvg, "number", "int64")
+
+        res.cws_host_top99p = ObjectSerializer.serialize(data.cwsHostTop99p, "number", "int64")
 
         res.fargate_tasks_count_avg = ObjectSerializer.serialize(data.fargateTasksCountAvg, "number", "int64")
 

@@ -13,8 +13,10 @@ Method | HTTP request | Description
 [**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
+[**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
 [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
-[**getUsageComplianceMonitoring**](UsageMeteringApi.md#getUsageComplianceMonitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
+[**getUsageCWS**](UsageMeteringApi.md#getUsageCWS) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
+[**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
 [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -581,6 +583,65 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+## **getUsageAuditLogs**
+> UsageAuditLogsResponse getUsageAuditLogs()
+
+Get hourly usage for audit logs.
+
+### Example
+
+
+```typescript
+import { v1 } from 'datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.UsageMeteringApi(configuration);
+
+let params:v1.UsageMeteringApiGetUsageAuditLogsRequest = {
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+  startHr: new Date('1970-01-01T00:00:00.00Z'),
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
+  endHr: new Date('1970-01-01T00:00:00.00Z'),
+};
+
+apiInstance.getUsageAuditLogs(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. | defaults to undefined
+ **endHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | (optional) defaults to undefined
+
+
+### Return type
+
+**UsageAuditLogsResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;datetime-format=rfc3339
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden - User is not authorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 ## **getUsageBillableSummary**
 > UsageBillableSummaryResponse getUsageBillableSummary()
 
@@ -637,10 +698,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-## **getUsageComplianceMonitoring**
-> UsageComplianceResponse getUsageComplianceMonitoring()
+## **getUsageCWS**
+> UsageCWSResponse getUsageCWS()
 
-Get hourly usage for Compliance Monitoring.
+Get hourly usage for Cloud Workload Security.
 
 ### Example
 
@@ -652,14 +713,14 @@ import * as fs from 'fs';
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let params:v1.UsageMeteringApiGetUsageComplianceMonitoringRequest = {
+let params:v1.UsageMeteringApiGetUsageCWSRequest = {
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
   startHr: new Date('1970-01-01T00:00:00.00Z'),
   // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
   endHr: new Date('1970-01-01T00:00:00.00Z'),
 };
 
-apiInstance.getUsageComplianceMonitoring(params).then((data:any) => {
+apiInstance.getUsageCWS(params).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -675,7 +736,66 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**UsageComplianceResponse**
+**UsageCWSResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;datetime-format=rfc3339
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden - User is not authorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **getUsageCloudSecurityPostureManagement**
+> UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement()
+
+Get hourly usage for Cloud Security Posture Management (CSPM).
+
+### Example
+
+
+```typescript
+import { v1 } from 'datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.UsageMeteringApi(configuration);
+
+let params:v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest = {
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+  startHr: new Date('1970-01-01T00:00:00.00Z'),
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
+  endHr: new Date('1970-01-01T00:00:00.00Z'),
+};
+
+apiInstance.getUsageCloudSecurityPostureManagement(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. | defaults to undefined
+ **endHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | (optional) defaults to undefined
+
+
+### Return type
+
+**UsageCloudSecurityPostureManagementResponse**
 
 ### Authorization
 

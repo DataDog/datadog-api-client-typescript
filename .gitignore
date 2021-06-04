@@ -12,3 +12,4 @@ examples
 !cucumber.js
 !bin/check-licenses.js
 !.eslintrc.js
+!.github/workflows/scripts/*
