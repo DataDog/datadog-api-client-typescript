@@ -2287,7 +2287,7 @@ export class ObservableSecurityMonitoringApi {
     }
 
     /**
-     * Create a security filter.
+     * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
      * Create a security filter
      * @param body The definition of the new security filter.
      */
@@ -2383,7 +2383,7 @@ export class ObservableSecurityMonitoringApi {
     }
  
     /**
-     * Get the details of a specific security filter.
+     * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
      * Get a security filter
      * @param securityFilterId The ID of the security filter.
      */
