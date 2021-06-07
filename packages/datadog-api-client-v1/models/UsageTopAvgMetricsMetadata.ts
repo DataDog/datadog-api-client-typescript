@@ -20,11 +20,11 @@ export class UsageTopAvgMetricsMetadata {
     /**
     * The day value from the user request that contains the returned usage data. (If day was used the request)
     */
-    'day'?: Object;
+    'day'?: Date;
     /**
     * The month value from the user request that contains the returned usage data. (If month was used the request)
     */
-    'month'?: Object;
+    'month'?: Date;
     'pagination'?: UsageAttributionPagination;
 
     static readonly discriminator: string | undefined = undefined;
@@ -32,13 +32,13 @@ export class UsageTopAvgMetricsMetadata {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "day": {
             "baseName": "day",
-            "type": "Object",
-            "format": ""
+            "type": "Date",
+            "format": "date-time"
         },
         "month": {
             "baseName": "month",
-            "type": "Object",
-            "format": ""
+            "type": "Date",
+            "format": "date-time"
         },
         "pagination": {
             "baseName": "pagination",
@@ -53,9 +53,9 @@ export class UsageTopAvgMetricsMetadata {
     static deserialize(data: {[key: string]: any}): UsageTopAvgMetricsMetadata {
       let res = new UsageTopAvgMetricsMetadata();
 
-      res.day = ObjectSerializer.deserialize(data.day, "Object", "")
+      res.day = ObjectSerializer.deserialize(data.day, "Date", "date-time")
 
-      res.month = ObjectSerializer.deserialize(data.month, "Object", "")
+      res.month = ObjectSerializer.deserialize(data.month, "Date", "date-time")
 
       res.pagination = ObjectSerializer.deserialize(data.pagination, "UsageAttributionPagination", "")
 
@@ -71,9 +71,9 @@ export class UsageTopAvgMetricsMetadata {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.day = ObjectSerializer.serialize(data.day, "Object", "")
+        res.day = ObjectSerializer.serialize(data.day, "Date", "date-time")
 
-        res.month = ObjectSerializer.serialize(data.month, "Object", "")
+        res.month = ObjectSerializer.serialize(data.month, "Date", "date-time")
 
         res.pagination = ObjectSerializer.serialize(data.pagination, "UsageAttributionPagination", "")
 
