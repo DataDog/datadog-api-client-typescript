@@ -48,7 +48,15 @@ export class SyntheticsTestOptions {
     * Minimum number of locations in failure required to trigger an alert.
     */
     'minLocationFailed'?: number;
+    /**
+    * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+    */
+    'monitorName'?: string;
     'monitorOptions'?: SyntheticsTestOptionsMonitorOptions;
+    /**
+    * Integer from 1 (high) to 5 (low) indicating alert severity.
+    */
+    'monitorPriority'?: number;
     /**
     * Prevents saving screenshots of the steps.
     */
@@ -94,10 +102,20 @@ export class SyntheticsTestOptions {
             "type": "number",
             "format": "int64"
         },
+        "monitorName": {
+            "baseName": "monitor_name",
+            "type": "string",
+            "format": ""
+        },
         "monitorOptions": {
             "baseName": "monitor_options",
             "type": "SyntheticsTestOptionsMonitorOptions",
             "format": ""
+        },
+        "monitorPriority": {
+            "baseName": "monitor_priority",
+            "type": "number",
+            "format": "int32"
         },
         "noScreenshot": {
             "baseName": "noScreenshot",
@@ -136,7 +154,11 @@ export class SyntheticsTestOptions {
 
       res.minLocationFailed = ObjectSerializer.deserialize(data.min_location_failed, "number", "int64")
 
+      res.monitorName = ObjectSerializer.deserialize(data.monitor_name, "string", "")
+
       res.monitorOptions = ObjectSerializer.deserialize(data.monitor_options, "SyntheticsTestOptionsMonitorOptions", "")
+
+      res.monitorPriority = ObjectSerializer.deserialize(data.monitor_priority, "number", "int32")
 
       res.noScreenshot = ObjectSerializer.deserialize(data.noScreenshot, "boolean", "")
 
@@ -174,7 +196,11 @@ export class SyntheticsTestOptions {
 
         res.min_location_failed = ObjectSerializer.serialize(data.minLocationFailed, "number", "int64")
 
+        res.monitor_name = ObjectSerializer.serialize(data.monitorName, "string", "")
+
         res.monitor_options = ObjectSerializer.serialize(data.monitorOptions, "SyntheticsTestOptionsMonitorOptions", "")
+
+        res.monitor_priority = ObjectSerializer.serialize(data.monitorPriority, "number", "int32")
 
         res.noScreenshot = ObjectSerializer.serialize(data.noScreenshot, "boolean", "")
 

@@ -309,9 +309,11 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       followRedirects: true,
       minFailureDuration: 1,
       minLocationFailed: 1,
+      monitorName: "monitorName_example",
       monitorOptions: {
         renotifyInterval: 0,
       },
+      monitorPriority: 1,
       noScreenshot: true,
       retry: {
         count: 1,
@@ -451,9 +453,11 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       followRedirects: true,
       minFailureDuration: 1,
       minLocationFailed: 1,
+      monitorName: "monitorName_example",
       monitorOptions: {
         renotifyInterval: 0,
       },
+      monitorPriority: 1,
       noScreenshot: true,
       retry: {
         count: 1,
@@ -1681,9 +1685,11 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
       followRedirects: true,
       minFailureDuration: 1,
       minLocationFailed: 1,
+      monitorName: "monitorName_example",
       monitorOptions: {
         renotifyInterval: 0,
       },
+      monitorPriority: 1,
       noScreenshot: true,
       retry: {
         count: 1,
@@ -1826,9 +1832,11 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
       followRedirects: true,
       minFailureDuration: 1,
       minLocationFailed: 1,
+      monitorName: "monitorName_example",
       monitorOptions: {
         renotifyInterval: 0,
       },
+      monitorPriority: 1,
       noScreenshot: true,
       retry: {
         count: 1,
