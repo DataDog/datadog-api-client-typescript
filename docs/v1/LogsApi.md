@@ -17,7 +17,7 @@ List endpoint returns logs that match a log search query. [Results are paginated
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -40,7 +40,7 @@ let params:v1.LogsApiListLogsRequest = {
 };
 
 apiInstance.listLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -84,7 +84,7 @@ Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: 
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -108,7 +108,7 @@ let params:v1.LogsApiSubmitLogRequest = {
 };
 
 apiInstance.submitLog(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

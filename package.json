@@ -10,6 +10,7 @@
     "openapi-client",
     "openapi-generator"
   ],
+  "files": ["dist/**/*"],
   "license": "Apache-2.0",
   "licenses": [
     {

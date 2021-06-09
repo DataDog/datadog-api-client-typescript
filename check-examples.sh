@@ -11,7 +11,7 @@ yarn
 ./extract-code-blocks.sh examples $1
 
 # temporary fix to compile example files
-find examples/$1 -type f -name "*.ts" | xargs sed -i.bak 's_datadog-api-client_../../../index_1'
+find examples/$1 -type f -name "*.ts" | xargs sed -i.bak 's_@datadog/datadog-api-client_../../../index_1'
 
 touch examples/$1/tsconfig.json
 

@@ -22,7 +22,7 @@ Cancel a downtime.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -34,7 +34,7 @@ let params:v1.DowntimesApiCancelDowntimeRequest = {
 };
 
 apiInstance.cancelDowntime(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -78,7 +78,7 @@ Delete all downtimes that match the scope of `X`.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -92,7 +92,7 @@ let params:v1.DowntimesApiCancelDowntimesByScopeRequest = {
 };
 
 apiInstance.cancelDowntimesByScope(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -137,7 +137,7 @@ Schedule a downtime.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -167,7 +167,7 @@ let params:v1.DowntimesApiCreateDowntimeRequest = {
 };
 
 apiInstance.createDowntime(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -211,7 +211,7 @@ Get downtime detail by `downtime_id`.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -223,7 +223,7 @@ let params:v1.DowntimesApiGetDowntimeRequest = {
 };
 
 apiInstance.getDowntime(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -267,7 +267,7 @@ Get all scheduled downtimes.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -279,7 +279,7 @@ let params:v1.DowntimesApiListDowntimesRequest = {
 };
 
 apiInstance.listDowntimes(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -322,7 +322,7 @@ Get all downtimes for the specified monitor
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -334,7 +334,7 @@ let params:v1.DowntimesApiListMonitorDowntimesRequest = {
 };
 
 apiInstance.listMonitorDowntimes(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -378,7 +378,7 @@ Update a single downtime by `downtime_id`.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -410,7 +410,7 @@ let params:v1.DowntimesApiUpdateDowntimeRequest = {
 };
 
 apiInstance.updateDowntime(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

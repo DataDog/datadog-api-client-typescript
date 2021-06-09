@@ -20,7 +20,7 @@ Creates a new incident service.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -39,7 +39,7 @@ let params:v2.IncidentServicesApiCreateIncidentServiceRequest = {
 };
 
 apiInstance.createIncidentService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -85,7 +85,7 @@ Deletes an existing incident service.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -97,7 +97,7 @@ let params:v2.IncidentServicesApiDeleteIncidentServiceRequest = {
 };
 
 apiInstance.deleteIncidentService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -143,7 +143,7 @@ Get details of an incident service. If the `include[users]` query parameter is p
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -157,7 +157,7 @@ let params:v2.IncidentServicesApiGetIncidentServiceRequest = {
 };
 
 apiInstance.getIncidentService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -204,7 +204,7 @@ Get all incident services uploaded for the requesting user's organization. If th
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -222,7 +222,7 @@ let params:v2.IncidentServicesApiListIncidentServicesRequest = {
 };
 
 apiInstance.listIncidentServices(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -271,7 +271,7 @@ Updates an existing incident service. Only provide the attributes which should b
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -293,7 +293,7 @@ let params:v2.IncidentServicesApiUpdateIncidentServiceRequest = {
 };
 
 apiInstance.updateIncidentService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

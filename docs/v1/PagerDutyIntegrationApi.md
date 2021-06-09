@@ -19,7 +19,7 @@ Create a new service object in the PagerDuty integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -34,7 +34,7 @@ let params:v1.PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest = 
 };
 
 apiInstance.createPagerDutyIntegrationService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -78,7 +78,7 @@ Delete a single service object in the Datadog-PagerDuty integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -90,7 +90,7 @@ let params:v1.PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest = 
 };
 
 apiInstance.deletePagerDutyIntegrationService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -134,7 +134,7 @@ Get service name in the Datadog-PagerDuty integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -146,7 +146,7 @@ let params:v1.PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest = {
 };
 
 apiInstance.getPagerDutyIntegrationService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -190,7 +190,7 @@ Update a single service object in the Datadog-PagerDuty integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -206,7 +206,7 @@ let params:v1.PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest = 
 };
 
 apiInstance.updatePagerDutyIntegrationService(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

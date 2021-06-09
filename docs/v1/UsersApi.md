@@ -20,7 +20,7 @@ Create a user for your organization.  **Note**: Users can only be created with t
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -38,7 +38,7 @@ let params:v1.UsersApiCreateUserRequest = {
 };
 
 apiInstance.createUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -83,7 +83,7 @@ Delete a user from an organization.  **Note**: This endpoint can only be used wi
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -95,7 +95,7 @@ let params:v1.UsersApiDisableUserRequest = {
 };
 
 apiInstance.disableUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -140,7 +140,7 @@ Get a user's details.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -152,7 +152,7 @@ let params:v1.UsersApiGetUserRequest = {
 };
 
 apiInstance.getUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -196,7 +196,7 @@ List all users for your organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -204,7 +204,7 @@ const apiInstance = new v1.UsersApi(configuration);
 
 
 apiInstance.listUsers().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -244,7 +244,7 @@ Update a user information.  **Note**: It can only be used with application keys 
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -264,7 +264,7 @@ let params:v1.UsersApiUpdateUserRequest = {
 };
 
 apiInstance.updateUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

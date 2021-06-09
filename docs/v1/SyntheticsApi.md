@@ -40,7 +40,7 @@ Create a Synthetics global variable.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -69,7 +69,7 @@ let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
 };
 
 apiInstance.createGlobalVariable(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -113,7 +113,7 @@ Create a new Synthetics private location.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -129,7 +129,7 @@ let params:v1.SyntheticsApiCreatePrivateLocationRequest = {
 };
 
 apiInstance.createPrivateLocation(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -173,7 +173,7 @@ Create a Synthetic API test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -331,7 +331,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
 };
 
 apiInstance.createSyntheticsAPITest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -376,7 +376,7 @@ Create a Synthetic browser test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -483,7 +483,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
 };
 
 apiInstance.createSyntheticsBrowserTest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -528,7 +528,7 @@ Delete a Synthetics global variable.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -540,7 +540,7 @@ let params:v1.SyntheticsApiDeleteGlobalVariableRequest = {
 };
 
 apiInstance.deleteGlobalVariable(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -585,7 +585,7 @@ Delete a Synthetics private location.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -597,7 +597,7 @@ let params:v1.SyntheticsApiDeletePrivateLocationRequest = {
 };
 
 apiInstance.deletePrivateLocation(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -640,7 +640,7 @@ Delete multiple Synthetic tests by ID.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -654,7 +654,7 @@ let params:v1.SyntheticsApiDeleteTestsRequest = {
 };
 
 apiInstance.deleteTests(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -699,7 +699,7 @@ Edit a Synthetics global variable.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -730,7 +730,7 @@ let params:v1.SyntheticsApiEditGlobalVariableRequest = {
 };
 
 apiInstance.editGlobalVariable(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -775,7 +775,7 @@ Get the detailed configuration associated with a Synthetic API test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -787,7 +787,7 @@ let params:v1.SyntheticsApiGetAPITestRequest = {
 };
 
 apiInstance.getAPITest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -831,7 +831,7 @@ Get the last 50 test results summaries for a given Synthetics API test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -851,7 +851,7 @@ let params:v1.SyntheticsApiGetAPITestLatestResultsRequest = {
 };
 
 apiInstance.getAPITestLatestResults(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -898,7 +898,7 @@ Get a specific full result from a given (API) Synthetic test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -912,7 +912,7 @@ let params:v1.SyntheticsApiGetAPITestResultRequest = {
 };
 
 apiInstance.getAPITestResult(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -957,7 +957,7 @@ Get the detailed configuration (including steps) associated with a Synthetic bro
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -969,7 +969,7 @@ let params:v1.SyntheticsApiGetBrowserTestRequest = {
 };
 
 apiInstance.getBrowserTest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1013,7 +1013,7 @@ Get the last 50 test results summaries for a given Synthetics Browser test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1033,7 +1033,7 @@ let params:v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
 };
 
 apiInstance.getBrowserTestLatestResults(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1080,7 +1080,7 @@ Get a specific full result from a given (browser) Synthetic test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1094,7 +1094,7 @@ let params:v1.SyntheticsApiGetBrowserTestResultRequest = {
 };
 
 apiInstance.getBrowserTestResult(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1139,7 +1139,7 @@ Get the detailed configuration of a global variable.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1151,7 +1151,7 @@ let params:v1.SyntheticsApiGetGlobalVariableRequest = {
 };
 
 apiInstance.getGlobalVariable(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1195,7 +1195,7 @@ Get a Synthetics private location.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1207,7 +1207,7 @@ let params:v1.SyntheticsApiGetPrivateLocationRequest = {
 };
 
 apiInstance.getPrivateLocation(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1250,7 +1250,7 @@ Get the detailed configuration associated with a Synthetics test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1262,7 +1262,7 @@ let params:v1.SyntheticsApiGetTestRequest = {
 };
 
 apiInstance.getTest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1306,7 +1306,7 @@ Get the list of all Synthetics global variables.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1314,7 +1314,7 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 
 
 apiInstance.listGlobalVariables().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1354,7 +1354,7 @@ Get the list of public and private locations available for Synthetic tests. No a
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1362,7 +1362,7 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 
 
 apiInstance.listLocations().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1401,7 +1401,7 @@ Get the list of all Synthetic tests.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1409,7 +1409,7 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 
 
 apiInstance.listTests().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1450,7 +1450,7 @@ Trigger a set of Synthetics tests for continuous integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1504,7 +1504,7 @@ let params:v1.SyntheticsApiTriggerCITestsRequest = {
 };
 
 apiInstance.triggerCITests(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1547,7 +1547,7 @@ Edit the configuration of a Synthetic API test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1707,7 +1707,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
 };
 
 apiInstance.updateAPITest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1753,7 +1753,7 @@ Edit the configuration of a Synthetic browser test.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1862,7 +1862,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
 };
 
 apiInstance.updateBrowserTest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1908,7 +1908,7 @@ Edit a Synthetics private location.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1926,7 +1926,7 @@ let params:v1.SyntheticsApiUpdatePrivateLocationRequest = {
 };
 
 apiInstance.updatePrivateLocation(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1970,7 +1970,7 @@ Pause or start a Synthetics test by changing the status.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1986,7 +1986,7 @@ let params:v1.SyntheticsApiUpdateTestPauseStatusRequest = {
 };
 
 apiInstance.updateTestPauseStatus(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

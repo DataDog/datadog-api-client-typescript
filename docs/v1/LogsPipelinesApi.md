@@ -22,7 +22,7 @@ Create a pipeline in your organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -59,7 +59,7 @@ rule_name_2 bar
 };
 
 apiInstance.createLogsPipeline(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -103,7 +103,7 @@ Delete a given pipeline from your organization. This endpoint takes no JSON argu
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -115,7 +115,7 @@ let params:v1.LogsPipelinesApiDeleteLogsPipelineRequest = {
 };
 
 apiInstance.deleteLogsPipeline(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -159,7 +159,7 @@ Get a specific pipeline from your organization. This endpoint takes no JSON argu
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -171,7 +171,7 @@ let params:v1.LogsPipelinesApiGetLogsPipelineRequest = {
 };
 
 apiInstance.getLogsPipeline(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -215,7 +215,7 @@ Get the current order of your pipelines. This endpoint takes no JSON arguments.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -223,7 +223,7 @@ const apiInstance = new v1.LogsPipelinesApi(configuration);
 
 
 apiInstance.getLogsPipelineOrder().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -263,7 +263,7 @@ Get all pipelines from your organization. This endpoint takes no JSON arguments.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -271,7 +271,7 @@ const apiInstance = new v1.LogsPipelinesApi(configuration);
 
 
 apiInstance.listLogsPipelines().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -311,7 +311,7 @@ Update a given pipeline configuration to change it’s processors or their order
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -350,7 +350,7 @@ rule_name_2 bar
 };
 
 apiInstance.updateLogsPipeline(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -395,7 +395,7 @@ Update the order of your pipelines. Since logs are processed sequentially, reord
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -409,7 +409,7 @@ let params:v1.LogsPipelinesApiUpdateLogsPipelineOrderRequest = {
 };
 
 apiInstance.updateLogsPipelineOrder(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

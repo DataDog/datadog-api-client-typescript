@@ -20,7 +20,7 @@ Add a channel to your Datadog-Slack integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -42,7 +42,7 @@ let params:v1.SlackIntegrationApiCreateSlackIntegrationChannelRequest = {
 };
 
 apiInstance.createSlackIntegrationChannel(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -88,7 +88,7 @@ Get a channel configured for your Datadog-Slack integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -102,7 +102,7 @@ let params:v1.SlackIntegrationApiGetSlackIntegrationChannelRequest = {
 };
 
 apiInstance.getSlackIntegrationChannel(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -148,7 +148,7 @@ Get a list of all channels configured for your Datadog-Slack integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -160,7 +160,7 @@ let params:v1.SlackIntegrationApiGetSlackIntegrationChannelsRequest = {
 };
 
 apiInstance.getSlackIntegrationChannels(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -205,7 +205,7 @@ Remove a channel from your Datadog-Slack integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -219,7 +219,7 @@ let params:v1.SlackIntegrationApiRemoveSlackIntegrationChannelRequest = {
 };
 
 apiInstance.removeSlackIntegrationChannel(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -265,7 +265,7 @@ Update a channel used in your Datadog-Slack integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -289,7 +289,7 @@ let params:v1.SlackIntegrationApiUpdateSlackIntegrationChannelRequest = {
 };
 
 apiInstance.updateSlackIntegrationChannel(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

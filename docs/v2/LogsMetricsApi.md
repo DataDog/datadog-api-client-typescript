@@ -20,7 +20,7 @@ Create a metric based on your ingested logs in your organization. Returns the lo
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -52,7 +52,7 @@ let params:v2.LogsMetricsApiCreateLogsMetricRequest = {
 };
 
 apiInstance.createLogsMetric(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -98,7 +98,7 @@ Delete a specific log-based metric from your organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -110,7 +110,7 @@ let params:v2.LogsMetricsApiDeleteLogsMetricRequest = {
 };
 
 apiInstance.deleteLogsMetric(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -155,7 +155,7 @@ Get a specific log-based metric from your organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -167,7 +167,7 @@ let params:v2.LogsMetricsApiGetLogsMetricRequest = {
 };
 
 apiInstance.getLogsMetric(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -212,7 +212,7 @@ Get the list of configured log-based metrics with their definitions.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -220,7 +220,7 @@ const apiInstance = new v2.LogsMetricsApi(configuration);
 
 
 apiInstance.listLogsMetrics().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -261,7 +261,7 @@ Update a specific log-based metric from your organization. Returns the log-based
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -290,7 +290,7 @@ let params:v2.LogsMetricsApiUpdateLogsMetricRequest = {
 };
 
 apiInstance.updateLogsMetric(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

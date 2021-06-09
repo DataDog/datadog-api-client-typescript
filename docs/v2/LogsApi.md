@@ -18,7 +18,7 @@ The API endpoint to aggregate events into buckets and compute metrics and timese
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -71,7 +71,7 @@ let params:v2.LogsApiAggregateLogsRequest = {
 };
 
 apiInstance.aggregateLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -115,7 +115,7 @@ List endpoint returns logs that match a log search query. [Results are paginated
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -143,7 +143,7 @@ let params:v2.LogsApiListLogsRequest = {
 };
 
 apiInstance.listLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -187,7 +187,7 @@ List endpoint returns logs that match a log search query. [Results are paginated
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -211,7 +211,7 @@ let params:v2.LogsApiListLogsGetRequest = {
 };
 
 apiInstance.listLogsGet(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

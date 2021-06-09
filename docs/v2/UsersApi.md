@@ -24,7 +24,7 @@ Create a user for your organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -55,7 +55,7 @@ let params:v2.UsersApiCreateUserRequest = {
 };
 
 apiInstance.createUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -99,7 +99,7 @@ Disable a user. Can only be used with an application key belonging to an adminis
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -111,7 +111,7 @@ let params:v2.UsersApiDisableUserRequest = {
 };
 
 apiInstance.disableUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -155,7 +155,7 @@ Returns a single user invitation by its UUID.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -167,7 +167,7 @@ let params:v2.UsersApiGetInvitationRequest = {
 };
 
 apiInstance.getInvitation(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -211,7 +211,7 @@ Get a user in the organization specified by the user’s `user_id`.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -223,7 +223,7 @@ let params:v2.UsersApiGetUserRequest = {
 };
 
 apiInstance.getUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -267,7 +267,7 @@ Get a user organization. Returns the user information and all organizations join
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -279,7 +279,7 @@ let params:v2.UsersApiListUserOrganizationsRequest = {
 };
 
 apiInstance.listUserOrganizations(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -323,7 +323,7 @@ Get a user permission set. Returns a list of the user’s permissions granted by
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -335,7 +335,7 @@ let params:v2.UsersApiListUserPermissionsRequest = {
 };
 
 apiInstance.listUserPermissions(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -379,7 +379,7 @@ Get the list of all users in the organization. This list includes all users even
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -401,7 +401,7 @@ let params:v2.UsersApiListUsersRequest = {
 };
 
 apiInstance.listUsers(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -450,7 +450,7 @@ Sends emails to one or more users inviting them to join the organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -476,7 +476,7 @@ let params:v2.UsersApiSendInvitationsRequest = {
 };
 
 apiInstance.sendInvitations(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -520,7 +520,7 @@ Edit a user. Can only be used with an application key belonging to an administra
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -544,7 +544,7 @@ let params:v2.UsersApiUpdateUserRequest = {
 };
 
 apiInstance.updateUser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

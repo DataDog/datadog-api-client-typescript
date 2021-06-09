@@ -20,7 +20,7 @@ Creates a new incident team.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -39,7 +39,7 @@ let params:v2.IncidentTeamsApiCreateIncidentTeamRequest = {
 };
 
 apiInstance.createIncidentTeam(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -85,7 +85,7 @@ Deletes an existing incident team.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -97,7 +97,7 @@ let params:v2.IncidentTeamsApiDeleteIncidentTeamRequest = {
 };
 
 apiInstance.deleteIncidentTeam(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -143,7 +143,7 @@ Get details of an incident team. If the `include[users]` query parameter is prov
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -157,7 +157,7 @@ let params:v2.IncidentTeamsApiGetIncidentTeamRequest = {
 };
 
 apiInstance.getIncidentTeam(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -204,7 +204,7 @@ Get all incident teams for the requesting user's organization. If the `include[u
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -222,7 +222,7 @@ let params:v2.IncidentTeamsApiListIncidentTeamsRequest = {
 };
 
 apiInstance.listIncidentTeams(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -271,7 +271,7 @@ Updates an existing incident team. Only provide the attributes which should be u
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -293,7 +293,7 @@ let params:v2.IncidentTeamsApiUpdateIncidentTeamRequest = {
 };
 
 apiInstance.updateIncidentTeam(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

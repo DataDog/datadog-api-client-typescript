@@ -19,7 +19,7 @@ Create a Datadog-GCP integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -45,7 +45,7 @@ let params:v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
 };
 
 apiInstance.createGCPIntegration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -89,7 +89,7 @@ Delete a given Datadog-GCP integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -115,7 +115,7 @@ let params:v1.GCPIntegrationApiDeleteGCPIntegrationRequest = {
 };
 
 apiInstance.deleteGCPIntegration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -159,7 +159,7 @@ List all Datadog-GCP integrations configured in your Datadog account.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -167,7 +167,7 @@ const apiInstance = new v1.GCPIntegrationApi(configuration);
 
 
 apiInstance.listGCPIntegration().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -208,7 +208,7 @@ Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `pro
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -234,7 +234,7 @@ let params:v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
 };
 
 apiInstance.updateGCPIntegration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

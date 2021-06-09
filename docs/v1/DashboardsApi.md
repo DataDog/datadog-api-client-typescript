@@ -20,7 +20,7 @@ Create a dashboard using the specified options. When defining queries in your wi
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -82,7 +82,7 @@ let params:v1.DashboardsApiCreateDashboardRequest = {
 };
 
 apiInstance.createDashboard(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -126,7 +126,7 @@ Delete a dashboard using the specified ID.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -138,7 +138,7 @@ let params:v1.DashboardsApiDeleteDashboardRequest = {
 };
 
 apiInstance.deleteDashboard(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -182,7 +182,7 @@ Get a dashboard using the specified ID.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -194,7 +194,7 @@ let params:v1.DashboardsApiGetDashboardRequest = {
 };
 
 apiInstance.getDashboard(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -238,7 +238,7 @@ Get all dashboards.  **Note**: This query will only return custom created or clo
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -250,7 +250,7 @@ let params:v1.DashboardsApiListDashboardsRequest = {
 };
 
 apiInstance.listDashboards(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -293,7 +293,7 @@ Update a dashboard using the specified ID.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -357,7 +357,7 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
 };
 
 apiInstance.updateDashboard(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

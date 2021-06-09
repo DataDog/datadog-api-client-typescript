@@ -20,7 +20,7 @@ Create a child organization.  This endpoint requires the [multi-organization acc
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -40,7 +40,7 @@ let params:v1.OrganizationsApiCreateChildOrgRequest = {
 };
 
 apiInstance.createChildOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -84,7 +84,7 @@ Get organization information.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -96,7 +96,7 @@ let params:v1.OrganizationsApiGetOrgRequest = {
 };
 
 apiInstance.getOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -140,7 +140,7 @@ List your managed organizations.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -148,7 +148,7 @@ const apiInstance = new v1.OrganizationsApi(configuration);
 
 
 apiInstance.listOrgs().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -188,7 +188,7 @@ Update your organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -235,7 +235,7 @@ let params:v1.OrganizationsApiUpdateOrgRequest = {
 };
 
 apiInstance.updateOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -280,7 +280,7 @@ There are a couple of options for updating the Identity Provider (IdP) metadata 
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -294,7 +294,7 @@ let params:v1.OrganizationsApiUploadIdPForOrgRequest = {
 };
 
 apiInstance.uploadIdPForOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

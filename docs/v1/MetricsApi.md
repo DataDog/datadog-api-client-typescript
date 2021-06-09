@@ -21,7 +21,7 @@ Get metadata about a specific metric.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -33,7 +33,7 @@ let params:v1.MetricsApiGetMetricMetadataRequest = {
 };
 
 apiInstance.getMetricMetadata(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -77,7 +77,7 @@ Get the list of actively reporting metrics from a given time until now.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -93,7 +93,7 @@ let params:v1.MetricsApiListActiveMetricsRequest = {
 };
 
 apiInstance.listActiveMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -139,7 +139,7 @@ Search for metrics from the last 24 hours in Datadog.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -151,7 +151,7 @@ let params:v1.MetricsApiListMetricsRequest = {
 };
 
 apiInstance.listMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -195,7 +195,7 @@ Query timeseries points.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -211,7 +211,7 @@ let params:v1.MetricsApiQueryMetricsRequest = {
 };
 
 apiInstance.queryMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -257,7 +257,7 @@ The metrics end-point allows you to post time-series data that can be graphed on
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -280,7 +280,7 @@ let params:v1.MetricsApiSubmitMetricsRequest = {
 };
 
 apiInstance.submitMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -326,7 +326,7 @@ Edit metadata of a specific metric. Find out more about [supported types](https:
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -347,7 +347,7 @@ let params:v1.MetricsApiUpdateMetricMetadataRequest = {
 };
 
 apiInstance.updateMetricMetadata(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

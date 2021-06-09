@@ -20,7 +20,7 @@ Create a Datadog-Azure integration.  Using the `POST` method updates your integr
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -40,7 +40,7 @@ let params:v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
 };
 
 apiInstance.createAzureIntegration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -84,7 +84,7 @@ Delete a given Datadog-Azure integration from your Datadog account.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -104,7 +104,7 @@ let params:v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
 };
 
 apiInstance.deleteAzureIntegration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -148,7 +148,7 @@ List all Datadog-Azure integrations configured in your Datadog account.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -156,7 +156,7 @@ const apiInstance = new v1.AzureIntegrationApi(configuration);
 
 
 apiInstance.listAzureIntegration().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -197,7 +197,7 @@ Update the defined list of host filters for a given Datadog-Azure integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -217,7 +217,7 @@ let params:v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
 };
 
 apiInstance.updateAzureHostFilters(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -261,7 +261,7 @@ Update a Datadog-Azure integration. Requires an existing `tenant_name` and `clie
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -281,7 +281,7 @@ let params:v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
 };
 
 apiInstance.updateAzureIntegration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
