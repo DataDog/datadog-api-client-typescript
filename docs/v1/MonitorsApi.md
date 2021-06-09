@@ -24,7 +24,7 @@ Check if the given monitors can be deleted.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -38,7 +38,7 @@ let params:v1.MonitorsApiCheckCanDeleteMonitorRequest = {
 };
 
 apiInstance.checkCanDeleteMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -83,7 +83,7 @@ Create a monitor using the specified options.  #### Monitor Types  The type of m
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -140,7 +140,7 @@ let params:v1.MonitorsApiCreateMonitorRequest = {
 };
 
 apiInstance.createMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -184,7 +184,7 @@ Delete the specified monitor
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -198,7 +198,7 @@ let params:v1.MonitorsApiDeleteMonitorRequest = {
 };
 
 apiInstance.deleteMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -245,7 +245,7 @@ Get details about the specified monitor from your organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -259,7 +259,7 @@ let params:v1.MonitorsApiGetMonitorRequest = {
 };
 
 apiInstance.getMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -305,7 +305,7 @@ Get details about the specified monitor from your organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -331,7 +331,7 @@ let params:v1.MonitorsApiListMonitorsRequest = {
 };
 
 apiInstance.listMonitors(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -382,7 +382,7 @@ Search and filter your monitor groups details.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -400,7 +400,7 @@ let params:v1.MonitorsApiSearchMonitorGroupsRequest = {
 };
 
 apiInstance.searchMonitorGroups(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -447,7 +447,7 @@ Search and filter your monitors details.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -465,7 +465,7 @@ let params:v1.MonitorsApiSearchMonitorsRequest = {
 };
 
 apiInstance.searchMonitors(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -512,7 +512,7 @@ Edit the specified monitor.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -571,7 +571,7 @@ let params:v1.MonitorsApiUpdateMonitorRequest = {
 };
 
 apiInstance.updateMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -618,7 +618,7 @@ Validate the monitor provided in the request.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -675,7 +675,7 @@ let params:v1.MonitorsApiValidateMonitorRequest = {
 };
 
 apiInstance.validateMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

@@ -23,7 +23,7 @@ Check if an SLO can be safely deleted. For example, assure an SLO can be deleted
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -35,7 +35,7 @@ let params:v1.ServiceLevelObjectivesApiCheckCanDeleteSLORequest = {
 };
 
 apiInstance.checkCanDeleteSLO(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -80,7 +80,7 @@ Create a service level objective object.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -114,7 +114,7 @@ let params:v1.ServiceLevelObjectivesApiCreateSLORequest = {
 };
 
 apiInstance.createSLO(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -158,7 +158,7 @@ Permanently delete the specified service level objective object.  If an SLO is u
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -172,7 +172,7 @@ let params:v1.ServiceLevelObjectivesApiDeleteSLORequest = {
 };
 
 apiInstance.deleteSLO(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -218,7 +218,7 @@ Delete (or partially delete) multiple service level objective objects.  This end
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -234,7 +234,7 @@ let params:v1.ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest = {
 };
 
 apiInstance.deleteSLOTimeframeInBulk(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -278,7 +278,7 @@ Get a service level objective object.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -292,7 +292,7 @@ let params:v1.ServiceLevelObjectivesApiGetSLORequest = {
 };
 
 apiInstance.getSLO(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -337,7 +337,7 @@ Get a specific SLO’s history, regardless of its SLO type.  The detailed histor
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -355,7 +355,7 @@ let params:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
 };
 
 apiInstance.getSLOHistory(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -403,7 +403,7 @@ Get a list of service level objective objects for your organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -421,7 +421,7 @@ let params:v1.ServiceLevelObjectivesApiListSLOsRequest = {
 };
 
 apiInstance.listSLOs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -469,7 +469,7 @@ Update the specified service level objective object.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -508,7 +508,7 @@ let params:v1.ServiceLevelObjectivesApiUpdateSLORequest = {
 };
 
 apiInstance.updateSLO(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

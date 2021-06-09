@@ -18,7 +18,7 @@ This endpoint allows you to post events to the stream. Tag them, set priority an
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -42,7 +42,7 @@ let params:v1.EventsApiCreateEventRequest = {
 };
 
 apiInstance.createEvent(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -85,7 +85,7 @@ This endpoint allows you to query for event details.  **Note**: If the event you
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -97,7 +97,7 @@ let params:v1.EventsApiGetEventRequest = {
 };
 
 apiInstance.getEvent(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -141,7 +141,7 @@ The event stream can be queried and filtered by time, priority, sources and tags
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -167,7 +167,7 @@ let params:v1.EventsApiListEventsRequest = {
 };
 
 apiInstance.listEvents(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

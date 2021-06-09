@@ -22,7 +22,7 @@ Create and define a list of queryable tag keys for an existing count/gauge/rate/
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -46,7 +46,7 @@ let params:v2.MetricsApiCreateTagConfigurationRequest = {
 };
 
 apiInstance.createTagConfiguration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -93,7 +93,7 @@ Deletes a metric's tag configuration. Can only be used with application keys fro
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -105,7 +105,7 @@ let params:v2.MetricsApiDeleteTagConfigurationRequest = {
 };
 
 apiInstance.deleteTagConfiguration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -150,7 +150,7 @@ Returns the tag configuration for the given metric name.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -162,7 +162,7 @@ let params:v2.MetricsApiListTagConfigurationByNameRequest = {
 };
 
 apiInstance.listTagConfigurationByName(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -207,7 +207,7 @@ Returns all configured count/gauge/rate/distribution metric names (with addition
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -229,7 +229,7 @@ let params:v2.MetricsApiListTagConfigurationsRequest = {
 };
 
 apiInstance.listTagConfigurations(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -279,7 +279,7 @@ View indexed tag key-value pairs for a given metric name.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -291,7 +291,7 @@ let params:v2.MetricsApiListTagsByMetricNameRequest = {
 };
 
 apiInstance.listTagsByMetricName(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -337,7 +337,7 @@ View distinct metrics volumes for the given metric name.  Custom distribution me
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -349,7 +349,7 @@ let params:v2.MetricsApiListVolumesByMetricNameRequest = {
 };
 
 apiInstance.listVolumesByMetricName(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -395,7 +395,7 @@ Update the tag configuration of a metric or percentile aggregations of a distrib
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -418,7 +418,7 @@ let params:v2.MetricsApiUpdateTagConfigurationRequest = {
 };
 
 apiInstance.updateTagConfiguration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

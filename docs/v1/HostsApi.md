@@ -19,7 +19,7 @@ This endpoint returns the total number of active and up hosts in your Datadog ac
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -31,7 +31,7 @@ let params:v1.HostsApiGetHostTotalsRequest = {
 };
 
 apiInstance.getHostTotals(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -75,7 +75,7 @@ This endpoint allows searching for hosts by name, alias, or tag. Hosts live with
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -101,7 +101,7 @@ let params:v1.HostsApiListHostsRequest = {
 };
 
 apiInstance.listHosts(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -152,7 +152,7 @@ Mute a host.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -170,7 +170,7 @@ let params:v1.HostsApiMuteHostRequest = {
 };
 
 apiInstance.muteHost(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -215,7 +215,7 @@ Unmutes a host. This endpoint takes no JSON arguments.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -227,7 +227,7 @@ let params:v1.HostsApiUnmuteHostRequest = {
 };
 
 apiInstance.unmuteHost(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

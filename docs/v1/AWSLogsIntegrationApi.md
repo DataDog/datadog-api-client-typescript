@@ -22,7 +22,7 @@ Test if permissions are present to add a log-forwarding triggers for the given s
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -37,7 +37,7 @@ let params:v1.AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest = {
 };
 
 apiInstance.checkAWSLogsLambdaAsync(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -81,7 +81,7 @@ Test if permissions are present to add log-forwarding triggers for the given ser
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -96,7 +96,7 @@ let params:v1.AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest = {
 };
 
 apiInstance.checkAWSLogsServicesAsync(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -140,7 +140,7 @@ Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection t
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -155,7 +155,7 @@ let params:v1.AWSLogsIntegrationApiCreateAWSLambdaARNRequest = {
 };
 
 apiInstance.createAWSLambdaARN(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -199,7 +199,7 @@ Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN asso
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -214,7 +214,7 @@ let params:v1.AWSLogsIntegrationApiDeleteAWSLambdaARNRequest = {
 };
 
 apiInstance.deleteAWSLambdaARN(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -258,7 +258,7 @@ Enable automatic log collection for a list of services. This should be run after
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -273,7 +273,7 @@ let params:v1.AWSLogsIntegrationApiEnableAWSLogServicesRequest = {
 };
 
 apiInstance.enableAWSLogServices(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -317,7 +317,7 @@ List all Datadog-AWS Logs integrations configured in your Datadog account.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -325,7 +325,7 @@ const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
 
 apiInstance.listAWSLogsIntegrations().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -366,7 +366,7 @@ Get the list of current AWS services that Datadog offers automatic log collectio
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -374,7 +374,7 @@ const apiInstance = new v1.AWSLogsIntegrationApi(configuration);
 
 
 apiInstance.listAWSLogsServices().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

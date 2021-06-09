@@ -28,7 +28,7 @@ Create an API key.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -47,7 +47,7 @@ let params:v2.KeyManagementApiCreateAPIKeyRequest = {
 };
 
 apiInstance.createAPIKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -91,7 +91,7 @@ Create an application key for current user
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -110,7 +110,7 @@ let params:v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
 };
 
 apiInstance.createCurrentUserApplicationKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -154,7 +154,7 @@ Delete an API key.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -166,7 +166,7 @@ let params:v2.KeyManagementApiDeleteAPIKeyRequest = {
 };
 
 apiInstance.deleteAPIKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -210,7 +210,7 @@ Delete an application key
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -222,7 +222,7 @@ let params:v2.KeyManagementApiDeleteApplicationKeyRequest = {
 };
 
 apiInstance.deleteApplicationKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -266,7 +266,7 @@ Delete an application key owned by current user
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -278,7 +278,7 @@ let params:v2.KeyManagementApiDeleteCurrentUserApplicationKeyRequest = {
 };
 
 apiInstance.deleteCurrentUserApplicationKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -322,7 +322,7 @@ Get an API key.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -336,7 +336,7 @@ let params:v2.KeyManagementApiGetAPIKeyRequest = {
 };
 
 apiInstance.getAPIKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -381,7 +381,7 @@ Get an application key owned by current user
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -393,7 +393,7 @@ let params:v2.KeyManagementApiGetCurrentUserApplicationKeyRequest = {
 };
 
 apiInstance.getCurrentUserApplicationKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -437,7 +437,7 @@ List all API keys available for your account.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -465,7 +465,7 @@ let params:v2.KeyManagementApiListAPIKeysRequest = {
 };
 
 apiInstance.listAPIKeys(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -517,7 +517,7 @@ List all application keys available for your org
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -539,7 +539,7 @@ let params:v2.KeyManagementApiListApplicationKeysRequest = {
 };
 
 apiInstance.listApplicationKeys(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -589,7 +589,7 @@ List all application keys available for current user
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -611,7 +611,7 @@ let params:v2.KeyManagementApiListCurrentUserApplicationKeysRequest = {
 };
 
 apiInstance.listCurrentUserApplicationKeys(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -661,7 +661,7 @@ Update an API key.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -683,7 +683,7 @@ let params:v2.KeyManagementApiUpdateAPIKeyRequest = {
 };
 
 apiInstance.updateAPIKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -729,7 +729,7 @@ Edit an application key
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -751,7 +751,7 @@ let params:v2.KeyManagementApiUpdateApplicationKeyRequest = {
 };
 
 apiInstance.updateApplicationKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -797,7 +797,7 @@ Edit an application key owned by current user
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -819,7 +819,7 @@ let params:v2.KeyManagementApiUpdateCurrentUserApplicationKeyRequest = {
 };
 
 apiInstance.updateCurrentUserApplicationKey(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

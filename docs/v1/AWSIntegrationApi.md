@@ -24,7 +24,7 @@ Create a Datadog-Amazon Web Services integration. Using the `POST` method update
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -47,7 +47,7 @@ let params:v1.AWSIntegrationApiCreateAWSAccountRequest = {
 };
 
 apiInstance.createAWSAccount(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -92,7 +92,7 @@ Set an AWS tag filter.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -108,7 +108,7 @@ let params:v1.AWSIntegrationApiCreateAWSTagFilterRequest = {
 };
 
 apiInstance.createAWSTagFilter(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -152,7 +152,7 @@ Generate a new AWS external ID for a given AWS account ID and role name pair.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -175,7 +175,7 @@ let params:v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
 };
 
 apiInstance.createNewAWSExternalID(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -219,7 +219,7 @@ Delete a Datadog-AWS integration matching the specified `account_id` and `role_n
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -242,7 +242,7 @@ let params:v1.AWSIntegrationApiDeleteAWSAccountRequest = {
 };
 
 apiInstance.deleteAWSAccount(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -287,7 +287,7 @@ Delete a tag filtering entry.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -302,7 +302,7 @@ let params:v1.AWSIntegrationApiDeleteAWSTagFilterRequest = {
 };
 
 apiInstance.deleteAWSTagFilter(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -346,7 +346,7 @@ List all Datadog-AWS integrations available in your Datadog organization.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -362,7 +362,7 @@ let params:v1.AWSIntegrationApiListAWSAccountsRequest = {
 };
 
 apiInstance.listAWSAccounts(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -408,7 +408,7 @@ Get all AWS tag filters.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -420,7 +420,7 @@ let params:v1.AWSIntegrationApiListAWSTagFiltersRequest = {
 };
 
 apiInstance.listAWSTagFilters(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -464,7 +464,7 @@ List all namespace rules for a given Datadog-AWS integration. This endpoint take
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -472,7 +472,7 @@ const apiInstance = new v1.AWSIntegrationApi(configuration);
 
 
 apiInstance.listAvailableAWSNamespaces().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -512,7 +512,7 @@ Update a Datadog-Amazon Web Services integration.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -541,7 +541,7 @@ let params:v1.AWSIntegrationApiUpdateAWSAccountRequest = {
 };
 
 apiInstance.updateAWSAccount(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

@@ -27,7 +27,7 @@ Create a security filter.  See the [security filter guide](https://docs.datadogh
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -55,7 +55,7 @@ let params:v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
 };
 
 apiInstance.createSecurityFilter(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -101,7 +101,7 @@ Create a detection rule.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -162,7 +162,7 @@ let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
 };
 
 apiInstance.createSecurityMonitoringRule(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -206,7 +206,7 @@ Delete a specific security filter.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -218,7 +218,7 @@ let params:v2.SecurityMonitoringApiDeleteSecurityFilterRequest = {
 };
 
 apiInstance.deleteSecurityFilter(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -264,7 +264,7 @@ Delete an existing rule. Default rules cannot be deleted.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -276,7 +276,7 @@ let params:v2.SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest = {
 };
 
 apiInstance.deleteSecurityMonitoringRule(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -320,7 +320,7 @@ Get the details of a specific security filter.  See the [security filter guide](
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -332,7 +332,7 @@ let params:v2.SecurityMonitoringApiGetSecurityFilterRequest = {
 };
 
 apiInstance.getSecurityFilter(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -377,7 +377,7 @@ Get a rule's details.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -389,7 +389,7 @@ let params:v2.SecurityMonitoringApiGetSecurityMonitoringRuleRequest = {
 };
 
 apiInstance.getSecurityMonitoringRule(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -432,7 +432,7 @@ Get the list of configured security filters with their definitions.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -440,7 +440,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 
 apiInstance.listSecurityFilters().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -481,7 +481,7 @@ List rules.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -495,7 +495,7 @@ let params:v2.SecurityMonitoringApiListSecurityMonitoringRulesRequest = {
 };
 
 apiInstance.listSecurityMonitoringRules(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -539,7 +539,7 @@ The list endpoint returns security signals that match a search query. Both this 
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -561,7 +561,7 @@ let params:v2.SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {
 };
 
 apiInstance.listSecurityMonitoringSignals(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -610,7 +610,7 @@ Returns security signals that match a search query. Both this endpoint and the G
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -633,7 +633,7 @@ let params:v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
 };
 
 apiInstance.searchSecurityMonitoringSignals(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -677,7 +677,7 @@ Update a specific security filter. Returns the security filter object when the r
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -708,7 +708,7 @@ let params:v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
 };
 
 apiInstance.updateSecurityFilter(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -756,7 +756,7 @@ Update an existing rule. When updating `cases`, `queries` or `options`, the whol
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -821,7 +821,7 @@ let params:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
 };
 
 apiInstance.updateSecurityMonitoringRule(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

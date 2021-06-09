@@ -25,7 +25,7 @@ Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -44,7 +44,7 @@ let params:v2.LogsArchivesApiAddReadRoleToArchiveRequest = {
 };
 
 apiInstance.addReadRoleToArchive(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -90,7 +90,7 @@ Create an archive in your organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -123,7 +123,7 @@ let params:v2.LogsArchivesApiCreateLogsArchiveRequest = {
 };
 
 apiInstance.createLogsArchive(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -167,7 +167,7 @@ Delete a given archive from your organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -179,7 +179,7 @@ let params:v2.LogsArchivesApiDeleteLogsArchiveRequest = {
 };
 
 apiInstance.deleteLogsArchive(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -224,7 +224,7 @@ Get a specific archive from your organization.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -236,7 +236,7 @@ let params:v2.LogsArchivesApiGetLogsArchiveRequest = {
 };
 
 apiInstance.getLogsArchive(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -281,7 +281,7 @@ Get the current order of your archives. This endpoint takes no JSON arguments.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -289,7 +289,7 @@ const apiInstance = new v2.LogsArchivesApi(configuration);
 
 
 apiInstance.getLogsArchiveOrder().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -329,7 +329,7 @@ Returns all read roles a given archive is restricted to.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -341,7 +341,7 @@ let params:v2.LogsArchivesApiListArchiveReadRolesRequest = {
 };
 
 apiInstance.listArchiveReadRoles(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -386,7 +386,7 @@ Get the list of configured logs archives with their definitions.
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -394,7 +394,7 @@ const apiInstance = new v2.LogsArchivesApi(configuration);
 
 
 apiInstance.listLogsArchives().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -434,7 +434,7 @@ Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/r
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -453,7 +453,7 @@ let params:v2.LogsArchivesApiRemoveRoleFromArchiveRequest = {
 };
 
 apiInstance.removeRoleFromArchive(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -499,7 +499,7 @@ Update a given archive configuration.  **Note**: Using this method updates your 
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -534,7 +534,7 @@ let params:v2.LogsArchivesApiUpdateLogsArchiveRequest = {
 };
 
 apiInstance.updateLogsArchive(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -580,7 +580,7 @@ Update the order of your archives. Since logs are processed sequentially, reorde
 
 
 ```typescript
-import { v2 } from 'datadog-api-client';
+import { v2 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
@@ -599,7 +599,7 @@ let params:v2.LogsArchivesApiUpdateLogsArchiveOrderRequest = {
 };
 
 apiInstance.updateLogsArchiveOrder(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

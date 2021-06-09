@@ -21,7 +21,7 @@ Creates a new index. Returns the Index object passed in the request body when th
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -50,7 +50,7 @@ let params:v1.LogsIndexesApiCreateLogsIndexRequest = {
 };
 
 apiInstance.createLogsIndex(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -94,7 +94,7 @@ Get one log index from your organization. This endpoint takes no JSON arguments.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -106,7 +106,7 @@ let params:v1.LogsIndexesApiGetLogsIndexRequest = {
 };
 
 apiInstance.getLogsIndex(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -150,7 +150,7 @@ Get the current order of your log indexes. This endpoint takes no JSON arguments
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -158,7 +158,7 @@ const apiInstance = new v1.LogsIndexesApi(configuration);
 
 
 apiInstance.getLogsIndexOrder().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -198,7 +198,7 @@ The Index object describes the configuration of a log index. This endpoint retur
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -206,7 +206,7 @@ const apiInstance = new v1.LogsIndexesApi(configuration);
 
 
 apiInstance.listLogIndexes().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -246,7 +246,7 @@ Update an index as identified by its name. Returns the Index object passed in th
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -277,7 +277,7 @@ let params:v1.LogsIndexesApiUpdateLogsIndexRequest = {
 };
 
 apiInstance.updateLogsIndex(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -323,7 +323,7 @@ This endpoint updates the index order of your organization. It returns the index
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -337,7 +337,7 @@ let params:v1.LogsIndexesApiUpdateLogsIndexOrderRequest = {
 };
 
 apiInstance.updateLogsIndexOrder(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

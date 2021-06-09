@@ -20,7 +20,7 @@ Create an SLO Correction
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -44,7 +44,7 @@ let params:v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
 };
 
 apiInstance.createSLOCorrection(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -89,7 +89,7 @@ Permanently delete the specified SLO correction object
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -101,7 +101,7 @@ let params:v1.ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest = {
 };
 
 apiInstance.deleteSLOCorrection(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -145,7 +145,7 @@ Get an SLO correction
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -157,7 +157,7 @@ let params:v1.ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest = {
 };
 
 apiInstance.getSLOCorrection(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -201,7 +201,7 @@ Get all Service Level Objective corrections
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -209,7 +209,7 @@ const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 
 apiInstance.listSLOCorrection().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -249,7 +249,7 @@ Update the specified SLO correction object object
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -274,7 +274,7 @@ let params:v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest = {
 };
 
 apiInstance.updateSLOCorrection(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 

@@ -48,7 +48,7 @@ Get daily custom reports.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -66,7 +66,7 @@ let params:v1.UsageMeteringApiGetDailyCustomReportsRequest = {
 };
 
 apiInstance.getDailyCustomReports(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -112,7 +112,7 @@ Get hourly usage for incident management.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -126,7 +126,7 @@ let params:v1.UsageMeteringApiGetIncidentManagementRequest = {
 };
 
 apiInstance.getIncidentManagement(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -171,7 +171,7 @@ Get hourly usage for ingested spans.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -185,7 +185,7 @@ let params:v1.UsageMeteringApiGetIngestedSpansRequest = {
 };
 
 apiInstance.getIngestedSpans(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -230,7 +230,7 @@ Get monthly custom reports.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -248,7 +248,7 @@ let params:v1.UsageMeteringApiGetMonthlyCustomReportsRequest = {
 };
 
 apiInstance.getMonthlyCustomReports(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -294,7 +294,7 @@ Get specified daily custom reports.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -306,7 +306,7 @@ let params:v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest = {
 };
 
 apiInstance.getSpecifiedDailyCustomReports(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -350,7 +350,7 @@ Get specified monthly custom reports.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -362,7 +362,7 @@ let params:v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest = {
 };
 
 apiInstance.getSpecifiedMonthlyCustomReports(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -407,7 +407,7 @@ Get hourly usage for tracing without limits.  **Note** This endpoint has been re
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -421,7 +421,7 @@ let params:v1.UsageMeteringApiGetTracingWithoutLimitsRequest = {
 };
 
 apiInstance.getTracingWithoutLimits(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -466,7 +466,7 @@ Get hourly usage for analyzed logs (Security Monitoring).
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -480,7 +480,7 @@ let params:v1.UsageMeteringApiGetUsageAnalyzedLogsRequest = {
 };
 
 apiInstance.getUsageAnalyzedLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -525,7 +525,7 @@ Get Usage Attribution.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -545,7 +545,7 @@ let params:v1.UsageMeteringApiGetUsageAttributionRequest = {
 };
 
 apiInstance.getUsageAttribution(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -592,7 +592,7 @@ Get hourly usage for audit logs.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -606,7 +606,7 @@ let params:v1.UsageMeteringApiGetUsageAuditLogsRequest = {
 };
 
 apiInstance.getUsageAuditLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -651,7 +651,7 @@ Get billable usage across your account.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -663,7 +663,7 @@ let params:v1.UsageMeteringApiGetUsageBillableSummaryRequest = {
 };
 
 apiInstance.getUsageBillableSummary(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -707,7 +707,7 @@ Get hourly usage for Cloud Workload Security.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -721,7 +721,7 @@ let params:v1.UsageMeteringApiGetUsageCWSRequest = {
 };
 
 apiInstance.getUsageCWS(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -766,7 +766,7 @@ Get hourly usage for Cloud Security Posture Management (CSPM).
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -780,7 +780,7 @@ let params:v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest = {
 };
 
 apiInstance.getUsageCloudSecurityPostureManagement(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -825,7 +825,7 @@ Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_farga
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -839,7 +839,7 @@ let params:v1.UsageMeteringApiGetUsageFargateRequest = {
 };
 
 apiInstance.getUsageFargate(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -884,7 +884,7 @@ Get hourly usage for hosts and containers.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -898,7 +898,7 @@ let params:v1.UsageMeteringApiGetUsageHostsRequest = {
 };
 
 apiInstance.getUsageHosts(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -943,7 +943,7 @@ Get hourly usage for indexed spans.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -957,7 +957,7 @@ let params:v1.UsageMeteringApiGetUsageIndexedSpansRequest = {
 };
 
 apiInstance.getUsageIndexedSpans(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1002,7 +1002,7 @@ Get hourly usage for IoT.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1016,7 +1016,7 @@ let params:v1.UsageMeteringApiGetUsageInternetOfThingsRequest = {
 };
 
 apiInstance.getUsageInternetOfThings(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1061,7 +1061,7 @@ Get hourly usage for lambda.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1075,7 +1075,7 @@ let params:v1.UsageMeteringApiGetUsageLambdaRequest = {
 };
 
 apiInstance.getUsageLambda(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1120,7 +1120,7 @@ Get hourly usage for logs.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1134,7 +1134,7 @@ let params:v1.UsageMeteringApiGetUsageLogsRequest = {
 };
 
 apiInstance.getUsageLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1179,7 +1179,7 @@ Get hourly usage for logs by index.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1197,7 +1197,7 @@ let params:v1.UsageMeteringApiGetUsageLogsByIndexRequest = {
 };
 
 apiInstance.getUsageLogsByIndex(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1243,7 +1243,7 @@ Get hourly usage for indexed logs by retention period.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1257,7 +1257,7 @@ let params:v1.UsageMeteringApiGetUsageLogsByRetentionRequest = {
 };
 
 apiInstance.getUsageLogsByRetention(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1302,7 +1302,7 @@ Get hourly usage for network flows.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1316,7 +1316,7 @@ let params:v1.UsageMeteringApiGetUsageNetworkFlowsRequest = {
 };
 
 apiInstance.getUsageNetworkFlows(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1361,7 +1361,7 @@ Get hourly usage for network hosts.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1375,7 +1375,7 @@ let params:v1.UsageMeteringApiGetUsageNetworkHostsRequest = {
 };
 
 apiInstance.getUsageNetworkHosts(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1420,7 +1420,7 @@ Get hourly usage for profiled hosts.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1434,7 +1434,7 @@ let params:v1.UsageMeteringApiGetUsageProfilingRequest = {
 };
 
 apiInstance.getUsageProfiling(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1479,7 +1479,7 @@ Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Ses
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1495,7 +1495,7 @@ let params:v1.UsageMeteringApiGetUsageRumSessionsRequest = {
 };
 
 apiInstance.getUsageRumSessions(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1541,7 +1541,7 @@ Get hourly usage for SNMP devices.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1555,7 +1555,7 @@ let params:v1.UsageMeteringApiGetUsageSNMPRequest = {
 };
 
 apiInstance.getUsageSNMP(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1600,7 +1600,7 @@ Get usage across your multi-org account. You must have the multi-org feature ena
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1616,7 +1616,7 @@ let params:v1.UsageMeteringApiGetUsageSummaryRequest = {
 };
 
 apiInstance.getUsageSummary(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1662,7 +1662,7 @@ Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/)
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1676,7 +1676,7 @@ let params:v1.UsageMeteringApiGetUsageSyntheticsRequest = {
 };
 
 apiInstance.getUsageSynthetics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1721,7 +1721,7 @@ Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/syntheti
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1735,7 +1735,7 @@ let params:v1.UsageMeteringApiGetUsageSyntheticsAPIRequest = {
 };
 
 apiInstance.getUsageSyntheticsAPI(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1780,7 +1780,7 @@ Get hourly usage for synthetics browser checks.
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1794,7 +1794,7 @@ let params:v1.UsageMeteringApiGetUsageSyntheticsBrowserRequest = {
 };
 
 apiInstance.getUsageSyntheticsBrowser(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1839,7 +1839,7 @@ Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metr
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1853,7 +1853,7 @@ let params:v1.UsageMeteringApiGetUsageTimeseriesRequest = {
 };
 
 apiInstance.getUsageTimeseries(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1898,7 +1898,7 @@ Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_me
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1920,7 +1920,7 @@ let params:v1.UsageMeteringApiGetUsageTopAvgMetricsRequest = {
 };
 
 apiInstance.getUsageTopAvgMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
@@ -1968,7 +1968,7 @@ Get hourly usage for trace search.  **Note** This endpoint has been renamed to `
 
 
 ```typescript
-import { v1 } from 'datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client';
 import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
@@ -1982,7 +1982,7 @@ let params:v1.UsageMeteringApiGetUsageTraceRequest = {
 };
 
 apiInstance.getUsageTrace(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
 }).catch((error:any) => console.error(error));
 ```
 
