@@ -26,10 +26,23 @@ export class UsageBillableSummaryKeys {
     'infraHostTop99p'?: UsageBillableSummaryBody;
     'iotTop99p'?: UsageBillableSummaryBody;
     'lambdaFunctionAverage'?: UsageBillableSummaryBody;
+    'logsIndexed15daySum'?: UsageBillableSummaryBody;
+    'logsIndexed180daySum'?: UsageBillableSummaryBody;
+    'logsIndexed30daySum'?: UsageBillableSummaryBody;
+    'logsIndexed3daySum'?: UsageBillableSummaryBody;
+    'logsIndexed45daySum'?: UsageBillableSummaryBody;
+    'logsIndexed60daySum'?: UsageBillableSummaryBody;
+    'logsIndexed7daySum'?: UsageBillableSummaryBody;
+    'logsIndexed90daySum'?: UsageBillableSummaryBody;
+    'logsIndexedCustomRetentionSum'?: UsageBillableSummaryBody;
     'logsIndexedSum'?: UsageBillableSummaryBody;
     'logsIngestedSum'?: UsageBillableSummaryBody;
+    'networkDeviceTop99p'?: UsageBillableSummaryBody;
     'npmFlowSum'?: UsageBillableSummaryBody;
+    'npmHostSum'?: UsageBillableSummaryBody;
     'npmHostTop99p'?: UsageBillableSummaryBody;
+    'profContainerSum'?: UsageBillableSummaryBody;
+    'profHostTop99p'?: UsageBillableSummaryBody;
     'rumSum'?: UsageBillableSummaryBody;
     'serverlessInvocationSum'?: UsageBillableSummaryBody;
     'siemSum'?: UsageBillableSummaryBody;
@@ -85,6 +98,51 @@ export class UsageBillableSummaryKeys {
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
+        "logsIndexed15daySum": {
+            "baseName": "logs_indexed_15day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed180daySum": {
+            "baseName": "logs_indexed_180day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed30daySum": {
+            "baseName": "logs_indexed_30day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed3daySum": {
+            "baseName": "logs_indexed_3day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed45daySum": {
+            "baseName": "logs_indexed_45day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed60daySum": {
+            "baseName": "logs_indexed_60day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed7daySum": {
+            "baseName": "logs_indexed_7day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexed90daySum": {
+            "baseName": "logs_indexed_90day_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "logsIndexedCustomRetentionSum": {
+            "baseName": "logs_indexed_custom_retention_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
         "logsIndexedSum": {
             "baseName": "logs_indexed_sum",
             "type": "UsageBillableSummaryBody",
@@ -95,13 +153,33 @@ export class UsageBillableSummaryKeys {
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
+        "networkDeviceTop99p": {
+            "baseName": "network_device_top99p",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
         "npmFlowSum": {
             "baseName": "npm_flow_sum",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
+        "npmHostSum": {
+            "baseName": "npm_host_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
         "npmHostTop99p": {
             "baseName": "npm_host_top99p",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "profContainerSum": {
+            "baseName": "prof_container_sum",
+            "type": "UsageBillableSummaryBody",
+            "format": ""
+        },
+        "profHostTop99p": {
+            "baseName": "prof_host_top99p",
             "type": "UsageBillableSummaryBody",
             "format": ""
         },
@@ -161,13 +239,39 @@ export class UsageBillableSummaryKeys {
 
       res.lambdaFunctionAverage = ObjectSerializer.deserialize(data.lambda_function_average, "UsageBillableSummaryBody", "")
 
+      res.logsIndexed15daySum = ObjectSerializer.deserialize(data.logs_indexed_15day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed180daySum = ObjectSerializer.deserialize(data.logs_indexed_180day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed30daySum = ObjectSerializer.deserialize(data.logs_indexed_30day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed3daySum = ObjectSerializer.deserialize(data.logs_indexed_3day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed45daySum = ObjectSerializer.deserialize(data.logs_indexed_45day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed60daySum = ObjectSerializer.deserialize(data.logs_indexed_60day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed7daySum = ObjectSerializer.deserialize(data.logs_indexed_7day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexed90daySum = ObjectSerializer.deserialize(data.logs_indexed_90day_sum, "UsageBillableSummaryBody", "")
+
+      res.logsIndexedCustomRetentionSum = ObjectSerializer.deserialize(data.logs_indexed_custom_retention_sum, "UsageBillableSummaryBody", "")
+
       res.logsIndexedSum = ObjectSerializer.deserialize(data.logs_indexed_sum, "UsageBillableSummaryBody", "")
 
       res.logsIngestedSum = ObjectSerializer.deserialize(data.logs_ingested_sum, "UsageBillableSummaryBody", "")
 
+      res.networkDeviceTop99p = ObjectSerializer.deserialize(data.network_device_top99p, "UsageBillableSummaryBody", "")
+
       res.npmFlowSum = ObjectSerializer.deserialize(data.npm_flow_sum, "UsageBillableSummaryBody", "")
 
+      res.npmHostSum = ObjectSerializer.deserialize(data.npm_host_sum, "UsageBillableSummaryBody", "")
+
       res.npmHostTop99p = ObjectSerializer.deserialize(data.npm_host_top99p, "UsageBillableSummaryBody", "")
+
+      res.profContainerSum = ObjectSerializer.deserialize(data.prof_container_sum, "UsageBillableSummaryBody", "")
+
+      res.profHostTop99p = ObjectSerializer.deserialize(data.prof_host_top99p, "UsageBillableSummaryBody", "")
 
       res.rumSum = ObjectSerializer.deserialize(data.rum_sum, "UsageBillableSummaryBody", "")
 
@@ -211,13 +315,39 @@ export class UsageBillableSummaryKeys {
 
         res.lambda_function_average = ObjectSerializer.serialize(data.lambdaFunctionAverage, "UsageBillableSummaryBody", "")
 
+        res.logs_indexed_15day_sum = ObjectSerializer.serialize(data.logsIndexed15daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_180day_sum = ObjectSerializer.serialize(data.logsIndexed180daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_30day_sum = ObjectSerializer.serialize(data.logsIndexed30daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_3day_sum = ObjectSerializer.serialize(data.logsIndexed3daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_45day_sum = ObjectSerializer.serialize(data.logsIndexed45daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_60day_sum = ObjectSerializer.serialize(data.logsIndexed60daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_7day_sum = ObjectSerializer.serialize(data.logsIndexed7daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_90day_sum = ObjectSerializer.serialize(data.logsIndexed90daySum, "UsageBillableSummaryBody", "")
+
+        res.logs_indexed_custom_retention_sum = ObjectSerializer.serialize(data.logsIndexedCustomRetentionSum, "UsageBillableSummaryBody", "")
+
         res.logs_indexed_sum = ObjectSerializer.serialize(data.logsIndexedSum, "UsageBillableSummaryBody", "")
 
         res.logs_ingested_sum = ObjectSerializer.serialize(data.logsIngestedSum, "UsageBillableSummaryBody", "")
 
+        res.network_device_top99p = ObjectSerializer.serialize(data.networkDeviceTop99p, "UsageBillableSummaryBody", "")
+
         res.npm_flow_sum = ObjectSerializer.serialize(data.npmFlowSum, "UsageBillableSummaryBody", "")
 
+        res.npm_host_sum = ObjectSerializer.serialize(data.npmHostSum, "UsageBillableSummaryBody", "")
+
         res.npm_host_top99p = ObjectSerializer.serialize(data.npmHostTop99p, "UsageBillableSummaryBody", "")
+
+        res.prof_container_sum = ObjectSerializer.serialize(data.profContainerSum, "UsageBillableSummaryBody", "")
+
+        res.prof_host_top99p = ObjectSerializer.serialize(data.profHostTop99p, "UsageBillableSummaryBody", "")
 
         res.rum_sum = ObjectSerializer.serialize(data.rumSum, "UsageBillableSummaryBody", "")
 
