@@ -23,8 +23,7 @@ yarn add @datadog/datadog-api-client
 Here's an example getting a monitor:
 
 ```typescript
-import { v1 } from 'datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from '@datadog/datadog-api-client';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
