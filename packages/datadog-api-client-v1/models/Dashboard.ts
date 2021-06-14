@@ -52,6 +52,10 @@ export class Dashboard {
     'notifyList'?: Array<string>;
     'reflowType'?: DashboardReflowType;
     /**
+    * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard. Overrides the `is_read_only` property if both are present. **This feature is currently in beta.**
+    */
+    'restrictedRoles'?: Array<string>;
+    /**
     * Array of template variables saved views.
     */
     'templateVariablePresets'?: Array<DashboardTemplateVariablePreset>;
@@ -120,6 +124,11 @@ export class Dashboard {
             "type": "DashboardReflowType",
             "format": ""
         },
+        "restrictedRoles": {
+            "baseName": "restricted_roles",
+            "type": "Array<string>",
+            "format": ""
+        },
         "templateVariablePresets": {
             "baseName": "template_variable_presets",
             "type": "Array<DashboardTemplateVariablePreset>",
@@ -182,6 +191,8 @@ export class Dashboard {
           throw TypeError(`invalid enum value ${ data.reflow_type } for reflow_type`);
       }
 
+      res.restrictedRoles = ObjectSerializer.deserialize(data.restricted_roles, "Array<string>", "")
+
       res.templateVariablePresets = ObjectSerializer.deserialize(data.template_variable_presets, "Array<DashboardTemplateVariablePreset>", "")
 
       res.templateVariables = ObjectSerializer.deserialize(data.template_variables, "Array<DashboardTemplateVariable>", "")
@@ -238,6 +249,8 @@ export class Dashboard {
         } else {
             throw TypeError(`invalid enum value ${ data.reflowType } for reflowType`);
         }
+
+        res.restricted_roles = ObjectSerializer.serialize(data.restrictedRoles, "Array<string>", "")
 
         res.template_variable_presets = ObjectSerializer.serialize(data.templateVariablePresets, "Array<DashboardTemplateVariablePreset>", "")
 
