@@ -2243,9 +2243,11 @@ export class PromiseServiceLevelObjectivesApi {
      * @param query The query string to filter results based on SLO names.
      * @param tagsQuery The query string to filter results based on a single SLO tag.
      * @param metricsQuery The query string to filter results based on SLO numerator and denominator.
+     * @param limit The number of SLOs to return in the response.
+     * @param offset The specific offset to use as the beginning of the returned response.
      */
-    public listSLOs(ids?: string, query?: string, tagsQuery?: string, metricsQuery?: string, options?: Configuration): Promise<SLOListResponse> {
-        const result = this.api.listSLOs(ids, query, tagsQuery, metricsQuery, options);
+    public listSLOs(ids?: string, query?: string, tagsQuery?: string, metricsQuery?: string, limit?: number, offset?: number, options?: Configuration): Promise<SLOListResponse> {
+        const result = this.api.listSLOs(ids, query, tagsQuery, metricsQuery, limit, offset, options);
         return result.toPromise();
     }
 

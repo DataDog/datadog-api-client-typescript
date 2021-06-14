@@ -418,6 +418,10 @@ let params:v1.ServiceLevelObjectivesApiListSLOsRequest = {
   tagsQuery: "env:prod",
   // string | The query string to filter results based on SLO numerator and denominator. (optional)
   metricsQuery: "aws.elb.request_count",
+  // number | The number of SLOs to return in the response. (optional)
+  limit: 1,
+  // number | The specific offset to use as the beginning of the returned response. (optional)
+  offset: 1,
 };
 
 apiInstance.listSLOs(params).then((data:any) => {
@@ -434,6 +438,8 @@ Name | Type | Description  | Notes
  **query** | [**string**] | The query string to filter results based on SLO names. | (optional) defaults to undefined
  **tagsQuery** | [**string**] | The query string to filter results based on a single SLO tag. | (optional) defaults to undefined
  **metricsQuery** | [**string**] | The query string to filter results based on SLO numerator and denominator. | (optional) defaults to undefined
+ **limit** | [**number**] | The number of SLOs to return in the response. | (optional) defaults to undefined
+ **offset** | [**number**] | The specific offset to use as the beginning of the returned response. | (optional) defaults to undefined
 
 
 ### Return type

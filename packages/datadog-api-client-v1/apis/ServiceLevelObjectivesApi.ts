@@ -359,9 +359,13 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
      * @param query The query string to filter results based on SLO names.
      * @param tagsQuery The query string to filter results based on a single SLO tag.
      * @param metricsQuery The query string to filter results based on SLO numerator and denominator.
+     * @param limit The number of SLOs to return in the response.
+     * @param offset The specific offset to use as the beginning of the returned response.
      */
-    public async listSLOs(ids?: string, query?: string, tagsQuery?: string, metricsQuery?: string, options?: Configuration): Promise<RequestContext> {
+    public async listSLOs(ids?: string, query?: string, tagsQuery?: string, metricsQuery?: string, limit?: number, offset?: number, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
+
+
 
 
 
@@ -387,6 +391,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
         }
         if (metricsQuery !== undefined) {
             requestContext.setQueryParam("metrics_query", ObjectSerializer.serialize(metricsQuery, "string", ""));
+        }
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int64"));
+        }
+        if (offset !== undefined) {
+            requestContext.setQueryParam("offset", ObjectSerializer.serialize(offset, "number", "int64"));
         }
 
         // Header Params
