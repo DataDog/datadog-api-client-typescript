@@ -3234,6 +3234,18 @@ export interface ServiceLevelObjectivesApiListSLOsRequest {
      * @memberof ServiceLevelObjectivesApilistSLOs
      */
     metricsQuery?: string
+    /**
+     * The number of SLOs to return in the response.
+     * @type number
+     * @memberof ServiceLevelObjectivesApilistSLOs
+     */
+    limit?: number
+    /**
+     * The specific offset to use as the beginning of the returned response.
+     * @type number
+     * @memberof ServiceLevelObjectivesApilistSLOs
+     */
+    offset?: number
 }
 
 export interface ServiceLevelObjectivesApiUpdateSLORequest {
@@ -3318,7 +3330,7 @@ export class ObjectServiceLevelObjectivesApi {
      * @param param the request object
      */
     public listSLOs(param: ServiceLevelObjectivesApiListSLOsRequest = {}, options?: Configuration): Promise<SLOListResponse> {
-        return this.api.listSLOs(param.ids, param.query, param.tagsQuery, param.metricsQuery,  options).toPromise();
+        return this.api.listSLOs(param.ids, param.query, param.tagsQuery, param.metricsQuery, param.limit, param.offset,  options).toPromise();
     }
 
     /**
