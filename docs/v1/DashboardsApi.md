@@ -36,6 +36,9 @@ let params:v1.DashboardsApiCreateDashboardRequest = {
       "notifyList_example",
     ],
     reflowType: "auto",
+    restrictedRoles: [
+      "restrictedRoles_example",
+    ],
     templateVariablePresets: [
       {
         name: "name_example",
@@ -311,6 +314,9 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
       "notifyList_example",
     ],
     reflowType: "auto",
+    restrictedRoles: [
+      "restrictedRoles_example",
+    ],
     templateVariablePresets: [
       {
         name: "name_example",
