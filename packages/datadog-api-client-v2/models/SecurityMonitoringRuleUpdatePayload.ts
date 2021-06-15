@@ -29,6 +29,10 @@ export class SecurityMonitoringRuleUpdatePayload {
     */
     'filters'?: Array<SecurityMonitoringFilter>;
     /**
+    * Whether the notifications include the triggering group-by values in their title.
+    */
+    'hasExtendedTitle'?: boolean;
+    /**
     * Whether the rule is enabled.
     */
     'isEnabled'?: boolean;
@@ -49,6 +53,10 @@ export class SecurityMonitoringRuleUpdatePayload {
     * Tags for generated signals.
     */
     'tags'?: Array<string>;
+    /**
+    * The version of the rule being updated.
+    */
+    'version'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -61,6 +69,11 @@ export class SecurityMonitoringRuleUpdatePayload {
         "filters": {
             "baseName": "filters",
             "type": "Array<SecurityMonitoringFilter>",
+            "format": ""
+        },
+        "hasExtendedTitle": {
+            "baseName": "hasExtendedTitle",
+            "type": "boolean",
             "format": ""
         },
         "isEnabled": {
@@ -92,6 +105,11 @@ export class SecurityMonitoringRuleUpdatePayload {
             "baseName": "tags",
             "type": "Array<string>",
             "format": ""
+        },
+        "version": {
+            "baseName": "version",
+            "type": "number",
+            "format": "int32"
         }    };
 
     static getAttributeTypeMap() {
@@ -105,6 +123,8 @@ export class SecurityMonitoringRuleUpdatePayload {
 
       res.filters = ObjectSerializer.deserialize(data.filters, "Array<SecurityMonitoringFilter>", "")
 
+      res.hasExtendedTitle = ObjectSerializer.deserialize(data.hasExtendedTitle, "boolean", "")
+
       res.isEnabled = ObjectSerializer.deserialize(data.isEnabled, "boolean", "")
 
       res.message = ObjectSerializer.deserialize(data.message, "string", "")
@@ -116,6 +136,8 @@ export class SecurityMonitoringRuleUpdatePayload {
       res.queries = ObjectSerializer.deserialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
 
       res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.version = ObjectSerializer.deserialize(data.version, "number", "int32")
 
 
       return res;
@@ -133,6 +155,8 @@ export class SecurityMonitoringRuleUpdatePayload {
 
         res.filters = ObjectSerializer.serialize(data.filters, "Array<SecurityMonitoringFilter>", "")
 
+        res.hasExtendedTitle = ObjectSerializer.serialize(data.hasExtendedTitle, "boolean", "")
+
         res.isEnabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
 
         res.message = ObjectSerializer.serialize(data.message, "string", "")
@@ -144,6 +168,8 @@ export class SecurityMonitoringRuleUpdatePayload {
         res.queries = ObjectSerializer.serialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
 
         res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.version = ObjectSerializer.serialize(data.version, "number", "int32")
 
         return res
     }
