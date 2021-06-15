@@ -29,6 +29,10 @@ export class SecurityMonitoringRuleCreatePayload {
     */
     'filters'?: Array<SecurityMonitoringFilter>;
     /**
+    * Whether the notifications include the triggering group-by values in their title.
+    */
+    'hasExtendedTitle'?: boolean;
+    /**
     * Whether the rule is enabled.
     */
     'isEnabled': boolean;
@@ -61,6 +65,11 @@ export class SecurityMonitoringRuleCreatePayload {
         "filters": {
             "baseName": "filters",
             "type": "Array<SecurityMonitoringFilter>",
+            "format": ""
+        },
+        "hasExtendedTitle": {
+            "baseName": "hasExtendedTitle",
+            "type": "boolean",
             "format": ""
         },
         "isEnabled": {
@@ -108,6 +117,8 @@ export class SecurityMonitoringRuleCreatePayload {
 
       res.filters = ObjectSerializer.deserialize(data.filters, "Array<SecurityMonitoringFilter>", "")
 
+      res.hasExtendedTitle = ObjectSerializer.deserialize(data.hasExtendedTitle, "boolean", "")
+
       if (data.isEnabled === undefined) {
           throw new TypeError("missing required attribute 'isEnabled' on 'SecurityMonitoringRuleCreatePayload' object");
       }
@@ -153,6 +164,8 @@ export class SecurityMonitoringRuleCreatePayload {
         res.cases = ObjectSerializer.serialize(data.cases, "Array<SecurityMonitoringRuleCaseCreate>", "")
 
         res.filters = ObjectSerializer.serialize(data.filters, "Array<SecurityMonitoringFilter>", "")
+
+        res.hasExtendedTitle = ObjectSerializer.serialize(data.hasExtendedTitle, "boolean", "")
 
         if (data.isEnabled === undefined) {
             throw new TypeError("missing required attribute 'isEnabled' on 'SecurityMonitoringRuleCreatePayload' object");
