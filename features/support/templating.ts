@@ -85,7 +85,7 @@ String.prototype.templated = function (data: Object): string {
     if (m) {
       return templateFunctions[m[1]](data, m[2])
     }
-    return pathLookup(data, matches[1]);
+    return pathLookup(data, path);
   });
 };
 
