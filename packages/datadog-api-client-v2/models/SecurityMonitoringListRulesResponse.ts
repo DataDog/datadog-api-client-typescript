@@ -19,7 +19,7 @@ import { ObjectSerializer } from './ObjectSerializer';
 
 export class SecurityMonitoringListRulesResponse {
     /**
-    * TODO.
+    * Array containing the list of rules.
     */
     'data'?: Array<SecurityMonitoringRuleResponse>;
     'meta'?: ResponseMetaAttributes;

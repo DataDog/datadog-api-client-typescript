@@ -126,9 +126,10 @@ let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         query: "query_example",
       },
     ],
+    hasExtendedTitle: true,
     isEnabled: true,
     message: "",
-    name: "",
+    name: "My security monitoring rule.",
     options: {
       detectionMethod: "threshold",
       evaluationWindow: 0,
@@ -154,7 +155,7 @@ let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         ],
         metric: "metric_example",
         name: "name_example",
-        query: "a < 3",
+        query: "a > 3",
       },
     ],
     tags: ["env:prod","team:security"],
@@ -783,6 +784,7 @@ let params:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
         query: "query_example",
       },
     ],
+    hasExtendedTitle: true,
     isEnabled: true,
     message: "message_example",
     name: "name_example",
@@ -817,6 +819,7 @@ let params:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
     tags: [
       "tags_example",
     ],
+    version: 1,
   },
 };
 

@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
 /**
-* Detection rule.
+* Rule.
 */
 
 export class SecurityMonitoringRuleResponse {
@@ -36,6 +36,10 @@ export class SecurityMonitoringRuleResponse {
     * Additional queries to filter matched events before they are processed.
     */
     'filters'?: Array<SecurityMonitoringFilter>;
+    /**
+    * Whether the notifications include the triggering group-by values in their title.
+    */
+    'hasExtendedTitle'?: boolean;
     /**
     * The ID of the rule.
     */
@@ -70,6 +74,10 @@ export class SecurityMonitoringRuleResponse {
     */
     'tags'?: Array<string>;
     /**
+    * User ID of the user who updated the rule.
+    */
+    'updateAuthorId'?: number;
+    /**
     * The version of the rule.
     */
     'version'?: number;
@@ -95,6 +103,11 @@ export class SecurityMonitoringRuleResponse {
         "filters": {
             "baseName": "filters",
             "type": "Array<SecurityMonitoringFilter>",
+            "format": ""
+        },
+        "hasExtendedTitle": {
+            "baseName": "hasExtendedTitle",
+            "type": "boolean",
             "format": ""
         },
         "id": {
@@ -142,6 +155,11 @@ export class SecurityMonitoringRuleResponse {
             "type": "Array<string>",
             "format": ""
         },
+        "updateAuthorId": {
+            "baseName": "updateAuthorId",
+            "type": "number",
+            "format": "int64"
+        },
         "version": {
             "baseName": "version",
             "type": "number",
@@ -163,6 +181,8 @@ export class SecurityMonitoringRuleResponse {
 
       res.filters = ObjectSerializer.deserialize(data.filters, "Array<SecurityMonitoringFilter>", "")
 
+      res.hasExtendedTitle = ObjectSerializer.deserialize(data.hasExtendedTitle, "boolean", "")
+
       res.id = ObjectSerializer.deserialize(data.id, "string", "")
 
       res.isDefault = ObjectSerializer.deserialize(data.isDefault, "boolean", "")
@@ -180,6 +200,8 @@ export class SecurityMonitoringRuleResponse {
       res.queries = ObjectSerializer.deserialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
 
       res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+
+      res.updateAuthorId = ObjectSerializer.deserialize(data.updateAuthorId, "number", "int64")
 
       res.version = ObjectSerializer.deserialize(data.version, "number", "int64")
 
@@ -203,6 +225,8 @@ export class SecurityMonitoringRuleResponse {
 
         res.filters = ObjectSerializer.serialize(data.filters, "Array<SecurityMonitoringFilter>", "")
 
+        res.hasExtendedTitle = ObjectSerializer.serialize(data.hasExtendedTitle, "boolean", "")
+
         res.id = ObjectSerializer.serialize(data.id, "string", "")
 
         res.isDefault = ObjectSerializer.serialize(data.isDefault, "boolean", "")
@@ -220,6 +244,8 @@ export class SecurityMonitoringRuleResponse {
         res.queries = ObjectSerializer.serialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
 
         res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
+
+        res.updateAuthorId = ObjectSerializer.serialize(data.updateAuthorId, "number", "int64")
 
         res.version = ObjectSerializer.serialize(data.version, "number", "int64")
 
