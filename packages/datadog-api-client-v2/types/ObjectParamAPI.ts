@@ -256,7 +256,6 @@ import { SecurityFilterAttributes } from '../models/SecurityFilterAttributes';
 import { SecurityFilterCreateAttributes } from '../models/SecurityFilterCreateAttributes';
 import { SecurityFilterCreateData } from '../models/SecurityFilterCreateData';
 import { SecurityFilterCreateRequest } from '../models/SecurityFilterCreateRequest';
-import { SecurityFilterDeleteResponse } from '../models/SecurityFilterDeleteResponse';
 import { SecurityFilterExclusionFilter } from '../models/SecurityFilterExclusionFilter';
 import { SecurityFilterExclusionFilterResponse } from '../models/SecurityFilterExclusionFilterResponse';
 import { SecurityFilterFilteredDataType } from '../models/SecurityFilterFilteredDataType';
@@ -2311,7 +2310,7 @@ export class ObjectSecurityMonitoringApi {
      * Delete a security filter
      * @param param the request object
      */
-    public deleteSecurityFilter(param: SecurityMonitoringApiDeleteSecurityFilterRequest, options?: Configuration): Promise<SecurityFilterDeleteResponse | void> {
+    public deleteSecurityFilter(param: SecurityMonitoringApiDeleteSecurityFilterRequest, options?: Configuration): Promise<void> {
         return this.api.deleteSecurityFilter(param.securityFilterId,  options).toPromise();
     }
 
