@@ -10,6 +10,48 @@ interface IIndexable<T = any> {
   [key: string]: T;
 }
 
+const templateFunctions: { [key: string]: any } = {
+  "timeISO": relativeTime(true),
+  "timestamp": relativeTime(false),
+}
+
+function relativeTime(iso: boolean): any {
+  const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/
+  return (data: any, arg: string): string => {
+    let ret = new Date(data["now"])
+    const m = arg.match(timeRE)
+    if (m) {
+      if (m[1]) {
+        const num = parseInt(m[2] + m[3])
+        const unit = m[4]
+        switch (unit) {
+          case "s":
+            ret.setSeconds(ret.getSeconds()+num);
+            break;
+          case "m":
+            ret.setMinutes(ret.getMinutes()+num);
+            break;
+          case "h":
+            ret.setHours(ret.getHours()+num);
+            break;
+          case "d":
+            ret.setDate(ret.getDate()+num);
+            break;
+          case "M":
+            ret.setMonth(ret.getMonth()+num);
+            break;
+          case "y":
+            ret.setFullYear(ret.getFullYear()+num);
+            break;
+        }
+      }
+      if (iso) return ret.toISOString()
+      return (Math.floor(ret.getTime() / 1000)).toString()
+    }
+    return ""
+  }
+}
+
 function pathLookup(data: any, dottedPath: string): any {
   let result = data;
   for (const dotPath of dottedPath.split(".")) {
@@ -35,9 +77,15 @@ function pathLookup(data: any, dottedPath: string): any {
 }
 
 String.prototype.templated = function (data: Object): string {
-  const regexp = /{{ *([^} ]+) *}}/g;
+  const regexp = /{{ *([^}]+) *}}/g;
+  const function_re = /^(.+)\((.*)\)$/;
   return String(this).replace(regexp, function (...matches) {
-    return pathLookup(data, matches[1]);
+    const path = matches[1].trim()
+    const m = path.match(function_re)
+    if (m) {
+      return templateFunctions[m[1]](data, m[2])
+    }
+    return pathLookup(data, path);
   });
 };
 
