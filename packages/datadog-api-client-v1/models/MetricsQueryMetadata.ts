@@ -50,6 +50,10 @@ export class MetricsQueryMetadata {
     */
     'pointlist'?: Array<Array<number>>;
     /**
+    * The index of the series' query within the request.
+    */
+    'queryIndex'?: number;
+    /**
     * Metric scope, comma separated list of tags.
     */
     'scope'?: string;
@@ -57,6 +61,10 @@ export class MetricsQueryMetadata {
     * Start of the time window, milliseconds since Unix epoch.
     */
     'start'?: number;
+    /**
+    * Unique tags identifying this series.
+    */
+    'tagSet'?: Array<string>;
     /**
     * Detailed information about the metric unit. First element describes the \"primary unit\" (for example, `bytes` in `bytes per second`), second describes the \"per unit\" (for example, `second` in `bytes per second`).
     */
@@ -105,6 +113,11 @@ export class MetricsQueryMetadata {
             "type": "Array<Array<number>>",
             "format": "double"
         },
+        "queryIndex": {
+            "baseName": "query_index",
+            "type": "number",
+            "format": "int64"
+        },
         "scope": {
             "baseName": "scope",
             "type": "string",
@@ -114,6 +127,11 @@ export class MetricsQueryMetadata {
             "baseName": "start",
             "type": "number",
             "format": "int64"
+        },
+        "tagSet": {
+            "baseName": "tag_set",
+            "type": "Array<string>",
+            "format": ""
         },
         "unit": {
             "baseName": "unit",
@@ -144,9 +162,13 @@ export class MetricsQueryMetadata {
 
       res.pointlist = ObjectSerializer.deserialize(data.pointlist, "Array<Array<number>>", "double")
 
+      res.queryIndex = ObjectSerializer.deserialize(data.query_index, "number", "int64")
+
       res.scope = ObjectSerializer.deserialize(data.scope, "string", "")
 
       res.start = ObjectSerializer.deserialize(data.start, "number", "int64")
+
+      res.tagSet = ObjectSerializer.deserialize(data.tag_set, "Array<string>", "")
 
       res.unit = ObjectSerializer.deserialize(data.unit, "Array<MetricsQueryUnit>", "")
 
@@ -178,9 +200,13 @@ export class MetricsQueryMetadata {
 
         res.pointlist = ObjectSerializer.serialize(data.pointlist, "Array<Array<number>>", "double")
 
+        res.query_index = ObjectSerializer.serialize(data.queryIndex, "number", "int64")
+
         res.scope = ObjectSerializer.serialize(data.scope, "string", "")
 
         res.start = ObjectSerializer.serialize(data.start, "number", "int64")
+
+        res.tag_set = ObjectSerializer.serialize(data.tagSet, "Array<string>", "")
 
         res.unit = ObjectSerializer.serialize(data.unit, "Array<MetricsQueryUnit>", "")
 
