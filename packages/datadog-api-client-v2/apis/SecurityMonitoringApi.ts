@@ -9,7 +9,6 @@ import {isCodeInRange} from '../util';
 
 import { APIErrorResponse } from '../models/APIErrorResponse';
 import { SecurityFilterCreateRequest } from '../models/SecurityFilterCreateRequest';
-import { SecurityFilterDeleteResponse } from '../models/SecurityFilterDeleteResponse';
 import { SecurityFilterResponse } from '../models/SecurityFilterResponse';
 import { SecurityFilterUpdateRequest } from '../models/SecurityFilterUpdateRequest';
 import { SecurityFiltersResponse } from '../models/SecurityFiltersResponse';
@@ -758,15 +757,8 @@ export class SecurityMonitoringApiResponseProcessor {
      * @params response Response returned by the server for a request to deleteSecurityFilter
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteSecurityFilter(response: ResponseContext): Promise<SecurityFilterDeleteResponse | void > {
+     public async deleteSecurityFilter(response: ResponseContext): Promise<void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SecurityFilterDeleteResponse = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "SecurityFilterDeleteResponse", ""
-            ) as SecurityFilterDeleteResponse;
-            return body;
-        }
         if (isCodeInRange("204", response.httpStatusCode)) {
             return;
         }
@@ -794,10 +786,10 @@ export class SecurityMonitoringApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SecurityFilterDeleteResponse | void = ObjectSerializer.deserialize(
+            const body: void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SecurityFilterDeleteResponse | void", ""
-            ) as SecurityFilterDeleteResponse | void;
+                "void", ""
+            ) as void;
             return body;
         }
 

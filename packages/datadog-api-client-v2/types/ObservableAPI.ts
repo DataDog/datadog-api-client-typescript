@@ -257,7 +257,6 @@ import { SecurityFilterAttributes } from '../models/SecurityFilterAttributes';
 import { SecurityFilterCreateAttributes } from '../models/SecurityFilterCreateAttributes';
 import { SecurityFilterCreateData } from '../models/SecurityFilterCreateData';
 import { SecurityFilterCreateRequest } from '../models/SecurityFilterCreateRequest';
-import { SecurityFilterDeleteResponse } from '../models/SecurityFilterDeleteResponse';
 import { SecurityFilterExclusionFilter } from '../models/SecurityFilterExclusionFilter';
 import { SecurityFilterExclusionFilterResponse } from '../models/SecurityFilterExclusionFilterResponse';
 import { SecurityFilterFilteredDataType } from '../models/SecurityFilterFilteredDataType';
@@ -2339,7 +2338,7 @@ export class ObservableSecurityMonitoringApi {
      * Delete a security filter
      * @param securityFilterId The ID of the security filter.
      */
-    public deleteSecurityFilter(securityFilterId: string, options?: Configuration): Observable<SecurityFilterDeleteResponse | void> {
+    public deleteSecurityFilter(securityFilterId: string, options?: Configuration): Observable<void> {
         const requestContextPromise = this.requestFactory.deleteSecurityFilter(securityFilterId, options);
 
         // build promise chain

@@ -252,7 +252,6 @@ import { SecurityFilterAttributes } from './SecurityFilterAttributes';
 import { SecurityFilterCreateAttributes } from './SecurityFilterCreateAttributes';
 import { SecurityFilterCreateData } from './SecurityFilterCreateData';
 import { SecurityFilterCreateRequest } from './SecurityFilterCreateRequest';
-import { SecurityFilterDeleteResponse } from './SecurityFilterDeleteResponse';
 import { SecurityFilterExclusionFilter } from './SecurityFilterExclusionFilter';
 import { SecurityFilterExclusionFilterResponse } from './SecurityFilterExclusionFilterResponse';
 import { SecurityFilterFilteredDataType } from './SecurityFilterFilteredDataType';
@@ -595,7 +594,6 @@ let typeMap: {[index: string]: any} = {
     "SecurityFilterCreateAttributes": SecurityFilterCreateAttributes,
     "SecurityFilterCreateData": SecurityFilterCreateData,
     "SecurityFilterCreateRequest": SecurityFilterCreateRequest,
-    "SecurityFilterDeleteResponse": SecurityFilterDeleteResponse,
     "SecurityFilterExclusionFilter": SecurityFilterExclusionFilter,
     "SecurityFilterExclusionFilterResponse": SecurityFilterExclusionFilterResponse,
     "SecurityFilterMeta": SecurityFilterMeta,

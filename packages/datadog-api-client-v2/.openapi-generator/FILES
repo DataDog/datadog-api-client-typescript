@@ -288,7 +288,6 @@ models/SecurityFilterAttributes.ts
 models/SecurityFilterCreateAttributes.ts
 models/SecurityFilterCreateData.ts
 models/SecurityFilterCreateRequest.ts
-models/SecurityFilterDeleteResponse.ts
 models/SecurityFilterExclusionFilter.ts
 models/SecurityFilterExclusionFilterResponse.ts
 models/SecurityFilterFilteredDataType.ts

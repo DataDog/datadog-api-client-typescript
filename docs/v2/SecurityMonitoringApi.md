@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **deleteSecurityFilter**
-> SecurityFilterDeleteResponse | void deleteSecurityFilter()
+> void deleteSecurityFilter()
 
 Delete a specific security filter.
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SecurityFilterDeleteResponse | void**
+**void**
 
 ### Authorization
 
@@ -248,8 +248,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**204** | No Content |  -  |
+**204** | OK |  -  |
 **403** | Not Authorized |  -  |
 **404** | Not Found |  -  |
 **429** | Too many requests |  -  |
