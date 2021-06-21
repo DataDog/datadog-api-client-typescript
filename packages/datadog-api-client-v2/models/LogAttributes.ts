@@ -19,7 +19,7 @@ export class LogAttributes {
     /**
     * JSON object of attributes from your log.
     */
-    'attributes'?: { [key: string]: Object; };
+    'attributes'?: { [key: string]: any; };
     /**
     * Name of the machine from where the logs are being sent.
     */
@@ -50,7 +50,7 @@ export class LogAttributes {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "attributes": {
             "baseName": "attributes",
-            "type": "{ [key: string]: Object; }",
+            "type": "{ [key: string]: any; }",
             "format": ""
         },
         "host": {
@@ -91,7 +91,7 @@ export class LogAttributes {
     static deserialize(data: {[key: string]: any}): LogAttributes {
       let res = new LogAttributes();
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: Object; }", "")
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: any; }", "")
 
       res.host = ObjectSerializer.deserialize(data.host, "string", "")
 
@@ -117,7 +117,7 @@ export class LogAttributes {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: Object; }", "")
+        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: any; }", "")
 
         res.host = ObjectSerializer.serialize(data.host, "string", "")
 

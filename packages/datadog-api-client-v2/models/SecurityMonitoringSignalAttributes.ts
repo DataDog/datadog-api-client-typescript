@@ -19,7 +19,7 @@ export class SecurityMonitoringSignalAttributes {
     /**
     * A JSON object of attributes in the security signal.
     */
-    'attributes'?: { [key: string]: Object; };
+    'attributes'?: { [key: string]: any; };
     /**
     * The message in the security signal defined by the rule that generated the signal.
     */
@@ -27,7 +27,7 @@ export class SecurityMonitoringSignalAttributes {
     /**
     * An array of tags associated with the security signal.
     */
-    'tags'?: Array<Object>;
+    'tags'?: Array<any>;
     /**
     * The timestamp of the security signal.
     */
@@ -38,7 +38,7 @@ export class SecurityMonitoringSignalAttributes {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "attributes": {
             "baseName": "attributes",
-            "type": "{ [key: string]: Object; }",
+            "type": "{ [key: string]: any; }",
             "format": ""
         },
         "message": {
@@ -48,7 +48,7 @@ export class SecurityMonitoringSignalAttributes {
         },
         "tags": {
             "baseName": "tags",
-            "type": "Array<Object>",
+            "type": "Array<any>",
             "format": "string"
         },
         "timestamp": {
@@ -64,11 +64,11 @@ export class SecurityMonitoringSignalAttributes {
     static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalAttributes {
       let res = new SecurityMonitoringSignalAttributes();
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: Object; }", "")
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: any; }", "")
 
       res.message = ObjectSerializer.deserialize(data.message, "string", "")
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<Object>", "string")
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<any>", "string")
 
       res.timestamp = ObjectSerializer.deserialize(data.timestamp, "Date", "date-time")
 
@@ -84,11 +84,11 @@ export class SecurityMonitoringSignalAttributes {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: Object; }", "")
+        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: any; }", "")
 
         res.message = ObjectSerializer.serialize(data.message, "string", "")
 
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<Object>", "string")
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<any>", "string")
 
         res.timestamp = ObjectSerializer.serialize(data.timestamp, "Date", "date-time")
 

@@ -19,7 +19,7 @@ export class LogContent {
     /**
     * JSON object of attributes from your log.
     */
-    'attributes'?: { [key: string]: Object; };
+    'attributes'?: { [key: string]: any; };
     /**
     * Name of the machine from where the logs are being sent.
     */
@@ -35,7 +35,7 @@ export class LogContent {
     /**
     * Array of tags associated with your log.
     */
-    'tags'?: Array<Object>;
+    'tags'?: Array<any>;
     /**
     * Timestamp of your log.
     */
@@ -46,7 +46,7 @@ export class LogContent {
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         "attributes": {
             "baseName": "attributes",
-            "type": "{ [key: string]: Object; }",
+            "type": "{ [key: string]: any; }",
             "format": ""
         },
         "host": {
@@ -66,7 +66,7 @@ export class LogContent {
         },
         "tags": {
             "baseName": "tags",
-            "type": "Array<Object>",
+            "type": "Array<any>",
             "format": "string"
         },
         "timestamp": {
@@ -82,7 +82,7 @@ export class LogContent {
     static deserialize(data: {[key: string]: any}): LogContent {
       let res = new LogContent();
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: Object; }", "")
+      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: any; }", "")
 
       res.host = ObjectSerializer.deserialize(data.host, "string", "")
 
@@ -90,7 +90,7 @@ export class LogContent {
 
       res.service = ObjectSerializer.deserialize(data.service, "string", "")
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<Object>", "string")
+      res.tags = ObjectSerializer.deserialize(data.tags, "Array<any>", "string")
 
       res.timestamp = ObjectSerializer.deserialize(data.timestamp, "Date", "date-time")
 
@@ -106,7 +106,7 @@ export class LogContent {
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: Object; }", "")
+        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: any; }", "")
 
         res.host = ObjectSerializer.serialize(data.host, "string", "")
 
@@ -114,7 +114,7 @@ export class LogContent {
 
         res.service = ObjectSerializer.serialize(data.service, "string", "")
 
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<Object>", "string")
+        res.tags = ObjectSerializer.serialize(data.tags, "Array<any>", "string")
 
         res.timestamp = ObjectSerializer.serialize(data.timestamp, "Date", "date-time")
 
