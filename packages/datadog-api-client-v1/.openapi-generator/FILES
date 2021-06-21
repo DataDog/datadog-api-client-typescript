@@ -492,7 +492,6 @@ models/SyntheticsTestProcessStatus.ts
 models/SyntheticsTestRequest.ts
 models/SyntheticsTestRequestCertificate.ts
 models/SyntheticsTestRequestCertificateItem.ts
-models/SyntheticsTickInterval.ts
 models/SyntheticsTiming.ts
 models/SyntheticsTriggerCITestLocation.ts
 models/SyntheticsTriggerCITestRunResult.ts

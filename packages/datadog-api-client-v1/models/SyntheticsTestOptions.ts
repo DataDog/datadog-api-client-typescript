@@ -11,7 +11,6 @@
 import { SyntheticsDeviceID } from './SyntheticsDeviceID';
 import { SyntheticsTestOptionsMonitorOptions } from './SyntheticsTestOptionsMonitorOptions';
 import { SyntheticsTestOptionsRetry } from './SyntheticsTestOptionsRetry';
-import { SyntheticsTickInterval } from './SyntheticsTickInterval';
 import { HttpFile } from '../http/http';
 import { ObjectSerializer } from './ObjectSerializer';
 
@@ -62,7 +61,10 @@ export class SyntheticsTestOptions {
     */
     'noScreenshot'?: boolean;
     'retry'?: SyntheticsTestOptionsRetry;
-    'tickEvery'?: SyntheticsTickInterval;
+    /**
+    * The frequency at which to run the Synthetic test (in seconds).
+    */
+    'tickEvery'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -129,8 +131,8 @@ export class SyntheticsTestOptions {
         },
         "tickEvery": {
             "baseName": "tick_every",
-            "type": "SyntheticsTickInterval",
-            "format": ""
+            "type": "number",
+            "format": "int64"
         }    };
 
     static getAttributeTypeMap() {
@@ -164,11 +166,7 @@ export class SyntheticsTestOptions {
 
       res.retry = ObjectSerializer.deserialize(data.retry, "SyntheticsTestOptionsRetry", "")
 
-      if ([30, 60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tick_every)) {
-          res.tickEvery = data.tick_every;
-      } else {
-          throw TypeError(`invalid enum value ${ data.tick_every } for tick_every`);
-      }
+      res.tickEvery = ObjectSerializer.deserialize(data.tick_every, "number", "int64")
 
 
       return res;
@@ -206,11 +204,7 @@ export class SyntheticsTestOptions {
 
         res.retry = ObjectSerializer.serialize(data.retry, "SyntheticsTestOptionsRetry", "")
 
-        if ([30, 60, 300, 900, 1800, 3600, 21600, 43200, 86400, 604800, undefined].includes(data.tickEvery)) {
-            res.tick_every = data.tickEvery;
-        } else {
-            throw TypeError(`invalid enum value ${ data.tickEvery } for tickEvery`);
-        }
+        res.tick_every = ObjectSerializer.serialize(data.tickEvery, "number", "int64")
 
         return res
     }
