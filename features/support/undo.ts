@@ -6,6 +6,7 @@ import * as datadogApiClient from "../../index";
 interface iOperationParameter {
   name: string;
   source: string;
+  template: string;
 }
 
 interface iUndo {
@@ -64,6 +65,13 @@ function buildUndoFor(
       let value: any;
       if (p.source !== undefined) {
         opts[p.name.toAttributeName()] = pathLookup(response, p.source);
+      } else if (p.template !== undefined) {
+        let data = JSON.parse(p.template.templated(response));
+        let param: { [key: string]: any } = {};
+        for (let [key, value] of Object.entries(data)) {
+          param[key.toAttributeName()] = value
+        }
+        opts[p.name.toAttributeName()] = param;
       }
     }
 
