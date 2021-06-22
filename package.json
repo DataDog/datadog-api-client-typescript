@@ -10,7 +10,9 @@
     "openapi-client",
     "openapi-generator"
   ],
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "license": "Apache-2.0",
   "licenses": [
     {
@@ -66,8 +68,8 @@
     "@types/pollyjs__core": "^4.3.2",
     "@types/pollyjs__persister-fs": "^2.0.1",
     "@types/pollyjs__utils": "^2.6.1",
-    "@types/url-parse": "^1.4.3",
     "@types/react": ">=16",
+    "@types/url-parse": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "chai": "^4.2.0",
