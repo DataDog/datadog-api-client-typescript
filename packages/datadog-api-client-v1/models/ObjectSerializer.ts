@@ -424,7 +424,6 @@ import { SyntheticsTestProcessStatus } from './SyntheticsTestProcessStatus';
 import { SyntheticsTestRequest } from './SyntheticsTestRequest';
 import { SyntheticsTestRequestCertificate } from './SyntheticsTestRequestCertificate';
 import { SyntheticsTestRequestCertificateItem } from './SyntheticsTestRequestCertificateItem';
-import { SyntheticsTickInterval } from './SyntheticsTickInterval';
 import { SyntheticsTiming } from './SyntheticsTiming';
 import { SyntheticsTriggerCITestLocation } from './SyntheticsTriggerCITestLocation';
 import { SyntheticsTriggerCITestRunResult } from './SyntheticsTriggerCITestRunResult';
@@ -689,7 +688,6 @@ let enumsMap: Set<string> = new Set<string>([
     "SyntheticsTestMonitorStatus",
     "SyntheticsTestPauseStatus",
     "SyntheticsTestProcessStatus",
-    "SyntheticsTickInterval",
     "SyntheticsWarningType",
     "TableWidgetCellDisplayMode",
     "TableWidgetDefinitionType",

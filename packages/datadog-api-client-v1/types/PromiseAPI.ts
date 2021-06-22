@@ -428,7 +428,6 @@ import { SyntheticsTestProcessStatus } from '../models/SyntheticsTestProcessStat
 import { SyntheticsTestRequest } from '../models/SyntheticsTestRequest';
 import { SyntheticsTestRequestCertificate } from '../models/SyntheticsTestRequestCertificate';
 import { SyntheticsTestRequestCertificateItem } from '../models/SyntheticsTestRequestCertificateItem';
-import { SyntheticsTickInterval } from '../models/SyntheticsTickInterval';
 import { SyntheticsTiming } from '../models/SyntheticsTiming';
 import { SyntheticsTriggerCITestLocation } from '../models/SyntheticsTriggerCITestLocation';
 import { SyntheticsTriggerCITestRunResult } from '../models/SyntheticsTriggerCITestRunResult';
