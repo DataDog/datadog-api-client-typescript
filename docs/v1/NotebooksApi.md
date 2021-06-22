@@ -207,7 +207,8 @@ Name | Type | Description  | Notes
 ## **listNotebooks**
 > NotebooksResponse listNotebooks()
 
-Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
+`name` or author `handle`.
 
 ### Example
 

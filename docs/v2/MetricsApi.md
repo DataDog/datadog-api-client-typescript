@@ -16,7 +16,8 @@ Method | HTTP request | Description
 ## **createTagConfiguration**
 > MetricTagConfigurationResponse createTagConfiguration(body)
 
-Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric.
+Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
 
 ### Example
 
@@ -87,7 +88,8 @@ Name | Type | Description  | Notes
 ## **deleteTagConfiguration**
 > void deleteTagConfiguration()
 
-Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+Deletes a metric's tag configuration. Can only be used with application
+keys from users with the `Manage Tags for Metrics` permission.
 
 ### Example
 
@@ -201,7 +203,8 @@ Name | Type | Description  | Notes
 ## **listTagConfigurations**
 > MetricsAndMetricTagConfigurationsResponse listTagConfigurations()
 
-Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
+Returns all configured count/gauge/rate/distribution metric names
+(with additional filters if specified).
 
 ### Example
 
@@ -331,7 +334,11 @@ Name | Type | Description  | Notes
 ## **listVolumesByMetricName**
 > MetricVolumesResponse listVolumesByMetricName()
 
-View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+View distinct metrics volumes for the given metric name.
+
+Custom distribution metrics will return both ingested and indexed custom metric volumes.
+For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
+Custom metrics generated in-app from other products will return `null` for ingested volumes.
 
 ### Example
 
@@ -389,7 +396,8 @@ Name | Type | Description  | Notes
 ## **updateTagConfiguration**
 > MetricTagConfigurationResponse updateTagConfiguration(body)
 
-Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with
+application keys from users with the `Manage Tags for Metrics` permission.
 
 ### Example
 

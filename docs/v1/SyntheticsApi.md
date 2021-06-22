@@ -769,7 +769,8 @@ Name | Type | Description  | Notes
 ## **getAPITest**
 > SyntheticsAPITest getAPITest()
 
-Get the detailed configuration associated with a Synthetic API test.
+Get the detailed configuration associated with
+a Synthetic API test.
 
 ### Example
 
@@ -951,7 +952,8 @@ Name | Type | Description  | Notes
 ## **getBrowserTest**
 > SyntheticsBrowserTest getBrowserTest()
 
-Get the detailed configuration (including steps) associated with a Synthetic browser test.
+Get the detailed configuration (including steps) associated with
+a Synthetic browser test.
 
 ### Example
 
@@ -1348,7 +1350,8 @@ This endpoint does not need any parameter.
 ## **listLocations**
 > SyntheticsLocations listLocations()
 
-Get the list of public and private locations available for Synthetic tests. No arguments required.
+Get the list of public and private locations available for Synthetic
+tests. No arguments required.
 
 ### Example
 

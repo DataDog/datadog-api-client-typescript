@@ -14,7 +14,8 @@ Method | HTTP request | Description
 ## **createHostTags**
 > HostTags createHostTags(body)
 
-This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+This endpoint allows you to add new tags to a host,
+optionally specifying where these tags come from.
 
 ### Example
 
@@ -81,7 +82,8 @@ Name | Type | Description  | Notes
 ## **deleteHostTags**
 > void deleteHostTags()
 
-This endpoint allows you to remove all user-assigned tags for a single host.
+This endpoint allows you to remove all user-assigned tags
+for a single host.
 
 ### Example
 
@@ -255,7 +257,8 @@ Name | Type | Description  | Notes
 ## **updateHostTags**
 > HostTags updateHostTags(body)
 
-This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+This endpoint allows you to update/replace all tags in
+an integration source with those supplied in the request.
 
 ### Example
 

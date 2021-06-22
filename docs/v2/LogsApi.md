@@ -109,7 +109,17 @@ Name | Type | Description  | Notes
 ## **listLogs**
 > LogsListResponse listLogs()
 
-List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to build complex logs filtering and search.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+List endpoint returns logs that match a log search query.
+[Results are paginated][1].
+
+Use this endpoint to build complex logs filtering and search.
+
+**If you are considering archiving logs for your organization,
+consider use of the Datadog archive capabilities instead of the log list API.
+See [Datadog Logs Archive documentation][2].**
+
+[1]: /logs/guide/collect-multiple-logs-with-pagination
+[2]: https://docs.datadoghq.com/logs/archives
 
 ### Example
 
@@ -181,7 +191,17 @@ Name | Type | Description  | Notes
 ## **listLogsGet**
 > LogsListResponse listLogsGet()
 
-List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to see your latest logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+List endpoint returns logs that match a log search query.
+[Results are paginated][1].
+
+Use this endpoint to see your latest logs.
+
+**If you are considering archiving logs for your organization,
+consider use of the Datadog archive capabilities instead of the log list API.
+See [Datadog Logs Archive documentation][2].**
+
+[1]: /logs/guide/collect-multiple-logs-with-pagination
+[2]: https://docs.datadoghq.com/logs/archives
 
 ### Example
 
