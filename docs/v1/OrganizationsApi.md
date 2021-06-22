@@ -14,7 +14,16 @@ Method | HTTP request | Description
 ## **createChildOrg**
 > OrganizationCreateResponse createChildOrg(body)
 
-Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `pi_key.key`, and `application_key.hash` provided in the response.
+Create a child organization.
+
+This endpoint requires the
+[multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+feature and must be enabled by
+[contacting support](https://docs.datadoghq.com/help/).
+
+Once a new child organization is created, you can interact with it
+by using the `org.public_id`, `pi_key.key`, and
+`application_key.hash` provided in the response.
 
 ### Example
 
@@ -274,7 +283,12 @@ Name | Type | Description  | Notes
 ## **uploadIdPForOrg**
 > IdpResponse uploadIdPForOrg()
 
-There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
+There are a couple of options for updating the Identity Provider (IdP)
+metadata from your SAML IdP.
+
+* **Multipart Form-Data**: Post the IdP metadata file using a form post.
+
+* **XML Body:** Post the IdP metadata file as the body of the request.
 
 ### Example
 

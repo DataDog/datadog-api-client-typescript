@@ -14,7 +14,10 @@ Method | HTTP request | Description
 ## **createUser**
 > UserResponse createUser(body)
 
-Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
+Create a user for your organization.
+
+**Note**: Users can only be created with the admin access role
+if application keys belong to administrators.
 
 ### Example
 
@@ -77,7 +80,10 @@ Name | Type | Description  | Notes
 ## **disableUser**
 > UserDisableResponse disableUser()
 
-Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
+Delete a user from an organization.
+
+**Note**: This endpoint can only be used with application keys belonging to
+administrators.
 
 ### Example
 
@@ -238,7 +244,9 @@ This endpoint does not need any parameter.
 ## **updateUser**
 > UserResponse updateUser(body)
 
-Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
+Update a user information.
+
+**Note**: It can only be used with application keys belonging to administrators.
 
 ### Example
 
