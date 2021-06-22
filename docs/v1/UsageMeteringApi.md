@@ -401,7 +401,9 @@ Name | Type | Description  | Notes
 ## **getTracingWithoutLimits**
 > UsageTracingWithoutLimitsResponse getTracingWithoutLimits()
 
-Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
+Get hourly usage for tracing without limits.
+
+**Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
 
 ### Example
 
@@ -1962,7 +1964,9 @@ Name | Type | Description  | Notes
 ## **getUsageTrace**
 > UsageTraceResponse getUsageTrace()
 
-Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
+Get hourly usage for trace search.
+
+**Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
 
 ### Example
 

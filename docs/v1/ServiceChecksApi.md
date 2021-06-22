@@ -10,7 +10,9 @@ Method | HTTP request | Description
 ## **submitServiceCheck**
 > IntakePayloadAccepted submitServiceCheck(body)
 
-Submit a list of Service Checks.  **Note**: A valid API key is required.
+Submit a list of Service Checks.
+
+**Note**: A valid API key is required.
 
 ### Example
 

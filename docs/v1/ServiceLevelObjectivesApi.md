@@ -17,7 +17,8 @@ Method | HTTP request | Description
 ## **checkCanDeleteSLO**
 > CheckCanDeleteSLOResponse checkCanDeleteSLO()
 
-Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+Check if an SLO can be safely deleted. For example,
+assure an SLO can be deleted without disrupting a dashboard.
 
 ### Example
 
@@ -152,7 +153,10 @@ Name | Type | Description  | Notes
 ## **deleteSLO**
 > SLODeleteResponse deleteSLO()
 
-Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
+Permanently delete the specified service level objective object.
+
+If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
+a 409 conflict error because the SLO is referenced in a dashboard.
 
 ### Example
 
@@ -212,7 +216,11 @@ Name | Type | Description  | Notes
 ## **deleteSLOTimeframeInBulk**
 > SLOBulkDeleteResponse deleteSLOTimeframeInBulk(body)
 
-Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+Delete (or partially delete) multiple service level objective objects.
+
+This endpoint facilitates deletion of one or more thresholds for one or more
+service level objective objects. If all thresholds are deleted, the service level
+objective object is deleted as well.
 
 ### Example
 
@@ -331,7 +339,14 @@ Name | Type | Description  | Notes
 ## **getSLOHistory**
 > SLOHistoryResponse getSLOHistory()
 
-Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
+Get a specific SLO’s history, regardless of its SLO type.
+
+The detailed history data is structured according to the source data type.
+For example, metric data is included for event SLOs that use
+the metric source, and monitor SLO types include the monitor transition history.
+
+**Note:** There are different response formats for event based and time based SLOs.
+Examples of both are shown.
 
 ### Example
 

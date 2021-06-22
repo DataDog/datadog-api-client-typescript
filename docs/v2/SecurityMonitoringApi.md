@@ -21,7 +21,10 @@ Method | HTTP request | Description
 ## **createSecurityFilter**
 > SecurityFilterResponse createSecurityFilter(body)
 
-Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+Create a security filter.
+
+See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+for more examples.
 
 ### Example
 
@@ -314,7 +317,10 @@ Name | Type | Description  | Notes
 ## **getSecurityFilter**
 > SecurityFilterResponse getSecurityFilter()
 
-Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+Get the details of a specific security filter.
+
+See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+for more examples.
 
 ### Example
 
@@ -533,7 +539,9 @@ Name | Type | Description  | Notes
 ## **listSecurityMonitoringSignals**
 > SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals()
 
-The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+The list endpoint returns security signals that match a search query.
+Both this endpoint and the POST endpoint can be used interchangeably when listing
+security signals.
 
 ### Example
 
@@ -604,7 +612,9 @@ Name | Type | Description  | Notes
 ## **searchSecurityMonitoringSignals**
 > SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals()
 
-Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+Returns security signals that match a search query.
+Both this endpoint and the GET endpoint can be used interchangeably for listing
+security signals.
 
 ### Example
 
@@ -671,7 +681,8 @@ Name | Type | Description  | Notes
 ## **updateSecurityFilter**
 > SecurityFilterResponse updateSecurityFilter(body)
 
-Update a specific security filter. Returns the security filter object when the request is successful.
+Update a specific security filter.
+Returns the security filter object when the request is successful.
 
 ### Example
 
@@ -750,7 +761,9 @@ Name | Type | Description  | Notes
 ## **updateSecurityMonitoringRule**
 > SecurityMonitoringRuleResponse updateSecurityMonitoringRule(body)
 
-Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
+must be included. For example, when modifying a query all queries must be included.
+Default rules can only be updated to be enabled and to change notifications.
 
 ### Example
 

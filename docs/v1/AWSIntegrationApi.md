@@ -18,7 +18,10 @@ Method | HTTP request | Description
 ## **createAWSAccount**
 > AWSAccountCreateResponse createAWSAccount(body)
 
-Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
+Create a Datadog-Amazon Web Services integration.
+Using the `POST` method updates your integration configuration
+by adding your new configuration to the existing one in your Datadog organization.
+A unique AWS Account ID for role based authentication.
 
 ### Example
 

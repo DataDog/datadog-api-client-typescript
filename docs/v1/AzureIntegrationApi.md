@@ -14,7 +14,13 @@ Method | HTTP request | Description
 ## **createAzureIntegration**
 > any createAzureIntegration(body)
 
-Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+Create a Datadog-Azure integration.
+
+Using the `POST` method updates your integration configuration by adding your new
+configuration to the existing one in your Datadog organization.
+
+Using the `PUT` method updates your integration configuration by replacing your
+current configuration with the new one sent to your Datadog organization.
 
 ### Example
 
@@ -255,7 +261,9 @@ Name | Type | Description  | Notes
 ## **updateAzureIntegration**
 > any updateAzureIntegration(body)
 
-Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
 
 ### Example
 

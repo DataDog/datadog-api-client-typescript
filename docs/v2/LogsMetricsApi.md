@@ -14,7 +14,8 @@ Method | HTTP request | Description
 ## **createLogsMetric**
 > LogsMetricResponse createLogsMetric(body)
 
-Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
+Create a metric based on your ingested logs in your organization.
+Returns the log-based metric object from the request body when the request is successful.
 
 ### Example
 
@@ -255,7 +256,8 @@ This endpoint does not need any parameter.
 ## **updateLogsMetric**
 > LogsMetricResponse updateLogsMetric(body)
 
-Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
+Update a specific log-based metric from your organization.
+Returns the log-based metric object from the request body when the request is successful.
 
 ### Example
 
