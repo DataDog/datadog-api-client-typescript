@@ -93,9 +93,13 @@ When("the request is sent", async function (this: World) {
   })(apiInstance.api.responseProcessor);
   // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});
   try {
-    this.response = await apiInstance[this.operationId.toOperationName()](
-      this.opts
-    );
+    if (Object.keys(this.opts).length) {
+      this.response = await apiInstance[this.operationId.toOperationName()](
+        this.opts
+      );
+    } else {
+      this.response = await apiInstance[this.operationId.toOperationName()]();
+    }
     if (undoAction.undo.type == "unsafe") {
       this.undo.push(
         buildUndoFor(
