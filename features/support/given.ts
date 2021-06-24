@@ -86,8 +86,13 @@ for (const apiVersion of Versions) {
         }
       }
 
+      let result: any = {};
       // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});
-      let result = await apiInstance[operationName](opts);
+      if (Object.keys(opts).length) {
+        result = await apiInstance[operationName](opts);
+      } else {
+        result = await apiInstance[operationName]();
+      }
 
       // register undo method
       if (undoAction.undo.type == "unsafe") {

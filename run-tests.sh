@@ -6,7 +6,7 @@ function finish {
 trap finish EXIT
 
 # Docker setup
-yarn
+yarn install
 yarn run build
 
 # Check licenses
