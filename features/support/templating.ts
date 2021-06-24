@@ -1,6 +1,6 @@
 declare global {
   interface String {
-    templated(data: Object): string;
+    templated(data: { [key: string]: any }): string;
     toOperationName(): string;
     toAttributeName(): string;
   }
@@ -11,45 +11,45 @@ interface IIndexable<T = any> {
 }
 
 const templateFunctions: { [key: string]: any } = {
-  "timeISO": relativeTime(true),
-  "timestamp": relativeTime(false),
-}
+  timeISO: relativeTime(true),
+  timestamp: relativeTime(false),
+};
 
 function relativeTime(iso: boolean): any {
-  const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/
+  const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/;
   return (data: any, arg: string): string => {
-    let ret = new Date(data["now"])
-    const m = arg.match(timeRE)
+    const ret = new Date(data["now"]);
+    const m = arg.match(timeRE);
     if (m) {
       if (m[1]) {
-        const num = parseInt(m[2] + m[3])
-        const unit = m[4]
+        const num = parseInt(m[2] + m[3]);
+        const unit = m[4];
         switch (unit) {
           case "s":
-            ret.setSeconds(ret.getSeconds()+num);
+            ret.setSeconds(ret.getSeconds() + num);
             break;
           case "m":
-            ret.setMinutes(ret.getMinutes()+num);
+            ret.setMinutes(ret.getMinutes() + num);
             break;
           case "h":
-            ret.setHours(ret.getHours()+num);
+            ret.setHours(ret.getHours() + num);
             break;
           case "d":
-            ret.setDate(ret.getDate()+num);
+            ret.setDate(ret.getDate() + num);
             break;
           case "M":
-            ret.setMonth(ret.getMonth()+num);
+            ret.setMonth(ret.getMonth() + num);
             break;
           case "y":
-            ret.setFullYear(ret.getFullYear()+num);
+            ret.setFullYear(ret.getFullYear() + num);
             break;
         }
       }
-      if (iso) return ret.toISOString()
-      return (Math.floor(ret.getTime() / 1000)).toString()
+      if (iso) return ret.toISOString();
+      return Math.floor(ret.getTime() / 1000).toString();
     }
-    return ""
-  }
+    return "";
+  };
 }
 
 function pathLookup(data: any, dottedPath: string): any {
@@ -57,7 +57,7 @@ function pathLookup(data: any, dottedPath: string): any {
   for (const dotPath of dottedPath.split(".")) {
     for (const part of dotPath.split("[")) {
       if (part.includes("]")) {
-        const results = result as Object[];
+        const results = result as any[];
         result = results[parseInt(part)];
       } else {
         const value = result as IIndexable;
@@ -67,7 +67,9 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part.toAttributeName()];
         } else {
           throw new Error(
-            `${part} not found in ${JSON.stringify(result)} (started from ${dottedPath} in ${JSON.stringify(data)})`
+            `${part} not found in ${JSON.stringify(
+              result
+            )} (started from ${dottedPath} in ${JSON.stringify(data)})`
           );
         }
       }
@@ -76,14 +78,14 @@ function pathLookup(data: any, dottedPath: string): any {
   return result;
 }
 
-String.prototype.templated = function (data: Object): string {
+String.prototype.templated = function (data: { [key: string]: any }): string {
   const regexp = /{{ *([^}]+) *}}/g;
   const function_re = /^(.+)\((.*)\)$/;
   return String(this).replace(regexp, function (...matches) {
-    const path = matches[1].trim()
-    const m = path.match(function_re)
+    const path = matches[1].trim();
+    const m = path.match(function_re);
     if (m) {
-      return templateFunctions[m[1]](data, m[2])
+      return templateFunctions[m[1]](data, m[2]);
     }
     return pathLookup(data, path);
   });
@@ -95,18 +97,20 @@ String.prototype.toOperationName = function (): string {
 };
 
 String.prototype.toAttributeName = function (): string {
-  return String(this).replace(/[^A-Za-z0-9](.)/g, function (...matches) {
-    return matches[1].toUpperCase();
-  }).replace(/[^A-Za-z0-9]+/g, '');
+  return String(this)
+    .replace(/[^A-Za-z0-9](.)/g, function (...matches) {
+      return matches[1].toUpperCase();
+    })
+    .replace(/[^A-Za-z0-9]+/g, "");
 };
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
-  let key = name as K;
+  const key = name as K;
   return obj[key];
 }
 
-function fixKeys(key: string, value: any) {
-  if (typeof value === 'object' && value != null) {
+function fixKeys(key: string, value: any): void {
+  if (typeof value === "object" && value != null) {
     const keys = Object.keys(value);
     keys.forEach((k) => {
       if (k.toAttributeName() != k) {
@@ -117,6 +121,5 @@ function fixKeys(key: string, value: any) {
   }
   return value;
 }
-
 
 export { pathLookup, getProperty, fixKeys };

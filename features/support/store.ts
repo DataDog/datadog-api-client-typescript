@@ -1,6 +1,5 @@
-export function Store(callback: { (...args: any[]): void }) {
-  let result: any[];
-  return (target: any, name?: string, descriptor?: any) => {
+export function Store(callback: { (...args: any[]): void }): any {
+  return (target: any) => {
     Object.getOwnPropertyNames(target.__proto__).forEach(
       (methodName: string) => {
         const original = target.__proto__[methodName];
