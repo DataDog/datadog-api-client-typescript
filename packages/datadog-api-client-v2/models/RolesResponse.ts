@@ -8,69 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { ResponseMetaAttributes } from './ResponseMetaAttributes';
-import { Role } from './Role';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
+import { Role } from "./Role";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing information about multiple roles.
-*/
+ * Response containing information about multiple roles.
+ */
 
 export class RolesResponse {
-    /**
-    * Array of returned roles.
-    */
-    'data'?: Array<Role>;
-    'meta'?: ResponseMetaAttributes;
+  /**
+   * Array of returned roles.
+   */
+  "data"?: Array<Role>;
+  "meta"?: ResponseMetaAttributes;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<Role>",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "ResponseMetaAttributes",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<Role>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "ResponseMetaAttributes",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RolesResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RolesResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): RolesResponse {
+    const res = new RolesResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "Array<Role>", "");
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "ResponseMetaAttributes",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: RolesResponse): { [key: string]: any } {
+    const attributeTypes = RolesResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "Array<Role>", "");
 
-    static deserialize(data: {[key: string]: any}): RolesResponse {
-      let res = new RolesResponse();
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "ResponseMetaAttributes",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<Role>", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "ResponseMetaAttributes", "")
-
-
-      return res;
-    }
-
-    static serialize(data: RolesResponse): {[key: string]: any} {
-        let attributeTypes = RolesResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<Role>", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "ResponseMetaAttributes", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

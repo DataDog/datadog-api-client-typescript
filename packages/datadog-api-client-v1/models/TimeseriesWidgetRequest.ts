@@ -8,243 +8,350 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
-import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
-import { LogQueryDefinition } from './LogQueryDefinition';
-import { ProcessQueryDefinition } from './ProcessQueryDefinition';
-import { TimeseriesWidgetExpressionAlias } from './TimeseriesWidgetExpressionAlias';
-import { WidgetDisplayType } from './WidgetDisplayType';
-import { WidgetFormula } from './WidgetFormula';
-import { WidgetRequestStyle } from './WidgetRequestStyle';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
+import { WidgetDisplayType } from "./WidgetDisplayType";
+import { WidgetFormula } from "./WidgetFormula";
+import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Updated timeseries widget.
-*/
+ * Updated timeseries widget.
+ */
 
 export class TimeseriesWidgetRequest {
-    'apmQuery'?: LogQueryDefinition;
-    'displayType'?: WidgetDisplayType;
-    'eventQuery'?: LogQueryDefinition;
-    /**
-    * List of formulas that operate on queries. **This feature is currently in beta.**
-    */
-    'formulas'?: Array<WidgetFormula>;
-    'logQuery'?: LogQueryDefinition;
-    /**
-    * Used to define expression aliases.
-    */
-    'metadata'?: Array<TimeseriesWidgetExpressionAlias>;
-    'networkQuery'?: LogQueryDefinition;
-    /**
-    * Whether or not to display a second y-axis on the right.
-    */
-    'onRightYaxis'?: boolean;
-    'processQuery'?: ProcessQueryDefinition;
-    'profileMetricsQuery'?: LogQueryDefinition;
-    /**
-    * Widget query.
-    */
-    'q'?: string;
-    /**
-    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-    */
-    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
-    'responseFormat'?: FormulaAndFunctionResponseFormat;
-    'rumQuery'?: LogQueryDefinition;
-    'securityQuery'?: LogQueryDefinition;
-    'style'?: WidgetRequestStyle;
+  "apmQuery"?: LogQueryDefinition;
+  "displayType"?: WidgetDisplayType;
+  "eventQuery"?: LogQueryDefinition;
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   */
+  "formulas"?: Array<WidgetFormula>;
+  "logQuery"?: LogQueryDefinition;
+  /**
+   * Used to define expression aliases.
+   */
+  "metadata"?: Array<TimeseriesWidgetExpressionAlias>;
+  "networkQuery"?: LogQueryDefinition;
+  /**
+   * Whether or not to display a second y-axis on the right.
+   */
+  "onRightYaxis"?: boolean;
+  "processQuery"?: ProcessQueryDefinition;
+  "profileMetricsQuery"?: LogQueryDefinition;
+  /**
+   * Widget query.
+   */
+  "q"?: string;
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
+  "rumQuery"?: LogQueryDefinition;
+  "securityQuery"?: LogQueryDefinition;
+  "style"?: WidgetRequestStyle;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "apmQuery": {
-            "baseName": "apm_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "displayType": {
-            "baseName": "display_type",
-            "type": "WidgetDisplayType",
-            "format": ""
-        },
-        "eventQuery": {
-            "baseName": "event_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "formulas": {
-            "baseName": "formulas",
-            "type": "Array<WidgetFormula>",
-            "format": ""
-        },
-        "logQuery": {
-            "baseName": "log_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "metadata": {
-            "baseName": "metadata",
-            "type": "Array<TimeseriesWidgetExpressionAlias>",
-            "format": ""
-        },
-        "networkQuery": {
-            "baseName": "network_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "onRightYaxis": {
-            "baseName": "on_right_yaxis",
-            "type": "boolean",
-            "format": ""
-        },
-        "processQuery": {
-            "baseName": "process_query",
-            "type": "ProcessQueryDefinition",
-            "format": ""
-        },
-        "profileMetricsQuery": {
-            "baseName": "profile_metrics_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "q": {
-            "baseName": "q",
-            "type": "string",
-            "format": ""
-        },
-        "queries": {
-            "baseName": "queries",
-            "type": "Array<FormulaAndFunctionQueryDefinition>",
-            "format": ""
-        },
-        "responseFormat": {
-            "baseName": "response_format",
-            "type": "FormulaAndFunctionResponseFormat",
-            "format": ""
-        },
-        "rumQuery": {
-            "baseName": "rum_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "securityQuery": {
-            "baseName": "security_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "style": {
-            "baseName": "style",
-            "type": "WidgetRequestStyle",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    apmQuery: {
+      baseName: "apm_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    displayType: {
+      baseName: "display_type",
+      type: "WidgetDisplayType",
+      format: "",
+    },
+    eventQuery: {
+      baseName: "event_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+      format: "",
+    },
+    logQuery: {
+      baseName: "log_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "Array<TimeseriesWidgetExpressionAlias>",
+      format: "",
+    },
+    networkQuery: {
+      baseName: "network_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    onRightYaxis: {
+      baseName: "on_right_yaxis",
+      type: "boolean",
+      format: "",
+    },
+    processQuery: {
+      baseName: "process_query",
+      type: "ProcessQueryDefinition",
+      format: "",
+    },
+    profileMetricsQuery: {
+      baseName: "profile_metrics_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    q: {
+      baseName: "q",
+      type: "string",
+      format: "",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+      format: "",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
+      format: "",
+    },
+    rumQuery: {
+      baseName: "rum_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    securityQuery: {
+      baseName: "security_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    style: {
+      baseName: "style",
+      type: "WidgetRequestStyle",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return TimeseriesWidgetRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return TimeseriesWidgetRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): TimeseriesWidgetRequest {
+    const res = new TimeseriesWidgetRequest();
+
+    res.apmQuery = ObjectSerializer.deserialize(
+      data.apm_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    if (["area", "bars", "line", undefined].includes(data.display_type)) {
+      res.displayType = data.display_type;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.display_type} for display_type`
+      );
     }
 
-    static deserialize(data: {[key: string]: any}): TimeseriesWidgetRequest {
-      let res = new TimeseriesWidgetRequest();
+    res.eventQuery = ObjectSerializer.deserialize(
+      data.event_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-      res.apmQuery = ObjectSerializer.deserialize(data.apm_query, "LogQueryDefinition", "")
+    res.formulas = ObjectSerializer.deserialize(
+      data.formulas,
+      "Array<WidgetFormula>",
+      ""
+    );
 
-      if (['area', 'bars', 'line', undefined].includes(data.display_type)) {
-          res.displayType = data.display_type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.display_type } for display_type`);
+    res.logQuery = ObjectSerializer.deserialize(
+      data.log_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "Array<TimeseriesWidgetExpressionAlias>",
+      ""
+    );
+
+    res.networkQuery = ObjectSerializer.deserialize(
+      data.network_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.onRightYaxis = ObjectSerializer.deserialize(
+      data.on_right_yaxis,
+      "boolean",
+      ""
+    );
+
+    res.processQuery = ObjectSerializer.deserialize(
+      data.process_query,
+      "ProcessQueryDefinition",
+      ""
+    );
+
+    res.profileMetricsQuery = ObjectSerializer.deserialize(
+      data.profile_metrics_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.q = ObjectSerializer.deserialize(data.q, "string", "");
+
+    res.queries = ObjectSerializer.deserialize(
+      data.queries,
+      "Array<FormulaAndFunctionQueryDefinition>",
+      ""
+    );
+
+    if (["timeseries", "scalar", undefined].includes(data.response_format)) {
+      res.responseFormat = data.response_format;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.response_format} for response_format`
+      );
+    }
+
+    res.rumQuery = ObjectSerializer.deserialize(
+      data.rum_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.securityQuery = ObjectSerializer.deserialize(
+      data.security_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.style = ObjectSerializer.deserialize(
+      data.style,
+      "WidgetRequestStyle",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: TimeseriesWidgetRequest): { [key: string]: any } {
+    const attributeTypes = TimeseriesWidgetRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.apm_query = ObjectSerializer.serialize(
+      data.apmQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-      res.eventQuery = ObjectSerializer.deserialize(data.event_query, "LogQueryDefinition", "")
-
-      res.formulas = ObjectSerializer.deserialize(data.formulas, "Array<WidgetFormula>", "")
-
-      res.logQuery = ObjectSerializer.deserialize(data.log_query, "LogQueryDefinition", "")
-
-      res.metadata = ObjectSerializer.deserialize(data.metadata, "Array<TimeseriesWidgetExpressionAlias>", "")
-
-      res.networkQuery = ObjectSerializer.deserialize(data.network_query, "LogQueryDefinition", "")
-
-      res.onRightYaxis = ObjectSerializer.deserialize(data.on_right_yaxis, "boolean", "")
-
-      res.processQuery = ObjectSerializer.deserialize(data.process_query, "ProcessQueryDefinition", "")
-
-      res.profileMetricsQuery = ObjectSerializer.deserialize(data.profile_metrics_query, "LogQueryDefinition", "")
-
-      res.q = ObjectSerializer.deserialize(data.q, "string", "")
-
-      res.queries = ObjectSerializer.deserialize(data.queries, "Array<FormulaAndFunctionQueryDefinition>", "")
-
-      if (['timeseries', 'scalar', undefined].includes(data.response_format)) {
-          res.responseFormat = data.response_format;
-      } else {
-          throw TypeError(`invalid enum value ${ data.response_format } for response_format`);
-      }
-
-      res.rumQuery = ObjectSerializer.deserialize(data.rum_query, "LogQueryDefinition", "")
-
-      res.securityQuery = ObjectSerializer.deserialize(data.security_query, "LogQueryDefinition", "")
-
-      res.style = ObjectSerializer.deserialize(data.style, "WidgetRequestStyle", "")
-
-
-      return res;
+    if (["area", "bars", "line", undefined].includes(data.displayType)) {
+      res.display_type = data.displayType;
+    } else {
+      throw TypeError(`invalid enum value ${data.displayType} for displayType`);
     }
 
-    static serialize(data: TimeseriesWidgetRequest): {[key: string]: any} {
-        let attributeTypes = TimeseriesWidgetRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.apm_query = ObjectSerializer.serialize(data.apmQuery, "LogQueryDefinition", "")
+    res.event_query = ObjectSerializer.serialize(
+      data.eventQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        if (['area', 'bars', 'line', undefined].includes(data.displayType)) {
-            res.display_type = data.displayType;
-        } else {
-            throw TypeError(`invalid enum value ${ data.displayType } for displayType`);
-        }
+    res.formulas = ObjectSerializer.serialize(
+      data.formulas,
+      "Array<WidgetFormula>",
+      ""
+    );
 
-        res.event_query = ObjectSerializer.serialize(data.eventQuery, "LogQueryDefinition", "")
+    res.log_query = ObjectSerializer.serialize(
+      data.logQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.formulas = ObjectSerializer.serialize(data.formulas, "Array<WidgetFormula>", "")
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "Array<TimeseriesWidgetExpressionAlias>",
+      ""
+    );
 
-        res.log_query = ObjectSerializer.serialize(data.logQuery, "LogQueryDefinition", "")
+    res.network_query = ObjectSerializer.serialize(
+      data.networkQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.metadata = ObjectSerializer.serialize(data.metadata, "Array<TimeseriesWidgetExpressionAlias>", "")
+    res.on_right_yaxis = ObjectSerializer.serialize(
+      data.onRightYaxis,
+      "boolean",
+      ""
+    );
 
-        res.network_query = ObjectSerializer.serialize(data.networkQuery, "LogQueryDefinition", "")
+    res.process_query = ObjectSerializer.serialize(
+      data.processQuery,
+      "ProcessQueryDefinition",
+      ""
+    );
 
-        res.on_right_yaxis = ObjectSerializer.serialize(data.onRightYaxis, "boolean", "")
+    res.profile_metrics_query = ObjectSerializer.serialize(
+      data.profileMetricsQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.process_query = ObjectSerializer.serialize(data.processQuery, "ProcessQueryDefinition", "")
+    res.q = ObjectSerializer.serialize(data.q, "string", "");
 
-        res.profile_metrics_query = ObjectSerializer.serialize(data.profileMetricsQuery, "LogQueryDefinition", "")
+    res.queries = ObjectSerializer.serialize(
+      data.queries,
+      "Array<FormulaAndFunctionQueryDefinition>",
+      ""
+    );
 
-        res.q = ObjectSerializer.serialize(data.q, "string", "")
-
-        res.queries = ObjectSerializer.serialize(data.queries, "Array<FormulaAndFunctionQueryDefinition>", "")
-
-        if (['timeseries', 'scalar', undefined].includes(data.responseFormat)) {
-            res.response_format = data.responseFormat;
-        } else {
-            throw TypeError(`invalid enum value ${ data.responseFormat } for responseFormat`);
-        }
-
-        res.rum_query = ObjectSerializer.serialize(data.rumQuery, "LogQueryDefinition", "")
-
-        res.security_query = ObjectSerializer.serialize(data.securityQuery, "LogQueryDefinition", "")
-
-        res.style = ObjectSerializer.serialize(data.style, "WidgetRequestStyle", "")
-
-        return res
+    if (["timeseries", "scalar", undefined].includes(data.responseFormat)) {
+      res.response_format = data.responseFormat;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.responseFormat} for responseFormat`
+      );
     }
-    
-    public constructor() {
-    }
+
+    res.rum_query = ObjectSerializer.serialize(
+      data.rumQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.security_query = ObjectSerializer.serialize(
+      data.securityQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.style = ObjectSerializer.serialize(
+      data.style,
+      "WidgetRequestStyle",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

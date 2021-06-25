@@ -8,83 +8,96 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
-*/
+ * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
+ */
 
 export class UsageLambdaHour {
-    /**
-    * Contains the number of different functions for each region and AWS account.
-    */
-    'funcCount'?: number;
-    /**
-    * The hour for the usage.
-    */
-    'hour'?: Date;
-    /**
-    * Contains the sum of invocations of all functions.
-    */
-    'invocationsSum'?: number;
+  /**
+   * Contains the number of different functions for each region and AWS account.
+   */
+  "funcCount"?: number;
+  /**
+   * The hour for the usage.
+   */
+  "hour"?: Date;
+  /**
+   * Contains the sum of invocations of all functions.
+   */
+  "invocationsSum"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "funcCount": {
-            "baseName": "func_count",
-            "type": "number",
-            "format": "int64"
-        },
-        "hour": {
-            "baseName": "hour",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "invocationsSum": {
-            "baseName": "invocations_sum",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    funcCount: {
+      baseName: "func_count",
+      type: "number",
+      format: "int64",
+    },
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
+    },
+    invocationsSum: {
+      baseName: "invocations_sum",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageLambdaHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageLambdaHour.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageLambdaHour {
+    const res = new UsageLambdaHour();
+
+    res.funcCount = ObjectSerializer.deserialize(
+      data.func_count,
+      "number",
+      "int64"
+    );
+
+    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
+
+    res.invocationsSum = ObjectSerializer.deserialize(
+      data.invocations_sum,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageLambdaHour): { [key: string]: any } {
+    const attributeTypes = UsageLambdaHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.func_count = ObjectSerializer.serialize(
+      data.funcCount,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageLambdaHour {
-      let res = new UsageLambdaHour();
+    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 
-      res.funcCount = ObjectSerializer.deserialize(data.func_count, "number", "int64")
+    res.invocations_sum = ObjectSerializer.serialize(
+      data.invocationsSum,
+      "number",
+      "int64"
+    );
 
-      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+    return res;
+  }
 
-      res.invocationsSum = ObjectSerializer.deserialize(data.invocations_sum, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageLambdaHour): {[key: string]: any} {
-        let attributeTypes = UsageLambdaHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.func_count = ObjectSerializer.serialize(data.funcCount, "number", "int64")
-
-        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
-
-        res.invocations_sum = ObjectSerializer.serialize(data.invocationsSum, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

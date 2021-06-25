@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Synthetics location.
-*/
+ * Synthetics location.
+ */
 
 export class SyntheticsTriggerCITestLocation {
-    /**
-    * Unique identifier of the location.
-    */
-    'id'?: number;
-    /**
-    * Name of the location.
-    */
-    'name'?: string;
+  /**
+   * Unique identifier of the location.
+   */
+  "id"?: number;
+  /**
+   * Name of the location.
+   */
+  "name"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "id": {
-            "baseName": "id",
-            "type": "number",
-            "format": "int64"
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTriggerCITestLocation.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTriggerCITestLocation.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsTriggerCITestLocation {
+    const res = new SyntheticsTriggerCITestLocation();
+
+    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsTriggerCITestLocation
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsTriggerCITestLocation.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTriggerCITestLocation {
-      let res = new SyntheticsTriggerCITestLocation();
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+    return res;
+  }
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsTriggerCITestLocation): {[key: string]: any} {
-        let attributeTypes = SyntheticsTriggerCITestLocation.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

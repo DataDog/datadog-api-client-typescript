@@ -8,70 +8,75 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Number of Fargate tasks run and hourly usage.
-*/
+ * Number of Fargate tasks run and hourly usage.
+ */
 
 export class UsageFargateHour {
-    /**
-    * The hour for the usage.
-    */
-    'hour'?: Date;
-    /**
-    * The number of Fargate tasks run.
-    */
-    'tasksCount'?: number;
+  /**
+   * The hour for the usage.
+   */
+  "hour"?: Date;
+  /**
+   * The number of Fargate tasks run.
+   */
+  "tasksCount"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "hour": {
-            "baseName": "hour",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "tasksCount": {
-            "baseName": "tasks_count",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
+    },
+    tasksCount: {
+      baseName: "tasks_count",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageFargateHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageFargateHour.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageFargateHour {
+    const res = new UsageFargateHour();
+
+    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
+
+    res.tasksCount = ObjectSerializer.deserialize(
+      data.tasks_count,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageFargateHour): { [key: string]: any } {
+    const attributeTypes = UsageFargateHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 
-    static deserialize(data: {[key: string]: any}): UsageFargateHour {
-      let res = new UsageFargateHour();
+    res.tasks_count = ObjectSerializer.serialize(
+      data.tasksCount,
+      "number",
+      "int64"
+    );
 
-      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+    return res;
+  }
 
-      res.tasksCount = ObjectSerializer.deserialize(data.tasks_count, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageFargateHour): {[key: string]: any} {
-        let attributeTypes = UsageFargateHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
-
-        res.tasks_count = ObjectSerializer.serialize(data.tasksCount, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

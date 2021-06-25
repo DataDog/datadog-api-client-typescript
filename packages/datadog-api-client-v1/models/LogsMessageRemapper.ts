@@ -8,114 +8,127 @@
  * Do not edit the class manually.
  */
 
-import { LogsMessageRemapperType } from './LogsMessageRemapperType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsMessageRemapperType } from "./LogsMessageRemapperType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The message is a key attribute in Datadog. It is displayed in the message column of the Log Explorer and you can do full string search on it. Use this Processor to define one or more attributes as the official log message.  **Note:** If multiple log message remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
-*/
+ * The message is a key attribute in Datadog. It is displayed in the message column of the Log Explorer and you can do full string search on it. Use this Processor to define one or more attributes as the official log message.  **Note:** If multiple log message remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
+ */
 
 export class LogsMessageRemapper {
-    /**
-    * Whether or not the processor is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Name of the processor.
-    */
-    'name'?: string;
-    /**
-    * Array of source attributes.
-    */
-    'sources': Array<string>;
-    'type': LogsMessageRemapperType;
+  /**
+   * Whether or not the processor is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Name of the processor.
+   */
+  "name"?: string;
+  /**
+   * Array of source attributes.
+   */
+  "sources": Array<string>;
+  "type": LogsMessageRemapperType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "sources": {
-            "baseName": "sources",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsMessageRemapperType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    sources: {
+      baseName: "sources",
+      type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsMessageRemapperType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsMessageRemapper.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsMessageRemapper.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsMessageRemapper {
+    const res = new LogsMessageRemapper();
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (data.sources === undefined) {
+      throw new TypeError(
+        "missing required attribute 'sources' on 'LogsMessageRemapper' object"
+      );
+    }
+    res.sources = ObjectSerializer.deserialize(
+      data.sources,
+      "Array<string>",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsMessageRemapper' object"
+      );
+    }
+    if (["message-remapper", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsMessageRemapper {
-      let res = new LogsMessageRemapper();
+    return res;
+  }
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      if (data.sources === undefined) {
-          throw new TypeError("missing required attribute 'sources' on 'LogsMessageRemapper' object");
+  static serialize(data: LogsMessageRemapper): { [key: string]: any } {
+    const attributeTypes = LogsMessageRemapper.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+    }
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsMessageRemapper' object");
-      }
-      if (['message-remapper', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
+    if (data.sources === undefined) {
+      throw new TypeError(
+        "missing required attribute 'sources' on 'LogsMessageRemapper' object"
+      );
+    }
+    res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "");
 
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsMessageRemapper' object"
+      );
+    }
+    if (["message-remapper", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsMessageRemapper): {[key: string]: any} {
-        let attributeTypes = LogsMessageRemapper.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    return res;
+  }
 
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (data.sources === undefined) {
-            throw new TypeError("missing required attribute 'sources' on 'LogsMessageRemapper' object");
-        }
-        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsMessageRemapper' object");
-        }
-        if (['message-remapper', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

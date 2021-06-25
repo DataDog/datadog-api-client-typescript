@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A timeseries point
-*/
+ * A timeseries point
+ */
 
 export class LogsAggregateBucketValueTimeseriesPoint {
-    /**
-    * The time value for this point
-    */
-    'time'?: string;
-    /**
-    * The value for this point
-    */
-    'value'?: number;
+  /**
+   * The time value for this point
+   */
+  "time"?: string;
+  /**
+   * The value for this point
+   */
+  "value"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "time": {
-            "baseName": "time",
-            "type": "string",
-            "format": ""
-        },
-        "value": {
-            "baseName": "value",
-            "type": "number",
-            "format": "double"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    time: {
+      baseName: "time",
+      type: "string",
+      format: "",
+    },
+    value: {
+      baseName: "value",
+      type: "number",
+      format: "double",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): LogsAggregateBucketValueTimeseriesPoint {
+    const res = new LogsAggregateBucketValueTimeseriesPoint();
+
+    res.time = ObjectSerializer.deserialize(data.time, "string", "");
+
+    res.value = ObjectSerializer.deserialize(data.value, "number", "double");
+
+    return res;
+  }
+
+  static serialize(
+    data: LogsAggregateBucketValueTimeseriesPoint
+  ): { [key: string]: any } {
+    const attributeTypes = LogsAggregateBucketValueTimeseriesPoint.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.time = ObjectSerializer.serialize(data.time, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsAggregateBucketValueTimeseriesPoint {
-      let res = new LogsAggregateBucketValueTimeseriesPoint();
+    res.value = ObjectSerializer.serialize(data.value, "number", "double");
 
-      res.time = ObjectSerializer.deserialize(data.time, "string", "")
+    return res;
+  }
 
-      res.value = ObjectSerializer.deserialize(data.value, "number", "double")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAggregateBucketValueTimeseriesPoint): {[key: string]: any} {
-        let attributeTypes = LogsAggregateBucketValueTimeseriesPoint.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.time = ObjectSerializer.serialize(data.time, "string", "")
-
-        res.value = ObjectSerializer.serialize(data.value, "number", "double")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,61 +8,70 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricCreateData } from './LogsMetricCreateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsMetricCreateData } from "./LogsMetricCreateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The new log-based metric body.
-*/
+ * The new log-based metric body.
+ */
 
 export class LogsMetricCreateRequest {
-    'data': LogsMetricCreateData;
+  "data": LogsMetricCreateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "LogsMetricCreateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "LogsMetricCreateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsMetricCreateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsMetricCreateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsMetricCreateRequest {
+    const res = new LogsMetricCreateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'LogsMetricCreateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "LogsMetricCreateData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsMetricCreateRequest {
-      let res = new LogsMetricCreateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'LogsMetricCreateRequest' object");
+  static serialize(data: LogsMetricCreateRequest): { [key: string]: any } {
+    const attributeTypes = LogsMetricCreateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "LogsMetricCreateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: LogsMetricCreateRequest): {[key: string]: any} {
-        let attributeTypes = LogsMetricCreateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'LogsMetricCreateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "LogsMetricCreateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'LogsMetricCreateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "LogsMetricCreateData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

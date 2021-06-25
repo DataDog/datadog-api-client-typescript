@@ -8,285 +8,418 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributes } from './IncidentFieldAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The incident's attributes from a response.
-*/
+ * The incident's attributes from a response.
+ */
 
 export class IncidentResponseAttributes {
-    /**
-    * Timestamp when the incident was created.
-    */
-    'created'?: Date;
-    /**
-    * Length of the incident's customer impact in seconds. Equals the difference between `customer_impact_start` and `customer_impact_end`.
-    */
-    'customerImpactDuration'?: number;
-    /**
-    * Timestamp when customers were no longer impacted by the incident.
-    */
-    'customerImpactEnd'?: Date;
-    /**
-    * A summary of the impact customers experienced during the incident.
-    */
-    'customerImpactScope'?: string;
-    /**
-    * Timestamp when customers began being impacted by the incident.
-    */
-    'customerImpactStart'?: Date;
-    /**
-    * A flag indicating whether the incident caused customer impact.
-    */
-    'customerImpacted'?: boolean;
-    /**
-    * Timestamp when the incident was detected.
-    */
-    'detected'?: Date;
-    /**
-    * A condensed view of the user-defined fields attached to incidents.
-    */
-    'fields'?: { [key: string]: IncidentFieldAttributes; };
-    /**
-    * Timestamp when the incident was last modified.
-    */
-    'modified'?: Date;
-    /**
-    * Notification handles that will be notified of the incident during update.
-    */
-    'notificationHandles'?: Array<string>;
-    /**
-    * The UUID of the postmortem object attached to the incident.
-    */
-    'postmortemId'?: string;
-    /**
-    * The monotonically increasing integer ID for the incident.
-    */
-    'publicId'?: number;
-    /**
-    * Timestamp when the incident's state was set to resolved.
-    */
-    'resolved'?: Date;
-    /**
-    * The amount of time in seconds to detect the incident. Equals the difference between `customer_impact_start` and `detected`.
-    */
-    'timeToDetect'?: number;
-    /**
-    * The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
-    */
-    'timeToInternalResponse'?: number;
-    /**
-    * The amount of time in seconds to resolve customer impact after detecting the issue. Equals the difference between `customer_impact_end` and `detected`.
-    */
-    'timeToRepair'?: number;
-    /**
-    * The amount of time in seconds to resolve the incident after it was created. Equals the difference between `created` and `resolved`.
-    */
-    'timeToResolve'?: number;
-    /**
-    * The title of the incident, which summarizes what happened.
-    */
-    'title': string;
+  /**
+   * Timestamp when the incident was created.
+   */
+  "created"?: Date;
+  /**
+   * Length of the incident's customer impact in seconds. Equals the difference between `customer_impact_start` and `customer_impact_end`.
+   */
+  "customerImpactDuration"?: number;
+  /**
+   * Timestamp when customers were no longer impacted by the incident.
+   */
+  "customerImpactEnd"?: Date;
+  /**
+   * A summary of the impact customers experienced during the incident.
+   */
+  "customerImpactScope"?: string;
+  /**
+   * Timestamp when customers began being impacted by the incident.
+   */
+  "customerImpactStart"?: Date;
+  /**
+   * A flag indicating whether the incident caused customer impact.
+   */
+  "customerImpacted"?: boolean;
+  /**
+   * Timestamp when the incident was detected.
+   */
+  "detected"?: Date;
+  /**
+   * A condensed view of the user-defined fields attached to incidents.
+   */
+  "fields"?: { [key: string]: IncidentFieldAttributes };
+  /**
+   * Timestamp when the incident was last modified.
+   */
+  "modified"?: Date;
+  /**
+   * Notification handles that will be notified of the incident during update.
+   */
+  "notificationHandles"?: Array<string>;
+  /**
+   * The UUID of the postmortem object attached to the incident.
+   */
+  "postmortemId"?: string;
+  /**
+   * The monotonically increasing integer ID for the incident.
+   */
+  "publicId"?: number;
+  /**
+   * Timestamp when the incident's state was set to resolved.
+   */
+  "resolved"?: Date;
+  /**
+   * The amount of time in seconds to detect the incident. Equals the difference between `customer_impact_start` and `detected`.
+   */
+  "timeToDetect"?: number;
+  /**
+   * The amount of time in seconds to call incident after detection. Equals the difference of `detected` and `created`.
+   */
+  "timeToInternalResponse"?: number;
+  /**
+   * The amount of time in seconds to resolve customer impact after detecting the issue. Equals the difference between `customer_impact_end` and `detected`.
+   */
+  "timeToRepair"?: number;
+  /**
+   * The amount of time in seconds to resolve the incident after it was created. Equals the difference between `created` and `resolved`.
+   */
+  "timeToResolve"?: number;
+  /**
+   * The title of the incident, which summarizes what happened.
+   */
+  "title": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "created": {
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "customerImpactDuration": {
-            "baseName": "customer_impact_duration",
-            "type": "number",
-            "format": "int64"
-        },
-        "customerImpactEnd": {
-            "baseName": "customer_impact_end",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "customerImpactScope": {
-            "baseName": "customer_impact_scope",
-            "type": "string",
-            "format": ""
-        },
-        "customerImpactStart": {
-            "baseName": "customer_impact_start",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "customerImpacted": {
-            "baseName": "customer_impacted",
-            "type": "boolean",
-            "format": ""
-        },
-        "detected": {
-            "baseName": "detected",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "fields": {
-            "baseName": "fields",
-            "type": "{ [key: string]: IncidentFieldAttributes; }",
-            "format": ""
-        },
-        "modified": {
-            "baseName": "modified",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "notificationHandles": {
-            "baseName": "notification_handles",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "postmortemId": {
-            "baseName": "postmortem_id",
-            "type": "string",
-            "format": ""
-        },
-        "publicId": {
-            "baseName": "public_id",
-            "type": "number",
-            "format": "int64"
-        },
-        "resolved": {
-            "baseName": "resolved",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "timeToDetect": {
-            "baseName": "time_to_detect",
-            "type": "number",
-            "format": "int64"
-        },
-        "timeToInternalResponse": {
-            "baseName": "time_to_internal_response",
-            "type": "number",
-            "format": "int64"
-        },
-        "timeToRepair": {
-            "baseName": "time_to_repair",
-            "type": "number",
-            "format": "int64"
-        },
-        "timeToResolve": {
-            "baseName": "time_to_resolve",
-            "type": "number",
-            "format": "int64"
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    created: {
+      baseName: "created",
+      type: "Date",
+      format: "date-time",
+    },
+    customerImpactDuration: {
+      baseName: "customer_impact_duration",
+      type: "number",
+      format: "int64",
+    },
+    customerImpactEnd: {
+      baseName: "customer_impact_end",
+      type: "Date",
+      format: "date-time",
+    },
+    customerImpactScope: {
+      baseName: "customer_impact_scope",
+      type: "string",
+      format: "",
+    },
+    customerImpactStart: {
+      baseName: "customer_impact_start",
+      type: "Date",
+      format: "date-time",
+    },
+    customerImpacted: {
+      baseName: "customer_impacted",
+      type: "boolean",
+      format: "",
+    },
+    detected: {
+      baseName: "detected",
+      type: "Date",
+      format: "date-time",
+    },
+    fields: {
+      baseName: "fields",
+      type: "{ [key: string]: IncidentFieldAttributes; }",
+      format: "",
+    },
+    modified: {
+      baseName: "modified",
+      type: "Date",
+      format: "date-time",
+    },
+    notificationHandles: {
+      baseName: "notification_handles",
+      type: "Array<string>",
+      format: "",
+    },
+    postmortemId: {
+      baseName: "postmortem_id",
+      type: "string",
+      format: "",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "number",
+      format: "int64",
+    },
+    resolved: {
+      baseName: "resolved",
+      type: "Date",
+      format: "date-time",
+    },
+    timeToDetect: {
+      baseName: "time_to_detect",
+      type: "number",
+      format: "int64",
+    },
+    timeToInternalResponse: {
+      baseName: "time_to_internal_response",
+      type: "number",
+      format: "int64",
+    },
+    timeToRepair: {
+      baseName: "time_to_repair",
+      type: "number",
+      format: "int64",
+    },
+    timeToResolve: {
+      baseName: "time_to_resolve",
+      type: "number",
+      format: "int64",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentResponseAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentResponseAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): IncidentResponseAttributes {
+    const res = new IncidentResponseAttributes();
+
+    res.created = ObjectSerializer.deserialize(
+      data.created,
+      "Date",
+      "date-time"
+    );
+
+    res.customerImpactDuration = ObjectSerializer.deserialize(
+      data.customer_impact_duration,
+      "number",
+      "int64"
+    );
+
+    res.customerImpactEnd = ObjectSerializer.deserialize(
+      data.customer_impact_end,
+      "Date",
+      "date-time"
+    );
+
+    res.customerImpactScope = ObjectSerializer.deserialize(
+      data.customer_impact_scope,
+      "string",
+      ""
+    );
+
+    res.customerImpactStart = ObjectSerializer.deserialize(
+      data.customer_impact_start,
+      "Date",
+      "date-time"
+    );
+
+    res.customerImpacted = ObjectSerializer.deserialize(
+      data.customer_impacted,
+      "boolean",
+      ""
+    );
+
+    res.detected = ObjectSerializer.deserialize(
+      data.detected,
+      "Date",
+      "date-time"
+    );
+
+    res.fields = ObjectSerializer.deserialize(
+      data.fields,
+      "{ [key: string]: IncidentFieldAttributes; }",
+      ""
+    );
+
+    res.modified = ObjectSerializer.deserialize(
+      data.modified,
+      "Date",
+      "date-time"
+    );
+
+    res.notificationHandles = ObjectSerializer.deserialize(
+      data.notification_handles,
+      "Array<string>",
+      ""
+    );
+
+    res.postmortemId = ObjectSerializer.deserialize(
+      data.postmortem_id,
+      "string",
+      ""
+    );
+
+    res.publicId = ObjectSerializer.deserialize(
+      data.public_id,
+      "number",
+      "int64"
+    );
+
+    res.resolved = ObjectSerializer.deserialize(
+      data.resolved,
+      "Date",
+      "date-time"
+    );
+
+    res.timeToDetect = ObjectSerializer.deserialize(
+      data.time_to_detect,
+      "number",
+      "int64"
+    );
+
+    res.timeToInternalResponse = ObjectSerializer.deserialize(
+      data.time_to_internal_response,
+      "number",
+      "int64"
+    );
+
+    res.timeToRepair = ObjectSerializer.deserialize(
+      data.time_to_repair,
+      "number",
+      "int64"
+    );
+
+    res.timeToResolve = ObjectSerializer.deserialize(
+      data.time_to_resolve,
+      "number",
+      "int64"
+    );
+
+    if (data.title === undefined) {
+      throw new TypeError(
+        "missing required attribute 'title' on 'IncidentResponseAttributes' object"
+      );
     }
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
 
-    static deserialize(data: {[key: string]: any}): IncidentResponseAttributes {
-      let res = new IncidentResponseAttributes();
+    return res;
+  }
 
-      res.created = ObjectSerializer.deserialize(data.created, "Date", "date-time")
-
-      res.customerImpactDuration = ObjectSerializer.deserialize(data.customer_impact_duration, "number", "int64")
-
-      res.customerImpactEnd = ObjectSerializer.deserialize(data.customer_impact_end, "Date", "date-time")
-
-      res.customerImpactScope = ObjectSerializer.deserialize(data.customer_impact_scope, "string", "")
-
-      res.customerImpactStart = ObjectSerializer.deserialize(data.customer_impact_start, "Date", "date-time")
-
-      res.customerImpacted = ObjectSerializer.deserialize(data.customer_impacted, "boolean", "")
-
-      res.detected = ObjectSerializer.deserialize(data.detected, "Date", "date-time")
-
-      res.fields = ObjectSerializer.deserialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
-
-      res.modified = ObjectSerializer.deserialize(data.modified, "Date", "date-time")
-
-      res.notificationHandles = ObjectSerializer.deserialize(data.notification_handles, "Array<string>", "")
-
-      res.postmortemId = ObjectSerializer.deserialize(data.postmortem_id, "string", "")
-
-      res.publicId = ObjectSerializer.deserialize(data.public_id, "number", "int64")
-
-      res.resolved = ObjectSerializer.deserialize(data.resolved, "Date", "date-time")
-
-      res.timeToDetect = ObjectSerializer.deserialize(data.time_to_detect, "number", "int64")
-
-      res.timeToInternalResponse = ObjectSerializer.deserialize(data.time_to_internal_response, "number", "int64")
-
-      res.timeToRepair = ObjectSerializer.deserialize(data.time_to_repair, "number", "int64")
-
-      res.timeToResolve = ObjectSerializer.deserialize(data.time_to_resolve, "number", "int64")
-
-      if (data.title === undefined) {
-          throw new TypeError("missing required attribute 'title' on 'IncidentResponseAttributes' object");
+  static serialize(data: IncidentResponseAttributes): { [key: string]: any } {
+    const attributeTypes = IncidentResponseAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-
-      return res;
     }
+    res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
 
-    static serialize(data: IncidentResponseAttributes): {[key: string]: any} {
-        let attributeTypes = IncidentResponseAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.created = ObjectSerializer.serialize(data.created, "Date", "date-time")
+    res.customer_impact_duration = ObjectSerializer.serialize(
+      data.customerImpactDuration,
+      "number",
+      "int64"
+    );
 
-        res.customer_impact_duration = ObjectSerializer.serialize(data.customerImpactDuration, "number", "int64")
+    res.customer_impact_end = ObjectSerializer.serialize(
+      data.customerImpactEnd,
+      "Date",
+      "date-time"
+    );
 
-        res.customer_impact_end = ObjectSerializer.serialize(data.customerImpactEnd, "Date", "date-time")
+    res.customer_impact_scope = ObjectSerializer.serialize(
+      data.customerImpactScope,
+      "string",
+      ""
+    );
 
-        res.customer_impact_scope = ObjectSerializer.serialize(data.customerImpactScope, "string", "")
+    res.customer_impact_start = ObjectSerializer.serialize(
+      data.customerImpactStart,
+      "Date",
+      "date-time"
+    );
 
-        res.customer_impact_start = ObjectSerializer.serialize(data.customerImpactStart, "Date", "date-time")
+    res.customer_impacted = ObjectSerializer.serialize(
+      data.customerImpacted,
+      "boolean",
+      ""
+    );
 
-        res.customer_impacted = ObjectSerializer.serialize(data.customerImpacted, "boolean", "")
+    res.detected = ObjectSerializer.serialize(
+      data.detected,
+      "Date",
+      "date-time"
+    );
 
-        res.detected = ObjectSerializer.serialize(data.detected, "Date", "date-time")
+    res.fields = ObjectSerializer.serialize(
+      data.fields,
+      "{ [key: string]: IncidentFieldAttributes; }",
+      ""
+    );
 
-        res.fields = ObjectSerializer.serialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
+    res.modified = ObjectSerializer.serialize(
+      data.modified,
+      "Date",
+      "date-time"
+    );
 
-        res.modified = ObjectSerializer.serialize(data.modified, "Date", "date-time")
+    res.notification_handles = ObjectSerializer.serialize(
+      data.notificationHandles,
+      "Array<string>",
+      ""
+    );
 
-        res.notification_handles = ObjectSerializer.serialize(data.notificationHandles, "Array<string>", "")
+    res.postmortem_id = ObjectSerializer.serialize(
+      data.postmortemId,
+      "string",
+      ""
+    );
 
-        res.postmortem_id = ObjectSerializer.serialize(data.postmortemId, "string", "")
+    res.public_id = ObjectSerializer.serialize(
+      data.publicId,
+      "number",
+      "int64"
+    );
 
-        res.public_id = ObjectSerializer.serialize(data.publicId, "number", "int64")
+    res.resolved = ObjectSerializer.serialize(
+      data.resolved,
+      "Date",
+      "date-time"
+    );
 
-        res.resolved = ObjectSerializer.serialize(data.resolved, "Date", "date-time")
+    res.time_to_detect = ObjectSerializer.serialize(
+      data.timeToDetect,
+      "number",
+      "int64"
+    );
 
-        res.time_to_detect = ObjectSerializer.serialize(data.timeToDetect, "number", "int64")
+    res.time_to_internal_response = ObjectSerializer.serialize(
+      data.timeToInternalResponse,
+      "number",
+      "int64"
+    );
 
-        res.time_to_internal_response = ObjectSerializer.serialize(data.timeToInternalResponse, "number", "int64")
+    res.time_to_repair = ObjectSerializer.serialize(
+      data.timeToRepair,
+      "number",
+      "int64"
+    );
 
-        res.time_to_repair = ObjectSerializer.serialize(data.timeToRepair, "number", "int64")
+    res.time_to_resolve = ObjectSerializer.serialize(
+      data.timeToResolve,
+      "number",
+      "int64"
+    );
 
-        res.time_to_resolve = ObjectSerializer.serialize(data.timeToResolve, "number", "int64")
-
-        if (data.title === undefined) {
-            throw new TypeError("missing required attribute 'title' on 'IncidentResponseAttributes' object");
-        }
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        return res
+    if (data.title === undefined) {
+      throw new TypeError(
+        "missing required attribute 'title' on 'IncidentResponseAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

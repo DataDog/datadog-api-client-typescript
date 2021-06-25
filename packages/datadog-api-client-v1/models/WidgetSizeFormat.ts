@@ -8,16 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Size of the widget.
-*/
-
-export type WidgetSizeFormat = typeof SMALL | typeof MEDIUM | typeof LARGE ;
-export const SMALL = 'small';
-export const MEDIUM = 'medium';
-export const LARGE = 'large';
-
-
+export type WidgetSizeFormat = typeof SMALL | typeof MEDIUM | typeof LARGE;
+export const SMALL = "small";
+export const MEDIUM = "medium";
+export const LARGE = "large";

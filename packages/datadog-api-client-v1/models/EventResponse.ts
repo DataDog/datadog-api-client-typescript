@@ -8,68 +8,65 @@
  * Do not edit the class manually.
  */
 
-import { Event } from './Event';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Event } from "./Event";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing an event response.
-*/
+ * Object containing an event response.
+ */
 
 export class EventResponse {
-    'event'?: Event;
-    /**
-    * A status.
-    */
-    'status'?: string;
+  "event"?: Event;
+  /**
+   * A status.
+   */
+  "status"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "event": {
-            "baseName": "event",
-            "type": "Event",
-            "format": ""
-        },
-        "status": {
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    event: {
+      baseName: "event",
+      type: "Event",
+      format: "",
+    },
+    status: {
+      baseName: "status",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return EventResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return EventResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): EventResponse {
+    const res = new EventResponse();
+
+    res.event = ObjectSerializer.deserialize(data.event, "Event", "");
+
+    res.status = ObjectSerializer.deserialize(data.status, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: EventResponse): { [key: string]: any } {
+    const attributeTypes = EventResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.event = ObjectSerializer.serialize(data.event, "Event", "");
 
-    static deserialize(data: {[key: string]: any}): EventResponse {
-      let res = new EventResponse();
+    res.status = ObjectSerializer.serialize(data.status, "string", "");
 
-      res.event = ObjectSerializer.deserialize(data.event, "Event", "")
+    return res;
+  }
 
-      res.status = ObjectSerializer.deserialize(data.status, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: EventResponse): {[key: string]: any} {
-        let attributeTypes = EventResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.event = ObjectSerializer.serialize(data.event, "Event", "")
-
-        res.status = ObjectSerializer.serialize(data.status, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

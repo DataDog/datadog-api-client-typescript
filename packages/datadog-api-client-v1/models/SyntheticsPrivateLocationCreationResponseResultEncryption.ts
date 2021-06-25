@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Public key for the result encryption.
-*/
+ * Public key for the result encryption.
+ */
 
 export class SyntheticsPrivateLocationCreationResponseResultEncryption {
-    /**
-    * Fingerprint for the encryption key.
-    */
-    'id'?: string;
-    /**
-    * Public key for result encryption.
-    */
-    'key'?: string;
+  /**
+   * Fingerprint for the encryption key.
+   */
+  "id"?: string;
+  /**
+   * Public key for result encryption.
+   */
+  "key"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "key": {
-            "baseName": "key",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    key: {
+      baseName: "key",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsPrivateLocationCreationResponseResultEncryption {
+    const res = new SyntheticsPrivateLocationCreationResponseResultEncryption();
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    res.key = ObjectSerializer.deserialize(data.key, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsPrivateLocationCreationResponseResultEncryption
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsPrivateLocationCreationResponseResultEncryption.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsPrivateLocationCreationResponseResultEncryption {
-      let res = new SyntheticsPrivateLocationCreationResponseResultEncryption();
+    res.key = ObjectSerializer.serialize(data.key, "string", "");
 
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+    return res;
+  }
 
-      res.key = ObjectSerializer.deserialize(data.key, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsPrivateLocationCreationResponseResultEncryption): {[key: string]: any} {
-        let attributeTypes = SyntheticsPrivateLocationCreationResponseResultEncryption.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        res.key = ObjectSerializer.serialize(data.key, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

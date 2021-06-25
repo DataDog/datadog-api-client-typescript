@@ -8,122 +8,127 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The response containing attributes for specified custom reports.
-*/
+ * The response containing attributes for specified custom reports.
+ */
 
 export class UsageSpecifiedCustomReportsAttributes {
-    /**
-    * The date the specified custom report was computed.
-    */
-    'computedOn'?: string;
-    /**
-    * The ending date of specified custom report.
-    */
-    'endDate'?: string;
-    /**
-    * A downloadable file for the specified custom reporting file.
-    */
-    'location'?: string;
-    /**
-    * size
-    */
-    'size'?: number;
-    /**
-    * The starting date of specified custom report.
-    */
-    'startDate'?: string;
-    /**
-    * A list of tags to apply to specified custom reports.
-    */
-    'tags'?: Array<string>;
+  /**
+   * The date the specified custom report was computed.
+   */
+  "computedOn"?: string;
+  /**
+   * The ending date of specified custom report.
+   */
+  "endDate"?: string;
+  /**
+   * A downloadable file for the specified custom reporting file.
+   */
+  "location"?: string;
+  /**
+   * size
+   */
+  "size"?: number;
+  /**
+   * The starting date of specified custom report.
+   */
+  "startDate"?: string;
+  /**
+   * A list of tags to apply to specified custom reports.
+   */
+  "tags"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "computedOn": {
-            "baseName": "computed_on",
-            "type": "string",
-            "format": ""
-        },
-        "endDate": {
-            "baseName": "end_date",
-            "type": "string",
-            "format": ""
-        },
-        "location": {
-            "baseName": "location",
-            "type": "string",
-            "format": ""
-        },
-        "size": {
-            "baseName": "size",
-            "type": "number",
-            "format": "int64"
-        },
-        "startDate": {
-            "baseName": "start_date",
-            "type": "string",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    computedOn: {
+      baseName: "computed_on",
+      type: "string",
+      format: "",
+    },
+    endDate: {
+      baseName: "end_date",
+      type: "string",
+      format: "",
+    },
+    location: {
+      baseName: "location",
+      type: "string",
+      format: "",
+    },
+    size: {
+      baseName: "size",
+      type: "number",
+      format: "int64",
+    },
+    startDate: {
+      baseName: "start_date",
+      type: "string",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageSpecifiedCustomReportsAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageSpecifiedCustomReportsAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UsageSpecifiedCustomReportsAttributes {
+    const res = new UsageSpecifiedCustomReportsAttributes();
+
+    res.computedOn = ObjectSerializer.deserialize(
+      data.computed_on,
+      "string",
+      ""
+    );
+
+    res.endDate = ObjectSerializer.deserialize(data.end_date, "string", "");
+
+    res.location = ObjectSerializer.deserialize(data.location, "string", "");
+
+    res.size = ObjectSerializer.deserialize(data.size, "number", "int64");
+
+    res.startDate = ObjectSerializer.deserialize(data.start_date, "string", "");
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: UsageSpecifiedCustomReportsAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = UsageSpecifiedCustomReportsAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.computed_on = ObjectSerializer.serialize(data.computedOn, "string", "");
 
-    static deserialize(data: {[key: string]: any}): UsageSpecifiedCustomReportsAttributes {
-      let res = new UsageSpecifiedCustomReportsAttributes();
+    res.end_date = ObjectSerializer.serialize(data.endDate, "string", "");
 
-      res.computedOn = ObjectSerializer.deserialize(data.computed_on, "string", "")
+    res.location = ObjectSerializer.serialize(data.location, "string", "");
 
-      res.endDate = ObjectSerializer.deserialize(data.end_date, "string", "")
+    res.size = ObjectSerializer.serialize(data.size, "number", "int64");
 
-      res.location = ObjectSerializer.deserialize(data.location, "string", "")
+    res.start_date = ObjectSerializer.serialize(data.startDate, "string", "");
 
-      res.size = ObjectSerializer.deserialize(data.size, "number", "int64")
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 
-      res.startDate = ObjectSerializer.deserialize(data.start_date, "string", "")
+    return res;
+  }
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageSpecifiedCustomReportsAttributes): {[key: string]: any} {
-        let attributeTypes = UsageSpecifiedCustomReportsAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.computed_on = ObjectSerializer.serialize(data.computedOn, "string", "")
-
-        res.end_date = ObjectSerializer.serialize(data.endDate, "string", "")
-
-        res.location = ObjectSerializer.serialize(data.location, "string", "")
-
-        res.size = ObjectSerializer.serialize(data.size, "number", "int64")
-
-        res.start_date = ObjectSerializer.serialize(data.startDate, "string", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

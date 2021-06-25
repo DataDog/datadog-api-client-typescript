@@ -8,129 +8,146 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterExclusionFilter } from './SecurityFilterExclusionFilter';
-import { SecurityFilterFilteredDataType } from './SecurityFilterFilteredDataType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityFilterExclusionFilter } from "./SecurityFilterExclusionFilter";
+import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The security filters properties to be updated.
-*/
+ * The security filters properties to be updated.
+ */
 
 export class SecurityFilterUpdateAttributes {
-    /**
-    * Exclusion filters to exclude some logs from the security filter.
-    */
-    'exclusionFilters'?: Array<SecurityFilterExclusionFilter>;
-    'filteredDataType'?: SecurityFilterFilteredDataType;
-    /**
-    * Whether the security filter is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * The name of the security filter.
-    */
-    'name'?: string;
-    /**
-    * The query of the security filter.
-    */
-    'query'?: string;
-    /**
-    * The version of the security filter to update.
-    */
-    'version'?: number;
+  /**
+   * Exclusion filters to exclude some logs from the security filter.
+   */
+  "exclusionFilters"?: Array<SecurityFilterExclusionFilter>;
+  "filteredDataType"?: SecurityFilterFilteredDataType;
+  /**
+   * Whether the security filter is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * The name of the security filter.
+   */
+  "name"?: string;
+  /**
+   * The query of the security filter.
+   */
+  "query"?: string;
+  /**
+   * The version of the security filter to update.
+   */
+  "version"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "exclusionFilters": {
-            "baseName": "exclusion_filters",
-            "type": "Array<SecurityFilterExclusionFilter>",
-            "format": ""
-        },
-        "filteredDataType": {
-            "baseName": "filtered_data_type",
-            "type": "SecurityFilterFilteredDataType",
-            "format": ""
-        },
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        },
-        "version": {
-            "baseName": "version",
-            "type": "number",
-            "format": "int32"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    exclusionFilters: {
+      baseName: "exclusion_filters",
+      type: "Array<SecurityFilterExclusionFilter>",
+      format: "",
+    },
+    filteredDataType: {
+      baseName: "filtered_data_type",
+      type: "SecurityFilterFilteredDataType",
+      format: "",
+    },
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int32",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityFilterUpdateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityFilterUpdateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityFilterUpdateAttributes {
+    const res = new SecurityFilterUpdateAttributes();
+
+    res.exclusionFilters = ObjectSerializer.deserialize(
+      data.exclusion_filters,
+      "Array<SecurityFilterExclusionFilter>",
+      ""
+    );
+
+    if (["logs", undefined].includes(data.filtered_data_type)) {
+      res.filteredDataType = data.filtered_data_type;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.filtered_data_type} for filtered_data_type`
+      );
     }
 
-    static deserialize(data: {[key: string]: any}): SecurityFilterUpdateAttributes {
-      let res = new SecurityFilterUpdateAttributes();
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
 
-      res.exclusionFilters = ObjectSerializer.deserialize(data.exclusion_filters, "Array<SecurityFilterExclusionFilter>", "")
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-      if (['logs', undefined].includes(data.filtered_data_type)) {
-          res.filteredDataType = data.filtered_data_type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.filtered_data_type } for filtered_data_type`);
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
+
+    res.version = ObjectSerializer.deserialize(data.version, "number", "int32");
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityFilterUpdateAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityFilterUpdateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.exclusion_filters = ObjectSerializer.serialize(
+      data.exclusionFilters,
+      "Array<SecurityFilterExclusionFilter>",
+      ""
+    );
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
-
-      res.version = ObjectSerializer.deserialize(data.version, "number", "int32")
-
-
-      return res;
+    if (["logs", undefined].includes(data.filteredDataType)) {
+      res.filtered_data_type = data.filteredDataType;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.filteredDataType} for filteredDataType`
+      );
     }
 
-    static serialize(data: SecurityFilterUpdateAttributes): {[key: string]: any} {
-        let attributeTypes = SecurityFilterUpdateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.exclusion_filters = ObjectSerializer.serialize(data.exclusionFilters, "Array<SecurityFilterExclusionFilter>", "")
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-        if (['logs', undefined].includes(data.filteredDataType)) {
-            res.filtered_data_type = data.filteredDataType;
-        } else {
-            throw TypeError(`invalid enum value ${ data.filteredDataType } for filteredDataType`);
-        }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
 
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
+    res.version = ObjectSerializer.serialize(data.version, "number", "int32");
 
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
+    return res;
+  }
 
-        res.version = ObjectSerializer.serialize(data.version, "number", "int32")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

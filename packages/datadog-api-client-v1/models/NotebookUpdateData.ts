@@ -8,86 +8,99 @@
  * Do not edit the class manually.
  */
 
-import { NotebookResourceType } from './NotebookResourceType';
-import { NotebookUpdateDataAttributes } from './NotebookUpdateDataAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookResourceType } from "./NotebookResourceType";
+import { NotebookUpdateDataAttributes } from "./NotebookUpdateDataAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The data for a notebook update request.
-*/
+ * The data for a notebook update request.
+ */
 
 export class NotebookUpdateData {
-    'attributes': NotebookUpdateDataAttributes;
-    'type': NotebookResourceType;
+  "attributes": NotebookUpdateDataAttributes;
+  "type": NotebookResourceType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "NotebookUpdateDataAttributes",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "NotebookResourceType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "NotebookUpdateDataAttributes",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "NotebookResourceType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookUpdateData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookUpdateData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebookUpdateData {
+    const res = new NotebookUpdateData();
+
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'NotebookUpdateData' object"
+      );
+    }
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "NotebookUpdateDataAttributes",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'NotebookUpdateData' object"
+      );
+    }
+    if (["notebooks", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): NotebookUpdateData {
-      let res = new NotebookUpdateData();
+    return res;
+  }
 
-      if (data.attributes === undefined) {
-          throw new TypeError("missing required attribute 'attributes' on 'NotebookUpdateData' object");
+  static serialize(data: NotebookUpdateData): { [key: string]: any } {
+    const attributeTypes = NotebookUpdateData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "NotebookUpdateDataAttributes", "")
+    }
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'NotebookUpdateData' object"
+      );
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "NotebookUpdateDataAttributes",
+      ""
+    );
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'NotebookUpdateData' object");
-      }
-      if (['notebooks', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'NotebookUpdateData' object"
+      );
+    }
+    if (["notebooks", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: NotebookUpdateData): {[key: string]: any} {
-        let attributeTypes = NotebookUpdateData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.attributes === undefined) {
-            throw new TypeError("missing required attribute 'attributes' on 'NotebookUpdateData' object");
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "NotebookUpdateDataAttributes", "")
+    return res;
+  }
 
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'NotebookUpdateData' object");
-        }
-        if (['notebooks', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

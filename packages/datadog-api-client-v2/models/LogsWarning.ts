@@ -8,83 +8,80 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A warning message indicating something that went wrong with the query
-*/
+ * A warning message indicating something that went wrong with the query
+ */
 
 export class LogsWarning {
-    /**
-    * A unique code for this type of warning
-    */
-    'code'?: string;
-    /**
-    * A detailed explanation of this specific warning
-    */
-    'detail'?: string;
-    /**
-    * A short human-readable summary of the warning
-    */
-    'title'?: string;
+  /**
+   * A unique code for this type of warning
+   */
+  "code"?: string;
+  /**
+   * A detailed explanation of this specific warning
+   */
+  "detail"?: string;
+  /**
+   * A short human-readable summary of the warning
+   */
+  "title"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "code": {
-            "baseName": "code",
-            "type": "string",
-            "format": ""
-        },
-        "detail": {
-            "baseName": "detail",
-            "type": "string",
-            "format": ""
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    code: {
+      baseName: "code",
+      type: "string",
+      format: "",
+    },
+    detail: {
+      baseName: "detail",
+      type: "string",
+      format: "",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsWarning.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsWarning.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsWarning {
+    const res = new LogsWarning();
+
+    res.code = ObjectSerializer.deserialize(data.code, "string", "");
+
+    res.detail = ObjectSerializer.deserialize(data.detail, "string", "");
+
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: LogsWarning): { [key: string]: any } {
+    const attributeTypes = LogsWarning.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.code = ObjectSerializer.serialize(data.code, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsWarning {
-      let res = new LogsWarning();
+    res.detail = ObjectSerializer.serialize(data.detail, "string", "");
 
-      res.code = ObjectSerializer.deserialize(data.code, "string", "")
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
 
-      res.detail = ObjectSerializer.deserialize(data.detail, "string", "")
+    return res;
+  }
 
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsWarning): {[key: string]: any} {
-        let attributeTypes = LogsWarning.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.code = ObjectSerializer.serialize(data.code, "string", "")
-
-        res.detail = ObjectSerializer.serialize(data.detail, "string", "")
-
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

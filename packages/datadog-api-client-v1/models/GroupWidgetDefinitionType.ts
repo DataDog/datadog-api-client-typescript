@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the group widget.
-*/
-
-export type GroupWidgetDefinitionType = typeof GROUP ;
-export const GROUP = 'group';
-
-
+export type GroupWidgetDefinitionType = typeof GROUP;
+export const GROUP = "group";

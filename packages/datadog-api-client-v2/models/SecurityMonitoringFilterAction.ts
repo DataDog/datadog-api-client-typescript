@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The type of filtering action.
-*/
-
-export type SecurityMonitoringFilterAction = typeof REQUIRE | typeof SUPPRESS ;
-export const REQUIRE = 'require';
-export const SUPPRESS = 'suppress';
-
-
+export type SecurityMonitoringFilterAction = typeof REQUIRE | typeof SUPPRESS;
+export const REQUIRE = "require";
+export const SUPPRESS = "suppress";

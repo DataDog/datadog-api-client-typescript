@@ -8,241 +8,320 @@
  * Do not edit the class manually.
  */
 
-import { HTTPMethod } from './HTTPMethod';
-import { SyntheticsBasicAuth } from './SyntheticsBasicAuth';
-import { SyntheticsTestRequestCertificate } from './SyntheticsTestRequestCertificate';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { HTTPMethod } from "./HTTPMethod";
+import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the Synthetic test request.
-*/
+ * Object describing the Synthetic test request.
+ */
 
 export class SyntheticsTestRequest {
-    'basicAuth'?: SyntheticsBasicAuth;
-    /**
-    * Body to include in the test.
-    */
-    'body'?: string;
-    'certificate'?: SyntheticsTestRequestCertificate;
-    /**
-    * DNS server to use for DNS tests.
-    */
-    'dnsServer'?: string;
-    /**
-    * DNS server port to use for DNS tests.
-    */
-    'dnsServerPort'?: number;
-    /**
-    * Headers to include when performing the test.
-    */
-    'headers'?: { [key: string]: string; };
-    /**
-    * Host name to perform the test with.
-    */
-    'host'?: string;
-    'method'?: HTTPMethod;
-    /**
-    * Determines whether or not to save the response body.
-    */
-    'noSavingResponseBody'?: boolean;
-    /**
-    * Number of pings to use per test.
-    */
-    'numberOfPackets'?: number;
-    /**
-    * Port to use when performing the test.
-    */
-    'port'?: number;
-    /**
-    * Query to use for the test.
-    */
-    'query'?: any;
-    /**
-    * Turns on a traceroute probe to discover all gateways along the path to the host destination.
-    */
-    'shouldTrackHops'?: boolean;
-    /**
-    * Timeout in seconds for the test.
-    */
-    'timeout'?: number;
-    /**
-    * URL to perform the test with.
-    */
-    'url'?: string;
+  "basicAuth"?: SyntheticsBasicAuth;
+  /**
+   * Body to include in the test.
+   */
+  "body"?: string;
+  "certificate"?: SyntheticsTestRequestCertificate;
+  /**
+   * DNS server to use for DNS tests.
+   */
+  "dnsServer"?: string;
+  /**
+   * DNS server port to use for DNS tests.
+   */
+  "dnsServerPort"?: number;
+  /**
+   * Headers to include when performing the test.
+   */
+  "headers"?: { [key: string]: string };
+  /**
+   * Host name to perform the test with.
+   */
+  "host"?: string;
+  "method"?: HTTPMethod;
+  /**
+   * Determines whether or not to save the response body.
+   */
+  "noSavingResponseBody"?: boolean;
+  /**
+   * Number of pings to use per test.
+   */
+  "numberOfPackets"?: number;
+  /**
+   * Port to use when performing the test.
+   */
+  "port"?: number;
+  /**
+   * Query to use for the test.
+   */
+  "query"?: any;
+  /**
+   * Turns on a traceroute probe to discover all gateways along the path to the host destination.
+   */
+  "shouldTrackHops"?: boolean;
+  /**
+   * Timeout in seconds for the test.
+   */
+  "timeout"?: number;
+  /**
+   * URL to perform the test with.
+   */
+  "url"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "basicAuth": {
-            "baseName": "basicAuth",
-            "type": "SyntheticsBasicAuth",
-            "format": ""
-        },
-        "body": {
-            "baseName": "body",
-            "type": "string",
-            "format": ""
-        },
-        "certificate": {
-            "baseName": "certificate",
-            "type": "SyntheticsTestRequestCertificate",
-            "format": ""
-        },
-        "dnsServer": {
-            "baseName": "dnsServer",
-            "type": "string",
-            "format": ""
-        },
-        "dnsServerPort": {
-            "baseName": "dnsServerPort",
-            "type": "number",
-            "format": "int32"
-        },
-        "headers": {
-            "baseName": "headers",
-            "type": "{ [key: string]: string; }",
-            "format": ""
-        },
-        "host": {
-            "baseName": "host",
-            "type": "string",
-            "format": ""
-        },
-        "method": {
-            "baseName": "method",
-            "type": "HTTPMethod",
-            "format": ""
-        },
-        "noSavingResponseBody": {
-            "baseName": "noSavingResponseBody",
-            "type": "boolean",
-            "format": ""
-        },
-        "numberOfPackets": {
-            "baseName": "numberOfPackets",
-            "type": "number",
-            "format": "int32"
-        },
-        "port": {
-            "baseName": "port",
-            "type": "number",
-            "format": "int64"
-        },
-        "query": {
-            "baseName": "query",
-            "type": "any",
-            "format": ""
-        },
-        "shouldTrackHops": {
-            "baseName": "shouldTrackHops",
-            "type": "boolean",
-            "format": ""
-        },
-        "timeout": {
-            "baseName": "timeout",
-            "type": "number",
-            "format": "double"
-        },
-        "url": {
-            "baseName": "url",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    basicAuth: {
+      baseName: "basicAuth",
+      type: "SyntheticsBasicAuth",
+      format: "",
+    },
+    body: {
+      baseName: "body",
+      type: "string",
+      format: "",
+    },
+    certificate: {
+      baseName: "certificate",
+      type: "SyntheticsTestRequestCertificate",
+      format: "",
+    },
+    dnsServer: {
+      baseName: "dnsServer",
+      type: "string",
+      format: "",
+    },
+    dnsServerPort: {
+      baseName: "dnsServerPort",
+      type: "number",
+      format: "int32",
+    },
+    headers: {
+      baseName: "headers",
+      type: "{ [key: string]: string; }",
+      format: "",
+    },
+    host: {
+      baseName: "host",
+      type: "string",
+      format: "",
+    },
+    method: {
+      baseName: "method",
+      type: "HTTPMethod",
+      format: "",
+    },
+    noSavingResponseBody: {
+      baseName: "noSavingResponseBody",
+      type: "boolean",
+      format: "",
+    },
+    numberOfPackets: {
+      baseName: "numberOfPackets",
+      type: "number",
+      format: "int32",
+    },
+    port: {
+      baseName: "port",
+      type: "number",
+      format: "int64",
+    },
+    query: {
+      baseName: "query",
+      type: "any",
+      format: "",
+    },
+    shouldTrackHops: {
+      baseName: "shouldTrackHops",
+      type: "boolean",
+      format: "",
+    },
+    timeout: {
+      baseName: "timeout",
+      type: "number",
+      format: "double",
+    },
+    url: {
+      baseName: "url",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTestRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTestRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsTestRequest {
+    const res = new SyntheticsTestRequest();
+
+    res.basicAuth = ObjectSerializer.deserialize(
+      data.basicAuth,
+      "SyntheticsBasicAuth",
+      ""
+    );
+
+    res.body = ObjectSerializer.deserialize(data.body, "string", "");
+
+    res.certificate = ObjectSerializer.deserialize(
+      data.certificate,
+      "SyntheticsTestRequestCertificate",
+      ""
+    );
+
+    res.dnsServer = ObjectSerializer.deserialize(data.dnsServer, "string", "");
+
+    res.dnsServerPort = ObjectSerializer.deserialize(
+      data.dnsServerPort,
+      "number",
+      "int32"
+    );
+
+    res.headers = ObjectSerializer.deserialize(
+      data.headers,
+      "{ [key: string]: string; }",
+      ""
+    );
+
+    res.host = ObjectSerializer.deserialize(data.host, "string", "");
+
+    if (
+      [
+        "GET",
+        "POST",
+        "PATCH",
+        "PUT",
+        "DELETE",
+        "HEAD",
+        "OPTIONS",
+        undefined,
+      ].includes(data.method)
+    ) {
+      res.method = data.method;
+    } else {
+      throw TypeError(`invalid enum value ${data.method} for method`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTestRequest {
-      let res = new SyntheticsTestRequest();
+    res.noSavingResponseBody = ObjectSerializer.deserialize(
+      data.noSavingResponseBody,
+      "boolean",
+      ""
+    );
 
-      res.basicAuth = ObjectSerializer.deserialize(data.basicAuth, "SyntheticsBasicAuth", "")
+    res.numberOfPackets = ObjectSerializer.deserialize(
+      data.numberOfPackets,
+      "number",
+      "int32"
+    );
 
-      res.body = ObjectSerializer.deserialize(data.body, "string", "")
+    res.port = ObjectSerializer.deserialize(data.port, "number", "int64");
 
-      res.certificate = ObjectSerializer.deserialize(data.certificate, "SyntheticsTestRequestCertificate", "")
+    res.query = ObjectSerializer.deserialize(data.query, "any", "");
 
-      res.dnsServer = ObjectSerializer.deserialize(data.dnsServer, "string", "")
+    res.shouldTrackHops = ObjectSerializer.deserialize(
+      data.shouldTrackHops,
+      "boolean",
+      ""
+    );
 
-      res.dnsServerPort = ObjectSerializer.deserialize(data.dnsServerPort, "number", "int32")
+    res.timeout = ObjectSerializer.deserialize(
+      data.timeout,
+      "number",
+      "double"
+    );
 
-      res.headers = ObjectSerializer.deserialize(data.headers, "{ [key: string]: string; }", "")
+    res.url = ObjectSerializer.deserialize(data.url, "string", "");
 
-      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+    return res;
+  }
 
-      if (['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', undefined].includes(data.method)) {
-          res.method = data.method;
-      } else {
-          throw TypeError(`invalid enum value ${ data.method } for method`);
+  static serialize(data: SyntheticsTestRequest): { [key: string]: any } {
+    const attributeTypes = SyntheticsTestRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.basicAuth = ObjectSerializer.serialize(
+      data.basicAuth,
+      "SyntheticsBasicAuth",
+      ""
+    );
 
-      res.noSavingResponseBody = ObjectSerializer.deserialize(data.noSavingResponseBody, "boolean", "")
+    res.body = ObjectSerializer.serialize(data.body, "string", "");
 
-      res.numberOfPackets = ObjectSerializer.deserialize(data.numberOfPackets, "number", "int32")
+    res.certificate = ObjectSerializer.serialize(
+      data.certificate,
+      "SyntheticsTestRequestCertificate",
+      ""
+    );
 
-      res.port = ObjectSerializer.deserialize(data.port, "number", "int64")
+    res.dnsServer = ObjectSerializer.serialize(data.dnsServer, "string", "");
 
-      res.query = ObjectSerializer.deserialize(data.query, "any", "")
+    res.dnsServerPort = ObjectSerializer.serialize(
+      data.dnsServerPort,
+      "number",
+      "int32"
+    );
 
-      res.shouldTrackHops = ObjectSerializer.deserialize(data.shouldTrackHops, "boolean", "")
+    res.headers = ObjectSerializer.serialize(
+      data.headers,
+      "{ [key: string]: string; }",
+      ""
+    );
 
-      res.timeout = ObjectSerializer.deserialize(data.timeout, "number", "double")
+    res.host = ObjectSerializer.serialize(data.host, "string", "");
 
-      res.url = ObjectSerializer.deserialize(data.url, "string", "")
-
-
-      return res;
+    if (
+      [
+        "GET",
+        "POST",
+        "PATCH",
+        "PUT",
+        "DELETE",
+        "HEAD",
+        "OPTIONS",
+        undefined,
+      ].includes(data.method)
+    ) {
+      res.method = data.method;
+    } else {
+      throw TypeError(`invalid enum value ${data.method} for method`);
     }
 
-    static serialize(data: SyntheticsTestRequest): {[key: string]: any} {
-        let attributeTypes = SyntheticsTestRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.basicAuth = ObjectSerializer.serialize(data.basicAuth, "SyntheticsBasicAuth", "")
+    res.noSavingResponseBody = ObjectSerializer.serialize(
+      data.noSavingResponseBody,
+      "boolean",
+      ""
+    );
 
-        res.body = ObjectSerializer.serialize(data.body, "string", "")
+    res.numberOfPackets = ObjectSerializer.serialize(
+      data.numberOfPackets,
+      "number",
+      "int32"
+    );
 
-        res.certificate = ObjectSerializer.serialize(data.certificate, "SyntheticsTestRequestCertificate", "")
+    res.port = ObjectSerializer.serialize(data.port, "number", "int64");
 
-        res.dnsServer = ObjectSerializer.serialize(data.dnsServer, "string", "")
+    res.query = ObjectSerializer.serialize(data.query, "any", "");
 
-        res.dnsServerPort = ObjectSerializer.serialize(data.dnsServerPort, "number", "int32")
+    res.shouldTrackHops = ObjectSerializer.serialize(
+      data.shouldTrackHops,
+      "boolean",
+      ""
+    );
 
-        res.headers = ObjectSerializer.serialize(data.headers, "{ [key: string]: string; }", "")
+    res.timeout = ObjectSerializer.serialize(data.timeout, "number", "double");
 
-        res.host = ObjectSerializer.serialize(data.host, "string", "")
+    res.url = ObjectSerializer.serialize(data.url, "string", "");
 
-        if (['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', undefined].includes(data.method)) {
-            res.method = data.method;
-        } else {
-            throw TypeError(`invalid enum value ${ data.method } for method`);
-        }
+    return res;
+  }
 
-        res.noSavingResponseBody = ObjectSerializer.serialize(data.noSavingResponseBody, "boolean", "")
-
-        res.numberOfPackets = ObjectSerializer.serialize(data.numberOfPackets, "number", "int32")
-
-        res.port = ObjectSerializer.serialize(data.port, "number", "int64")
-
-        res.query = ObjectSerializer.serialize(data.query, "any", "")
-
-        res.shouldTrackHops = ObjectSerializer.serialize(data.shouldTrackHops, "boolean", "")
-
-        res.timeout = ObjectSerializer.serialize(data.timeout, "number", "double")
-
-        res.url = ObjectSerializer.serialize(data.url, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

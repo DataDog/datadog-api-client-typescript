@@ -8,55 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { Organization } from './Organization';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Organization } from "./Organization";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response with an organization.
-*/
+ * Response with an organization.
+ */
 
 export class OrganizationResponse {
-    'org'?: Organization;
+  "org"?: Organization;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "org": {
-            "baseName": "org",
-            "type": "Organization",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    org: {
+      baseName: "org",
+      type: "Organization",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return OrganizationResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return OrganizationResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): OrganizationResponse {
+    const res = new OrganizationResponse();
+
+    res.org = ObjectSerializer.deserialize(data.org, "Organization", "");
+
+    return res;
+  }
+
+  static serialize(data: OrganizationResponse): { [key: string]: any } {
+    const attributeTypes = OrganizationResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.org = ObjectSerializer.serialize(data.org, "Organization", "");
 
-    static deserialize(data: {[key: string]: any}): OrganizationResponse {
-      let res = new OrganizationResponse();
+    return res;
+  }
 
-      res.org = ObjectSerializer.deserialize(data.org, "Organization", "")
-
-
-      return res;
-    }
-
-    static serialize(data: OrganizationResponse): {[key: string]: any} {
-        let attributeTypes = OrganizationResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.org = ObjectSerializer.serialize(data.org, "Organization", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

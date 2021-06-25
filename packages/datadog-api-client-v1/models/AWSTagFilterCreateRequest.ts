@@ -8,89 +8,116 @@
  * Do not edit the class manually.
  */
 
-import { AWSNamespace } from './AWSNamespace';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { AWSNamespace } from "./AWSNamespace";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The objects used to set an AWS tag filter.
-*/
+ * The objects used to set an AWS tag filter.
+ */
 
 export class AWSTagFilterCreateRequest {
-    /**
-    * Your AWS Account ID without dashes.
-    */
-    'accountId'?: string;
-    'namespace'?: AWSNamespace;
-    /**
-    * The tag filter string.
-    */
-    'tagFilterStr'?: string;
+  /**
+   * Your AWS Account ID without dashes.
+   */
+  "accountId"?: string;
+  "namespace"?: AWSNamespace;
+  /**
+   * The tag filter string.
+   */
+  "tagFilterStr"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "accountId": {
-            "baseName": "account_id",
-            "type": "string",
-            "format": ""
-        },
-        "namespace": {
-            "baseName": "namespace",
-            "type": "AWSNamespace",
-            "format": ""
-        },
-        "tagFilterStr": {
-            "baseName": "tag_filter_str",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+      format: "",
+    },
+    namespace: {
+      baseName: "namespace",
+      type: "AWSNamespace",
+      format: "",
+    },
+    tagFilterStr: {
+      baseName: "tag_filter_str",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AWSTagFilterCreateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AWSTagFilterCreateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): AWSTagFilterCreateRequest {
+    const res = new AWSTagFilterCreateRequest();
+
+    res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "");
+
+    if (
+      [
+        "elb",
+        "application_elb",
+        "sqs",
+        "rds",
+        "custom",
+        "network_elb",
+        "lambda",
+        undefined,
+      ].includes(data.namespace)
+    ) {
+      res.namespace = data.namespace;
+    } else {
+      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
     }
 
-    static deserialize(data: {[key: string]: any}): AWSTagFilterCreateRequest {
-      let res = new AWSTagFilterCreateRequest();
+    res.tagFilterStr = ObjectSerializer.deserialize(
+      data.tag_filter_str,
+      "string",
+      ""
+    );
 
-      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
+    return res;
+  }
 
-      if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
-          res.namespace = data.namespace;
-      } else {
-          throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
+  static serialize(data: AWSTagFilterCreateRequest): { [key: string]: any } {
+    const attributeTypes = AWSTagFilterCreateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
 
-      res.tagFilterStr = ObjectSerializer.deserialize(data.tag_filter_str, "string", "")
-
-
-      return res;
+    if (
+      [
+        "elb",
+        "application_elb",
+        "sqs",
+        "rds",
+        "custom",
+        "network_elb",
+        "lambda",
+        undefined,
+      ].includes(data.namespace)
+    ) {
+      res.namespace = data.namespace;
+    } else {
+      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
     }
 
-    static serialize(data: AWSTagFilterCreateRequest): {[key: string]: any} {
-        let attributeTypes = AWSTagFilterCreateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
+    res.tag_filter_str = ObjectSerializer.serialize(
+      data.tagFilterStr,
+      "string",
+      ""
+    );
 
-        if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
-            res.namespace = data.namespace;
-        } else {
-            throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
-        }
+    return res;
+  }
 
-        res.tag_filter_str = ObjectSerializer.serialize(data.tagFilterStr, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,213 +8,254 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Your Google Cloud Platform Account.
-*/
+ * Your Google Cloud Platform Account.
+ */
 
 export class GCPAccount {
-    /**
-    * Should be `https://www.googleapis.com/oauth2/v1/certs`.
-    */
-    'authProviderX509CertUrl'?: string;
-    /**
-    * Should be `https://accounts.google.com/o/oauth2/auth`.
-    */
-    'authUri'?: string;
-    /**
-    * Silence monitors for expected GCE instance shutdowns.
-    */
-    'automute'?: boolean;
-    /**
-    * Your email found in your JSON service account key.
-    */
-    'clientEmail'?: string;
-    /**
-    * Your ID found in your JSON service account key.
-    */
-    'clientId'?: string;
-    /**
-    * Should be `https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>` where `<CLIENT_EMAIL>` is the email found in your JSON service account key.
-    */
-    'clientX509CertUrl'?: string;
-    /**
-    * An array of errors.
-    */
-    'errors'?: Array<string>;
-    /**
-    * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-    */
-    'hostFilters'?: string;
-    /**
-    * Your private key name found in your JSON service account key.
-    */
-    'privateKey'?: string;
-    /**
-    * Your private key ID found in your JSON service account key.
-    */
-    'privateKeyId'?: string;
-    /**
-    * Your Google Cloud project ID found in your JSON service account key.
-    */
-    'projectId'?: string;
-    /**
-    * Should be `https://accounts.google.com/o/oauth2/token`.
-    */
-    'tokenUri'?: string;
-    /**
-    * The value for service_account found in your JSON service account key.
-    */
-    'type'?: string;
+  /**
+   * Should be `https://www.googleapis.com/oauth2/v1/certs`.
+   */
+  "authProviderX509CertUrl"?: string;
+  /**
+   * Should be `https://accounts.google.com/o/oauth2/auth`.
+   */
+  "authUri"?: string;
+  /**
+   * Silence monitors for expected GCE instance shutdowns.
+   */
+  "automute"?: boolean;
+  /**
+   * Your email found in your JSON service account key.
+   */
+  "clientEmail"?: string;
+  /**
+   * Your ID found in your JSON service account key.
+   */
+  "clientId"?: string;
+  /**
+   * Should be `https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>` where `<CLIENT_EMAIL>` is the email found in your JSON service account key.
+   */
+  "clientX509CertUrl"?: string;
+  /**
+   * An array of errors.
+   */
+  "errors"?: Array<string>;
+  /**
+   * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+   */
+  "hostFilters"?: string;
+  /**
+   * Your private key name found in your JSON service account key.
+   */
+  "privateKey"?: string;
+  /**
+   * Your private key ID found in your JSON service account key.
+   */
+  "privateKeyId"?: string;
+  /**
+   * Your Google Cloud project ID found in your JSON service account key.
+   */
+  "projectId"?: string;
+  /**
+   * Should be `https://accounts.google.com/o/oauth2/token`.
+   */
+  "tokenUri"?: string;
+  /**
+   * The value for service_account found in your JSON service account key.
+   */
+  "type"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "authProviderX509CertUrl": {
-            "baseName": "auth_provider_x509_cert_url",
-            "type": "string",
-            "format": ""
-        },
-        "authUri": {
-            "baseName": "auth_uri",
-            "type": "string",
-            "format": ""
-        },
-        "automute": {
-            "baseName": "automute",
-            "type": "boolean",
-            "format": ""
-        },
-        "clientEmail": {
-            "baseName": "client_email",
-            "type": "string",
-            "format": ""
-        },
-        "clientId": {
-            "baseName": "client_id",
-            "type": "string",
-            "format": ""
-        },
-        "clientX509CertUrl": {
-            "baseName": "client_x509_cert_url",
-            "type": "string",
-            "format": ""
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "hostFilters": {
-            "baseName": "host_filters",
-            "type": "string",
-            "format": ""
-        },
-        "privateKey": {
-            "baseName": "private_key",
-            "type": "string",
-            "format": ""
-        },
-        "privateKeyId": {
-            "baseName": "private_key_id",
-            "type": "string",
-            "format": ""
-        },
-        "projectId": {
-            "baseName": "project_id",
-            "type": "string",
-            "format": ""
-        },
-        "tokenUri": {
-            "baseName": "token_uri",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    authProviderX509CertUrl: {
+      baseName: "auth_provider_x509_cert_url",
+      type: "string",
+      format: "",
+    },
+    authUri: {
+      baseName: "auth_uri",
+      type: "string",
+      format: "",
+    },
+    automute: {
+      baseName: "automute",
+      type: "boolean",
+      format: "",
+    },
+    clientEmail: {
+      baseName: "client_email",
+      type: "string",
+      format: "",
+    },
+    clientId: {
+      baseName: "client_id",
+      type: "string",
+      format: "",
+    },
+    clientX509CertUrl: {
+      baseName: "client_x509_cert_url",
+      type: "string",
+      format: "",
+    },
+    errors: {
+      baseName: "errors",
+      type: "Array<string>",
+      format: "",
+    },
+    hostFilters: {
+      baseName: "host_filters",
+      type: "string",
+      format: "",
+    },
+    privateKey: {
+      baseName: "private_key",
+      type: "string",
+      format: "",
+    },
+    privateKeyId: {
+      baseName: "private_key_id",
+      type: "string",
+      format: "",
+    },
+    projectId: {
+      baseName: "project_id",
+      type: "string",
+      format: "",
+    },
+    tokenUri: {
+      baseName: "token_uri",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return GCPAccount.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return GCPAccount.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): GCPAccount {
+    const res = new GCPAccount();
+
+    res.authProviderX509CertUrl = ObjectSerializer.deserialize(
+      data.auth_provider_x509_cert_url,
+      "string",
+      ""
+    );
+
+    res.authUri = ObjectSerializer.deserialize(data.auth_uri, "string", "");
+
+    res.automute = ObjectSerializer.deserialize(data.automute, "boolean", "");
+
+    res.clientEmail = ObjectSerializer.deserialize(
+      data.client_email,
+      "string",
+      ""
+    );
+
+    res.clientId = ObjectSerializer.deserialize(data.client_id, "string", "");
+
+    res.clientX509CertUrl = ObjectSerializer.deserialize(
+      data.client_x509_cert_url,
+      "string",
+      ""
+    );
+
+    res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "");
+
+    res.hostFilters = ObjectSerializer.deserialize(
+      data.host_filters,
+      "string",
+      ""
+    );
+
+    res.privateKey = ObjectSerializer.deserialize(
+      data.private_key,
+      "string",
+      ""
+    );
+
+    res.privateKeyId = ObjectSerializer.deserialize(
+      data.private_key_id,
+      "string",
+      ""
+    );
+
+    res.projectId = ObjectSerializer.deserialize(data.project_id, "string", "");
+
+    res.tokenUri = ObjectSerializer.deserialize(data.token_uri, "string", "");
+
+    res.type = ObjectSerializer.deserialize(data.type, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: GCPAccount): { [key: string]: any } {
+    const attributeTypes = GCPAccount.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.auth_provider_x509_cert_url = ObjectSerializer.serialize(
+      data.authProviderX509CertUrl,
+      "string",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): GCPAccount {
-      let res = new GCPAccount();
+    res.auth_uri = ObjectSerializer.serialize(data.authUri, "string", "");
 
-      res.authProviderX509CertUrl = ObjectSerializer.deserialize(data.auth_provider_x509_cert_url, "string", "")
+    res.automute = ObjectSerializer.serialize(data.automute, "boolean", "");
 
-      res.authUri = ObjectSerializer.deserialize(data.auth_uri, "string", "")
+    res.client_email = ObjectSerializer.serialize(
+      data.clientEmail,
+      "string",
+      ""
+    );
 
-      res.automute = ObjectSerializer.deserialize(data.automute, "boolean", "")
+    res.client_id = ObjectSerializer.serialize(data.clientId, "string", "");
 
-      res.clientEmail = ObjectSerializer.deserialize(data.client_email, "string", "")
+    res.client_x509_cert_url = ObjectSerializer.serialize(
+      data.clientX509CertUrl,
+      "string",
+      ""
+    );
 
-      res.clientId = ObjectSerializer.deserialize(data.client_id, "string", "")
+    res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "");
 
-      res.clientX509CertUrl = ObjectSerializer.deserialize(data.client_x509_cert_url, "string", "")
+    res.host_filters = ObjectSerializer.serialize(
+      data.hostFilters,
+      "string",
+      ""
+    );
 
-      res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+    res.private_key = ObjectSerializer.serialize(data.privateKey, "string", "");
 
-      res.hostFilters = ObjectSerializer.deserialize(data.host_filters, "string", "")
+    res.private_key_id = ObjectSerializer.serialize(
+      data.privateKeyId,
+      "string",
+      ""
+    );
 
-      res.privateKey = ObjectSerializer.deserialize(data.private_key, "string", "")
+    res.project_id = ObjectSerializer.serialize(data.projectId, "string", "");
 
-      res.privateKeyId = ObjectSerializer.deserialize(data.private_key_id, "string", "")
+    res.token_uri = ObjectSerializer.serialize(data.tokenUri, "string", "");
 
-      res.projectId = ObjectSerializer.deserialize(data.project_id, "string", "")
+    res.type = ObjectSerializer.serialize(data.type, "string", "");
 
-      res.tokenUri = ObjectSerializer.deserialize(data.token_uri, "string", "")
+    return res;
+  }
 
-      res.type = ObjectSerializer.deserialize(data.type, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: GCPAccount): {[key: string]: any} {
-        let attributeTypes = GCPAccount.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.auth_provider_x509_cert_url = ObjectSerializer.serialize(data.authProviderX509CertUrl, "string", "")
-
-        res.auth_uri = ObjectSerializer.serialize(data.authUri, "string", "")
-
-        res.automute = ObjectSerializer.serialize(data.automute, "boolean", "")
-
-        res.client_email = ObjectSerializer.serialize(data.clientEmail, "string", "")
-
-        res.client_id = ObjectSerializer.serialize(data.clientId, "string", "")
-
-        res.client_x509_cert_url = ObjectSerializer.serialize(data.clientX509CertUrl, "string", "")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
-
-        res.host_filters = ObjectSerializer.serialize(data.hostFilters, "string", "")
-
-        res.private_key = ObjectSerializer.serialize(data.privateKey, "string", "")
-
-        res.private_key_id = ObjectSerializer.serialize(data.privateKeyId, "string", "")
-
-        res.project_id = ObjectSerializer.serialize(data.projectId, "string", "")
-
-        res.token_uri = ObjectSerializer.serialize(data.tokenUri, "string", "")
-
-        res.type = ObjectSerializer.serialize(data.type, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,83 +8,100 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Cloud Security Posture Management usage for a given organization for a given hour.
-*/
+ * Cloud Security Posture Management usage for a given organization for a given hour.
+ */
 
 export class UsageCloudSecurityPostureManagementHour {
-    /**
-    * The total number of Cloud Security Posture Management containers during a given hour.
-    */
-    'containerCount'?: number;
-    /**
-    * The total number of Cloud Security Posture Management hosts during a given hour.
-    */
-    'hostCount'?: number;
-    /**
-    * The hour for the usage.
-    */
-    'hour'?: Date;
+  /**
+   * The total number of Cloud Security Posture Management containers during a given hour.
+   */
+  "containerCount"?: number;
+  /**
+   * The total number of Cloud Security Posture Management hosts during a given hour.
+   */
+  "hostCount"?: number;
+  /**
+   * The hour for the usage.
+   */
+  "hour"?: Date;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "containerCount": {
-            "baseName": "container_count",
-            "type": "number",
-            "format": "int64"
-        },
-        "hostCount": {
-            "baseName": "host_count",
-            "type": "number",
-            "format": "int64"
-        },
-        "hour": {
-            "baseName": "hour",
-            "type": "Date",
-            "format": "date-time"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    containerCount: {
+      baseName: "container_count",
+      type: "number",
+      format: "int64",
+    },
+    hostCount: {
+      baseName: "host_count",
+      type: "number",
+      format: "int64",
+    },
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UsageCloudSecurityPostureManagementHour {
+    const res = new UsageCloudSecurityPostureManagementHour();
+
+    res.containerCount = ObjectSerializer.deserialize(
+      data.container_count,
+      "number",
+      "int64"
+    );
+
+    res.hostCount = ObjectSerializer.deserialize(
+      data.host_count,
+      "number",
+      "int64"
+    );
+
+    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
+
+    return res;
+  }
+
+  static serialize(
+    data: UsageCloudSecurityPostureManagementHour
+  ): { [key: string]: any } {
+    const attributeTypes = UsageCloudSecurityPostureManagementHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.container_count = ObjectSerializer.serialize(
+      data.containerCount,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageCloudSecurityPostureManagementHour {
-      let res = new UsageCloudSecurityPostureManagementHour();
+    res.host_count = ObjectSerializer.serialize(
+      data.hostCount,
+      "number",
+      "int64"
+    );
 
-      res.containerCount = ObjectSerializer.deserialize(data.container_count, "number", "int64")
+    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 
-      res.hostCount = ObjectSerializer.deserialize(data.host_count, "number", "int64")
+    return res;
+  }
 
-      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageCloudSecurityPostureManagementHour): {[key: string]: any} {
-        let attributeTypes = UsageCloudSecurityPostureManagementHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.container_count = ObjectSerializer.serialize(data.containerCount, "number", "int64")
-
-        res.host_count = ObjectSerializer.serialize(data.hostCount, "number", "int64")
-
-        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

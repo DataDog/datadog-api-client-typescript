@@ -8,16 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Horizontal alignment.
-*/
-
-export type WidgetHorizontalAlign = typeof CENTER | typeof LEFT | typeof RIGHT ;
-export const CENTER = 'center';
-export const LEFT = 'left';
-export const RIGHT = 'right';
-
-
+export type WidgetHorizontalAlign = typeof CENTER | typeof LEFT | typeof RIGHT;
+export const CENTER = "center";
+export const LEFT = "left";
+export const RIGHT = "right";

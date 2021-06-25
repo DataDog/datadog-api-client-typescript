@@ -8,133 +8,170 @@
  * Do not edit the class manually.
  */
 
-import { LogsExclusion } from './LogsExclusion';
-import { LogsFilter } from './LogsFilter';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsExclusion } from "./LogsExclusion";
+import { LogsFilter } from "./LogsFilter";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing a Datadog Log index.
-*/
+ * Object describing a Datadog Log index.
+ */
 
 export class LogsIndex {
-    /**
-    * The number of log events you can send in this index per day before you are rate-limited.
-    */
-    'dailyLimit'?: number;
-    /**
-    * An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
-    */
-    'exclusionFilters'?: Array<LogsExclusion>;
-    'filter': LogsFilter;
-    /**
-    * A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.
-    */
-    'isRateLimited'?: boolean;
-    /**
-    * The name of the index.
-    */
-    'name': string;
-    /**
-    * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.
-    */
-    'numRetentionDays'?: number;
+  /**
+   * The number of log events you can send in this index per day before you are rate-limited.
+   */
+  "dailyLimit"?: number;
+  /**
+   * An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
+   */
+  "exclusionFilters"?: Array<LogsExclusion>;
+  "filter": LogsFilter;
+  /**
+   * A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.
+   */
+  "isRateLimited"?: boolean;
+  /**
+   * The name of the index.
+   */
+  "name": string;
+  /**
+   * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.
+   */
+  "numRetentionDays"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "dailyLimit": {
-            "baseName": "daily_limit",
-            "type": "number",
-            "format": "int64"
-        },
-        "exclusionFilters": {
-            "baseName": "exclusion_filters",
-            "type": "Array<LogsExclusion>",
-            "format": ""
-        },
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsFilter",
-            "format": ""
-        },
-        "isRateLimited": {
-            "baseName": "is_rate_limited",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "numRetentionDays": {
-            "baseName": "num_retention_days",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    dailyLimit: {
+      baseName: "daily_limit",
+      type: "number",
+      format: "int64",
+    },
+    exclusionFilters: {
+      baseName: "exclusion_filters",
+      type: "Array<LogsExclusion>",
+      format: "",
+    },
+    filter: {
+      baseName: "filter",
+      type: "LogsFilter",
+      format: "",
+    },
+    isRateLimited: {
+      baseName: "is_rate_limited",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    numRetentionDays: {
+      baseName: "num_retention_days",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsIndex.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsIndex.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsIndex {
+    const res = new LogsIndex();
+
+    res.dailyLimit = ObjectSerializer.deserialize(
+      data.daily_limit,
+      "number",
+      "int64"
+    );
+
+    res.exclusionFilters = ObjectSerializer.deserialize(
+      data.exclusion_filters,
+      "Array<LogsExclusion>",
+      ""
+    );
+
+    if (data.filter === undefined) {
+      throw new TypeError(
+        "missing required attribute 'filter' on 'LogsIndex' object"
+      );
     }
+    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
 
-    static deserialize(data: {[key: string]: any}): LogsIndex {
-      let res = new LogsIndex();
+    res.isRateLimited = ObjectSerializer.deserialize(
+      data.is_rate_limited,
+      "boolean",
+      ""
+    );
 
-      res.dailyLimit = ObjectSerializer.deserialize(data.daily_limit, "number", "int64")
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'LogsIndex' object"
+      );
+    }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-      res.exclusionFilters = ObjectSerializer.deserialize(data.exclusion_filters, "Array<LogsExclusion>", "")
+    res.numRetentionDays = ObjectSerializer.deserialize(
+      data.num_retention_days,
+      "number",
+      "int64"
+    );
 
-      if (data.filter === undefined) {
-          throw new TypeError("missing required attribute 'filter' on 'LogsIndex' object");
+    return res;
+  }
+
+  static serialize(data: LogsIndex): { [key: string]: any } {
+    const attributeTypes = LogsIndex.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "")
-
-      res.isRateLimited = ObjectSerializer.deserialize(data.is_rate_limited, "boolean", "")
-
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'LogsIndex' object");
-      }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.numRetentionDays = ObjectSerializer.deserialize(data.num_retention_days, "number", "int64")
-
-
-      return res;
     }
+    res.daily_limit = ObjectSerializer.serialize(
+      data.dailyLimit,
+      "number",
+      "int64"
+    );
 
-    static serialize(data: LogsIndex): {[key: string]: any} {
-        let attributeTypes = LogsIndex.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.daily_limit = ObjectSerializer.serialize(data.dailyLimit, "number", "int64")
+    res.exclusion_filters = ObjectSerializer.serialize(
+      data.exclusionFilters,
+      "Array<LogsExclusion>",
+      ""
+    );
 
-        res.exclusion_filters = ObjectSerializer.serialize(data.exclusionFilters, "Array<LogsExclusion>", "")
-
-        if (data.filter === undefined) {
-            throw new TypeError("missing required attribute 'filter' on 'LogsIndex' object");
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "")
-
-        res.is_rate_limited = ObjectSerializer.serialize(data.isRateLimited, "boolean", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'LogsIndex' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.num_retention_days = ObjectSerializer.serialize(data.numRetentionDays, "number", "int64")
-
-        return res
+    if (data.filter === undefined) {
+      throw new TypeError(
+        "missing required attribute 'filter' on 'LogsIndex' object"
+      );
     }
-    
-    public constructor() {
+    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
+
+    res.is_rate_limited = ObjectSerializer.serialize(
+      data.isRateLimited,
+      "boolean",
+      ""
+    );
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'LogsIndex' object"
+      );
     }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    res.num_retention_days = ObjectSerializer.serialize(
+      data.numRetentionDays,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

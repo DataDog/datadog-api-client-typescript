@@ -8,32 +8,31 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-
-/**
-* Search options.
-*/
 export class TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch {
-    /**
-    * Events search string.
-    */
-    'query': string;
+  /**
+   * Events search string.
+   */
+  "query": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "query",
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "query",
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
+  static getAttributeTypeMap() {
+    return TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
+  }
+
+  public constructor() {}
 }
-

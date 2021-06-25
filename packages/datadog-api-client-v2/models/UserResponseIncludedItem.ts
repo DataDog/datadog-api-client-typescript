@@ -8,17 +8,8 @@
  * Do not edit the class manually.
  */
 
-import { Organization } from './Organization';
-import { Permission } from './Permission';
-import { Role } from './Role';
-import { RoleAttributes } from './RoleAttributes';
-import { RoleResponseRelationships } from './RoleResponseRelationships';
-import { RolesType } from './RolesType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* An object related to a user.
-*/
+import { Organization } from "./Organization";
+import { Permission } from "./Permission";
+import { Role } from "./Role";
 
 export type UserResponseIncludedItem = Organization | Permission | Role;

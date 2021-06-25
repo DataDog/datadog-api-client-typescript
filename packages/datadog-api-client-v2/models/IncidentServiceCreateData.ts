@@ -8,91 +8,108 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceCreateAttributes } from './IncidentServiceCreateAttributes';
-import { IncidentServiceRelationships } from './IncidentServiceRelationships';
-import { IncidentServiceType } from './IncidentServiceType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
+import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
+import { IncidentServiceType } from "./IncidentServiceType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Incident Service payload for create requests.
-*/
+ * Incident Service payload for create requests.
+ */
 
 export class IncidentServiceCreateData {
-    'attributes'?: IncidentServiceCreateAttributes;
-    'relationships'?: IncidentServiceRelationships;
-    'type': IncidentServiceType;
+  "attributes"?: IncidentServiceCreateAttributes;
+  "relationships"?: IncidentServiceRelationships;
+  "type": IncidentServiceType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "IncidentServiceCreateAttributes",
-            "format": ""
-        },
-        "relationships": {
-            "baseName": "relationships",
-            "type": "IncidentServiceRelationships",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "IncidentServiceType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentServiceCreateAttributes",
+      format: "",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentServiceRelationships",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "IncidentServiceType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentServiceCreateData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentServiceCreateData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): IncidentServiceCreateData {
+    const res = new IncidentServiceCreateData();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "IncidentServiceCreateAttributes",
+      ""
+    );
+
+    res.relationships = ObjectSerializer.deserialize(
+      data.relationships,
+      "IncidentServiceRelationships",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'IncidentServiceCreateData' object"
+      );
+    }
+    if (["services", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): IncidentServiceCreateData {
-      let res = new IncidentServiceCreateData();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "IncidentServiceCreateAttributes", "")
-
-      res.relationships = ObjectSerializer.deserialize(data.relationships, "IncidentServiceRelationships", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'IncidentServiceCreateData' object");
+  static serialize(data: IncidentServiceCreateData): { [key: string]: any } {
+    const attributeTypes = IncidentServiceCreateData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['services', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "IncidentServiceCreateAttributes",
+      ""
+    );
 
+    res.relationships = ObjectSerializer.serialize(
+      data.relationships,
+      "IncidentServiceRelationships",
+      ""
+    );
 
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'IncidentServiceCreateData' object"
+      );
+    }
+    if (["services", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: IncidentServiceCreateData): {[key: string]: any} {
-        let attributeTypes = IncidentServiceCreateData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "IncidentServiceCreateAttributes", "")
+    return res;
+  }
 
-        res.relationships = ObjectSerializer.serialize(data.relationships, "IncidentServiceRelationships", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'IncidentServiceCreateData' object");
-        }
-        if (['services', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

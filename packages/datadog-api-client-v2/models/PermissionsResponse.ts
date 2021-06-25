@@ -8,58 +8,55 @@
  * Do not edit the class manually.
  */
 
-import { Permission } from './Permission';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Permission } from "./Permission";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Payload with API-returned permissions.
-*/
+ * Payload with API-returned permissions.
+ */
 
 export class PermissionsResponse {
-    /**
-    * Array of permissions.
-    */
-    'data'?: Array<Permission>;
+  /**
+   * Array of permissions.
+   */
+  "data"?: Array<Permission>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<Permission>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<Permission>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return PermissionsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return PermissionsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): PermissionsResponse {
+    const res = new PermissionsResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "Array<Permission>", "");
+
+    return res;
+  }
+
+  static serialize(data: PermissionsResponse): { [key: string]: any } {
+    const attributeTypes = PermissionsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "Array<Permission>", "");
 
-    static deserialize(data: {[key: string]: any}): PermissionsResponse {
-      let res = new PermissionsResponse();
+    return res;
+  }
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<Permission>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: PermissionsResponse): {[key: string]: any} {
-        let attributeTypes = PermissionsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<Permission>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

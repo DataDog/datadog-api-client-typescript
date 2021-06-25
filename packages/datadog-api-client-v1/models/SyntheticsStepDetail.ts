@@ -8,286 +8,449 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserError } from './SyntheticsBrowserError';
-import { SyntheticsCheckType } from './SyntheticsCheckType';
-import { SyntheticsCoreWebVitals } from './SyntheticsCoreWebVitals';
-import { SyntheticsPlayingTab } from './SyntheticsPlayingTab';
-import { SyntheticsStepDetailWarning } from './SyntheticsStepDetailWarning';
-import { SyntheticsStepType } from './SyntheticsStepType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsBrowserError } from "./SyntheticsBrowserError";
+import { SyntheticsCheckType } from "./SyntheticsCheckType";
+import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
+import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
+import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
+import { SyntheticsStepType } from "./SyntheticsStepType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing a step for a Synthetic test.
-*/
+ * Object describing a step for a Synthetic test.
+ */
 
 export class SyntheticsStepDetail {
-    /**
-    * Array of errors collected for a browser test.
-    */
-    'browserErrors'?: Array<SyntheticsBrowserError>;
-    'checkType'?: SyntheticsCheckType;
-    /**
-    * Description of the test.
-    */
-    'description'?: string;
-    /**
-    * Total duration in millisecond of the test.
-    */
-    'duration'?: number;
-    /**
-    * Error returned by the test.
-    */
-    'error'?: string;
-    'playingTab'?: SyntheticsPlayingTab;
-    /**
-    * Whether or not screenshots where collected by the test.
-    */
-    'screenshotBucketKey'?: boolean;
-    /**
-    * Whether or not to skip this step.
-    */
-    'skipped'?: boolean;
-    /**
-    * Whether or not snapshots where collected by the test.
-    */
-    'snapshotBucketKey'?: boolean;
-    /**
-    * The step ID.
-    */
-    'stepId'?: number;
-    /**
-    * If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
-    */
-    'subTestStepDetails'?: Array<SyntheticsStepDetail>;
-    /**
-    * Time before starting the step.
-    */
-    'timeToInteractive'?: number;
-    'type'?: SyntheticsStepType;
-    /**
-    * URL to perform the step against.
-    */
-    'url'?: string;
-    /**
-    * Value for the step.
-    */
-    'value'?: any;
-    /**
-    * Array of Core Web Vitals metrics for the step.
-    */
-    'vitalsMetrics'?: Array<SyntheticsCoreWebVitals>;
-    /**
-    * Warning collected that didn't failed the step.
-    */
-    'warnings'?: Array<SyntheticsStepDetailWarning>;
+  /**
+   * Array of errors collected for a browser test.
+   */
+  "browserErrors"?: Array<SyntheticsBrowserError>;
+  "checkType"?: SyntheticsCheckType;
+  /**
+   * Description of the test.
+   */
+  "description"?: string;
+  /**
+   * Total duration in millisecond of the test.
+   */
+  "duration"?: number;
+  /**
+   * Error returned by the test.
+   */
+  "error"?: string;
+  "playingTab"?: SyntheticsPlayingTab;
+  /**
+   * Whether or not screenshots where collected by the test.
+   */
+  "screenshotBucketKey"?: boolean;
+  /**
+   * Whether or not to skip this step.
+   */
+  "skipped"?: boolean;
+  /**
+   * Whether or not snapshots where collected by the test.
+   */
+  "snapshotBucketKey"?: boolean;
+  /**
+   * The step ID.
+   */
+  "stepId"?: number;
+  /**
+   * If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
+   */
+  "subTestStepDetails"?: Array<SyntheticsStepDetail>;
+  /**
+   * Time before starting the step.
+   */
+  "timeToInteractive"?: number;
+  "type"?: SyntheticsStepType;
+  /**
+   * URL to perform the step against.
+   */
+  "url"?: string;
+  /**
+   * Value for the step.
+   */
+  "value"?: any;
+  /**
+   * Array of Core Web Vitals metrics for the step.
+   */
+  "vitalsMetrics"?: Array<SyntheticsCoreWebVitals>;
+  /**
+   * Warning collected that didn't failed the step.
+   */
+  "warnings"?: Array<SyntheticsStepDetailWarning>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "browserErrors": {
-            "baseName": "browserErrors",
-            "type": "Array<SyntheticsBrowserError>",
-            "format": ""
-        },
-        "checkType": {
-            "baseName": "checkType",
-            "type": "SyntheticsCheckType",
-            "format": ""
-        },
-        "description": {
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        "duration": {
-            "baseName": "duration",
-            "type": "number",
-            "format": "double"
-        },
-        "error": {
-            "baseName": "error",
-            "type": "string",
-            "format": ""
-        },
-        "playingTab": {
-            "baseName": "playingTab",
-            "type": "SyntheticsPlayingTab",
-            "format": ""
-        },
-        "screenshotBucketKey": {
-            "baseName": "screenshotBucketKey",
-            "type": "boolean",
-            "format": ""
-        },
-        "skipped": {
-            "baseName": "skipped",
-            "type": "boolean",
-            "format": ""
-        },
-        "snapshotBucketKey": {
-            "baseName": "snapshotBucketKey",
-            "type": "boolean",
-            "format": ""
-        },
-        "stepId": {
-            "baseName": "stepId",
-            "type": "number",
-            "format": "int64"
-        },
-        "subTestStepDetails": {
-            "baseName": "subTestStepDetails",
-            "type": "Array<SyntheticsStepDetail>",
-            "format": ""
-        },
-        "timeToInteractive": {
-            "baseName": "timeToInteractive",
-            "type": "number",
-            "format": "double"
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsStepType",
-            "format": ""
-        },
-        "url": {
-            "baseName": "url",
-            "type": "string",
-            "format": ""
-        },
-        "value": {
-            "baseName": "value",
-            "type": "any",
-            "format": ""
-        },
-        "vitalsMetrics": {
-            "baseName": "vitalsMetrics",
-            "type": "Array<SyntheticsCoreWebVitals>",
-            "format": ""
-        },
-        "warnings": {
-            "baseName": "warnings",
-            "type": "Array<SyntheticsStepDetailWarning>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    browserErrors: {
+      baseName: "browserErrors",
+      type: "Array<SyntheticsBrowserError>",
+      format: "",
+    },
+    checkType: {
+      baseName: "checkType",
+      type: "SyntheticsCheckType",
+      format: "",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+      format: "",
+    },
+    duration: {
+      baseName: "duration",
+      type: "number",
+      format: "double",
+    },
+    error: {
+      baseName: "error",
+      type: "string",
+      format: "",
+    },
+    playingTab: {
+      baseName: "playingTab",
+      type: "SyntheticsPlayingTab",
+      format: "",
+    },
+    screenshotBucketKey: {
+      baseName: "screenshotBucketKey",
+      type: "boolean",
+      format: "",
+    },
+    skipped: {
+      baseName: "skipped",
+      type: "boolean",
+      format: "",
+    },
+    snapshotBucketKey: {
+      baseName: "snapshotBucketKey",
+      type: "boolean",
+      format: "",
+    },
+    stepId: {
+      baseName: "stepId",
+      type: "number",
+      format: "int64",
+    },
+    subTestStepDetails: {
+      baseName: "subTestStepDetails",
+      type: "Array<SyntheticsStepDetail>",
+      format: "",
+    },
+    timeToInteractive: {
+      baseName: "timeToInteractive",
+      type: "number",
+      format: "double",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsStepType",
+      format: "",
+    },
+    url: {
+      baseName: "url",
+      type: "string",
+      format: "",
+    },
+    value: {
+      baseName: "value",
+      type: "any",
+      format: "",
+    },
+    vitalsMetrics: {
+      baseName: "vitalsMetrics",
+      type: "Array<SyntheticsCoreWebVitals>",
+      format: "",
+    },
+    warnings: {
+      baseName: "warnings",
+      type: "Array<SyntheticsStepDetailWarning>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsStepDetail.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsStepDetail.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsStepDetail {
+    const res = new SyntheticsStepDetail();
+
+    res.browserErrors = ObjectSerializer.deserialize(
+      data.browserErrors,
+      "Array<SyntheticsBrowserError>",
+      ""
+    );
+
+    if (
+      [
+        "equals",
+        "notEquals",
+        "contains",
+        "notContains",
+        "startsWith",
+        "notStartsWith",
+        "greater",
+        "lower",
+        "greaterEquals",
+        "lowerEquals",
+        "matchRegex",
+        "between",
+        "isEmpty",
+        "notIsEmpty",
+        undefined,
+      ].includes(data.checkType)
+    ) {
+      res.checkType = data.checkType;
+    } else {
+      throw TypeError(`invalid enum value ${data.checkType} for checkType`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsStepDetail {
-      let res = new SyntheticsStepDetail();
+    res.description = ObjectSerializer.deserialize(
+      data.description,
+      "string",
+      ""
+    );
 
-      res.browserErrors = ObjectSerializer.deserialize(data.browserErrors, "Array<SyntheticsBrowserError>", "")
+    res.duration = ObjectSerializer.deserialize(
+      data.duration,
+      "number",
+      "double"
+    );
 
-      if (['equals', 'notEquals', 'contains', 'notContains', 'startsWith', 'notStartsWith', 'greater', 'lower', 'greaterEquals', 'lowerEquals', 'matchRegex', 'between', 'isEmpty', 'notIsEmpty', undefined].includes(data.checkType)) {
-          res.checkType = data.checkType;
-      } else {
-          throw TypeError(`invalid enum value ${ data.checkType } for checkType`);
+    res.error = ObjectSerializer.deserialize(data.error, "string", "");
+
+    if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
+      res.playingTab = data.playingTab;
+    } else {
+      throw TypeError(`invalid enum value ${data.playingTab} for playingTab`);
+    }
+
+    res.screenshotBucketKey = ObjectSerializer.deserialize(
+      data.screenshotBucketKey,
+      "boolean",
+      ""
+    );
+
+    res.skipped = ObjectSerializer.deserialize(data.skipped, "boolean", "");
+
+    res.snapshotBucketKey = ObjectSerializer.deserialize(
+      data.snapshotBucketKey,
+      "boolean",
+      ""
+    );
+
+    res.stepId = ObjectSerializer.deserialize(data.stepId, "number", "int64");
+
+    res.subTestStepDetails = ObjectSerializer.deserialize(
+      data.subTestStepDetails,
+      "Array<SyntheticsStepDetail>",
+      ""
+    );
+
+    res.timeToInteractive = ObjectSerializer.deserialize(
+      data.timeToInteractive,
+      "number",
+      "double"
+    );
+
+    if (
+      [
+        "assertCurrentUrl",
+        "assertElementAttribute",
+        "assertElementContent",
+        "assertElementPresent",
+        "assertEmail",
+        "assertFileDownload",
+        "assertFromJavascript",
+        "assertPageContains",
+        "assertPageLacks",
+        "click",
+        "extractFromJavascript",
+        "extractVariable",
+        "goToEmailLink",
+        "goToUrl",
+        "goToUrlAndMeasureTti",
+        "hover",
+        "playSubTest",
+        "pressKey",
+        "refresh",
+        "runApiTest",
+        "scroll",
+        "selectOption",
+        "typeText",
+        "uploadFiles",
+        "wait",
+        undefined,
+      ].includes(data.type)
+    ) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
+
+    res.url = ObjectSerializer.deserialize(data.url, "string", "");
+
+    res.value = ObjectSerializer.deserialize(data.value, "any", "");
+
+    res.vitalsMetrics = ObjectSerializer.deserialize(
+      data.vitalsMetrics,
+      "Array<SyntheticsCoreWebVitals>",
+      ""
+    );
+
+    res.warnings = ObjectSerializer.deserialize(
+      data.warnings,
+      "Array<SyntheticsStepDetailWarning>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsStepDetail): { [key: string]: any } {
+    const attributeTypes = SyntheticsStepDetail.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.browserErrors = ObjectSerializer.serialize(
+      data.browserErrors,
+      "Array<SyntheticsBrowserError>",
+      ""
+    );
 
-      res.description = ObjectSerializer.deserialize(data.description, "string", "")
-
-      res.duration = ObjectSerializer.deserialize(data.duration, "number", "double")
-
-      res.error = ObjectSerializer.deserialize(data.error, "string", "")
-
-      if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
-          res.playingTab = data.playingTab;
-      } else {
-          throw TypeError(`invalid enum value ${ data.playingTab } for playingTab`);
-      }
-
-      res.screenshotBucketKey = ObjectSerializer.deserialize(data.screenshotBucketKey, "boolean", "")
-
-      res.skipped = ObjectSerializer.deserialize(data.skipped, "boolean", "")
-
-      res.snapshotBucketKey = ObjectSerializer.deserialize(data.snapshotBucketKey, "boolean", "")
-
-      res.stepId = ObjectSerializer.deserialize(data.stepId, "number", "int64")
-
-      res.subTestStepDetails = ObjectSerializer.deserialize(data.subTestStepDetails, "Array<SyntheticsStepDetail>", "")
-
-      res.timeToInteractive = ObjectSerializer.deserialize(data.timeToInteractive, "number", "double")
-
-      if (['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-      res.url = ObjectSerializer.deserialize(data.url, "string", "")
-
-      res.value = ObjectSerializer.deserialize(data.value, "any", "")
-
-      res.vitalsMetrics = ObjectSerializer.deserialize(data.vitalsMetrics, "Array<SyntheticsCoreWebVitals>", "")
-
-      res.warnings = ObjectSerializer.deserialize(data.warnings, "Array<SyntheticsStepDetailWarning>", "")
-
-
-      return res;
+    if (
+      [
+        "equals",
+        "notEquals",
+        "contains",
+        "notContains",
+        "startsWith",
+        "notStartsWith",
+        "greater",
+        "lower",
+        "greaterEquals",
+        "lowerEquals",
+        "matchRegex",
+        "between",
+        "isEmpty",
+        "notIsEmpty",
+        undefined,
+      ].includes(data.checkType)
+    ) {
+      res.checkType = data.checkType;
+    } else {
+      throw TypeError(`invalid enum value ${data.checkType} for checkType`);
     }
 
-    static serialize(data: SyntheticsStepDetail): {[key: string]: any} {
-        let attributeTypes = SyntheticsStepDetail.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.browserErrors = ObjectSerializer.serialize(data.browserErrors, "Array<SyntheticsBrowserError>", "")
+    res.description = ObjectSerializer.serialize(
+      data.description,
+      "string",
+      ""
+    );
 
-        if (['equals', 'notEquals', 'contains', 'notContains', 'startsWith', 'notStartsWith', 'greater', 'lower', 'greaterEquals', 'lowerEquals', 'matchRegex', 'between', 'isEmpty', 'notIsEmpty', undefined].includes(data.checkType)) {
-            res.checkType = data.checkType;
-        } else {
-            throw TypeError(`invalid enum value ${ data.checkType } for checkType`);
-        }
+    res.duration = ObjectSerializer.serialize(
+      data.duration,
+      "number",
+      "double"
+    );
 
-        res.description = ObjectSerializer.serialize(data.description, "string", "")
+    res.error = ObjectSerializer.serialize(data.error, "string", "");
 
-        res.duration = ObjectSerializer.serialize(data.duration, "number", "double")
-
-        res.error = ObjectSerializer.serialize(data.error, "string", "")
-
-        if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
-            res.playingTab = data.playingTab;
-        } else {
-            throw TypeError(`invalid enum value ${ data.playingTab } for playingTab`);
-        }
-
-        res.screenshotBucketKey = ObjectSerializer.serialize(data.screenshotBucketKey, "boolean", "")
-
-        res.skipped = ObjectSerializer.serialize(data.skipped, "boolean", "")
-
-        res.snapshotBucketKey = ObjectSerializer.serialize(data.snapshotBucketKey, "boolean", "")
-
-        res.stepId = ObjectSerializer.serialize(data.stepId, "number", "int64")
-
-        res.subTestStepDetails = ObjectSerializer.serialize(data.subTestStepDetails, "Array<SyntheticsStepDetail>", "")
-
-        res.timeToInteractive = ObjectSerializer.serialize(data.timeToInteractive, "number", "double")
-
-        if (['assertCurrentUrl', 'assertElementAttribute', 'assertElementContent', 'assertElementPresent', 'assertEmail', 'assertFileDownload', 'assertFromJavascript', 'assertPageContains', 'assertPageLacks', 'click', 'extractFromJavascript', 'extractVariable', 'goToEmailLink', 'goToUrl', 'goToUrlAndMeasureTti', 'hover', 'playSubTest', 'pressKey', 'refresh', 'runApiTest', 'scroll', 'selectOption', 'typeText', 'uploadFiles', 'wait', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        res.url = ObjectSerializer.serialize(data.url, "string", "")
-
-        res.value = ObjectSerializer.serialize(data.value, "any", "")
-
-        res.vitalsMetrics = ObjectSerializer.serialize(data.vitalsMetrics, "Array<SyntheticsCoreWebVitals>", "")
-
-        res.warnings = ObjectSerializer.serialize(data.warnings, "Array<SyntheticsStepDetailWarning>", "")
-
-        return res
+    if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
+      res.playingTab = data.playingTab;
+    } else {
+      throw TypeError(`invalid enum value ${data.playingTab} for playingTab`);
     }
-    
-    public constructor() {
+
+    res.screenshotBucketKey = ObjectSerializer.serialize(
+      data.screenshotBucketKey,
+      "boolean",
+      ""
+    );
+
+    res.skipped = ObjectSerializer.serialize(data.skipped, "boolean", "");
+
+    res.snapshotBucketKey = ObjectSerializer.serialize(
+      data.snapshotBucketKey,
+      "boolean",
+      ""
+    );
+
+    res.stepId = ObjectSerializer.serialize(data.stepId, "number", "int64");
+
+    res.subTestStepDetails = ObjectSerializer.serialize(
+      data.subTestStepDetails,
+      "Array<SyntheticsStepDetail>",
+      ""
+    );
+
+    res.timeToInteractive = ObjectSerializer.serialize(
+      data.timeToInteractive,
+      "number",
+      "double"
+    );
+
+    if (
+      [
+        "assertCurrentUrl",
+        "assertElementAttribute",
+        "assertElementContent",
+        "assertElementPresent",
+        "assertEmail",
+        "assertFileDownload",
+        "assertFromJavascript",
+        "assertPageContains",
+        "assertPageLacks",
+        "click",
+        "extractFromJavascript",
+        "extractVariable",
+        "goToEmailLink",
+        "goToUrl",
+        "goToUrlAndMeasureTti",
+        "hover",
+        "playSubTest",
+        "pressKey",
+        "refresh",
+        "runApiTest",
+        "scroll",
+        "selectOption",
+        "typeText",
+        "uploadFiles",
+        "wait",
+        undefined,
+      ].includes(data.type)
+    ) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
+
+    res.url = ObjectSerializer.serialize(data.url, "string", "");
+
+    res.value = ObjectSerializer.serialize(data.value, "any", "");
+
+    res.vitalsMetrics = ObjectSerializer.serialize(
+      data.vitalsMetrics,
+      "Array<SyntheticsCoreWebVitals>",
+      ""
+    );
+
+    res.warnings = ObjectSerializer.serialize(
+      data.warnings,
+      "Array<SyntheticsStepDetailWarning>",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

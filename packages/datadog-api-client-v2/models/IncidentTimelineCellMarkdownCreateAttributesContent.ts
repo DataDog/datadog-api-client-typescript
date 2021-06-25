@@ -8,57 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The Markdown timeline cell contents.
-*/
+ * The Markdown timeline cell contents.
+ */
 
 export class IncidentTimelineCellMarkdownCreateAttributesContent {
-    /**
-    * The Markdown content of the cell.
-    */
-    'content'?: string;
+  /**
+   * The Markdown content of the cell.
+   */
+  "content"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "content": {
-            "baseName": "content",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    content: {
+      baseName: "content",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentTimelineCellMarkdownCreateAttributesContent {
+    const res = new IncidentTimelineCellMarkdownCreateAttributesContent();
+
+    res.content = ObjectSerializer.deserialize(data.content, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: IncidentTimelineCellMarkdownCreateAttributesContent
+  ): { [key: string]: any } {
+    const attributeTypes = IncidentTimelineCellMarkdownCreateAttributesContent.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.content = ObjectSerializer.serialize(data.content, "string", "");
 
-    static deserialize(data: {[key: string]: any}): IncidentTimelineCellMarkdownCreateAttributesContent {
-      let res = new IncidentTimelineCellMarkdownCreateAttributesContent();
+    return res;
+  }
 
-      res.content = ObjectSerializer.deserialize(data.content, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: IncidentTimelineCellMarkdownCreateAttributesContent): {[key: string]: any} {
-        let attributeTypes = IncidentTimelineCellMarkdownCreateAttributesContent.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.content = ObjectSerializer.serialize(data.content, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

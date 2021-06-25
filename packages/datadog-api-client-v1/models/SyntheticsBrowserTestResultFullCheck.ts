@@ -8,61 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTestConfig } from './SyntheticsTestConfig';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the browser test configuration.
-*/
+ * Object describing the browser test configuration.
+ */
 
 export class SyntheticsBrowserTestResultFullCheck {
-    'config': SyntheticsTestConfig;
+  "config": SyntheticsTestConfig;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "config": {
-            "baseName": "config",
-            "type": "SyntheticsTestConfig",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    config: {
+      baseName: "config",
+      type: "SyntheticsTestConfig",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsBrowserTestResultFullCheck {
+    const res = new SyntheticsBrowserTestResultFullCheck();
+
+    if (data.config === undefined) {
+      throw new TypeError(
+        "missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object"
+      );
     }
+    res.config = ObjectSerializer.deserialize(
+      data.config,
+      "SyntheticsTestConfig",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTestResultFullCheck {
-      let res = new SyntheticsBrowserTestResultFullCheck();
+    return res;
+  }
 
-      if (data.config === undefined) {
-          throw new TypeError("missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object");
+  static serialize(
+    data: SyntheticsBrowserTestResultFullCheck
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsBrowserTestResultFullCheck.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.config = ObjectSerializer.deserialize(data.config, "SyntheticsTestConfig", "")
-
-
-      return res;
     }
-
-    static serialize(data: SyntheticsBrowserTestResultFullCheck): {[key: string]: any} {
-        let attributeTypes = SyntheticsBrowserTestResultFullCheck.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.config === undefined) {
-            throw new TypeError("missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object");
-        }
-        res.config = ObjectSerializer.serialize(data.config, "SyntheticsTestConfig", "")
-
-        return res
+    if (data.config === undefined) {
+      throw new TypeError(
+        "missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.config = ObjectSerializer.serialize(
+      data.config,
+      "SyntheticsTestConfig",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

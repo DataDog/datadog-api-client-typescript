@@ -8,58 +8,59 @@
  * Do not edit the class manually.
  */
 
-import { Organization } from './Organization';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Organization } from "./Organization";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response with the list of organizations.
-*/
+ * Response with the list of organizations.
+ */
 
 export class OrganizationListResponse {
-    /**
-    * Array of organization objects.
-    */
-    'orgs'?: Array<Organization>;
+  /**
+   * Array of organization objects.
+   */
+  "orgs"?: Array<Organization>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "orgs": {
-            "baseName": "orgs",
-            "type": "Array<Organization>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    orgs: {
+      baseName: "orgs",
+      type: "Array<Organization>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return OrganizationListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return OrganizationListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): OrganizationListResponse {
+    const res = new OrganizationListResponse();
+
+    res.orgs = ObjectSerializer.deserialize(
+      data.orgs,
+      "Array<Organization>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: OrganizationListResponse): { [key: string]: any } {
+    const attributeTypes = OrganizationListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.orgs = ObjectSerializer.serialize(data.orgs, "Array<Organization>", "");
 
-    static deserialize(data: {[key: string]: any}): OrganizationListResponse {
-      let res = new OrganizationListResponse();
+    return res;
+  }
 
-      res.orgs = ObjectSerializer.deserialize(data.orgs, "Array<Organization>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: OrganizationListResponse): {[key: string]: any} {
-        let attributeTypes = OrganizationListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.orgs = ObjectSerializer.serialize(data.orgs, "Array<Organization>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

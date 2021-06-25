@@ -8,58 +8,65 @@
  * Do not edit the class manually.
  */
 
-import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response with monthly summary of data billed by Datadog.
-*/
+ * Response with monthly summary of data billed by Datadog.
+ */
 
 export class UsageBillableSummaryResponse {
-    /**
-    * An array of objects regarding usage of billable summary.
-    */
-    'usage'?: Array<UsageBillableSummaryHour>;
+  /**
+   * An array of objects regarding usage of billable summary.
+   */
+  "usage"?: Array<UsageBillableSummaryHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageBillableSummaryHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageBillableSummaryHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageBillableSummaryResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageBillableSummaryResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UsageBillableSummaryResponse {
+    const res = new UsageBillableSummaryResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageBillableSummaryHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageBillableSummaryResponse): { [key: string]: any } {
+    const attributeTypes = UsageBillableSummaryResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageBillableSummaryHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageBillableSummaryResponse {
-      let res = new UsageBillableSummaryResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageBillableSummaryHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageBillableSummaryResponse): {[key: string]: any} {
-        let attributeTypes = UsageBillableSummaryResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageBillableSummaryHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { UsageIndexedSpansHour } from './UsageIndexedSpansHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageIndexedSpansHour } from "./UsageIndexedSpansHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A response containing indexed spans usage.
-*/
+ * A response containing indexed spans usage.
+ */
 
 export class UsageIndexedSpansResponse {
-    /**
-    * Array with the number of hourly traces indexed for a given organization.
-    */
-    'usage'?: Array<UsageIndexedSpansHour>;
+  /**
+   * Array with the number of hourly traces indexed for a given organization.
+   */
+  "usage"?: Array<UsageIndexedSpansHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageIndexedSpansHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageIndexedSpansHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageIndexedSpansResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageIndexedSpansResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageIndexedSpansResponse {
+    const res = new UsageIndexedSpansResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageIndexedSpansHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageIndexedSpansResponse): { [key: string]: any } {
+    const attributeTypes = UsageIndexedSpansResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageIndexedSpansHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageIndexedSpansResponse {
-      let res = new UsageIndexedSpansResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageIndexedSpansHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageIndexedSpansResponse): {[key: string]: any} {
-        let attributeTypes = UsageIndexedSpansResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageIndexedSpansHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,21 +8,17 @@
  * Do not edit the class manually.
  */
 
-import { LogStreamWidgetDefinition } from './LogStreamWidgetDefinition';
-import { NotebookCellTime } from './NotebookCellTime';
-import { NotebookDistributionCellAttributes } from './NotebookDistributionCellAttributes';
-import { NotebookGraphSize } from './NotebookGraphSize';
-import { NotebookHeatMapCellAttributes } from './NotebookHeatMapCellAttributes';
-import { NotebookLogStreamCellAttributes } from './NotebookLogStreamCellAttributes';
-import { NotebookMarkdownCellAttributes } from './NotebookMarkdownCellAttributes';
-import { NotebookSplitBy } from './NotebookSplitBy';
-import { NotebookTimeseriesCellAttributes } from './NotebookTimeseriesCellAttributes';
-import { NotebookToplistCellAttributes } from './NotebookToplistCellAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookDistributionCellAttributes } from "./NotebookDistributionCellAttributes";
+import { NotebookHeatMapCellAttributes } from "./NotebookHeatMapCellAttributes";
+import { NotebookLogStreamCellAttributes } from "./NotebookLogStreamCellAttributes";
+import { NotebookMarkdownCellAttributes } from "./NotebookMarkdownCellAttributes";
+import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
+import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
 
-/**
-* The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
-*/
-
-export type NotebookCellCreateRequestAttributes = NotebookDistributionCellAttributes | NotebookHeatMapCellAttributes | NotebookLogStreamCellAttributes | NotebookMarkdownCellAttributes | NotebookTimeseriesCellAttributes | NotebookToplistCellAttributes;
+export type NotebookCellCreateRequestAttributes =
+  | NotebookDistributionCellAttributes
+  | NotebookHeatMapCellAttributes
+  | NotebookLogStreamCellAttributes
+  | NotebookMarkdownCellAttributes
+  | NotebookTimeseriesCellAttributes
+  | NotebookToplistCellAttributes;

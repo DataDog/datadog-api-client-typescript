@@ -8,68 +8,81 @@
  * Do not edit the class manually.
  */
 
-import { CheckCanDeleteSLOResponseData } from './CheckCanDeleteSLOResponseData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A service level objective response containing the requested object.
-*/
+ * A service level objective response containing the requested object.
+ */
 
 export class CheckCanDeleteSLOResponse {
-    'data'?: CheckCanDeleteSLOResponseData;
-    /**
-    * A mapping of SLO id to it's current usages.
-    */
-    'errors'?: { [key: string]: string; };
+  "data"?: CheckCanDeleteSLOResponseData;
+  /**
+   * A mapping of SLO id to it's current usages.
+   */
+  "errors"?: { [key: string]: string };
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "CheckCanDeleteSLOResponseData",
-            "format": ""
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "{ [key: string]: string; }",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "CheckCanDeleteSLOResponseData",
+      format: "",
+    },
+    errors: {
+      baseName: "errors",
+      type: "{ [key: string]: string; }",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return CheckCanDeleteSLOResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return CheckCanDeleteSLOResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): CheckCanDeleteSLOResponse {
+    const res = new CheckCanDeleteSLOResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "CheckCanDeleteSLOResponseData",
+      ""
+    );
+
+    res.errors = ObjectSerializer.deserialize(
+      data.errors,
+      "{ [key: string]: string; }",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: CheckCanDeleteSLOResponse): { [key: string]: any } {
+    const attributeTypes = CheckCanDeleteSLOResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "CheckCanDeleteSLOResponseData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): CheckCanDeleteSLOResponse {
-      let res = new CheckCanDeleteSLOResponse();
+    res.errors = ObjectSerializer.serialize(
+      data.errors,
+      "{ [key: string]: string; }",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "CheckCanDeleteSLOResponseData", "")
+    return res;
+  }
 
-      res.errors = ObjectSerializer.deserialize(data.errors, "{ [key: string]: string; }", "")
-
-
-      return res;
-    }
-
-    static serialize(data: CheckCanDeleteSLOResponse): {[key: string]: any} {
-        let attributeTypes = CheckCanDeleteSLOResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "CheckCanDeleteSLOResponseData", "")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "{ [key: string]: string; }", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

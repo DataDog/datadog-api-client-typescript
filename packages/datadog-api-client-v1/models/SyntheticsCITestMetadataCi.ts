@@ -8,70 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Describe CI provider.
-*/
+ * Describe CI provider.
+ */
 
 export class SyntheticsCITestMetadataCi {
-    /**
-    * Name of the pipeline.
-    */
-    'pipeline'?: string;
-    /**
-    * Name of the CI provider.
-    */
-    'provider'?: string;
+  /**
+   * Name of the pipeline.
+   */
+  "pipeline"?: string;
+  /**
+   * Name of the CI provider.
+   */
+  "provider"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "pipeline": {
-            "baseName": "pipeline",
-            "type": "string",
-            "format": ""
-        },
-        "provider": {
-            "baseName": "provider",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    pipeline: {
+      baseName: "pipeline",
+      type: "string",
+      format: "",
+    },
+    provider: {
+      baseName: "provider",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsCITestMetadataCi.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsCITestMetadataCi.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsCITestMetadataCi {
+    const res = new SyntheticsCITestMetadataCi();
+
+    res.pipeline = ObjectSerializer.deserialize(data.pipeline, "string", "");
+
+    res.provider = ObjectSerializer.deserialize(data.provider, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsCITestMetadataCi): { [key: string]: any } {
+    const attributeTypes = SyntheticsCITestMetadataCi.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.pipeline = ObjectSerializer.serialize(data.pipeline, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsCITestMetadataCi {
-      let res = new SyntheticsCITestMetadataCi();
+    res.provider = ObjectSerializer.serialize(data.provider, "string", "");
 
-      res.pipeline = ObjectSerializer.deserialize(data.pipeline, "string", "")
+    return res;
+  }
 
-      res.provider = ObjectSerializer.deserialize(data.provider, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsCITestMetadataCi): {[key: string]: any} {
-        let attributeTypes = SyntheticsCITestMetadataCi.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.pipeline = ObjectSerializer.serialize(data.pipeline, "string", "")
-
-        res.provider = ObjectSerializer.serialize(data.provider, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

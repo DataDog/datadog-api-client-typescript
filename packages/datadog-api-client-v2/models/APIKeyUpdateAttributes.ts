@@ -8,63 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Attributes used to update an API Key.
-*/
+ * Attributes used to update an API Key.
+ */
 
 export class APIKeyUpdateAttributes {
-    /**
-    * Name of the API key.
-    */
-    'name': string;
+  /**
+   * Name of the API key.
+   */
+  "name": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return APIKeyUpdateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return APIKeyUpdateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): APIKeyUpdateAttributes {
+    const res = new APIKeyUpdateAttributes();
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'APIKeyUpdateAttributes' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): APIKeyUpdateAttributes {
-      let res = new APIKeyUpdateAttributes();
+    return res;
+  }
 
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'APIKeyUpdateAttributes' object");
+  static serialize(data: APIKeyUpdateAttributes): { [key: string]: any } {
+    const attributeTypes = APIKeyUpdateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: APIKeyUpdateAttributes): {[key: string]: any} {
-        let attributeTypes = APIKeyUpdateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'APIKeyUpdateAttributes' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'APIKeyUpdateAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

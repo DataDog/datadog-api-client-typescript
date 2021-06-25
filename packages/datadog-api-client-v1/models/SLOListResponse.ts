@@ -8,82 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { SLOListResponseMetadata } from './SLOListResponseMetadata';
-import { ServiceLevelObjective } from './ServiceLevelObjective';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
+import { ServiceLevelObjective } from "./ServiceLevelObjective";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A response with one or more service level objective.
-*/
+ * A response with one or more service level objective.
+ */
 
 export class SLOListResponse {
-    /**
-    * An array of service level objective objects.
-    */
-    'data'?: Array<ServiceLevelObjective>;
-    /**
-    * An array of error messages. Each endpoint documents how/whether this field is used.
-    */
-    'errors'?: Array<string>;
-    'metadata'?: SLOListResponseMetadata;
+  /**
+   * An array of service level objective objects.
+   */
+  "data"?: Array<ServiceLevelObjective>;
+  /**
+   * An array of error messages. Each endpoint documents how/whether this field is used.
+   */
+  "errors"?: Array<string>;
+  "metadata"?: SLOListResponseMetadata;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<ServiceLevelObjective>",
-            "format": ""
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "metadata": {
-            "baseName": "metadata",
-            "type": "SLOListResponseMetadata",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<ServiceLevelObjective>",
+      format: "",
+    },
+    errors: {
+      baseName: "errors",
+      type: "Array<string>",
+      format: "",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "SLOListResponseMetadata",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLOListResponse {
+    const res = new SLOListResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<ServiceLevelObjective>",
+      ""
+    );
+
+    res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "");
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "SLOListResponseMetadata",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SLOListResponse): { [key: string]: any } {
+    const attributeTypes = SLOListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<ServiceLevelObjective>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SLOListResponse {
-      let res = new SLOListResponse();
+    res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "");
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<ServiceLevelObjective>", "")
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "SLOListResponseMetadata",
+      ""
+    );
 
-      res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "")
+    return res;
+  }
 
-      res.metadata = ObjectSerializer.deserialize(data.metadata, "SLOListResponseMetadata", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SLOListResponse): {[key: string]: any} {
-        let attributeTypes = SLOListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<ServiceLevelObjective>", "")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "")
-
-        res.metadata = ObjectSerializer.serialize(data.metadata, "SLOListResponseMetadata", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

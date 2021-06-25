@@ -8,82 +8,83 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariableParserType } from './SyntheticsGlobalVariableParserType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Details of the parser to use for the global variable.
-*/
+ * Details of the parser to use for the global variable.
+ */
 
 export class SyntheticsVariableParser {
-    'type': SyntheticsGlobalVariableParserType;
-    /**
-    * Regex or JSON path used for the parser. Not used with type `raw`.
-    */
-    'value'?: string;
+  "type": SyntheticsGlobalVariableParserType;
+  /**
+   * Regex or JSON path used for the parser. Not used with type `raw`.
+   */
+  "value"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsGlobalVariableParserType",
-            "format": ""
-        },
-        "value": {
-            "baseName": "value",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    type: {
+      baseName: "type",
+      type: "SyntheticsGlobalVariableParserType",
+      format: "",
+    },
+    value: {
+      baseName: "value",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsVariableParser.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsVariableParser.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsVariableParser {
+    const res = new SyntheticsVariableParser();
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SyntheticsVariableParser' object"
+      );
+    }
+    if (["raw", "json_path", "regex", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsVariableParser {
-      let res = new SyntheticsVariableParser();
+    res.value = ObjectSerializer.deserialize(data.value, "string", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'SyntheticsVariableParser' object");
+    return res;
+  }
+
+  static serialize(data: SyntheticsVariableParser): { [key: string]: any } {
+    const attributeTypes = SyntheticsVariableParser.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['raw', 'json_path', 'regex', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-      res.value = ObjectSerializer.deserialize(data.value, "string", "")
-
-
-      return res;
+    }
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SyntheticsVariableParser' object"
+      );
+    }
+    if (["raw", "json_path", "regex", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: SyntheticsVariableParser): {[key: string]: any} {
-        let attributeTypes = SyntheticsVariableParser.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'SyntheticsVariableParser' object");
-        }
-        if (['raw', 'json_path', 'regex', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
+    res.value = ObjectSerializer.serialize(data.value, "string", "");
 
-        res.value = ObjectSerializer.serialize(data.value, "string", "")
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

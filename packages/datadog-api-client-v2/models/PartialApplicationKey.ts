@@ -8,98 +8,111 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyRelationships } from './ApplicationKeyRelationships';
-import { ApplicationKeysType } from './ApplicationKeysType';
-import { PartialApplicationKeyAttributes } from './PartialApplicationKeyAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
+import { ApplicationKeysType } from "./ApplicationKeysType";
+import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Partial Datadog application key.
-*/
+ * Partial Datadog application key.
+ */
 
 export class PartialApplicationKey {
-    'attributes'?: PartialApplicationKeyAttributes;
-    /**
-    * ID of the application key.
-    */
-    'id'?: string;
-    'relationships'?: ApplicationKeyRelationships;
-    'type'?: ApplicationKeysType;
+  "attributes"?: PartialApplicationKeyAttributes;
+  /**
+   * ID of the application key.
+   */
+  "id"?: string;
+  "relationships"?: ApplicationKeyRelationships;
+  "type"?: ApplicationKeysType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "PartialApplicationKeyAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "relationships": {
-            "baseName": "relationships",
-            "type": "ApplicationKeyRelationships",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "ApplicationKeysType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "PartialApplicationKeyAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "ApplicationKeyRelationships",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "ApplicationKeysType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return PartialApplicationKey.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return PartialApplicationKey.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): PartialApplicationKey {
+    const res = new PartialApplicationKey();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "PartialApplicationKeyAttributes",
+      ""
+    );
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    res.relationships = ObjectSerializer.deserialize(
+      data.relationships,
+      "ApplicationKeyRelationships",
+      ""
+    );
+
+    if (["application_keys", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): PartialApplicationKey {
-      let res = new PartialApplicationKey();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "PartialApplicationKeyAttributes", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-      res.relationships = ObjectSerializer.deserialize(data.relationships, "ApplicationKeyRelationships", "")
-
-      if (['application_keys', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: PartialApplicationKey): { [key: string]: any } {
+    const attributeTypes = PartialApplicationKey.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "PartialApplicationKeyAttributes",
+      ""
+    );
 
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      return res;
+    res.relationships = ObjectSerializer.serialize(
+      data.relationships,
+      "ApplicationKeyRelationships",
+      ""
+    );
+
+    if (["application_keys", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: PartialApplicationKey): {[key: string]: any} {
-        let attributeTypes = PartialApplicationKey.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "PartialApplicationKeyAttributes", "")
+    return res;
+  }
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        res.relationships = ObjectSerializer.serialize(data.relationships, "ApplicationKeyRelationships", "")
-
-        if (['application_keys', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

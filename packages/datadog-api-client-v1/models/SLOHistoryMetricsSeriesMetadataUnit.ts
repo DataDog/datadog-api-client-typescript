@@ -8,122 +8,131 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* An Object of metric units.
-*/
+ * An Object of metric units.
+ */
 
 export class SLOHistoryMetricsSeriesMetadataUnit {
-    /**
-    * The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
-    */
-    'family'?: string;
-    /**
-    * The ID of the metric unit.
-    */
-    'id'?: number;
-    /**
-    * The unit of the metric, for instance `byte`.
-    */
-    'name'?: string;
-    /**
-    * The plural Unit of metric, for instance `bytes`.
-    */
-    'plural'?: string;
-    /**
-    * The scale factor of metric unit, for instance `1.0`.
-    */
-    'scaleFactor'?: number;
-    /**
-    * A shorter and abbreviated version of the metric unit, for instance `B`.
-    */
-    'shortName'?: string;
+  /**
+   * The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
+   */
+  "family"?: string;
+  /**
+   * The ID of the metric unit.
+   */
+  "id"?: number;
+  /**
+   * The unit of the metric, for instance `byte`.
+   */
+  "name"?: string;
+  /**
+   * The plural Unit of metric, for instance `bytes`.
+   */
+  "plural"?: string;
+  /**
+   * The scale factor of metric unit, for instance `1.0`.
+   */
+  "scaleFactor"?: number;
+  /**
+   * A shorter and abbreviated version of the metric unit, for instance `B`.
+   */
+  "shortName"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "family": {
-            "baseName": "family",
-            "type": "string",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "number",
-            "format": "int64"
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "plural": {
-            "baseName": "plural",
-            "type": "string",
-            "format": ""
-        },
-        "scaleFactor": {
-            "baseName": "scale_factor",
-            "type": "number",
-            "format": "double"
-        },
-        "shortName": {
-            "baseName": "short_name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    family: {
+      baseName: "family",
+      type: "string",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    plural: {
+      baseName: "plural",
+      type: "string",
+      format: "",
+    },
+    scaleFactor: {
+      baseName: "scale_factor",
+      type: "number",
+      format: "double",
+    },
+    shortName: {
+      baseName: "short_name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOHistoryMetricsSeriesMetadataUnit.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOHistoryMetricsSeriesMetadataUnit.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SLOHistoryMetricsSeriesMetadataUnit {
+    const res = new SLOHistoryMetricsSeriesMetadataUnit();
+
+    res.family = ObjectSerializer.deserialize(data.family, "string", "");
+
+    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.plural = ObjectSerializer.deserialize(data.plural, "string", "");
+
+    res.scaleFactor = ObjectSerializer.deserialize(
+      data.scale_factor,
+      "number",
+      "double"
+    );
+
+    res.shortName = ObjectSerializer.deserialize(data.short_name, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SLOHistoryMetricsSeriesMetadataUnit
+  ): { [key: string]: any } {
+    const attributeTypes = SLOHistoryMetricsSeriesMetadataUnit.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.family = ObjectSerializer.serialize(data.family, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SLOHistoryMetricsSeriesMetadataUnit {
-      let res = new SLOHistoryMetricsSeriesMetadataUnit();
+    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
 
-      res.family = ObjectSerializer.deserialize(data.family, "string", "")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+    res.plural = ObjectSerializer.serialize(data.plural, "string", "");
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    res.scale_factor = ObjectSerializer.serialize(
+      data.scaleFactor,
+      "number",
+      "double"
+    );
 
-      res.plural = ObjectSerializer.deserialize(data.plural, "string", "")
+    res.short_name = ObjectSerializer.serialize(data.shortName, "string", "");
 
-      res.scaleFactor = ObjectSerializer.deserialize(data.scale_factor, "number", "double")
+    return res;
+  }
 
-      res.shortName = ObjectSerializer.deserialize(data.short_name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SLOHistoryMetricsSeriesMetadataUnit): {[key: string]: any} {
-        let attributeTypes = SLOHistoryMetricsSeriesMetadataUnit.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.family = ObjectSerializer.serialize(data.family, "string", "")
-
-        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.plural = ObjectSerializer.serialize(data.plural, "string", "")
-
-        res.scale_factor = ObjectSerializer.serialize(data.scaleFactor, "number", "double")
-
-        res.short_name = ObjectSerializer.serialize(data.shortName, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

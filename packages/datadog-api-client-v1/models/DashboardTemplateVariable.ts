@@ -8,89 +8,90 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Template variable.
-*/
+ * Template variable.
+ */
 
 export class DashboardTemplateVariable {
-    /**
-    * The default value for the template variable on dashboard load.
-    */
-    '_default'?: string;
-    /**
-    * The name of the variable.
-    */
-    'name': string;
-    /**
-    * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
-    */
-    'prefix'?: string;
+  /**
+   * The default value for the template variable on dashboard load.
+   */
+  "_default"?: string;
+  /**
+   * The name of the variable.
+   */
+  "name": string;
+  /**
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+   */
+  "prefix"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "_default": {
-            "baseName": "default",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "prefix": {
-            "baseName": "prefix",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    _default: {
+      baseName: "default",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    prefix: {
+      baseName: "prefix",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DashboardTemplateVariable.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DashboardTemplateVariable.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): DashboardTemplateVariable {
+    const res = new DashboardTemplateVariable();
+
+    res._default = ObjectSerializer.deserialize(data.default, "string", "");
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'DashboardTemplateVariable' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): DashboardTemplateVariable {
-      let res = new DashboardTemplateVariable();
+    res.prefix = ObjectSerializer.deserialize(data.prefix, "string", "");
 
-      res._default = ObjectSerializer.deserialize(data.default, "string", "")
+    return res;
+  }
 
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'DashboardTemplateVariable' object");
+  static serialize(data: DashboardTemplateVariable): { [key: string]: any } {
+    const attributeTypes = DashboardTemplateVariable.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.prefix = ObjectSerializer.deserialize(data.prefix, "string", "")
-
-
-      return res;
     }
+    res.default = ObjectSerializer.serialize(data._default, "string", "");
 
-    static serialize(data: DashboardTemplateVariable): {[key: string]: any} {
-        let attributeTypes = DashboardTemplateVariable.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.default = ObjectSerializer.serialize(data._default, "string", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'DashboardTemplateVariable' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.prefix = ObjectSerializer.serialize(data.prefix, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'DashboardTemplateVariable' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    res.prefix = ObjectSerializer.serialize(data.prefix, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

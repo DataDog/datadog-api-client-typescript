@@ -8,202 +8,243 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserTestConfig } from './SyntheticsBrowserTestConfig';
-import { SyntheticsBrowserTestType } from './SyntheticsBrowserTestType';
-import { SyntheticsStep } from './SyntheticsStep';
-import { SyntheticsTestOptions } from './SyntheticsTestOptions';
-import { SyntheticsTestPauseStatus } from './SyntheticsTestPauseStatus';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsBrowserTestConfig } from "./SyntheticsBrowserTestConfig";
+import { SyntheticsBrowserTestType } from "./SyntheticsBrowserTestType";
+import { SyntheticsStep } from "./SyntheticsStep";
+import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
+import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing details about a Synthetic browser test.
-*/
+ * Object containing details about a Synthetic browser test.
+ */
 
 export class SyntheticsBrowserTest {
-    'config'?: SyntheticsBrowserTestConfig;
-    /**
-    * Array of locations used to run the test.
-    */
-    'locations'?: Array<string>;
-    /**
-    * Notification message associated with the test. Message can either be text or an empty string.
-    */
-    'message': string;
-    /**
-    * The associated monitor ID.
-    */
-    'monitorId'?: number;
-    /**
-    * Name of the test.
-    */
-    'name'?: string;
-    'options'?: SyntheticsTestOptions;
-    /**
-    * The public ID of the test.
-    */
-    'publicId'?: string;
-    'status'?: SyntheticsTestPauseStatus;
-    /**
-    * The steps of the test.
-    */
-    'steps'?: Array<SyntheticsStep>;
-    /**
-    * Array of tags attached to the test.
-    */
-    'tags'?: Array<string>;
-    'type'?: SyntheticsBrowserTestType;
+  "config"?: SyntheticsBrowserTestConfig;
+  /**
+   * Array of locations used to run the test.
+   */
+  "locations"?: Array<string>;
+  /**
+   * Notification message associated with the test. Message can either be text or an empty string.
+   */
+  "message": string;
+  /**
+   * The associated monitor ID.
+   */
+  "monitorId"?: number;
+  /**
+   * Name of the test.
+   */
+  "name"?: string;
+  "options"?: SyntheticsTestOptions;
+  /**
+   * The public ID of the test.
+   */
+  "publicId"?: string;
+  "status"?: SyntheticsTestPauseStatus;
+  /**
+   * The steps of the test.
+   */
+  "steps"?: Array<SyntheticsStep>;
+  /**
+   * Array of tags attached to the test.
+   */
+  "tags"?: Array<string>;
+  "type"?: SyntheticsBrowserTestType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "config": {
-            "baseName": "config",
-            "type": "SyntheticsBrowserTestConfig",
-            "format": ""
-        },
-        "locations": {
-            "baseName": "locations",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "monitorId": {
-            "baseName": "monitor_id",
-            "type": "number",
-            "format": "int64"
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "options": {
-            "baseName": "options",
-            "type": "SyntheticsTestOptions",
-            "format": ""
-        },
-        "publicId": {
-            "baseName": "public_id",
-            "type": "string",
-            "format": ""
-        },
-        "status": {
-            "baseName": "status",
-            "type": "SyntheticsTestPauseStatus",
-            "format": ""
-        },
-        "steps": {
-            "baseName": "steps",
-            "type": "Array<SyntheticsStep>",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsBrowserTestType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    config: {
+      baseName: "config",
+      type: "SyntheticsBrowserTestConfig",
+      format: "",
+    },
+    locations: {
+      baseName: "locations",
+      type: "Array<string>",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    monitorId: {
+      baseName: "monitor_id",
+      type: "number",
+      format: "int64",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    options: {
+      baseName: "options",
+      type: "SyntheticsTestOptions",
+      format: "",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+      format: "",
+    },
+    status: {
+      baseName: "status",
+      type: "SyntheticsTestPauseStatus",
+      format: "",
+    },
+    steps: {
+      baseName: "steps",
+      type: "Array<SyntheticsStep>",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsBrowserTestType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsBrowserTest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsBrowserTest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsBrowserTest {
+    const res = new SyntheticsBrowserTest();
+
+    res.config = ObjectSerializer.deserialize(
+      data.config,
+      "SyntheticsBrowserTestConfig",
+      ""
+    );
+
+    res.locations = ObjectSerializer.deserialize(
+      data.locations,
+      "Array<string>",
+      ""
+    );
+
+    if (data.message === undefined) {
+      throw new TypeError(
+        "missing required attribute 'message' on 'SyntheticsBrowserTest' object"
+      );
+    }
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    res.monitorId = ObjectSerializer.deserialize(
+      data.monitor_id,
+      "number",
+      "int64"
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.options = ObjectSerializer.deserialize(
+      data.options,
+      "SyntheticsTestOptions",
+      ""
+    );
+
+    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
+
+    if (["live", "paused", undefined].includes(data.status)) {
+      res.status = data.status;
+    } else {
+      throw TypeError(`invalid enum value ${data.status} for status`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsBrowserTest {
-      let res = new SyntheticsBrowserTest();
+    res.steps = ObjectSerializer.deserialize(
+      data.steps,
+      "Array<SyntheticsStep>",
+      ""
+    );
 
-      res.config = ObjectSerializer.deserialize(data.config, "SyntheticsBrowserTestConfig", "")
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
 
-      res.locations = ObjectSerializer.deserialize(data.locations, "Array<string>", "")
+    if (["browser", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
 
-      if (data.message === undefined) {
-          throw new TypeError("missing required attribute 'message' on 'SyntheticsBrowserTest' object");
+    return res;
+  }
+
+  static serialize(data: SyntheticsBrowserTest): { [key: string]: any } {
+    const attributeTypes = SyntheticsBrowserTest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    }
+    res.config = ObjectSerializer.serialize(
+      data.config,
+      "SyntheticsBrowserTestConfig",
+      ""
+    );
 
-      res.monitorId = ObjectSerializer.deserialize(data.monitor_id, "number", "int64")
+    res.locations = ObjectSerializer.serialize(
+      data.locations,
+      "Array<string>",
+      ""
+    );
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    if (data.message === undefined) {
+      throw new TypeError(
+        "missing required attribute 'message' on 'SyntheticsBrowserTest' object"
+      );
+    }
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      res.options = ObjectSerializer.deserialize(data.options, "SyntheticsTestOptions", "")
+    res.monitor_id = ObjectSerializer.serialize(
+      data.monitorId,
+      "number",
+      "int64"
+    );
 
-      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      if (['live', 'paused', undefined].includes(data.status)) {
-          res.status = data.status;
-      } else {
-          throw TypeError(`invalid enum value ${ data.status } for status`);
-      }
+    res.options = ObjectSerializer.serialize(
+      data.options,
+      "SyntheticsTestOptions",
+      ""
+    );
 
-      res.steps = ObjectSerializer.deserialize(data.steps, "Array<SyntheticsStep>", "")
+    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-      if (['browser', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (["live", "paused", undefined].includes(data.status)) {
+      res.status = data.status;
+    } else {
+      throw TypeError(`invalid enum value ${data.status} for status`);
     }
 
-    static serialize(data: SyntheticsBrowserTest): {[key: string]: any} {
-        let attributeTypes = SyntheticsBrowserTest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.config = ObjectSerializer.serialize(data.config, "SyntheticsBrowserTestConfig", "")
+    res.steps = ObjectSerializer.serialize(
+      data.steps,
+      "Array<SyntheticsStep>",
+      ""
+    );
 
-        res.locations = ObjectSerializer.serialize(data.locations, "Array<string>", "")
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 
-        if (data.message === undefined) {
-            throw new TypeError("missing required attribute 'message' on 'SyntheticsBrowserTest' object");
-        }
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        res.monitor_id = ObjectSerializer.serialize(data.monitorId, "number", "int64")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.options = ObjectSerializer.serialize(data.options, "SyntheticsTestOptions", "")
-
-        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
-
-        if (['live', 'paused', undefined].includes(data.status)) {
-            res.status = data.status;
-        } else {
-            throw TypeError(`invalid enum value ${ data.status } for status`);
-        }
-
-        res.steps = ObjectSerializer.serialize(data.steps, "Array<SyntheticsStep>", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        if (['browser', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
+    if (["browser", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
-    
-    public constructor() {
-    }
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

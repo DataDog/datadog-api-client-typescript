@@ -8,61 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToIncidentPostmortemData } from './RelationshipToIncidentPostmortemData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A relationship reference for postmortems.
-*/
+ * A relationship reference for postmortems.
+ */
 
 export class RelationshipToIncidentPostmortem {
-    'data': RelationshipToIncidentPostmortemData;
+  "data": RelationshipToIncidentPostmortemData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "RelationshipToIncidentPostmortemData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "RelationshipToIncidentPostmortemData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RelationshipToIncidentPostmortem.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RelationshipToIncidentPostmortem.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): RelationshipToIncidentPostmortem {
+    const res = new RelationshipToIncidentPostmortem();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'RelationshipToIncidentPostmortem' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "RelationshipToIncidentPostmortemData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): RelationshipToIncidentPostmortem {
-      let res = new RelationshipToIncidentPostmortem();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'RelationshipToIncidentPostmortem' object");
+  static serialize(
+    data: RelationshipToIncidentPostmortem
+  ): { [key: string]: any } {
+    const attributeTypes = RelationshipToIncidentPostmortem.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "RelationshipToIncidentPostmortemData", "")
-
-
-      return res;
     }
-
-    static serialize(data: RelationshipToIncidentPostmortem): {[key: string]: any} {
-        let attributeTypes = RelationshipToIncidentPostmortem.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'RelationshipToIncidentPostmortem' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "RelationshipToIncidentPostmortemData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'RelationshipToIncidentPostmortem' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "RelationshipToIncidentPostmortemData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

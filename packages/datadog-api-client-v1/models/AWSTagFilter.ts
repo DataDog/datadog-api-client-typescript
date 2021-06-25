@@ -8,76 +8,103 @@
  * Do not edit the class manually.
  */
 
-import { AWSNamespace } from './AWSNamespace';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { AWSNamespace } from "./AWSNamespace";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A tag filter.
-*/
+ * A tag filter.
+ */
 
 export class AWSTagFilter {
-    'namespace'?: AWSNamespace;
-    /**
-    * The tag filter string.
-    */
-    'tagFilterStr'?: string;
+  "namespace"?: AWSNamespace;
+  /**
+   * The tag filter string.
+   */
+  "tagFilterStr"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "namespace": {
-            "baseName": "namespace",
-            "type": "AWSNamespace",
-            "format": ""
-        },
-        "tagFilterStr": {
-            "baseName": "tag_filter_str",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    namespace: {
+      baseName: "namespace",
+      type: "AWSNamespace",
+      format: "",
+    },
+    tagFilterStr: {
+      baseName: "tag_filter_str",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AWSTagFilter.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AWSTagFilter.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): AWSTagFilter {
+    const res = new AWSTagFilter();
+
+    if (
+      [
+        "elb",
+        "application_elb",
+        "sqs",
+        "rds",
+        "custom",
+        "network_elb",
+        "lambda",
+        undefined,
+      ].includes(data.namespace)
+    ) {
+      res.namespace = data.namespace;
+    } else {
+      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
     }
 
-    static deserialize(data: {[key: string]: any}): AWSTagFilter {
-      let res = new AWSTagFilter();
+    res.tagFilterStr = ObjectSerializer.deserialize(
+      data.tag_filter_str,
+      "string",
+      ""
+    );
 
-      if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
-          res.namespace = data.namespace;
-      } else {
-          throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
+    return res;
+  }
+
+  static serialize(data: AWSTagFilter): { [key: string]: any } {
+    const attributeTypes = AWSTagFilter.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-
-      res.tagFilterStr = ObjectSerializer.deserialize(data.tag_filter_str, "string", "")
-
-
-      return res;
+    }
+    if (
+      [
+        "elb",
+        "application_elb",
+        "sqs",
+        "rds",
+        "custom",
+        "network_elb",
+        "lambda",
+        undefined,
+      ].includes(data.namespace)
+    ) {
+      res.namespace = data.namespace;
+    } else {
+      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
     }
 
-    static serialize(data: AWSTagFilter): {[key: string]: any} {
-        let attributeTypes = AWSTagFilter.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (['elb', 'application_elb', 'sqs', 'rds', 'custom', 'network_elb', 'lambda', undefined].includes(data.namespace)) {
-            res.namespace = data.namespace;
-        } else {
-            throw TypeError(`invalid enum value ${ data.namespace } for namespace`);
-        }
+    res.tag_filter_str = ObjectSerializer.serialize(
+      data.tagFilterStr,
+      "string",
+      ""
+    );
 
-        res.tag_filter_str = ObjectSerializer.serialize(data.tagFilterStr, "string", "")
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

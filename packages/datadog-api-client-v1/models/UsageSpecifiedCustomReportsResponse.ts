@@ -8,66 +8,83 @@
  * Do not edit the class manually.
  */
 
-import { UsageSpecifiedCustomReportsData } from './UsageSpecifiedCustomReportsData';
-import { UsageSpecifiedCustomReportsMeta } from './UsageSpecifiedCustomReportsMeta';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageSpecifiedCustomReportsData } from "./UsageSpecifiedCustomReportsData";
+import { UsageSpecifiedCustomReportsMeta } from "./UsageSpecifiedCustomReportsMeta";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Returns available specified custom reports.
-*/
+ * Returns available specified custom reports.
+ */
 
 export class UsageSpecifiedCustomReportsResponse {
-    'data'?: UsageSpecifiedCustomReportsData;
-    'meta'?: UsageSpecifiedCustomReportsMeta;
+  "data"?: UsageSpecifiedCustomReportsData;
+  "meta"?: UsageSpecifiedCustomReportsMeta;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "UsageSpecifiedCustomReportsData",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "UsageSpecifiedCustomReportsMeta",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "UsageSpecifiedCustomReportsData",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "UsageSpecifiedCustomReportsMeta",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageSpecifiedCustomReportsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageSpecifiedCustomReportsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UsageSpecifiedCustomReportsResponse {
+    const res = new UsageSpecifiedCustomReportsResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "UsageSpecifiedCustomReportsData",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "UsageSpecifiedCustomReportsMeta",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: UsageSpecifiedCustomReportsResponse
+  ): { [key: string]: any } {
+    const attributeTypes = UsageSpecifiedCustomReportsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "UsageSpecifiedCustomReportsData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageSpecifiedCustomReportsResponse {
-      let res = new UsageSpecifiedCustomReportsResponse();
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "UsageSpecifiedCustomReportsMeta",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "UsageSpecifiedCustomReportsData", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "UsageSpecifiedCustomReportsMeta", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageSpecifiedCustomReportsResponse): {[key: string]: any} {
-        let attributeTypes = UsageSpecifiedCustomReportsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "UsageSpecifiedCustomReportsData", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "UsageSpecifiedCustomReportsMeta", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

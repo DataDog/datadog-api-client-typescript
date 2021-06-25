@@ -8,119 +8,142 @@
  * Do not edit the class manually.
  */
 
-import { NotebookGlobalTime } from './NotebookGlobalTime';
-import { NotebookStatus } from './NotebookStatus';
-import { NotebookUpdateCell } from './NotebookUpdateCell';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookGlobalTime } from "./NotebookGlobalTime";
+import { NotebookStatus } from "./NotebookStatus";
+import { NotebookUpdateCell } from "./NotebookUpdateCell";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The data attributes of a notebook.
-*/
+ * The data attributes of a notebook.
+ */
 
 export class NotebookUpdateDataAttributes {
-    /**
-    * List of cells to display in the notebook.
-    */
-    'cells': Array<NotebookUpdateCell>;
-    /**
-    * The name of the notebook.
-    */
-    'name': string;
-    'status'?: NotebookStatus;
-    'time': NotebookGlobalTime;
+  /**
+   * List of cells to display in the notebook.
+   */
+  "cells": Array<NotebookUpdateCell>;
+  /**
+   * The name of the notebook.
+   */
+  "name": string;
+  "status"?: NotebookStatus;
+  "time": NotebookGlobalTime;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cells": {
-            "baseName": "cells",
-            "type": "Array<NotebookUpdateCell>",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "status": {
-            "baseName": "status",
-            "type": "NotebookStatus",
-            "format": ""
-        },
-        "time": {
-            "baseName": "time",
-            "type": "NotebookGlobalTime",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cells: {
+      baseName: "cells",
+      type: "Array<NotebookUpdateCell>",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    status: {
+      baseName: "status",
+      type: "NotebookStatus",
+      format: "",
+    },
+    time: {
+      baseName: "time",
+      type: "NotebookGlobalTime",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookUpdateDataAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookUpdateDataAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): NotebookUpdateDataAttributes {
+    const res = new NotebookUpdateDataAttributes();
+
+    if (data.cells === undefined) {
+      throw new TypeError(
+        "missing required attribute 'cells' on 'NotebookUpdateDataAttributes' object"
+      );
+    }
+    res.cells = ObjectSerializer.deserialize(
+      data.cells,
+      "Array<NotebookUpdateCell>",
+      ""
+    );
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'NotebookUpdateDataAttributes' object"
+      );
+    }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (["published", undefined].includes(data.status)) {
+      res.status = data.status;
+    } else {
+      throw TypeError(`invalid enum value ${data.status} for status`);
     }
 
-    static deserialize(data: {[key: string]: any}): NotebookUpdateDataAttributes {
-      let res = new NotebookUpdateDataAttributes();
+    if (data.time === undefined) {
+      throw new TypeError(
+        "missing required attribute 'time' on 'NotebookUpdateDataAttributes' object"
+      );
+    }
+    res.time = ObjectSerializer.deserialize(
+      data.time,
+      "NotebookGlobalTime",
+      ""
+    );
 
-      if (data.cells === undefined) {
-          throw new TypeError("missing required attribute 'cells' on 'NotebookUpdateDataAttributes' object");
+    return res;
+  }
+
+  static serialize(data: NotebookUpdateDataAttributes): { [key: string]: any } {
+    const attributeTypes = NotebookUpdateDataAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.cells = ObjectSerializer.deserialize(data.cells, "Array<NotebookUpdateCell>", "")
+    }
+    if (data.cells === undefined) {
+      throw new TypeError(
+        "missing required attribute 'cells' on 'NotebookUpdateDataAttributes' object"
+      );
+    }
+    res.cells = ObjectSerializer.serialize(
+      data.cells,
+      "Array<NotebookUpdateCell>",
+      ""
+    );
 
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'NotebookUpdateDataAttributes' object");
-      }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'NotebookUpdateDataAttributes' object"
+      );
+    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      if (['published', undefined].includes(data.status)) {
-          res.status = data.status;
-      } else {
-          throw TypeError(`invalid enum value ${ data.status } for status`);
-      }
-
-      if (data.time === undefined) {
-          throw new TypeError("missing required attribute 'time' on 'NotebookUpdateDataAttributes' object");
-      }
-      res.time = ObjectSerializer.deserialize(data.time, "NotebookGlobalTime", "")
-
-
-      return res;
+    if (["published", undefined].includes(data.status)) {
+      res.status = data.status;
+    } else {
+      throw TypeError(`invalid enum value ${data.status} for status`);
     }
 
-    static serialize(data: NotebookUpdateDataAttributes): {[key: string]: any} {
-        let attributeTypes = NotebookUpdateDataAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.cells === undefined) {
-            throw new TypeError("missing required attribute 'cells' on 'NotebookUpdateDataAttributes' object");
-        }
-        res.cells = ObjectSerializer.serialize(data.cells, "Array<NotebookUpdateCell>", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'NotebookUpdateDataAttributes' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (['published', undefined].includes(data.status)) {
-            res.status = data.status;
-        } else {
-            throw TypeError(`invalid enum value ${ data.status } for status`);
-        }
-
-        if (data.time === undefined) {
-            throw new TypeError("missing required attribute 'time' on 'NotebookUpdateDataAttributes' object");
-        }
-        res.time = ObjectSerializer.serialize(data.time, "NotebookGlobalTime", "")
-
-        return res
+    if (data.time === undefined) {
+      throw new TypeError(
+        "missing required attribute 'time' on 'NotebookUpdateDataAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.time = ObjectSerializer.serialize(data.time, "NotebookGlobalTime", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

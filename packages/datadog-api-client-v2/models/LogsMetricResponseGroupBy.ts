@@ -8,70 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A group by rule.
-*/
+ * A group by rule.
+ */
 
 export class LogsMetricResponseGroupBy {
-    /**
-    * The path to the value the log-based metric will be aggregated over.
-    */
-    'path'?: string;
-    /**
-    * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
-    */
-    'tagName'?: string;
+  /**
+   * The path to the value the log-based metric will be aggregated over.
+   */
+  "path"?: string;
+  /**
+   * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+   */
+  "tagName"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "path": {
-            "baseName": "path",
-            "type": "string",
-            "format": ""
-        },
-        "tagName": {
-            "baseName": "tag_name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    path: {
+      baseName: "path",
+      type: "string",
+      format: "",
+    },
+    tagName: {
+      baseName: "tag_name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsMetricResponseGroupBy.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsMetricResponseGroupBy.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsMetricResponseGroupBy {
+    const res = new LogsMetricResponseGroupBy();
+
+    res.path = ObjectSerializer.deserialize(data.path, "string", "");
+
+    res.tagName = ObjectSerializer.deserialize(data.tag_name, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: LogsMetricResponseGroupBy): { [key: string]: any } {
+    const attributeTypes = LogsMetricResponseGroupBy.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.path = ObjectSerializer.serialize(data.path, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsMetricResponseGroupBy {
-      let res = new LogsMetricResponseGroupBy();
+    res.tag_name = ObjectSerializer.serialize(data.tagName, "string", "");
 
-      res.path = ObjectSerializer.deserialize(data.path, "string", "")
+    return res;
+  }
 
-      res.tagName = ObjectSerializer.deserialize(data.tag_name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsMetricResponseGroupBy): {[key: string]: any} {
-        let attributeTypes = LogsMetricResponseGroupBy.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.path = ObjectSerializer.serialize(data.path, "string", "")
-
-        res.tag_name = ObjectSerializer.serialize(data.tagName, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

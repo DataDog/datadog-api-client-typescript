@@ -8,114 +8,147 @@
  * Do not edit the class manually.
  */
 
-import { LogsExclusion } from './LogsExclusion';
-import { LogsFilter } from './LogsFilter';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsExclusion } from "./LogsExclusion";
+import { LogsFilter } from "./LogsFilter";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object for updating a Datadog Log index.
-*/
+ * Object for updating a Datadog Log index.
+ */
 
 export class LogsIndexUpdateRequest {
-    /**
-    * The number of log events you can send in this index per day before you are rate-limited.
-    */
-    'dailyLimit'?: number;
-    /**
-    * If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any specified `daily_limit` value in the request is ignored). If false or omitted, the index's current `daily_limit` is maintained.
-    */
-    'disableDailyLimit'?: boolean;
-    /**
-    * An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
-    */
-    'exclusionFilters'?: Array<LogsExclusion>;
-    'filter': LogsFilter;
-    /**
-    * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.  **Note:** Changing the retention for an index adjusts the length of retention for all logs already in this index. It may also affect billing.
-    */
-    'numRetentionDays'?: number;
+  /**
+   * The number of log events you can send in this index per day before you are rate-limited.
+   */
+  "dailyLimit"?: number;
+  /**
+   * If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any specified `daily_limit` value in the request is ignored). If false or omitted, the index's current `daily_limit` is maintained.
+   */
+  "disableDailyLimit"?: boolean;
+  /**
+   * An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
+   */
+  "exclusionFilters"?: Array<LogsExclusion>;
+  "filter": LogsFilter;
+  /**
+   * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.  **Note:** Changing the retention for an index adjusts the length of retention for all logs already in this index. It may also affect billing.
+   */
+  "numRetentionDays"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "dailyLimit": {
-            "baseName": "daily_limit",
-            "type": "number",
-            "format": "int64"
-        },
-        "disableDailyLimit": {
-            "baseName": "disable_daily_limit",
-            "type": "boolean",
-            "format": ""
-        },
-        "exclusionFilters": {
-            "baseName": "exclusion_filters",
-            "type": "Array<LogsExclusion>",
-            "format": ""
-        },
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsFilter",
-            "format": ""
-        },
-        "numRetentionDays": {
-            "baseName": "num_retention_days",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    dailyLimit: {
+      baseName: "daily_limit",
+      type: "number",
+      format: "int64",
+    },
+    disableDailyLimit: {
+      baseName: "disable_daily_limit",
+      type: "boolean",
+      format: "",
+    },
+    exclusionFilters: {
+      baseName: "exclusion_filters",
+      type: "Array<LogsExclusion>",
+      format: "",
+    },
+    filter: {
+      baseName: "filter",
+      type: "LogsFilter",
+      format: "",
+    },
+    numRetentionDays: {
+      baseName: "num_retention_days",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsIndexUpdateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsIndexUpdateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsIndexUpdateRequest {
+    const res = new LogsIndexUpdateRequest();
+
+    res.dailyLimit = ObjectSerializer.deserialize(
+      data.daily_limit,
+      "number",
+      "int64"
+    );
+
+    res.disableDailyLimit = ObjectSerializer.deserialize(
+      data.disable_daily_limit,
+      "boolean",
+      ""
+    );
+
+    res.exclusionFilters = ObjectSerializer.deserialize(
+      data.exclusion_filters,
+      "Array<LogsExclusion>",
+      ""
+    );
+
+    if (data.filter === undefined) {
+      throw new TypeError(
+        "missing required attribute 'filter' on 'LogsIndexUpdateRequest' object"
+      );
     }
+    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
 
-    static deserialize(data: {[key: string]: any}): LogsIndexUpdateRequest {
-      let res = new LogsIndexUpdateRequest();
+    res.numRetentionDays = ObjectSerializer.deserialize(
+      data.num_retention_days,
+      "number",
+      "int64"
+    );
 
-      res.dailyLimit = ObjectSerializer.deserialize(data.daily_limit, "number", "int64")
+    return res;
+  }
 
-      res.disableDailyLimit = ObjectSerializer.deserialize(data.disable_daily_limit, "boolean", "")
-
-      res.exclusionFilters = ObjectSerializer.deserialize(data.exclusion_filters, "Array<LogsExclusion>", "")
-
-      if (data.filter === undefined) {
-          throw new TypeError("missing required attribute 'filter' on 'LogsIndexUpdateRequest' object");
+  static serialize(data: LogsIndexUpdateRequest): { [key: string]: any } {
+    const attributeTypes = LogsIndexUpdateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "")
-
-      res.numRetentionDays = ObjectSerializer.deserialize(data.num_retention_days, "number", "int64")
-
-
-      return res;
     }
+    res.daily_limit = ObjectSerializer.serialize(
+      data.dailyLimit,
+      "number",
+      "int64"
+    );
 
-    static serialize(data: LogsIndexUpdateRequest): {[key: string]: any} {
-        let attributeTypes = LogsIndexUpdateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.daily_limit = ObjectSerializer.serialize(data.dailyLimit, "number", "int64")
+    res.disable_daily_limit = ObjectSerializer.serialize(
+      data.disableDailyLimit,
+      "boolean",
+      ""
+    );
 
-        res.disable_daily_limit = ObjectSerializer.serialize(data.disableDailyLimit, "boolean", "")
+    res.exclusion_filters = ObjectSerializer.serialize(
+      data.exclusionFilters,
+      "Array<LogsExclusion>",
+      ""
+    );
 
-        res.exclusion_filters = ObjectSerializer.serialize(data.exclusionFilters, "Array<LogsExclusion>", "")
-
-        if (data.filter === undefined) {
-            throw new TypeError("missing required attribute 'filter' on 'LogsIndexUpdateRequest' object");
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "")
-
-        res.num_retention_days = ObjectSerializer.serialize(data.numRetentionDays, "number", "int64")
-
-        return res
+    if (data.filter === undefined) {
+      throw new TypeError(
+        "missing required attribute 'filter' on 'LogsIndexUpdateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
+
+    res.num_retention_days = ObjectSerializer.serialize(
+      data.numRetentionDays,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

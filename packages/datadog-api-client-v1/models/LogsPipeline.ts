@@ -8,140 +8,161 @@
  * Do not edit the class manually.
  */
 
-import { LogsFilter } from './LogsFilter';
-import { LogsProcessor } from './LogsProcessor';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsFilter } from "./LogsFilter";
+import { LogsProcessor } from "./LogsProcessor";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
-*/
+ * Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
+ */
 
 export class LogsPipeline {
-    'filter'?: LogsFilter;
-    /**
-    * ID of the pipeline.
-    */
-    'id'?: string;
-    /**
-    * Whether or not the pipeline is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Whether or not the pipeline can be edited.
-    */
-    'isReadOnly'?: boolean;
-    /**
-    * Name of the pipeline.
-    */
-    'name': string;
-    /**
-    * Ordered list of processors in this pipeline.
-    */
-    'processors'?: Array<LogsProcessor>;
-    /**
-    * Type of pipeline.
-    */
-    'type'?: string;
+  "filter"?: LogsFilter;
+  /**
+   * ID of the pipeline.
+   */
+  "id"?: string;
+  /**
+   * Whether or not the pipeline is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Whether or not the pipeline can be edited.
+   */
+  "isReadOnly"?: boolean;
+  /**
+   * Name of the pipeline.
+   */
+  "name": string;
+  /**
+   * Ordered list of processors in this pipeline.
+   */
+  "processors"?: Array<LogsProcessor>;
+  /**
+   * Type of pipeline.
+   */
+  "type"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsFilter",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "isReadOnly": {
-            "baseName": "is_read_only",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "processors": {
-            "baseName": "processors",
-            "type": "Array<LogsProcessor>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    filter: {
+      baseName: "filter",
+      type: "LogsFilter",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    isReadOnly: {
+      baseName: "is_read_only",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    processors: {
+      baseName: "processors",
+      type: "Array<LogsProcessor>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsPipeline.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsPipeline.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsPipeline {
+    const res = new LogsPipeline();
+
+    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    res.isReadOnly = ObjectSerializer.deserialize(
+      data.is_read_only,
+      "boolean",
+      ""
+    );
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'LogsPipeline' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsPipeline {
-      let res = new LogsPipeline();
+    res.processors = ObjectSerializer.deserialize(
+      data.processors,
+      "Array<LogsProcessor>",
+      ""
+    );
 
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "")
+    res.type = ObjectSerializer.deserialize(data.type, "string", "");
 
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+    return res;
+  }
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.isReadOnly = ObjectSerializer.deserialize(data.is_read_only, "boolean", "")
-
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'LogsPipeline' object");
+  static serialize(data: LogsPipeline): { [key: string]: any } {
+    const attributeTypes = LogsPipeline.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.processors = ObjectSerializer.deserialize(data.processors, "Array<LogsProcessor>", "")
-
-      res.type = ObjectSerializer.deserialize(data.type, "string", "")
-
-
-      return res;
     }
+    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
 
-    static serialize(data: LogsPipeline): {[key: string]: any} {
-        let attributeTypes = LogsPipeline.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "")
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    res.is_read_only = ObjectSerializer.serialize(
+      data.isReadOnly,
+      "boolean",
+      ""
+    );
 
-        res.is_read_only = ObjectSerializer.serialize(data.isReadOnly, "boolean", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'LogsPipeline' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.processors = ObjectSerializer.serialize(data.processors, "Array<LogsProcessor>", "")
-
-        res.type = ObjectSerializer.serialize(data.type, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'LogsPipeline' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    res.processors = ObjectSerializer.serialize(
+      data.processors,
+      "Array<LogsProcessor>",
+      ""
+    );
+
+    res.type = ObjectSerializer.serialize(data.type, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,74 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { CheckCanDeleteMonitorResponseData } from './CheckCanDeleteMonitorResponseData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response of monitor IDs that can or can't be safely deleted.
-*/
+ * Response of monitor IDs that can or can't be safely deleted.
+ */
 
 export class CheckCanDeleteMonitorResponse {
-    'data': CheckCanDeleteMonitorResponseData;
-    /**
-    * A mapping of Monitor ID to strings denoting where it's used.
-    */
-    'errors'?: { [key: string]: Array<string>; };
+  "data": CheckCanDeleteMonitorResponseData;
+  /**
+   * A mapping of Monitor ID to strings denoting where it's used.
+   */
+  "errors"?: { [key: string]: Array<string> };
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "CheckCanDeleteMonitorResponseData",
-            "format": ""
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "{ [key: string]: Array<string>; }",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "CheckCanDeleteMonitorResponseData",
+      format: "",
+    },
+    errors: {
+      baseName: "errors",
+      type: "{ [key: string]: Array<string>; }",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return CheckCanDeleteMonitorResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return CheckCanDeleteMonitorResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): CheckCanDeleteMonitorResponse {
+    const res = new CheckCanDeleteMonitorResponse();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'CheckCanDeleteMonitorResponse' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "CheckCanDeleteMonitorResponseData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): CheckCanDeleteMonitorResponse {
-      let res = new CheckCanDeleteMonitorResponse();
+    res.errors = ObjectSerializer.deserialize(
+      data.errors,
+      "{ [key: string]: Array<string>; }",
+      ""
+    );
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'CheckCanDeleteMonitorResponse' object");
+    return res;
+  }
+
+  static serialize(
+    data: CheckCanDeleteMonitorResponse
+  ): { [key: string]: any } {
+    const attributeTypes = CheckCanDeleteMonitorResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "CheckCanDeleteMonitorResponseData", "")
-
-      res.errors = ObjectSerializer.deserialize(data.errors, "{ [key: string]: Array<string>; }", "")
-
-
-      return res;
     }
-
-    static serialize(data: CheckCanDeleteMonitorResponse): {[key: string]: any} {
-        let attributeTypes = CheckCanDeleteMonitorResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'CheckCanDeleteMonitorResponse' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "CheckCanDeleteMonitorResponseData", "")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "{ [key: string]: Array<string>; }", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'CheckCanDeleteMonitorResponse' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "CheckCanDeleteMonitorResponseData",
+      ""
+    );
+
+    res.errors = ObjectSerializer.serialize(
+      data.errors,
+      "{ [key: string]: Array<string>; }",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

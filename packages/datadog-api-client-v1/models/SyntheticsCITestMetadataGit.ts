@@ -8,70 +8,69 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Git information.
-*/
+ * Git information.
+ */
 
 export class SyntheticsCITestMetadataGit {
-    /**
-    * Branch name.
-    */
-    'branch'?: string;
-    /**
-    * Commit SHA.
-    */
-    'commitSha'?: string;
+  /**
+   * Branch name.
+   */
+  "branch"?: string;
+  /**
+   * Commit SHA.
+   */
+  "commitSha"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "branch": {
-            "baseName": "branch",
-            "type": "string",
-            "format": ""
-        },
-        "commitSha": {
-            "baseName": "commit_sha",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    branch: {
+      baseName: "branch",
+      type: "string",
+      format: "",
+    },
+    commitSha: {
+      baseName: "commit_sha",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsCITestMetadataGit.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsCITestMetadataGit.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsCITestMetadataGit {
+    const res = new SyntheticsCITestMetadataGit();
+
+    res.branch = ObjectSerializer.deserialize(data.branch, "string", "");
+
+    res.commitSha = ObjectSerializer.deserialize(data.commit_sha, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsCITestMetadataGit): { [key: string]: any } {
+    const attributeTypes = SyntheticsCITestMetadataGit.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.branch = ObjectSerializer.serialize(data.branch, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsCITestMetadataGit {
-      let res = new SyntheticsCITestMetadataGit();
+    res.commit_sha = ObjectSerializer.serialize(data.commitSha, "string", "");
 
-      res.branch = ObjectSerializer.deserialize(data.branch, "string", "")
+    return res;
+  }
 
-      res.commitSha = ObjectSerializer.deserialize(data.commit_sha, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsCITestMetadataGit): {[key: string]: any} {
-        let attributeTypes = SyntheticsCITestMetadataGit.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.branch = ObjectSerializer.serialize(data.branch, "string", "")
-
-        res.commit_sha = ObjectSerializer.serialize(data.commitSha, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

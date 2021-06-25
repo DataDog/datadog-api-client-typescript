@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Paging settings
-*/
+ * Paging settings
+ */
 
 export class LogsAggregateRequestPage {
-    /**
-    * The returned paging point to use to get the next results
-    */
-    'cursor'?: string;
+  /**
+   * The returned paging point to use to get the next results
+   */
+  "cursor"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cursor": {
-            "baseName": "cursor",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cursor: {
+      baseName: "cursor",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAggregateRequestPage.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAggregateRequestPage.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsAggregateRequestPage {
+    const res = new LogsAggregateRequestPage();
+
+    res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: LogsAggregateRequestPage): { [key: string]: any } {
+    const attributeTypes = LogsAggregateRequestPage.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.cursor = ObjectSerializer.serialize(data.cursor, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsAggregateRequestPage {
-      let res = new LogsAggregateRequestPage();
+    return res;
+  }
 
-      res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAggregateRequestPage): {[key: string]: any} {
-        let attributeTypes = LogsAggregateRequestPage.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.cursor = ObjectSerializer.serialize(data.cursor, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

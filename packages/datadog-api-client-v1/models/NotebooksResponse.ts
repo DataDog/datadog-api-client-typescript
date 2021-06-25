@@ -8,69 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { NotebooksResponseData } from './NotebooksResponseData';
-import { NotebooksResponseMeta } from './NotebooksResponseMeta';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebooksResponseData } from "./NotebooksResponseData";
+import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Notebooks get all response.
-*/
+ * Notebooks get all response.
+ */
 
 export class NotebooksResponse {
-    /**
-    * List of notebook definitions.
-    */
-    'data'?: Array<NotebooksResponseData>;
-    'meta'?: NotebooksResponseMeta;
+  /**
+   * List of notebook definitions.
+   */
+  "data"?: Array<NotebooksResponseData>;
+  "meta"?: NotebooksResponseMeta;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<NotebooksResponseData>",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "NotebooksResponseMeta",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<NotebooksResponseData>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "NotebooksResponseMeta",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebooksResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebooksResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebooksResponse {
+    const res = new NotebooksResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<NotebooksResponseData>",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "NotebooksResponseMeta",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: NotebooksResponse): { [key: string]: any } {
+    const attributeTypes = NotebooksResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<NotebooksResponseData>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): NotebooksResponse {
-      let res = new NotebooksResponse();
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "NotebooksResponseMeta",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<NotebooksResponseData>", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "NotebooksResponseMeta", "")
-
-
-      return res;
-    }
-
-    static serialize(data: NotebooksResponse): {[key: string]: any} {
-        let attributeTypes = NotebooksResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<NotebooksResponseData>", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "NotebooksResponseMeta", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

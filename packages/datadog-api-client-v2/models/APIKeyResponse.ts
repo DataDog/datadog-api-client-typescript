@@ -8,69 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyResponseIncludedItem } from './APIKeyResponseIncludedItem';
-import { FullAPIKey } from './FullAPIKey';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
+import { FullAPIKey } from "./FullAPIKey";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response for retrieving an API key.
-*/
+ * Response for retrieving an API key.
+ */
 
 export class APIKeyResponse {
-    'data'?: FullAPIKey;
-    /**
-    * Array of objects related to the API key.
-    */
-    'included'?: Array<APIKeyResponseIncludedItem>;
+  "data"?: FullAPIKey;
+  /**
+   * Array of objects related to the API key.
+   */
+  "included"?: Array<APIKeyResponseIncludedItem>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "FullAPIKey",
-            "format": ""
-        },
-        "included": {
-            "baseName": "included",
-            "type": "Array<APIKeyResponseIncludedItem>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "FullAPIKey",
+      format: "",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<APIKeyResponseIncludedItem>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return APIKeyResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return APIKeyResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): APIKeyResponse {
+    const res = new APIKeyResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "FullAPIKey", "");
+
+    res.included = ObjectSerializer.deserialize(
+      data.included,
+      "Array<APIKeyResponseIncludedItem>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: APIKeyResponse): { [key: string]: any } {
+    const attributeTypes = APIKeyResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "FullAPIKey", "");
 
-    static deserialize(data: {[key: string]: any}): APIKeyResponse {
-      let res = new APIKeyResponse();
+    res.included = ObjectSerializer.serialize(
+      data.included,
+      "Array<APIKeyResponseIncludedItem>",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "FullAPIKey", "")
+    return res;
+  }
 
-      res.included = ObjectSerializer.deserialize(data.included, "Array<APIKeyResponseIncludedItem>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: APIKeyResponse): {[key: string]: any} {
-        let attributeTypes = APIKeyResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "FullAPIKey", "")
-
-        res.included = ObjectSerializer.serialize(data.included, "Array<APIKeyResponseIncludedItem>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

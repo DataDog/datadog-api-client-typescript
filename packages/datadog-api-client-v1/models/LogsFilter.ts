@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Filter for logs.
-*/
+ * Filter for logs.
+ */
 
 export class LogsFilter {
-    /**
-    * The filter query.
-    */
-    'query'?: string;
+  /**
+   * The filter query.
+   */
+  "query"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsFilter.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsFilter.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsFilter {
+    const res = new LogsFilter();
+
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: LogsFilter): { [key: string]: any } {
+    const attributeTypes = LogsFilter.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsFilter {
-      let res = new LogsFilter();
+    return res;
+  }
 
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsFilter): {[key: string]: any} {
-        let attributeTypes = LogsFilter.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,143 +8,204 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventQueryDefinitionCompute } from './FormulaAndFunctionEventQueryDefinitionCompute';
-import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFunctionEventQueryDefinitionSearch';
-import { FormulaAndFunctionEventQueryGroupBy } from './FormulaAndFunctionEventQueryGroupBy';
-import { FormulaAndFunctionEventsDataSource } from './FormulaAndFunctionEventsDataSource';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
+import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
+import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
+import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A formula and functions events query.
-*/
+ * A formula and functions events query.
+ */
 
 export class FormulaAndFunctionEventQueryDefinition {
-    'compute': FormulaAndFunctionEventQueryDefinitionCompute;
-    'dataSource': FormulaAndFunctionEventsDataSource;
-    /**
-    * Group by options.
-    */
-    'groupBy'?: Array<FormulaAndFunctionEventQueryGroupBy>;
-    /**
-    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-    */
-    'indexes'?: Array<string>;
-    /**
-    * Name of the query for use in formulas.
-    */
-    'name': string;
-    'search'?: FormulaAndFunctionEventQueryDefinitionSearch;
+  "compute": FormulaAndFunctionEventQueryDefinitionCompute;
+  "dataSource": FormulaAndFunctionEventsDataSource;
+  /**
+   * Group by options.
+   */
+  "groupBy"?: Array<FormulaAndFunctionEventQueryGroupBy>;
+  /**
+   * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
+   */
+  "indexes"?: Array<string>;
+  /**
+   * Name of the query for use in formulas.
+   */
+  "name": string;
+  "search"?: FormulaAndFunctionEventQueryDefinitionSearch;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "compute": {
-            "baseName": "compute",
-            "type": "FormulaAndFunctionEventQueryDefinitionCompute",
-            "format": ""
-        },
-        "dataSource": {
-            "baseName": "data_source",
-            "type": "FormulaAndFunctionEventsDataSource",
-            "format": ""
-        },
-        "groupBy": {
-            "baseName": "group_by",
-            "type": "Array<FormulaAndFunctionEventQueryGroupBy>",
-            "format": ""
-        },
-        "indexes": {
-            "baseName": "indexes",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "search": {
-            "baseName": "search",
-            "type": "FormulaAndFunctionEventQueryDefinitionSearch",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    compute: {
+      baseName: "compute",
+      type: "FormulaAndFunctionEventQueryDefinitionCompute",
+      format: "",
+    },
+    dataSource: {
+      baseName: "data_source",
+      type: "FormulaAndFunctionEventsDataSource",
+      format: "",
+    },
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<FormulaAndFunctionEventQueryGroupBy>",
+      format: "",
+    },
+    indexes: {
+      baseName: "indexes",
+      type: "Array<string>",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    search: {
+      baseName: "search",
+      type: "FormulaAndFunctionEventQueryDefinitionSearch",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): FormulaAndFunctionEventQueryDefinition {
+    const res = new FormulaAndFunctionEventQueryDefinition();
+
+    if (data.compute === undefined) {
+      throw new TypeError(
+        "missing required attribute 'compute' on 'FormulaAndFunctionEventQueryDefinition' object"
+      );
+    }
+    res.compute = ObjectSerializer.deserialize(
+      data.compute,
+      "FormulaAndFunctionEventQueryDefinitionCompute",
+      ""
+    );
+
+    if (data.data_source === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data_source' on 'FormulaAndFunctionEventQueryDefinition' object"
+      );
+    }
+    if (
+      [
+        "logs",
+        "spans",
+        "network",
+        "rum",
+        "security_signals",
+        "profiles",
+        undefined,
+      ].includes(data.data_source)
+    ) {
+      res.dataSource = data.data_source;
+    } else {
+      throw TypeError(`invalid enum value ${data.data_source} for data_source`);
     }
 
-    static deserialize(data: {[key: string]: any}): FormulaAndFunctionEventQueryDefinition {
-      let res = new FormulaAndFunctionEventQueryDefinition();
+    res.groupBy = ObjectSerializer.deserialize(
+      data.group_by,
+      "Array<FormulaAndFunctionEventQueryGroupBy>",
+      ""
+    );
 
-      if (data.compute === undefined) {
-          throw new TypeError("missing required attribute 'compute' on 'FormulaAndFunctionEventQueryDefinition' object");
+    res.indexes = ObjectSerializer.deserialize(
+      data.indexes,
+      "Array<string>",
+      ""
+    );
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'FormulaAndFunctionEventQueryDefinition' object"
+      );
+    }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.search = ObjectSerializer.deserialize(
+      data.search,
+      "FormulaAndFunctionEventQueryDefinitionSearch",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: FormulaAndFunctionEventQueryDefinition
+  ): { [key: string]: any } {
+    const attributeTypes = FormulaAndFunctionEventQueryDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.compute = ObjectSerializer.deserialize(data.compute, "FormulaAndFunctionEventQueryDefinitionCompute", "")
+    }
+    if (data.compute === undefined) {
+      throw new TypeError(
+        "missing required attribute 'compute' on 'FormulaAndFunctionEventQueryDefinition' object"
+      );
+    }
+    res.compute = ObjectSerializer.serialize(
+      data.compute,
+      "FormulaAndFunctionEventQueryDefinitionCompute",
+      ""
+    );
 
-      if (data.data_source === undefined) {
-          throw new TypeError("missing required attribute 'data_source' on 'FormulaAndFunctionEventQueryDefinition' object");
-      }
-      if (['logs', 'spans', 'network', 'rum', 'security_signals', 'profiles', undefined].includes(data.data_source)) {
-          res.dataSource = data.data_source;
-      } else {
-          throw TypeError(`invalid enum value ${ data.data_source } for data_source`);
-      }
-
-      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<FormulaAndFunctionEventQueryGroupBy>", "")
-
-      res.indexes = ObjectSerializer.deserialize(data.indexes, "Array<string>", "")
-
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'FormulaAndFunctionEventQueryDefinition' object");
-      }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.search = ObjectSerializer.deserialize(data.search, "FormulaAndFunctionEventQueryDefinitionSearch", "")
-
-
-      return res;
+    if (data.dataSource === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data_source' on 'FormulaAndFunctionEventQueryDefinition' object"
+      );
+    }
+    if (
+      [
+        "logs",
+        "spans",
+        "network",
+        "rum",
+        "security_signals",
+        "profiles",
+        undefined,
+      ].includes(data.dataSource)
+    ) {
+      res.data_source = data.dataSource;
+    } else {
+      throw TypeError(`invalid enum value ${data.dataSource} for dataSource`);
     }
 
-    static serialize(data: FormulaAndFunctionEventQueryDefinition): {[key: string]: any} {
-        let attributeTypes = FormulaAndFunctionEventQueryDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.compute === undefined) {
-            throw new TypeError("missing required attribute 'compute' on 'FormulaAndFunctionEventQueryDefinition' object");
-        }
-        res.compute = ObjectSerializer.serialize(data.compute, "FormulaAndFunctionEventQueryDefinitionCompute", "")
+    res.group_by = ObjectSerializer.serialize(
+      data.groupBy,
+      "Array<FormulaAndFunctionEventQueryGroupBy>",
+      ""
+    );
 
-        if (data.dataSource === undefined) {
-            throw new TypeError("missing required attribute 'data_source' on 'FormulaAndFunctionEventQueryDefinition' object");
-        }
-        if (['logs', 'spans', 'network', 'rum', 'security_signals', 'profiles', undefined].includes(data.dataSource)) {
-            res.data_source = data.dataSource;
-        } else {
-            throw TypeError(`invalid enum value ${ data.dataSource } for dataSource`);
-        }
+    res.indexes = ObjectSerializer.serialize(data.indexes, "Array<string>", "");
 
-        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<FormulaAndFunctionEventQueryGroupBy>", "")
-
-        res.indexes = ObjectSerializer.serialize(data.indexes, "Array<string>", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'FormulaAndFunctionEventQueryDefinition' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.search = ObjectSerializer.serialize(data.search, "FormulaAndFunctionEventQueryDefinitionSearch", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'FormulaAndFunctionEventQueryDefinition' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    res.search = ObjectSerializer.serialize(
+      data.search,
+      "FormulaAndFunctionEventQueryDefinitionSearch",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

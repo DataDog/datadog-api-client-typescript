@@ -8,58 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricAggregation';
-import { FormulaAndFunctionMetricDataSource } from './FormulaAndFunctionMetricDataSource';
-import { HttpFile } from '../http/http';
+import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
+import { FormulaAndFunctionMetricDataSource } from "./FormulaAndFunctionMetricDataSource";
 
-/**
-* A timeseries formula and functions metrics query.
-*/
 export class TimeSeriesFormulaAndFunctionMetricQueryDefinition {
-    'aggregator'?: FormulaAndFunctionMetricAggregation;
-    'dataSource': FormulaAndFunctionMetricDataSource;
-    /**
-    * Name of the query for use in formulas.
-    */
-    'name'?: string;
-    /**
-    * Metrics query definition.
-    */
-    'query': string;
+  "aggregator"?: FormulaAndFunctionMetricAggregation;
+  "dataSource": FormulaAndFunctionMetricDataSource;
+  /**
+   * Name of the query for use in formulas.
+   */
+  "name"?: string;
+  /**
+   * Metrics query definition.
+   */
+  "query": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregator",
-            "baseName": "aggregator",
-            "type": "FormulaAndFunctionMetricAggregation",
-            "format": ""
-        },
-        {
-            "name": "dataSource",
-            "baseName": "data_source",
-            "type": "FormulaAndFunctionMetricDataSource",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "query",
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "aggregator",
+      baseName: "aggregator",
+      type: "FormulaAndFunctionMetricAggregation",
+      format: "",
+    },
+    {
+      name: "dataSource",
+      baseName: "data_source",
+      type: "FormulaAndFunctionMetricDataSource",
+      format: "",
+    },
+    {
+      name: "name",
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    {
+      name: "query",
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return TimeSeriesFormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
+  static getAttributeTypeMap() {
+    return TimeSeriesFormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
+  }
+
+  public constructor() {}
 }
-

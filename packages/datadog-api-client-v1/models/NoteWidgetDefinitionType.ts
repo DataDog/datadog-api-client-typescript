@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the note widget.
-*/
-
-export type NoteWidgetDefinitionType = typeof NOTE ;
-export const NOTE = 'note';
-
-
+export type NoteWidgetDefinitionType = typeof NOTE;
+export const NOTE = "note";

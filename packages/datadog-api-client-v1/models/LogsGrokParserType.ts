@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of logs grok parser.
-*/
-
-export type LogsGrokParserType = typeof GROK_PARSER ;
-export const GROK_PARSER = 'grok-parser';
-
-
+export type LogsGrokParserType = typeof GROK_PARSER;
+export const GROK_PARSER = "grok-parser";

@@ -8,82 +8,87 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The S3 Archive's integration destination.
-*/
+ * The S3 Archive's integration destination.
+ */
 
 export class LogsArchiveIntegrationS3 {
-    /**
-    * The account ID for the integration.
-    */
-    'accountId': string;
-    /**
-    * The path of the integration.
-    */
-    'roleName': string;
+  /**
+   * The account ID for the integration.
+   */
+  "accountId": string;
+  /**
+   * The path of the integration.
+   */
+  "roleName": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "accountId": {
-            "baseName": "account_id",
-            "type": "string",
-            "format": ""
-        },
-        "roleName": {
-            "baseName": "role_name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+      format: "",
+    },
+    roleName: {
+      baseName: "role_name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsArchiveIntegrationS3.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsArchiveIntegrationS3.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsArchiveIntegrationS3 {
+    const res = new LogsArchiveIntegrationS3();
+
+    if (data.account_id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'account_id' on 'LogsArchiveIntegrationS3' object"
+      );
     }
+    res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsArchiveIntegrationS3 {
-      let res = new LogsArchiveIntegrationS3();
+    if (data.role_name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'role_name' on 'LogsArchiveIntegrationS3' object"
+      );
+    }
+    res.roleName = ObjectSerializer.deserialize(data.role_name, "string", "");
 
-      if (data.account_id === undefined) {
-          throw new TypeError("missing required attribute 'account_id' on 'LogsArchiveIntegrationS3' object");
+    return res;
+  }
+
+  static serialize(data: LogsArchiveIntegrationS3): { [key: string]: any } {
+    const attributeTypes = LogsArchiveIntegrationS3.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
-
-      if (data.role_name === undefined) {
-          throw new TypeError("missing required attribute 'role_name' on 'LogsArchiveIntegrationS3' object");
-      }
-      res.roleName = ObjectSerializer.deserialize(data.role_name, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: LogsArchiveIntegrationS3): {[key: string]: any} {
-        let attributeTypes = LogsArchiveIntegrationS3.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.accountId === undefined) {
-            throw new TypeError("missing required attribute 'account_id' on 'LogsArchiveIntegrationS3' object");
-        }
-        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
-
-        if (data.roleName === undefined) {
-            throw new TypeError("missing required attribute 'role_name' on 'LogsArchiveIntegrationS3' object");
-        }
-        res.role_name = ObjectSerializer.serialize(data.roleName, "string", "")
-
-        return res
+    if (data.accountId === undefined) {
+      throw new TypeError(
+        "missing required attribute 'account_id' on 'LogsArchiveIntegrationS3' object"
+      );
     }
-    
-    public constructor() {
+    res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
+
+    if (data.roleName === undefined) {
+      throw new TypeError(
+        "missing required attribute 'role_name' on 'LogsArchiveIntegrationS3' object"
+      );
     }
+    res.role_name = ObjectSerializer.serialize(data.roleName, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

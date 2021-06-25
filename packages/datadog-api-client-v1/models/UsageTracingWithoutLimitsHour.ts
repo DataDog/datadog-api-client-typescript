@@ -8,70 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Tracing without limits usage for a given organization for a given hour.
-*/
+ * Tracing without limits usage for a given organization for a given hour.
+ */
 
 export class UsageTracingWithoutLimitsHour {
-    /**
-    * The hour for the usage.
-    */
-    'hour'?: Date;
-    /**
-    * Contains the total number of bytes ingested during a given hour.
-    */
-    'ingestedEventsBytes'?: number;
+  /**
+   * The hour for the usage.
+   */
+  "hour"?: Date;
+  /**
+   * Contains the total number of bytes ingested during a given hour.
+   */
+  "ingestedEventsBytes"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "hour": {
-            "baseName": "hour",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "ingestedEventsBytes": {
-            "baseName": "ingested_events_bytes",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
+    },
+    ingestedEventsBytes: {
+      baseName: "ingested_events_bytes",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageTracingWithoutLimitsHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageTracingWithoutLimitsHour.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UsageTracingWithoutLimitsHour {
+    const res = new UsageTracingWithoutLimitsHour();
+
+    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
+
+    res.ingestedEventsBytes = ObjectSerializer.deserialize(
+      data.ingested_events_bytes,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: UsageTracingWithoutLimitsHour
+  ): { [key: string]: any } {
+    const attributeTypes = UsageTracingWithoutLimitsHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 
-    static deserialize(data: {[key: string]: any}): UsageTracingWithoutLimitsHour {
-      let res = new UsageTracingWithoutLimitsHour();
+    res.ingested_events_bytes = ObjectSerializer.serialize(
+      data.ingestedEventsBytes,
+      "number",
+      "int64"
+    );
 
-      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
+    return res;
+  }
 
-      res.ingestedEventsBytes = ObjectSerializer.deserialize(data.ingested_events_bytes, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageTracingWithoutLimitsHour): {[key: string]: any} {
-        let attributeTypes = UsageTracingWithoutLimitsHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
-
-        res.ingested_events_bytes = ObjectSerializer.serialize(data.ingestedEventsBytes, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

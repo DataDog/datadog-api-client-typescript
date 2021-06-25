@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveDefinition } from './LogsArchiveDefinition';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The logs archive.
-*/
+ * The logs archive.
+ */
 
 export class LogsArchive {
-    'data'?: LogsArchiveDefinition;
+  "data"?: LogsArchiveDefinition;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "LogsArchiveDefinition",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "LogsArchiveDefinition",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsArchive.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsArchive.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsArchive {
+    const res = new LogsArchive();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "LogsArchiveDefinition",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsArchive): { [key: string]: any } {
+    const attributeTypes = LogsArchive.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "LogsArchiveDefinition",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsArchive {
-      let res = new LogsArchive();
+    return res;
+  }
 
-      res.data = ObjectSerializer.deserialize(data.data, "LogsArchiveDefinition", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsArchive): {[key: string]: any} {
-        let attributeTypes = LogsArchive.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "LogsArchiveDefinition", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

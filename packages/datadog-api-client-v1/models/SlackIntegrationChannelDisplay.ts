@@ -8,96 +8,97 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Configuration options for what is shown in an alert event message.
-*/
+ * Configuration options for what is shown in an alert event message.
+ */
 
 export class SlackIntegrationChannelDisplay {
-    /**
-    * Show the main body of the alert event.
-    */
-    'message'?: boolean;
-    /**
-    * Show the list of @-handles in the alert event.
-    */
-    'notified'?: boolean;
-    /**
-    * Show the alert event's snapshot image.
-    */
-    'snapshot'?: boolean;
-    /**
-    * Show the scopes on which the monitor alerted.
-    */
-    'tags'?: boolean;
+  /**
+   * Show the main body of the alert event.
+   */
+  "message"?: boolean;
+  /**
+   * Show the list of @-handles in the alert event.
+   */
+  "notified"?: boolean;
+  /**
+   * Show the alert event's snapshot image.
+   */
+  "snapshot"?: boolean;
+  /**
+   * Show the scopes on which the monitor alerted.
+   */
+  "tags"?: boolean;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "message": {
-            "baseName": "message",
-            "type": "boolean",
-            "format": ""
-        },
-        "notified": {
-            "baseName": "notified",
-            "type": "boolean",
-            "format": ""
-        },
-        "snapshot": {
-            "baseName": "snapshot",
-            "type": "boolean",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "boolean",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    message: {
+      baseName: "message",
+      type: "boolean",
+      format: "",
+    },
+    notified: {
+      baseName: "notified",
+      type: "boolean",
+      format: "",
+    },
+    snapshot: {
+      baseName: "snapshot",
+      type: "boolean",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "boolean",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SlackIntegrationChannelDisplay.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SlackIntegrationChannelDisplay.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SlackIntegrationChannelDisplay {
+    const res = new SlackIntegrationChannelDisplay();
+
+    res.message = ObjectSerializer.deserialize(data.message, "boolean", "");
+
+    res.notified = ObjectSerializer.deserialize(data.notified, "boolean", "");
+
+    res.snapshot = ObjectSerializer.deserialize(data.snapshot, "boolean", "");
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "boolean", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SlackIntegrationChannelDisplay
+  ): { [key: string]: any } {
+    const attributeTypes = SlackIntegrationChannelDisplay.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.message = ObjectSerializer.serialize(data.message, "boolean", "");
 
-    static deserialize(data: {[key: string]: any}): SlackIntegrationChannelDisplay {
-      let res = new SlackIntegrationChannelDisplay();
+    res.notified = ObjectSerializer.serialize(data.notified, "boolean", "");
 
-      res.message = ObjectSerializer.deserialize(data.message, "boolean", "")
+    res.snapshot = ObjectSerializer.serialize(data.snapshot, "boolean", "");
 
-      res.notified = ObjectSerializer.deserialize(data.notified, "boolean", "")
+    res.tags = ObjectSerializer.serialize(data.tags, "boolean", "");
 
-      res.snapshot = ObjectSerializer.deserialize(data.snapshot, "boolean", "")
+    return res;
+  }
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "boolean", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SlackIntegrationChannelDisplay): {[key: string]: any} {
-        let attributeTypes = SlackIntegrationChannelDisplay.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.message = ObjectSerializer.serialize(data.message, "boolean", "")
-
-        res.notified = ObjectSerializer.serialize(data.notified, "boolean", "")
-
-        res.snapshot = ObjectSerializer.serialize(data.snapshot, "boolean", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "boolean", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

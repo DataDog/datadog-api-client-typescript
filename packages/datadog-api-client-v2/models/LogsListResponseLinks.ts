@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Links attributes.
-*/
+ * Links attributes.
+ */
 
 export class LogsListResponseLinks {
-    /**
-    * Link for the next set of results. Note that the request can also be made using the POST endpoint.
-    */
-    'next'?: string;
+  /**
+   * Link for the next set of results. Note that the request can also be made using the POST endpoint.
+   */
+  "next"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "next": {
-            "baseName": "next",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    next: {
+      baseName: "next",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsListResponseLinks.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsListResponseLinks.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsListResponseLinks {
+    const res = new LogsListResponseLinks();
+
+    res.next = ObjectSerializer.deserialize(data.next, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: LogsListResponseLinks): { [key: string]: any } {
+    const attributeTypes = LogsListResponseLinks.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.next = ObjectSerializer.serialize(data.next, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsListResponseLinks {
-      let res = new LogsListResponseLinks();
+    return res;
+  }
 
-      res.next = ObjectSerializer.deserialize(data.next, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsListResponseLinks): {[key: string]: any} {
-        let attributeTypes = LogsListResponseLinks.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.next = ObjectSerializer.serialize(data.next, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

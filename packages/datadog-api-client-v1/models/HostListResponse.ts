@@ -8,84 +8,105 @@
  * Do not edit the class manually.
  */
 
-import { Host } from './Host';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Host } from "./Host";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response with Host information from Datadog.
-*/
+ * Response with Host information from Datadog.
+ */
 
 export class HostListResponse {
-    /**
-    * Array of hosts.
-    */
-    'hostList'?: Array<Host>;
-    /**
-    * Number of host matching the query.
-    */
-    'totalMatching'?: number;
-    /**
-    * Number of host returned.
-    */
-    'totalReturned'?: number;
+  /**
+   * Array of hosts.
+   */
+  "hostList"?: Array<Host>;
+  /**
+   * Number of host matching the query.
+   */
+  "totalMatching"?: number;
+  /**
+   * Number of host returned.
+   */
+  "totalReturned"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "hostList": {
-            "baseName": "host_list",
-            "type": "Array<Host>",
-            "format": ""
-        },
-        "totalMatching": {
-            "baseName": "total_matching",
-            "type": "number",
-            "format": "int64"
-        },
-        "totalReturned": {
-            "baseName": "total_returned",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    hostList: {
+      baseName: "host_list",
+      type: "Array<Host>",
+      format: "",
+    },
+    totalMatching: {
+      baseName: "total_matching",
+      type: "number",
+      format: "int64",
+    },
+    totalReturned: {
+      baseName: "total_returned",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return HostListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return HostListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): HostListResponse {
+    const res = new HostListResponse();
+
+    res.hostList = ObjectSerializer.deserialize(
+      data.host_list,
+      "Array<Host>",
+      ""
+    );
+
+    res.totalMatching = ObjectSerializer.deserialize(
+      data.total_matching,
+      "number",
+      "int64"
+    );
+
+    res.totalReturned = ObjectSerializer.deserialize(
+      data.total_returned,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: HostListResponse): { [key: string]: any } {
+    const attributeTypes = HostListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.host_list = ObjectSerializer.serialize(
+      data.hostList,
+      "Array<Host>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): HostListResponse {
-      let res = new HostListResponse();
+    res.total_matching = ObjectSerializer.serialize(
+      data.totalMatching,
+      "number",
+      "int64"
+    );
 
-      res.hostList = ObjectSerializer.deserialize(data.host_list, "Array<Host>", "")
+    res.total_returned = ObjectSerializer.serialize(
+      data.totalReturned,
+      "number",
+      "int64"
+    );
 
-      res.totalMatching = ObjectSerializer.deserialize(data.total_matching, "number", "int64")
+    return res;
+  }
 
-      res.totalReturned = ObjectSerializer.deserialize(data.total_returned, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: HostListResponse): {[key: string]: any} {
-        let attributeTypes = HostListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.host_list = ObjectSerializer.serialize(data.hostList, "Array<Host>", "")
-
-        res.total_matching = ObjectSerializer.serialize(data.totalMatching, "number", "int64")
-
-        res.total_returned = ObjectSerializer.serialize(data.totalReturned, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

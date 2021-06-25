@@ -8,70 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Description of errors.
-*/
+ * Description of errors.
+ */
 
 export class AWSLogsAsyncError {
-    /**
-    * Code properties
-    */
-    'code'?: string;
-    /**
-    * Message content.
-    */
-    'message'?: string;
+  /**
+   * Code properties
+   */
+  "code"?: string;
+  /**
+   * Message content.
+   */
+  "message"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "code": {
-            "baseName": "code",
-            "type": "string",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    code: {
+      baseName: "code",
+      type: "string",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AWSLogsAsyncError.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AWSLogsAsyncError.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): AWSLogsAsyncError {
+    const res = new AWSLogsAsyncError();
+
+    res.code = ObjectSerializer.deserialize(data.code, "string", "");
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: AWSLogsAsyncError): { [key: string]: any } {
+    const attributeTypes = AWSLogsAsyncError.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.code = ObjectSerializer.serialize(data.code, "string", "");
 
-    static deserialize(data: {[key: string]: any}): AWSLogsAsyncError {
-      let res = new AWSLogsAsyncError();
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      res.code = ObjectSerializer.deserialize(data.code, "string", "")
+    return res;
+  }
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: AWSLogsAsyncError): {[key: string]: any} {
-        let attributeTypes = AWSLogsAsyncError.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.code = ObjectSerializer.serialize(data.code, "string", "")
-
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

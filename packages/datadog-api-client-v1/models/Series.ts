@@ -8,134 +8,151 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
-*/
+ * A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
+ */
 
 export class Series {
-    /**
-    * The name of the host that produced the metric.
-    */
-    'host'?: string;
-    /**
-    * If the type of the metric is rate or count, define the corresponding interval.
-    */
-    'interval'?: number;
-    /**
-    * The name of the timeseries.
-    */
-    'metric': string;
-    /**
-    * Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
-    */
-    'points': Array<Array<number>>;
-    /**
-    * A list of tags associated with the metric.
-    */
-    'tags'?: Array<string>;
-    /**
-    * The type of the metric either `count`, `gauge`, or `rate`.
-    */
-    'type'?: string;
+  /**
+   * The name of the host that produced the metric.
+   */
+  "host"?: string;
+  /**
+   * If the type of the metric is rate or count, define the corresponding interval.
+   */
+  "interval"?: number;
+  /**
+   * The name of the timeseries.
+   */
+  "metric": string;
+  /**
+   * Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
+   */
+  "points": Array<Array<number>>;
+  /**
+   * A list of tags associated with the metric.
+   */
+  "tags"?: Array<string>;
+  /**
+   * The type of the metric either `count`, `gauge`, or `rate`.
+   */
+  "type"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "host": {
-            "baseName": "host",
-            "type": "string",
-            "format": ""
-        },
-        "interval": {
-            "baseName": "interval",
-            "type": "number",
-            "format": "int64"
-        },
-        "metric": {
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        },
-        "points": {
-            "baseName": "points",
-            "type": "Array<Array<number>>",
-            "format": "double"
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    host: {
+      baseName: "host",
+      type: "string",
+      format: "",
+    },
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "int64",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+    points: {
+      baseName: "points",
+      type: "Array<Array<number>>",
+      format: "double",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return Series.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return Series.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): Series {
+    const res = new Series();
+
+    res.host = ObjectSerializer.deserialize(data.host, "string", "");
+
+    res.interval = ObjectSerializer.deserialize(
+      data.interval,
+      "number",
+      "int64"
+    );
+
+    if (data.metric === undefined) {
+      throw new TypeError(
+        "missing required attribute 'metric' on 'Series' object"
+      );
     }
+    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
 
-    static deserialize(data: {[key: string]: any}): Series {
-      let res = new Series();
+    if (data.points === undefined) {
+      throw new TypeError(
+        "missing required attribute 'points' on 'Series' object"
+      );
+    }
+    res.points = ObjectSerializer.deserialize(
+      data.points,
+      "Array<Array<number>>",
+      "double"
+    );
 
-      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
 
-      res.interval = ObjectSerializer.deserialize(data.interval, "number", "int64")
+    res.type = ObjectSerializer.deserialize(data.type, "string", "");
 
-      if (data.metric === undefined) {
-          throw new TypeError("missing required attribute 'metric' on 'Series' object");
+    return res;
+  }
+
+  static serialize(data: Series): { [key: string]: any } {
+    const attributeTypes = Series.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
-
-      if (data.points === undefined) {
-          throw new TypeError("missing required attribute 'points' on 'Series' object");
-      }
-      res.points = ObjectSerializer.deserialize(data.points, "Array<Array<number>>", "double")
-
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-      res.type = ObjectSerializer.deserialize(data.type, "string", "")
-
-
-      return res;
     }
+    res.host = ObjectSerializer.serialize(data.host, "string", "");
 
-    static serialize(data: Series): {[key: string]: any} {
-        let attributeTypes = Series.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.host = ObjectSerializer.serialize(data.host, "string", "")
+    res.interval = ObjectSerializer.serialize(data.interval, "number", "int64");
 
-        res.interval = ObjectSerializer.serialize(data.interval, "number", "int64")
-
-        if (data.metric === undefined) {
-            throw new TypeError("missing required attribute 'metric' on 'Series' object");
-        }
-        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
-
-        if (data.points === undefined) {
-            throw new TypeError("missing required attribute 'points' on 'Series' object");
-        }
-        res.points = ObjectSerializer.serialize(data.points, "Array<Array<number>>", "double")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        res.type = ObjectSerializer.serialize(data.type, "string", "")
-
-        return res
+    if (data.metric === undefined) {
+      throw new TypeError(
+        "missing required attribute 'metric' on 'Series' object"
+      );
     }
-    
-    public constructor() {
+    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
+
+    if (data.points === undefined) {
+      throw new TypeError(
+        "missing required attribute 'points' on 'Series' object"
+      );
     }
+    res.points = ObjectSerializer.serialize(
+      data.points,
+      "Array<Array<number>>",
+      "double"
+    );
+
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
+
+    res.type = ObjectSerializer.serialize(data.type, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

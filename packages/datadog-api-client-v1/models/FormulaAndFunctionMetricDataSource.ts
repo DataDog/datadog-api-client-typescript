@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Data source for metrics queries.
-*/
-
-export type FormulaAndFunctionMetricDataSource = typeof METRICS ;
-export const METRICS = 'metrics';
-
-
+export type FormulaAndFunctionMetricDataSource = typeof METRICS;
+export const METRICS = "metrics";

@@ -8,61 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from './RelationshipToUser';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToUser } from "./RelationshipToUser";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The relationships the incident will have with other resources once created.
-*/
+ * The relationships the incident will have with other resources once created.
+ */
 
 export class IncidentCreateRelationships {
-    'commander': RelationshipToUser;
+  "commander": RelationshipToUser;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "commander": {
-            "baseName": "commander",
-            "type": "RelationshipToUser",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    commander: {
+      baseName: "commander",
+      type: "RelationshipToUser",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentCreateRelationships.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentCreateRelationships.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentCreateRelationships {
+    const res = new IncidentCreateRelationships();
+
+    if (data.commander === undefined) {
+      throw new TypeError(
+        "missing required attribute 'commander' on 'IncidentCreateRelationships' object"
+      );
     }
+    res.commander = ObjectSerializer.deserialize(
+      data.commander,
+      "RelationshipToUser",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): IncidentCreateRelationships {
-      let res = new IncidentCreateRelationships();
+    return res;
+  }
 
-      if (data.commander === undefined) {
-          throw new TypeError("missing required attribute 'commander' on 'IncidentCreateRelationships' object");
+  static serialize(data: IncidentCreateRelationships): { [key: string]: any } {
+    const attributeTypes = IncidentCreateRelationships.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.commander = ObjectSerializer.deserialize(data.commander, "RelationshipToUser", "")
-
-
-      return res;
     }
-
-    static serialize(data: IncidentCreateRelationships): {[key: string]: any} {
-        let attributeTypes = IncidentCreateRelationships.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.commander === undefined) {
-            throw new TypeError("missing required attribute 'commander' on 'IncidentCreateRelationships' object");
-        }
-        res.commander = ObjectSerializer.serialize(data.commander, "RelationshipToUser", "")
-
-        return res
+    if (data.commander === undefined) {
+      throw new TypeError(
+        "missing required attribute 'commander' on 'IncidentCreateRelationships' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.commander = ObjectSerializer.serialize(
+      data.commander,
+      "RelationshipToUser",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,120 +8,195 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAssertionOperator } from './SyntheticsAssertionOperator';
-import { SyntheticsAssertionType } from './SyntheticsAssertionType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
+import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* An assertion which uses a simple target.
-*/
+ * An assertion which uses a simple target.
+ */
 
 export class SyntheticsAssertionTarget {
-    'operator': SyntheticsAssertionOperator;
-    /**
-    * The associated assertion property.
-    */
-    'property'?: string;
-    /**
-    * Value used by the operator.
-    */
-    'target'?: any;
-    'type': SyntheticsAssertionType;
+  "operator": SyntheticsAssertionOperator;
+  /**
+   * The associated assertion property.
+   */
+  "property"?: string;
+  /**
+   * Value used by the operator.
+   */
+  "target"?: any;
+  "type": SyntheticsAssertionType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "operator": {
-            "baseName": "operator",
-            "type": "SyntheticsAssertionOperator",
-            "format": ""
-        },
-        "property": {
-            "baseName": "property",
-            "type": "string",
-            "format": ""
-        },
-        "target": {
-            "baseName": "target",
-            "type": "any",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsAssertionType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    operator: {
+      baseName: "operator",
+      type: "SyntheticsAssertionOperator",
+      format: "",
+    },
+    property: {
+      baseName: "property",
+      type: "string",
+      format: "",
+    },
+    target: {
+      baseName: "target",
+      type: "any",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsAssertionType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsAssertionTarget.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsAssertionTarget.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsAssertionTarget {
+    const res = new SyntheticsAssertionTarget();
+
+    if (data.operator === undefined) {
+      throw new TypeError(
+        "missing required attribute 'operator' on 'SyntheticsAssertionTarget' object"
+      );
+    }
+    if (
+      [
+        "contains",
+        "doesNotContain",
+        "is",
+        "isNot",
+        "lessThan",
+        "lessThanOrEqual",
+        "moreThan",
+        "moreThanOrEqual",
+        "matches",
+        "doesNotMatch",
+        "validates",
+        "isInMoreThan",
+        "isInLessThan",
+        undefined,
+      ].includes(data.operator)
+    ) {
+      res.operator = data.operator;
+    } else {
+      throw TypeError(`invalid enum value ${data.operator} for operator`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsAssertionTarget {
-      let res = new SyntheticsAssertionTarget();
+    res.property = ObjectSerializer.deserialize(data.property, "string", "");
 
-      if (data.operator === undefined) {
-          throw new TypeError("missing required attribute 'operator' on 'SyntheticsAssertionTarget' object");
-      }
-      if (['contains', 'doesNotContain', 'is', 'isNot', 'lessThan', 'lessThanOrEqual', 'moreThan', 'moreThanOrEqual', 'matches', 'doesNotMatch', 'validates', 'isInMoreThan', 'isInLessThan', undefined].includes(data.operator)) {
-          res.operator = data.operator;
-      } else {
-          throw TypeError(`invalid enum value ${ data.operator } for operator`);
-      }
+    res.target = ObjectSerializer.deserialize(data.target, "any", "");
 
-      res.property = ObjectSerializer.deserialize(data.property, "string", "")
-
-      res.target = ObjectSerializer.deserialize(data.target, "any", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'SyntheticsAssertionTarget' object");
-      }
-      if (['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SyntheticsAssertionTarget' object"
+      );
+    }
+    if (
+      [
+        "body",
+        "header",
+        "statusCode",
+        "certificate",
+        "responseTime",
+        "property",
+        "recordEvery",
+        "recordSome",
+        "tlsVersion",
+        "minTlsVersion",
+        "latency",
+        "packetLossPercentage",
+        "packetsReceived",
+        "networkHop",
+        undefined,
+      ].includes(data.type)
+    ) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: SyntheticsAssertionTarget): {[key: string]: any} {
-        let attributeTypes = SyntheticsAssertionTarget.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.operator === undefined) {
-            throw new TypeError("missing required attribute 'operator' on 'SyntheticsAssertionTarget' object");
-        }
-        if (['contains', 'doesNotContain', 'is', 'isNot', 'lessThan', 'lessThanOrEqual', 'moreThan', 'moreThanOrEqual', 'matches', 'doesNotMatch', 'validates', 'isInMoreThan', 'isInLessThan', undefined].includes(data.operator)) {
-            res.operator = data.operator;
-        } else {
-            throw TypeError(`invalid enum value ${ data.operator } for operator`);
-        }
+    return res;
+  }
 
-        res.property = ObjectSerializer.serialize(data.property, "string", "")
-
-        res.target = ObjectSerializer.serialize(data.target, "any", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'SyntheticsAssertionTarget' object");
-        }
-        if (['body', 'header', 'statusCode', 'certificate', 'responseTime', 'property', 'recordEvery', 'recordSome', 'tlsVersion', 'minTlsVersion', 'latency', 'packetLossPercentage', 'packetsReceived', 'networkHop', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
+  static serialize(data: SyntheticsAssertionTarget): { [key: string]: any } {
+    const attributeTypes = SyntheticsAssertionTarget.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
-    
-    public constructor() {
+    if (data.operator === undefined) {
+      throw new TypeError(
+        "missing required attribute 'operator' on 'SyntheticsAssertionTarget' object"
+      );
     }
+    if (
+      [
+        "contains",
+        "doesNotContain",
+        "is",
+        "isNot",
+        "lessThan",
+        "lessThanOrEqual",
+        "moreThan",
+        "moreThanOrEqual",
+        "matches",
+        "doesNotMatch",
+        "validates",
+        "isInMoreThan",
+        "isInLessThan",
+        undefined,
+      ].includes(data.operator)
+    ) {
+      res.operator = data.operator;
+    } else {
+      throw TypeError(`invalid enum value ${data.operator} for operator`);
+    }
+
+    res.property = ObjectSerializer.serialize(data.property, "string", "");
+
+    res.target = ObjectSerializer.serialize(data.target, "any", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SyntheticsAssertionTarget' object"
+      );
+    }
+    if (
+      [
+        "body",
+        "header",
+        "statusCode",
+        "certificate",
+        "responseTime",
+        "property",
+        "recordEvery",
+        "recordSome",
+        "tlsVersion",
+        "minTlsVersion",
+        "latency",
+        "packetLossPercentage",
+        "packetsReceived",
+        "networkHop",
+        undefined,
+      ].includes(data.type)
+    ) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

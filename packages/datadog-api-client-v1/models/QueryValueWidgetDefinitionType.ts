@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the query value widget.
-*/
-
-export type QueryValueWidgetDefinitionType = typeof QUERY_VALUE ;
-export const QUERY_VALUE = 'query_value';
-
-
+export type QueryValueWidgetDefinitionType = typeof QUERY_VALUE;
+export const QUERY_VALUE = "query_value";

@@ -8,95 +8,100 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Timeframe to retrieve the log from.
-*/
+ * Timeframe to retrieve the log from.
+ */
 
 export class LogsListRequestTime {
-    /**
-    * Minimum timestamp for requested logs.
-    */
-    'from': Date;
-    /**
-    * Timezone can be specified both as an offset (e.g. \"UTC+03:00\") or a regional zone (e.g. \"Europe/Paris\").
-    */
-    'timezone'?: string;
-    /**
-    * Maximum timestamp for requested logs.
-    */
-    'to': Date;
+  /**
+   * Minimum timestamp for requested logs.
+   */
+  "from": Date;
+  /**
+   * Timezone can be specified both as an offset (e.g. \"UTC+03:00\") or a regional zone (e.g. \"Europe/Paris\").
+   */
+  "timezone"?: string;
+  /**
+   * Maximum timestamp for requested logs.
+   */
+  "to": Date;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "from": {
-            "baseName": "from",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "timezone": {
-            "baseName": "timezone",
-            "type": "string",
-            "format": ""
-        },
-        "to": {
-            "baseName": "to",
-            "type": "Date",
-            "format": "date-time"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    from: {
+      baseName: "from",
+      type: "Date",
+      format: "date-time",
+    },
+    timezone: {
+      baseName: "timezone",
+      type: "string",
+      format: "",
+    },
+    to: {
+      baseName: "to",
+      type: "Date",
+      format: "date-time",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsListRequestTime.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsListRequestTime.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsListRequestTime {
+    const res = new LogsListRequestTime();
+
+    if (data.from === undefined) {
+      throw new TypeError(
+        "missing required attribute 'from' on 'LogsListRequestTime' object"
+      );
     }
+    res.from = ObjectSerializer.deserialize(data.from, "Date", "date-time");
 
-    static deserialize(data: {[key: string]: any}): LogsListRequestTime {
-      let res = new LogsListRequestTime();
+    res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "");
 
-      if (data.from === undefined) {
-          throw new TypeError("missing required attribute 'from' on 'LogsListRequestTime' object");
+    if (data.to === undefined) {
+      throw new TypeError(
+        "missing required attribute 'to' on 'LogsListRequestTime' object"
+      );
+    }
+    res.to = ObjectSerializer.deserialize(data.to, "Date", "date-time");
+
+    return res;
+  }
+
+  static serialize(data: LogsListRequestTime): { [key: string]: any } {
+    const attributeTypes = LogsListRequestTime.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.from = ObjectSerializer.deserialize(data.from, "Date", "date-time")
-
-      res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "")
-
-      if (data.to === undefined) {
-          throw new TypeError("missing required attribute 'to' on 'LogsListRequestTime' object");
-      }
-      res.to = ObjectSerializer.deserialize(data.to, "Date", "date-time")
-
-
-      return res;
     }
-
-    static serialize(data: LogsListRequestTime): {[key: string]: any} {
-        let attributeTypes = LogsListRequestTime.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.from === undefined) {
-            throw new TypeError("missing required attribute 'from' on 'LogsListRequestTime' object");
-        }
-        res.from = ObjectSerializer.serialize(data.from, "Date", "date-time")
-
-        res.timezone = ObjectSerializer.serialize(data.timezone, "string", "")
-
-        if (data.to === undefined) {
-            throw new TypeError("missing required attribute 'to' on 'LogsListRequestTime' object");
-        }
-        res.to = ObjectSerializer.serialize(data.to, "Date", "date-time")
-
-        return res
+    if (data.from === undefined) {
+      throw new TypeError(
+        "missing required attribute 'from' on 'LogsListRequestTime' object"
+      );
     }
-    
-    public constructor() {
+    res.from = ObjectSerializer.serialize(data.from, "Date", "date-time");
+
+    res.timezone = ObjectSerializer.serialize(data.timezone, "string", "");
+
+    if (data.to === undefined) {
+      throw new TypeError(
+        "missing required attribute 'to' on 'LogsListRequestTime' object"
+      );
     }
+    res.to = ObjectSerializer.serialize(data.to, "Date", "date-time");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

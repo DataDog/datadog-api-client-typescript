@@ -8,11 +8,4 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* A resulting object to put the given computes in over all the matching records.
-*/
-
 export type LogsGroupByTotal = boolean | number | string;

@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The kind of grouping to use.
-*/
-
-export type WidgetGrouping = typeof CHECK | typeof CLUSTER ;
-export const CHECK = 'check';
-export const CLUSTER = 'cluster';
-
-
+export type WidgetGrouping = typeof CHECK | typeof CLUSTER;
+export const CHECK = "check";
+export const CLUSTER = "cluster";

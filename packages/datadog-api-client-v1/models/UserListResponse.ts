@@ -8,58 +8,55 @@
  * Do not edit the class manually.
  */
 
-import { User } from './User';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { User } from "./User";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Array of Datadog users for a given organization.
-*/
+ * Array of Datadog users for a given organization.
+ */
 
 export class UserListResponse {
-    /**
-    * Array of users.
-    */
-    'users'?: Array<User>;
+  /**
+   * Array of users.
+   */
+  "users"?: Array<User>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "users": {
-            "baseName": "users",
-            "type": "Array<User>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    users: {
+      baseName: "users",
+      type: "Array<User>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserListResponse {
+    const res = new UserListResponse();
+
+    res.users = ObjectSerializer.deserialize(data.users, "Array<User>", "");
+
+    return res;
+  }
+
+  static serialize(data: UserListResponse): { [key: string]: any } {
+    const attributeTypes = UserListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.users = ObjectSerializer.serialize(data.users, "Array<User>", "");
 
-    static deserialize(data: {[key: string]: any}): UserListResponse {
-      let res = new UserListResponse();
+    return res;
+  }
 
-      res.users = ObjectSerializer.deserialize(data.users, "Array<User>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UserListResponse): {[key: string]: any} {
-        let attributeTypes = UserListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.users = ObjectSerializer.serialize(data.users, "Array<User>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

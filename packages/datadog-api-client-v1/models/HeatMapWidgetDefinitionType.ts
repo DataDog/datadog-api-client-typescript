@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the heat map widget.
-*/
-
-export type HeatMapWidgetDefinitionType = typeof HEATMAP ;
-export const HEATMAP = 'heatmap';
-
-
+export type HeatMapWidgetDefinitionType = typeof HEATMAP;
+export const HEATMAP = "heatmap";

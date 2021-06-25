@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the image widget.
-*/
-
-export type ImageWidgetDefinitionType = typeof IMAGE ;
-export const IMAGE = 'image';
-
-
+export type ImageWidgetDefinitionType = typeof IMAGE;
+export const IMAGE = "image";

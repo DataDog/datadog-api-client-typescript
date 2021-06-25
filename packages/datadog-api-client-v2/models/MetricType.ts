@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The metric resource type.
-*/
-
-export type MetricType = typeof METRICS ;
-export const METRICS = 'metrics';
-
-
+export type MetricType = typeof METRICS;
+export const METRICS = "metrics";

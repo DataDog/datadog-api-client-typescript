@@ -8,88 +8,97 @@
  * Do not edit the class manually.
  */
 
-import { NotebookMarkdownCellDefinitionType } from './NotebookMarkdownCellDefinitionType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookMarkdownCellDefinitionType } from "./NotebookMarkdownCellDefinitionType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
-*/
+ * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
+ */
 
 export class NotebookMarkdownCellDefinition {
-    /**
-    * The markdown content.
-    */
-    'text': string;
-    'type': NotebookMarkdownCellDefinitionType;
+  /**
+   * The markdown content.
+   */
+  "text": string;
+  "type": NotebookMarkdownCellDefinitionType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "text": {
-            "baseName": "text",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "NotebookMarkdownCellDefinitionType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    text: {
+      baseName: "text",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "NotebookMarkdownCellDefinitionType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookMarkdownCellDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookMarkdownCellDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): NotebookMarkdownCellDefinition {
+    const res = new NotebookMarkdownCellDefinition();
+
+    if (data.text === undefined) {
+      throw new TypeError(
+        "missing required attribute 'text' on 'NotebookMarkdownCellDefinition' object"
+      );
+    }
+    res.text = ObjectSerializer.deserialize(data.text, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'NotebookMarkdownCellDefinition' object"
+      );
+    }
+    if (["markdown", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): NotebookMarkdownCellDefinition {
-      let res = new NotebookMarkdownCellDefinition();
+    return res;
+  }
 
-      if (data.text === undefined) {
-          throw new TypeError("missing required attribute 'text' on 'NotebookMarkdownCellDefinition' object");
+  static serialize(
+    data: NotebookMarkdownCellDefinition
+  ): { [key: string]: any } {
+    const attributeTypes = NotebookMarkdownCellDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.text = ObjectSerializer.deserialize(data.text, "string", "")
+    }
+    if (data.text === undefined) {
+      throw new TypeError(
+        "missing required attribute 'text' on 'NotebookMarkdownCellDefinition' object"
+      );
+    }
+    res.text = ObjectSerializer.serialize(data.text, "string", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'NotebookMarkdownCellDefinition' object");
-      }
-      if (['markdown', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'NotebookMarkdownCellDefinition' object"
+      );
+    }
+    if (["markdown", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: NotebookMarkdownCellDefinition): {[key: string]: any} {
-        let attributeTypes = NotebookMarkdownCellDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.text === undefined) {
-            throw new TypeError("missing required attribute 'text' on 'NotebookMarkdownCellDefinition' object");
-        }
-        res.text = ObjectSerializer.serialize(data.text, "string", "")
+    return res;
+  }
 
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'NotebookMarkdownCellDefinition' object");
-        }
-        if (['markdown', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

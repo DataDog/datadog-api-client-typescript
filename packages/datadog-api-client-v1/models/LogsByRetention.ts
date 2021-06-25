@@ -8,80 +8,97 @@
  * Do not edit the class manually.
  */
 
-import { LogsByRetentionMonthlyUsage } from './LogsByRetentionMonthlyUsage';
-import { LogsByRetentionOrgs } from './LogsByRetentionOrgs';
-import { LogsRetentionAggSumUsage } from './LogsRetentionAggSumUsage';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
+import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
+import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing logs usage data broken down by retention period.
-*/
+ * Object containing logs usage data broken down by retention period.
+ */
 
 export class LogsByRetention {
-    'orgs'?: LogsByRetentionOrgs;
-    /**
-    * Aggregated index logs usage for each retention period with usage.
-    */
-    'usage'?: Array<LogsRetentionAggSumUsage>;
-    'usageByMonth'?: LogsByRetentionMonthlyUsage;
+  "orgs"?: LogsByRetentionOrgs;
+  /**
+   * Aggregated index logs usage for each retention period with usage.
+   */
+  "usage"?: Array<LogsRetentionAggSumUsage>;
+  "usageByMonth"?: LogsByRetentionMonthlyUsage;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "orgs": {
-            "baseName": "orgs",
-            "type": "LogsByRetentionOrgs",
-            "format": ""
-        },
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<LogsRetentionAggSumUsage>",
-            "format": ""
-        },
-        "usageByMonth": {
-            "baseName": "usage_by_month",
-            "type": "LogsByRetentionMonthlyUsage",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    orgs: {
+      baseName: "orgs",
+      type: "LogsByRetentionOrgs",
+      format: "",
+    },
+    usage: {
+      baseName: "usage",
+      type: "Array<LogsRetentionAggSumUsage>",
+      format: "",
+    },
+    usageByMonth: {
+      baseName: "usage_by_month",
+      type: "LogsByRetentionMonthlyUsage",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsByRetention.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsByRetention.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsByRetention {
+    const res = new LogsByRetention();
+
+    res.orgs = ObjectSerializer.deserialize(
+      data.orgs,
+      "LogsByRetentionOrgs",
+      ""
+    );
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<LogsRetentionAggSumUsage>",
+      ""
+    );
+
+    res.usageByMonth = ObjectSerializer.deserialize(
+      data.usage_by_month,
+      "LogsByRetentionMonthlyUsage",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsByRetention): { [key: string]: any } {
+    const attributeTypes = LogsByRetention.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.orgs = ObjectSerializer.serialize(data.orgs, "LogsByRetentionOrgs", "");
 
-    static deserialize(data: {[key: string]: any}): LogsByRetention {
-      let res = new LogsByRetention();
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<LogsRetentionAggSumUsage>",
+      ""
+    );
 
-      res.orgs = ObjectSerializer.deserialize(data.orgs, "LogsByRetentionOrgs", "")
+    res.usage_by_month = ObjectSerializer.serialize(
+      data.usageByMonth,
+      "LogsByRetentionMonthlyUsage",
+      ""
+    );
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<LogsRetentionAggSumUsage>", "")
+    return res;
+  }
 
-      res.usageByMonth = ObjectSerializer.deserialize(data.usage_by_month, "LogsByRetentionMonthlyUsage", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsByRetention): {[key: string]: any} {
-        let attributeTypes = LogsByRetention.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.orgs = ObjectSerializer.serialize(data.orgs, "LogsByRetentionOrgs", "")
-
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<LogsRetentionAggSumUsage>", "")
-
-        res.usage_by_month = ObjectSerializer.serialize(data.usageByMonth, "LogsByRetentionMonthlyUsage", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

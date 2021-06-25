@@ -8,97 +8,126 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPIStep } from './SyntheticsAPIStep';
-import { SyntheticsAssertion } from './SyntheticsAssertion';
-import { SyntheticsConfigVariable } from './SyntheticsConfigVariable';
-import { SyntheticsTestRequest } from './SyntheticsTestRequest';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsAPIStep } from "./SyntheticsAPIStep";
+import { SyntheticsAssertion } from "./SyntheticsAssertion";
+import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
+import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Configuration object for a Synthetic API test.
-*/
+ * Configuration object for a Synthetic API test.
+ */
 
 export class SyntheticsAPITestConfig {
-    /**
-    * Array of assertions used for the test.
-    */
-    'assertions'?: Array<SyntheticsAssertion>;
-    /**
-    * Array of variables used for the test.
-    */
-    'configVariables'?: Array<SyntheticsConfigVariable>;
-    'request'?: SyntheticsTestRequest;
-    /**
-    * When the test subtype is `multi`, the steps of the test.
-    */
-    'steps'?: Array<SyntheticsAPIStep>;
+  /**
+   * Array of assertions used for the test.
+   */
+  "assertions"?: Array<SyntheticsAssertion>;
+  /**
+   * Array of variables used for the test.
+   */
+  "configVariables"?: Array<SyntheticsConfigVariable>;
+  "request"?: SyntheticsTestRequest;
+  /**
+   * When the test subtype is `multi`, the steps of the test.
+   */
+  "steps"?: Array<SyntheticsAPIStep>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "assertions": {
-            "baseName": "assertions",
-            "type": "Array<SyntheticsAssertion>",
-            "format": ""
-        },
-        "configVariables": {
-            "baseName": "configVariables",
-            "type": "Array<SyntheticsConfigVariable>",
-            "format": ""
-        },
-        "request": {
-            "baseName": "request",
-            "type": "SyntheticsTestRequest",
-            "format": ""
-        },
-        "steps": {
-            "baseName": "steps",
-            "type": "Array<SyntheticsAPIStep>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    assertions: {
+      baseName: "assertions",
+      type: "Array<SyntheticsAssertion>",
+      format: "",
+    },
+    configVariables: {
+      baseName: "configVariables",
+      type: "Array<SyntheticsConfigVariable>",
+      format: "",
+    },
+    request: {
+      baseName: "request",
+      type: "SyntheticsTestRequest",
+      format: "",
+    },
+    steps: {
+      baseName: "steps",
+      type: "Array<SyntheticsAPIStep>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsAPITestConfig.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsAPITestConfig.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsAPITestConfig {
+    const res = new SyntheticsAPITestConfig();
+
+    res.assertions = ObjectSerializer.deserialize(
+      data.assertions,
+      "Array<SyntheticsAssertion>",
+      ""
+    );
+
+    res.configVariables = ObjectSerializer.deserialize(
+      data.configVariables,
+      "Array<SyntheticsConfigVariable>",
+      ""
+    );
+
+    res.request = ObjectSerializer.deserialize(
+      data.request,
+      "SyntheticsTestRequest",
+      ""
+    );
+
+    res.steps = ObjectSerializer.deserialize(
+      data.steps,
+      "Array<SyntheticsAPIStep>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsAPITestConfig): { [key: string]: any } {
+    const attributeTypes = SyntheticsAPITestConfig.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.assertions = ObjectSerializer.serialize(
+      data.assertions,
+      "Array<SyntheticsAssertion>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SyntheticsAPITestConfig {
-      let res = new SyntheticsAPITestConfig();
+    res.configVariables = ObjectSerializer.serialize(
+      data.configVariables,
+      "Array<SyntheticsConfigVariable>",
+      ""
+    );
 
-      res.assertions = ObjectSerializer.deserialize(data.assertions, "Array<SyntheticsAssertion>", "")
+    res.request = ObjectSerializer.serialize(
+      data.request,
+      "SyntheticsTestRequest",
+      ""
+    );
 
-      res.configVariables = ObjectSerializer.deserialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
+    res.steps = ObjectSerializer.serialize(
+      data.steps,
+      "Array<SyntheticsAPIStep>",
+      ""
+    );
 
-      res.request = ObjectSerializer.deserialize(data.request, "SyntheticsTestRequest", "")
+    return res;
+  }
 
-      res.steps = ObjectSerializer.deserialize(data.steps, "Array<SyntheticsAPIStep>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsAPITestConfig): {[key: string]: any} {
-        let attributeTypes = SyntheticsAPITestConfig.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.assertions = ObjectSerializer.serialize(data.assertions, "Array<SyntheticsAssertion>", "")
-
-        res.configVariables = ObjectSerializer.serialize(data.configVariables, "Array<SyntheticsConfigVariable>", "")
-
-        res.request = ObjectSerializer.serialize(data.request, "SyntheticsTestRequest", "")
-
-        res.steps = ObjectSerializer.serialize(data.steps, "Array<SyntheticsAPIStep>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

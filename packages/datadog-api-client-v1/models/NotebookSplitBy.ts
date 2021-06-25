@@ -8,82 +8,87 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing how to split the graph to display multiple visualizations per request.
-*/
+ * Object describing how to split the graph to display multiple visualizations per request.
+ */
 
 export class NotebookSplitBy {
-    /**
-    * Keys to split on.
-    */
-    'keys': Array<string>;
-    /**
-    * Tags to split on.
-    */
-    'tags': Array<string>;
+  /**
+   * Keys to split on.
+   */
+  "keys": Array<string>;
+  /**
+   * Tags to split on.
+   */
+  "tags": Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "keys": {
-            "baseName": "keys",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    keys: {
+      baseName: "keys",
+      type: "Array<string>",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookSplitBy.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookSplitBy.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebookSplitBy {
+    const res = new NotebookSplitBy();
+
+    if (data.keys === undefined) {
+      throw new TypeError(
+        "missing required attribute 'keys' on 'NotebookSplitBy' object"
+      );
     }
+    res.keys = ObjectSerializer.deserialize(data.keys, "Array<string>", "");
 
-    static deserialize(data: {[key: string]: any}): NotebookSplitBy {
-      let res = new NotebookSplitBy();
+    if (data.tags === undefined) {
+      throw new TypeError(
+        "missing required attribute 'tags' on 'NotebookSplitBy' object"
+      );
+    }
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
 
-      if (data.keys === undefined) {
-          throw new TypeError("missing required attribute 'keys' on 'NotebookSplitBy' object");
+    return res;
+  }
+
+  static serialize(data: NotebookSplitBy): { [key: string]: any } {
+    const attributeTypes = NotebookSplitBy.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.keys = ObjectSerializer.deserialize(data.keys, "Array<string>", "")
-
-      if (data.tags === undefined) {
-          throw new TypeError("missing required attribute 'tags' on 'NotebookSplitBy' object");
-      }
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-
-      return res;
     }
-
-    static serialize(data: NotebookSplitBy): {[key: string]: any} {
-        let attributeTypes = NotebookSplitBy.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.keys === undefined) {
-            throw new TypeError("missing required attribute 'keys' on 'NotebookSplitBy' object");
-        }
-        res.keys = ObjectSerializer.serialize(data.keys, "Array<string>", "")
-
-        if (data.tags === undefined) {
-            throw new TypeError("missing required attribute 'tags' on 'NotebookSplitBy' object");
-        }
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        return res
+    if (data.keys === undefined) {
+      throw new TypeError(
+        "missing required attribute 'keys' on 'NotebookSplitBy' object"
+      );
     }
-    
-    public constructor() {
+    res.keys = ObjectSerializer.serialize(data.keys, "Array<string>", "");
+
+    if (data.tags === undefined) {
+      throw new TypeError(
+        "missing required attribute 'tags' on 'NotebookSplitBy' object"
+      );
     }
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

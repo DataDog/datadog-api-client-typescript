@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the Notebook resource.
-*/
-
-export type NotebookResourceType = typeof NOTEBOOKS ;
-export const NOTEBOOKS = 'notebooks';
-
-
+export type NotebookResourceType = typeof NOTEBOOKS;
+export const NOTEBOOKS = "notebooks";

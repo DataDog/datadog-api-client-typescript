@@ -8,58 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { DashboardListItemResponse } from './DashboardListItemResponse';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { DashboardListItemResponse } from "./DashboardListItemResponse";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing a list of updated dashboards.
-*/
+ * Response containing a list of updated dashboards.
+ */
 
 export class DashboardListUpdateItemsResponse {
-    /**
-    * List of dashboards in the dashboard list.
-    */
-    'dashboards'?: Array<DashboardListItemResponse>;
+  /**
+   * List of dashboards in the dashboard list.
+   */
+  "dashboards"?: Array<DashboardListItemResponse>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "dashboards": {
-            "baseName": "dashboards",
-            "type": "Array<DashboardListItemResponse>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    dashboards: {
+      baseName: "dashboards",
+      type: "Array<DashboardListItemResponse>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DashboardListUpdateItemsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DashboardListUpdateItemsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): DashboardListUpdateItemsResponse {
+    const res = new DashboardListUpdateItemsResponse();
+
+    res.dashboards = ObjectSerializer.deserialize(
+      data.dashboards,
+      "Array<DashboardListItemResponse>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: DashboardListUpdateItemsResponse
+  ): { [key: string]: any } {
+    const attributeTypes = DashboardListUpdateItemsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.dashboards = ObjectSerializer.serialize(
+      data.dashboards,
+      "Array<DashboardListItemResponse>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): DashboardListUpdateItemsResponse {
-      let res = new DashboardListUpdateItemsResponse();
+    return res;
+  }
 
-      res.dashboards = ObjectSerializer.deserialize(data.dashboards, "Array<DashboardListItemResponse>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: DashboardListUpdateItemsResponse): {[key: string]: any} {
-        let attributeTypes = DashboardListUpdateItemsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.dashboards = ObjectSerializer.serialize(data.dashboards, "Array<DashboardListItemResponse>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

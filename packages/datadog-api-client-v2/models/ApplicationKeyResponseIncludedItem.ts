@@ -8,16 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { Role } from './Role';
-import { RoleAttributes } from './RoleAttributes';
-import { RoleResponseRelationships } from './RoleResponseRelationships';
-import { RolesType } from './RolesType';
-import { User } from './User';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* An object related to an application key.
-*/
+import { Role } from "./Role";
+import { User } from "./User";
 
 export type ApplicationKeyResponseIncludedItem = Role | User;

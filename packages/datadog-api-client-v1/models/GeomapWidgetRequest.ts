@@ -8,135 +8,176 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
-import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
-import { LogQueryDefinition } from './LogQueryDefinition';
-import { WidgetFormula } from './WidgetFormula';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { WidgetFormula } from "./WidgetFormula";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* An updated geomap widget.
-*/
+ * An updated geomap widget.
+ */
 
 export class GeomapWidgetRequest {
-    /**
-    * List of formulas that operate on queries. **This feature is currently in beta.**
-    */
-    'formulas'?: Array<WidgetFormula>;
-    'logQuery'?: LogQueryDefinition;
-    /**
-    * The widget metrics query.
-    */
-    'q'?: string;
-    /**
-    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-    */
-    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
-    'responseFormat'?: FormulaAndFunctionResponseFormat;
-    'rumQuery'?: LogQueryDefinition;
-    'securityQuery'?: LogQueryDefinition;
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   */
+  "formulas"?: Array<WidgetFormula>;
+  "logQuery"?: LogQueryDefinition;
+  /**
+   * The widget metrics query.
+   */
+  "q"?: string;
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
+  "rumQuery"?: LogQueryDefinition;
+  "securityQuery"?: LogQueryDefinition;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "formulas": {
-            "baseName": "formulas",
-            "type": "Array<WidgetFormula>",
-            "format": ""
-        },
-        "logQuery": {
-            "baseName": "log_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "q": {
-            "baseName": "q",
-            "type": "string",
-            "format": ""
-        },
-        "queries": {
-            "baseName": "queries",
-            "type": "Array<FormulaAndFunctionQueryDefinition>",
-            "format": ""
-        },
-        "responseFormat": {
-            "baseName": "response_format",
-            "type": "FormulaAndFunctionResponseFormat",
-            "format": ""
-        },
-        "rumQuery": {
-            "baseName": "rum_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "securityQuery": {
-            "baseName": "security_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+      format: "",
+    },
+    logQuery: {
+      baseName: "log_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    q: {
+      baseName: "q",
+      type: "string",
+      format: "",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+      format: "",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
+      format: "",
+    },
+    rumQuery: {
+      baseName: "rum_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    securityQuery: {
+      baseName: "security_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return GeomapWidgetRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return GeomapWidgetRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): GeomapWidgetRequest {
+    const res = new GeomapWidgetRequest();
+
+    res.formulas = ObjectSerializer.deserialize(
+      data.formulas,
+      "Array<WidgetFormula>",
+      ""
+    );
+
+    res.logQuery = ObjectSerializer.deserialize(
+      data.log_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.q = ObjectSerializer.deserialize(data.q, "string", "");
+
+    res.queries = ObjectSerializer.deserialize(
+      data.queries,
+      "Array<FormulaAndFunctionQueryDefinition>",
+      ""
+    );
+
+    if (["timeseries", "scalar", undefined].includes(data.response_format)) {
+      res.responseFormat = data.response_format;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.response_format} for response_format`
+      );
     }
 
-    static deserialize(data: {[key: string]: any}): GeomapWidgetRequest {
-      let res = new GeomapWidgetRequest();
+    res.rumQuery = ObjectSerializer.deserialize(
+      data.rum_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-      res.formulas = ObjectSerializer.deserialize(data.formulas, "Array<WidgetFormula>", "")
+    res.securityQuery = ObjectSerializer.deserialize(
+      data.security_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-      res.logQuery = ObjectSerializer.deserialize(data.log_query, "LogQueryDefinition", "")
+    return res;
+  }
 
-      res.q = ObjectSerializer.deserialize(data.q, "string", "")
-
-      res.queries = ObjectSerializer.deserialize(data.queries, "Array<FormulaAndFunctionQueryDefinition>", "")
-
-      if (['timeseries', 'scalar', undefined].includes(data.response_format)) {
-          res.responseFormat = data.response_format;
-      } else {
-          throw TypeError(`invalid enum value ${ data.response_format } for response_format`);
+  static serialize(data: GeomapWidgetRequest): { [key: string]: any } {
+    const attributeTypes = GeomapWidgetRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.formulas = ObjectSerializer.serialize(
+      data.formulas,
+      "Array<WidgetFormula>",
+      ""
+    );
 
-      res.rumQuery = ObjectSerializer.deserialize(data.rum_query, "LogQueryDefinition", "")
+    res.log_query = ObjectSerializer.serialize(
+      data.logQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-      res.securityQuery = ObjectSerializer.deserialize(data.security_query, "LogQueryDefinition", "")
+    res.q = ObjectSerializer.serialize(data.q, "string", "");
 
+    res.queries = ObjectSerializer.serialize(
+      data.queries,
+      "Array<FormulaAndFunctionQueryDefinition>",
+      ""
+    );
 
-      return res;
+    if (["timeseries", "scalar", undefined].includes(data.responseFormat)) {
+      res.response_format = data.responseFormat;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.responseFormat} for responseFormat`
+      );
     }
 
-    static serialize(data: GeomapWidgetRequest): {[key: string]: any} {
-        let attributeTypes = GeomapWidgetRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.formulas = ObjectSerializer.serialize(data.formulas, "Array<WidgetFormula>", "")
+    res.rum_query = ObjectSerializer.serialize(
+      data.rumQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.log_query = ObjectSerializer.serialize(data.logQuery, "LogQueryDefinition", "")
+    res.security_query = ObjectSerializer.serialize(
+      data.securityQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.q = ObjectSerializer.serialize(data.q, "string", "")
+    return res;
+  }
 
-        res.queries = ObjectSerializer.serialize(data.queries, "Array<FormulaAndFunctionQueryDefinition>", "")
-
-        if (['timeseries', 'scalar', undefined].includes(data.responseFormat)) {
-            res.response_format = data.responseFormat;
-        } else {
-            throw TypeError(`invalid enum value ${ data.responseFormat } for responseFormat`);
-        }
-
-        res.rum_query = ObjectSerializer.serialize(data.rumQuery, "LogQueryDefinition", "")
-
-        res.security_query = ObjectSerializer.serialize(data.securityQuery, "LogQueryDefinition", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

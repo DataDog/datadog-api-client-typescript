@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Metadata associated with your host.
-*/
+ * Metadata associated with your host.
+ */
 
 export class HostMeta {
-    /**
-    * Array of Unix versions.
-    */
-    'nixV'?: Array<string>;
+  /**
+   * Array of Unix versions.
+   */
+  "nixV"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "nixV": {
-            "baseName": "nixV",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    nixV: {
+      baseName: "nixV",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return HostMeta.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return HostMeta.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): HostMeta {
+    const res = new HostMeta();
+
+    res.nixV = ObjectSerializer.deserialize(data.nixV, "Array<string>", "");
+
+    return res;
+  }
+
+  static serialize(data: HostMeta): { [key: string]: any } {
+    const attributeTypes = HostMeta.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.nixV = ObjectSerializer.serialize(data.nixV, "Array<string>", "");
 
-    static deserialize(data: {[key: string]: any}): HostMeta {
-      let res = new HostMeta();
+    return res;
+  }
 
-      res.nixV = ObjectSerializer.deserialize(data.nixV, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: HostMeta): {[key: string]: any} {
-        let attributeTypes = HostMeta.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.nixV = ObjectSerializer.serialize(data.nixV, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

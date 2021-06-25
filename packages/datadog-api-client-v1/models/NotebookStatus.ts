@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Publication status of the notebook. For now, always \"published\".
-*/
-
-export type NotebookStatus = typeof PUBLISHED ;
-export const PUBLISHED = 'published';
-
-
+export type NotebookStatus = typeof PUBLISHED;
+export const PUBLISHED = "published";

@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { UsageComplianceHour } from './UsageComplianceHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageComplianceHour } from "./UsageComplianceHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The response containing the Compliance Monitoring usage for each hour for a given organization.
-*/
+ * The response containing the Compliance Monitoring usage for each hour for a given organization.
+ */
 
 export class UsageComplianceResponse {
-    /**
-    * Get hourly usage for Compliance Monitoring.
-    */
-    'usage'?: Array<UsageComplianceHour>;
+  /**
+   * Get hourly usage for Compliance Monitoring.
+   */
+  "usage"?: Array<UsageComplianceHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageComplianceHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageComplianceHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageComplianceResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageComplianceResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageComplianceResponse {
+    const res = new UsageComplianceResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageComplianceHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageComplianceResponse): { [key: string]: any } {
+    const attributeTypes = UsageComplianceResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageComplianceHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageComplianceResponse {
-      let res = new UsageComplianceResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageComplianceHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageComplianceResponse): {[key: string]: any} {
-        let attributeTypes = UsageComplianceResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageComplianceHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

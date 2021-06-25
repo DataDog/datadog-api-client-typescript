@@ -8,74 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { SLOCorrectionType } from './SLOCorrectionType';
-import { SLOCorrectionUpdateRequestAttributes } from './SLOCorrectionUpdateRequestAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SLOCorrectionType } from "./SLOCorrectionType";
+import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The data object associated with the SLO correction to be updated
-*/
+ * The data object associated with the SLO correction to be updated
+ */
 
 export class SLOCorrectionUpdateData {
-    'attributes'?: SLOCorrectionUpdateRequestAttributes;
-    'type'?: SLOCorrectionType;
+  "attributes"?: SLOCorrectionUpdateRequestAttributes;
+  "type"?: SLOCorrectionType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "SLOCorrectionUpdateRequestAttributes",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SLOCorrectionType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "SLOCorrectionUpdateRequestAttributes",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SLOCorrectionType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOCorrectionUpdateData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOCorrectionUpdateData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLOCorrectionUpdateData {
+    const res = new SLOCorrectionUpdateData();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "SLOCorrectionUpdateRequestAttributes",
+      ""
+    );
+
+    if (["correction", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): SLOCorrectionUpdateData {
-      let res = new SLOCorrectionUpdateData();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "SLOCorrectionUpdateRequestAttributes", "")
-
-      if (['correction', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: SLOCorrectionUpdateData): { [key: string]: any } {
+    const attributeTypes = SLOCorrectionUpdateData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "SLOCorrectionUpdateRequestAttributes",
+      ""
+    );
 
-
-      return res;
+    if (["correction", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: SLOCorrectionUpdateData): {[key: string]: any} {
-        let attributeTypes = SLOCorrectionUpdateData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "SLOCorrectionUpdateRequestAttributes", "")
+    return res;
+  }
 
-        if (['correction', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

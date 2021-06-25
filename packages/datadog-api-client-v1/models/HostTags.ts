@@ -8,70 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Set of tags to associate with your host.
-*/
+ * Set of tags to associate with your host.
+ */
 
 export class HostTags {
-    /**
-    * Your host name.
-    */
-    'host'?: string;
-    /**
-    * A list of tags to apply to the host.
-    */
-    'tags'?: Array<string>;
+  /**
+   * Your host name.
+   */
+  "host"?: string;
+  /**
+   * A list of tags to apply to the host.
+   */
+  "tags"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "host": {
-            "baseName": "host",
-            "type": "string",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    host: {
+      baseName: "host",
+      type: "string",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return HostTags.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return HostTags.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): HostTags {
+    const res = new HostTags();
+
+    res.host = ObjectSerializer.deserialize(data.host, "string", "");
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    return res;
+  }
+
+  static serialize(data: HostTags): { [key: string]: any } {
+    const attributeTypes = HostTags.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.host = ObjectSerializer.serialize(data.host, "string", "");
 
-    static deserialize(data: {[key: string]: any}): HostTags {
-      let res = new HostTags();
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 
-      res.host = ObjectSerializer.deserialize(data.host, "string", "")
+    return res;
+  }
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: HostTags): {[key: string]: any} {
-        let attributeTypes = HostTags.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.host = ObjectSerializer.serialize(data.host, "string", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

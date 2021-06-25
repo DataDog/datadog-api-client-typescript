@@ -8,17 +8,12 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The metric's type.
-*/
-
-export type MetricTagConfigurationMetricTypes = typeof GAUGE | typeof COUNT | typeof RATE | typeof DISTRIBUTION ;
-export const GAUGE = 'gauge';
-export const COUNT = 'count';
-export const RATE = 'rate';
-export const DISTRIBUTION = 'distribution';
-
-
+export type MetricTagConfigurationMetricTypes =
+  | typeof GAUGE
+  | typeof COUNT
+  | typeof RATE
+  | typeof DISTRIBUTION;
+export const GAUGE = "gauge";
+export const COUNT = "count";
+export const RATE = "rate";
+export const DISTRIBUTION = "distribution";

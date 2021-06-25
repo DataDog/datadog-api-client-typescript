@@ -8,63 +8,68 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Attributes used to create an application Key.
-*/
+ * Attributes used to create an application Key.
+ */
 
 export class ApplicationKeyCreateAttributes {
-    /**
-    * Name of the application key.
-    */
-    'name': string;
+  /**
+   * Name of the application key.
+   */
+  "name": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ApplicationKeyCreateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ApplicationKeyCreateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): ApplicationKeyCreateAttributes {
+    const res = new ApplicationKeyCreateAttributes();
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'ApplicationKeyCreateAttributes' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): ApplicationKeyCreateAttributes {
-      let res = new ApplicationKeyCreateAttributes();
+    return res;
+  }
 
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'ApplicationKeyCreateAttributes' object");
+  static serialize(
+    data: ApplicationKeyCreateAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = ApplicationKeyCreateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: ApplicationKeyCreateAttributes): {[key: string]: any} {
-        let attributeTypes = ApplicationKeyCreateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'ApplicationKeyCreateAttributes' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'ApplicationKeyCreateAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

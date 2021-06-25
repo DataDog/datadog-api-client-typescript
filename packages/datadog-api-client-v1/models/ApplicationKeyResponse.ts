@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKey } from './ApplicationKey';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ApplicationKey } from "./ApplicationKey";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* An application key response.
-*/
+ * An application key response.
+ */
 
 export class ApplicationKeyResponse {
-    'applicationKey'?: ApplicationKey;
+  "applicationKey"?: ApplicationKey;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "applicationKey": {
-            "baseName": "application_key",
-            "type": "ApplicationKey",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    applicationKey: {
+      baseName: "application_key",
+      type: "ApplicationKey",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ApplicationKeyResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ApplicationKeyResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ApplicationKeyResponse {
+    const res = new ApplicationKeyResponse();
+
+    res.applicationKey = ObjectSerializer.deserialize(
+      data.application_key,
+      "ApplicationKey",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ApplicationKeyResponse): { [key: string]: any } {
+    const attributeTypes = ApplicationKeyResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.application_key = ObjectSerializer.serialize(
+      data.applicationKey,
+      "ApplicationKey",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): ApplicationKeyResponse {
-      let res = new ApplicationKeyResponse();
+    return res;
+  }
 
-      res.applicationKey = ObjectSerializer.deserialize(data.application_key, "ApplicationKey", "")
-
-
-      return res;
-    }
-
-    static serialize(data: ApplicationKeyResponse): {[key: string]: any} {
-        let attributeTypes = ApplicationKeyResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.application_key = ObjectSerializer.serialize(data.applicationKey, "ApplicationKey", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

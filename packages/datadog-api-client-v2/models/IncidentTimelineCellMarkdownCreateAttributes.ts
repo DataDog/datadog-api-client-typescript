@@ -8,99 +8,116 @@
  * Do not edit the class manually.
  */
 
-import { IncidentTimelineCellMarkdownContentType } from './IncidentTimelineCellMarkdownContentType';
-import { IncidentTimelineCellMarkdownCreateAttributesContent } from './IncidentTimelineCellMarkdownCreateAttributesContent';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentTimelineCellMarkdownContentType } from "./IncidentTimelineCellMarkdownContentType";
+import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Timeline cell data for Markdown timeline cells for a create request.
-*/
+ * Timeline cell data for Markdown timeline cells for a create request.
+ */
 
 export class IncidentTimelineCellMarkdownCreateAttributes {
-    'cellType': IncidentTimelineCellMarkdownContentType;
-    'content': IncidentTimelineCellMarkdownCreateAttributesContent;
-    /**
-    * A flag indicating whether the timeline cell is important and should be highlighted.
-    */
-    'important'?: boolean;
+  "cellType": IncidentTimelineCellMarkdownContentType;
+  "content": IncidentTimelineCellMarkdownCreateAttributesContent;
+  /**
+   * A flag indicating whether the timeline cell is important and should be highlighted.
+   */
+  "important"?: boolean;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cellType": {
-            "baseName": "cell_type",
-            "type": "IncidentTimelineCellMarkdownContentType",
-            "format": ""
-        },
-        "content": {
-            "baseName": "content",
-            "type": "IncidentTimelineCellMarkdownCreateAttributesContent",
-            "format": ""
-        },
-        "important": {
-            "baseName": "important",
-            "type": "boolean",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cellType: {
+      baseName: "cell_type",
+      type: "IncidentTimelineCellMarkdownContentType",
+      format: "",
+    },
+    content: {
+      baseName: "content",
+      type: "IncidentTimelineCellMarkdownCreateAttributesContent",
+      format: "",
+    },
+    important: {
+      baseName: "important",
+      type: "boolean",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentTimelineCellMarkdownCreateAttributes {
+    const res = new IncidentTimelineCellMarkdownCreateAttributes();
+
+    if (data.cell_type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'cell_type' on 'IncidentTimelineCellMarkdownCreateAttributes' object"
+      );
+    }
+    if (["markdown", undefined].includes(data.cell_type)) {
+      res.cellType = data.cell_type;
+    } else {
+      throw TypeError(`invalid enum value ${data.cell_type} for cell_type`);
     }
 
-    static deserialize(data: {[key: string]: any}): IncidentTimelineCellMarkdownCreateAttributes {
-      let res = new IncidentTimelineCellMarkdownCreateAttributes();
+    if (data.content === undefined) {
+      throw new TypeError(
+        "missing required attribute 'content' on 'IncidentTimelineCellMarkdownCreateAttributes' object"
+      );
+    }
+    res.content = ObjectSerializer.deserialize(
+      data.content,
+      "IncidentTimelineCellMarkdownCreateAttributesContent",
+      ""
+    );
 
-      if (data.cell_type === undefined) {
-          throw new TypeError("missing required attribute 'cell_type' on 'IncidentTimelineCellMarkdownCreateAttributes' object");
+    res.important = ObjectSerializer.deserialize(data.important, "boolean", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: IncidentTimelineCellMarkdownCreateAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = IncidentTimelineCellMarkdownCreateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['markdown', undefined].includes(data.cell_type)) {
-          res.cellType = data.cell_type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.cell_type } for cell_type`);
-      }
-
-      if (data.content === undefined) {
-          throw new TypeError("missing required attribute 'content' on 'IncidentTimelineCellMarkdownCreateAttributes' object");
-      }
-      res.content = ObjectSerializer.deserialize(data.content, "IncidentTimelineCellMarkdownCreateAttributesContent", "")
-
-      res.important = ObjectSerializer.deserialize(data.important, "boolean", "")
-
-
-      return res;
+    }
+    if (data.cellType === undefined) {
+      throw new TypeError(
+        "missing required attribute 'cell_type' on 'IncidentTimelineCellMarkdownCreateAttributes' object"
+      );
+    }
+    if (["markdown", undefined].includes(data.cellType)) {
+      res.cell_type = data.cellType;
+    } else {
+      throw TypeError(`invalid enum value ${data.cellType} for cellType`);
     }
 
-    static serialize(data: IncidentTimelineCellMarkdownCreateAttributes): {[key: string]: any} {
-        let attributeTypes = IncidentTimelineCellMarkdownCreateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.cellType === undefined) {
-            throw new TypeError("missing required attribute 'cell_type' on 'IncidentTimelineCellMarkdownCreateAttributes' object");
-        }
-        if (['markdown', undefined].includes(data.cellType)) {
-            res.cell_type = data.cellType;
-        } else {
-            throw TypeError(`invalid enum value ${ data.cellType } for cellType`);
-        }
-
-        if (data.content === undefined) {
-            throw new TypeError("missing required attribute 'content' on 'IncidentTimelineCellMarkdownCreateAttributes' object");
-        }
-        res.content = ObjectSerializer.serialize(data.content, "IncidentTimelineCellMarkdownCreateAttributesContent", "")
-
-        res.important = ObjectSerializer.serialize(data.important, "boolean", "")
-
-        return res
+    if (data.content === undefined) {
+      throw new TypeError(
+        "missing required attribute 'content' on 'IncidentTimelineCellMarkdownCreateAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.content = ObjectSerializer.serialize(
+      data.content,
+      "IncidentTimelineCellMarkdownCreateAttributesContent",
+      ""
+    );
+
+    res.important = ObjectSerializer.serialize(data.important, "boolean", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

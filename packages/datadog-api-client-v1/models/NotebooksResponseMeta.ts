@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { NotebooksResponsePage } from './NotebooksResponsePage';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebooksResponsePage } from "./NotebooksResponsePage";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Metadata returned by the API.
-*/
+ * Metadata returned by the API.
+ */
 
 export class NotebooksResponseMeta {
-    'page'?: NotebooksResponsePage;
+  "page"?: NotebooksResponsePage;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "page": {
-            "baseName": "page",
-            "type": "NotebooksResponsePage",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    page: {
+      baseName: "page",
+      type: "NotebooksResponsePage",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebooksResponseMeta.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebooksResponseMeta.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebooksResponseMeta {
+    const res = new NotebooksResponseMeta();
+
+    res.page = ObjectSerializer.deserialize(
+      data.page,
+      "NotebooksResponsePage",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: NotebooksResponseMeta): { [key: string]: any } {
+    const attributeTypes = NotebooksResponseMeta.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.page = ObjectSerializer.serialize(
+      data.page,
+      "NotebooksResponsePage",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): NotebooksResponseMeta {
-      let res = new NotebooksResponseMeta();
+    return res;
+  }
 
-      res.page = ObjectSerializer.deserialize(data.page, "NotebooksResponsePage", "")
-
-
-      return res;
-    }
-
-    static serialize(data: NotebooksResponseMeta): {[key: string]: any} {
-        let attributeTypes = NotebooksResponseMeta.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.page = ObjectSerializer.serialize(data.page, "NotebooksResponsePage", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

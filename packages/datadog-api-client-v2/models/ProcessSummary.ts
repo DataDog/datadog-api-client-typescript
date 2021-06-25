@@ -8,87 +8,92 @@
  * Do not edit the class manually.
  */
 
-import { ProcessSummaryAttributes } from './ProcessSummaryAttributes';
-import { ProcessSummaryType } from './ProcessSummaryType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { ProcessSummaryType } from "./ProcessSummaryType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Process summary object.
-*/
+ * Process summary object.
+ */
 
 export class ProcessSummary {
-    'attributes'?: ProcessSummaryAttributes;
-    /**
-    * Process ID.
-    */
-    'id'?: string;
-    'type'?: ProcessSummaryType;
+  "attributes"?: ProcessSummaryAttributes;
+  /**
+   * Process ID.
+   */
+  "id"?: string;
+  "type"?: ProcessSummaryType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "ProcessSummaryAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "ProcessSummaryType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "ProcessSummaryAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "ProcessSummaryType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ProcessSummary.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ProcessSummary.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ProcessSummary {
+    const res = new ProcessSummary();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "ProcessSummaryAttributes",
+      ""
+    );
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    if (["process", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): ProcessSummary {
-      let res = new ProcessSummary();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "ProcessSummaryAttributes", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-      if (['process', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: ProcessSummary): { [key: string]: any } {
+    const attributeTypes = ProcessSummary.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "ProcessSummaryAttributes",
+      ""
+    );
 
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      return res;
+    if (["process", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: ProcessSummary): {[key: string]: any} {
-        let attributeTypes = ProcessSummary.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "ProcessSummaryAttributes", "")
+    return res;
+  }
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        if (['process', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

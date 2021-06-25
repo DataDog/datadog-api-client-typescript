@@ -8,48 +8,48 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventAggregation } from './FormulaAndFunctionEventAggregation';
-import { QuerySortOrder } from './QuerySortOrder';
-import { HttpFile } from '../http/http';
+import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
+import { QuerySortOrder } from "./QuerySortOrder";
 
-/**
-* Options for sorting group by results.
-*/
 export class TimeSeriesFormulaAndFunctionEventQueryGroupBySort {
-    'aggregation': FormulaAndFunctionEventAggregation;
-    /**
-    * Metric used for sorting group by results.
-    */
-    'metric'?: string;
-    'order'?: QuerySortOrder;
+  "aggregation": FormulaAndFunctionEventAggregation;
+  /**
+   * Metric used for sorting group by results.
+   */
+  "metric"?: string;
+  "order"?: QuerySortOrder;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregation",
-            "baseName": "aggregation",
-            "type": "FormulaAndFunctionEventAggregation",
-            "format": ""
-        },
-        {
-            "name": "metric",
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "order",
-            "baseName": "order",
-            "type": "QuerySortOrder",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "aggregation",
+      baseName: "aggregation",
+      type: "FormulaAndFunctionEventAggregation",
+      format: "",
+    },
+    {
+      name: "metric",
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+    {
+      name: "order",
+      baseName: "order",
+      type: "QuerySortOrder",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return TimeSeriesFormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
+  static getAttributeTypeMap() {
+    return TimeSeriesFormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
+  }
+
+  public constructor() {}
 }
-

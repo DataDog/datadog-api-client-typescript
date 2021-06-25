@@ -8,69 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { UsageCustomReportsData } from './UsageCustomReportsData';
-import { UsageCustomReportsMeta } from './UsageCustomReportsMeta';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageCustomReportsData } from "./UsageCustomReportsData";
+import { UsageCustomReportsMeta } from "./UsageCustomReportsMeta";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing available custom reports.
-*/
+ * Response containing available custom reports.
+ */
 
 export class UsageCustomReportsResponse {
-    /**
-    * An array of available custom reports.
-    */
-    'data'?: Array<UsageCustomReportsData>;
-    'meta'?: UsageCustomReportsMeta;
+  /**
+   * An array of available custom reports.
+   */
+  "data"?: Array<UsageCustomReportsData>;
+  "meta"?: UsageCustomReportsMeta;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<UsageCustomReportsData>",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "UsageCustomReportsMeta",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<UsageCustomReportsData>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "UsageCustomReportsMeta",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageCustomReportsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageCustomReportsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageCustomReportsResponse {
+    const res = new UsageCustomReportsResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<UsageCustomReportsData>",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "UsageCustomReportsMeta",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageCustomReportsResponse): { [key: string]: any } {
+    const attributeTypes = UsageCustomReportsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<UsageCustomReportsData>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageCustomReportsResponse {
-      let res = new UsageCustomReportsResponse();
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "UsageCustomReportsMeta",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<UsageCustomReportsData>", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "UsageCustomReportsMeta", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageCustomReportsResponse): {[key: string]: any} {
-        let attributeTypes = UsageCustomReportsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<UsageCustomReportsData>", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "UsageCustomReportsMeta", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

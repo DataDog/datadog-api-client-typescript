@@ -8,61 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyCreateData } from './APIKeyCreateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { APIKeyCreateData } from "./APIKeyCreateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Request used to create an API key.
-*/
+ * Request used to create an API key.
+ */
 
 export class APIKeyCreateRequest {
-    'data': APIKeyCreateData;
+  "data": APIKeyCreateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "APIKeyCreateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "APIKeyCreateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return APIKeyCreateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return APIKeyCreateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): APIKeyCreateRequest {
+    const res = new APIKeyCreateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'APIKeyCreateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(data.data, "APIKeyCreateData", "");
 
-    static deserialize(data: {[key: string]: any}): APIKeyCreateRequest {
-      let res = new APIKeyCreateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'APIKeyCreateRequest' object");
+  static serialize(data: APIKeyCreateRequest): { [key: string]: any } {
+    const attributeTypes = APIKeyCreateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "APIKeyCreateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: APIKeyCreateRequest): {[key: string]: any} {
-        let attributeTypes = APIKeyCreateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'APIKeyCreateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "APIKeyCreateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'APIKeyCreateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(data.data, "APIKeyCreateData", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

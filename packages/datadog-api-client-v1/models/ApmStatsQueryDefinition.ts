@@ -8,172 +8,201 @@
  * Do not edit the class manually.
  */
 
-import { ApmStatsQueryColumnType } from './ApmStatsQueryColumnType';
-import { ApmStatsQueryRowType } from './ApmStatsQueryRowType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
+import { ApmStatsQueryRowType } from "./ApmStatsQueryRowType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The APM stats query for table and distributions widgets.
-*/
+ * The APM stats query for table and distributions widgets.
+ */
 
 export class ApmStatsQueryDefinition {
-    /**
-    * Column properties used by the front end for display.
-    */
-    'columns'?: Array<ApmStatsQueryColumnType>;
-    /**
-    * Environment name.
-    */
-    'env': string;
-    /**
-    * Operation name associated with service.
-    */
-    'name': string;
-    /**
-    * The organization's host group name and value.
-    */
-    'primaryTag': string;
-    /**
-    * Resource name.
-    */
-    'resource'?: string;
-    'rowType': ApmStatsQueryRowType;
-    /**
-    * Service name.
-    */
-    'service': string;
+  /**
+   * Column properties used by the front end for display.
+   */
+  "columns"?: Array<ApmStatsQueryColumnType>;
+  /**
+   * Environment name.
+   */
+  "env": string;
+  /**
+   * Operation name associated with service.
+   */
+  "name": string;
+  /**
+   * The organization's host group name and value.
+   */
+  "primaryTag": string;
+  /**
+   * Resource name.
+   */
+  "resource"?: string;
+  "rowType": ApmStatsQueryRowType;
+  /**
+   * Service name.
+   */
+  "service": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "columns": {
-            "baseName": "columns",
-            "type": "Array<ApmStatsQueryColumnType>",
-            "format": ""
-        },
-        "env": {
-            "baseName": "env",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "primaryTag": {
-            "baseName": "primary_tag",
-            "type": "string",
-            "format": ""
-        },
-        "resource": {
-            "baseName": "resource",
-            "type": "string",
-            "format": ""
-        },
-        "rowType": {
-            "baseName": "row_type",
-            "type": "ApmStatsQueryRowType",
-            "format": ""
-        },
-        "service": {
-            "baseName": "service",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    columns: {
+      baseName: "columns",
+      type: "Array<ApmStatsQueryColumnType>",
+      format: "",
+    },
+    env: {
+      baseName: "env",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    primaryTag: {
+      baseName: "primary_tag",
+      type: "string",
+      format: "",
+    },
+    resource: {
+      baseName: "resource",
+      type: "string",
+      format: "",
+    },
+    rowType: {
+      baseName: "row_type",
+      type: "ApmStatsQueryRowType",
+      format: "",
+    },
+    service: {
+      baseName: "service",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ApmStatsQueryDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ApmStatsQueryDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ApmStatsQueryDefinition {
+    const res = new ApmStatsQueryDefinition();
+
+    res.columns = ObjectSerializer.deserialize(
+      data.columns,
+      "Array<ApmStatsQueryColumnType>",
+      ""
+    );
+
+    if (data.env === undefined) {
+      throw new TypeError(
+        "missing required attribute 'env' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.env = ObjectSerializer.deserialize(data.env, "string", "");
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (data.primary_tag === undefined) {
+      throw new TypeError(
+        "missing required attribute 'primary_tag' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.primaryTag = ObjectSerializer.deserialize(
+      data.primary_tag,
+      "string",
+      ""
+    );
+
+    res.resource = ObjectSerializer.deserialize(data.resource, "string", "");
+
+    if (data.row_type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'row_type' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    if (["service", "resource", "span", undefined].includes(data.row_type)) {
+      res.rowType = data.row_type;
+    } else {
+      throw TypeError(`invalid enum value ${data.row_type} for row_type`);
     }
 
-    static deserialize(data: {[key: string]: any}): ApmStatsQueryDefinition {
-      let res = new ApmStatsQueryDefinition();
+    if (data.service === undefined) {
+      throw new TypeError(
+        "missing required attribute 'service' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.service = ObjectSerializer.deserialize(data.service, "string", "");
 
-      res.columns = ObjectSerializer.deserialize(data.columns, "Array<ApmStatsQueryColumnType>", "")
+    return res;
+  }
 
-      if (data.env === undefined) {
-          throw new TypeError("missing required attribute 'env' on 'ApmStatsQueryDefinition' object");
+  static serialize(data: ApmStatsQueryDefinition): { [key: string]: any } {
+    const attributeTypes = ApmStatsQueryDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.env = ObjectSerializer.deserialize(data.env, "string", "")
+    }
+    res.columns = ObjectSerializer.serialize(
+      data.columns,
+      "Array<ApmStatsQueryColumnType>",
+      ""
+    );
 
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'ApmStatsQueryDefinition' object");
-      }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    if (data.env === undefined) {
+      throw new TypeError(
+        "missing required attribute 'env' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.env = ObjectSerializer.serialize(data.env, "string", "");
 
-      if (data.primary_tag === undefined) {
-          throw new TypeError("missing required attribute 'primary_tag' on 'ApmStatsQueryDefinition' object");
-      }
-      res.primaryTag = ObjectSerializer.deserialize(data.primary_tag, "string", "")
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.resource = ObjectSerializer.deserialize(data.resource, "string", "")
+    if (data.primaryTag === undefined) {
+      throw new TypeError(
+        "missing required attribute 'primary_tag' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    res.primary_tag = ObjectSerializer.serialize(data.primaryTag, "string", "");
 
-      if (data.row_type === undefined) {
-          throw new TypeError("missing required attribute 'row_type' on 'ApmStatsQueryDefinition' object");
-      }
-      if (['service', 'resource', 'span', undefined].includes(data.row_type)) {
-          res.rowType = data.row_type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.row_type } for row_type`);
-      }
+    res.resource = ObjectSerializer.serialize(data.resource, "string", "");
 
-      if (data.service === undefined) {
-          throw new TypeError("missing required attribute 'service' on 'ApmStatsQueryDefinition' object");
-      }
-      res.service = ObjectSerializer.deserialize(data.service, "string", "")
-
-
-      return res;
+    if (data.rowType === undefined) {
+      throw new TypeError(
+        "missing required attribute 'row_type' on 'ApmStatsQueryDefinition' object"
+      );
+    }
+    if (["service", "resource", "span", undefined].includes(data.rowType)) {
+      res.row_type = data.rowType;
+    } else {
+      throw TypeError(`invalid enum value ${data.rowType} for rowType`);
     }
 
-    static serialize(data: ApmStatsQueryDefinition): {[key: string]: any} {
-        let attributeTypes = ApmStatsQueryDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.columns = ObjectSerializer.serialize(data.columns, "Array<ApmStatsQueryColumnType>", "")
-
-        if (data.env === undefined) {
-            throw new TypeError("missing required attribute 'env' on 'ApmStatsQueryDefinition' object");
-        }
-        res.env = ObjectSerializer.serialize(data.env, "string", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'ApmStatsQueryDefinition' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (data.primaryTag === undefined) {
-            throw new TypeError("missing required attribute 'primary_tag' on 'ApmStatsQueryDefinition' object");
-        }
-        res.primary_tag = ObjectSerializer.serialize(data.primaryTag, "string", "")
-
-        res.resource = ObjectSerializer.serialize(data.resource, "string", "")
-
-        if (data.rowType === undefined) {
-            throw new TypeError("missing required attribute 'row_type' on 'ApmStatsQueryDefinition' object");
-        }
-        if (['service', 'resource', 'span', undefined].includes(data.rowType)) {
-            res.row_type = data.rowType;
-        } else {
-            throw TypeError(`invalid enum value ${ data.rowType } for rowType`);
-        }
-
-        if (data.service === undefined) {
-            throw new TypeError("missing required attribute 'service' on 'ApmStatsQueryDefinition' object");
-        }
-        res.service = ObjectSerializer.serialize(data.service, "string", "")
-
-        return res
+    if (data.service === undefined) {
+      throw new TypeError(
+        "missing required attribute 'service' on 'ApmStatsQueryDefinition' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.service = ObjectSerializer.serialize(data.service, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

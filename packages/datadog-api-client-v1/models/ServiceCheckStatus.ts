@@ -8,17 +8,12 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The status of a service check.
-*/
-
-export type ServiceCheckStatus = typeof OK | typeof WARNING | typeof CRITICAL | typeof UNKNOWN ;
+export type ServiceCheckStatus =
+  | typeof OK
+  | typeof WARNING
+  | typeof CRITICAL
+  | typeof UNKNOWN;
 export const OK = 0;
 export const WARNING = 1;
 export const CRITICAL = 2;
 export const UNKNOWN = 3;
-
-

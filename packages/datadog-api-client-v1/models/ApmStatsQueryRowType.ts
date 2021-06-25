@@ -8,16 +8,10 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The level of detail for the request.
-*/
-
-export type ApmStatsQueryRowType = typeof SERVICE | typeof RESOURCE | typeof SPAN ;
-export const SERVICE = 'service';
-export const RESOURCE = 'resource';
-export const SPAN = 'span';
-
-
+export type ApmStatsQueryRowType =
+  | typeof SERVICE
+  | typeof RESOURCE
+  | typeof SPAN;
+export const SERVICE = "service";
+export const RESOURCE = "resource";
+export const SPAN = "span";

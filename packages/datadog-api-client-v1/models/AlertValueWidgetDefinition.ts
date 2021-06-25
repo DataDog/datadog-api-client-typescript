@@ -8,177 +8,190 @@
  * Do not edit the class manually.
  */
 
-import { AlertValueWidgetDefinitionType } from './AlertValueWidgetDefinitionType';
-import { WidgetTextAlign } from './WidgetTextAlign';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { AlertValueWidgetDefinitionType } from "./AlertValueWidgetDefinitionType";
+import { WidgetTextAlign } from "./WidgetTextAlign";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Alert values are query values showing the current value of the metric in any monitor defined on your system.
-*/
+ * Alert values are query values showing the current value of the metric in any monitor defined on your system.
+ */
 
 export class AlertValueWidgetDefinition {
-    /**
-    * ID of the alert to use in the widget.
-    */
-    'alertId': string;
-    /**
-    * Number of decimal to show. If not defined, will use the raw value.
-    */
-    'precision'?: number;
-    'textAlign'?: WidgetTextAlign;
-    /**
-    * Title of the widget.
-    */
-    'title'?: string;
-    'titleAlign'?: WidgetTextAlign;
-    /**
-    * Size of value in the widget.
-    */
-    'titleSize'?: string;
-    'type': AlertValueWidgetDefinitionType;
-    /**
-    * Unit to display with the value.
-    */
-    'unit'?: string;
+  /**
+   * ID of the alert to use in the widget.
+   */
+  "alertId": string;
+  /**
+   * Number of decimal to show. If not defined, will use the raw value.
+   */
+  "precision"?: number;
+  "textAlign"?: WidgetTextAlign;
+  /**
+   * Title of the widget.
+   */
+  "title"?: string;
+  "titleAlign"?: WidgetTextAlign;
+  /**
+   * Size of value in the widget.
+   */
+  "titleSize"?: string;
+  "type": AlertValueWidgetDefinitionType;
+  /**
+   * Unit to display with the value.
+   */
+  "unit"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "alertId": {
-            "baseName": "alert_id",
-            "type": "string",
-            "format": ""
-        },
-        "precision": {
-            "baseName": "precision",
-            "type": "number",
-            "format": "int64"
-        },
-        "textAlign": {
-            "baseName": "text_align",
-            "type": "WidgetTextAlign",
-            "format": ""
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        },
-        "titleAlign": {
-            "baseName": "title_align",
-            "type": "WidgetTextAlign",
-            "format": ""
-        },
-        "titleSize": {
-            "baseName": "title_size",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "AlertValueWidgetDefinitionType",
-            "format": ""
-        },
-        "unit": {
-            "baseName": "unit",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    alertId: {
+      baseName: "alert_id",
+      type: "string",
+      format: "",
+    },
+    precision: {
+      baseName: "precision",
+      type: "number",
+      format: "int64",
+    },
+    textAlign: {
+      baseName: "text_align",
+      type: "WidgetTextAlign",
+      format: "",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
+      format: "",
+    },
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "AlertValueWidgetDefinitionType",
+      format: "",
+    },
+    unit: {
+      baseName: "unit",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AlertValueWidgetDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AlertValueWidgetDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): AlertValueWidgetDefinition {
+    const res = new AlertValueWidgetDefinition();
+
+    if (data.alert_id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'alert_id' on 'AlertValueWidgetDefinition' object"
+      );
+    }
+    res.alertId = ObjectSerializer.deserialize(data.alert_id, "string", "");
+
+    res.precision = ObjectSerializer.deserialize(
+      data.precision,
+      "number",
+      "int64"
+    );
+
+    if (["center", "left", "right", undefined].includes(data.text_align)) {
+      res.textAlign = data.text_align;
+    } else {
+      throw TypeError(`invalid enum value ${data.text_align} for text_align`);
     }
 
-    static deserialize(data: {[key: string]: any}): AlertValueWidgetDefinition {
-      let res = new AlertValueWidgetDefinition();
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
 
-      if (data.alert_id === undefined) {
-          throw new TypeError("missing required attribute 'alert_id' on 'AlertValueWidgetDefinition' object");
-      }
-      res.alertId = ObjectSerializer.deserialize(data.alert_id, "string", "")
-
-      res.precision = ObjectSerializer.deserialize(data.precision, "number", "int64")
-
-      if (['center', 'left', 'right', undefined].includes(data.text_align)) {
-          res.textAlign = data.text_align;
-      } else {
-          throw TypeError(`invalid enum value ${ data.text_align } for text_align`);
-      }
-
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
-          res.titleAlign = data.title_align;
-      } else {
-          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
-      }
-
-      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'AlertValueWidgetDefinition' object");
-      }
-      if (['alert_value', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-      res.unit = ObjectSerializer.deserialize(data.unit, "string", "")
-
-
-      return res;
+    if (["center", "left", "right", undefined].includes(data.title_align)) {
+      res.titleAlign = data.title_align;
+    } else {
+      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
     }
 
-    static serialize(data: AlertValueWidgetDefinition): {[key: string]: any} {
-        let attributeTypes = AlertValueWidgetDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.alertId === undefined) {
-            throw new TypeError("missing required attribute 'alert_id' on 'AlertValueWidgetDefinition' object");
-        }
-        res.alert_id = ObjectSerializer.serialize(data.alertId, "string", "")
+    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
 
-        res.precision = ObjectSerializer.serialize(data.precision, "number", "int64")
-
-        if (['center', 'left', 'right', undefined].includes(data.textAlign)) {
-            res.text_align = data.textAlign;
-        } else {
-            throw TypeError(`invalid enum value ${ data.textAlign } for textAlign`);
-        }
-
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
-            res.title_align = data.titleAlign;
-        } else {
-            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
-        }
-
-        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'AlertValueWidgetDefinition' object");
-        }
-        if (['alert_value', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        res.unit = ObjectSerializer.serialize(data.unit, "string", "")
-
-        return res
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'AlertValueWidgetDefinition' object"
+      );
     }
-    
-    public constructor() {
+    if (["alert_value", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
+
+    res.unit = ObjectSerializer.deserialize(data.unit, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: AlertValueWidgetDefinition): { [key: string]: any } {
+    const attributeTypes = AlertValueWidgetDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
+    }
+    if (data.alertId === undefined) {
+      throw new TypeError(
+        "missing required attribute 'alert_id' on 'AlertValueWidgetDefinition' object"
+      );
+    }
+    res.alert_id = ObjectSerializer.serialize(data.alertId, "string", "");
+
+    res.precision = ObjectSerializer.serialize(
+      data.precision,
+      "number",
+      "int64"
+    );
+
+    if (["center", "left", "right", undefined].includes(data.textAlign)) {
+      res.text_align = data.textAlign;
+    } else {
+      throw TypeError(`invalid enum value ${data.textAlign} for textAlign`);
+    }
+
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
+
+    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
+      res.title_align = data.titleAlign;
+    } else {
+      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
+    }
+
+    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'AlertValueWidgetDefinition' object"
+      );
+    }
+    if (["alert_value", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
+
+    res.unit = ObjectSerializer.serialize(data.unit, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

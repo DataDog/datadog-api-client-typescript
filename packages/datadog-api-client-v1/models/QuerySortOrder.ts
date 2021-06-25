@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Direction of sort.
-*/
-
-export type QuerySortOrder = typeof ASC | typeof DESC ;
-export const ASC = 'asc';
-export const DESC = 'desc';
-
-
+export type QuerySortOrder = typeof ASC | typeof DESC;
+export const ASC = "asc";
+export const DESC = "desc";

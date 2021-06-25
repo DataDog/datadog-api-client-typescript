@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing the definition of a metric's tags.
-*/
+ * Object containing the definition of a metric's tags.
+ */
 
 export class MetricAllTagsAttributes {
-    /**
-    * List of indexed tag value pairs.
-    */
-    'tags'?: Array<string>;
+  /**
+   * List of indexed tag value pairs.
+   */
+  "tags"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MetricAllTagsAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MetricAllTagsAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): MetricAllTagsAttributes {
+    const res = new MetricAllTagsAttributes();
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    return res;
+  }
+
+  static serialize(data: MetricAllTagsAttributes): { [key: string]: any } {
+    const attributeTypes = MetricAllTagsAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 
-    static deserialize(data: {[key: string]: any}): MetricAllTagsAttributes {
-      let res = new MetricAllTagsAttributes();
+    return res;
+  }
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: MetricAllTagsAttributes): {[key: string]: any} {
-        let attributeTypes = MetricAllTagsAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

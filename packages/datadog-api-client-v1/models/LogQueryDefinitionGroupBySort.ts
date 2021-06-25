@@ -8,101 +8,118 @@
  * Do not edit the class manually.
  */
 
-import { WidgetSort } from './WidgetSort';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { WidgetSort } from "./WidgetSort";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Define a sorting method.
-*/
+ * Define a sorting method.
+ */
 
 export class LogQueryDefinitionGroupBySort {
-    /**
-    * The aggregation method.
-    */
-    'aggregation': string;
-    /**
-    * Facet name.
-    */
-    'facet'?: string;
-    'order': WidgetSort;
+  /**
+   * The aggregation method.
+   */
+  "aggregation": string;
+  /**
+   * Facet name.
+   */
+  "facet"?: string;
+  "order": WidgetSort;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "aggregation": {
-            "baseName": "aggregation",
-            "type": "string",
-            "format": ""
-        },
-        "facet": {
-            "baseName": "facet",
-            "type": "string",
-            "format": ""
-        },
-        "order": {
-            "baseName": "order",
-            "type": "WidgetSort",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    aggregation: {
+      baseName: "aggregation",
+      type: "string",
+      format: "",
+    },
+    facet: {
+      baseName: "facet",
+      type: "string",
+      format: "",
+    },
+    order: {
+      baseName: "order",
+      type: "WidgetSort",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogQueryDefinitionGroupBySort.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogQueryDefinitionGroupBySort.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): LogQueryDefinitionGroupBySort {
+    const res = new LogQueryDefinitionGroupBySort();
+
+    if (data.aggregation === undefined) {
+      throw new TypeError(
+        "missing required attribute 'aggregation' on 'LogQueryDefinitionGroupBySort' object"
+      );
+    }
+    res.aggregation = ObjectSerializer.deserialize(
+      data.aggregation,
+      "string",
+      ""
+    );
+
+    res.facet = ObjectSerializer.deserialize(data.facet, "string", "");
+
+    if (data.order === undefined) {
+      throw new TypeError(
+        "missing required attribute 'order' on 'LogQueryDefinitionGroupBySort' object"
+      );
+    }
+    if (["asc", "desc", undefined].includes(data.order)) {
+      res.order = data.order;
+    } else {
+      throw TypeError(`invalid enum value ${data.order} for order`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogQueryDefinitionGroupBySort {
-      let res = new LogQueryDefinitionGroupBySort();
+    return res;
+  }
 
-      if (data.aggregation === undefined) {
-          throw new TypeError("missing required attribute 'aggregation' on 'LogQueryDefinitionGroupBySort' object");
+  static serialize(
+    data: LogQueryDefinitionGroupBySort
+  ): { [key: string]: any } {
+    const attributeTypes = LogQueryDefinitionGroupBySort.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.aggregation = ObjectSerializer.deserialize(data.aggregation, "string", "")
+    }
+    if (data.aggregation === undefined) {
+      throw new TypeError(
+        "missing required attribute 'aggregation' on 'LogQueryDefinitionGroupBySort' object"
+      );
+    }
+    res.aggregation = ObjectSerializer.serialize(
+      data.aggregation,
+      "string",
+      ""
+    );
 
-      res.facet = ObjectSerializer.deserialize(data.facet, "string", "")
+    res.facet = ObjectSerializer.serialize(data.facet, "string", "");
 
-      if (data.order === undefined) {
-          throw new TypeError("missing required attribute 'order' on 'LogQueryDefinitionGroupBySort' object");
-      }
-      if (['asc', 'desc', undefined].includes(data.order)) {
-          res.order = data.order;
-      } else {
-          throw TypeError(`invalid enum value ${ data.order } for order`);
-      }
-
-
-      return res;
+    if (data.order === undefined) {
+      throw new TypeError(
+        "missing required attribute 'order' on 'LogQueryDefinitionGroupBySort' object"
+      );
+    }
+    if (["asc", "desc", undefined].includes(data.order)) {
+      res.order = data.order;
+    } else {
+      throw TypeError(`invalid enum value ${data.order} for order`);
     }
 
-    static serialize(data: LogQueryDefinitionGroupBySort): {[key: string]: any} {
-        let attributeTypes = LogQueryDefinitionGroupBySort.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.aggregation === undefined) {
-            throw new TypeError("missing required attribute 'aggregation' on 'LogQueryDefinitionGroupBySort' object");
-        }
-        res.aggregation = ObjectSerializer.serialize(data.aggregation, "string", "")
+    return res;
+  }
 
-        res.facet = ObjectSerializer.serialize(data.facet, "string", "")
-
-        if (data.order === undefined) {
-            throw new TypeError("missing required attribute 'order' on 'LogQueryDefinitionGroupBySort' object");
-        }
-        if (['asc', 'desc', undefined].includes(data.order)) {
-            res.order = data.order;
-        } else {
-            throw TypeError(`invalid enum value ${ data.order } for order`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

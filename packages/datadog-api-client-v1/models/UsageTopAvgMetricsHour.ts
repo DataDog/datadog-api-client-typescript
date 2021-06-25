@@ -8,102 +8,123 @@
  * Do not edit the class manually.
  */
 
-import { UsageMetricCategory } from './UsageMetricCategory';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageMetricCategory } from "./UsageMetricCategory";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Number of hourly recorded custom metrics for a given organization.
-*/
+ * Number of hourly recorded custom metrics for a given organization.
+ */
 
 export class UsageTopAvgMetricsHour {
-    /**
-    * Average number of timeseries per hour in which the metric occurs.
-    */
-    'avgMetricHour'?: number;
-    /**
-    * Maximum number of timeseries per hour in which the metric occurs.
-    */
-    'maxMetricHour'?: number;
-    'metricCategory'?: UsageMetricCategory;
-    /**
-    * Contains the custom metric name.
-    */
-    'metricName'?: string;
+  /**
+   * Average number of timeseries per hour in which the metric occurs.
+   */
+  "avgMetricHour"?: number;
+  /**
+   * Maximum number of timeseries per hour in which the metric occurs.
+   */
+  "maxMetricHour"?: number;
+  "metricCategory"?: UsageMetricCategory;
+  /**
+   * Contains the custom metric name.
+   */
+  "metricName"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "avgMetricHour": {
-            "baseName": "avg_metric_hour",
-            "type": "number",
-            "format": "int64"
-        },
-        "maxMetricHour": {
-            "baseName": "max_metric_hour",
-            "type": "number",
-            "format": "int64"
-        },
-        "metricCategory": {
-            "baseName": "metric_category",
-            "type": "UsageMetricCategory",
-            "format": ""
-        },
-        "metricName": {
-            "baseName": "metric_name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    avgMetricHour: {
+      baseName: "avg_metric_hour",
+      type: "number",
+      format: "int64",
+    },
+    maxMetricHour: {
+      baseName: "max_metric_hour",
+      type: "number",
+      format: "int64",
+    },
+    metricCategory: {
+      baseName: "metric_category",
+      type: "UsageMetricCategory",
+      format: "",
+    },
+    metricName: {
+      baseName: "metric_name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageTopAvgMetricsHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageTopAvgMetricsHour.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageTopAvgMetricsHour {
+    const res = new UsageTopAvgMetricsHour();
+
+    res.avgMetricHour = ObjectSerializer.deserialize(
+      data.avg_metric_hour,
+      "number",
+      "int64"
+    );
+
+    res.maxMetricHour = ObjectSerializer.deserialize(
+      data.max_metric_hour,
+      "number",
+      "int64"
+    );
+
+    if (["standard", "custom", undefined].includes(data.metric_category)) {
+      res.metricCategory = data.metric_category;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.metric_category} for metric_category`
+      );
     }
 
-    static deserialize(data: {[key: string]: any}): UsageTopAvgMetricsHour {
-      let res = new UsageTopAvgMetricsHour();
+    res.metricName = ObjectSerializer.deserialize(
+      data.metric_name,
+      "string",
+      ""
+    );
 
-      res.avgMetricHour = ObjectSerializer.deserialize(data.avg_metric_hour, "number", "int64")
+    return res;
+  }
 
-      res.maxMetricHour = ObjectSerializer.deserialize(data.max_metric_hour, "number", "int64")
-
-      if (['standard', 'custom', undefined].includes(data.metric_category)) {
-          res.metricCategory = data.metric_category;
-      } else {
-          throw TypeError(`invalid enum value ${ data.metric_category } for metric_category`);
+  static serialize(data: UsageTopAvgMetricsHour): { [key: string]: any } {
+    const attributeTypes = UsageTopAvgMetricsHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.avg_metric_hour = ObjectSerializer.serialize(
+      data.avgMetricHour,
+      "number",
+      "int64"
+    );
 
-      res.metricName = ObjectSerializer.deserialize(data.metric_name, "string", "")
+    res.max_metric_hour = ObjectSerializer.serialize(
+      data.maxMetricHour,
+      "number",
+      "int64"
+    );
 
-
-      return res;
+    if (["standard", "custom", undefined].includes(data.metricCategory)) {
+      res.metric_category = data.metricCategory;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.metricCategory} for metricCategory`
+      );
     }
 
-    static serialize(data: UsageTopAvgMetricsHour): {[key: string]: any} {
-        let attributeTypes = UsageTopAvgMetricsHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.avg_metric_hour = ObjectSerializer.serialize(data.avgMetricHour, "number", "int64")
+    res.metric_name = ObjectSerializer.serialize(data.metricName, "string", "");
 
-        res.max_metric_hour = ObjectSerializer.serialize(data.maxMetricHour, "number", "int64")
+    return res;
+  }
 
-        if (['standard', 'custom', undefined].includes(data.metricCategory)) {
-            res.metric_category = data.metricCategory;
-        } else {
-            throw TypeError(`invalid enum value ${ data.metricCategory } for metricCategory`);
-        }
-
-        res.metric_name = ObjectSerializer.serialize(data.metricName, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

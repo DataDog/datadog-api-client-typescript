@@ -8,50 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventAggregation } from './FormulaAndFunctionEventAggregation';
-import { HttpFile } from '../http/http';
+import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 
-/**
-* Compute options.
-*/
 export class TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute {
-    'aggregation': FormulaAndFunctionEventAggregation;
-    /**
-    * A time interval in milliseconds.
-    */
-    'interval'?: number;
-    /**
-    * Measurable attribute to compute.
-    */
-    'metric'?: string;
+  "aggregation": FormulaAndFunctionEventAggregation;
+  /**
+   * A time interval in milliseconds.
+   */
+  "interval"?: number;
+  /**
+   * Measurable attribute to compute.
+   */
+  "metric"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "aggregation",
-            "baseName": "aggregation",
-            "type": "FormulaAndFunctionEventAggregation",
-            "format": ""
-        },
-        {
-            "name": "interval",
-            "baseName": "interval",
-            "type": "number",
-            "format": "int64"
-        },
-        {
-            "name": "metric",
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "aggregation",
+      baseName: "aggregation",
+      type: "FormulaAndFunctionEventAggregation",
+      format: "",
+    },
+    {
+      name: "interval",
+      baseName: "interval",
+      type: "number",
+      format: "int64",
+    },
+    {
+      name: "metric",
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
+  static getAttributeTypeMap() {
+    return TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
+  }
+
+  public constructor() {}
 }
-

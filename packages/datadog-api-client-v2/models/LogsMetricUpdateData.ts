@@ -8,86 +8,99 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricType } from './LogsMetricType';
-import { LogsMetricUpdateAttributes } from './LogsMetricUpdateAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsMetricType } from "./LogsMetricType";
+import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The new log-based metric properties.
-*/
+ * The new log-based metric properties.
+ */
 
 export class LogsMetricUpdateData {
-    'attributes': LogsMetricUpdateAttributes;
-    'type': LogsMetricType;
+  "attributes": LogsMetricUpdateAttributes;
+  "type": LogsMetricType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "LogsMetricUpdateAttributes",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsMetricType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "LogsMetricUpdateAttributes",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsMetricType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsMetricUpdateData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsMetricUpdateData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsMetricUpdateData {
+    const res = new LogsMetricUpdateData();
+
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'LogsMetricUpdateData' object"
+      );
+    }
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "LogsMetricUpdateAttributes",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsMetricUpdateData' object"
+      );
+    }
+    if (["logs_metrics", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsMetricUpdateData {
-      let res = new LogsMetricUpdateData();
+    return res;
+  }
 
-      if (data.attributes === undefined) {
-          throw new TypeError("missing required attribute 'attributes' on 'LogsMetricUpdateData' object");
+  static serialize(data: LogsMetricUpdateData): { [key: string]: any } {
+    const attributeTypes = LogsMetricUpdateData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "LogsMetricUpdateAttributes", "")
+    }
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'LogsMetricUpdateData' object"
+      );
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "LogsMetricUpdateAttributes",
+      ""
+    );
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsMetricUpdateData' object");
-      }
-      if (['logs_metrics', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsMetricUpdateData' object"
+      );
+    }
+    if (["logs_metrics", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsMetricUpdateData): {[key: string]: any} {
-        let attributeTypes = LogsMetricUpdateData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.attributes === undefined) {
-            throw new TypeError("missing required attribute 'attributes' on 'LogsMetricUpdateData' object");
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "LogsMetricUpdateAttributes", "")
+    return res;
+  }
 
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsMetricUpdateData' object");
-        }
-        if (['logs_metrics', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

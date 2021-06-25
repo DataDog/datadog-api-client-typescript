@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { SLOCorrection } from './SLOCorrection';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SLOCorrection } from "./SLOCorrection";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A list of  SLO correction objects
-*/
+ * A list of  SLO correction objects
+ */
 
 export class SLOCorrectionListResponse {
-    /**
-    * The list of of SLO corrections objects
-    */
-    'data'?: Array<SLOCorrection>;
+  /**
+   * The list of of SLO corrections objects
+   */
+  "data"?: Array<SLOCorrection>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<SLOCorrection>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<SLOCorrection>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOCorrectionListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOCorrectionListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLOCorrectionListResponse {
+    const res = new SLOCorrectionListResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<SLOCorrection>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SLOCorrectionListResponse): { [key: string]: any } {
+    const attributeTypes = SLOCorrectionListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<SLOCorrection>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SLOCorrectionListResponse {
-      let res = new SLOCorrectionListResponse();
+    return res;
+  }
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<SLOCorrection>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SLOCorrectionListResponse): {[key: string]: any} {
-        let attributeTypes = SLOCorrectionListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<SLOCorrection>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

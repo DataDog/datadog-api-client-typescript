@@ -8,241 +8,338 @@
  * Do not edit the class manually.
  */
 
-import { LogQueryDefinition } from './LogQueryDefinition';
-import { ProcessQueryDefinition } from './ProcessQueryDefinition';
-import { WidgetChangeType } from './WidgetChangeType';
-import { WidgetCompareTo } from './WidgetCompareTo';
-import { WidgetOrderBy } from './WidgetOrderBy';
-import { WidgetSort } from './WidgetSort';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { WidgetChangeType } from "./WidgetChangeType";
+import { WidgetCompareTo } from "./WidgetCompareTo";
+import { WidgetOrderBy } from "./WidgetOrderBy";
+import { WidgetSort } from "./WidgetSort";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Updated change widget.
-*/
+ * Updated change widget.
+ */
 
 export class ChangeWidgetRequest {
-    'apmQuery'?: LogQueryDefinition;
-    'changeType'?: WidgetChangeType;
-    'compareTo'?: WidgetCompareTo;
-    'eventQuery'?: LogQueryDefinition;
-    /**
-    * Whether to show increase as good.
-    */
-    'increaseGood'?: boolean;
-    'logQuery'?: LogQueryDefinition;
-    'networkQuery'?: LogQueryDefinition;
-    'orderBy'?: WidgetOrderBy;
-    'orderDir'?: WidgetSort;
-    'processQuery'?: ProcessQueryDefinition;
-    'profileMetricsQuery'?: LogQueryDefinition;
-    /**
-    * Query definition.
-    */
-    'q'?: string;
-    'rumQuery'?: LogQueryDefinition;
-    'securityQuery'?: LogQueryDefinition;
-    /**
-    * Whether to show the present value.
-    */
-    'showPresent'?: boolean;
+  "apmQuery"?: LogQueryDefinition;
+  "changeType"?: WidgetChangeType;
+  "compareTo"?: WidgetCompareTo;
+  "eventQuery"?: LogQueryDefinition;
+  /**
+   * Whether to show increase as good.
+   */
+  "increaseGood"?: boolean;
+  "logQuery"?: LogQueryDefinition;
+  "networkQuery"?: LogQueryDefinition;
+  "orderBy"?: WidgetOrderBy;
+  "orderDir"?: WidgetSort;
+  "processQuery"?: ProcessQueryDefinition;
+  "profileMetricsQuery"?: LogQueryDefinition;
+  /**
+   * Query definition.
+   */
+  "q"?: string;
+  "rumQuery"?: LogQueryDefinition;
+  "securityQuery"?: LogQueryDefinition;
+  /**
+   * Whether to show the present value.
+   */
+  "showPresent"?: boolean;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "apmQuery": {
-            "baseName": "apm_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "changeType": {
-            "baseName": "change_type",
-            "type": "WidgetChangeType",
-            "format": ""
-        },
-        "compareTo": {
-            "baseName": "compare_to",
-            "type": "WidgetCompareTo",
-            "format": ""
-        },
-        "eventQuery": {
-            "baseName": "event_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "increaseGood": {
-            "baseName": "increase_good",
-            "type": "boolean",
-            "format": ""
-        },
-        "logQuery": {
-            "baseName": "log_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "networkQuery": {
-            "baseName": "network_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "orderBy": {
-            "baseName": "order_by",
-            "type": "WidgetOrderBy",
-            "format": ""
-        },
-        "orderDir": {
-            "baseName": "order_dir",
-            "type": "WidgetSort",
-            "format": ""
-        },
-        "processQuery": {
-            "baseName": "process_query",
-            "type": "ProcessQueryDefinition",
-            "format": ""
-        },
-        "profileMetricsQuery": {
-            "baseName": "profile_metrics_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "q": {
-            "baseName": "q",
-            "type": "string",
-            "format": ""
-        },
-        "rumQuery": {
-            "baseName": "rum_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "securityQuery": {
-            "baseName": "security_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "showPresent": {
-            "baseName": "show_present",
-            "type": "boolean",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    apmQuery: {
+      baseName: "apm_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    changeType: {
+      baseName: "change_type",
+      type: "WidgetChangeType",
+      format: "",
+    },
+    compareTo: {
+      baseName: "compare_to",
+      type: "WidgetCompareTo",
+      format: "",
+    },
+    eventQuery: {
+      baseName: "event_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    increaseGood: {
+      baseName: "increase_good",
+      type: "boolean",
+      format: "",
+    },
+    logQuery: {
+      baseName: "log_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    networkQuery: {
+      baseName: "network_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    orderBy: {
+      baseName: "order_by",
+      type: "WidgetOrderBy",
+      format: "",
+    },
+    orderDir: {
+      baseName: "order_dir",
+      type: "WidgetSort",
+      format: "",
+    },
+    processQuery: {
+      baseName: "process_query",
+      type: "ProcessQueryDefinition",
+      format: "",
+    },
+    profileMetricsQuery: {
+      baseName: "profile_metrics_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    q: {
+      baseName: "q",
+      type: "string",
+      format: "",
+    },
+    rumQuery: {
+      baseName: "rum_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    securityQuery: {
+      baseName: "security_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    showPresent: {
+      baseName: "show_present",
+      type: "boolean",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ChangeWidgetRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ChangeWidgetRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ChangeWidgetRequest {
+    const res = new ChangeWidgetRequest();
+
+    res.apmQuery = ObjectSerializer.deserialize(
+      data.apm_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    if (["absolute", "relative", undefined].includes(data.change_type)) {
+      res.changeType = data.change_type;
+    } else {
+      throw TypeError(`invalid enum value ${data.change_type} for change_type`);
     }
 
-    static deserialize(data: {[key: string]: any}): ChangeWidgetRequest {
-      let res = new ChangeWidgetRequest();
-
-      res.apmQuery = ObjectSerializer.deserialize(data.apm_query, "LogQueryDefinition", "")
-
-      if (['absolute', 'relative', undefined].includes(data.change_type)) {
-          res.changeType = data.change_type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.change_type } for change_type`);
-      }
-
-      if (['hour_before', 'day_before', 'week_before', 'month_before', undefined].includes(data.compare_to)) {
-          res.compareTo = data.compare_to;
-      } else {
-          throw TypeError(`invalid enum value ${ data.compare_to } for compare_to`);
-      }
-
-      res.eventQuery = ObjectSerializer.deserialize(data.event_query, "LogQueryDefinition", "")
-
-      res.increaseGood = ObjectSerializer.deserialize(data.increase_good, "boolean", "")
-
-      res.logQuery = ObjectSerializer.deserialize(data.log_query, "LogQueryDefinition", "")
-
-      res.networkQuery = ObjectSerializer.deserialize(data.network_query, "LogQueryDefinition", "")
-
-      if (['change', 'name', 'present', 'past', undefined].includes(data.order_by)) {
-          res.orderBy = data.order_by;
-      } else {
-          throw TypeError(`invalid enum value ${ data.order_by } for order_by`);
-      }
-
-      if (['asc', 'desc', undefined].includes(data.order_dir)) {
-          res.orderDir = data.order_dir;
-      } else {
-          throw TypeError(`invalid enum value ${ data.order_dir } for order_dir`);
-      }
-
-      res.processQuery = ObjectSerializer.deserialize(data.process_query, "ProcessQueryDefinition", "")
-
-      res.profileMetricsQuery = ObjectSerializer.deserialize(data.profile_metrics_query, "LogQueryDefinition", "")
-
-      res.q = ObjectSerializer.deserialize(data.q, "string", "")
-
-      res.rumQuery = ObjectSerializer.deserialize(data.rum_query, "LogQueryDefinition", "")
-
-      res.securityQuery = ObjectSerializer.deserialize(data.security_query, "LogQueryDefinition", "")
-
-      res.showPresent = ObjectSerializer.deserialize(data.show_present, "boolean", "")
-
-
-      return res;
+    if (
+      [
+        "hour_before",
+        "day_before",
+        "week_before",
+        "month_before",
+        undefined,
+      ].includes(data.compare_to)
+    ) {
+      res.compareTo = data.compare_to;
+    } else {
+      throw TypeError(`invalid enum value ${data.compare_to} for compare_to`);
     }
 
-    static serialize(data: ChangeWidgetRequest): {[key: string]: any} {
-        let attributeTypes = ChangeWidgetRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.apm_query = ObjectSerializer.serialize(data.apmQuery, "LogQueryDefinition", "")
+    res.eventQuery = ObjectSerializer.deserialize(
+      data.event_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-        if (['absolute', 'relative', undefined].includes(data.changeType)) {
-            res.change_type = data.changeType;
-        } else {
-            throw TypeError(`invalid enum value ${ data.changeType } for changeType`);
-        }
+    res.increaseGood = ObjectSerializer.deserialize(
+      data.increase_good,
+      "boolean",
+      ""
+    );
 
-        if (['hour_before', 'day_before', 'week_before', 'month_before', undefined].includes(data.compareTo)) {
-            res.compare_to = data.compareTo;
-        } else {
-            throw TypeError(`invalid enum value ${ data.compareTo } for compareTo`);
-        }
+    res.logQuery = ObjectSerializer.deserialize(
+      data.log_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.event_query = ObjectSerializer.serialize(data.eventQuery, "LogQueryDefinition", "")
+    res.networkQuery = ObjectSerializer.deserialize(
+      data.network_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.increase_good = ObjectSerializer.serialize(data.increaseGood, "boolean", "")
-
-        res.log_query = ObjectSerializer.serialize(data.logQuery, "LogQueryDefinition", "")
-
-        res.network_query = ObjectSerializer.serialize(data.networkQuery, "LogQueryDefinition", "")
-
-        if (['change', 'name', 'present', 'past', undefined].includes(data.orderBy)) {
-            res.order_by = data.orderBy;
-        } else {
-            throw TypeError(`invalid enum value ${ data.orderBy } for orderBy`);
-        }
-
-        if (['asc', 'desc', undefined].includes(data.orderDir)) {
-            res.order_dir = data.orderDir;
-        } else {
-            throw TypeError(`invalid enum value ${ data.orderDir } for orderDir`);
-        }
-
-        res.process_query = ObjectSerializer.serialize(data.processQuery, "ProcessQueryDefinition", "")
-
-        res.profile_metrics_query = ObjectSerializer.serialize(data.profileMetricsQuery, "LogQueryDefinition", "")
-
-        res.q = ObjectSerializer.serialize(data.q, "string", "")
-
-        res.rum_query = ObjectSerializer.serialize(data.rumQuery, "LogQueryDefinition", "")
-
-        res.security_query = ObjectSerializer.serialize(data.securityQuery, "LogQueryDefinition", "")
-
-        res.show_present = ObjectSerializer.serialize(data.showPresent, "boolean", "")
-
-        return res
+    if (
+      ["change", "name", "present", "past", undefined].includes(data.order_by)
+    ) {
+      res.orderBy = data.order_by;
+    } else {
+      throw TypeError(`invalid enum value ${data.order_by} for order_by`);
     }
-    
-    public constructor() {
+
+    if (["asc", "desc", undefined].includes(data.order_dir)) {
+      res.orderDir = data.order_dir;
+    } else {
+      throw TypeError(`invalid enum value ${data.order_dir} for order_dir`);
     }
+
+    res.processQuery = ObjectSerializer.deserialize(
+      data.process_query,
+      "ProcessQueryDefinition",
+      ""
+    );
+
+    res.profileMetricsQuery = ObjectSerializer.deserialize(
+      data.profile_metrics_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.q = ObjectSerializer.deserialize(data.q, "string", "");
+
+    res.rumQuery = ObjectSerializer.deserialize(
+      data.rum_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.securityQuery = ObjectSerializer.deserialize(
+      data.security_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.showPresent = ObjectSerializer.deserialize(
+      data.show_present,
+      "boolean",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ChangeWidgetRequest): { [key: string]: any } {
+    const attributeTypes = ChangeWidgetRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
+    }
+    res.apm_query = ObjectSerializer.serialize(
+      data.apmQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    if (["absolute", "relative", undefined].includes(data.changeType)) {
+      res.change_type = data.changeType;
+    } else {
+      throw TypeError(`invalid enum value ${data.changeType} for changeType`);
+    }
+
+    if (
+      [
+        "hour_before",
+        "day_before",
+        "week_before",
+        "month_before",
+        undefined,
+      ].includes(data.compareTo)
+    ) {
+      res.compare_to = data.compareTo;
+    } else {
+      throw TypeError(`invalid enum value ${data.compareTo} for compareTo`);
+    }
+
+    res.event_query = ObjectSerializer.serialize(
+      data.eventQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.increase_good = ObjectSerializer.serialize(
+      data.increaseGood,
+      "boolean",
+      ""
+    );
+
+    res.log_query = ObjectSerializer.serialize(
+      data.logQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.network_query = ObjectSerializer.serialize(
+      data.networkQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    if (
+      ["change", "name", "present", "past", undefined].includes(data.orderBy)
+    ) {
+      res.order_by = data.orderBy;
+    } else {
+      throw TypeError(`invalid enum value ${data.orderBy} for orderBy`);
+    }
+
+    if (["asc", "desc", undefined].includes(data.orderDir)) {
+      res.order_dir = data.orderDir;
+    } else {
+      throw TypeError(`invalid enum value ${data.orderDir} for orderDir`);
+    }
+
+    res.process_query = ObjectSerializer.serialize(
+      data.processQuery,
+      "ProcessQueryDefinition",
+      ""
+    );
+
+    res.profile_metrics_query = ObjectSerializer.serialize(
+      data.profileMetricsQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.q = ObjectSerializer.serialize(data.q, "string", "");
+
+    res.rum_query = ObjectSerializer.serialize(
+      data.rumQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.security_query = ObjectSerializer.serialize(
+      data.securityQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.show_present = ObjectSerializer.serialize(
+      data.showPresent,
+      "boolean",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

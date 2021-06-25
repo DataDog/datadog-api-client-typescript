@@ -8,15 +8,8 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The sort parameters used for querying security signals.
-*/
-
-export type SecurityMonitoringSignalsSort = typeof TIMESTAMP_ASCENDING | typeof TIMESTAMP_DESCENDING ;
-export const TIMESTAMP_ASCENDING = 'timestamp';
-export const TIMESTAMP_DESCENDING = '-timestamp';
-
-
+export type SecurityMonitoringSignalsSort =
+  | typeof TIMESTAMP_ASCENDING
+  | typeof TIMESTAMP_DESCENDING;
+export const TIMESTAMP_ASCENDING = "timestamp";
+export const TIMESTAMP_DESCENDING = "-timestamp";

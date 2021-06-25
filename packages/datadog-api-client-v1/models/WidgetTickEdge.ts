@@ -8,17 +8,12 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Define how you want to align the text on the widget.
-*/
-
-export type WidgetTickEdge = typeof BOTTOM | typeof LEFT | typeof RIGHT | typeof TOP ;
-export const BOTTOM = 'bottom';
-export const LEFT = 'left';
-export const RIGHT = 'right';
-export const TOP = 'top';
-
-
+export type WidgetTickEdge =
+  | typeof BOTTOM
+  | typeof LEFT
+  | typeof RIGHT
+  | typeof TOP;
+export const BOTTOM = "bottom";
+export const LEFT = "left";
+export const RIGHT = "right";
+export const TOP = "top";

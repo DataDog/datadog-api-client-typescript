@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
-*/
-
-export type SyntheticsTestPauseStatus = typeof LIVE | typeof PAUSED ;
-export const LIVE = 'live';
-export const PAUSED = 'paused';
-
-
+export type SyntheticsTestPauseStatus = typeof LIVE | typeof PAUSED;
+export const LIVE = "live";
+export const PAUSED = "paused";

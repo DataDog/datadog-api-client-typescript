@@ -8,55 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServicesResponseMetaPagination } from './IncidentServicesResponseMetaPagination';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The metadata object containing pagination metadata.
-*/
+ * The metadata object containing pagination metadata.
+ */
 
 export class IncidentServicesResponseMeta {
-    'pagination'?: IncidentServicesResponseMetaPagination;
+  "pagination"?: IncidentServicesResponseMetaPagination;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "pagination": {
-            "baseName": "pagination",
-            "type": "IncidentServicesResponseMetaPagination",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    pagination: {
+      baseName: "pagination",
+      type: "IncidentServicesResponseMetaPagination",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentServicesResponseMeta.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentServicesResponseMeta.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentServicesResponseMeta {
+    const res = new IncidentServicesResponseMeta();
+
+    res.pagination = ObjectSerializer.deserialize(
+      data.pagination,
+      "IncidentServicesResponseMetaPagination",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: IncidentServicesResponseMeta): { [key: string]: any } {
+    const attributeTypes = IncidentServicesResponseMeta.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.pagination = ObjectSerializer.serialize(
+      data.pagination,
+      "IncidentServicesResponseMetaPagination",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): IncidentServicesResponseMeta {
-      let res = new IncidentServicesResponseMeta();
+    return res;
+  }
 
-      res.pagination = ObjectSerializer.deserialize(data.pagination, "IncidentServicesResponseMetaPagination", "")
-
-
-      return res;
-    }
-
-    static serialize(data: IncidentServicesResponseMeta): {[key: string]: any} {
-        let attributeTypes = IncidentServicesResponseMeta.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.pagination = ObjectSerializer.serialize(data.pagination, "IncidentServicesResponseMetaPagination", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

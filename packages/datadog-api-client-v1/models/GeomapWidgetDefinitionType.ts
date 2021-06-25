@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the geomap widget.
-*/
-
-export type GeomapWidgetDefinitionType = typeof GEOMAP ;
-export const GEOMAP = 'geomap';
-
-
+export type GeomapWidgetDefinitionType = typeof GEOMAP;
+export const GEOMAP = "geomap";

@@ -8,89 +8,106 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Attributes of the created role.
-*/
+ * Attributes of the created role.
+ */
 
 export class RoleCreateAttributes {
-    /**
-    * Creation time of the role.
-    */
-    'createdAt'?: Date;
-    /**
-    * Time of last role modification.
-    */
-    'modifiedAt'?: Date;
-    /**
-    * Name of the role.
-    */
-    'name': string;
+  /**
+   * Creation time of the role.
+   */
+  "createdAt"?: Date;
+  /**
+   * Time of last role modification.
+   */
+  "modifiedAt"?: Date;
+  /**
+   * Name of the role.
+   */
+  "name": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "createdAt": {
-            "baseName": "created_at",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "modifiedAt": {
-            "baseName": "modified_at",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "Date",
+      format: "date-time",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RoleCreateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RoleCreateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): RoleCreateAttributes {
+    const res = new RoleCreateAttributes();
+
+    res.createdAt = ObjectSerializer.deserialize(
+      data.created_at,
+      "Date",
+      "date-time"
+    );
+
+    res.modifiedAt = ObjectSerializer.deserialize(
+      data.modified_at,
+      "Date",
+      "date-time"
+    );
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'RoleCreateAttributes' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): RoleCreateAttributes {
-      let res = new RoleCreateAttributes();
+    return res;
+  }
 
-      res.createdAt = ObjectSerializer.deserialize(data.created_at, "Date", "date-time")
-
-      res.modifiedAt = ObjectSerializer.deserialize(data.modified_at, "Date", "date-time")
-
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'RoleCreateAttributes' object");
+  static serialize(data: RoleCreateAttributes): { [key: string]: any } {
+    const attributeTypes = RoleCreateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
     }
+    res.created_at = ObjectSerializer.serialize(
+      data.createdAt,
+      "Date",
+      "date-time"
+    );
 
-    static serialize(data: RoleCreateAttributes): {[key: string]: any} {
-        let attributeTypes = RoleCreateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.created_at = ObjectSerializer.serialize(data.createdAt, "Date", "date-time")
+    res.modified_at = ObjectSerializer.serialize(
+      data.modifiedAt,
+      "Date",
+      "date-time"
+    );
 
-        res.modified_at = ObjectSerializer.serialize(data.modifiedAt, "Date", "date-time")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'RoleCreateAttributes' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'RoleCreateAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

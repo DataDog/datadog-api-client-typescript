@@ -8,63 +8,68 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Search options.
-*/
+ * Search options.
+ */
 
 export class FormulaAndFunctionEventQueryDefinitionSearch {
-    /**
-    * Events search string.
-    */
-    'query': string;
+  /**
+   * Events search string.
+   */
+  "query": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): FormulaAndFunctionEventQueryDefinitionSearch {
+    const res = new FormulaAndFunctionEventQueryDefinitionSearch();
+
+    if (data.query === undefined) {
+      throw new TypeError(
+        "missing required attribute 'query' on 'FormulaAndFunctionEventQueryDefinitionSearch' object"
+      );
     }
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
 
-    static deserialize(data: {[key: string]: any}): FormulaAndFunctionEventQueryDefinitionSearch {
-      let res = new FormulaAndFunctionEventQueryDefinitionSearch();
+    return res;
+  }
 
-      if (data.query === undefined) {
-          throw new TypeError("missing required attribute 'query' on 'FormulaAndFunctionEventQueryDefinitionSearch' object");
+  static serialize(
+    data: FormulaAndFunctionEventQueryDefinitionSearch
+  ): { [key: string]: any } {
+    const attributeTypes = FormulaAndFunctionEventQueryDefinitionSearch.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: FormulaAndFunctionEventQueryDefinitionSearch): {[key: string]: any} {
-        let attributeTypes = FormulaAndFunctionEventQueryDefinitionSearch.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.query === undefined) {
-            throw new TypeError("missing required attribute 'query' on 'FormulaAndFunctionEventQueryDefinitionSearch' object");
-        }
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
-
-        return res
+    if (data.query === undefined) {
+      throw new TypeError(
+        "missing required attribute 'query' on 'FormulaAndFunctionEventQueryDefinitionSearch' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

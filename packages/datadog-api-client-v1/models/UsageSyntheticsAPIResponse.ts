@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { UsageSyntheticsAPIHour } from './UsageSyntheticsAPIHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageSyntheticsAPIHour } from "./UsageSyntheticsAPIHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing the number of Synthetics API tests run for each hour for a given organization.
-*/
+ * Response containing the number of Synthetics API tests run for each hour for a given organization.
+ */
 
 export class UsageSyntheticsAPIResponse {
-    /**
-    * Get hourly usage for Synthetics API tests.
-    */
-    'usage'?: Array<UsageSyntheticsAPIHour>;
+  /**
+   * Get hourly usage for Synthetics API tests.
+   */
+  "usage"?: Array<UsageSyntheticsAPIHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageSyntheticsAPIHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageSyntheticsAPIHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageSyntheticsAPIResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageSyntheticsAPIResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageSyntheticsAPIResponse {
+    const res = new UsageSyntheticsAPIResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageSyntheticsAPIHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageSyntheticsAPIResponse): { [key: string]: any } {
+    const attributeTypes = UsageSyntheticsAPIResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageSyntheticsAPIHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageSyntheticsAPIResponse {
-      let res = new UsageSyntheticsAPIResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageSyntheticsAPIHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageSyntheticsAPIResponse): {[key: string]: any} {
-        let attributeTypes = UsageSyntheticsAPIResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageSyntheticsAPIHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

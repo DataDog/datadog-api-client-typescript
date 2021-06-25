@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Organizations resource type.
-*/
-
-export type OrganizationsType = typeof ORGS ;
-export const ORGS = 'orgs';
-
-
+export type OrganizationsType = typeof ORGS;
+export const ORGS = "orgs";

@@ -8,57 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
-*/
+ * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
+ */
 
 export class SyntheticsDeleteTestsPayload {
-    /**
-    * An array of Synthetic test IDs you want to delete.
-    */
-    'publicIds'?: Array<string>;
+  /**
+   * An array of Synthetic test IDs you want to delete.
+   */
+  "publicIds"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "publicIds": {
-            "baseName": "public_ids",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    publicIds: {
+      baseName: "public_ids",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsDeleteTestsPayload.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsDeleteTestsPayload.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsDeleteTestsPayload {
+    const res = new SyntheticsDeleteTestsPayload();
+
+    res.publicIds = ObjectSerializer.deserialize(
+      data.public_ids,
+      "Array<string>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsDeleteTestsPayload): { [key: string]: any } {
+    const attributeTypes = SyntheticsDeleteTestsPayload.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.public_ids = ObjectSerializer.serialize(
+      data.publicIds,
+      "Array<string>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SyntheticsDeleteTestsPayload {
-      let res = new SyntheticsDeleteTestsPayload();
+    return res;
+  }
 
-      res.publicIds = ObjectSerializer.deserialize(data.public_ids, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsDeleteTestsPayload): {[key: string]: any} {
-        let attributeTypes = SyntheticsDeleteTestsPayload.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.public_ids = ObjectSerializer.serialize(data.publicIds, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

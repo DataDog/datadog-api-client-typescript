@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Widget sorting methods.
-*/
-
-export type WidgetSort = typeof ASCENDING | typeof DESCENDING ;
-export const ASCENDING = 'asc';
-export const DESCENDING = 'desc';
-
-
+export type WidgetSort = typeof ASCENDING | typeof DESCENDING;
+export const ASCENDING = "asc";
+export const DESCENDING = "desc";

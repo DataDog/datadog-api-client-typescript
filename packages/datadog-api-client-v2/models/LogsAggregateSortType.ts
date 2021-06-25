@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The type of sorting algorithm
-*/
-
-export type LogsAggregateSortType = typeof ALPHABETICAL | typeof MEASURE ;
-export const ALPHABETICAL = 'alphabetical';
-export const MEASURE = 'measure';
-
-
+export type LogsAggregateSortType = typeof ALPHABETICAL | typeof MEASURE;
+export const ALPHABETICAL = "alphabetical";
+export const MEASURE = "measure";

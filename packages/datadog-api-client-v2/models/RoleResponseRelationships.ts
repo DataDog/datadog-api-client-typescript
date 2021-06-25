@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToPermissions } from './RelationshipToPermissions';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToPermissions } from "./RelationshipToPermissions";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Relationships of the role object returned by the API.
-*/
+ * Relationships of the role object returned by the API.
+ */
 
 export class RoleResponseRelationships {
-    'permissions'?: RelationshipToPermissions;
+  "permissions"?: RelationshipToPermissions;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "permissions": {
-            "baseName": "permissions",
-            "type": "RelationshipToPermissions",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    permissions: {
+      baseName: "permissions",
+      type: "RelationshipToPermissions",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RoleResponseRelationships.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RoleResponseRelationships.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): RoleResponseRelationships {
+    const res = new RoleResponseRelationships();
+
+    res.permissions = ObjectSerializer.deserialize(
+      data.permissions,
+      "RelationshipToPermissions",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: RoleResponseRelationships): { [key: string]: any } {
+    const attributeTypes = RoleResponseRelationships.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.permissions = ObjectSerializer.serialize(
+      data.permissions,
+      "RelationshipToPermissions",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): RoleResponseRelationships {
-      let res = new RoleResponseRelationships();
+    return res;
+  }
 
-      res.permissions = ObjectSerializer.deserialize(data.permissions, "RelationshipToPermissions", "")
-
-
-      return res;
-    }
-
-    static serialize(data: RoleResponseRelationships): {[key: string]: any} {
-        let attributeTypes = RoleResponseRelationships.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.permissions = ObjectSerializer.serialize(data.permissions, "RelationshipToPermissions", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,96 +8,101 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
-*/
+ * Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
+ */
 
 export class WidgetCustomLink {
-    /**
-    * The flag for toggling context menu link visibility.
-    */
-    'isHidden'?: boolean;
-    /**
-    * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-    */
-    'label'?: string;
-    /**
-    * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-    */
-    'link'?: string;
-    /**
-    * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-    */
-    'overrideLabel'?: string;
+  /**
+   * The flag for toggling context menu link visibility.
+   */
+  "isHidden"?: boolean;
+  /**
+   * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+   */
+  "label"?: string;
+  /**
+   * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+   */
+  "link"?: string;
+  /**
+   * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+   */
+  "overrideLabel"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "isHidden": {
-            "baseName": "is_hidden",
-            "type": "boolean",
-            "format": ""
-        },
-        "label": {
-            "baseName": "label",
-            "type": "string",
-            "format": ""
-        },
-        "link": {
-            "baseName": "link",
-            "type": "string",
-            "format": ""
-        },
-        "overrideLabel": {
-            "baseName": "override_label",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    isHidden: {
+      baseName: "is_hidden",
+      type: "boolean",
+      format: "",
+    },
+    label: {
+      baseName: "label",
+      type: "string",
+      format: "",
+    },
+    link: {
+      baseName: "link",
+      type: "string",
+      format: "",
+    },
+    overrideLabel: {
+      baseName: "override_label",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return WidgetCustomLink.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return WidgetCustomLink.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): WidgetCustomLink {
+    const res = new WidgetCustomLink();
+
+    res.isHidden = ObjectSerializer.deserialize(data.is_hidden, "boolean", "");
+
+    res.label = ObjectSerializer.deserialize(data.label, "string", "");
+
+    res.link = ObjectSerializer.deserialize(data.link, "string", "");
+
+    res.overrideLabel = ObjectSerializer.deserialize(
+      data.override_label,
+      "string",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: WidgetCustomLink): { [key: string]: any } {
+    const attributeTypes = WidgetCustomLink.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.is_hidden = ObjectSerializer.serialize(data.isHidden, "boolean", "");
 
-    static deserialize(data: {[key: string]: any}): WidgetCustomLink {
-      let res = new WidgetCustomLink();
+    res.label = ObjectSerializer.serialize(data.label, "string", "");
 
-      res.isHidden = ObjectSerializer.deserialize(data.is_hidden, "boolean", "")
+    res.link = ObjectSerializer.serialize(data.link, "string", "");
 
-      res.label = ObjectSerializer.deserialize(data.label, "string", "")
+    res.override_label = ObjectSerializer.serialize(
+      data.overrideLabel,
+      "string",
+      ""
+    );
 
-      res.link = ObjectSerializer.deserialize(data.link, "string", "")
+    return res;
+  }
 
-      res.overrideLabel = ObjectSerializer.deserialize(data.override_label, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: WidgetCustomLink): {[key: string]: any} {
-        let attributeTypes = WidgetCustomLink.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.is_hidden = ObjectSerializer.serialize(data.isHidden, "boolean", "")
-
-        res.label = ObjectSerializer.serialize(data.label, "string", "")
-
-        res.link = ObjectSerializer.serialize(data.link, "string", "")
-
-        res.override_label = ObjectSerializer.serialize(data.overrideLabel, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

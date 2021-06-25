@@ -8,201 +8,262 @@
  * Do not edit the class manually.
  */
 
-import { SLOHistoryResponseError } from './SLOHistoryResponseError';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
-*/
+ * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
+ */
 
 export class SLOHistorySLIData {
-    /**
-    * A mapping of threshold `timeframe` to the remaining error budget.
-    */
-    'errorBudgetRemaining'?: { [key: string]: number; };
-    /**
-    * A list of errors while querying the history data for the service level objective.
-    */
-    'errors'?: Array<SLOHistoryResponseError>;
-    /**
-    * For groups in a grouped SLO, this is the group name.
-    */
-    'group'?: string;
-    /**
-    * For `monitor` based SLOs, this includes the aggregated history uptime time series.
-    */
-    'history'?: Array<Array<number>>;
-    /**
-    * For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
-    */
-    'monitorModified'?: number;
-    /**
-    * For `monitor` based SLOs, this describes the type of monitor.
-    */
-    'monitorType'?: string;
-    /**
-    * For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
-    */
-    'name'?: string;
-    /**
-    * A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
-    */
-    'precision'?: { [key: string]: number; };
-    /**
-    * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
-    */
-    'preview'?: boolean;
-    /**
-    * The current SLI value of the SLO over the history window.
-    */
-    'sliValue'?: number;
-    /**
-    * The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
-    */
-    'spanPrecision'?: number;
-    /**
-    * Use `sli_value` instead.
-    */
-    'uptime'?: number;
+  /**
+   * A mapping of threshold `timeframe` to the remaining error budget.
+   */
+  "errorBudgetRemaining"?: { [key: string]: number };
+  /**
+   * A list of errors while querying the history data for the service level objective.
+   */
+  "errors"?: Array<SLOHistoryResponseError>;
+  /**
+   * For groups in a grouped SLO, this is the group name.
+   */
+  "group"?: string;
+  /**
+   * For `monitor` based SLOs, this includes the aggregated history uptime time series.
+   */
+  "history"?: Array<Array<number>>;
+  /**
+   * For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
+   */
+  "monitorModified"?: number;
+  /**
+   * For `monitor` based SLOs, this describes the type of monitor.
+   */
+  "monitorType"?: string;
+  /**
+   * For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
+   */
+  "name"?: string;
+  /**
+   * A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
+   */
+  "precision"?: { [key: string]: number };
+  /**
+   * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
+   */
+  "preview"?: boolean;
+  /**
+   * The current SLI value of the SLO over the history window.
+   */
+  "sliValue"?: number;
+  /**
+   * The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
+   */
+  "spanPrecision"?: number;
+  /**
+   * Use `sli_value` instead.
+   */
+  "uptime"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "errorBudgetRemaining": {
-            "baseName": "error_budget_remaining",
-            "type": "{ [key: string]: number; }",
-            "format": "double"
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "Array<SLOHistoryResponseError>",
-            "format": ""
-        },
-        "group": {
-            "baseName": "group",
-            "type": "string",
-            "format": ""
-        },
-        "history": {
-            "baseName": "history",
-            "type": "Array<Array<number>>",
-            "format": "double"
-        },
-        "monitorModified": {
-            "baseName": "monitor_modified",
-            "type": "number",
-            "format": "int64"
-        },
-        "monitorType": {
-            "baseName": "monitor_type",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "precision": {
-            "baseName": "precision",
-            "type": "{ [key: string]: number; }",
-            "format": "double"
-        },
-        "preview": {
-            "baseName": "preview",
-            "type": "boolean",
-            "format": ""
-        },
-        "sliValue": {
-            "baseName": "sli_value",
-            "type": "number",
-            "format": "double"
-        },
-        "spanPrecision": {
-            "baseName": "span_precision",
-            "type": "number",
-            "format": "double"
-        },
-        "uptime": {
-            "baseName": "uptime",
-            "type": "number",
-            "format": "double"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    errorBudgetRemaining: {
+      baseName: "error_budget_remaining",
+      type: "{ [key: string]: number; }",
+      format: "double",
+    },
+    errors: {
+      baseName: "errors",
+      type: "Array<SLOHistoryResponseError>",
+      format: "",
+    },
+    group: {
+      baseName: "group",
+      type: "string",
+      format: "",
+    },
+    history: {
+      baseName: "history",
+      type: "Array<Array<number>>",
+      format: "double",
+    },
+    monitorModified: {
+      baseName: "monitor_modified",
+      type: "number",
+      format: "int64",
+    },
+    monitorType: {
+      baseName: "monitor_type",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    precision: {
+      baseName: "precision",
+      type: "{ [key: string]: number; }",
+      format: "double",
+    },
+    preview: {
+      baseName: "preview",
+      type: "boolean",
+      format: "",
+    },
+    sliValue: {
+      baseName: "sli_value",
+      type: "number",
+      format: "double",
+    },
+    spanPrecision: {
+      baseName: "span_precision",
+      type: "number",
+      format: "double",
+    },
+    uptime: {
+      baseName: "uptime",
+      type: "number",
+      format: "double",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOHistorySLIData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOHistorySLIData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLOHistorySLIData {
+    const res = new SLOHistorySLIData();
+
+    res.errorBudgetRemaining = ObjectSerializer.deserialize(
+      data.error_budget_remaining,
+      "{ [key: string]: number; }",
+      "double"
+    );
+
+    res.errors = ObjectSerializer.deserialize(
+      data.errors,
+      "Array<SLOHistoryResponseError>",
+      ""
+    );
+
+    res.group = ObjectSerializer.deserialize(data.group, "string", "");
+
+    res.history = ObjectSerializer.deserialize(
+      data.history,
+      "Array<Array<number>>",
+      "double"
+    );
+
+    res.monitorModified = ObjectSerializer.deserialize(
+      data.monitor_modified,
+      "number",
+      "int64"
+    );
+
+    res.monitorType = ObjectSerializer.deserialize(
+      data.monitor_type,
+      "string",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.precision = ObjectSerializer.deserialize(
+      data.precision,
+      "{ [key: string]: number; }",
+      "double"
+    );
+
+    res.preview = ObjectSerializer.deserialize(data.preview, "boolean", "");
+
+    res.sliValue = ObjectSerializer.deserialize(
+      data.sli_value,
+      "number",
+      "double"
+    );
+
+    res.spanPrecision = ObjectSerializer.deserialize(
+      data.span_precision,
+      "number",
+      "double"
+    );
+
+    res.uptime = ObjectSerializer.deserialize(data.uptime, "number", "double");
+
+    return res;
+  }
+
+  static serialize(data: SLOHistorySLIData): { [key: string]: any } {
+    const attributeTypes = SLOHistorySLIData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.error_budget_remaining = ObjectSerializer.serialize(
+      data.errorBudgetRemaining,
+      "{ [key: string]: number; }",
+      "double"
+    );
 
-    static deserialize(data: {[key: string]: any}): SLOHistorySLIData {
-      let res = new SLOHistorySLIData();
+    res.errors = ObjectSerializer.serialize(
+      data.errors,
+      "Array<SLOHistoryResponseError>",
+      ""
+    );
 
-      res.errorBudgetRemaining = ObjectSerializer.deserialize(data.error_budget_remaining, "{ [key: string]: number; }", "double")
+    res.group = ObjectSerializer.serialize(data.group, "string", "");
 
-      res.errors = ObjectSerializer.deserialize(data.errors, "Array<SLOHistoryResponseError>", "")
+    res.history = ObjectSerializer.serialize(
+      data.history,
+      "Array<Array<number>>",
+      "double"
+    );
 
-      res.group = ObjectSerializer.deserialize(data.group, "string", "")
+    res.monitor_modified = ObjectSerializer.serialize(
+      data.monitorModified,
+      "number",
+      "int64"
+    );
 
-      res.history = ObjectSerializer.deserialize(data.history, "Array<Array<number>>", "double")
+    res.monitor_type = ObjectSerializer.serialize(
+      data.monitorType,
+      "string",
+      ""
+    );
 
-      res.monitorModified = ObjectSerializer.deserialize(data.monitor_modified, "number", "int64")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.monitorType = ObjectSerializer.deserialize(data.monitor_type, "string", "")
+    res.precision = ObjectSerializer.serialize(
+      data.precision,
+      "{ [key: string]: number; }",
+      "double"
+    );
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    res.preview = ObjectSerializer.serialize(data.preview, "boolean", "");
 
-      res.precision = ObjectSerializer.deserialize(data.precision, "{ [key: string]: number; }", "double")
+    res.sli_value = ObjectSerializer.serialize(
+      data.sliValue,
+      "number",
+      "double"
+    );
 
-      res.preview = ObjectSerializer.deserialize(data.preview, "boolean", "")
+    res.span_precision = ObjectSerializer.serialize(
+      data.spanPrecision,
+      "number",
+      "double"
+    );
 
-      res.sliValue = ObjectSerializer.deserialize(data.sli_value, "number", "double")
+    res.uptime = ObjectSerializer.serialize(data.uptime, "number", "double");
 
-      res.spanPrecision = ObjectSerializer.deserialize(data.span_precision, "number", "double")
+    return res;
+  }
 
-      res.uptime = ObjectSerializer.deserialize(data.uptime, "number", "double")
-
-
-      return res;
-    }
-
-    static serialize(data: SLOHistorySLIData): {[key: string]: any} {
-        let attributeTypes = SLOHistorySLIData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.error_budget_remaining = ObjectSerializer.serialize(data.errorBudgetRemaining, "{ [key: string]: number; }", "double")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "Array<SLOHistoryResponseError>", "")
-
-        res.group = ObjectSerializer.serialize(data.group, "string", "")
-
-        res.history = ObjectSerializer.serialize(data.history, "Array<Array<number>>", "double")
-
-        res.monitor_modified = ObjectSerializer.serialize(data.monitorModified, "number", "int64")
-
-        res.monitor_type = ObjectSerializer.serialize(data.monitorType, "string", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.precision = ObjectSerializer.serialize(data.precision, "{ [key: string]: number; }", "double")
-
-        res.preview = ObjectSerializer.serialize(data.preview, "boolean", "")
-
-        res.sli_value = ObjectSerializer.serialize(data.sliValue, "number", "double")
-
-        res.span_precision = ObjectSerializer.serialize(data.spanPrecision, "number", "double")
-
-        res.uptime = ObjectSerializer.serialize(data.uptime, "number", "double")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

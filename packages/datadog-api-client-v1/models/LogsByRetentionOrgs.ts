@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { LogsByRetentionOrgUsage } from './LogsByRetentionOrgUsage';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsByRetentionOrgUsage } from "./LogsByRetentionOrgUsage";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Indexed logs usage summary for each organization for each retention period with usage.
-*/
+ * Indexed logs usage summary for each organization for each retention period with usage.
+ */
 
 export class LogsByRetentionOrgs {
-    /**
-    * Indexed logs usage summary for each organization.
-    */
-    'usage'?: Array<LogsByRetentionOrgUsage>;
+  /**
+   * Indexed logs usage summary for each organization.
+   */
+  "usage"?: Array<LogsByRetentionOrgUsage>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<LogsByRetentionOrgUsage>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<LogsByRetentionOrgUsage>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsByRetentionOrgs.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsByRetentionOrgs.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsByRetentionOrgs {
+    const res = new LogsByRetentionOrgs();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<LogsByRetentionOrgUsage>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsByRetentionOrgs): { [key: string]: any } {
+    const attributeTypes = LogsByRetentionOrgs.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<LogsByRetentionOrgUsage>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsByRetentionOrgs {
-      let res = new LogsByRetentionOrgs();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<LogsByRetentionOrgUsage>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsByRetentionOrgs): {[key: string]: any} {
-        let attributeTypes = LogsByRetentionOrgs.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<LogsByRetentionOrgUsage>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

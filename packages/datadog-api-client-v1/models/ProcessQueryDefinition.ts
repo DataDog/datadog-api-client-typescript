@@ -8,102 +8,111 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The process query to use in the widget.
-*/
+ * The process query to use in the widget.
+ */
 
 export class ProcessQueryDefinition {
-    /**
-    * List of processes.
-    */
-    'filterBy'?: Array<string>;
-    /**
-    * Max number of items in the filter list.
-    */
-    'limit'?: number;
-    /**
-    * Your chosen metric.
-    */
-    'metric': string;
-    /**
-    * Your chosen search term.
-    */
-    'searchBy'?: string;
+  /**
+   * List of processes.
+   */
+  "filterBy"?: Array<string>;
+  /**
+   * Max number of items in the filter list.
+   */
+  "limit"?: number;
+  /**
+   * Your chosen metric.
+   */
+  "metric": string;
+  /**
+   * Your chosen search term.
+   */
+  "searchBy"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "filterBy": {
-            "baseName": "filter_by",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "limit": {
-            "baseName": "limit",
-            "type": "number",
-            "format": "int64"
-        },
-        "metric": {
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        },
-        "searchBy": {
-            "baseName": "search_by",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    filterBy: {
+      baseName: "filter_by",
+      type: "Array<string>",
+      format: "",
+    },
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+    searchBy: {
+      baseName: "search_by",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ProcessQueryDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ProcessQueryDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ProcessQueryDefinition {
+    const res = new ProcessQueryDefinition();
+
+    res.filterBy = ObjectSerializer.deserialize(
+      data.filter_by,
+      "Array<string>",
+      ""
+    );
+
+    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
+
+    if (data.metric === undefined) {
+      throw new TypeError(
+        "missing required attribute 'metric' on 'ProcessQueryDefinition' object"
+      );
     }
+    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
 
-    static deserialize(data: {[key: string]: any}): ProcessQueryDefinition {
-      let res = new ProcessQueryDefinition();
+    res.searchBy = ObjectSerializer.deserialize(data.search_by, "string", "");
 
-      res.filterBy = ObjectSerializer.deserialize(data.filter_by, "Array<string>", "")
+    return res;
+  }
 
-      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64")
-
-      if (data.metric === undefined) {
-          throw new TypeError("missing required attribute 'metric' on 'ProcessQueryDefinition' object");
+  static serialize(data: ProcessQueryDefinition): { [key: string]: any } {
+    const attributeTypes = ProcessQueryDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
-
-      res.searchBy = ObjectSerializer.deserialize(data.search_by, "string", "")
-
-
-      return res;
     }
+    res.filter_by = ObjectSerializer.serialize(
+      data.filterBy,
+      "Array<string>",
+      ""
+    );
 
-    static serialize(data: ProcessQueryDefinition): {[key: string]: any} {
-        let attributeTypes = ProcessQueryDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.filter_by = ObjectSerializer.serialize(data.filterBy, "Array<string>", "")
+    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
 
-        res.limit = ObjectSerializer.serialize(data.limit, "number", "int64")
-
-        if (data.metric === undefined) {
-            throw new TypeError("missing required attribute 'metric' on 'ProcessQueryDefinition' object");
-        }
-        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
-
-        res.search_by = ObjectSerializer.serialize(data.searchBy, "string", "")
-
-        return res
+    if (data.metric === undefined) {
+      throw new TypeError(
+        "missing required attribute 'metric' on 'ProcessQueryDefinition' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
+
+    res.search_by = ObjectSerializer.serialize(data.searchBy, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

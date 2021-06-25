@@ -8,114 +8,127 @@
  * Do not edit the class manually.
  */
 
-import { LogsDateRemapperType } from './LogsDateRemapperType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsDateRemapperType } from "./LogsDateRemapperType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   - `eventTime`   - `published_date`    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
-*/
+ * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   - `eventTime`   - `published_date`    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
+ */
 
 export class LogsDateRemapper {
-    /**
-    * Whether or not the processor is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Name of the processor.
-    */
-    'name'?: string;
-    /**
-    * Array of source attributes.
-    */
-    'sources': Array<string>;
-    'type': LogsDateRemapperType;
+  /**
+   * Whether or not the processor is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Name of the processor.
+   */
+  "name"?: string;
+  /**
+   * Array of source attributes.
+   */
+  "sources": Array<string>;
+  "type": LogsDateRemapperType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "sources": {
-            "baseName": "sources",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsDateRemapperType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    sources: {
+      baseName: "sources",
+      type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsDateRemapperType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsDateRemapper.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsDateRemapper.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsDateRemapper {
+    const res = new LogsDateRemapper();
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (data.sources === undefined) {
+      throw new TypeError(
+        "missing required attribute 'sources' on 'LogsDateRemapper' object"
+      );
+    }
+    res.sources = ObjectSerializer.deserialize(
+      data.sources,
+      "Array<string>",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsDateRemapper' object"
+      );
+    }
+    if (["date-remapper", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsDateRemapper {
-      let res = new LogsDateRemapper();
+    return res;
+  }
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      if (data.sources === undefined) {
-          throw new TypeError("missing required attribute 'sources' on 'LogsDateRemapper' object");
+  static serialize(data: LogsDateRemapper): { [key: string]: any } {
+    const attributeTypes = LogsDateRemapper.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+    }
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsDateRemapper' object");
-      }
-      if (['date-remapper', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
+    if (data.sources === undefined) {
+      throw new TypeError(
+        "missing required attribute 'sources' on 'LogsDateRemapper' object"
+      );
+    }
+    res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "");
 
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsDateRemapper' object"
+      );
+    }
+    if (["date-remapper", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsDateRemapper): {[key: string]: any} {
-        let attributeTypes = LogsDateRemapper.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    return res;
+  }
 
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (data.sources === undefined) {
-            throw new TypeError("missing required attribute 'sources' on 'LogsDateRemapper' object");
-        }
-        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsDateRemapper' object");
-        }
-        if (['date-remapper', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

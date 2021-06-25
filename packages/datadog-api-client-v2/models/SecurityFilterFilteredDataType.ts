@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The filtered data type.
-*/
-
-export type SecurityFilterFilteredDataType = typeof LOGS ;
-export const LOGS = 'logs';
-
-
+export type SecurityFilterFilteredDataType = typeof LOGS;
+export const LOGS = "logs";

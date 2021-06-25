@@ -8,159 +8,180 @@
  * Do not edit the class manually.
  */
 
-import { ChangeWidgetDefinitionType } from './ChangeWidgetDefinitionType';
-import { ChangeWidgetRequest } from './ChangeWidgetRequest';
-import { WidgetCustomLink } from './WidgetCustomLink';
-import { WidgetTextAlign } from './WidgetTextAlign';
-import { WidgetTime } from './WidgetTime';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ChangeWidgetDefinitionType } from "./ChangeWidgetDefinitionType";
+import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
+import { WidgetCustomLink } from "./WidgetCustomLink";
+import { WidgetTextAlign } from "./WidgetTextAlign";
+import { WidgetTime } from "./WidgetTime";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The Change graph shows you the change in a value over the time period chosen.
-*/
+ * The Change graph shows you the change in a value over the time period chosen.
+ */
 
 export class ChangeWidgetDefinition {
-    /**
-    * List of custom links.
-    */
-    'customLinks'?: Array<WidgetCustomLink>;
-    /**
-    * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.
-    */
-    'requests': Array<ChangeWidgetRequest>;
-    'time'?: WidgetTime;
-    /**
-    * Title of the widget.
-    */
-    'title'?: string;
-    'titleAlign'?: WidgetTextAlign;
-    /**
-    * Size of the title.
-    */
-    'titleSize'?: string;
-    'type': ChangeWidgetDefinitionType;
+  /**
+   * List of custom links.
+   */
+  "customLinks"?: Array<WidgetCustomLink>;
+  /**
+   * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.
+   */
+  "requests": Array<ChangeWidgetRequest>;
+  "time"?: WidgetTime;
+  /**
+   * Title of the widget.
+   */
+  "title"?: string;
+  "titleAlign"?: WidgetTextAlign;
+  /**
+   * Size of the title.
+   */
+  "titleSize"?: string;
+  "type": ChangeWidgetDefinitionType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "customLinks": {
-            "baseName": "custom_links",
-            "type": "Array<WidgetCustomLink>",
-            "format": ""
-        },
-        "requests": {
-            "baseName": "requests",
-            "type": "Array<ChangeWidgetRequest>",
-            "format": ""
-        },
-        "time": {
-            "baseName": "time",
-            "type": "WidgetTime",
-            "format": ""
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        },
-        "titleAlign": {
-            "baseName": "title_align",
-            "type": "WidgetTextAlign",
-            "format": ""
-        },
-        "titleSize": {
-            "baseName": "title_size",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "ChangeWidgetDefinitionType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    customLinks: {
+      baseName: "custom_links",
+      type: "Array<WidgetCustomLink>",
+      format: "",
+    },
+    requests: {
+      baseName: "requests",
+      type: "Array<ChangeWidgetRequest>",
+      format: "",
+    },
+    time: {
+      baseName: "time",
+      type: "WidgetTime",
+      format: "",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
+      format: "",
+    },
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "ChangeWidgetDefinitionType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ChangeWidgetDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ChangeWidgetDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ChangeWidgetDefinition {
+    const res = new ChangeWidgetDefinition();
+
+    res.customLinks = ObjectSerializer.deserialize(
+      data.custom_links,
+      "Array<WidgetCustomLink>",
+      ""
+    );
+
+    if (data.requests === undefined) {
+      throw new TypeError(
+        "missing required attribute 'requests' on 'ChangeWidgetDefinition' object"
+      );
+    }
+    res.requests = ObjectSerializer.deserialize(
+      data.requests,
+      "Array<ChangeWidgetRequest>",
+      ""
+    );
+
+    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
+
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
+
+    if (["center", "left", "right", undefined].includes(data.title_align)) {
+      res.titleAlign = data.title_align;
+    } else {
+      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
     }
 
-    static deserialize(data: {[key: string]: any}): ChangeWidgetDefinition {
-      let res = new ChangeWidgetDefinition();
+    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
 
-      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
-
-      if (data.requests === undefined) {
-          throw new TypeError("missing required attribute 'requests' on 'ChangeWidgetDefinition' object");
-      }
-      res.requests = ObjectSerializer.deserialize(data.requests, "Array<ChangeWidgetRequest>", "")
-
-      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
-
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
-          res.titleAlign = data.title_align;
-      } else {
-          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
-      }
-
-      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'ChangeWidgetDefinition' object");
-      }
-      if (['change', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'ChangeWidgetDefinition' object"
+      );
+    }
+    if (["change", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: ChangeWidgetDefinition): {[key: string]: any} {
-        let attributeTypes = ChangeWidgetDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
+    return res;
+  }
 
-        if (data.requests === undefined) {
-            throw new TypeError("missing required attribute 'requests' on 'ChangeWidgetDefinition' object");
-        }
-        res.requests = ObjectSerializer.serialize(data.requests, "Array<ChangeWidgetRequest>", "")
-
-        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
-
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
-            res.title_align = data.titleAlign;
-        } else {
-            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
-        }
-
-        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'ChangeWidgetDefinition' object");
-        }
-        if (['change', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
+  static serialize(data: ChangeWidgetDefinition): { [key: string]: any } {
+    const attributeTypes = ChangeWidgetDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
-    
-    public constructor() {
+    res.custom_links = ObjectSerializer.serialize(
+      data.customLinks,
+      "Array<WidgetCustomLink>",
+      ""
+    );
+
+    if (data.requests === undefined) {
+      throw new TypeError(
+        "missing required attribute 'requests' on 'ChangeWidgetDefinition' object"
+      );
     }
+    res.requests = ObjectSerializer.serialize(
+      data.requests,
+      "Array<ChangeWidgetRequest>",
+      ""
+    );
+
+    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
+
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
+
+    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
+      res.title_align = data.titleAlign;
+    } else {
+      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
+    }
+
+    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'ChangeWidgetDefinition' object"
+      );
+    }
+    if (["change", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

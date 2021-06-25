@@ -8,102 +8,123 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCellTime } from './NotebookCellTime';
-import { NotebookGraphSize } from './NotebookGraphSize';
-import { NotebookSplitBy } from './NotebookSplitBy';
-import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookCellTime } from "./NotebookCellTime";
+import { NotebookGraphSize } from "./NotebookGraphSize";
+import { NotebookSplitBy } from "./NotebookSplitBy";
+import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The attributes of a notebook `timeseries` cell.
-*/
+ * The attributes of a notebook `timeseries` cell.
+ */
 
 export class NotebookTimeseriesCellAttributes {
-    'definition': TimeseriesWidgetDefinition;
-    'graphSize'?: NotebookGraphSize;
-    'splitBy'?: NotebookSplitBy;
-    'time'?: NotebookCellTime;
+  "definition": TimeseriesWidgetDefinition;
+  "graphSize"?: NotebookGraphSize;
+  "splitBy"?: NotebookSplitBy;
+  "time"?: NotebookCellTime;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "definition": {
-            "baseName": "definition",
-            "type": "TimeseriesWidgetDefinition",
-            "format": ""
-        },
-        "graphSize": {
-            "baseName": "graph_size",
-            "type": "NotebookGraphSize",
-            "format": ""
-        },
-        "splitBy": {
-            "baseName": "split_by",
-            "type": "NotebookSplitBy",
-            "format": ""
-        },
-        "time": {
-            "baseName": "time",
-            "type": "NotebookCellTime",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    definition: {
+      baseName: "definition",
+      type: "TimeseriesWidgetDefinition",
+      format: "",
+    },
+    graphSize: {
+      baseName: "graph_size",
+      type: "NotebookGraphSize",
+      format: "",
+    },
+    splitBy: {
+      baseName: "split_by",
+      type: "NotebookSplitBy",
+      format: "",
+    },
+    time: {
+      baseName: "time",
+      type: "NotebookCellTime",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookTimeseriesCellAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookTimeseriesCellAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): NotebookTimeseriesCellAttributes {
+    const res = new NotebookTimeseriesCellAttributes();
+
+    if (data.definition === undefined) {
+      throw new TypeError(
+        "missing required attribute 'definition' on 'NotebookTimeseriesCellAttributes' object"
+      );
+    }
+    res.definition = ObjectSerializer.deserialize(
+      data.definition,
+      "TimeseriesWidgetDefinition",
+      ""
+    );
+
+    if (["xs", "s", "m", "l", "xl", undefined].includes(data.graph_size)) {
+      res.graphSize = data.graph_size;
+    } else {
+      throw TypeError(`invalid enum value ${data.graph_size} for graph_size`);
     }
 
-    static deserialize(data: {[key: string]: any}): NotebookTimeseriesCellAttributes {
-      let res = new NotebookTimeseriesCellAttributes();
+    res.splitBy = ObjectSerializer.deserialize(
+      data.split_by,
+      "NotebookSplitBy",
+      ""
+    );
 
-      if (data.definition === undefined) {
-          throw new TypeError("missing required attribute 'definition' on 'NotebookTimeseriesCellAttributes' object");
+    res.time = ObjectSerializer.deserialize(data.time, "NotebookCellTime", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: NotebookTimeseriesCellAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = NotebookTimeseriesCellAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.definition = ObjectSerializer.deserialize(data.definition, "TimeseriesWidgetDefinition", "")
+    }
+    if (data.definition === undefined) {
+      throw new TypeError(
+        "missing required attribute 'definition' on 'NotebookTimeseriesCellAttributes' object"
+      );
+    }
+    res.definition = ObjectSerializer.serialize(
+      data.definition,
+      "TimeseriesWidgetDefinition",
+      ""
+    );
 
-      if (['xs', 's', 'm', 'l', 'xl', undefined].includes(data.graph_size)) {
-          res.graphSize = data.graph_size;
-      } else {
-          throw TypeError(`invalid enum value ${ data.graph_size } for graph_size`);
-      }
-
-      res.splitBy = ObjectSerializer.deserialize(data.split_by, "NotebookSplitBy", "")
-
-      res.time = ObjectSerializer.deserialize(data.time, "NotebookCellTime", "")
-
-
-      return res;
+    if (["xs", "s", "m", "l", "xl", undefined].includes(data.graphSize)) {
+      res.graph_size = data.graphSize;
+    } else {
+      throw TypeError(`invalid enum value ${data.graphSize} for graphSize`);
     }
 
-    static serialize(data: NotebookTimeseriesCellAttributes): {[key: string]: any} {
-        let attributeTypes = NotebookTimeseriesCellAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.definition === undefined) {
-            throw new TypeError("missing required attribute 'definition' on 'NotebookTimeseriesCellAttributes' object");
-        }
-        res.definition = ObjectSerializer.serialize(data.definition, "TimeseriesWidgetDefinition", "")
+    res.split_by = ObjectSerializer.serialize(
+      data.splitBy,
+      "NotebookSplitBy",
+      ""
+    );
 
-        if (['xs', 's', 'm', 'l', 'xl', undefined].includes(data.graphSize)) {
-            res.graph_size = data.graphSize;
-        } else {
-            throw TypeError(`invalid enum value ${ data.graphSize } for graphSize`);
-        }
+    res.time = ObjectSerializer.serialize(data.time, "NotebookCellTime", "");
 
-        res.split_by = ObjectSerializer.serialize(data.splitBy, "NotebookSplitBy", "")
+    return res;
+  }
 
-        res.time = ObjectSerializer.serialize(data.time, "NotebookCellTime", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

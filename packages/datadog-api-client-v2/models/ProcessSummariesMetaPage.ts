@@ -8,70 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Paging attributes.
-*/
+ * Paging attributes.
+ */
 
 export class ProcessSummariesMetaPage {
-    /**
-    * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
-    */
-    'after'?: string;
-    /**
-    * Number of results returned.
-    */
-    'size'?: number;
+  /**
+   * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
+   */
+  "after"?: string;
+  /**
+   * Number of results returned.
+   */
+  "size"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "after": {
-            "baseName": "after",
-            "type": "string",
-            "format": ""
-        },
-        "size": {
-            "baseName": "size",
-            "type": "number",
-            "format": "int32"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    after: {
+      baseName: "after",
+      type: "string",
+      format: "",
+    },
+    size: {
+      baseName: "size",
+      type: "number",
+      format: "int32",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ProcessSummariesMetaPage.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ProcessSummariesMetaPage.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ProcessSummariesMetaPage {
+    const res = new ProcessSummariesMetaPage();
+
+    res.after = ObjectSerializer.deserialize(data.after, "string", "");
+
+    res.size = ObjectSerializer.deserialize(data.size, "number", "int32");
+
+    return res;
+  }
+
+  static serialize(data: ProcessSummariesMetaPage): { [key: string]: any } {
+    const attributeTypes = ProcessSummariesMetaPage.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.after = ObjectSerializer.serialize(data.after, "string", "");
 
-    static deserialize(data: {[key: string]: any}): ProcessSummariesMetaPage {
-      let res = new ProcessSummariesMetaPage();
+    res.size = ObjectSerializer.serialize(data.size, "number", "int32");
 
-      res.after = ObjectSerializer.deserialize(data.after, "string", "")
+    return res;
+  }
 
-      res.size = ObjectSerializer.deserialize(data.size, "number", "int32")
-
-
-      return res;
-    }
-
-    static serialize(data: ProcessSummariesMetaPage): {[key: string]: any} {
-        let attributeTypes = ProcessSummariesMetaPage.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.after = ObjectSerializer.serialize(data.after, "string", "")
-
-        res.size = ObjectSerializer.serialize(data.size, "number", "int32")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

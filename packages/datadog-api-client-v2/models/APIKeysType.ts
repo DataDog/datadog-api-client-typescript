@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* API Keys resource type.
-*/
-
-export type APIKeysType = typeof API_KEYS ;
-export const API_KEYS = 'api_keys';
-
-
+export type APIKeysType = typeof API_KEYS;
+export const API_KEYS = "api_keys";

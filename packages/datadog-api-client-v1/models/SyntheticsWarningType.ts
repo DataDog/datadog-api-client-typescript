@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* User locator used.
-*/
-
-export type SyntheticsWarningType = typeof USER_LOCATOR ;
-export const USER_LOCATOR = 'user_locator';
-
-
+export type SyntheticsWarningType = typeof USER_LOCATOR;
+export const USER_LOCATOR = "user_locator";

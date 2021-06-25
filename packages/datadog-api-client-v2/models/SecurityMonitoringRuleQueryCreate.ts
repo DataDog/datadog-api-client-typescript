@@ -8,145 +8,182 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringRuleQueryAggregation } from './SecurityMonitoringRuleQueryAggregation';
-import { SecurityMonitoringRuntimeAgentRule } from './SecurityMonitoringRuntimeAgentRule';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
+import { SecurityMonitoringRuntimeAgentRule } from "./SecurityMonitoringRuntimeAgentRule";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Query for matching rule.
-*/
+ * Query for matching rule.
+ */
 
 export class SecurityMonitoringRuleQueryCreate {
-    'agentRule'?: SecurityMonitoringRuntimeAgentRule;
-    'aggregation'?: SecurityMonitoringRuleQueryAggregation;
-    /**
-    * Field for which the cardinality is measured. Sent as an array.
-    */
-    'distinctFields'?: Array<string>;
-    /**
-    * Fields to group by.
-    */
-    'groupByFields'?: Array<string>;
-    /**
-    * The target field to aggregate over when using the sum or max aggregations.
-    */
-    'metric'?: string;
-    /**
-    * Name of the query.
-    */
-    'name'?: string;
-    /**
-    * Query to run on logs.
-    */
-    'query': string;
+  "agentRule"?: SecurityMonitoringRuntimeAgentRule;
+  "aggregation"?: SecurityMonitoringRuleQueryAggregation;
+  /**
+   * Field for which the cardinality is measured. Sent as an array.
+   */
+  "distinctFields"?: Array<string>;
+  /**
+   * Fields to group by.
+   */
+  "groupByFields"?: Array<string>;
+  /**
+   * The target field to aggregate over when using the sum or max aggregations.
+   */
+  "metric"?: string;
+  /**
+   * Name of the query.
+   */
+  "name"?: string;
+  /**
+   * Query to run on logs.
+   */
+  "query": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "agentRule": {
-            "baseName": "agentRule",
-            "type": "SecurityMonitoringRuntimeAgentRule",
-            "format": ""
-        },
-        "aggregation": {
-            "baseName": "aggregation",
-            "type": "SecurityMonitoringRuleQueryAggregation",
-            "format": ""
-        },
-        "distinctFields": {
-            "baseName": "distinctFields",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "groupByFields": {
-            "baseName": "groupByFields",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "metric": {
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    agentRule: {
+      baseName: "agentRule",
+      type: "SecurityMonitoringRuntimeAgentRule",
+      format: "",
+    },
+    aggregation: {
+      baseName: "aggregation",
+      type: "SecurityMonitoringRuleQueryAggregation",
+      format: "",
+    },
+    distinctFields: {
+      baseName: "distinctFields",
+      type: "Array<string>",
+      format: "",
+    },
+    groupByFields: {
+      baseName: "groupByFields",
+      type: "Array<string>",
+      format: "",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringRuleQueryCreate.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringRuleQueryCreate.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringRuleQueryCreate {
+    const res = new SecurityMonitoringRuleQueryCreate();
+
+    res.agentRule = ObjectSerializer.deserialize(
+      data.agentRule,
+      "SecurityMonitoringRuntimeAgentRule",
+      ""
+    );
+
+    if (
+      ["count", "cardinality", "sum", "max", "new_value", undefined].includes(
+        data.aggregation
+      )
+    ) {
+      res.aggregation = data.aggregation;
+    } else {
+      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
     }
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuleQueryCreate {
-      let res = new SecurityMonitoringRuleQueryCreate();
+    res.distinctFields = ObjectSerializer.deserialize(
+      data.distinctFields,
+      "Array<string>",
+      ""
+    );
 
-      res.agentRule = ObjectSerializer.deserialize(data.agentRule, "SecurityMonitoringRuntimeAgentRule", "")
+    res.groupByFields = ObjectSerializer.deserialize(
+      data.groupByFields,
+      "Array<string>",
+      ""
+    );
 
-      if (['count', 'cardinality', 'sum', 'max', 'new_value', undefined].includes(data.aggregation)) {
-          res.aggregation = data.aggregation;
-      } else {
-          throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
+    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (data.query === undefined) {
+      throw new TypeError(
+        "missing required attribute 'query' on 'SecurityMonitoringRuleQueryCreate' object"
+      );
+    }
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringRuleQueryCreate
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringRuleQueryCreate.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.agentRule = ObjectSerializer.serialize(
+      data.agentRule,
+      "SecurityMonitoringRuntimeAgentRule",
+      ""
+    );
 
-      res.distinctFields = ObjectSerializer.deserialize(data.distinctFields, "Array<string>", "")
-
-      res.groupByFields = ObjectSerializer.deserialize(data.groupByFields, "Array<string>", "")
-
-      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      if (data.query === undefined) {
-          throw new TypeError("missing required attribute 'query' on 'SecurityMonitoringRuleQueryCreate' object");
-      }
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
-
-
-      return res;
+    if (
+      ["count", "cardinality", "sum", "max", "new_value", undefined].includes(
+        data.aggregation
+      )
+    ) {
+      res.aggregation = data.aggregation;
+    } else {
+      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
     }
 
-    static serialize(data: SecurityMonitoringRuleQueryCreate): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringRuleQueryCreate.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.agentRule = ObjectSerializer.serialize(data.agentRule, "SecurityMonitoringRuntimeAgentRule", "")
+    res.distinctFields = ObjectSerializer.serialize(
+      data.distinctFields,
+      "Array<string>",
+      ""
+    );
 
-        if (['count', 'cardinality', 'sum', 'max', 'new_value', undefined].includes(data.aggregation)) {
-            res.aggregation = data.aggregation;
-        } else {
-            throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
-        }
+    res.groupByFields = ObjectSerializer.serialize(
+      data.groupByFields,
+      "Array<string>",
+      ""
+    );
 
-        res.distinctFields = ObjectSerializer.serialize(data.distinctFields, "Array<string>", "")
+    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
 
-        res.groupByFields = ObjectSerializer.serialize(data.groupByFields, "Array<string>", "")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (data.query === undefined) {
-            throw new TypeError("missing required attribute 'query' on 'SecurityMonitoringRuleQueryCreate' object");
-        }
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
-
-        return res
+    if (data.query === undefined) {
+      throw new TypeError(
+        "missing required attribute 'query' on 'SecurityMonitoringRuleQueryCreate' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

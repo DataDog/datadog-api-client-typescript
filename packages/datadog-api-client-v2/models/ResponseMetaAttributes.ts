@@ -8,55 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { Pagination } from './Pagination';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Pagination } from "./Pagination";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing meta attributes of response.
-*/
+ * Object describing meta attributes of response.
+ */
 
 export class ResponseMetaAttributes {
-    'page'?: Pagination;
+  "page"?: Pagination;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "page": {
-            "baseName": "page",
-            "type": "Pagination",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    page: {
+      baseName: "page",
+      type: "Pagination",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ResponseMetaAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ResponseMetaAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ResponseMetaAttributes {
+    const res = new ResponseMetaAttributes();
+
+    res.page = ObjectSerializer.deserialize(data.page, "Pagination", "");
+
+    return res;
+  }
+
+  static serialize(data: ResponseMetaAttributes): { [key: string]: any } {
+    const attributeTypes = ResponseMetaAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.page = ObjectSerializer.serialize(data.page, "Pagination", "");
 
-    static deserialize(data: {[key: string]: any}): ResponseMetaAttributes {
-      let res = new ResponseMetaAttributes();
+    return res;
+  }
 
-      res.page = ObjectSerializer.deserialize(data.page, "Pagination", "")
-
-
-      return res;
-    }
-
-    static serialize(data: ResponseMetaAttributes): {[key: string]: any} {
-        let attributeTypes = ResponseMetaAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.page = ObjectSerializer.serialize(data.page, "Pagination", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

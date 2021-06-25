@@ -8,61 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCreateData } from './NotebookCreateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookCreateData } from "./NotebookCreateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The description of a notebook create request.
-*/
+ * The description of a notebook create request.
+ */
 
 export class NotebookCreateRequest {
-    'data': NotebookCreateData;
+  "data": NotebookCreateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "NotebookCreateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "NotebookCreateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookCreateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookCreateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebookCreateRequest {
+    const res = new NotebookCreateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'NotebookCreateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "NotebookCreateData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): NotebookCreateRequest {
-      let res = new NotebookCreateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'NotebookCreateRequest' object");
+  static serialize(data: NotebookCreateRequest): { [key: string]: any } {
+    const attributeTypes = NotebookCreateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "NotebookCreateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: NotebookCreateRequest): {[key: string]: any} {
-        let attributeTypes = NotebookCreateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'NotebookCreateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "NotebookCreateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'NotebookCreateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(data.data, "NotebookCreateData", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

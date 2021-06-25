@@ -8,55 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { LogsAPIError } from './LogsAPIError';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsAPIError } from "./LogsAPIError";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response returned by the Logs API when errors occur.
-*/
+ * Response returned by the Logs API when errors occur.
+ */
 
 export class LogsAPIErrorResponse {
-    'error'?: LogsAPIError;
+  "error"?: LogsAPIError;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "error": {
-            "baseName": "error",
-            "type": "LogsAPIError",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    error: {
+      baseName: "error",
+      type: "LogsAPIError",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAPIErrorResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAPIErrorResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsAPIErrorResponse {
+    const res = new LogsAPIErrorResponse();
+
+    res.error = ObjectSerializer.deserialize(data.error, "LogsAPIError", "");
+
+    return res;
+  }
+
+  static serialize(data: LogsAPIErrorResponse): { [key: string]: any } {
+    const attributeTypes = LogsAPIErrorResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.error = ObjectSerializer.serialize(data.error, "LogsAPIError", "");
 
-    static deserialize(data: {[key: string]: any}): LogsAPIErrorResponse {
-      let res = new LogsAPIErrorResponse();
+    return res;
+  }
 
-      res.error = ObjectSerializer.deserialize(data.error, "LogsAPIError", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAPIErrorResponse): {[key: string]: any} {
-        let attributeTypes = LogsAPIErrorResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.error = ObjectSerializer.serialize(data.error, "LogsAPIError", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

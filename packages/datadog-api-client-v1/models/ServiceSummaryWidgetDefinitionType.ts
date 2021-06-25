@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the service summary widget.
-*/
-
-export type ServiceSummaryWidgetDefinitionType = typeof TRACE_SERVICE ;
-export const TRACE_SERVICE = 'trace_service';
-
-
+export type ServiceSummaryWidgetDefinitionType = typeof TRACE_SERVICE;
+export const TRACE_SERVICE = "trace_service";

@@ -8,109 +8,106 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Logs that are sent over HTTP.
-*/
+ * Logs that are sent over HTTP.
+ */
 
 export class HTTPLogItem {
-    /**
-    * The integration name associated with your log: the technology from which the log originated. When it matches an integration name, Datadog automatically installs the corresponding parsers and facets. See [reserved attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).
-    */
-    'ddsource'?: string;
-    /**
-    * Tags associated with your logs.
-    */
-    'ddtags'?: string;
-    /**
-    * The name of the originating host of the log.
-    */
-    'hostname'?: string;
-    /**
-    * The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
-    */
-    'message'?: string;
-    /**
-    * The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products. See [reserved attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).
-    */
-    'service'?: string;
+  /**
+   * The integration name associated with your log: the technology from which the log originated. When it matches an integration name, Datadog automatically installs the corresponding parsers and facets. See [reserved attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).
+   */
+  "ddsource"?: string;
+  /**
+   * Tags associated with your logs.
+   */
+  "ddtags"?: string;
+  /**
+   * The name of the originating host of the log.
+   */
+  "hostname"?: string;
+  /**
+   * The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
+   */
+  "message"?: string;
+  /**
+   * The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products. See [reserved attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).
+   */
+  "service"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "ddsource": {
-            "baseName": "ddsource",
-            "type": "string",
-            "format": ""
-        },
-        "ddtags": {
-            "baseName": "ddtags",
-            "type": "string",
-            "format": ""
-        },
-        "hostname": {
-            "baseName": "hostname",
-            "type": "string",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "service": {
-            "baseName": "service",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    ddsource: {
+      baseName: "ddsource",
+      type: "string",
+      format: "",
+    },
+    ddtags: {
+      baseName: "ddtags",
+      type: "string",
+      format: "",
+    },
+    hostname: {
+      baseName: "hostname",
+      type: "string",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    service: {
+      baseName: "service",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return HTTPLogItem.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return HTTPLogItem.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): HTTPLogItem {
+    const res = new HTTPLogItem();
+
+    res.ddsource = ObjectSerializer.deserialize(data.ddsource, "string", "");
+
+    res.ddtags = ObjectSerializer.deserialize(data.ddtags, "string", "");
+
+    res.hostname = ObjectSerializer.deserialize(data.hostname, "string", "");
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    res.service = ObjectSerializer.deserialize(data.service, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: HTTPLogItem): { [key: string]: any } {
+    const attributeTypes = HTTPLogItem.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.ddsource = ObjectSerializer.serialize(data.ddsource, "string", "");
 
-    static deserialize(data: {[key: string]: any}): HTTPLogItem {
-      let res = new HTTPLogItem();
+    res.ddtags = ObjectSerializer.serialize(data.ddtags, "string", "");
 
-      res.ddsource = ObjectSerializer.deserialize(data.ddsource, "string", "")
+    res.hostname = ObjectSerializer.serialize(data.hostname, "string", "");
 
-      res.ddtags = ObjectSerializer.deserialize(data.ddtags, "string", "")
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      res.hostname = ObjectSerializer.deserialize(data.hostname, "string", "")
+    res.service = ObjectSerializer.serialize(data.service, "string", "");
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    return res;
+  }
 
-      res.service = ObjectSerializer.deserialize(data.service, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: HTTPLogItem): {[key: string]: any} {
-        let attributeTypes = HTTPLogItem.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.ddsource = ObjectSerializer.serialize(data.ddsource, "string", "")
-
-        res.ddtags = ObjectSerializer.serialize(data.ddtags, "string", "")
-
-        res.hostname = ObjectSerializer.serialize(data.hostname, "string", "")
-
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        res.service = ObjectSerializer.serialize(data.service, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,69 +8,103 @@
  * Do not edit the class manually.
  */
 
-import { WidgetLiveSpan } from './WidgetLiveSpan';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Relative timeframe.
-*/
+import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
 export class NotebookRelativeTime {
-    'liveSpan': WidgetLiveSpan;
+  "liveSpan": WidgetLiveSpan;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "liveSpan": {
-            "baseName": "live_span",
-            "type": "WidgetLiveSpan",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    liveSpan: {
+      baseName: "live_span",
+      type: "WidgetLiveSpan",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookRelativeTime.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookRelativeTime.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebookRelativeTime {
+    const res = new NotebookRelativeTime();
+
+    if (data.live_span === undefined) {
+      throw new TypeError(
+        "missing required attribute 'live_span' on 'NotebookRelativeTime' object"
+      );
+    }
+    if (
+      [
+        "1m",
+        "5m",
+        "10m",
+        "15m",
+        "30m",
+        "1h",
+        "4h",
+        "1d",
+        "2d",
+        "1w",
+        "1mo",
+        "3mo",
+        "6mo",
+        "1y",
+        "alert",
+        undefined,
+      ].includes(data.live_span)
+    ) {
+      res.liveSpan = data.live_span;
+    } else {
+      throw TypeError(`invalid enum value ${data.live_span} for live_span`);
     }
 
-    static deserialize(data: {[key: string]: any}): NotebookRelativeTime {
-      let res = new NotebookRelativeTime();
+    return res;
+  }
 
-      if (data.live_span === undefined) {
-          throw new TypeError("missing required attribute 'live_span' on 'NotebookRelativeTime' object");
+  static serialize(data: NotebookRelativeTime): { [key: string]: any } {
+    const attributeTypes = NotebookRelativeTime.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert', undefined].includes(data.live_span)) {
-          res.liveSpan = data.live_span;
-      } else {
-          throw TypeError(`invalid enum value ${ data.live_span } for live_span`);
-      }
-
-
-      return res;
+    }
+    if (data.liveSpan === undefined) {
+      throw new TypeError(
+        "missing required attribute 'live_span' on 'NotebookRelativeTime' object"
+      );
+    }
+    if (
+      [
+        "1m",
+        "5m",
+        "10m",
+        "15m",
+        "30m",
+        "1h",
+        "4h",
+        "1d",
+        "2d",
+        "1w",
+        "1mo",
+        "3mo",
+        "6mo",
+        "1y",
+        "alert",
+        undefined,
+      ].includes(data.liveSpan)
+    ) {
+      res.live_span = data.liveSpan;
+    } else {
+      throw TypeError(`invalid enum value ${data.liveSpan} for liveSpan`);
     }
 
-    static serialize(data: NotebookRelativeTime): {[key: string]: any} {
-        let attributeTypes = NotebookRelativeTime.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.liveSpan === undefined) {
-            throw new TypeError("missing required attribute 'live_span' on 'NotebookRelativeTime' object");
-        }
-        if (['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert', undefined].includes(data.liveSpan)) {
-            res.live_span = data.liveSpan;
-        } else {
-            throw TypeError(`invalid enum value ${ data.liveSpan } for liveSpan`);
-        }
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

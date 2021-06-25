@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the distribution widget.
-*/
-
-export type DistributionWidgetDefinitionType = typeof DISTRIBUTION ;
-export const DISTRIBUTION = 'distribution';
-
-
+export type DistributionWidgetDefinitionType = typeof DISTRIBUTION;
+export const DISTRIBUTION = "distribution";

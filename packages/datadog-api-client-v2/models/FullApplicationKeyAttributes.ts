@@ -8,96 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Attributes of a full application key.
-*/
+ * Attributes of a full application key.
+ */
 
 export class FullApplicationKeyAttributes {
-    /**
-    * Creation date of the application key.
-    */
-    'createdAt'?: string;
-    /**
-    * The application key.
-    */
-    'key'?: string;
-    /**
-    * The last four characters of the application key.
-    */
-    'last4'?: string;
-    /**
-    * Name of the application key.
-    */
-    'name'?: string;
+  /**
+   * Creation date of the application key.
+   */
+  "createdAt"?: string;
+  /**
+   * The application key.
+   */
+  "key"?: string;
+  /**
+   * The last four characters of the application key.
+   */
+  "last4"?: string;
+  /**
+   * Name of the application key.
+   */
+  "name"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "createdAt": {
-            "baseName": "created_at",
-            "type": "string",
-            "format": ""
-        },
-        "key": {
-            "baseName": "key",
-            "type": "string",
-            "format": ""
-        },
-        "last4": {
-            "baseName": "last4",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    createdAt: {
+      baseName: "created_at",
+      type: "string",
+      format: "",
+    },
+    key: {
+      baseName: "key",
+      type: "string",
+      format: "",
+    },
+    last4: {
+      baseName: "last4",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return FullApplicationKeyAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return FullApplicationKeyAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): FullApplicationKeyAttributes {
+    const res = new FullApplicationKeyAttributes();
+
+    res.createdAt = ObjectSerializer.deserialize(data.created_at, "string", "");
+
+    res.key = ObjectSerializer.deserialize(data.key, "string", "");
+
+    res.last4 = ObjectSerializer.deserialize(data.last4, "string", "");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: FullApplicationKeyAttributes): { [key: string]: any } {
+    const attributeTypes = FullApplicationKeyAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.created_at = ObjectSerializer.serialize(data.createdAt, "string", "");
 
-    static deserialize(data: {[key: string]: any}): FullApplicationKeyAttributes {
-      let res = new FullApplicationKeyAttributes();
+    res.key = ObjectSerializer.serialize(data.key, "string", "");
 
-      res.createdAt = ObjectSerializer.deserialize(data.created_at, "string", "")
+    res.last4 = ObjectSerializer.serialize(data.last4, "string", "");
 
-      res.key = ObjectSerializer.deserialize(data.key, "string", "")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.last4 = ObjectSerializer.deserialize(data.last4, "string", "")
+    return res;
+  }
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: FullApplicationKeyAttributes): {[key: string]: any} {
-        let attributeTypes = FullApplicationKeyAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.created_at = ObjectSerializer.serialize(data.createdAt, "string", "")
-
-        res.key = ObjectSerializer.serialize(data.key, "string", "")
-
-        res.last4 = ObjectSerializer.serialize(data.last4, "string", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

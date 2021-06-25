@@ -8,71 +8,78 @@
  * Do not edit the class manually.
  */
 
-import { LogsRetentionSumUsage } from './LogsRetentionSumUsage';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing a summary of indexed logs usage by retention period for a single month.
-*/
+ * Object containing a summary of indexed logs usage by retention period for a single month.
+ */
 
 export class LogsByRetentionMonthlyUsage {
-    /**
-    * The month for the usage.
-    */
-    'date'?: string;
-    /**
-    * Indexed logs usage for each active retention for the month.
-    */
-    'usage'?: Array<LogsRetentionSumUsage>;
+  /**
+   * The month for the usage.
+   */
+  "date"?: string;
+  /**
+   * Indexed logs usage for each active retention for the month.
+   */
+  "usage"?: Array<LogsRetentionSumUsage>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "date": {
-            "baseName": "date",
-            "type": "string",
-            "format": "datetime"
-        },
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<LogsRetentionSumUsage>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    date: {
+      baseName: "date",
+      type: "string",
+      format: "datetime",
+    },
+    usage: {
+      baseName: "usage",
+      type: "Array<LogsRetentionSumUsage>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsByRetentionMonthlyUsage.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsByRetentionMonthlyUsage.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): LogsByRetentionMonthlyUsage {
+    const res = new LogsByRetentionMonthlyUsage();
+
+    res.date = ObjectSerializer.deserialize(data.date, "string", "datetime");
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<LogsRetentionSumUsage>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsByRetentionMonthlyUsage): { [key: string]: any } {
+    const attributeTypes = LogsByRetentionMonthlyUsage.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.date = ObjectSerializer.serialize(data.date, "string", "datetime");
 
-    static deserialize(data: {[key: string]: any}): LogsByRetentionMonthlyUsage {
-      let res = new LogsByRetentionMonthlyUsage();
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<LogsRetentionSumUsage>",
+      ""
+    );
 
-      res.date = ObjectSerializer.deserialize(data.date, "string", "datetime")
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<LogsRetentionSumUsage>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsByRetentionMonthlyUsage): {[key: string]: any} {
-        let attributeTypes = LogsByRetentionMonthlyUsage.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.date = ObjectSerializer.serialize(data.date, "string", "datetime")
-
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<LogsRetentionSumUsage>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

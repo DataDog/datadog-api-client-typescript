@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of logs attribute remapper.
-*/
-
-export type LogsAttributeRemapperType = typeof ATTRIBUTE_REMAPPER ;
-export const ATTRIBUTE_REMAPPER = 'attribute-remapper';
-
-
+export type LogsAttributeRemapperType = typeof ATTRIBUTE_REMAPPER;
+export const ATTRIBUTE_REMAPPER = "attribute-remapper";

@@ -8,70 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing the definition of a metric tag configuration to be updated.
-*/
+ * Object containing the definition of a metric tag configuration to be updated.
+ */
 
 export class MetricTagConfigurationUpdateAttributes {
-    /**
-    * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
-    */
-    'includePercentiles'?: boolean;
-    /**
-    * A list of tag keys that will be queryable for your metric.
-    */
-    'tags'?: Array<string>;
+  /**
+   * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
+   */
+  "includePercentiles"?: boolean;
+  /**
+   * A list of tag keys that will be queryable for your metric.
+   */
+  "tags"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "includePercentiles": {
-            "baseName": "include_percentiles",
-            "type": "boolean",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    includePercentiles: {
+      baseName: "include_percentiles",
+      type: "boolean",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MetricTagConfigurationUpdateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MetricTagConfigurationUpdateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): MetricTagConfigurationUpdateAttributes {
+    const res = new MetricTagConfigurationUpdateAttributes();
+
+    res.includePercentiles = ObjectSerializer.deserialize(
+      data.include_percentiles,
+      "boolean",
+      ""
+    );
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: MetricTagConfigurationUpdateAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = MetricTagConfigurationUpdateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.include_percentiles = ObjectSerializer.serialize(
+      data.includePercentiles,
+      "boolean",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): MetricTagConfigurationUpdateAttributes {
-      let res = new MetricTagConfigurationUpdateAttributes();
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 
-      res.includePercentiles = ObjectSerializer.deserialize(data.include_percentiles, "boolean", "")
+    return res;
+  }
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: MetricTagConfigurationUpdateAttributes): {[key: string]: any} {
-        let attributeTypes = MetricTagConfigurationUpdateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.include_percentiles = ObjectSerializer.serialize(data.includePercentiles, "boolean", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,222 +8,251 @@
  * Do not edit the class manually.
  */
 
-import { HostMeta } from './HostMeta';
-import { HostMetrics } from './HostMetrics';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { HostMeta } from "./HostMeta";
+import { HostMetrics } from "./HostMetrics";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object representing a host.
-*/
+ * Object representing a host.
+ */
 
 export class Host {
-    /**
-    * Host aliases collected by Datadog.
-    */
-    'aliases'?: Array<string>;
-    /**
-    * The Datadog integrations reporting metrics for the host.
-    */
-    'apps'?: Array<string>;
-    /**
-    * AWS name of your host.
-    */
-    'awsName'?: string;
-    /**
-    * The host name.
-    */
-    'hostName'?: string;
-    /**
-    * The host ID.
-    */
-    'id'?: number;
-    /**
-    * If a host is muted or unmuted.
-    */
-    'isMuted'?: boolean;
-    /**
-    * Last time the host reported a metric data point.
-    */
-    'lastReportedTime'?: number;
-    'meta'?: HostMeta;
-    'metrics'?: HostMetrics;
-    /**
-    * Timeout of the mute applied to your host.
-    */
-    'muteTimeout'?: number;
-    /**
-    * The host name.
-    */
-    'name'?: string;
-    /**
-    * Source or cloud provider associated with your host.
-    */
-    'sources'?: Array<string>;
-    /**
-    * List of tags for each source (AWS, Datadog Agent, Chef..).
-    */
-    'tagsBySource'?: { [key: string]: Array<string>; };
-    /**
-    * Displays UP when the expected metrics are received and displays `???` if no metrics are received.
-    */
-    'up'?: boolean;
+  /**
+   * Host aliases collected by Datadog.
+   */
+  "aliases"?: Array<string>;
+  /**
+   * The Datadog integrations reporting metrics for the host.
+   */
+  "apps"?: Array<string>;
+  /**
+   * AWS name of your host.
+   */
+  "awsName"?: string;
+  /**
+   * The host name.
+   */
+  "hostName"?: string;
+  /**
+   * The host ID.
+   */
+  "id"?: number;
+  /**
+   * If a host is muted or unmuted.
+   */
+  "isMuted"?: boolean;
+  /**
+   * Last time the host reported a metric data point.
+   */
+  "lastReportedTime"?: number;
+  "meta"?: HostMeta;
+  "metrics"?: HostMetrics;
+  /**
+   * Timeout of the mute applied to your host.
+   */
+  "muteTimeout"?: number;
+  /**
+   * The host name.
+   */
+  "name"?: string;
+  /**
+   * Source or cloud provider associated with your host.
+   */
+  "sources"?: Array<string>;
+  /**
+   * List of tags for each source (AWS, Datadog Agent, Chef..).
+   */
+  "tagsBySource"?: { [key: string]: Array<string> };
+  /**
+   * Displays UP when the expected metrics are received and displays `???` if no metrics are received.
+   */
+  "up"?: boolean;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "aliases": {
-            "baseName": "aliases",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "apps": {
-            "baseName": "apps",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "awsName": {
-            "baseName": "aws_name",
-            "type": "string",
-            "format": ""
-        },
-        "hostName": {
-            "baseName": "host_name",
-            "type": "string",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "number",
-            "format": "int64"
-        },
-        "isMuted": {
-            "baseName": "is_muted",
-            "type": "boolean",
-            "format": ""
-        },
-        "lastReportedTime": {
-            "baseName": "last_reported_time",
-            "type": "number",
-            "format": "int64"
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "HostMeta",
-            "format": ""
-        },
-        "metrics": {
-            "baseName": "metrics",
-            "type": "HostMetrics",
-            "format": ""
-        },
-        "muteTimeout": {
-            "baseName": "mute_timeout",
-            "type": "number",
-            "format": "int64"
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "sources": {
-            "baseName": "sources",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "tagsBySource": {
-            "baseName": "tags_by_source",
-            "type": "{ [key: string]: Array<string>; }",
-            "format": ""
-        },
-        "up": {
-            "baseName": "up",
-            "type": "boolean",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    aliases: {
+      baseName: "aliases",
+      type: "Array<string>",
+      format: "",
+    },
+    apps: {
+      baseName: "apps",
+      type: "Array<string>",
+      format: "",
+    },
+    awsName: {
+      baseName: "aws_name",
+      type: "string",
+      format: "",
+    },
+    hostName: {
+      baseName: "host_name",
+      type: "string",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
+    },
+    isMuted: {
+      baseName: "is_muted",
+      type: "boolean",
+      format: "",
+    },
+    lastReportedTime: {
+      baseName: "last_reported_time",
+      type: "number",
+      format: "int64",
+    },
+    meta: {
+      baseName: "meta",
+      type: "HostMeta",
+      format: "",
+    },
+    metrics: {
+      baseName: "metrics",
+      type: "HostMetrics",
+      format: "",
+    },
+    muteTimeout: {
+      baseName: "mute_timeout",
+      type: "number",
+      format: "int64",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    sources: {
+      baseName: "sources",
+      type: "Array<string>",
+      format: "",
+    },
+    tagsBySource: {
+      baseName: "tags_by_source",
+      type: "{ [key: string]: Array<string>; }",
+      format: "",
+    },
+    up: {
+      baseName: "up",
+      type: "boolean",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return Host.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return Host.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): Host {
+    const res = new Host();
+
+    res.aliases = ObjectSerializer.deserialize(
+      data.aliases,
+      "Array<string>",
+      ""
+    );
+
+    res.apps = ObjectSerializer.deserialize(data.apps, "Array<string>", "");
+
+    res.awsName = ObjectSerializer.deserialize(data.aws_name, "string", "");
+
+    res.hostName = ObjectSerializer.deserialize(data.host_name, "string", "");
+
+    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
+
+    res.isMuted = ObjectSerializer.deserialize(data.is_muted, "boolean", "");
+
+    res.lastReportedTime = ObjectSerializer.deserialize(
+      data.last_reported_time,
+      "number",
+      "int64"
+    );
+
+    res.meta = ObjectSerializer.deserialize(data.meta, "HostMeta", "");
+
+    res.metrics = ObjectSerializer.deserialize(data.metrics, "HostMetrics", "");
+
+    res.muteTimeout = ObjectSerializer.deserialize(
+      data.mute_timeout,
+      "number",
+      "int64"
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.sources = ObjectSerializer.deserialize(
+      data.sources,
+      "Array<string>",
+      ""
+    );
+
+    res.tagsBySource = ObjectSerializer.deserialize(
+      data.tags_by_source,
+      "{ [key: string]: Array<string>; }",
+      ""
+    );
+
+    res.up = ObjectSerializer.deserialize(data.up, "boolean", "");
+
+    return res;
+  }
+
+  static serialize(data: Host): { [key: string]: any } {
+    const attributeTypes = Host.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.aliases = ObjectSerializer.serialize(data.aliases, "Array<string>", "");
 
-    static deserialize(data: {[key: string]: any}): Host {
-      let res = new Host();
+    res.apps = ObjectSerializer.serialize(data.apps, "Array<string>", "");
 
-      res.aliases = ObjectSerializer.deserialize(data.aliases, "Array<string>", "")
+    res.aws_name = ObjectSerializer.serialize(data.awsName, "string", "");
 
-      res.apps = ObjectSerializer.deserialize(data.apps, "Array<string>", "")
+    res.host_name = ObjectSerializer.serialize(data.hostName, "string", "");
 
-      res.awsName = ObjectSerializer.deserialize(data.aws_name, "string", "")
+    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
 
-      res.hostName = ObjectSerializer.deserialize(data.host_name, "string", "")
+    res.is_muted = ObjectSerializer.serialize(data.isMuted, "boolean", "");
 
-      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
+    res.last_reported_time = ObjectSerializer.serialize(
+      data.lastReportedTime,
+      "number",
+      "int64"
+    );
 
-      res.isMuted = ObjectSerializer.deserialize(data.is_muted, "boolean", "")
+    res.meta = ObjectSerializer.serialize(data.meta, "HostMeta", "");
 
-      res.lastReportedTime = ObjectSerializer.deserialize(data.last_reported_time, "number", "int64")
+    res.metrics = ObjectSerializer.serialize(data.metrics, "HostMetrics", "");
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "HostMeta", "")
+    res.mute_timeout = ObjectSerializer.serialize(
+      data.muteTimeout,
+      "number",
+      "int64"
+    );
 
-      res.metrics = ObjectSerializer.deserialize(data.metrics, "HostMetrics", "")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.muteTimeout = ObjectSerializer.deserialize(data.mute_timeout, "number", "int64")
+    res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "");
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    res.tags_by_source = ObjectSerializer.serialize(
+      data.tagsBySource,
+      "{ [key: string]: Array<string>; }",
+      ""
+    );
 
-      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+    res.up = ObjectSerializer.serialize(data.up, "boolean", "");
 
-      res.tagsBySource = ObjectSerializer.deserialize(data.tags_by_source, "{ [key: string]: Array<string>; }", "")
+    return res;
+  }
 
-      res.up = ObjectSerializer.deserialize(data.up, "boolean", "")
-
-
-      return res;
-    }
-
-    static serialize(data: Host): {[key: string]: any} {
-        let attributeTypes = Host.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.aliases = ObjectSerializer.serialize(data.aliases, "Array<string>", "")
-
-        res.apps = ObjectSerializer.serialize(data.apps, "Array<string>", "")
-
-        res.aws_name = ObjectSerializer.serialize(data.awsName, "string", "")
-
-        res.host_name = ObjectSerializer.serialize(data.hostName, "string", "")
-
-        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
-
-        res.is_muted = ObjectSerializer.serialize(data.isMuted, "boolean", "")
-
-        res.last_reported_time = ObjectSerializer.serialize(data.lastReportedTime, "number", "int64")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "HostMeta", "")
-
-        res.metrics = ObjectSerializer.serialize(data.metrics, "HostMetrics", "")
-
-        res.mute_timeout = ObjectSerializer.serialize(data.muteTimeout, "number", "int64")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
-
-        res.tags_by_source = ObjectSerializer.serialize(data.tagsBySource, "{ [key: string]: Array<string>; }", "")
-
-        res.up = ObjectSerializer.serialize(data.up, "boolean", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

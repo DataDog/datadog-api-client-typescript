@@ -8,82 +8,87 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object to handle basic authentication when performing the test.
-*/
+ * Object to handle basic authentication when performing the test.
+ */
 
 export class SyntheticsBasicAuth {
-    /**
-    * Password to use for the basic authentication.
-    */
-    'password': string;
-    /**
-    * Username to use for the basic authentication.
-    */
-    'username': string;
+  /**
+   * Password to use for the basic authentication.
+   */
+  "password": string;
+  /**
+   * Username to use for the basic authentication.
+   */
+  "username": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "password": {
-            "baseName": "password",
-            "type": "string",
-            "format": ""
-        },
-        "username": {
-            "baseName": "username",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    password: {
+      baseName: "password",
+      type: "string",
+      format: "",
+    },
+    username: {
+      baseName: "username",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsBasicAuth.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsBasicAuth.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsBasicAuth {
+    const res = new SyntheticsBasicAuth();
+
+    if (data.password === undefined) {
+      throw new TypeError(
+        "missing required attribute 'password' on 'SyntheticsBasicAuth' object"
+      );
     }
+    res.password = ObjectSerializer.deserialize(data.password, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsBasicAuth {
-      let res = new SyntheticsBasicAuth();
+    if (data.username === undefined) {
+      throw new TypeError(
+        "missing required attribute 'username' on 'SyntheticsBasicAuth' object"
+      );
+    }
+    res.username = ObjectSerializer.deserialize(data.username, "string", "");
 
-      if (data.password === undefined) {
-          throw new TypeError("missing required attribute 'password' on 'SyntheticsBasicAuth' object");
+    return res;
+  }
+
+  static serialize(data: SyntheticsBasicAuth): { [key: string]: any } {
+    const attributeTypes = SyntheticsBasicAuth.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.password = ObjectSerializer.deserialize(data.password, "string", "")
-
-      if (data.username === undefined) {
-          throw new TypeError("missing required attribute 'username' on 'SyntheticsBasicAuth' object");
-      }
-      res.username = ObjectSerializer.deserialize(data.username, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: SyntheticsBasicAuth): {[key: string]: any} {
-        let attributeTypes = SyntheticsBasicAuth.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.password === undefined) {
-            throw new TypeError("missing required attribute 'password' on 'SyntheticsBasicAuth' object");
-        }
-        res.password = ObjectSerializer.serialize(data.password, "string", "")
-
-        if (data.username === undefined) {
-            throw new TypeError("missing required attribute 'username' on 'SyntheticsBasicAuth' object");
-        }
-        res.username = ObjectSerializer.serialize(data.username, "string", "")
-
-        return res
+    if (data.password === undefined) {
+      throw new TypeError(
+        "missing required attribute 'password' on 'SyntheticsBasicAuth' object"
+      );
     }
-    
-    public constructor() {
+    res.password = ObjectSerializer.serialize(data.password, "string", "");
+
+    if (data.username === undefined) {
+      throw new TypeError(
+        "missing required attribute 'username' on 'SyntheticsBasicAuth' object"
+      );
     }
+    res.username = ObjectSerializer.serialize(data.username, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-
