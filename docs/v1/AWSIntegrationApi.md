@@ -162,7 +162,7 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
 let params:v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
-  // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+  // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
   body: {
     accessKeyId: "accessKeyId_example",
     accountId: "1234567",
@@ -187,7 +187,7 @@ apiInstance.createNewAWSExternalID(params).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **AWSAccount**| Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). |
+ **body** | **AWSAccount**| Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). |
 
 
 ### Return type

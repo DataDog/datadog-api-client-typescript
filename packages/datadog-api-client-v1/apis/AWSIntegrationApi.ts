@@ -141,7 +141,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   /**
    * Generate a new AWS external ID for a given AWS account ID and role name pair.
    * Generate a new external ID
-   * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+   * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
    */
   public async createNewAWSExternalID(
     body: AWSAccount,
