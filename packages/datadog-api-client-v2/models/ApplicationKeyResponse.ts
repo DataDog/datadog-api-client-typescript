@@ -8,69 +8,78 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyResponseIncludedItem } from './ApplicationKeyResponseIncludedItem';
-import { FullApplicationKey } from './FullApplicationKey';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
+import { FullApplicationKey } from "./FullApplicationKey";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response for retrieving an application key.
-*/
+ * Response for retrieving an application key.
+ */
 
 export class ApplicationKeyResponse {
-    'data'?: FullApplicationKey;
-    /**
-    * Array of objects related to the application key.
-    */
-    'included'?: Array<ApplicationKeyResponseIncludedItem>;
+  "data"?: FullApplicationKey;
+  /**
+   * Array of objects related to the application key.
+   */
+  "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "FullApplicationKey",
-            "format": ""
-        },
-        "included": {
-            "baseName": "included",
-            "type": "Array<ApplicationKeyResponseIncludedItem>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "FullApplicationKey",
+      format: "",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<ApplicationKeyResponseIncludedItem>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ApplicationKeyResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ApplicationKeyResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ApplicationKeyResponse {
+    const res = new ApplicationKeyResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "FullApplicationKey",
+      ""
+    );
+
+    res.included = ObjectSerializer.deserialize(
+      data.included,
+      "Array<ApplicationKeyResponseIncludedItem>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ApplicationKeyResponse): { [key: string]: any } {
+    const attributeTypes = ApplicationKeyResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "FullApplicationKey", "");
 
-    static deserialize(data: {[key: string]: any}): ApplicationKeyResponse {
-      let res = new ApplicationKeyResponse();
+    res.included = ObjectSerializer.serialize(
+      data.included,
+      "Array<ApplicationKeyResponseIncludedItem>",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "FullApplicationKey", "")
+    return res;
+  }
 
-      res.included = ObjectSerializer.deserialize(data.included, "Array<ApplicationKeyResponseIncludedItem>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: ApplicationKeyResponse): {[key: string]: any} {
-        let attributeTypes = ApplicationKeyResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "FullApplicationKey", "")
-
-        res.included = ObjectSerializer.serialize(data.included, "Array<ApplicationKeyResponseIncludedItem>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

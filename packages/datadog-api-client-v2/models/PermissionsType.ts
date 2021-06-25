@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Permissions resource type.
-*/
-
-export type PermissionsType = typeof PERMISSIONS ;
-export const PERMISSIONS = 'permissions';
-
-
+export type PermissionsType = typeof PERMISSIONS;
+export const PERMISSIONS = "permissions";

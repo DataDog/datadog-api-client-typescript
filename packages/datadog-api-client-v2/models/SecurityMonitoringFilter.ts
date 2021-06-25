@@ -8,76 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringFilterAction } from './SecurityMonitoringFilterAction';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The rule's suppression filter.
-*/
+ * The rule's suppression filter.
+ */
 
 export class SecurityMonitoringFilter {
-    'action'?: SecurityMonitoringFilterAction;
-    /**
-    * Query for selecting logs to apply the filtering action.
-    */
-    'query'?: string;
+  "action"?: SecurityMonitoringFilterAction;
+  /**
+   * Query for selecting logs to apply the filtering action.
+   */
+  "query"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "action": {
-            "baseName": "action",
-            "type": "SecurityMonitoringFilterAction",
-            "format": ""
-        },
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    action: {
+      baseName: "action",
+      type: "SecurityMonitoringFilterAction",
+      format: "",
+    },
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringFilter.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringFilter.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SecurityMonitoringFilter {
+    const res = new SecurityMonitoringFilter();
+
+    if (["require", "suppress", undefined].includes(data.action)) {
+      res.action = data.action;
+    } else {
+      throw TypeError(`invalid enum value ${data.action} for action`);
     }
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringFilter {
-      let res = new SecurityMonitoringFilter();
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
 
-      if (['require', 'suppress', undefined].includes(data.action)) {
-          res.action = data.action;
-      } else {
-          throw TypeError(`invalid enum value ${ data.action } for action`);
+    return res;
+  }
+
+  static serialize(data: SecurityMonitoringFilter): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringFilter.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
-
-
-      return res;
+    }
+    if (["require", "suppress", undefined].includes(data.action)) {
+      res.action = data.action;
+    } else {
+      throw TypeError(`invalid enum value ${data.action} for action`);
     }
 
-    static serialize(data: SecurityMonitoringFilter): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringFilter.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (['require', 'suppress', undefined].includes(data.action)) {
-            res.action = data.action;
-        } else {
-            throw TypeError(`invalid enum value ${ data.action } for action`);
-        }
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
 
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,55 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringSignalsListResponseMetaPage } from './SecurityMonitoringSignalsListResponseMetaPage';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Meta attributes.
-*/
+ * Meta attributes.
+ */
 
 export class SecurityMonitoringSignalsListResponseMeta {
-    'page'?: SecurityMonitoringSignalsListResponseMetaPage;
+  "page"?: SecurityMonitoringSignalsListResponseMetaPage;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "page": {
-            "baseName": "page",
-            "type": "SecurityMonitoringSignalsListResponseMetaPage",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    page: {
+      baseName: "page",
+      type: "SecurityMonitoringSignalsListResponseMetaPage",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringSignalsListResponseMeta {
+    const res = new SecurityMonitoringSignalsListResponseMeta();
+
+    res.page = ObjectSerializer.deserialize(
+      data.page,
+      "SecurityMonitoringSignalsListResponseMetaPage",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringSignalsListResponseMeta
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringSignalsListResponseMeta.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.page = ObjectSerializer.serialize(
+      data.page,
+      "SecurityMonitoringSignalsListResponseMetaPage",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalsListResponseMeta {
-      let res = new SecurityMonitoringSignalsListResponseMeta();
+    return res;
+  }
 
-      res.page = ObjectSerializer.deserialize(data.page, "SecurityMonitoringSignalsListResponseMetaPage", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityMonitoringSignalsListResponseMeta): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringSignalsListResponseMeta.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.page = ObjectSerializer.serialize(data.page, "SecurityMonitoringSignalsListResponseMetaPage", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

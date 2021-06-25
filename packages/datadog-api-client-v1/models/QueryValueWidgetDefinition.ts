@@ -8,216 +8,249 @@
  * Do not edit the class manually.
  */
 
-import { QueryValueWidgetDefinitionType } from './QueryValueWidgetDefinitionType';
-import { QueryValueWidgetRequest } from './QueryValueWidgetRequest';
-import { WidgetCustomLink } from './WidgetCustomLink';
-import { WidgetTextAlign } from './WidgetTextAlign';
-import { WidgetTime } from './WidgetTime';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { QueryValueWidgetDefinitionType } from "./QueryValueWidgetDefinitionType";
+import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { WidgetCustomLink } from "./WidgetCustomLink";
+import { WidgetTextAlign } from "./WidgetTextAlign";
+import { WidgetTime } from "./WidgetTime";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Query values display the current value of a given metric, APM, or log query.
-*/
+ * Query values display the current value of a given metric, APM, or log query.
+ */
 
 export class QueryValueWidgetDefinition {
-    /**
-    * Whether to use auto-scaling or not.
-    */
-    'autoscale'?: boolean;
-    /**
-    * List of custom links.
-    */
-    'customLinks'?: Array<WidgetCustomLink>;
-    /**
-    * Display a unit of your choice on the widget.
-    */
-    'customUnit'?: string;
-    /**
-    * Number of decimals to show. If not defined, the widget uses the raw value.
-    */
-    'precision'?: number;
-    /**
-    * Widget definition.
-    */
-    'requests': Array<QueryValueWidgetRequest>;
-    'textAlign'?: WidgetTextAlign;
-    'time'?: WidgetTime;
-    /**
-    * Title of your widget.
-    */
-    'title'?: string;
-    'titleAlign'?: WidgetTextAlign;
-    /**
-    * Size of the title.
-    */
-    'titleSize'?: string;
-    'type': QueryValueWidgetDefinitionType;
+  /**
+   * Whether to use auto-scaling or not.
+   */
+  "autoscale"?: boolean;
+  /**
+   * List of custom links.
+   */
+  "customLinks"?: Array<WidgetCustomLink>;
+  /**
+   * Display a unit of your choice on the widget.
+   */
+  "customUnit"?: string;
+  /**
+   * Number of decimals to show. If not defined, the widget uses the raw value.
+   */
+  "precision"?: number;
+  /**
+   * Widget definition.
+   */
+  "requests": Array<QueryValueWidgetRequest>;
+  "textAlign"?: WidgetTextAlign;
+  "time"?: WidgetTime;
+  /**
+   * Title of your widget.
+   */
+  "title"?: string;
+  "titleAlign"?: WidgetTextAlign;
+  /**
+   * Size of the title.
+   */
+  "titleSize"?: string;
+  "type": QueryValueWidgetDefinitionType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "autoscale": {
-            "baseName": "autoscale",
-            "type": "boolean",
-            "format": ""
-        },
-        "customLinks": {
-            "baseName": "custom_links",
-            "type": "Array<WidgetCustomLink>",
-            "format": ""
-        },
-        "customUnit": {
-            "baseName": "custom_unit",
-            "type": "string",
-            "format": ""
-        },
-        "precision": {
-            "baseName": "precision",
-            "type": "number",
-            "format": "int64"
-        },
-        "requests": {
-            "baseName": "requests",
-            "type": "Array<QueryValueWidgetRequest>",
-            "format": ""
-        },
-        "textAlign": {
-            "baseName": "text_align",
-            "type": "WidgetTextAlign",
-            "format": ""
-        },
-        "time": {
-            "baseName": "time",
-            "type": "WidgetTime",
-            "format": ""
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        },
-        "titleAlign": {
-            "baseName": "title_align",
-            "type": "WidgetTextAlign",
-            "format": ""
-        },
-        "titleSize": {
-            "baseName": "title_size",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "QueryValueWidgetDefinitionType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    autoscale: {
+      baseName: "autoscale",
+      type: "boolean",
+      format: "",
+    },
+    customLinks: {
+      baseName: "custom_links",
+      type: "Array<WidgetCustomLink>",
+      format: "",
+    },
+    customUnit: {
+      baseName: "custom_unit",
+      type: "string",
+      format: "",
+    },
+    precision: {
+      baseName: "precision",
+      type: "number",
+      format: "int64",
+    },
+    requests: {
+      baseName: "requests",
+      type: "Array<QueryValueWidgetRequest>",
+      format: "",
+    },
+    textAlign: {
+      baseName: "text_align",
+      type: "WidgetTextAlign",
+      format: "",
+    },
+    time: {
+      baseName: "time",
+      type: "WidgetTime",
+      format: "",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
+      format: "",
+    },
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "QueryValueWidgetDefinitionType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return QueryValueWidgetDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return QueryValueWidgetDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): QueryValueWidgetDefinition {
+    const res = new QueryValueWidgetDefinition();
+
+    res.autoscale = ObjectSerializer.deserialize(data.autoscale, "boolean", "");
+
+    res.customLinks = ObjectSerializer.deserialize(
+      data.custom_links,
+      "Array<WidgetCustomLink>",
+      ""
+    );
+
+    res.customUnit = ObjectSerializer.deserialize(
+      data.custom_unit,
+      "string",
+      ""
+    );
+
+    res.precision = ObjectSerializer.deserialize(
+      data.precision,
+      "number",
+      "int64"
+    );
+
+    if (data.requests === undefined) {
+      throw new TypeError(
+        "missing required attribute 'requests' on 'QueryValueWidgetDefinition' object"
+      );
+    }
+    res.requests = ObjectSerializer.deserialize(
+      data.requests,
+      "Array<QueryValueWidgetRequest>",
+      ""
+    );
+
+    if (["center", "left", "right", undefined].includes(data.text_align)) {
+      res.textAlign = data.text_align;
+    } else {
+      throw TypeError(`invalid enum value ${data.text_align} for text_align`);
     }
 
-    static deserialize(data: {[key: string]: any}): QueryValueWidgetDefinition {
-      let res = new QueryValueWidgetDefinition();
+    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
 
-      res.autoscale = ObjectSerializer.deserialize(data.autoscale, "boolean", "")
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
 
-      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
-
-      res.customUnit = ObjectSerializer.deserialize(data.custom_unit, "string", "")
-
-      res.precision = ObjectSerializer.deserialize(data.precision, "number", "int64")
-
-      if (data.requests === undefined) {
-          throw new TypeError("missing required attribute 'requests' on 'QueryValueWidgetDefinition' object");
-      }
-      res.requests = ObjectSerializer.deserialize(data.requests, "Array<QueryValueWidgetRequest>", "")
-
-      if (['center', 'left', 'right', undefined].includes(data.text_align)) {
-          res.textAlign = data.text_align;
-      } else {
-          throw TypeError(`invalid enum value ${ data.text_align } for text_align`);
-      }
-
-      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
-
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
-          res.titleAlign = data.title_align;
-      } else {
-          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
-      }
-
-      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'QueryValueWidgetDefinition' object");
-      }
-      if (['query_value', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (["center", "left", "right", undefined].includes(data.title_align)) {
+      res.titleAlign = data.title_align;
+    } else {
+      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
     }
 
-    static serialize(data: QueryValueWidgetDefinition): {[key: string]: any} {
-        let attributeTypes = QueryValueWidgetDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.autoscale = ObjectSerializer.serialize(data.autoscale, "boolean", "")
+    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
 
-        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
-
-        res.custom_unit = ObjectSerializer.serialize(data.customUnit, "string", "")
-
-        res.precision = ObjectSerializer.serialize(data.precision, "number", "int64")
-
-        if (data.requests === undefined) {
-            throw new TypeError("missing required attribute 'requests' on 'QueryValueWidgetDefinition' object");
-        }
-        res.requests = ObjectSerializer.serialize(data.requests, "Array<QueryValueWidgetRequest>", "")
-
-        if (['center', 'left', 'right', undefined].includes(data.textAlign)) {
-            res.text_align = data.textAlign;
-        } else {
-            throw TypeError(`invalid enum value ${ data.textAlign } for textAlign`);
-        }
-
-        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
-
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
-            res.title_align = data.titleAlign;
-        } else {
-            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
-        }
-
-        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'QueryValueWidgetDefinition' object");
-        }
-        if (['query_value', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'QueryValueWidgetDefinition' object"
+      );
     }
-    
-    public constructor() {
+    if (["query_value", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
+
+    return res;
+  }
+
+  static serialize(data: QueryValueWidgetDefinition): { [key: string]: any } {
+    const attributeTypes = QueryValueWidgetDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
+    }
+    res.autoscale = ObjectSerializer.serialize(data.autoscale, "boolean", "");
+
+    res.custom_links = ObjectSerializer.serialize(
+      data.customLinks,
+      "Array<WidgetCustomLink>",
+      ""
+    );
+
+    res.custom_unit = ObjectSerializer.serialize(data.customUnit, "string", "");
+
+    res.precision = ObjectSerializer.serialize(
+      data.precision,
+      "number",
+      "int64"
+    );
+
+    if (data.requests === undefined) {
+      throw new TypeError(
+        "missing required attribute 'requests' on 'QueryValueWidgetDefinition' object"
+      );
+    }
+    res.requests = ObjectSerializer.serialize(
+      data.requests,
+      "Array<QueryValueWidgetRequest>",
+      ""
+    );
+
+    if (["center", "left", "right", undefined].includes(data.textAlign)) {
+      res.text_align = data.textAlign;
+    } else {
+      throw TypeError(`invalid enum value ${data.textAlign} for textAlign`);
+    }
+
+    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
+
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
+
+    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
+      res.title_align = data.titleAlign;
+    } else {
+      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
+    }
+
+    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'QueryValueWidgetDefinition' object"
+      );
+    }
+    if (["query_value", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

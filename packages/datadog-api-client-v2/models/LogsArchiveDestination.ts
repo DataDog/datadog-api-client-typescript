@@ -8,16 +8,11 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveDestinationAzure } from './LogsArchiveDestinationAzure';
-import { LogsArchiveDestinationGCS } from './LogsArchiveDestinationGCS';
-import { LogsArchiveDestinationS3 } from './LogsArchiveDestinationS3';
-import { LogsArchiveDestinationS3Type } from './LogsArchiveDestinationS3Type';
-import { LogsArchiveIntegrationS3 } from './LogsArchiveIntegrationS3';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsArchiveDestinationAzure } from "./LogsArchiveDestinationAzure";
+import { LogsArchiveDestinationGCS } from "./LogsArchiveDestinationGCS";
+import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
 
-/**
-* An archive's destination.
-*/
-
-export type LogsArchiveDestination = LogsArchiveDestinationAzure | LogsArchiveDestinationGCS | LogsArchiveDestinationS3;
+export type LogsArchiveDestination =
+  | LogsArchiveDestinationAzure
+  | LogsArchiveDestinationGCS
+  | LogsArchiveDestinationS3;

@@ -8,135 +8,180 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response with properties for each aggregated usage type.
-*/
+ * Response with properties for each aggregated usage type.
+ */
 
 export class UsageBillableSummaryBody {
-    /**
-    * The total account usage.
-    */
-    'accountBillableUsage'?: number;
-    /**
-    * Elapsed usage hours for some billable product.
-    */
-    'elapsedUsageHours'?: number;
-    /**
-    * The first billable hour for the org.
-    */
-    'firstBillableUsageHour'?: Date;
-    /**
-    * The last billable hour for the org.
-    */
-    'lastBillableUsageHour'?: Date;
-    /**
-    * The number of units used within the billable timeframe.
-    */
-    'orgBillableUsage'?: number;
-    /**
-    * The percentage of account usage the org represents.
-    */
-    'percentageInAccount'?: number;
-    /**
-    * Units pertaining to the usage.
-    */
-    'usageUnit'?: string;
+  /**
+   * The total account usage.
+   */
+  "accountBillableUsage"?: number;
+  /**
+   * Elapsed usage hours for some billable product.
+   */
+  "elapsedUsageHours"?: number;
+  /**
+   * The first billable hour for the org.
+   */
+  "firstBillableUsageHour"?: Date;
+  /**
+   * The last billable hour for the org.
+   */
+  "lastBillableUsageHour"?: Date;
+  /**
+   * The number of units used within the billable timeframe.
+   */
+  "orgBillableUsage"?: number;
+  /**
+   * The percentage of account usage the org represents.
+   */
+  "percentageInAccount"?: number;
+  /**
+   * Units pertaining to the usage.
+   */
+  "usageUnit"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "accountBillableUsage": {
-            "baseName": "account_billable_usage",
-            "type": "number",
-            "format": "int64"
-        },
-        "elapsedUsageHours": {
-            "baseName": "elapsed_usage_hours",
-            "type": "number",
-            "format": "int64"
-        },
-        "firstBillableUsageHour": {
-            "baseName": "first_billable_usage_hour",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "lastBillableUsageHour": {
-            "baseName": "last_billable_usage_hour",
-            "type": "Date",
-            "format": "date-time"
-        },
-        "orgBillableUsage": {
-            "baseName": "org_billable_usage",
-            "type": "number",
-            "format": "int64"
-        },
-        "percentageInAccount": {
-            "baseName": "percentage_in_account",
-            "type": "number",
-            "format": "double"
-        },
-        "usageUnit": {
-            "baseName": "usage_unit",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    accountBillableUsage: {
+      baseName: "account_billable_usage",
+      type: "number",
+      format: "int64",
+    },
+    elapsedUsageHours: {
+      baseName: "elapsed_usage_hours",
+      type: "number",
+      format: "int64",
+    },
+    firstBillableUsageHour: {
+      baseName: "first_billable_usage_hour",
+      type: "Date",
+      format: "date-time",
+    },
+    lastBillableUsageHour: {
+      baseName: "last_billable_usage_hour",
+      type: "Date",
+      format: "date-time",
+    },
+    orgBillableUsage: {
+      baseName: "org_billable_usage",
+      type: "number",
+      format: "int64",
+    },
+    percentageInAccount: {
+      baseName: "percentage_in_account",
+      type: "number",
+      format: "double",
+    },
+    usageUnit: {
+      baseName: "usage_unit",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageBillableSummaryBody.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageBillableSummaryBody.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageBillableSummaryBody {
+    const res = new UsageBillableSummaryBody();
+
+    res.accountBillableUsage = ObjectSerializer.deserialize(
+      data.account_billable_usage,
+      "number",
+      "int64"
+    );
+
+    res.elapsedUsageHours = ObjectSerializer.deserialize(
+      data.elapsed_usage_hours,
+      "number",
+      "int64"
+    );
+
+    res.firstBillableUsageHour = ObjectSerializer.deserialize(
+      data.first_billable_usage_hour,
+      "Date",
+      "date-time"
+    );
+
+    res.lastBillableUsageHour = ObjectSerializer.deserialize(
+      data.last_billable_usage_hour,
+      "Date",
+      "date-time"
+    );
+
+    res.orgBillableUsage = ObjectSerializer.deserialize(
+      data.org_billable_usage,
+      "number",
+      "int64"
+    );
+
+    res.percentageInAccount = ObjectSerializer.deserialize(
+      data.percentage_in_account,
+      "number",
+      "double"
+    );
+
+    res.usageUnit = ObjectSerializer.deserialize(data.usage_unit, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: UsageBillableSummaryBody): { [key: string]: any } {
+    const attributeTypes = UsageBillableSummaryBody.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.account_billable_usage = ObjectSerializer.serialize(
+      data.accountBillableUsage,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageBillableSummaryBody {
-      let res = new UsageBillableSummaryBody();
+    res.elapsed_usage_hours = ObjectSerializer.serialize(
+      data.elapsedUsageHours,
+      "number",
+      "int64"
+    );
 
-      res.accountBillableUsage = ObjectSerializer.deserialize(data.account_billable_usage, "number", "int64")
+    res.first_billable_usage_hour = ObjectSerializer.serialize(
+      data.firstBillableUsageHour,
+      "Date",
+      "date-time"
+    );
 
-      res.elapsedUsageHours = ObjectSerializer.deserialize(data.elapsed_usage_hours, "number", "int64")
+    res.last_billable_usage_hour = ObjectSerializer.serialize(
+      data.lastBillableUsageHour,
+      "Date",
+      "date-time"
+    );
 
-      res.firstBillableUsageHour = ObjectSerializer.deserialize(data.first_billable_usage_hour, "Date", "date-time")
+    res.org_billable_usage = ObjectSerializer.serialize(
+      data.orgBillableUsage,
+      "number",
+      "int64"
+    );
 
-      res.lastBillableUsageHour = ObjectSerializer.deserialize(data.last_billable_usage_hour, "Date", "date-time")
+    res.percentage_in_account = ObjectSerializer.serialize(
+      data.percentageInAccount,
+      "number",
+      "double"
+    );
 
-      res.orgBillableUsage = ObjectSerializer.deserialize(data.org_billable_usage, "number", "int64")
+    res.usage_unit = ObjectSerializer.serialize(data.usageUnit, "string", "");
 
-      res.percentageInAccount = ObjectSerializer.deserialize(data.percentage_in_account, "number", "double")
+    return res;
+  }
 
-      res.usageUnit = ObjectSerializer.deserialize(data.usage_unit, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageBillableSummaryBody): {[key: string]: any} {
-        let attributeTypes = UsageBillableSummaryBody.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.account_billable_usage = ObjectSerializer.serialize(data.accountBillableUsage, "number", "int64")
-
-        res.elapsed_usage_hours = ObjectSerializer.serialize(data.elapsedUsageHours, "number", "int64")
-
-        res.first_billable_usage_hour = ObjectSerializer.serialize(data.firstBillableUsageHour, "Date", "date-time")
-
-        res.last_billable_usage_hour = ObjectSerializer.serialize(data.lastBillableUsageHour, "Date", "date-time")
-
-        res.org_billable_usage = ObjectSerializer.serialize(data.orgBillableUsage, "number", "int64")
-
-        res.percentage_in_account = ObjectSerializer.serialize(data.percentageInAccount, "number", "double")
-
-        res.usage_unit = ObjectSerializer.serialize(data.usageUnit, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

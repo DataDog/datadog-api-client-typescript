@@ -59,30 +59,36 @@ Before(function (
     this.polly?.recordingId,
     "frozen.json"
   );
-  let frozenExists = fs.existsSync(frozen);
+  const frozenExists = fs.existsSync(frozen);
   if (frozenExists && this.polly?.mode == MODES.REPLAY) {
     date = new Date(JSON.parse(fs.readFileSync(frozen).toString()));
   } else {
     date = new Date();
-    if (this.polly?.mode == MODES.RECORD || this.polly?.config?.recordIfMissing) {
-      fs.mkdirSync(path.dirname(frozen), {recursive: true});
+    if (
+      this.polly?.mode == MODES.RECORD ||
+      this.polly?.config?.recordIfMissing
+    ) {
+      fs.mkdirSync(path.dirname(frozen), { recursive: true });
       fs.writeFileSync(frozen, JSON.stringify(date));
     }
   }
 
   const now = date.getTime() / 1000;
   const name = pickle.name?.replace(/[^A-Za-z0-9]+/g, "_").substr(0, 100);
-  const prefix = this.polly?.mode == MODES.PASSTHROUGH ? "Test-Typescript" : "Test";
+  const prefix =
+    this.polly?.mode == MODES.PASSTHROUGH ? "Test-Typescript" : "Test";
   const unique = `${prefix}-${name}-${Math.floor(now)}`;
   this.fixtures["unique"] = unique;
   this.fixtures["unique_lower"] = unique.toLowerCase();
   this.fixtures["unique_alnum"] = unique.replace(/[^A-Za-z0-9]+/g, "");
-  this.fixtures["unique_lower_alnum"] = this.fixtures["unique_alnum"].toLowerCase();
+  this.fixtures["unique_lower_alnum"] = this.fixtures[
+    "unique_alnum"
+  ].toLowerCase();
   this.fixtures["now"] = date;
 
   // make sure that we are not recording APM traces
   if ((tracer as any)._tracer._url !== undefined) {
-    server.any((tracer as any)._tracer._url.href + '*').passthrough();
+    server.any((tracer as any)._tracer._url.href + "*").passthrough();
   }
 
   // remove secrets from request headers before persisting

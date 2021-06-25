@@ -8,98 +8,111 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyRelationships } from './APIKeyRelationships';
-import { APIKeysType } from './APIKeysType';
-import { FullAPIKeyAttributes } from './FullAPIKeyAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { APIKeyRelationships } from "./APIKeyRelationships";
+import { APIKeysType } from "./APIKeysType";
+import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Datadog API key.
-*/
+ * Datadog API key.
+ */
 
 export class FullAPIKey {
-    'attributes'?: FullAPIKeyAttributes;
-    /**
-    * ID of the API key.
-    */
-    'id'?: string;
-    'relationships'?: APIKeyRelationships;
-    'type'?: APIKeysType;
+  "attributes"?: FullAPIKeyAttributes;
+  /**
+   * ID of the API key.
+   */
+  "id"?: string;
+  "relationships"?: APIKeyRelationships;
+  "type"?: APIKeysType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "FullAPIKeyAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "relationships": {
-            "baseName": "relationships",
-            "type": "APIKeyRelationships",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "APIKeysType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "FullAPIKeyAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "APIKeyRelationships",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "APIKeysType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return FullAPIKey.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return FullAPIKey.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): FullAPIKey {
+    const res = new FullAPIKey();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "FullAPIKeyAttributes",
+      ""
+    );
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    res.relationships = ObjectSerializer.deserialize(
+      data.relationships,
+      "APIKeyRelationships",
+      ""
+    );
+
+    if (["api_keys", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): FullAPIKey {
-      let res = new FullAPIKey();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "FullAPIKeyAttributes", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-      res.relationships = ObjectSerializer.deserialize(data.relationships, "APIKeyRelationships", "")
-
-      if (['api_keys', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: FullAPIKey): { [key: string]: any } {
+    const attributeTypes = FullAPIKey.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "FullAPIKeyAttributes",
+      ""
+    );
 
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      return res;
+    res.relationships = ObjectSerializer.serialize(
+      data.relationships,
+      "APIKeyRelationships",
+      ""
+    );
+
+    if (["api_keys", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: FullAPIKey): {[key: string]: any} {
-        let attributeTypes = FullAPIKey.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "FullAPIKeyAttributes", "")
+    return res;
+  }
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        res.relationships = ObjectSerializer.serialize(data.relationships, "APIKeyRelationships", "")
-
-        if (['api_keys', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

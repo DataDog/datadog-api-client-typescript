@@ -8,16 +8,10 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Layout of the legend.
-*/
-
-export type TimeseriesWidgetLegendLayout = typeof AUTO | typeof HORIZONTAL | typeof VERTICAL ;
-export const AUTO = 'auto';
-export const HORIZONTAL = 'horizontal';
-export const VERTICAL = 'vertical';
-
-
+export type TimeseriesWidgetLegendLayout =
+  | typeof AUTO
+  | typeof HORIZONTAL
+  | typeof VERTICAL;
+export const AUTO = "auto";
+export const HORIZONTAL = "horizontal";
+export const VERTICAL = "vertical";

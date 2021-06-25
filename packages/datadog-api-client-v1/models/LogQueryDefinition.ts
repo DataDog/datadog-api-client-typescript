@@ -8,106 +8,135 @@
  * Do not edit the class manually.
  */
 
-import { LogQueryDefinitionGroupBy } from './LogQueryDefinitionGroupBy';
-import { LogQueryDefinitionSearch } from './LogQueryDefinitionSearch';
-import { LogsQueryCompute } from './LogsQueryCompute';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
+import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
+import { LogsQueryCompute } from "./LogsQueryCompute";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The log query.
-*/
+ * The log query.
+ */
 
 export class LogQueryDefinition {
-    'compute'?: LogsQueryCompute;
-    /**
-    * List of tag prefixes to group by in the case of a cluster check.
-    */
-    'groupBy'?: Array<LogQueryDefinitionGroupBy>;
-    /**
-    * A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
-    */
-    'index'?: string;
-    /**
-    * This field is mutually exclusive with `compute`.
-    */
-    'multiCompute'?: Array<LogsQueryCompute>;
-    'search'?: LogQueryDefinitionSearch;
+  "compute"?: LogsQueryCompute;
+  /**
+   * List of tag prefixes to group by in the case of a cluster check.
+   */
+  "groupBy"?: Array<LogQueryDefinitionGroupBy>;
+  /**
+   * A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
+   */
+  "index"?: string;
+  /**
+   * This field is mutually exclusive with `compute`.
+   */
+  "multiCompute"?: Array<LogsQueryCompute>;
+  "search"?: LogQueryDefinitionSearch;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "compute": {
-            "baseName": "compute",
-            "type": "LogsQueryCompute",
-            "format": ""
-        },
-        "groupBy": {
-            "baseName": "group_by",
-            "type": "Array<LogQueryDefinitionGroupBy>",
-            "format": ""
-        },
-        "index": {
-            "baseName": "index",
-            "type": "string",
-            "format": ""
-        },
-        "multiCompute": {
-            "baseName": "multi_compute",
-            "type": "Array<LogsQueryCompute>",
-            "format": ""
-        },
-        "search": {
-            "baseName": "search",
-            "type": "LogQueryDefinitionSearch",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    compute: {
+      baseName: "compute",
+      type: "LogsQueryCompute",
+      format: "",
+    },
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<LogQueryDefinitionGroupBy>",
+      format: "",
+    },
+    index: {
+      baseName: "index",
+      type: "string",
+      format: "",
+    },
+    multiCompute: {
+      baseName: "multi_compute",
+      type: "Array<LogsQueryCompute>",
+      format: "",
+    },
+    search: {
+      baseName: "search",
+      type: "LogQueryDefinitionSearch",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogQueryDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogQueryDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogQueryDefinition {
+    const res = new LogQueryDefinition();
+
+    res.compute = ObjectSerializer.deserialize(
+      data.compute,
+      "LogsQueryCompute",
+      ""
+    );
+
+    res.groupBy = ObjectSerializer.deserialize(
+      data.group_by,
+      "Array<LogQueryDefinitionGroupBy>",
+      ""
+    );
+
+    res.index = ObjectSerializer.deserialize(data.index, "string", "");
+
+    res.multiCompute = ObjectSerializer.deserialize(
+      data.multi_compute,
+      "Array<LogsQueryCompute>",
+      ""
+    );
+
+    res.search = ObjectSerializer.deserialize(
+      data.search,
+      "LogQueryDefinitionSearch",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogQueryDefinition): { [key: string]: any } {
+    const attributeTypes = LogQueryDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.compute = ObjectSerializer.serialize(
+      data.compute,
+      "LogsQueryCompute",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogQueryDefinition {
-      let res = new LogQueryDefinition();
+    res.group_by = ObjectSerializer.serialize(
+      data.groupBy,
+      "Array<LogQueryDefinitionGroupBy>",
+      ""
+    );
 
-      res.compute = ObjectSerializer.deserialize(data.compute, "LogsQueryCompute", "")
+    res.index = ObjectSerializer.serialize(data.index, "string", "");
 
-      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<LogQueryDefinitionGroupBy>", "")
+    res.multi_compute = ObjectSerializer.serialize(
+      data.multiCompute,
+      "Array<LogsQueryCompute>",
+      ""
+    );
 
-      res.index = ObjectSerializer.deserialize(data.index, "string", "")
+    res.search = ObjectSerializer.serialize(
+      data.search,
+      "LogQueryDefinitionSearch",
+      ""
+    );
 
-      res.multiCompute = ObjectSerializer.deserialize(data.multi_compute, "Array<LogsQueryCompute>", "")
+    return res;
+  }
 
-      res.search = ObjectSerializer.deserialize(data.search, "LogQueryDefinitionSearch", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogQueryDefinition): {[key: string]: any} {
-        let attributeTypes = LogQueryDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.compute = ObjectSerializer.serialize(data.compute, "LogsQueryCompute", "")
-
-        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<LogQueryDefinitionGroupBy>", "")
-
-        res.index = ObjectSerializer.serialize(data.index, "string", "")
-
-        res.multi_compute = ObjectSerializer.serialize(data.multiCompute, "Array<LogsQueryCompute>", "")
-
-        res.search = ObjectSerializer.serialize(data.search, "LogQueryDefinitionSearch", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

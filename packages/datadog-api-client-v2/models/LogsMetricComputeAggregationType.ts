@@ -8,15 +8,8 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The type of aggregation to use.
-*/
-
-export type LogsMetricComputeAggregationType = typeof COUNT | typeof DISTRIBUTION ;
-export const COUNT = 'count';
-export const DISTRIBUTION = 'distribution';
-
-
+export type LogsMetricComputeAggregationType =
+  | typeof COUNT
+  | typeof DISTRIBUTION;
+export const COUNT = "count";
+export const DISTRIBUTION = "distribution";

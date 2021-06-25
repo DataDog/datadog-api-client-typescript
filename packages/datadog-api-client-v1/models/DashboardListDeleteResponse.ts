@@ -8,57 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Deleted dashboard details.
-*/
+ * Deleted dashboard details.
+ */
 
 export class DashboardListDeleteResponse {
-    /**
-    * ID of the deleted dashboard list.
-    */
-    'deletedDashboardListId'?: number;
+  /**
+   * ID of the deleted dashboard list.
+   */
+  "deletedDashboardListId"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "deletedDashboardListId": {
-            "baseName": "deleted_dashboard_list_id",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    deletedDashboardListId: {
+      baseName: "deleted_dashboard_list_id",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DashboardListDeleteResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DashboardListDeleteResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): DashboardListDeleteResponse {
+    const res = new DashboardListDeleteResponse();
+
+    res.deletedDashboardListId = ObjectSerializer.deserialize(
+      data.deleted_dashboard_list_id,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: DashboardListDeleteResponse): { [key: string]: any } {
+    const attributeTypes = DashboardListDeleteResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.deleted_dashboard_list_id = ObjectSerializer.serialize(
+      data.deletedDashboardListId,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): DashboardListDeleteResponse {
-      let res = new DashboardListDeleteResponse();
+    return res;
+  }
 
-      res.deletedDashboardListId = ObjectSerializer.deserialize(data.deleted_dashboard_list_id, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: DashboardListDeleteResponse): {[key: string]: any} {
-        let attributeTypes = DashboardListDeleteResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.deleted_dashboard_list_id = ObjectSerializer.serialize(data.deletedDashboardListId, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

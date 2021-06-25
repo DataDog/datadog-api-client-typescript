@@ -8,40 +8,40 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariableParserType } from './SyntheticsGlobalVariableParserType';
-import { HttpFile } from '../http/http';
+import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
 
-/**
-* Details of the parser to use for the global variable.
-*/
 export class SyntheticsGlobalVariableParseTestOptionsParser {
-    'type': SyntheticsGlobalVariableParserType;
-    /**
-    * Regex or JSON path used for the parser. Not used with type `raw`.
-    */
-    'value'?: string;
+  "type": SyntheticsGlobalVariableParserType;
+  /**
+   * Regex or JSON path used for the parser. Not used with type `raw`.
+   */
+  "value"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "SyntheticsGlobalVariableParserType",
-            "format": ""
-        },
-        {
-            "name": "value",
-            "baseName": "value",
-            "type": "string",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "type",
+      baseName: "type",
+      type: "SyntheticsGlobalVariableParserType",
+      format: "",
+    },
+    {
+      name: "value",
+      baseName: "value",
+      type: "string",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return SyntheticsGlobalVariableParseTestOptionsParser.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
+  static getAttributeTypeMap() {
+    return SyntheticsGlobalVariableParseTestOptionsParser.attributeTypeMap;
+  }
+
+  public constructor() {}
 }
-

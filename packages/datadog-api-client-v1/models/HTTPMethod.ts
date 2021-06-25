@@ -8,20 +8,18 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The HTTP method.
-*/
-
-export type HTTPMethod = typeof GET | typeof POST | typeof PATCH | typeof PUT | typeof DELETE | typeof HEAD | typeof OPTIONS ;
-export const GET = 'GET';
-export const POST = 'POST';
-export const PATCH = 'PATCH';
-export const PUT = 'PUT';
-export const DELETE = 'DELETE';
-export const HEAD = 'HEAD';
-export const OPTIONS = 'OPTIONS';
-
-
+export type HTTPMethod =
+  | typeof GET
+  | typeof POST
+  | typeof PATCH
+  | typeof PUT
+  | typeof DELETE
+  | typeof HEAD
+  | typeof OPTIONS;
+export const GET = "GET";
+export const POST = "POST";
+export const PATCH = "PATCH";
+export const PUT = "PUT";
+export const DELETE = "DELETE";
+export const HEAD = "HEAD";
+export const OPTIONS = "OPTIONS";

@@ -8,101 +8,118 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
-*/
+ * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
+ */
 
 export class LogsGroupByHistogram {
-    /**
-    * The bin size of the histogram buckets
-    */
-    'interval': number;
-    /**
-    * The maximum value for the measure used in the histogram (values greater than this one are filtered out)
-    */
-    'max': number;
-    /**
-    * The minimum value for the measure used in the histogram (values smaller than this one are filtered out)
-    */
-    'min': number;
+  /**
+   * The bin size of the histogram buckets
+   */
+  "interval": number;
+  /**
+   * The maximum value for the measure used in the histogram (values greater than this one are filtered out)
+   */
+  "max": number;
+  /**
+   * The minimum value for the measure used in the histogram (values smaller than this one are filtered out)
+   */
+  "min": number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "interval": {
-            "baseName": "interval",
-            "type": "number",
-            "format": "double"
-        },
-        "max": {
-            "baseName": "max",
-            "type": "number",
-            "format": "double"
-        },
-        "min": {
-            "baseName": "min",
-            "type": "number",
-            "format": "double"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "double",
+    },
+    max: {
+      baseName: "max",
+      type: "number",
+      format: "double",
+    },
+    min: {
+      baseName: "min",
+      type: "number",
+      format: "double",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsGroupByHistogram.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsGroupByHistogram.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsGroupByHistogram {
+    const res = new LogsGroupByHistogram();
+
+    if (data.interval === undefined) {
+      throw new TypeError(
+        "missing required attribute 'interval' on 'LogsGroupByHistogram' object"
+      );
     }
+    res.interval = ObjectSerializer.deserialize(
+      data.interval,
+      "number",
+      "double"
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsGroupByHistogram {
-      let res = new LogsGroupByHistogram();
+    if (data.max === undefined) {
+      throw new TypeError(
+        "missing required attribute 'max' on 'LogsGroupByHistogram' object"
+      );
+    }
+    res.max = ObjectSerializer.deserialize(data.max, "number", "double");
 
-      if (data.interval === undefined) {
-          throw new TypeError("missing required attribute 'interval' on 'LogsGroupByHistogram' object");
+    if (data.min === undefined) {
+      throw new TypeError(
+        "missing required attribute 'min' on 'LogsGroupByHistogram' object"
+      );
+    }
+    res.min = ObjectSerializer.deserialize(data.min, "number", "double");
+
+    return res;
+  }
+
+  static serialize(data: LogsGroupByHistogram): { [key: string]: any } {
+    const attributeTypes = LogsGroupByHistogram.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.interval = ObjectSerializer.deserialize(data.interval, "number", "double")
-
-      if (data.max === undefined) {
-          throw new TypeError("missing required attribute 'max' on 'LogsGroupByHistogram' object");
-      }
-      res.max = ObjectSerializer.deserialize(data.max, "number", "double")
-
-      if (data.min === undefined) {
-          throw new TypeError("missing required attribute 'min' on 'LogsGroupByHistogram' object");
-      }
-      res.min = ObjectSerializer.deserialize(data.min, "number", "double")
-
-
-      return res;
     }
-
-    static serialize(data: LogsGroupByHistogram): {[key: string]: any} {
-        let attributeTypes = LogsGroupByHistogram.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.interval === undefined) {
-            throw new TypeError("missing required attribute 'interval' on 'LogsGroupByHistogram' object");
-        }
-        res.interval = ObjectSerializer.serialize(data.interval, "number", "double")
-
-        if (data.max === undefined) {
-            throw new TypeError("missing required attribute 'max' on 'LogsGroupByHistogram' object");
-        }
-        res.max = ObjectSerializer.serialize(data.max, "number", "double")
-
-        if (data.min === undefined) {
-            throw new TypeError("missing required attribute 'min' on 'LogsGroupByHistogram' object");
-        }
-        res.min = ObjectSerializer.serialize(data.min, "number", "double")
-
-        return res
+    if (data.interval === undefined) {
+      throw new TypeError(
+        "missing required attribute 'interval' on 'LogsGroupByHistogram' object"
+      );
     }
-    
-    public constructor() {
+    res.interval = ObjectSerializer.serialize(
+      data.interval,
+      "number",
+      "double"
+    );
+
+    if (data.max === undefined) {
+      throw new TypeError(
+        "missing required attribute 'max' on 'LogsGroupByHistogram' object"
+      );
     }
+    res.max = ObjectSerializer.serialize(data.max, "number", "double");
+
+    if (data.min === undefined) {
+      throw new TypeError(
+        "missing required attribute 'min' on 'LogsGroupByHistogram' object"
+      );
+    }
+    res.min = ObjectSerializer.serialize(data.min, "number", "double");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

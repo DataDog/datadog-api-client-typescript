@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A single exclusion filter.
-*/
+ * A single exclusion filter.
+ */
 
 export class SecurityFilterExclusionFilterResponse {
-    /**
-    * The exclusion filter name.
-    */
-    'name'?: string;
-    /**
-    * The exclusion filter query.
-    */
-    'query'?: string;
+  /**
+   * The exclusion filter name.
+   */
+  "name"?: string;
+  /**
+   * The exclusion filter query.
+   */
+  "query"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityFilterExclusionFilterResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityFilterExclusionFilterResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityFilterExclusionFilterResponse {
+    const res = new SecurityFilterExclusionFilterResponse();
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityFilterExclusionFilterResponse
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityFilterExclusionFilterResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SecurityFilterExclusionFilterResponse {
-      let res = new SecurityFilterExclusionFilterResponse();
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    return res;
+  }
 
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityFilterExclusionFilterResponse): {[key: string]: any} {
-        let attributeTypes = SecurityFilterExclusionFilterResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

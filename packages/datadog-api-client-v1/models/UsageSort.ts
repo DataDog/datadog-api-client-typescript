@@ -8,17 +8,12 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The field to sort by.
-*/
-
-export type UsageSort = typeof COMPUTED_ON | typeof SIZE | typeof START_DATE | typeof END_DATE ;
-export const COMPUTED_ON = 'computed_on';
-export const SIZE = 'size';
-export const START_DATE = 'start_date';
-export const END_DATE = 'end_date';
-
-
+export type UsageSort =
+  | typeof COMPUTED_ON
+  | typeof SIZE
+  | typeof START_DATE
+  | typeof END_DATE;
+export const COMPUTED_ON = "computed_on";
+export const SIZE = "size";
+export const START_DATE = "start_date";
+export const END_DATE = "end_date";

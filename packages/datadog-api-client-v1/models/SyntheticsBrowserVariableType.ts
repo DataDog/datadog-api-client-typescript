@@ -8,18 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of browser test variable.
-*/
-
-export type SyntheticsBrowserVariableType = typeof ELEMENT | typeof EMAIL | typeof GLOBAL | typeof JAVASCRIPT | typeof TEXT ;
-export const ELEMENT = 'element';
-export const EMAIL = 'email';
-export const GLOBAL = 'global';
-export const JAVASCRIPT = 'javascript';
-export const TEXT = 'text';
-
-
+export type SyntheticsBrowserVariableType =
+  | typeof ELEMENT
+  | typeof EMAIL
+  | typeof GLOBAL
+  | typeof JAVASCRIPT
+  | typeof TEXT;
+export const ELEMENT = "element";
+export const EMAIL = "email";
+export const GLOBAL = "global";
+export const JAVASCRIPT = "javascript";
+export const TEXT = "text";

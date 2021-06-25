@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Template variables saved views.
-*/
+ * Template variables saved views.
+ */
 
 export class DashboardTemplateVariablePresetValue {
-    /**
-    * The name of the variable.
-    */
-    'name'?: string;
-    /**
-    * The value of the template variable within the saved view.
-    */
-    'value'?: string;
+  /**
+   * The name of the variable.
+   */
+  "name"?: string;
+  /**
+   * The value of the template variable within the saved view.
+   */
+  "value"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "value": {
-            "baseName": "value",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    value: {
+      baseName: "value",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DashboardTemplateVariablePresetValue.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DashboardTemplateVariablePresetValue.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): DashboardTemplateVariablePresetValue {
+    const res = new DashboardTemplateVariablePresetValue();
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.value = ObjectSerializer.deserialize(data.value, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: DashboardTemplateVariablePresetValue
+  ): { [key: string]: any } {
+    const attributeTypes = DashboardTemplateVariablePresetValue.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): DashboardTemplateVariablePresetValue {
-      let res = new DashboardTemplateVariablePresetValue();
+    res.value = ObjectSerializer.serialize(data.value, "string", "");
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    return res;
+  }
 
-      res.value = ObjectSerializer.deserialize(data.value, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: DashboardTemplateVariablePresetValue): {[key: string]: any} {
-        let attributeTypes = DashboardTemplateVariablePresetValue.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.value = ObjectSerializer.serialize(data.value, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,14 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { NotebookAbsoluteTime } from './NotebookAbsoluteTime';
-import { NotebookRelativeTime } from './NotebookRelativeTime';
-import { WidgetLiveSpan } from './WidgetLiveSpan';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Notebook global timeframe.
-*/
+import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
+import { NotebookRelativeTime } from "./NotebookRelativeTime";
 
 export type NotebookGlobalTime = NotebookAbsoluteTime | NotebookRelativeTime;

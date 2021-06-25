@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the markdown cell.
-*/
-
-export type NotebookMarkdownCellDefinitionType = typeof MARKDOWN ;
-export const MARKDOWN = 'markdown';
-
-
+export type NotebookMarkdownCellDefinitionType = typeof MARKDOWN;
+export const MARKDOWN = "markdown";

@@ -8,365 +8,618 @@
  * Do not edit the class manually.
  */
 
-import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response with aggregated usage types.
-*/
+ * Response with aggregated usage types.
+ */
 
 export class UsageBillableSummaryKeys {
-    'apmHostSum'?: UsageBillableSummaryBody;
-    'apmHostTop99p'?: UsageBillableSummaryBody;
-    'apmTraceSearchSum'?: UsageBillableSummaryBody;
-    'fargateContainerAverage'?: UsageBillableSummaryBody;
-    'infraContainerSum'?: UsageBillableSummaryBody;
-    'infraHostSum'?: UsageBillableSummaryBody;
-    'infraHostTop99p'?: UsageBillableSummaryBody;
-    'iotTop99p'?: UsageBillableSummaryBody;
-    'lambdaFunctionAverage'?: UsageBillableSummaryBody;
-    'logsIndexed15daySum'?: UsageBillableSummaryBody;
-    'logsIndexed180daySum'?: UsageBillableSummaryBody;
-    'logsIndexed30daySum'?: UsageBillableSummaryBody;
-    'logsIndexed3daySum'?: UsageBillableSummaryBody;
-    'logsIndexed45daySum'?: UsageBillableSummaryBody;
-    'logsIndexed60daySum'?: UsageBillableSummaryBody;
-    'logsIndexed7daySum'?: UsageBillableSummaryBody;
-    'logsIndexed90daySum'?: UsageBillableSummaryBody;
-    'logsIndexedCustomRetentionSum'?: UsageBillableSummaryBody;
-    'logsIndexedSum'?: UsageBillableSummaryBody;
-    'logsIngestedSum'?: UsageBillableSummaryBody;
-    'networkDeviceTop99p'?: UsageBillableSummaryBody;
-    'npmFlowSum'?: UsageBillableSummaryBody;
-    'npmHostSum'?: UsageBillableSummaryBody;
-    'npmHostTop99p'?: UsageBillableSummaryBody;
-    'profContainerSum'?: UsageBillableSummaryBody;
-    'profHostTop99p'?: UsageBillableSummaryBody;
-    'rumSum'?: UsageBillableSummaryBody;
-    'serverlessInvocationSum'?: UsageBillableSummaryBody;
-    'siemSum'?: UsageBillableSummaryBody;
-    'syntheticsApiTestsSum'?: UsageBillableSummaryBody;
-    'syntheticsBrowserChecksSum'?: UsageBillableSummaryBody;
-    'timeseriesAverage'?: UsageBillableSummaryBody;
+  "apmHostSum"?: UsageBillableSummaryBody;
+  "apmHostTop99p"?: UsageBillableSummaryBody;
+  "apmTraceSearchSum"?: UsageBillableSummaryBody;
+  "fargateContainerAverage"?: UsageBillableSummaryBody;
+  "infraContainerSum"?: UsageBillableSummaryBody;
+  "infraHostSum"?: UsageBillableSummaryBody;
+  "infraHostTop99p"?: UsageBillableSummaryBody;
+  "iotTop99p"?: UsageBillableSummaryBody;
+  "lambdaFunctionAverage"?: UsageBillableSummaryBody;
+  "logsIndexed15daySum"?: UsageBillableSummaryBody;
+  "logsIndexed180daySum"?: UsageBillableSummaryBody;
+  "logsIndexed30daySum"?: UsageBillableSummaryBody;
+  "logsIndexed3daySum"?: UsageBillableSummaryBody;
+  "logsIndexed45daySum"?: UsageBillableSummaryBody;
+  "logsIndexed60daySum"?: UsageBillableSummaryBody;
+  "logsIndexed7daySum"?: UsageBillableSummaryBody;
+  "logsIndexed90daySum"?: UsageBillableSummaryBody;
+  "logsIndexedCustomRetentionSum"?: UsageBillableSummaryBody;
+  "logsIndexedSum"?: UsageBillableSummaryBody;
+  "logsIngestedSum"?: UsageBillableSummaryBody;
+  "networkDeviceTop99p"?: UsageBillableSummaryBody;
+  "npmFlowSum"?: UsageBillableSummaryBody;
+  "npmHostSum"?: UsageBillableSummaryBody;
+  "npmHostTop99p"?: UsageBillableSummaryBody;
+  "profContainerSum"?: UsageBillableSummaryBody;
+  "profHostTop99p"?: UsageBillableSummaryBody;
+  "rumSum"?: UsageBillableSummaryBody;
+  "serverlessInvocationSum"?: UsageBillableSummaryBody;
+  "siemSum"?: UsageBillableSummaryBody;
+  "syntheticsApiTestsSum"?: UsageBillableSummaryBody;
+  "syntheticsBrowserChecksSum"?: UsageBillableSummaryBody;
+  "timeseriesAverage"?: UsageBillableSummaryBody;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "apmHostSum": {
-            "baseName": "apm_host_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "apmHostTop99p": {
-            "baseName": "apm_host_top99p",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "apmTraceSearchSum": {
-            "baseName": "apm_trace_search_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "fargateContainerAverage": {
-            "baseName": "fargate_container_average",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "infraContainerSum": {
-            "baseName": "infra_container_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "infraHostSum": {
-            "baseName": "infra_host_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "infraHostTop99p": {
-            "baseName": "infra_host_top99p",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "iotTop99p": {
-            "baseName": "iot_top99p",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "lambdaFunctionAverage": {
-            "baseName": "lambda_function_average",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed15daySum": {
-            "baseName": "logs_indexed_15day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed180daySum": {
-            "baseName": "logs_indexed_180day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed30daySum": {
-            "baseName": "logs_indexed_30day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed3daySum": {
-            "baseName": "logs_indexed_3day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed45daySum": {
-            "baseName": "logs_indexed_45day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed60daySum": {
-            "baseName": "logs_indexed_60day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed7daySum": {
-            "baseName": "logs_indexed_7day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexed90daySum": {
-            "baseName": "logs_indexed_90day_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexedCustomRetentionSum": {
-            "baseName": "logs_indexed_custom_retention_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIndexedSum": {
-            "baseName": "logs_indexed_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "logsIngestedSum": {
-            "baseName": "logs_ingested_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "networkDeviceTop99p": {
-            "baseName": "network_device_top99p",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "npmFlowSum": {
-            "baseName": "npm_flow_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "npmHostSum": {
-            "baseName": "npm_host_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "npmHostTop99p": {
-            "baseName": "npm_host_top99p",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "profContainerSum": {
-            "baseName": "prof_container_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "profHostTop99p": {
-            "baseName": "prof_host_top99p",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "rumSum": {
-            "baseName": "rum_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "serverlessInvocationSum": {
-            "baseName": "serverless_invocation_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "siemSum": {
-            "baseName": "siem_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "syntheticsApiTestsSum": {
-            "baseName": "synthetics_api_tests_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "syntheticsBrowserChecksSum": {
-            "baseName": "synthetics_browser_checks_sum",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        },
-        "timeseriesAverage": {
-            "baseName": "timeseries_average",
-            "type": "UsageBillableSummaryBody",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    apmHostSum: {
+      baseName: "apm_host_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    apmHostTop99p: {
+      baseName: "apm_host_top99p",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    apmTraceSearchSum: {
+      baseName: "apm_trace_search_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    fargateContainerAverage: {
+      baseName: "fargate_container_average",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    infraContainerSum: {
+      baseName: "infra_container_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    infraHostSum: {
+      baseName: "infra_host_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    infraHostTop99p: {
+      baseName: "infra_host_top99p",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    iotTop99p: {
+      baseName: "iot_top99p",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    lambdaFunctionAverage: {
+      baseName: "lambda_function_average",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed15daySum: {
+      baseName: "logs_indexed_15day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed180daySum: {
+      baseName: "logs_indexed_180day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed30daySum: {
+      baseName: "logs_indexed_30day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed3daySum: {
+      baseName: "logs_indexed_3day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed45daySum: {
+      baseName: "logs_indexed_45day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed60daySum: {
+      baseName: "logs_indexed_60day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed7daySum: {
+      baseName: "logs_indexed_7day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexed90daySum: {
+      baseName: "logs_indexed_90day_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexedCustomRetentionSum: {
+      baseName: "logs_indexed_custom_retention_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIndexedSum: {
+      baseName: "logs_indexed_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    logsIngestedSum: {
+      baseName: "logs_ingested_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    networkDeviceTop99p: {
+      baseName: "network_device_top99p",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    npmFlowSum: {
+      baseName: "npm_flow_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    npmHostSum: {
+      baseName: "npm_host_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    npmHostTop99p: {
+      baseName: "npm_host_top99p",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    profContainerSum: {
+      baseName: "prof_container_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    profHostTop99p: {
+      baseName: "prof_host_top99p",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    rumSum: {
+      baseName: "rum_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    serverlessInvocationSum: {
+      baseName: "serverless_invocation_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    siemSum: {
+      baseName: "siem_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    syntheticsApiTestsSum: {
+      baseName: "synthetics_api_tests_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    syntheticsBrowserChecksSum: {
+      baseName: "synthetics_browser_checks_sum",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+    timeseriesAverage: {
+      baseName: "timeseries_average",
+      type: "UsageBillableSummaryBody",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageBillableSummaryKeys.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageBillableSummaryKeys.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageBillableSummaryKeys {
+    const res = new UsageBillableSummaryKeys();
+
+    res.apmHostSum = ObjectSerializer.deserialize(
+      data.apm_host_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.apmHostTop99p = ObjectSerializer.deserialize(
+      data.apm_host_top99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.apmTraceSearchSum = ObjectSerializer.deserialize(
+      data.apm_trace_search_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.fargateContainerAverage = ObjectSerializer.deserialize(
+      data.fargate_container_average,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.infraContainerSum = ObjectSerializer.deserialize(
+      data.infra_container_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.infraHostSum = ObjectSerializer.deserialize(
+      data.infra_host_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.infraHostTop99p = ObjectSerializer.deserialize(
+      data.infra_host_top99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.iotTop99p = ObjectSerializer.deserialize(
+      data.iot_top99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.lambdaFunctionAverage = ObjectSerializer.deserialize(
+      data.lambda_function_average,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed15daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_15day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed180daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_180day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed30daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_30day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed3daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_3day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed45daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_45day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed60daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_60day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed7daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_7day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexed90daySum = ObjectSerializer.deserialize(
+      data.logs_indexed_90day_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexedCustomRetentionSum = ObjectSerializer.deserialize(
+      data.logs_indexed_custom_retention_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIndexedSum = ObjectSerializer.deserialize(
+      data.logs_indexed_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logsIngestedSum = ObjectSerializer.deserialize(
+      data.logs_ingested_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.networkDeviceTop99p = ObjectSerializer.deserialize(
+      data.network_device_top99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.npmFlowSum = ObjectSerializer.deserialize(
+      data.npm_flow_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.npmHostSum = ObjectSerializer.deserialize(
+      data.npm_host_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.npmHostTop99p = ObjectSerializer.deserialize(
+      data.npm_host_top99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.profContainerSum = ObjectSerializer.deserialize(
+      data.prof_container_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.profHostTop99p = ObjectSerializer.deserialize(
+      data.prof_host_top99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.rumSum = ObjectSerializer.deserialize(
+      data.rum_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.serverlessInvocationSum = ObjectSerializer.deserialize(
+      data.serverless_invocation_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.siemSum = ObjectSerializer.deserialize(
+      data.siem_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.syntheticsApiTestsSum = ObjectSerializer.deserialize(
+      data.synthetics_api_tests_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.syntheticsBrowserChecksSum = ObjectSerializer.deserialize(
+      data.synthetics_browser_checks_sum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.timeseriesAverage = ObjectSerializer.deserialize(
+      data.timeseries_average,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageBillableSummaryKeys): { [key: string]: any } {
+    const attributeTypes = UsageBillableSummaryKeys.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
-
-    static deserialize(data: {[key: string]: any}): UsageBillableSummaryKeys {
-      let res = new UsageBillableSummaryKeys();
-
-      res.apmHostSum = ObjectSerializer.deserialize(data.apm_host_sum, "UsageBillableSummaryBody", "")
-
-      res.apmHostTop99p = ObjectSerializer.deserialize(data.apm_host_top99p, "UsageBillableSummaryBody", "")
-
-      res.apmTraceSearchSum = ObjectSerializer.deserialize(data.apm_trace_search_sum, "UsageBillableSummaryBody", "")
-
-      res.fargateContainerAverage = ObjectSerializer.deserialize(data.fargate_container_average, "UsageBillableSummaryBody", "")
-
-      res.infraContainerSum = ObjectSerializer.deserialize(data.infra_container_sum, "UsageBillableSummaryBody", "")
-
-      res.infraHostSum = ObjectSerializer.deserialize(data.infra_host_sum, "UsageBillableSummaryBody", "")
-
-      res.infraHostTop99p = ObjectSerializer.deserialize(data.infra_host_top99p, "UsageBillableSummaryBody", "")
-
-      res.iotTop99p = ObjectSerializer.deserialize(data.iot_top99p, "UsageBillableSummaryBody", "")
-
-      res.lambdaFunctionAverage = ObjectSerializer.deserialize(data.lambda_function_average, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed15daySum = ObjectSerializer.deserialize(data.logs_indexed_15day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed180daySum = ObjectSerializer.deserialize(data.logs_indexed_180day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed30daySum = ObjectSerializer.deserialize(data.logs_indexed_30day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed3daySum = ObjectSerializer.deserialize(data.logs_indexed_3day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed45daySum = ObjectSerializer.deserialize(data.logs_indexed_45day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed60daySum = ObjectSerializer.deserialize(data.logs_indexed_60day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed7daySum = ObjectSerializer.deserialize(data.logs_indexed_7day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexed90daySum = ObjectSerializer.deserialize(data.logs_indexed_90day_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexedCustomRetentionSum = ObjectSerializer.deserialize(data.logs_indexed_custom_retention_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIndexedSum = ObjectSerializer.deserialize(data.logs_indexed_sum, "UsageBillableSummaryBody", "")
-
-      res.logsIngestedSum = ObjectSerializer.deserialize(data.logs_ingested_sum, "UsageBillableSummaryBody", "")
-
-      res.networkDeviceTop99p = ObjectSerializer.deserialize(data.network_device_top99p, "UsageBillableSummaryBody", "")
-
-      res.npmFlowSum = ObjectSerializer.deserialize(data.npm_flow_sum, "UsageBillableSummaryBody", "")
-
-      res.npmHostSum = ObjectSerializer.deserialize(data.npm_host_sum, "UsageBillableSummaryBody", "")
-
-      res.npmHostTop99p = ObjectSerializer.deserialize(data.npm_host_top99p, "UsageBillableSummaryBody", "")
-
-      res.profContainerSum = ObjectSerializer.deserialize(data.prof_container_sum, "UsageBillableSummaryBody", "")
-
-      res.profHostTop99p = ObjectSerializer.deserialize(data.prof_host_top99p, "UsageBillableSummaryBody", "")
-
-      res.rumSum = ObjectSerializer.deserialize(data.rum_sum, "UsageBillableSummaryBody", "")
-
-      res.serverlessInvocationSum = ObjectSerializer.deserialize(data.serverless_invocation_sum, "UsageBillableSummaryBody", "")
-
-      res.siemSum = ObjectSerializer.deserialize(data.siem_sum, "UsageBillableSummaryBody", "")
-
-      res.syntheticsApiTestsSum = ObjectSerializer.deserialize(data.synthetics_api_tests_sum, "UsageBillableSummaryBody", "")
-
-      res.syntheticsBrowserChecksSum = ObjectSerializer.deserialize(data.synthetics_browser_checks_sum, "UsageBillableSummaryBody", "")
-
-      res.timeseriesAverage = ObjectSerializer.deserialize(data.timeseries_average, "UsageBillableSummaryBody", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageBillableSummaryKeys): {[key: string]: any} {
-        let attributeTypes = UsageBillableSummaryKeys.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.apm_host_sum = ObjectSerializer.serialize(data.apmHostSum, "UsageBillableSummaryBody", "")
-
-        res.apm_host_top99p = ObjectSerializer.serialize(data.apmHostTop99p, "UsageBillableSummaryBody", "")
-
-        res.apm_trace_search_sum = ObjectSerializer.serialize(data.apmTraceSearchSum, "UsageBillableSummaryBody", "")
-
-        res.fargate_container_average = ObjectSerializer.serialize(data.fargateContainerAverage, "UsageBillableSummaryBody", "")
-
-        res.infra_container_sum = ObjectSerializer.serialize(data.infraContainerSum, "UsageBillableSummaryBody", "")
-
-        res.infra_host_sum = ObjectSerializer.serialize(data.infraHostSum, "UsageBillableSummaryBody", "")
-
-        res.infra_host_top99p = ObjectSerializer.serialize(data.infraHostTop99p, "UsageBillableSummaryBody", "")
-
-        res.iot_top99p = ObjectSerializer.serialize(data.iotTop99p, "UsageBillableSummaryBody", "")
-
-        res.lambda_function_average = ObjectSerializer.serialize(data.lambdaFunctionAverage, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_15day_sum = ObjectSerializer.serialize(data.logsIndexed15daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_180day_sum = ObjectSerializer.serialize(data.logsIndexed180daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_30day_sum = ObjectSerializer.serialize(data.logsIndexed30daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_3day_sum = ObjectSerializer.serialize(data.logsIndexed3daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_45day_sum = ObjectSerializer.serialize(data.logsIndexed45daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_60day_sum = ObjectSerializer.serialize(data.logsIndexed60daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_7day_sum = ObjectSerializer.serialize(data.logsIndexed7daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_90day_sum = ObjectSerializer.serialize(data.logsIndexed90daySum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_custom_retention_sum = ObjectSerializer.serialize(data.logsIndexedCustomRetentionSum, "UsageBillableSummaryBody", "")
-
-        res.logs_indexed_sum = ObjectSerializer.serialize(data.logsIndexedSum, "UsageBillableSummaryBody", "")
-
-        res.logs_ingested_sum = ObjectSerializer.serialize(data.logsIngestedSum, "UsageBillableSummaryBody", "")
-
-        res.network_device_top99p = ObjectSerializer.serialize(data.networkDeviceTop99p, "UsageBillableSummaryBody", "")
-
-        res.npm_flow_sum = ObjectSerializer.serialize(data.npmFlowSum, "UsageBillableSummaryBody", "")
-
-        res.npm_host_sum = ObjectSerializer.serialize(data.npmHostSum, "UsageBillableSummaryBody", "")
-
-        res.npm_host_top99p = ObjectSerializer.serialize(data.npmHostTop99p, "UsageBillableSummaryBody", "")
-
-        res.prof_container_sum = ObjectSerializer.serialize(data.profContainerSum, "UsageBillableSummaryBody", "")
-
-        res.prof_host_top99p = ObjectSerializer.serialize(data.profHostTop99p, "UsageBillableSummaryBody", "")
-
-        res.rum_sum = ObjectSerializer.serialize(data.rumSum, "UsageBillableSummaryBody", "")
-
-        res.serverless_invocation_sum = ObjectSerializer.serialize(data.serverlessInvocationSum, "UsageBillableSummaryBody", "")
-
-        res.siem_sum = ObjectSerializer.serialize(data.siemSum, "UsageBillableSummaryBody", "")
-
-        res.synthetics_api_tests_sum = ObjectSerializer.serialize(data.syntheticsApiTestsSum, "UsageBillableSummaryBody", "")
-
-        res.synthetics_browser_checks_sum = ObjectSerializer.serialize(data.syntheticsBrowserChecksSum, "UsageBillableSummaryBody", "")
-
-        res.timeseries_average = ObjectSerializer.serialize(data.timeseriesAverage, "UsageBillableSummaryBody", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+    res.apm_host_sum = ObjectSerializer.serialize(
+      data.apmHostSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.apm_host_top99p = ObjectSerializer.serialize(
+      data.apmHostTop99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.apm_trace_search_sum = ObjectSerializer.serialize(
+      data.apmTraceSearchSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.fargate_container_average = ObjectSerializer.serialize(
+      data.fargateContainerAverage,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.infra_container_sum = ObjectSerializer.serialize(
+      data.infraContainerSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.infra_host_sum = ObjectSerializer.serialize(
+      data.infraHostSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.infra_host_top99p = ObjectSerializer.serialize(
+      data.infraHostTop99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.iot_top99p = ObjectSerializer.serialize(
+      data.iotTop99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.lambda_function_average = ObjectSerializer.serialize(
+      data.lambdaFunctionAverage,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_15day_sum = ObjectSerializer.serialize(
+      data.logsIndexed15daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_180day_sum = ObjectSerializer.serialize(
+      data.logsIndexed180daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_30day_sum = ObjectSerializer.serialize(
+      data.logsIndexed30daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_3day_sum = ObjectSerializer.serialize(
+      data.logsIndexed3daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_45day_sum = ObjectSerializer.serialize(
+      data.logsIndexed45daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_60day_sum = ObjectSerializer.serialize(
+      data.logsIndexed60daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_7day_sum = ObjectSerializer.serialize(
+      data.logsIndexed7daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_90day_sum = ObjectSerializer.serialize(
+      data.logsIndexed90daySum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_custom_retention_sum = ObjectSerializer.serialize(
+      data.logsIndexedCustomRetentionSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_indexed_sum = ObjectSerializer.serialize(
+      data.logsIndexedSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.logs_ingested_sum = ObjectSerializer.serialize(
+      data.logsIngestedSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.network_device_top99p = ObjectSerializer.serialize(
+      data.networkDeviceTop99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.npm_flow_sum = ObjectSerializer.serialize(
+      data.npmFlowSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.npm_host_sum = ObjectSerializer.serialize(
+      data.npmHostSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.npm_host_top99p = ObjectSerializer.serialize(
+      data.npmHostTop99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.prof_container_sum = ObjectSerializer.serialize(
+      data.profContainerSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.prof_host_top99p = ObjectSerializer.serialize(
+      data.profHostTop99p,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.rum_sum = ObjectSerializer.serialize(
+      data.rumSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.serverless_invocation_sum = ObjectSerializer.serialize(
+      data.serverlessInvocationSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.siem_sum = ObjectSerializer.serialize(
+      data.siemSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.synthetics_api_tests_sum = ObjectSerializer.serialize(
+      data.syntheticsApiTestsSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.synthetics_browser_checks_sum = ObjectSerializer.serialize(
+      data.syntheticsBrowserChecksSum,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    res.timeseries_average = ObjectSerializer.serialize(
+      data.timeseriesAverage,
+      "UsageBillableSummaryBody",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,64 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { UserInvitationData } from './UserInvitationData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UserInvitationData } from "./UserInvitationData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object to invite users to join the organization.
-*/
+ * Object to invite users to join the organization.
+ */
 
 export class UserInvitationsRequest {
-    /**
-    * List of user invitations.
-    */
-    'data': Array<UserInvitationData>;
+  /**
+   * List of user invitations.
+   */
+  "data": Array<UserInvitationData>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<UserInvitationData>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<UserInvitationData>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserInvitationsRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserInvitationsRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserInvitationsRequest {
+    const res = new UserInvitationsRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'UserInvitationsRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<UserInvitationData>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UserInvitationsRequest {
-      let res = new UserInvitationsRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'UserInvitationsRequest' object");
+  static serialize(data: UserInvitationsRequest): { [key: string]: any } {
+    const attributeTypes = UserInvitationsRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "Array<UserInvitationData>", "")
-
-
-      return res;
     }
-
-    static serialize(data: UserInvitationsRequest): {[key: string]: any} {
-        let attributeTypes = UserInvitationsRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'UserInvitationsRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<UserInvitationData>", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'UserInvitationsRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<UserInvitationData>",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

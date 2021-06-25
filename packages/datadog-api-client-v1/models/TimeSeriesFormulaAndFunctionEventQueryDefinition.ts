@@ -8,77 +8,77 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventsDataSource } from './FormulaAndFunctionEventsDataSource';
-import { TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute } from './TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute';
-import { TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch } from './TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch';
-import { TimeSeriesFormulaAndFunctionEventQueryGroupBy } from './TimeSeriesFormulaAndFunctionEventQueryGroupBy';
-import { HttpFile } from '../http/http';
+import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
+import { TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute } from "./TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute";
+import { TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch } from "./TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch";
+import { TimeSeriesFormulaAndFunctionEventQueryGroupBy } from "./TimeSeriesFormulaAndFunctionEventQueryGroupBy";
 
-/**
-* A timeseries formula and functions events query.
-*/
 export class TimeSeriesFormulaAndFunctionEventQueryDefinition {
-    'compute': TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute;
-    'dataSource': FormulaAndFunctionEventsDataSource;
-    /**
-    * Group by options.
-    */
-    'groupBy'?: Array<TimeSeriesFormulaAndFunctionEventQueryGroupBy>;
-    /**
-    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-    */
-    'indexes'?: Array<string>;
-    /**
-    * Name of the query for use in formulas.
-    */
-    'name'?: string;
-    'search'?: TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch;
+  "compute": TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute;
+  "dataSource": FormulaAndFunctionEventsDataSource;
+  /**
+   * Group by options.
+   */
+  "groupBy"?: Array<TimeSeriesFormulaAndFunctionEventQueryGroupBy>;
+  /**
+   * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
+   */
+  "indexes"?: Array<string>;
+  /**
+   * Name of the query for use in formulas.
+   */
+  "name"?: string;
+  "search"?: TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "compute",
-            "baseName": "compute",
-            "type": "TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute",
-            "format": ""
-        },
-        {
-            "name": "dataSource",
-            "baseName": "data_source",
-            "type": "FormulaAndFunctionEventsDataSource",
-            "format": ""
-        },
-        {
-            "name": "groupBy",
-            "baseName": "group_by",
-            "type": "Array<TimeSeriesFormulaAndFunctionEventQueryGroupBy>",
-            "format": ""
-        },
-        {
-            "name": "indexes",
-            "baseName": "indexes",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "search",
-            "baseName": "search",
-            "type": "TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: "compute",
+      baseName: "compute",
+      type: "TimeSeriesFormulaAndFunctionEventQueryDefinitionCompute",
+      format: "",
+    },
+    {
+      name: "dataSource",
+      baseName: "data_source",
+      type: "FormulaAndFunctionEventsDataSource",
+      format: "",
+    },
+    {
+      name: "groupBy",
+      baseName: "group_by",
+      type: "Array<TimeSeriesFormulaAndFunctionEventQueryGroupBy>",
+      format: "",
+    },
+    {
+      name: "indexes",
+      baseName: "indexes",
+      type: "Array<string>",
+      format: "",
+    },
+    {
+      name: "name",
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    {
+      name: "search",
+      baseName: "search",
+      type: "TimeSeriesFormulaAndFunctionEventQueryDefinitionSearch",
+      format: "",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return TimeSeriesFormulaAndFunctionEventQueryDefinition.attributeTypeMap;
-    }
-    
-    public constructor() {
-    }
+  static getAttributeTypeMap() {
+    return TimeSeriesFormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+  }
+
+  public constructor() {}
 }
-

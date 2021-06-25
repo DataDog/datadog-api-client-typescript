@@ -8,105 +8,138 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateRequestPage } from './LogsAggregateRequestPage';
-import { LogsCompute } from './LogsCompute';
-import { LogsGroupBy } from './LogsGroupBy';
-import { LogsQueryFilter } from './LogsQueryFilter';
-import { LogsQueryOptions } from './LogsQueryOptions';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsAggregateRequestPage } from "./LogsAggregateRequestPage";
+import { LogsCompute } from "./LogsCompute";
+import { LogsGroupBy } from "./LogsGroupBy";
+import { LogsQueryFilter } from "./LogsQueryFilter";
+import { LogsQueryOptions } from "./LogsQueryOptions";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The object sent with the request to retrieve a list of logs from your organization.
-*/
+ * The object sent with the request to retrieve a list of logs from your organization.
+ */
 
 export class LogsAggregateRequest {
-    /**
-    * The list of metrics or timeseries to compute for the retrieved buckets.
-    */
-    'compute'?: Array<LogsCompute>;
-    'filter'?: LogsQueryFilter;
-    /**
-    * The rules for the group by
-    */
-    'groupBy'?: Array<LogsGroupBy>;
-    'options'?: LogsQueryOptions;
-    'page'?: LogsAggregateRequestPage;
+  /**
+   * The list of metrics or timeseries to compute for the retrieved buckets.
+   */
+  "compute"?: Array<LogsCompute>;
+  "filter"?: LogsQueryFilter;
+  /**
+   * The rules for the group by
+   */
+  "groupBy"?: Array<LogsGroupBy>;
+  "options"?: LogsQueryOptions;
+  "page"?: LogsAggregateRequestPage;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "compute": {
-            "baseName": "compute",
-            "type": "Array<LogsCompute>",
-            "format": ""
-        },
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsQueryFilter",
-            "format": ""
-        },
-        "groupBy": {
-            "baseName": "group_by",
-            "type": "Array<LogsGroupBy>",
-            "format": ""
-        },
-        "options": {
-            "baseName": "options",
-            "type": "LogsQueryOptions",
-            "format": ""
-        },
-        "page": {
-            "baseName": "page",
-            "type": "LogsAggregateRequestPage",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    compute: {
+      baseName: "compute",
+      type: "Array<LogsCompute>",
+      format: "",
+    },
+    filter: {
+      baseName: "filter",
+      type: "LogsQueryFilter",
+      format: "",
+    },
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<LogsGroupBy>",
+      format: "",
+    },
+    options: {
+      baseName: "options",
+      type: "LogsQueryOptions",
+      format: "",
+    },
+    page: {
+      baseName: "page",
+      type: "LogsAggregateRequestPage",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAggregateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAggregateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsAggregateRequest {
+    const res = new LogsAggregateRequest();
+
+    res.compute = ObjectSerializer.deserialize(
+      data.compute,
+      "Array<LogsCompute>",
+      ""
+    );
+
+    res.filter = ObjectSerializer.deserialize(
+      data.filter,
+      "LogsQueryFilter",
+      ""
+    );
+
+    res.groupBy = ObjectSerializer.deserialize(
+      data.group_by,
+      "Array<LogsGroupBy>",
+      ""
+    );
+
+    res.options = ObjectSerializer.deserialize(
+      data.options,
+      "LogsQueryOptions",
+      ""
+    );
+
+    res.page = ObjectSerializer.deserialize(
+      data.page,
+      "LogsAggregateRequestPage",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsAggregateRequest): { [key: string]: any } {
+    const attributeTypes = LogsAggregateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.compute = ObjectSerializer.serialize(
+      data.compute,
+      "Array<LogsCompute>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsAggregateRequest {
-      let res = new LogsAggregateRequest();
+    res.filter = ObjectSerializer.serialize(data.filter, "LogsQueryFilter", "");
 
-      res.compute = ObjectSerializer.deserialize(data.compute, "Array<LogsCompute>", "")
+    res.group_by = ObjectSerializer.serialize(
+      data.groupBy,
+      "Array<LogsGroupBy>",
+      ""
+    );
 
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsQueryFilter", "")
+    res.options = ObjectSerializer.serialize(
+      data.options,
+      "LogsQueryOptions",
+      ""
+    );
 
-      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<LogsGroupBy>", "")
+    res.page = ObjectSerializer.serialize(
+      data.page,
+      "LogsAggregateRequestPage",
+      ""
+    );
 
-      res.options = ObjectSerializer.deserialize(data.options, "LogsQueryOptions", "")
+    return res;
+  }
 
-      res.page = ObjectSerializer.deserialize(data.page, "LogsAggregateRequestPage", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAggregateRequest): {[key: string]: any} {
-        let attributeTypes = LogsAggregateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.compute = ObjectSerializer.serialize(data.compute, "Array<LogsCompute>", "")
-
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsQueryFilter", "")
-
-        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<LogsGroupBy>", "")
-
-        res.options = ObjectSerializer.serialize(data.options, "LogsQueryOptions", "")
-
-        res.page = ObjectSerializer.serialize(data.page, "LogsAggregateRequestPage", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

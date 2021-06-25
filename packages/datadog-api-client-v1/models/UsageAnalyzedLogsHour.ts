@@ -8,70 +8,75 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The number of analyzed logs for each hour for a given organization.
-*/
+ * The number of analyzed logs for each hour for a given organization.
+ */
 
 export class UsageAnalyzedLogsHour {
-    /**
-    * Contains the number of analyzed logs.
-    */
-    'analyzedLogs'?: number;
-    /**
-    * The hour for the usage.
-    */
-    'hour'?: Date;
+  /**
+   * Contains the number of analyzed logs.
+   */
+  "analyzedLogs"?: number;
+  /**
+   * The hour for the usage.
+   */
+  "hour"?: Date;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "analyzedLogs": {
-            "baseName": "analyzed_logs",
-            "type": "number",
-            "format": "int64"
-        },
-        "hour": {
-            "baseName": "hour",
-            "type": "Date",
-            "format": "date-time"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    analyzedLogs: {
+      baseName: "analyzed_logs",
+      type: "number",
+      format: "int64",
+    },
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageAnalyzedLogsHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageAnalyzedLogsHour.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageAnalyzedLogsHour {
+    const res = new UsageAnalyzedLogsHour();
+
+    res.analyzedLogs = ObjectSerializer.deserialize(
+      data.analyzed_logs,
+      "number",
+      "int64"
+    );
+
+    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
+
+    return res;
+  }
+
+  static serialize(data: UsageAnalyzedLogsHour): { [key: string]: any } {
+    const attributeTypes = UsageAnalyzedLogsHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.analyzed_logs = ObjectSerializer.serialize(
+      data.analyzedLogs,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageAnalyzedLogsHour {
-      let res = new UsageAnalyzedLogsHour();
+    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 
-      res.analyzedLogs = ObjectSerializer.deserialize(data.analyzed_logs, "number", "int64")
+    return res;
+  }
 
-      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageAnalyzedLogsHour): {[key: string]: any} {
-        let attributeTypes = UsageAnalyzedLogsHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.analyzed_logs = ObjectSerializer.serialize(data.analyzedLogs, "number", "int64")
-
-        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

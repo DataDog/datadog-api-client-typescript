@@ -8,71 +8,80 @@
  * Do not edit the class manually.
  */
 
-import { DashboardTemplateVariablePresetValue } from './DashboardTemplateVariablePresetValue';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Template variables saved views.
-*/
+ * Template variables saved views.
+ */
 
 export class DashboardTemplateVariablePreset {
-    /**
-    * The name of the variable.
-    */
-    'name'?: string;
-    /**
-    * List of variables.
-    */
-    'templateVariables'?: Array<DashboardTemplateVariablePresetValue>;
+  /**
+   * The name of the variable.
+   */
+  "name"?: string;
+  /**
+   * List of variables.
+   */
+  "templateVariables"?: Array<DashboardTemplateVariablePresetValue>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "templateVariables": {
-            "baseName": "template_variables",
-            "type": "Array<DashboardTemplateVariablePresetValue>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    templateVariables: {
+      baseName: "template_variables",
+      type: "Array<DashboardTemplateVariablePresetValue>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DashboardTemplateVariablePreset.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DashboardTemplateVariablePreset.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): DashboardTemplateVariablePreset {
+    const res = new DashboardTemplateVariablePreset();
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.templateVariables = ObjectSerializer.deserialize(
+      data.template_variables,
+      "Array<DashboardTemplateVariablePresetValue>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: DashboardTemplateVariablePreset
+  ): { [key: string]: any } {
+    const attributeTypes = DashboardTemplateVariablePreset.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): DashboardTemplateVariablePreset {
-      let res = new DashboardTemplateVariablePreset();
+    res.template_variables = ObjectSerializer.serialize(
+      data.templateVariables,
+      "Array<DashboardTemplateVariablePresetValue>",
+      ""
+    );
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    return res;
+  }
 
-      res.templateVariables = ObjectSerializer.deserialize(data.template_variables, "Array<DashboardTemplateVariablePresetValue>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: DashboardTemplateVariablePreset): {[key: string]: any} {
-        let attributeTypes = DashboardTemplateVariablePreset.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.template_variables = ObjectSerializer.serialize(data.templateVariables, "Array<DashboardTemplateVariablePresetValue>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

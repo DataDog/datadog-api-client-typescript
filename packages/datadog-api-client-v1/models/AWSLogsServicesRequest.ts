@@ -8,82 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A list of current AWS services for which Datadog offers automatic log collection.
-*/
+ * A list of current AWS services for which Datadog offers automatic log collection.
+ */
 
 export class AWSLogsServicesRequest {
-    /**
-    * Your AWS Account ID without dashes.
-    */
-    'accountId': string;
-    /**
-    * Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
-    */
-    'services': Array<string>;
+  /**
+   * Your AWS Account ID without dashes.
+   */
+  "accountId": string;
+  /**
+   * Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
+   */
+  "services": Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "accountId": {
-            "baseName": "account_id",
-            "type": "string",
-            "format": ""
-        },
-        "services": {
-            "baseName": "services",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+      format: "",
+    },
+    services: {
+      baseName: "services",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AWSLogsServicesRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AWSLogsServicesRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): AWSLogsServicesRequest {
+    const res = new AWSLogsServicesRequest();
+
+    if (data.account_id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'account_id' on 'AWSLogsServicesRequest' object"
+      );
     }
+    res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "");
 
-    static deserialize(data: {[key: string]: any}): AWSLogsServicesRequest {
-      let res = new AWSLogsServicesRequest();
+    if (data.services === undefined) {
+      throw new TypeError(
+        "missing required attribute 'services' on 'AWSLogsServicesRequest' object"
+      );
+    }
+    res.services = ObjectSerializer.deserialize(
+      data.services,
+      "Array<string>",
+      ""
+    );
 
-      if (data.account_id === undefined) {
-          throw new TypeError("missing required attribute 'account_id' on 'AWSLogsServicesRequest' object");
+    return res;
+  }
+
+  static serialize(data: AWSLogsServicesRequest): { [key: string]: any } {
+    const attributeTypes = AWSLogsServicesRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "")
-
-      if (data.services === undefined) {
-          throw new TypeError("missing required attribute 'services' on 'AWSLogsServicesRequest' object");
-      }
-      res.services = ObjectSerializer.deserialize(data.services, "Array<string>", "")
-
-
-      return res;
     }
-
-    static serialize(data: AWSLogsServicesRequest): {[key: string]: any} {
-        let attributeTypes = AWSLogsServicesRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.accountId === undefined) {
-            throw new TypeError("missing required attribute 'account_id' on 'AWSLogsServicesRequest' object");
-        }
-        res.account_id = ObjectSerializer.serialize(data.accountId, "string", "")
-
-        if (data.services === undefined) {
-            throw new TypeError("missing required attribute 'services' on 'AWSLogsServicesRequest' object");
-        }
-        res.services = ObjectSerializer.serialize(data.services, "Array<string>", "")
-
-        return res
+    if (data.accountId === undefined) {
+      throw new TypeError(
+        "missing required attribute 'account_id' on 'AWSLogsServicesRequest' object"
+      );
     }
-    
-    public constructor() {
+    res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
+
+    if (data.services === undefined) {
+      throw new TypeError(
+        "missing required attribute 'services' on 'AWSLogsServicesRequest' object"
+      );
     }
+    res.services = ObjectSerializer.serialize(
+      data.services,
+      "Array<string>",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

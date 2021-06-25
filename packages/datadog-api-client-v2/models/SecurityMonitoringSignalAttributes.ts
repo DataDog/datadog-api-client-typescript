@@ -8,96 +8,113 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The object containing all signal attributes and their associated values.
-*/
+ * The object containing all signal attributes and their associated values.
+ */
 
 export class SecurityMonitoringSignalAttributes {
-    /**
-    * A JSON object of attributes in the security signal.
-    */
-    'attributes'?: { [key: string]: any; };
-    /**
-    * The message in the security signal defined by the rule that generated the signal.
-    */
-    'message'?: string;
-    /**
-    * An array of tags associated with the security signal.
-    */
-    'tags'?: Array<any>;
-    /**
-    * The timestamp of the security signal.
-    */
-    'timestamp'?: Date;
+  /**
+   * A JSON object of attributes in the security signal.
+   */
+  "attributes"?: { [key: string]: any };
+  /**
+   * The message in the security signal defined by the rule that generated the signal.
+   */
+  "message"?: string;
+  /**
+   * An array of tags associated with the security signal.
+   */
+  "tags"?: Array<any>;
+  /**
+   * The timestamp of the security signal.
+   */
+  "timestamp"?: Date;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<any>",
-            "format": "string"
-        },
-        "timestamp": {
-            "baseName": "timestamp",
-            "type": "Date",
-            "format": "date-time"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: any; }",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<any>",
+      format: "string",
+    },
+    timestamp: {
+      baseName: "timestamp",
+      type: "Date",
+      format: "date-time",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringSignalAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringSignalAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringSignalAttributes {
+    const res = new SecurityMonitoringSignalAttributes();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "{ [key: string]: any; }",
+      ""
+    );
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<any>", "string");
+
+    res.timestamp = ObjectSerializer.deserialize(
+      data.timestamp,
+      "Date",
+      "date-time"
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringSignalAttributes
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringSignalAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "{ [key: string]: any; }",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalAttributes {
-      let res = new SecurityMonitoringSignalAttributes();
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "{ [key: string]: any; }", "")
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<any>", "string");
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    res.timestamp = ObjectSerializer.serialize(
+      data.timestamp,
+      "Date",
+      "date-time"
+    );
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<any>", "string")
+    return res;
+  }
 
-      res.timestamp = ObjectSerializer.deserialize(data.timestamp, "Date", "date-time")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityMonitoringSignalAttributes): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringSignalAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "{ [key: string]: any; }", "")
-
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<any>", "string")
-
-        res.timestamp = ObjectSerializer.serialize(data.timestamp, "Date", "date-time")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

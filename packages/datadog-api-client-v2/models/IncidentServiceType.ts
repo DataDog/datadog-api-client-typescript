@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Incident service resource type.
-*/
-
-export type IncidentServiceType = typeof SERVICES ;
-export const SERVICES = 'services';
-
-
+export type IncidentServiceType = typeof SERVICES;
+export const SERVICES = "services";

@@ -8,85 +8,94 @@
  * Do not edit the class manually.
  */
 
-import { WidgetDefinition } from './WidgetDefinition';
-import { WidgetLayout } from './WidgetLayout';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { WidgetDefinition } from "./WidgetDefinition";
+import { WidgetLayout } from "./WidgetLayout";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Information about widget.  **Note**: The `layout` property is required for widgets in dashboards with `free` `layout_type`.       For the **new dashboard layout**, the `layout` property depends on the `reflow_type` of the dashboard.       - If `reflow_type` is `fixed`, `layout` is required.       - If `reflow_type` is `auto`, `layout` should not be set.
-*/
+ * Information about widget.  **Note**: The `layout` property is required for widgets in dashboards with `free` `layout_type`.       For the **new dashboard layout**, the `layout` property depends on the `reflow_type` of the dashboard.       - If `reflow_type` is `fixed`, `layout` is required.       - If `reflow_type` is `auto`, `layout` should not be set.
+ */
 
 export class Widget {
-    'definition': WidgetDefinition;
-    /**
-    * ID of the widget.
-    */
-    'id'?: number;
-    'layout'?: WidgetLayout;
+  "definition": WidgetDefinition;
+  /**
+   * ID of the widget.
+   */
+  "id"?: number;
+  "layout"?: WidgetLayout;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "definition": {
-            "baseName": "definition",
-            "type": "WidgetDefinition",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "number",
-            "format": "int64"
-        },
-        "layout": {
-            "baseName": "layout",
-            "type": "WidgetLayout",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    definition: {
+      baseName: "definition",
+      type: "WidgetDefinition",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
+    },
+    layout: {
+      baseName: "layout",
+      type: "WidgetLayout",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return Widget.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return Widget.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): Widget {
+    const res = new Widget();
+
+    if (data.definition === undefined) {
+      throw new TypeError(
+        "missing required attribute 'definition' on 'Widget' object"
+      );
     }
+    res.definition = ObjectSerializer.deserialize(
+      data.definition,
+      "WidgetDefinition",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): Widget {
-      let res = new Widget();
+    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
 
-      if (data.definition === undefined) {
-          throw new TypeError("missing required attribute 'definition' on 'Widget' object");
+    res.layout = ObjectSerializer.deserialize(data.layout, "WidgetLayout", "");
+
+    return res;
+  }
+
+  static serialize(data: Widget): { [key: string]: any } {
+    const attributeTypes = Widget.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.definition = ObjectSerializer.deserialize(data.definition, "WidgetDefinition", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "number", "int64")
-
-      res.layout = ObjectSerializer.deserialize(data.layout, "WidgetLayout", "")
-
-
-      return res;
     }
-
-    static serialize(data: Widget): {[key: string]: any} {
-        let attributeTypes = Widget.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.definition === undefined) {
-            throw new TypeError("missing required attribute 'definition' on 'Widget' object");
-        }
-        res.definition = ObjectSerializer.serialize(data.definition, "WidgetDefinition", "")
-
-        res.id = ObjectSerializer.serialize(data.id, "number", "int64")
-
-        res.layout = ObjectSerializer.serialize(data.layout, "WidgetLayout", "")
-
-        return res
+    if (data.definition === undefined) {
+      throw new TypeError(
+        "missing required attribute 'definition' on 'Widget' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.definition = ObjectSerializer.serialize(
+      data.definition,
+      "WidgetDefinition",
+      ""
+    );
+
+    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
+
+    res.layout = ObjectSerializer.serialize(data.layout, "WidgetLayout", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

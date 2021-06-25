@@ -8,61 +8,68 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from './RelationshipToUser';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToUser } from "./RelationshipToUser";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Relationships data for user invitation.
-*/
+ * Relationships data for user invitation.
+ */
 
 export class UserInvitationRelationships {
-    'user': RelationshipToUser;
+  "user": RelationshipToUser;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "user": {
-            "baseName": "user",
-            "type": "RelationshipToUser",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    user: {
+      baseName: "user",
+      type: "RelationshipToUser",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserInvitationRelationships.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserInvitationRelationships.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UserInvitationRelationships {
+    const res = new UserInvitationRelationships();
+
+    if (data.user === undefined) {
+      throw new TypeError(
+        "missing required attribute 'user' on 'UserInvitationRelationships' object"
+      );
     }
+    res.user = ObjectSerializer.deserialize(
+      data.user,
+      "RelationshipToUser",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UserInvitationRelationships {
-      let res = new UserInvitationRelationships();
+    return res;
+  }
 
-      if (data.user === undefined) {
-          throw new TypeError("missing required attribute 'user' on 'UserInvitationRelationships' object");
+  static serialize(data: UserInvitationRelationships): { [key: string]: any } {
+    const attributeTypes = UserInvitationRelationships.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.user = ObjectSerializer.deserialize(data.user, "RelationshipToUser", "")
-
-
-      return res;
     }
-
-    static serialize(data: UserInvitationRelationships): {[key: string]: any} {
-        let attributeTypes = UserInvitationRelationships.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.user === undefined) {
-            throw new TypeError("missing required attribute 'user' on 'UserInvitationRelationships' object");
-        }
-        res.user = ObjectSerializer.serialize(data.user, "RelationshipToUser", "")
-
-        return res
+    if (data.user === undefined) {
+      throw new TypeError(
+        "missing required attribute 'user' on 'UserInvitationRelationships' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.user = ObjectSerializer.serialize(data.user, "RelationshipToUser", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

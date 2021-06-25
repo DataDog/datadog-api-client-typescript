@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the GCS archive destination.
-*/
-
-export type LogsArchiveDestinationGCSType = typeof GCS ;
-export const GCS = 'gcs';
-
-
+export type LogsArchiveDestinationGCSType = typeof GCS;
+export const GCS = "gcs";

@@ -8,14 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { IncidentTimelineCellMarkdownContentType } from './IncidentTimelineCellMarkdownContentType';
-import { IncidentTimelineCellMarkdownCreateAttributes } from './IncidentTimelineCellMarkdownCreateAttributes';
-import { IncidentTimelineCellMarkdownCreateAttributesContent } from './IncidentTimelineCellMarkdownCreateAttributesContent';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The timeline cell's attributes for a create request.
-*/
+import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 
 export type IncidentTimelineCellCreateAttributes = IncidentTimelineCellMarkdownCreateAttributes;

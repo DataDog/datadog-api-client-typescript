@@ -8,109 +8,114 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Y Axis controls for the distribution widget.
-*/
+ * Y Axis controls for the distribution widget.
+ */
 
 export class DistributionWidgetYAxis {
-    /**
-    * True includes zero.
-    */
-    'includeZero'?: boolean;
-    /**
-    * The label of the axis to display on the graph.
-    */
-    'label'?: string;
-    /**
-    * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
-    */
-    'max'?: string;
-    /**
-    * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
-    */
-    'min'?: string;
-    /**
-    * Specifies the scale type. Possible values are `linear` or `log`.
-    */
-    'scale'?: string;
+  /**
+   * True includes zero.
+   */
+  "includeZero"?: boolean;
+  /**
+   * The label of the axis to display on the graph.
+   */
+  "label"?: string;
+  /**
+   * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
+   */
+  "max"?: string;
+  /**
+   * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
+   */
+  "min"?: string;
+  /**
+   * Specifies the scale type. Possible values are `linear` or `log`.
+   */
+  "scale"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "includeZero": {
-            "baseName": "include_zero",
-            "type": "boolean",
-            "format": ""
-        },
-        "label": {
-            "baseName": "label",
-            "type": "string",
-            "format": ""
-        },
-        "max": {
-            "baseName": "max",
-            "type": "string",
-            "format": ""
-        },
-        "min": {
-            "baseName": "min",
-            "type": "string",
-            "format": ""
-        },
-        "scale": {
-            "baseName": "scale",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    includeZero: {
+      baseName: "include_zero",
+      type: "boolean",
+      format: "",
+    },
+    label: {
+      baseName: "label",
+      type: "string",
+      format: "",
+    },
+    max: {
+      baseName: "max",
+      type: "string",
+      format: "",
+    },
+    min: {
+      baseName: "min",
+      type: "string",
+      format: "",
+    },
+    scale: {
+      baseName: "scale",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DistributionWidgetYAxis.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DistributionWidgetYAxis.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): DistributionWidgetYAxis {
+    const res = new DistributionWidgetYAxis();
+
+    res.includeZero = ObjectSerializer.deserialize(
+      data.include_zero,
+      "boolean",
+      ""
+    );
+
+    res.label = ObjectSerializer.deserialize(data.label, "string", "");
+
+    res.max = ObjectSerializer.deserialize(data.max, "string", "");
+
+    res.min = ObjectSerializer.deserialize(data.min, "string", "");
+
+    res.scale = ObjectSerializer.deserialize(data.scale, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: DistributionWidgetYAxis): { [key: string]: any } {
+    const attributeTypes = DistributionWidgetYAxis.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.include_zero = ObjectSerializer.serialize(
+      data.includeZero,
+      "boolean",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): DistributionWidgetYAxis {
-      let res = new DistributionWidgetYAxis();
+    res.label = ObjectSerializer.serialize(data.label, "string", "");
 
-      res.includeZero = ObjectSerializer.deserialize(data.include_zero, "boolean", "")
+    res.max = ObjectSerializer.serialize(data.max, "string", "");
 
-      res.label = ObjectSerializer.deserialize(data.label, "string", "")
+    res.min = ObjectSerializer.serialize(data.min, "string", "");
 
-      res.max = ObjectSerializer.deserialize(data.max, "string", "")
+    res.scale = ObjectSerializer.serialize(data.scale, "string", "");
 
-      res.min = ObjectSerializer.deserialize(data.min, "string", "")
+    return res;
+  }
 
-      res.scale = ObjectSerializer.deserialize(data.scale, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: DistributionWidgetYAxis): {[key: string]: any} {
-        let attributeTypes = DistributionWidgetYAxis.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.include_zero = ObjectSerializer.serialize(data.includeZero, "boolean", "")
-
-        res.label = ObjectSerializer.serialize(data.label, "string", "")
-
-        res.max = ObjectSerializer.serialize(data.max, "string", "")
-
-        res.min = ObjectSerializer.serialize(data.min, "string", "")
-
-        res.scale = ObjectSerializer.serialize(data.scale, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

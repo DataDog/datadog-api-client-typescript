@@ -8,58 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { DashboardListItemRequest } from './DashboardListItemRequest';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { DashboardListItemRequest } from "./DashboardListItemRequest";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Request containing a list of dashboards to delete.
-*/
+ * Request containing a list of dashboards to delete.
+ */
 
 export class DashboardListDeleteItemsRequest {
-    /**
-    * List of dashboards to delete from the dashboard list.
-    */
-    'dashboards'?: Array<DashboardListItemRequest>;
+  /**
+   * List of dashboards to delete from the dashboard list.
+   */
+  "dashboards"?: Array<DashboardListItemRequest>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "dashboards": {
-            "baseName": "dashboards",
-            "type": "Array<DashboardListItemRequest>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    dashboards: {
+      baseName: "dashboards",
+      type: "Array<DashboardListItemRequest>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return DashboardListDeleteItemsRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return DashboardListDeleteItemsRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): DashboardListDeleteItemsRequest {
+    const res = new DashboardListDeleteItemsRequest();
+
+    res.dashboards = ObjectSerializer.deserialize(
+      data.dashboards,
+      "Array<DashboardListItemRequest>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: DashboardListDeleteItemsRequest
+  ): { [key: string]: any } {
+    const attributeTypes = DashboardListDeleteItemsRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.dashboards = ObjectSerializer.serialize(
+      data.dashboards,
+      "Array<DashboardListItemRequest>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): DashboardListDeleteItemsRequest {
-      let res = new DashboardListDeleteItemsRequest();
+    return res;
+  }
 
-      res.dashboards = ObjectSerializer.deserialize(data.dashboards, "Array<DashboardListItemRequest>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: DashboardListDeleteItemsRequest): {[key: string]: any} {
-        let attributeTypes = DashboardListDeleteItemsRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.dashboards = ObjectSerializer.serialize(data.dashboards, "Array<DashboardListItemRequest>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

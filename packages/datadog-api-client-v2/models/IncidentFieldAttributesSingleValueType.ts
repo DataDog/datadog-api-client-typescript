@@ -8,15 +8,8 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the single value field definitions.
-*/
-
-export type IncidentFieldAttributesSingleValueType = typeof DROPDOWN | typeof TEXTBOX ;
-export const DROPDOWN = 'dropdown';
-export const TEXTBOX = 'textbox';
-
-
+export type IncidentFieldAttributesSingleValueType =
+  | typeof DROPDOWN
+  | typeof TEXTBOX;
+export const DROPDOWN = "dropdown";
+export const TEXTBOX = "textbox";

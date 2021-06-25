@@ -8,87 +8,100 @@
  * Do not edit the class manually.
  */
 
-import { LogsExclusionFilter } from './LogsExclusionFilter';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsExclusionFilter } from "./LogsExclusionFilter";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Represents the index exclusion filter object from configuration API.
-*/
+ * Represents the index exclusion filter object from configuration API.
+ */
 
 export class LogsExclusion {
-    'filter'?: LogsExclusionFilter;
-    /**
-    * Whether or not the exclusion filter is active.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Name of the index exclusion filter.
-    */
-    'name': string;
+  "filter"?: LogsExclusionFilter;
+  /**
+   * Whether or not the exclusion filter is active.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Name of the index exclusion filter.
+   */
+  "name": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsExclusionFilter",
-            "format": ""
-        },
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    filter: {
+      baseName: "filter",
+      type: "LogsExclusionFilter",
+      format: "",
+    },
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsExclusion.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsExclusion.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsExclusion {
+    const res = new LogsExclusion();
+
+    res.filter = ObjectSerializer.deserialize(
+      data.filter,
+      "LogsExclusionFilter",
+      ""
+    );
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'LogsExclusion' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsExclusion {
-      let res = new LogsExclusion();
+    return res;
+  }
 
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsExclusionFilter", "")
-
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'LogsExclusion' object");
+  static serialize(data: LogsExclusion): { [key: string]: any } {
+    const attributeTypes = LogsExclusion.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
     }
+    res.filter = ObjectSerializer.serialize(
+      data.filter,
+      "LogsExclusionFilter",
+      ""
+    );
 
-    static serialize(data: LogsExclusion): {[key: string]: any} {
-        let attributeTypes = LogsExclusion.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsExclusionFilter", "")
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
-
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'LogsExclusion' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'LogsExclusion' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

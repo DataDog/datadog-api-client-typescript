@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Optional metadata associated to the response.
-*/
+ * Optional metadata associated to the response.
+ */
 
 export class SecurityFilterMeta {
-    /**
-    * A warning message.
-    */
-    'warning'?: string;
+  /**
+   * A warning message.
+   */
+  "warning"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "warning": {
-            "baseName": "warning",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    warning: {
+      baseName: "warning",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityFilterMeta.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityFilterMeta.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SecurityFilterMeta {
+    const res = new SecurityFilterMeta();
+
+    res.warning = ObjectSerializer.deserialize(data.warning, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: SecurityFilterMeta): { [key: string]: any } {
+    const attributeTypes = SecurityFilterMeta.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.warning = ObjectSerializer.serialize(data.warning, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SecurityFilterMeta {
-      let res = new SecurityFilterMeta();
+    return res;
+  }
 
-      res.warning = ObjectSerializer.deserialize(data.warning, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityFilterMeta): {[key: string]: any} {
-        let attributeTypes = SecurityFilterMeta.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.warning = ObjectSerializer.serialize(data.warning, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

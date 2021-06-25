@@ -8,158 +8,223 @@
  * Do not edit the class manually.
  */
 
-import { LogQueryDefinition } from './LogQueryDefinition';
-import { ProcessQueryDefinition } from './ProcessQueryDefinition';
-import { WidgetAggregator } from './WidgetAggregator';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogQueryDefinition } from "./LogQueryDefinition";
+import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { WidgetAggregator } from "./WidgetAggregator";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Updated scatter plot.
-*/
+ * Updated scatter plot.
+ */
 
 export class ScatterPlotRequest {
-    'aggregator'?: WidgetAggregator;
-    'apmQuery'?: LogQueryDefinition;
-    'eventQuery'?: LogQueryDefinition;
-    'logQuery'?: LogQueryDefinition;
-    'networkQuery'?: LogQueryDefinition;
-    'processQuery'?: ProcessQueryDefinition;
-    'profileMetricsQuery'?: LogQueryDefinition;
-    /**
-    * Query definition.
-    */
-    'q'?: string;
-    'rumQuery'?: LogQueryDefinition;
-    'securityQuery'?: LogQueryDefinition;
+  "aggregator"?: WidgetAggregator;
+  "apmQuery"?: LogQueryDefinition;
+  "eventQuery"?: LogQueryDefinition;
+  "logQuery"?: LogQueryDefinition;
+  "networkQuery"?: LogQueryDefinition;
+  "processQuery"?: ProcessQueryDefinition;
+  "profileMetricsQuery"?: LogQueryDefinition;
+  /**
+   * Query definition.
+   */
+  "q"?: string;
+  "rumQuery"?: LogQueryDefinition;
+  "securityQuery"?: LogQueryDefinition;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "aggregator": {
-            "baseName": "aggregator",
-            "type": "WidgetAggregator",
-            "format": ""
-        },
-        "apmQuery": {
-            "baseName": "apm_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "eventQuery": {
-            "baseName": "event_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "logQuery": {
-            "baseName": "log_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "networkQuery": {
-            "baseName": "network_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "processQuery": {
-            "baseName": "process_query",
-            "type": "ProcessQueryDefinition",
-            "format": ""
-        },
-        "profileMetricsQuery": {
-            "baseName": "profile_metrics_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "q": {
-            "baseName": "q",
-            "type": "string",
-            "format": ""
-        },
-        "rumQuery": {
-            "baseName": "rum_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        },
-        "securityQuery": {
-            "baseName": "security_query",
-            "type": "LogQueryDefinition",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    aggregator: {
+      baseName: "aggregator",
+      type: "WidgetAggregator",
+      format: "",
+    },
+    apmQuery: {
+      baseName: "apm_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    eventQuery: {
+      baseName: "event_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    logQuery: {
+      baseName: "log_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    networkQuery: {
+      baseName: "network_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    processQuery: {
+      baseName: "process_query",
+      type: "ProcessQueryDefinition",
+      format: "",
+    },
+    profileMetricsQuery: {
+      baseName: "profile_metrics_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    q: {
+      baseName: "q",
+      type: "string",
+      format: "",
+    },
+    rumQuery: {
+      baseName: "rum_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    securityQuery: {
+      baseName: "security_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ScatterPlotRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ScatterPlotRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ScatterPlotRequest {
+    const res = new ScatterPlotRequest();
+
+    if (
+      ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)
+    ) {
+      res.aggregator = data.aggregator;
+    } else {
+      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
     }
 
-    static deserialize(data: {[key: string]: any}): ScatterPlotRequest {
-      let res = new ScatterPlotRequest();
+    res.apmQuery = ObjectSerializer.deserialize(
+      data.apm_query,
+      "LogQueryDefinition",
+      ""
+    );
 
-      if (['avg', 'last', 'max', 'min', 'sum', undefined].includes(data.aggregator)) {
-          res.aggregator = data.aggregator;
-      } else {
-          throw TypeError(`invalid enum value ${ data.aggregator } for aggregator`);
+    res.eventQuery = ObjectSerializer.deserialize(
+      data.event_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.logQuery = ObjectSerializer.deserialize(
+      data.log_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.networkQuery = ObjectSerializer.deserialize(
+      data.network_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.processQuery = ObjectSerializer.deserialize(
+      data.process_query,
+      "ProcessQueryDefinition",
+      ""
+    );
+
+    res.profileMetricsQuery = ObjectSerializer.deserialize(
+      data.profile_metrics_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.q = ObjectSerializer.deserialize(data.q, "string", "");
+
+    res.rumQuery = ObjectSerializer.deserialize(
+      data.rum_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.securityQuery = ObjectSerializer.deserialize(
+      data.security_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ScatterPlotRequest): { [key: string]: any } {
+    const attributeTypes = ScatterPlotRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-
-      res.apmQuery = ObjectSerializer.deserialize(data.apm_query, "LogQueryDefinition", "")
-
-      res.eventQuery = ObjectSerializer.deserialize(data.event_query, "LogQueryDefinition", "")
-
-      res.logQuery = ObjectSerializer.deserialize(data.log_query, "LogQueryDefinition", "")
-
-      res.networkQuery = ObjectSerializer.deserialize(data.network_query, "LogQueryDefinition", "")
-
-      res.processQuery = ObjectSerializer.deserialize(data.process_query, "ProcessQueryDefinition", "")
-
-      res.profileMetricsQuery = ObjectSerializer.deserialize(data.profile_metrics_query, "LogQueryDefinition", "")
-
-      res.q = ObjectSerializer.deserialize(data.q, "string", "")
-
-      res.rumQuery = ObjectSerializer.deserialize(data.rum_query, "LogQueryDefinition", "")
-
-      res.securityQuery = ObjectSerializer.deserialize(data.security_query, "LogQueryDefinition", "")
-
-
-      return res;
+    }
+    if (
+      ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)
+    ) {
+      res.aggregator = data.aggregator;
+    } else {
+      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
     }
 
-    static serialize(data: ScatterPlotRequest): {[key: string]: any} {
-        let attributeTypes = ScatterPlotRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (['avg', 'last', 'max', 'min', 'sum', undefined].includes(data.aggregator)) {
-            res.aggregator = data.aggregator;
-        } else {
-            throw TypeError(`invalid enum value ${ data.aggregator } for aggregator`);
-        }
+    res.apm_query = ObjectSerializer.serialize(
+      data.apmQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.apm_query = ObjectSerializer.serialize(data.apmQuery, "LogQueryDefinition", "")
+    res.event_query = ObjectSerializer.serialize(
+      data.eventQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.event_query = ObjectSerializer.serialize(data.eventQuery, "LogQueryDefinition", "")
+    res.log_query = ObjectSerializer.serialize(
+      data.logQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.log_query = ObjectSerializer.serialize(data.logQuery, "LogQueryDefinition", "")
+    res.network_query = ObjectSerializer.serialize(
+      data.networkQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.network_query = ObjectSerializer.serialize(data.networkQuery, "LogQueryDefinition", "")
+    res.process_query = ObjectSerializer.serialize(
+      data.processQuery,
+      "ProcessQueryDefinition",
+      ""
+    );
 
-        res.process_query = ObjectSerializer.serialize(data.processQuery, "ProcessQueryDefinition", "")
+    res.profile_metrics_query = ObjectSerializer.serialize(
+      data.profileMetricsQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.profile_metrics_query = ObjectSerializer.serialize(data.profileMetricsQuery, "LogQueryDefinition", "")
+    res.q = ObjectSerializer.serialize(data.q, "string", "");
 
-        res.q = ObjectSerializer.serialize(data.q, "string", "")
+    res.rum_query = ObjectSerializer.serialize(
+      data.rumQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.rum_query = ObjectSerializer.serialize(data.rumQuery, "LogQueryDefinition", "")
+    res.security_query = ObjectSerializer.serialize(
+      data.securityQuery,
+      "LogQueryDefinition",
+      ""
+    );
 
-        res.security_query = ObjectSerializer.serialize(data.securityQuery, "LogQueryDefinition", "")
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

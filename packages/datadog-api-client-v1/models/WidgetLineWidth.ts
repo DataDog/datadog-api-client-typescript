@@ -8,16 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Width of line displayed.
-*/
-
-export type WidgetLineWidth = typeof NORMAL | typeof THICK | typeof THIN ;
-export const NORMAL = 'normal';
-export const THICK = 'thick';
-export const THIN = 'thin';
-
-
+export type WidgetLineWidth = typeof NORMAL | typeof THICK | typeof THIN;
+export const NORMAL = "normal";
+export const THICK = "thick";
+export const THIN = "thin";

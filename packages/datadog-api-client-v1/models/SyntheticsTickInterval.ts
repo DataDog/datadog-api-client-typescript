@@ -8,14 +8,17 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The frequency at which to run the Synthetic test (in seconds).
-*/
-
-export type SyntheticsTickInterval = typeof THIRTY_SECONDS | typeof MINUTE | typeof FIVE_MINUTES | typeof FIFTEEN_MINUTES | typeof THIRTY_MINUTES | typeof HOUR | typeof SIX_HOURS | typeof TWELVE_HOURS | typeof DAY | typeof WEEK ;
+export type SyntheticsTickInterval =
+  | typeof THIRTY_SECONDS
+  | typeof MINUTE
+  | typeof FIVE_MINUTES
+  | typeof FIFTEEN_MINUTES
+  | typeof THIRTY_MINUTES
+  | typeof HOUR
+  | typeof SIX_HOURS
+  | typeof TWELVE_HOURS
+  | typeof DAY
+  | typeof WEEK;
 export const THIRTY_SECONDS = 30;
 export const MINUTE = 60;
 export const FIVE_MINUTES = 300;
@@ -26,5 +29,3 @@ export const SIX_HOURS = 21600;
 export const TWELVE_HOURS = 43200;
 export const DAY = 86400;
 export const WEEK = 604800;
-
-

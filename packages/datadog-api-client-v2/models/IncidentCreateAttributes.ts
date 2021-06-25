@@ -8,123 +8,160 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributes } from './IncidentFieldAttributes';
-import { IncidentTimelineCellCreateAttributes } from './IncidentTimelineCellCreateAttributes';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
+import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The incident's attributes for a create request.
-*/
+ * The incident's attributes for a create request.
+ */
 
 export class IncidentCreateAttributes {
-    /**
-    * A flag indicating whether the incident caused customer impact.
-    */
-    'customerImpacted': boolean;
-    /**
-    * A condensed view of the user-defined fields for which to create initial selections.
-    */
-    'fields'?: { [key: string]: IncidentFieldAttributes; };
-    /**
-    * An array of initial timeline cells to be placed at the beginning of the incident timeline.
-    */
-    'initialTimelineCells'?: Array<IncidentTimelineCellCreateAttributes>;
-    /**
-    * Notification handles that will be notified of the incident at creation.
-    */
-    'notificationHandles'?: Array<string>;
-    /**
-    * The title of the incident, which summarizes what happened.
-    */
-    'title': string;
+  /**
+   * A flag indicating whether the incident caused customer impact.
+   */
+  "customerImpacted": boolean;
+  /**
+   * A condensed view of the user-defined fields for which to create initial selections.
+   */
+  "fields"?: { [key: string]: IncidentFieldAttributes };
+  /**
+   * An array of initial timeline cells to be placed at the beginning of the incident timeline.
+   */
+  "initialTimelineCells"?: Array<IncidentTimelineCellCreateAttributes>;
+  /**
+   * Notification handles that will be notified of the incident at creation.
+   */
+  "notificationHandles"?: Array<string>;
+  /**
+   * The title of the incident, which summarizes what happened.
+   */
+  "title": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "customerImpacted": {
-            "baseName": "customer_impacted",
-            "type": "boolean",
-            "format": ""
-        },
-        "fields": {
-            "baseName": "fields",
-            "type": "{ [key: string]: IncidentFieldAttributes; }",
-            "format": ""
-        },
-        "initialTimelineCells": {
-            "baseName": "initial_timeline_cells",
-            "type": "Array<IncidentTimelineCellCreateAttributes>",
-            "format": ""
-        },
-        "notificationHandles": {
-            "baseName": "notification_handles",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    customerImpacted: {
+      baseName: "customer_impacted",
+      type: "boolean",
+      format: "",
+    },
+    fields: {
+      baseName: "fields",
+      type: "{ [key: string]: IncidentFieldAttributes; }",
+      format: "",
+    },
+    initialTimelineCells: {
+      baseName: "initial_timeline_cells",
+      type: "Array<IncidentTimelineCellCreateAttributes>",
+      format: "",
+    },
+    notificationHandles: {
+      baseName: "notification_handles",
+      type: "Array<string>",
+      format: "",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentCreateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentCreateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): IncidentCreateAttributes {
+    const res = new IncidentCreateAttributes();
+
+    if (data.customer_impacted === undefined) {
+      throw new TypeError(
+        "missing required attribute 'customer_impacted' on 'IncidentCreateAttributes' object"
+      );
     }
+    res.customerImpacted = ObjectSerializer.deserialize(
+      data.customer_impacted,
+      "boolean",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): IncidentCreateAttributes {
-      let res = new IncidentCreateAttributes();
+    res.fields = ObjectSerializer.deserialize(
+      data.fields,
+      "{ [key: string]: IncidentFieldAttributes; }",
+      ""
+    );
 
-      if (data.customer_impacted === undefined) {
-          throw new TypeError("missing required attribute 'customer_impacted' on 'IncidentCreateAttributes' object");
+    res.initialTimelineCells = ObjectSerializer.deserialize(
+      data.initial_timeline_cells,
+      "Array<IncidentTimelineCellCreateAttributes>",
+      ""
+    );
+
+    res.notificationHandles = ObjectSerializer.deserialize(
+      data.notification_handles,
+      "Array<string>",
+      ""
+    );
+
+    if (data.title === undefined) {
+      throw new TypeError(
+        "missing required attribute 'title' on 'IncidentCreateAttributes' object"
+      );
+    }
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: IncidentCreateAttributes): { [key: string]: any } {
+    const attributeTypes = IncidentCreateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.customerImpacted = ObjectSerializer.deserialize(data.customer_impacted, "boolean", "")
-
-      res.fields = ObjectSerializer.deserialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
-
-      res.initialTimelineCells = ObjectSerializer.deserialize(data.initial_timeline_cells, "Array<IncidentTimelineCellCreateAttributes>", "")
-
-      res.notificationHandles = ObjectSerializer.deserialize(data.notification_handles, "Array<string>", "")
-
-      if (data.title === undefined) {
-          throw new TypeError("missing required attribute 'title' on 'IncidentCreateAttributes' object");
-      }
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: IncidentCreateAttributes): {[key: string]: any} {
-        let attributeTypes = IncidentCreateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.customerImpacted === undefined) {
-            throw new TypeError("missing required attribute 'customer_impacted' on 'IncidentCreateAttributes' object");
-        }
-        res.customer_impacted = ObjectSerializer.serialize(data.customerImpacted, "boolean", "")
-
-        res.fields = ObjectSerializer.serialize(data.fields, "{ [key: string]: IncidentFieldAttributes; }", "")
-
-        res.initial_timeline_cells = ObjectSerializer.serialize(data.initialTimelineCells, "Array<IncidentTimelineCellCreateAttributes>", "")
-
-        res.notification_handles = ObjectSerializer.serialize(data.notificationHandles, "Array<string>", "")
-
-        if (data.title === undefined) {
-            throw new TypeError("missing required attribute 'title' on 'IncidentCreateAttributes' object");
-        }
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        return res
+    if (data.customerImpacted === undefined) {
+      throw new TypeError(
+        "missing required attribute 'customer_impacted' on 'IncidentCreateAttributes' object"
+      );
     }
-    
-    public constructor() {
+    res.customer_impacted = ObjectSerializer.serialize(
+      data.customerImpacted,
+      "boolean",
+      ""
+    );
+
+    res.fields = ObjectSerializer.serialize(
+      data.fields,
+      "{ [key: string]: IncidentFieldAttributes; }",
+      ""
+    );
+
+    res.initial_timeline_cells = ObjectSerializer.serialize(
+      data.initialTimelineCells,
+      "Array<IncidentTimelineCellCreateAttributes>",
+      ""
+    );
+
+    res.notification_handles = ObjectSerializer.serialize(
+      data.notificationHandles,
+      "Array<string>",
+      ""
+    );
+
+    if (data.title === undefined) {
+      throw new TypeError(
+        "missing required attribute 'title' on 'IncidentCreateAttributes' object"
+      );
     }
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the scatter plot widget.
-*/
-
-export type ScatterPlotWidgetDefinitionType = typeof SCATTERPLOT ;
-export const SCATTERPLOT = 'scatterplot';
-
-
+export type ScatterPlotWidgetDefinitionType = typeof SCATTERPLOT;
+export const SCATTERPLOT = "scatterplot";

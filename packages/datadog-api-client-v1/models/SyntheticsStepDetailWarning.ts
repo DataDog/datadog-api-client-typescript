@@ -8,88 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsWarningType } from './SyntheticsWarningType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsWarningType } from "./SyntheticsWarningType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object collecting warnings for a given step.
-*/
+ * Object collecting warnings for a given step.
+ */
 
 export class SyntheticsStepDetailWarning {
-    /**
-    * Message for the warning.
-    */
-    'message': string;
-    'type': SyntheticsWarningType;
+  /**
+   * Message for the warning.
+   */
+  "message": string;
+  "type": SyntheticsWarningType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsWarningType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsWarningType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsStepDetailWarning.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsStepDetailWarning.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsStepDetailWarning {
+    const res = new SyntheticsStepDetailWarning();
+
+    if (data.message === undefined) {
+      throw new TypeError(
+        "missing required attribute 'message' on 'SyntheticsStepDetailWarning' object"
+      );
+    }
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SyntheticsStepDetailWarning' object"
+      );
+    }
+    if (["user_locator", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsStepDetailWarning {
-      let res = new SyntheticsStepDetailWarning();
+    return res;
+  }
 
-      if (data.message === undefined) {
-          throw new TypeError("missing required attribute 'message' on 'SyntheticsStepDetailWarning' object");
+  static serialize(data: SyntheticsStepDetailWarning): { [key: string]: any } {
+    const attributeTypes = SyntheticsStepDetailWarning.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    }
+    if (data.message === undefined) {
+      throw new TypeError(
+        "missing required attribute 'message' on 'SyntheticsStepDetailWarning' object"
+      );
+    }
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'SyntheticsStepDetailWarning' object");
-      }
-      if (['user_locator', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SyntheticsStepDetailWarning' object"
+      );
+    }
+    if (["user_locator", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: SyntheticsStepDetailWarning): {[key: string]: any} {
-        let attributeTypes = SyntheticsStepDetailWarning.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.message === undefined) {
-            throw new TypeError("missing required attribute 'message' on 'SyntheticsStepDetailWarning' object");
-        }
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
+    return res;
+  }
 
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'SyntheticsStepDetailWarning' object");
-        }
-        if (['user_locator', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

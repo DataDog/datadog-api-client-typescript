@@ -8,83 +8,80 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Core Web Vitals attached to a browser test step.
-*/
+ * Core Web Vitals attached to a browser test step.
+ */
 
 export class SyntheticsCoreWebVitals {
-    /**
-    * Cumulative Layout Shift.
-    */
-    'cls'?: number;
-    /**
-    * Largest Contentful Paint in milliseconds.
-    */
-    'lcp'?: number;
-    /**
-    * URL attached to the metrics.
-    */
-    'url'?: string;
+  /**
+   * Cumulative Layout Shift.
+   */
+  "cls"?: number;
+  /**
+   * Largest Contentful Paint in milliseconds.
+   */
+  "lcp"?: number;
+  /**
+   * URL attached to the metrics.
+   */
+  "url"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cls": {
-            "baseName": "cls",
-            "type": "number",
-            "format": "int64"
-        },
-        "lcp": {
-            "baseName": "lcp",
-            "type": "number",
-            "format": "int64"
-        },
-        "url": {
-            "baseName": "url",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cls: {
+      baseName: "cls",
+      type: "number",
+      format: "int64",
+    },
+    lcp: {
+      baseName: "lcp",
+      type: "number",
+      format: "int64",
+    },
+    url: {
+      baseName: "url",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsCoreWebVitals.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsCoreWebVitals.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsCoreWebVitals {
+    const res = new SyntheticsCoreWebVitals();
+
+    res.cls = ObjectSerializer.deserialize(data.cls, "number", "int64");
+
+    res.lcp = ObjectSerializer.deserialize(data.lcp, "number", "int64");
+
+    res.url = ObjectSerializer.deserialize(data.url, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsCoreWebVitals): { [key: string]: any } {
+    const attributeTypes = SyntheticsCoreWebVitals.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.cls = ObjectSerializer.serialize(data.cls, "number", "int64");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsCoreWebVitals {
-      let res = new SyntheticsCoreWebVitals();
+    res.lcp = ObjectSerializer.serialize(data.lcp, "number", "int64");
 
-      res.cls = ObjectSerializer.deserialize(data.cls, "number", "int64")
+    res.url = ObjectSerializer.serialize(data.url, "string", "");
 
-      res.lcp = ObjectSerializer.deserialize(data.lcp, "number", "int64")
+    return res;
+  }
 
-      res.url = ObjectSerializer.deserialize(data.url, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsCoreWebVitals): {[key: string]: any} {
-        let attributeTypes = SyntheticsCoreWebVitals.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.cls = ObjectSerializer.serialize(data.cls, "number", "int64")
-
-        res.lcp = ObjectSerializer.serialize(data.lcp, "number", "int64")
-
-        res.url = ObjectSerializer.serialize(data.url, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

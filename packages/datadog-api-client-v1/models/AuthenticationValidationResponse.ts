@@ -8,57 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Represent validation endpoint responses.
-*/
+ * Represent validation endpoint responses.
+ */
 
 export class AuthenticationValidationResponse {
-    /**
-    * Return `true` if the authentication response is valid.
-    */
-    'valid'?: boolean;
+  /**
+   * Return `true` if the authentication response is valid.
+   */
+  "valid"?: boolean;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "valid": {
-            "baseName": "valid",
-            "type": "boolean",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    valid: {
+      baseName: "valid",
+      type: "boolean",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AuthenticationValidationResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AuthenticationValidationResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): AuthenticationValidationResponse {
+    const res = new AuthenticationValidationResponse();
+
+    res.valid = ObjectSerializer.deserialize(data.valid, "boolean", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: AuthenticationValidationResponse
+  ): { [key: string]: any } {
+    const attributeTypes = AuthenticationValidationResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.valid = ObjectSerializer.serialize(data.valid, "boolean", "");
 
-    static deserialize(data: {[key: string]: any}): AuthenticationValidationResponse {
-      let res = new AuthenticationValidationResponse();
+    return res;
+  }
 
-      res.valid = ObjectSerializer.deserialize(data.valid, "boolean", "")
-
-
-      return res;
-    }
-
-    static serialize(data: AuthenticationValidationResponse): {[key: string]: any} {
-        let attributeTypes = AuthenticationValidationResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.valid = ObjectSerializer.serialize(data.valid, "boolean", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

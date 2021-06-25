@@ -8,70 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Paging attributes for listing logs.
-*/
+ * Paging attributes for listing logs.
+ */
 
 export class LogsListRequestPage {
-    /**
-    * List following results with a cursor provided in the previous query.
-    */
-    'cursor'?: string;
-    /**
-    * Maximum number of logs in the response.
-    */
-    'limit'?: number;
+  /**
+   * List following results with a cursor provided in the previous query.
+   */
+  "cursor"?: string;
+  /**
+   * Maximum number of logs in the response.
+   */
+  "limit"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cursor": {
-            "baseName": "cursor",
-            "type": "string",
-            "format": ""
-        },
-        "limit": {
-            "baseName": "limit",
-            "type": "number",
-            "format": "int32"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cursor: {
+      baseName: "cursor",
+      type: "string",
+      format: "",
+    },
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int32",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsListRequestPage.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsListRequestPage.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsListRequestPage {
+    const res = new LogsListRequestPage();
+
+    res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "");
+
+    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int32");
+
+    return res;
+  }
+
+  static serialize(data: LogsListRequestPage): { [key: string]: any } {
+    const attributeTypes = LogsListRequestPage.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.cursor = ObjectSerializer.serialize(data.cursor, "string", "");
 
-    static deserialize(data: {[key: string]: any}): LogsListRequestPage {
-      let res = new LogsListRequestPage();
+    res.limit = ObjectSerializer.serialize(data.limit, "number", "int32");
 
-      res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "")
+    return res;
+  }
 
-      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int32")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsListRequestPage): {[key: string]: any} {
-        let attributeTypes = LogsListRequestPage.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.cursor = ObjectSerializer.serialize(data.cursor, "string", "")
-
-        res.limit = ObjectSerializer.serialize(data.limit, "number", "int32")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

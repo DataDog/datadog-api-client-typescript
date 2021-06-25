@@ -8,70 +8,87 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Alerting time window options.
-*/
+ * Alerting time window options.
+ */
 
 export class MonitorThresholdWindowOptions {
-    /**
-    * Describes how long an anomalous metric must be normal before the alert recovers.
-    */
-    'recoveryWindow'?: string;
-    /**
-    * Describes how long a metric must be anomalous before an alert triggers.
-    */
-    'triggerWindow'?: string;
+  /**
+   * Describes how long an anomalous metric must be normal before the alert recovers.
+   */
+  "recoveryWindow"?: string;
+  /**
+   * Describes how long a metric must be anomalous before an alert triggers.
+   */
+  "triggerWindow"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "recoveryWindow": {
-            "baseName": "recovery_window",
-            "type": "string",
-            "format": ""
-        },
-        "triggerWindow": {
-            "baseName": "trigger_window",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    recoveryWindow: {
+      baseName: "recovery_window",
+      type: "string",
+      format: "",
+    },
+    triggerWindow: {
+      baseName: "trigger_window",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MonitorThresholdWindowOptions.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MonitorThresholdWindowOptions.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): MonitorThresholdWindowOptions {
+    const res = new MonitorThresholdWindowOptions();
+
+    res.recoveryWindow = ObjectSerializer.deserialize(
+      data.recovery_window,
+      "string",
+      ""
+    );
+
+    res.triggerWindow = ObjectSerializer.deserialize(
+      data.trigger_window,
+      "string",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: MonitorThresholdWindowOptions
+  ): { [key: string]: any } {
+    const attributeTypes = MonitorThresholdWindowOptions.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.recovery_window = ObjectSerializer.serialize(
+      data.recoveryWindow,
+      "string",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): MonitorThresholdWindowOptions {
-      let res = new MonitorThresholdWindowOptions();
+    res.trigger_window = ObjectSerializer.serialize(
+      data.triggerWindow,
+      "string",
+      ""
+    );
 
-      res.recoveryWindow = ObjectSerializer.deserialize(data.recovery_window, "string", "")
+    return res;
+  }
 
-      res.triggerWindow = ObjectSerializer.deserialize(data.trigger_window, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: MonitorThresholdWindowOptions): {[key: string]: any} {
-        let attributeTypes = MonitorThresholdWindowOptions.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.recovery_window = ObjectSerializer.serialize(data.recoveryWindow, "string", "")
-
-        res.trigger_window = ObjectSerializer.serialize(data.triggerWindow, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

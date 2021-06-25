@@ -8,66 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateResponseData } from './LogsAggregateResponseData';
-import { LogsResponseMetadata } from './LogsResponseMetadata';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsAggregateResponseData } from "./LogsAggregateResponseData";
+import { LogsResponseMetadata } from "./LogsResponseMetadata";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The response object for the logs aggregate API endpoint
-*/
+ * The response object for the logs aggregate API endpoint
+ */
 
 export class LogsAggregateResponse {
-    'data'?: LogsAggregateResponseData;
-    'meta'?: LogsResponseMetadata;
+  "data"?: LogsAggregateResponseData;
+  "meta"?: LogsResponseMetadata;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "LogsAggregateResponseData",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "LogsResponseMetadata",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "LogsAggregateResponseData",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "LogsResponseMetadata",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAggregateResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAggregateResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsAggregateResponse {
+    const res = new LogsAggregateResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "LogsAggregateResponseData",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "LogsResponseMetadata",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsAggregateResponse): { [key: string]: any } {
+    const attributeTypes = LogsAggregateResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "LogsAggregateResponseData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsAggregateResponse {
-      let res = new LogsAggregateResponse();
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "LogsResponseMetadata",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "LogsAggregateResponseData", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "LogsResponseMetadata", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAggregateResponse): {[key: string]: any} {
-        let attributeTypes = LogsAggregateResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "LogsAggregateResponseData", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "LogsResponseMetadata", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

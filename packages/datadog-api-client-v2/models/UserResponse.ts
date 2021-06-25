@@ -8,69 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { User } from './User';
-import { UserResponseIncludedItem } from './UserResponseIncludedItem';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { User } from "./User";
+import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing information about a single user.
-*/
+ * Response containing information about a single user.
+ */
 
 export class UserResponse {
-    'data'?: User;
-    /**
-    * Array of objects related to the user.
-    */
-    'included'?: Array<UserResponseIncludedItem>;
+  "data"?: User;
+  /**
+   * Array of objects related to the user.
+   */
+  "included"?: Array<UserResponseIncludedItem>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "User",
-            "format": ""
-        },
-        "included": {
-            "baseName": "included",
-            "type": "Array<UserResponseIncludedItem>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "User",
+      format: "",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<UserResponseIncludedItem>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserResponse {
+    const res = new UserResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "User", "");
+
+    res.included = ObjectSerializer.deserialize(
+      data.included,
+      "Array<UserResponseIncludedItem>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UserResponse): { [key: string]: any } {
+    const attributeTypes = UserResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "User", "");
 
-    static deserialize(data: {[key: string]: any}): UserResponse {
-      let res = new UserResponse();
+    res.included = ObjectSerializer.serialize(
+      data.included,
+      "Array<UserResponseIncludedItem>",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "User", "")
+    return res;
+  }
 
-      res.included = ObjectSerializer.deserialize(data.included, "Array<UserResponseIncludedItem>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UserResponse): {[key: string]: any} {
-        let attributeTypes = UserResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "User", "")
-
-        res.included = ObjectSerializer.serialize(data.included, "Array<UserResponseIncludedItem>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

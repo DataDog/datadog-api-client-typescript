@@ -8,69 +8,78 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilter } from './SecurityFilter';
-import { SecurityFilterMeta } from './SecurityFilterMeta';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityFilter } from "./SecurityFilter";
+import { SecurityFilterMeta } from "./SecurityFilterMeta";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* All the available security filters objects.
-*/
+ * All the available security filters objects.
+ */
 
 export class SecurityFiltersResponse {
-    /**
-    * A list of security filters objects.
-    */
-    'data'?: Array<SecurityFilter>;
-    'meta'?: SecurityFilterMeta;
+  /**
+   * A list of security filters objects.
+   */
+  "data"?: Array<SecurityFilter>;
+  "meta"?: SecurityFilterMeta;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<SecurityFilter>",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "SecurityFilterMeta",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<SecurityFilter>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "SecurityFilterMeta",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityFiltersResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityFiltersResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SecurityFiltersResponse {
+    const res = new SecurityFiltersResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<SecurityFilter>",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "SecurityFilterMeta",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SecurityFiltersResponse): { [key: string]: any } {
+    const attributeTypes = SecurityFiltersResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<SecurityFilter>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SecurityFiltersResponse {
-      let res = new SecurityFiltersResponse();
+    res.meta = ObjectSerializer.serialize(data.meta, "SecurityFilterMeta", "");
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<SecurityFilter>", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "SecurityFilterMeta", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityFiltersResponse): {[key: string]: any} {
-        let attributeTypes = SecurityFiltersResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<SecurityFilter>", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "SecurityFilterMeta", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

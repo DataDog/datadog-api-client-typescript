@@ -8,227 +8,300 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBasicAuth } from './SyntheticsBasicAuth';
-import { SyntheticsCITestMetadata } from './SyntheticsCITestMetadata';
-import { SyntheticsDeviceID } from './SyntheticsDeviceID';
-import { SyntheticsTestOptionsRetry } from './SyntheticsTestOptionsRetry';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsCITestMetadata } from "./SyntheticsCITestMetadata";
+import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
+import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Test configuration for Synthetics CI
-*/
+ * Test configuration for Synthetics CI
+ */
 
 export class SyntheticsCITest {
-    /**
-    * Disable certificate checks in API tests.
-    */
-    'allowInsecureCertificates'?: boolean;
-    'basicAuth'?: SyntheticsBasicAuth;
-    /**
-    * Body to include in the test.
-    */
-    'body'?: string;
-    /**
-    * Type of the data sent in a synthetics API test.
-    */
-    'bodyType'?: string;
-    /**
-    * Cookies for the request.
-    */
-    'cookies'?: string;
-    /**
-    * For browser test, array with the different device IDs used to run the test.
-    */
-    'deviceIds'?: Array<SyntheticsDeviceID>;
-    /**
-    * For API HTTP test, whether or not the test should follow redirects.
-    */
-    'followRedirects'?: boolean;
-    /**
-    * Headers to include when performing the test.
-    */
-    'headers'?: { [key: string]: string; };
-    /**
-    * Array of locations used to run the test.
-    */
-    'locations'?: Array<string>;
-    'metadata'?: SyntheticsCITestMetadata;
-    /**
-    * The public ID of the Synthetics test to trigger.
-    */
-    'publicId': string;
-    'retry'?: SyntheticsTestOptionsRetry;
-    /**
-    * Starting URL for the browser test.
-    */
-    'startUrl'?: string;
-    /**
-    * Variables to replace in the test.
-    */
-    'variables'?: { [key: string]: string; };
+  /**
+   * Disable certificate checks in API tests.
+   */
+  "allowInsecureCertificates"?: boolean;
+  "basicAuth"?: SyntheticsBasicAuth;
+  /**
+   * Body to include in the test.
+   */
+  "body"?: string;
+  /**
+   * Type of the data sent in a synthetics API test.
+   */
+  "bodyType"?: string;
+  /**
+   * Cookies for the request.
+   */
+  "cookies"?: string;
+  /**
+   * For browser test, array with the different device IDs used to run the test.
+   */
+  "deviceIds"?: Array<SyntheticsDeviceID>;
+  /**
+   * For API HTTP test, whether or not the test should follow redirects.
+   */
+  "followRedirects"?: boolean;
+  /**
+   * Headers to include when performing the test.
+   */
+  "headers"?: { [key: string]: string };
+  /**
+   * Array of locations used to run the test.
+   */
+  "locations"?: Array<string>;
+  "metadata"?: SyntheticsCITestMetadata;
+  /**
+   * The public ID of the Synthetics test to trigger.
+   */
+  "publicId": string;
+  "retry"?: SyntheticsTestOptionsRetry;
+  /**
+   * Starting URL for the browser test.
+   */
+  "startUrl"?: string;
+  /**
+   * Variables to replace in the test.
+   */
+  "variables"?: { [key: string]: string };
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "allowInsecureCertificates": {
-            "baseName": "allowInsecureCertificates",
-            "type": "boolean",
-            "format": ""
-        },
-        "basicAuth": {
-            "baseName": "basicAuth",
-            "type": "SyntheticsBasicAuth",
-            "format": ""
-        },
-        "body": {
-            "baseName": "body",
-            "type": "string",
-            "format": ""
-        },
-        "bodyType": {
-            "baseName": "bodyType",
-            "type": "string",
-            "format": ""
-        },
-        "cookies": {
-            "baseName": "cookies",
-            "type": "string",
-            "format": ""
-        },
-        "deviceIds": {
-            "baseName": "deviceIds",
-            "type": "Array<SyntheticsDeviceID>",
-            "format": ""
-        },
-        "followRedirects": {
-            "baseName": "followRedirects",
-            "type": "boolean",
-            "format": ""
-        },
-        "headers": {
-            "baseName": "headers",
-            "type": "{ [key: string]: string; }",
-            "format": ""
-        },
-        "locations": {
-            "baseName": "locations",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "metadata": {
-            "baseName": "metadata",
-            "type": "SyntheticsCITestMetadata",
-            "format": ""
-        },
-        "publicId": {
-            "baseName": "public_id",
-            "type": "string",
-            "format": ""
-        },
-        "retry": {
-            "baseName": "retry",
-            "type": "SyntheticsTestOptionsRetry",
-            "format": ""
-        },
-        "startUrl": {
-            "baseName": "startUrl",
-            "type": "string",
-            "format": ""
-        },
-        "variables": {
-            "baseName": "variables",
-            "type": "{ [key: string]: string; }",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    allowInsecureCertificates: {
+      baseName: "allowInsecureCertificates",
+      type: "boolean",
+      format: "",
+    },
+    basicAuth: {
+      baseName: "basicAuth",
+      type: "SyntheticsBasicAuth",
+      format: "",
+    },
+    body: {
+      baseName: "body",
+      type: "string",
+      format: "",
+    },
+    bodyType: {
+      baseName: "bodyType",
+      type: "string",
+      format: "",
+    },
+    cookies: {
+      baseName: "cookies",
+      type: "string",
+      format: "",
+    },
+    deviceIds: {
+      baseName: "deviceIds",
+      type: "Array<SyntheticsDeviceID>",
+      format: "",
+    },
+    followRedirects: {
+      baseName: "followRedirects",
+      type: "boolean",
+      format: "",
+    },
+    headers: {
+      baseName: "headers",
+      type: "{ [key: string]: string; }",
+      format: "",
+    },
+    locations: {
+      baseName: "locations",
+      type: "Array<string>",
+      format: "",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "SyntheticsCITestMetadata",
+      format: "",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+      format: "",
+    },
+    retry: {
+      baseName: "retry",
+      type: "SyntheticsTestOptionsRetry",
+      format: "",
+    },
+    startUrl: {
+      baseName: "startUrl",
+      type: "string",
+      format: "",
+    },
+    variables: {
+      baseName: "variables",
+      type: "{ [key: string]: string; }",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsCITest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsCITest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsCITest {
+    const res = new SyntheticsCITest();
+
+    res.allowInsecureCertificates = ObjectSerializer.deserialize(
+      data.allowInsecureCertificates,
+      "boolean",
+      ""
+    );
+
+    res.basicAuth = ObjectSerializer.deserialize(
+      data.basicAuth,
+      "SyntheticsBasicAuth",
+      ""
+    );
+
+    res.body = ObjectSerializer.deserialize(data.body, "string", "");
+
+    res.bodyType = ObjectSerializer.deserialize(data.bodyType, "string", "");
+
+    res.cookies = ObjectSerializer.deserialize(data.cookies, "string", "");
+
+    res.deviceIds = ObjectSerializer.deserialize(
+      data.deviceIds,
+      "Array<SyntheticsDeviceID>",
+      ""
+    );
+
+    res.followRedirects = ObjectSerializer.deserialize(
+      data.followRedirects,
+      "boolean",
+      ""
+    );
+
+    res.headers = ObjectSerializer.deserialize(
+      data.headers,
+      "{ [key: string]: string; }",
+      ""
+    );
+
+    res.locations = ObjectSerializer.deserialize(
+      data.locations,
+      "Array<string>",
+      ""
+    );
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "SyntheticsCITestMetadata",
+      ""
+    );
+
+    if (data.public_id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'public_id' on 'SyntheticsCITest' object"
+      );
     }
+    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsCITest {
-      let res = new SyntheticsCITest();
+    res.retry = ObjectSerializer.deserialize(
+      data.retry,
+      "SyntheticsTestOptionsRetry",
+      ""
+    );
 
-      res.allowInsecureCertificates = ObjectSerializer.deserialize(data.allowInsecureCertificates, "boolean", "")
+    res.startUrl = ObjectSerializer.deserialize(data.startUrl, "string", "");
 
-      res.basicAuth = ObjectSerializer.deserialize(data.basicAuth, "SyntheticsBasicAuth", "")
+    res.variables = ObjectSerializer.deserialize(
+      data.variables,
+      "{ [key: string]: string; }",
+      ""
+    );
 
-      res.body = ObjectSerializer.deserialize(data.body, "string", "")
+    return res;
+  }
 
-      res.bodyType = ObjectSerializer.deserialize(data.bodyType, "string", "")
-
-      res.cookies = ObjectSerializer.deserialize(data.cookies, "string", "")
-
-      res.deviceIds = ObjectSerializer.deserialize(data.deviceIds, "Array<SyntheticsDeviceID>", "")
-
-      res.followRedirects = ObjectSerializer.deserialize(data.followRedirects, "boolean", "")
-
-      res.headers = ObjectSerializer.deserialize(data.headers, "{ [key: string]: string; }", "")
-
-      res.locations = ObjectSerializer.deserialize(data.locations, "Array<string>", "")
-
-      res.metadata = ObjectSerializer.deserialize(data.metadata, "SyntheticsCITestMetadata", "")
-
-      if (data.public_id === undefined) {
-          throw new TypeError("missing required attribute 'public_id' on 'SyntheticsCITest' object");
+  static serialize(data: SyntheticsCITest): { [key: string]: any } {
+    const attributeTypes = SyntheticsCITest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
-
-      res.retry = ObjectSerializer.deserialize(data.retry, "SyntheticsTestOptionsRetry", "")
-
-      res.startUrl = ObjectSerializer.deserialize(data.startUrl, "string", "")
-
-      res.variables = ObjectSerializer.deserialize(data.variables, "{ [key: string]: string; }", "")
-
-
-      return res;
     }
+    res.allowInsecureCertificates = ObjectSerializer.serialize(
+      data.allowInsecureCertificates,
+      "boolean",
+      ""
+    );
 
-    static serialize(data: SyntheticsCITest): {[key: string]: any} {
-        let attributeTypes = SyntheticsCITest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.allowInsecureCertificates = ObjectSerializer.serialize(data.allowInsecureCertificates, "boolean", "")
+    res.basicAuth = ObjectSerializer.serialize(
+      data.basicAuth,
+      "SyntheticsBasicAuth",
+      ""
+    );
 
-        res.basicAuth = ObjectSerializer.serialize(data.basicAuth, "SyntheticsBasicAuth", "")
+    res.body = ObjectSerializer.serialize(data.body, "string", "");
 
-        res.body = ObjectSerializer.serialize(data.body, "string", "")
+    res.bodyType = ObjectSerializer.serialize(data.bodyType, "string", "");
 
-        res.bodyType = ObjectSerializer.serialize(data.bodyType, "string", "")
+    res.cookies = ObjectSerializer.serialize(data.cookies, "string", "");
 
-        res.cookies = ObjectSerializer.serialize(data.cookies, "string", "")
+    res.deviceIds = ObjectSerializer.serialize(
+      data.deviceIds,
+      "Array<SyntheticsDeviceID>",
+      ""
+    );
 
-        res.deviceIds = ObjectSerializer.serialize(data.deviceIds, "Array<SyntheticsDeviceID>", "")
+    res.followRedirects = ObjectSerializer.serialize(
+      data.followRedirects,
+      "boolean",
+      ""
+    );
 
-        res.followRedirects = ObjectSerializer.serialize(data.followRedirects, "boolean", "")
+    res.headers = ObjectSerializer.serialize(
+      data.headers,
+      "{ [key: string]: string; }",
+      ""
+    );
 
-        res.headers = ObjectSerializer.serialize(data.headers, "{ [key: string]: string; }", "")
+    res.locations = ObjectSerializer.serialize(
+      data.locations,
+      "Array<string>",
+      ""
+    );
 
-        res.locations = ObjectSerializer.serialize(data.locations, "Array<string>", "")
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "SyntheticsCITestMetadata",
+      ""
+    );
 
-        res.metadata = ObjectSerializer.serialize(data.metadata, "SyntheticsCITestMetadata", "")
-
-        if (data.publicId === undefined) {
-            throw new TypeError("missing required attribute 'public_id' on 'SyntheticsCITest' object");
-        }
-        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
-
-        res.retry = ObjectSerializer.serialize(data.retry, "SyntheticsTestOptionsRetry", "")
-
-        res.startUrl = ObjectSerializer.serialize(data.startUrl, "string", "")
-
-        res.variables = ObjectSerializer.serialize(data.variables, "{ [key: string]: string; }", "")
-
-        return res
+    if (data.publicId === undefined) {
+      throw new TypeError(
+        "missing required attribute 'public_id' on 'SyntheticsCITest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
+
+    res.retry = ObjectSerializer.serialize(
+      data.retry,
+      "SyntheticsTestOptionsRetry",
+      ""
+    );
+
+    res.startUrl = ObjectSerializer.serialize(data.startUrl, "string", "");
+
+    res.variables = ObjectSerializer.serialize(
+      data.variables,
+      "{ [key: string]: string; }",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,57 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Private key for the private location.
-*/
+ * Private key for the private location.
+ */
 
 export class SyntheticsPrivateLocationSecretsConfigDecryption {
-    /**
-    * Private key for the private location.
-    */
-    'key'?: string;
+  /**
+   * Private key for the private location.
+   */
+  "key"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "key": {
-            "baseName": "key",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    key: {
+      baseName: "key",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsPrivateLocationSecretsConfigDecryption.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsPrivateLocationSecretsConfigDecryption.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsPrivateLocationSecretsConfigDecryption {
+    const res = new SyntheticsPrivateLocationSecretsConfigDecryption();
+
+    res.key = ObjectSerializer.deserialize(data.key, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsPrivateLocationSecretsConfigDecryption
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsPrivateLocationSecretsConfigDecryption.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.key = ObjectSerializer.serialize(data.key, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsPrivateLocationSecretsConfigDecryption {
-      let res = new SyntheticsPrivateLocationSecretsConfigDecryption();
+    return res;
+  }
 
-      res.key = ObjectSerializer.deserialize(data.key, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsPrivateLocationSecretsConfigDecryption): {[key: string]: any} {
-        let attributeTypes = SyntheticsPrivateLocationSecretsConfigDecryption.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.key = ObjectSerializer.serialize(data.key, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

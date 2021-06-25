@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Array of user disabled for a given organization.
-*/
+ * Array of user disabled for a given organization.
+ */
 
 export class UserDisableResponse {
-    /**
-    * Information pertaining to a user disabled for a given organization.
-    */
-    'message'?: string;
+  /**
+   * Information pertaining to a user disabled for a given organization.
+   */
+  "message"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserDisableResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserDisableResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserDisableResponse {
+    const res = new UserDisableResponse();
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: UserDisableResponse): { [key: string]: any } {
+    const attributeTypes = UserDisableResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-    static deserialize(data: {[key: string]: any}): UserDisableResponse {
-      let res = new UserDisableResponse();
+    return res;
+  }
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UserDisableResponse): {[key: string]: any} {
-        let attributeTypes = UserDisableResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

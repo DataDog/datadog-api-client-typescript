@@ -8,63 +8,93 @@
  * Do not edit the class manually.
  */
 
-import { WidgetLiveSpan } from './WidgetLiveSpan';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Time setting for the widget.
-*/
+import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
 export class WidgetTime {
-    'liveSpan'?: WidgetLiveSpan;
+  "liveSpan"?: WidgetLiveSpan;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "liveSpan": {
-            "baseName": "live_span",
-            "type": "WidgetLiveSpan",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    liveSpan: {
+      baseName: "live_span",
+      type: "WidgetLiveSpan",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return WidgetTime.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return WidgetTime.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): WidgetTime {
+    const res = new WidgetTime();
+
+    if (
+      [
+        "1m",
+        "5m",
+        "10m",
+        "15m",
+        "30m",
+        "1h",
+        "4h",
+        "1d",
+        "2d",
+        "1w",
+        "1mo",
+        "3mo",
+        "6mo",
+        "1y",
+        "alert",
+        undefined,
+      ].includes(data.live_span)
+    ) {
+      res.liveSpan = data.live_span;
+    } else {
+      throw TypeError(`invalid enum value ${data.live_span} for live_span`);
     }
 
-    static deserialize(data: {[key: string]: any}): WidgetTime {
-      let res = new WidgetTime();
+    return res;
+  }
 
-      if (['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert', undefined].includes(data.live_span)) {
-          res.liveSpan = data.live_span;
-      } else {
-          throw TypeError(`invalid enum value ${ data.live_span } for live_span`);
+  static serialize(data: WidgetTime): { [key: string]: any } {
+    const attributeTypes = WidgetTime.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-
-
-      return res;
+    }
+    if (
+      [
+        "1m",
+        "5m",
+        "10m",
+        "15m",
+        "30m",
+        "1h",
+        "4h",
+        "1d",
+        "2d",
+        "1w",
+        "1mo",
+        "3mo",
+        "6mo",
+        "1y",
+        "alert",
+        undefined,
+      ].includes(data.liveSpan)
+    ) {
+      res.live_span = data.liveSpan;
+    } else {
+      throw TypeError(`invalid enum value ${data.liveSpan} for liveSpan`);
     }
 
-    static serialize(data: WidgetTime): {[key: string]: any} {
-        let attributeTypes = WidgetTime.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (['1m', '5m', '10m', '15m', '30m', '1h', '4h', '1d', '2d', '1w', '1mo', '3mo', '6mo', '1y', 'alert', undefined].includes(data.liveSpan)) {
-            res.live_span = data.liveSpan;
-        } else {
-            throw TypeError(`invalid enum value ${ data.liveSpan } for liveSpan`);
-        }
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

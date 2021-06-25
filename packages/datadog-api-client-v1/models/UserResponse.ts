@@ -8,55 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { User } from './User';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { User } from "./User";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A Datadog User.
-*/
+ * A Datadog User.
+ */
 
 export class UserResponse {
-    'user'?: User;
+  "user"?: User;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "user": {
-            "baseName": "user",
-            "type": "User",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    user: {
+      baseName: "user",
+      type: "User",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserResponse {
+    const res = new UserResponse();
+
+    res.user = ObjectSerializer.deserialize(data.user, "User", "");
+
+    return res;
+  }
+
+  static serialize(data: UserResponse): { [key: string]: any } {
+    const attributeTypes = UserResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.user = ObjectSerializer.serialize(data.user, "User", "");
 
-    static deserialize(data: {[key: string]: any}): UserResponse {
-      let res = new UserResponse();
+    return res;
+  }
 
-      res.user = ObjectSerializer.deserialize(data.user, "User", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UserResponse): {[key: string]: any} {
-        let attributeTypes = UserResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.user = ObjectSerializer.serialize(data.user, "User", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

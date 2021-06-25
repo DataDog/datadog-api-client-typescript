@@ -8,69 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { UsageTopAvgMetricsHour } from './UsageTopAvgMetricsHour';
-import { UsageTopAvgMetricsMetadata } from './UsageTopAvgMetricsMetadata';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
+import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing the number of hourly recorded custom metrics for a given organization.
-*/
+ * Response containing the number of hourly recorded custom metrics for a given organization.
+ */
 
 export class UsageTopAvgMetricsResponse {
-    'metadata'?: UsageTopAvgMetricsMetadata;
-    /**
-    * Number of hourly recorded custom metrics for a given organization.
-    */
-    'usage'?: Array<UsageTopAvgMetricsHour>;
+  "metadata"?: UsageTopAvgMetricsMetadata;
+  /**
+   * Number of hourly recorded custom metrics for a given organization.
+   */
+  "usage"?: Array<UsageTopAvgMetricsHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "metadata": {
-            "baseName": "metadata",
-            "type": "UsageTopAvgMetricsMetadata",
-            "format": ""
-        },
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageTopAvgMetricsHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    metadata: {
+      baseName: "metadata",
+      type: "UsageTopAvgMetricsMetadata",
+      format: "",
+    },
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageTopAvgMetricsHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageTopAvgMetricsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageTopAvgMetricsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageTopAvgMetricsResponse {
+    const res = new UsageTopAvgMetricsResponse();
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "UsageTopAvgMetricsMetadata",
+      ""
+    );
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageTopAvgMetricsHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageTopAvgMetricsResponse): { [key: string]: any } {
+    const attributeTypes = UsageTopAvgMetricsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "UsageTopAvgMetricsMetadata",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageTopAvgMetricsResponse {
-      let res = new UsageTopAvgMetricsResponse();
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageTopAvgMetricsHour>",
+      ""
+    );
 
-      res.metadata = ObjectSerializer.deserialize(data.metadata, "UsageTopAvgMetricsMetadata", "")
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageTopAvgMetricsHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageTopAvgMetricsResponse): {[key: string]: any} {
-        let attributeTypes = UsageTopAvgMetricsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.metadata = ObjectSerializer.serialize(data.metadata, "UsageTopAvgMetricsMetadata", "")
-
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageTopAvgMetricsHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

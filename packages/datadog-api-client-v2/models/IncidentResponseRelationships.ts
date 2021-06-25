@@ -8,97 +8,138 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToIncidentIntegrationMetadatas } from './RelationshipToIncidentIntegrationMetadatas';
-import { RelationshipToIncidentPostmortem } from './RelationshipToIncidentPostmortem';
-import { RelationshipToUser } from './RelationshipToUser';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
+import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
+import { RelationshipToUser } from "./RelationshipToUser";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The incident's relationships from a response.
-*/
+ * The incident's relationships from a response.
+ */
 
 export class IncidentResponseRelationships {
-    'commanderUser'?: RelationshipToUser;
-    'createdByUser'?: RelationshipToUser;
-    'integrations'?: RelationshipToIncidentIntegrationMetadatas;
-    'lastModifiedByUser'?: RelationshipToUser;
-    'postmortem'?: RelationshipToIncidentPostmortem;
+  "commanderUser"?: RelationshipToUser;
+  "createdByUser"?: RelationshipToUser;
+  "integrations"?: RelationshipToIncidentIntegrationMetadatas;
+  "lastModifiedByUser"?: RelationshipToUser;
+  "postmortem"?: RelationshipToIncidentPostmortem;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "commanderUser": {
-            "baseName": "commander_user",
-            "type": "RelationshipToUser",
-            "format": ""
-        },
-        "createdByUser": {
-            "baseName": "created_by_user",
-            "type": "RelationshipToUser",
-            "format": ""
-        },
-        "integrations": {
-            "baseName": "integrations",
-            "type": "RelationshipToIncidentIntegrationMetadatas",
-            "format": ""
-        },
-        "lastModifiedByUser": {
-            "baseName": "last_modified_by_user",
-            "type": "RelationshipToUser",
-            "format": ""
-        },
-        "postmortem": {
-            "baseName": "postmortem",
-            "type": "RelationshipToIncidentPostmortem",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    commanderUser: {
+      baseName: "commander_user",
+      type: "RelationshipToUser",
+      format: "",
+    },
+    createdByUser: {
+      baseName: "created_by_user",
+      type: "RelationshipToUser",
+      format: "",
+    },
+    integrations: {
+      baseName: "integrations",
+      type: "RelationshipToIncidentIntegrationMetadatas",
+      format: "",
+    },
+    lastModifiedByUser: {
+      baseName: "last_modified_by_user",
+      type: "RelationshipToUser",
+      format: "",
+    },
+    postmortem: {
+      baseName: "postmortem",
+      type: "RelationshipToIncidentPostmortem",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentResponseRelationships.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentResponseRelationships.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentResponseRelationships {
+    const res = new IncidentResponseRelationships();
+
+    res.commanderUser = ObjectSerializer.deserialize(
+      data.commander_user,
+      "RelationshipToUser",
+      ""
+    );
+
+    res.createdByUser = ObjectSerializer.deserialize(
+      data.created_by_user,
+      "RelationshipToUser",
+      ""
+    );
+
+    res.integrations = ObjectSerializer.deserialize(
+      data.integrations,
+      "RelationshipToIncidentIntegrationMetadatas",
+      ""
+    );
+
+    res.lastModifiedByUser = ObjectSerializer.deserialize(
+      data.last_modified_by_user,
+      "RelationshipToUser",
+      ""
+    );
+
+    res.postmortem = ObjectSerializer.deserialize(
+      data.postmortem,
+      "RelationshipToIncidentPostmortem",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: IncidentResponseRelationships
+  ): { [key: string]: any } {
+    const attributeTypes = IncidentResponseRelationships.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.commander_user = ObjectSerializer.serialize(
+      data.commanderUser,
+      "RelationshipToUser",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): IncidentResponseRelationships {
-      let res = new IncidentResponseRelationships();
+    res.created_by_user = ObjectSerializer.serialize(
+      data.createdByUser,
+      "RelationshipToUser",
+      ""
+    );
 
-      res.commanderUser = ObjectSerializer.deserialize(data.commander_user, "RelationshipToUser", "")
+    res.integrations = ObjectSerializer.serialize(
+      data.integrations,
+      "RelationshipToIncidentIntegrationMetadatas",
+      ""
+    );
 
-      res.createdByUser = ObjectSerializer.deserialize(data.created_by_user, "RelationshipToUser", "")
+    res.last_modified_by_user = ObjectSerializer.serialize(
+      data.lastModifiedByUser,
+      "RelationshipToUser",
+      ""
+    );
 
-      res.integrations = ObjectSerializer.deserialize(data.integrations, "RelationshipToIncidentIntegrationMetadatas", "")
+    res.postmortem = ObjectSerializer.serialize(
+      data.postmortem,
+      "RelationshipToIncidentPostmortem",
+      ""
+    );
 
-      res.lastModifiedByUser = ObjectSerializer.deserialize(data.last_modified_by_user, "RelationshipToUser", "")
+    return res;
+  }
 
-      res.postmortem = ObjectSerializer.deserialize(data.postmortem, "RelationshipToIncidentPostmortem", "")
-
-
-      return res;
-    }
-
-    static serialize(data: IncidentResponseRelationships): {[key: string]: any} {
-        let attributeTypes = IncidentResponseRelationships.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.commander_user = ObjectSerializer.serialize(data.commanderUser, "RelationshipToUser", "")
-
-        res.created_by_user = ObjectSerializer.serialize(data.createdByUser, "RelationshipToUser", "")
-
-        res.integrations = ObjectSerializer.serialize(data.integrations, "RelationshipToIncidentIntegrationMetadatas", "")
-
-        res.last_modified_by_user = ObjectSerializer.serialize(data.lastModifiedByUser, "RelationshipToUser", "")
-
-        res.postmortem = ObjectSerializer.serialize(data.postmortem, "RelationshipToIncidentPostmortem", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

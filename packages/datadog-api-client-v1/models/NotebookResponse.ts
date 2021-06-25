@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { NotebookResponseData } from './NotebookResponseData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { NotebookResponseData } from "./NotebookResponseData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The description of a notebook response.
-*/
+ * The description of a notebook response.
+ */
 
 export class NotebookResponse {
-    'data'?: NotebookResponseData;
+  "data"?: NotebookResponseData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "NotebookResponseData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "NotebookResponseData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebookResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebookResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebookResponse {
+    const res = new NotebookResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "NotebookResponseData",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: NotebookResponse): { [key: string]: any } {
+    const attributeTypes = NotebookResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "NotebookResponseData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): NotebookResponse {
-      let res = new NotebookResponse();
+    return res;
+  }
 
-      res.data = ObjectSerializer.deserialize(data.data, "NotebookResponseData", "")
-
-
-      return res;
-    }
-
-    static serialize(data: NotebookResponse): {[key: string]: any} {
-        let attributeTypes = NotebookResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "NotebookResponseData", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,61 +8,70 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToOrganizationData } from './RelationshipToOrganizationData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Relationship to an organization.
-*/
+ * Relationship to an organization.
+ */
 
 export class RelationshipToOrganization {
-    'data': RelationshipToOrganizationData;
+  "data": RelationshipToOrganizationData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "RelationshipToOrganizationData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "RelationshipToOrganizationData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RelationshipToOrganization.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RelationshipToOrganization.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): RelationshipToOrganization {
+    const res = new RelationshipToOrganization();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'RelationshipToOrganization' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "RelationshipToOrganizationData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): RelationshipToOrganization {
-      let res = new RelationshipToOrganization();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'RelationshipToOrganization' object");
+  static serialize(data: RelationshipToOrganization): { [key: string]: any } {
+    const attributeTypes = RelationshipToOrganization.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "RelationshipToOrganizationData", "")
-
-
-      return res;
     }
-
-    static serialize(data: RelationshipToOrganization): {[key: string]: any} {
-        let attributeTypes = RelationshipToOrganization.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'RelationshipToOrganization' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "RelationshipToOrganizationData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'RelationshipToOrganization' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "RelationshipToOrganizationData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,76 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { QuerySortOrder } from './QuerySortOrder';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { QuerySortOrder } from "./QuerySortOrder";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Options for limiting results returned.
-*/
+ * Options for limiting results returned.
+ */
 
 export class WidgetFormulaLimit {
-    /**
-    * Number of results to return.
-    */
-    'count'?: number;
-    'order'?: QuerySortOrder;
+  /**
+   * Number of results to return.
+   */
+  "count"?: number;
+  "order"?: QuerySortOrder;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "count": {
-            "baseName": "count",
-            "type": "number",
-            "format": "int64"
-        },
-        "order": {
-            "baseName": "order",
-            "type": "QuerySortOrder",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
+    },
+    order: {
+      baseName: "order",
+      type: "QuerySortOrder",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return WidgetFormulaLimit.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return WidgetFormulaLimit.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): WidgetFormulaLimit {
+    const res = new WidgetFormulaLimit();
+
+    res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
+
+    if (["asc", "desc", undefined].includes(data.order)) {
+      res.order = data.order;
+    } else {
+      throw TypeError(`invalid enum value ${data.order} for order`);
     }
 
-    static deserialize(data: {[key: string]: any}): WidgetFormulaLimit {
-      let res = new WidgetFormulaLimit();
+    return res;
+  }
 
-      res.count = ObjectSerializer.deserialize(data.count, "number", "int64")
-
-      if (['asc', 'desc', undefined].includes(data.order)) {
-          res.order = data.order;
-      } else {
-          throw TypeError(`invalid enum value ${ data.order } for order`);
+  static serialize(data: WidgetFormulaLimit): { [key: string]: any } {
+    const attributeTypes = WidgetFormulaLimit.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.count = ObjectSerializer.serialize(data.count, "number", "int64");
 
-
-      return res;
+    if (["asc", "desc", undefined].includes(data.order)) {
+      res.order = data.order;
+    } else {
+      throw TypeError(`invalid enum value ${data.order} for order`);
     }
 
-    static serialize(data: WidgetFormulaLimit): {[key: string]: any} {
-        let attributeTypes = WidgetFormulaLimit.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.count = ObjectSerializer.serialize(data.count, "number", "int64")
+    return res;
+  }
 
-        if (['asc', 'desc', undefined].includes(data.order)) {
-            res.order = data.order;
-        } else {
-            throw TypeError(`invalid enum value ${ data.order } for order`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

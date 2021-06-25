@@ -8,57 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Subscription definition.
-*/
+ * Subscription definition.
+ */
 
 export class OrganizationSubscription {
-    /**
-    * The subscription type. Types available are `trial`, `free`, and `pro`.
-    */
-    'type'?: string;
+  /**
+   * The subscription type. Types available are `trial`, `free`, and `pro`.
+   */
+  "type"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "type": {
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    type: {
+      baseName: "type",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return OrganizationSubscription.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return OrganizationSubscription.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): OrganizationSubscription {
+    const res = new OrganizationSubscription();
+
+    res.type = ObjectSerializer.deserialize(data.type, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: OrganizationSubscription): { [key: string]: any } {
+    const attributeTypes = OrganizationSubscription.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.type = ObjectSerializer.serialize(data.type, "string", "");
 
-    static deserialize(data: {[key: string]: any}): OrganizationSubscription {
-      let res = new OrganizationSubscription();
+    return res;
+  }
 
-      res.type = ObjectSerializer.deserialize(data.type, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: OrganizationSubscription): {[key: string]: any} {
-        let attributeTypes = OrganizationSubscription.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.type = ObjectSerializer.serialize(data.type, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

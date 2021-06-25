@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { SLOListResponseMetadataPage } from './SLOListResponseMetadataPage';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The metadata object containing additional information about the list of SLOs.
-*/
+ * The metadata object containing additional information about the list of SLOs.
+ */
 
 export class SLOListResponseMetadata {
-    'page'?: SLOListResponseMetadataPage;
+  "page"?: SLOListResponseMetadataPage;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "page": {
-            "baseName": "page",
-            "type": "SLOListResponseMetadataPage",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    page: {
+      baseName: "page",
+      type: "SLOListResponseMetadataPage",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOListResponseMetadata.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOListResponseMetadata.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLOListResponseMetadata {
+    const res = new SLOListResponseMetadata();
+
+    res.page = ObjectSerializer.deserialize(
+      data.page,
+      "SLOListResponseMetadataPage",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SLOListResponseMetadata): { [key: string]: any } {
+    const attributeTypes = SLOListResponseMetadata.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.page = ObjectSerializer.serialize(
+      data.page,
+      "SLOListResponseMetadataPage",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SLOListResponseMetadata {
-      let res = new SLOListResponseMetadata();
+    return res;
+  }
 
-      res.page = ObjectSerializer.deserialize(data.page, "SLOListResponseMetadataPage", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SLOListResponseMetadata): {[key: string]: any} {
-        let attributeTypes = SLOListResponseMetadata.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.page = ObjectSerializer.serialize(data.page, "SLOListResponseMetadataPage", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

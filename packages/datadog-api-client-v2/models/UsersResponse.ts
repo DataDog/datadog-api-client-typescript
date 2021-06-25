@@ -8,83 +8,96 @@
  * Do not edit the class manually.
  */
 
-import { ResponseMetaAttributes } from './ResponseMetaAttributes';
-import { User } from './User';
-import { UserResponseIncludedItem } from './UserResponseIncludedItem';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
+import { User } from "./User";
+import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing information about multiple users.
-*/
+ * Response containing information about multiple users.
+ */
 
 export class UsersResponse {
-    /**
-    * Array of returned users.
-    */
-    'data'?: Array<User>;
-    /**
-    * Array of objects related to the users.
-    */
-    'included'?: Array<UserResponseIncludedItem>;
-    'meta'?: ResponseMetaAttributes;
+  /**
+   * Array of returned users.
+   */
+  "data"?: Array<User>;
+  /**
+   * Array of objects related to the users.
+   */
+  "included"?: Array<UserResponseIncludedItem>;
+  "meta"?: ResponseMetaAttributes;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<User>",
-            "format": ""
-        },
-        "included": {
-            "baseName": "included",
-            "type": "Array<UserResponseIncludedItem>",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "ResponseMetaAttributes",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<User>",
+      format: "",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<UserResponseIncludedItem>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "ResponseMetaAttributes",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsersResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsersResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsersResponse {
+    const res = new UsersResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "Array<User>", "");
+
+    res.included = ObjectSerializer.deserialize(
+      data.included,
+      "Array<UserResponseIncludedItem>",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "ResponseMetaAttributes",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsersResponse): { [key: string]: any } {
+    const attributeTypes = UsersResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "Array<User>", "");
 
-    static deserialize(data: {[key: string]: any}): UsersResponse {
-      let res = new UsersResponse();
+    res.included = ObjectSerializer.serialize(
+      data.included,
+      "Array<UserResponseIncludedItem>",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<User>", "")
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "ResponseMetaAttributes",
+      ""
+    );
 
-      res.included = ObjectSerializer.deserialize(data.included, "Array<UserResponseIncludedItem>", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "ResponseMetaAttributes", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsersResponse): {[key: string]: any} {
-        let attributeTypes = UsersResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<User>", "")
-
-        res.included = ObjectSerializer.serialize(data.included, "Array<UserResponseIncludedItem>", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "ResponseMetaAttributes", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

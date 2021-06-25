@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Integration metadata resource type.
-*/
-
-export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS ;
-export const INCIDENT_INTEGRATIONS = 'incident_integrations';
-
-
+export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS;
+export const INCIDENT_INTEGRATIONS = "incident_integrations";

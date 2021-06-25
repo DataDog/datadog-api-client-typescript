@@ -8,104 +8,117 @@
  * Do not edit the class manually.
  */
 
-import { RoleAttributes } from './RoleAttributes';
-import { RoleResponseRelationships } from './RoleResponseRelationships';
-import { RolesType } from './RolesType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RoleAttributes } from "./RoleAttributes";
+import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { RolesType } from "./RolesType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Role object returned by the API.
-*/
+ * Role object returned by the API.
+ */
 
 export class Role {
-    'attributes'?: RoleAttributes;
-    /**
-    * ID of the role.
-    */
-    'id'?: string;
-    'relationships'?: RoleResponseRelationships;
-    'type': RolesType;
+  "attributes"?: RoleAttributes;
+  /**
+   * ID of the role.
+   */
+  "id"?: string;
+  "relationships"?: RoleResponseRelationships;
+  "type": RolesType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "RoleAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "relationships": {
-            "baseName": "relationships",
-            "type": "RoleResponseRelationships",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "RolesType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "RoleAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "RoleResponseRelationships",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "RolesType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return Role.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return Role.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): Role {
+    const res = new Role();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "RoleAttributes",
+      ""
+    );
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    res.relationships = ObjectSerializer.deserialize(
+      data.relationships,
+      "RoleResponseRelationships",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError("missing required attribute 'type' on 'Role' object");
+    }
+    if (["roles", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): Role {
-      let res = new Role();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "RoleAttributes", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-      res.relationships = ObjectSerializer.deserialize(data.relationships, "RoleResponseRelationships", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'Role' object");
+  static serialize(data: Role): { [key: string]: any } {
+    const attributeTypes = Role.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['roles', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "RoleAttributes",
+      ""
+    );
 
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      return res;
+    res.relationships = ObjectSerializer.serialize(
+      data.relationships,
+      "RoleResponseRelationships",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError("missing required attribute 'type' on 'Role' object");
+    }
+    if (["roles", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: Role): {[key: string]: any} {
-        let attributeTypes = Role.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "RoleAttributes", "")
+    return res;
+  }
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        res.relationships = ObjectSerializer.serialize(data.relationships, "RoleResponseRelationships", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'Role' object");
-        }
-        if (['roles', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

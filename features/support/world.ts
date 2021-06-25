@@ -20,7 +20,7 @@ export class World {
   public fixtures: { [key: string]: any } = {};
   public opts: { [key: string]: any } = {};
 
-  cleanup() {
+  cleanup(): void {
     const undo = this.undo;
     undo.reverse();
     for (const clean of undo) {

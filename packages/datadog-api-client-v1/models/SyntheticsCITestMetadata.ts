@@ -8,66 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsCITestMetadataCi } from './SyntheticsCITestMetadataCi';
-import { SyntheticsCITestMetadataGit } from './SyntheticsCITestMetadataGit';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsCITestMetadataCi } from "./SyntheticsCITestMetadataCi";
+import { SyntheticsCITestMetadataGit } from "./SyntheticsCITestMetadataGit";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Metadata for the Synthetics tests run
-*/
+ * Metadata for the Synthetics tests run
+ */
 
 export class SyntheticsCITestMetadata {
-    'ci'?: SyntheticsCITestMetadataCi;
-    'git'?: SyntheticsCITestMetadataGit;
+  "ci"?: SyntheticsCITestMetadataCi;
+  "git"?: SyntheticsCITestMetadataGit;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "ci": {
-            "baseName": "ci",
-            "type": "SyntheticsCITestMetadataCi",
-            "format": ""
-        },
-        "git": {
-            "baseName": "git",
-            "type": "SyntheticsCITestMetadataGit",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    ci: {
+      baseName: "ci",
+      type: "SyntheticsCITestMetadataCi",
+      format: "",
+    },
+    git: {
+      baseName: "git",
+      type: "SyntheticsCITestMetadataGit",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsCITestMetadata.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsCITestMetadata.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsCITestMetadata {
+    const res = new SyntheticsCITestMetadata();
+
+    res.ci = ObjectSerializer.deserialize(
+      data.ci,
+      "SyntheticsCITestMetadataCi",
+      ""
+    );
+
+    res.git = ObjectSerializer.deserialize(
+      data.git,
+      "SyntheticsCITestMetadataGit",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsCITestMetadata): { [key: string]: any } {
+    const attributeTypes = SyntheticsCITestMetadata.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.ci = ObjectSerializer.serialize(
+      data.ci,
+      "SyntheticsCITestMetadataCi",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SyntheticsCITestMetadata {
-      let res = new SyntheticsCITestMetadata();
+    res.git = ObjectSerializer.serialize(
+      data.git,
+      "SyntheticsCITestMetadataGit",
+      ""
+    );
 
-      res.ci = ObjectSerializer.deserialize(data.ci, "SyntheticsCITestMetadataCi", "")
+    return res;
+  }
 
-      res.git = ObjectSerializer.deserialize(data.git, "SyntheticsCITestMetadataGit", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsCITestMetadata): {[key: string]: any} {
-        let attributeTypes = SyntheticsCITestMetadata.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.ci = ObjectSerializer.serialize(data.ci, "SyntheticsCITestMetadataCi", "")
-
-        res.git = ObjectSerializer.serialize(data.git, "SyntheticsCITestMetadataGit", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,88 +8,97 @@
  * Do not edit the class manually.
  */
 
-import { OrganizationsType } from './OrganizationsType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { OrganizationsType } from "./OrganizationsType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Relationship to organization object.
-*/
+ * Relationship to organization object.
+ */
 
 export class RelationshipToOrganizationData {
-    /**
-    * ID of the organization.
-    */
-    'id': string;
-    'type': OrganizationsType;
+  /**
+   * ID of the organization.
+   */
+  "id": string;
+  "type": OrganizationsType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "OrganizationsType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "OrganizationsType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RelationshipToOrganizationData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RelationshipToOrganizationData.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): RelationshipToOrganizationData {
+    const res = new RelationshipToOrganizationData();
+
+    if (data.id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'id' on 'RelationshipToOrganizationData' object"
+      );
+    }
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'RelationshipToOrganizationData' object"
+      );
+    }
+    if (["orgs", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): RelationshipToOrganizationData {
-      let res = new RelationshipToOrganizationData();
+    return res;
+  }
 
-      if (data.id === undefined) {
-          throw new TypeError("missing required attribute 'id' on 'RelationshipToOrganizationData' object");
+  static serialize(
+    data: RelationshipToOrganizationData
+  ): { [key: string]: any } {
+    const attributeTypes = RelationshipToOrganizationData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+    }
+    if (data.id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'id' on 'RelationshipToOrganizationData' object"
+      );
+    }
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'RelationshipToOrganizationData' object");
-      }
-      if (['orgs', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'RelationshipToOrganizationData' object"
+      );
+    }
+    if (["orgs", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: RelationshipToOrganizationData): {[key: string]: any} {
-        let attributeTypes = RelationshipToOrganizationData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.id === undefined) {
-            throw new TypeError("missing required attribute 'id' on 'RelationshipToOrganizationData' object");
-        }
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
+    return res;
+  }
 
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'RelationshipToOrganizationData' object");
-        }
-        if (['orgs', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

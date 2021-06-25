@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { UsageNetworkFlowsHour } from './UsageNetworkFlowsHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing the number of netflow events indexed for each hour for a given organization.
-*/
+ * Response containing the number of netflow events indexed for each hour for a given organization.
+ */
 
 export class UsageNetworkFlowsResponse {
-    /**
-    * Get hourly usage for Network Flows.
-    */
-    'usage'?: Array<UsageNetworkFlowsHour>;
+  /**
+   * Get hourly usage for Network Flows.
+   */
+  "usage"?: Array<UsageNetworkFlowsHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageNetworkFlowsHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageNetworkFlowsHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageNetworkFlowsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageNetworkFlowsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageNetworkFlowsResponse {
+    const res = new UsageNetworkFlowsResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageNetworkFlowsHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageNetworkFlowsResponse): { [key: string]: any } {
+    const attributeTypes = UsageNetworkFlowsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageNetworkFlowsHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageNetworkFlowsResponse {
-      let res = new UsageNetworkFlowsResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageNetworkFlowsHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageNetworkFlowsResponse): {[key: string]: any} {
-        let attributeTypes = UsageNetworkFlowsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageNetworkFlowsHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

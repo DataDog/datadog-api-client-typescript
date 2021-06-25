@@ -8,16 +8,10 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Which summary type should be used.
-*/
-
-export type WidgetSummaryType = typeof MONITORS | typeof GROUPS | typeof COMBINED ;
-export const MONITORS = 'monitors';
-export const GROUPS = 'groups';
-export const COMBINED = 'combined';
-
-
+export type WidgetSummaryType =
+  | typeof MONITORS
+  | typeof GROUPS
+  | typeof COMBINED;
+export const MONITORS = "monitors";
+export const GROUPS = "groups";
+export const COMBINED = "combined";

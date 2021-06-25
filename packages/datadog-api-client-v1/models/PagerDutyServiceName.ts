@@ -8,63 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* PagerDuty service object name.
-*/
+ * PagerDuty service object name.
+ */
 
 export class PagerDutyServiceName {
-    /**
-    * Your service name associated service key in PagerDuty.
-    */
-    'serviceName': string;
+  /**
+   * Your service name associated service key in PagerDuty.
+   */
+  "serviceName": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "serviceName": {
-            "baseName": "service_name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    serviceName: {
+      baseName: "service_name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return PagerDutyServiceName.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return PagerDutyServiceName.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): PagerDutyServiceName {
+    const res = new PagerDutyServiceName();
+
+    if (data.service_name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'service_name' on 'PagerDutyServiceName' object"
+      );
     }
+    res.serviceName = ObjectSerializer.deserialize(
+      data.service_name,
+      "string",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): PagerDutyServiceName {
-      let res = new PagerDutyServiceName();
+    return res;
+  }
 
-      if (data.service_name === undefined) {
-          throw new TypeError("missing required attribute 'service_name' on 'PagerDutyServiceName' object");
+  static serialize(data: PagerDutyServiceName): { [key: string]: any } {
+    const attributeTypes = PagerDutyServiceName.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.serviceName = ObjectSerializer.deserialize(data.service_name, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: PagerDutyServiceName): {[key: string]: any} {
-        let attributeTypes = PagerDutyServiceName.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.serviceName === undefined) {
-            throw new TypeError("missing required attribute 'service_name' on 'PagerDutyServiceName' object");
-        }
-        res.service_name = ObjectSerializer.serialize(data.serviceName, "string", "")
-
-        return res
+    if (data.serviceName === undefined) {
+      throw new TypeError(
+        "missing required attribute 'service_name' on 'PagerDutyServiceName' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.service_name = ObjectSerializer.serialize(
+      data.serviceName,
+      "string",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

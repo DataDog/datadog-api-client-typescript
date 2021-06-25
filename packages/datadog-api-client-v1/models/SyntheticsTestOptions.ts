@@ -8,210 +8,311 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDeviceID } from './SyntheticsDeviceID';
-import { SyntheticsTestOptionsMonitorOptions } from './SyntheticsTestOptionsMonitorOptions';
-import { SyntheticsTestOptionsRetry } from './SyntheticsTestOptionsRetry';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
+import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
+import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the extra options for a Synthetic test.
-*/
+ * Object describing the extra options for a Synthetic test.
+ */
 
 export class SyntheticsTestOptions {
-    /**
-    * For SSL test, whether or not the test should allow self signed certificates.
-    */
-    'acceptSelfSigned'?: boolean;
-    /**
-    * Allows loading insecure content for an HTTP request.
-    */
-    'allowInsecure'?: boolean;
-    /**
-    * For browser test, array with the different device IDs used to run the test.
-    */
-    'deviceIds'?: Array<SyntheticsDeviceID>;
-    /**
-    * Whether or not to disable CORS mechanism.
-    */
-    'disableCors'?: boolean;
-    /**
-    * For API HTTP test, whether or not the test should follow redirects.
-    */
-    'followRedirects'?: boolean;
-    /**
-    * Minimum amount of time in failure required to trigger an alert.
-    */
-    'minFailureDuration'?: number;
-    /**
-    * Minimum number of locations in failure required to trigger an alert.
-    */
-    'minLocationFailed'?: number;
-    /**
-    * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-    */
-    'monitorName'?: string;
-    'monitorOptions'?: SyntheticsTestOptionsMonitorOptions;
-    /**
-    * Integer from 1 (high) to 5 (low) indicating alert severity.
-    */
-    'monitorPriority'?: number;
-    /**
-    * Prevents saving screenshots of the steps.
-    */
-    'noScreenshot'?: boolean;
-    'retry'?: SyntheticsTestOptionsRetry;
-    /**
-    * The frequency at which to run the Synthetic test (in seconds).
-    */
-    'tickEvery'?: number;
+  /**
+   * For SSL test, whether or not the test should allow self signed certificates.
+   */
+  "acceptSelfSigned"?: boolean;
+  /**
+   * Allows loading insecure content for an HTTP request.
+   */
+  "allowInsecure"?: boolean;
+  /**
+   * For browser test, array with the different device IDs used to run the test.
+   */
+  "deviceIds"?: Array<SyntheticsDeviceID>;
+  /**
+   * Whether or not to disable CORS mechanism.
+   */
+  "disableCors"?: boolean;
+  /**
+   * For API HTTP test, whether or not the test should follow redirects.
+   */
+  "followRedirects"?: boolean;
+  /**
+   * Minimum amount of time in failure required to trigger an alert.
+   */
+  "minFailureDuration"?: number;
+  /**
+   * Minimum number of locations in failure required to trigger an alert.
+   */
+  "minLocationFailed"?: number;
+  /**
+   * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+   */
+  "monitorName"?: string;
+  "monitorOptions"?: SyntheticsTestOptionsMonitorOptions;
+  /**
+   * Integer from 1 (high) to 5 (low) indicating alert severity.
+   */
+  "monitorPriority"?: number;
+  /**
+   * Prevents saving screenshots of the steps.
+   */
+  "noScreenshot"?: boolean;
+  "retry"?: SyntheticsTestOptionsRetry;
+  /**
+   * The frequency at which to run the Synthetic test (in seconds).
+   */
+  "tickEvery"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "acceptSelfSigned": {
-            "baseName": "accept_self_signed",
-            "type": "boolean",
-            "format": ""
-        },
-        "allowInsecure": {
-            "baseName": "allow_insecure",
-            "type": "boolean",
-            "format": ""
-        },
-        "deviceIds": {
-            "baseName": "device_ids",
-            "type": "Array<SyntheticsDeviceID>",
-            "format": ""
-        },
-        "disableCors": {
-            "baseName": "disableCors",
-            "type": "boolean",
-            "format": ""
-        },
-        "followRedirects": {
-            "baseName": "follow_redirects",
-            "type": "boolean",
-            "format": ""
-        },
-        "minFailureDuration": {
-            "baseName": "min_failure_duration",
-            "type": "number",
-            "format": "int64"
-        },
-        "minLocationFailed": {
-            "baseName": "min_location_failed",
-            "type": "number",
-            "format": "int64"
-        },
-        "monitorName": {
-            "baseName": "monitor_name",
-            "type": "string",
-            "format": ""
-        },
-        "monitorOptions": {
-            "baseName": "monitor_options",
-            "type": "SyntheticsTestOptionsMonitorOptions",
-            "format": ""
-        },
-        "monitorPriority": {
-            "baseName": "monitor_priority",
-            "type": "number",
-            "format": "int32"
-        },
-        "noScreenshot": {
-            "baseName": "noScreenshot",
-            "type": "boolean",
-            "format": ""
-        },
-        "retry": {
-            "baseName": "retry",
-            "type": "SyntheticsTestOptionsRetry",
-            "format": ""
-        },
-        "tickEvery": {
-            "baseName": "tick_every",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    acceptSelfSigned: {
+      baseName: "accept_self_signed",
+      type: "boolean",
+      format: "",
+    },
+    allowInsecure: {
+      baseName: "allow_insecure",
+      type: "boolean",
+      format: "",
+    },
+    deviceIds: {
+      baseName: "device_ids",
+      type: "Array<SyntheticsDeviceID>",
+      format: "",
+    },
+    disableCors: {
+      baseName: "disableCors",
+      type: "boolean",
+      format: "",
+    },
+    followRedirects: {
+      baseName: "follow_redirects",
+      type: "boolean",
+      format: "",
+    },
+    minFailureDuration: {
+      baseName: "min_failure_duration",
+      type: "number",
+      format: "int64",
+    },
+    minLocationFailed: {
+      baseName: "min_location_failed",
+      type: "number",
+      format: "int64",
+    },
+    monitorName: {
+      baseName: "monitor_name",
+      type: "string",
+      format: "",
+    },
+    monitorOptions: {
+      baseName: "monitor_options",
+      type: "SyntheticsTestOptionsMonitorOptions",
+      format: "",
+    },
+    monitorPriority: {
+      baseName: "monitor_priority",
+      type: "number",
+      format: "int32",
+    },
+    noScreenshot: {
+      baseName: "noScreenshot",
+      type: "boolean",
+      format: "",
+    },
+    retry: {
+      baseName: "retry",
+      type: "SyntheticsTestOptionsRetry",
+      format: "",
+    },
+    tickEvery: {
+      baseName: "tick_every",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTestOptions.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTestOptions.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsTestOptions {
+    const res = new SyntheticsTestOptions();
+
+    res.acceptSelfSigned = ObjectSerializer.deserialize(
+      data.accept_self_signed,
+      "boolean",
+      ""
+    );
+
+    res.allowInsecure = ObjectSerializer.deserialize(
+      data.allow_insecure,
+      "boolean",
+      ""
+    );
+
+    res.deviceIds = ObjectSerializer.deserialize(
+      data.device_ids,
+      "Array<SyntheticsDeviceID>",
+      ""
+    );
+
+    res.disableCors = ObjectSerializer.deserialize(
+      data.disableCors,
+      "boolean",
+      ""
+    );
+
+    res.followRedirects = ObjectSerializer.deserialize(
+      data.follow_redirects,
+      "boolean",
+      ""
+    );
+
+    res.minFailureDuration = ObjectSerializer.deserialize(
+      data.min_failure_duration,
+      "number",
+      "int64"
+    );
+
+    res.minLocationFailed = ObjectSerializer.deserialize(
+      data.min_location_failed,
+      "number",
+      "int64"
+    );
+
+    res.monitorName = ObjectSerializer.deserialize(
+      data.monitor_name,
+      "string",
+      ""
+    );
+
+    res.monitorOptions = ObjectSerializer.deserialize(
+      data.monitor_options,
+      "SyntheticsTestOptionsMonitorOptions",
+      ""
+    );
+
+    res.monitorPriority = ObjectSerializer.deserialize(
+      data.monitor_priority,
+      "number",
+      "int32"
+    );
+
+    res.noScreenshot = ObjectSerializer.deserialize(
+      data.noScreenshot,
+      "boolean",
+      ""
+    );
+
+    res.retry = ObjectSerializer.deserialize(
+      data.retry,
+      "SyntheticsTestOptionsRetry",
+      ""
+    );
+
+    res.tickEvery = ObjectSerializer.deserialize(
+      data.tick_every,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsTestOptions): { [key: string]: any } {
+    const attributeTypes = SyntheticsTestOptions.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.accept_self_signed = ObjectSerializer.serialize(
+      data.acceptSelfSigned,
+      "boolean",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTestOptions {
-      let res = new SyntheticsTestOptions();
+    res.allow_insecure = ObjectSerializer.serialize(
+      data.allowInsecure,
+      "boolean",
+      ""
+    );
 
-      res.acceptSelfSigned = ObjectSerializer.deserialize(data.accept_self_signed, "boolean", "")
+    res.device_ids = ObjectSerializer.serialize(
+      data.deviceIds,
+      "Array<SyntheticsDeviceID>",
+      ""
+    );
 
-      res.allowInsecure = ObjectSerializer.deserialize(data.allow_insecure, "boolean", "")
+    res.disableCors = ObjectSerializer.serialize(
+      data.disableCors,
+      "boolean",
+      ""
+    );
 
-      res.deviceIds = ObjectSerializer.deserialize(data.device_ids, "Array<SyntheticsDeviceID>", "")
+    res.follow_redirects = ObjectSerializer.serialize(
+      data.followRedirects,
+      "boolean",
+      ""
+    );
 
-      res.disableCors = ObjectSerializer.deserialize(data.disableCors, "boolean", "")
+    res.min_failure_duration = ObjectSerializer.serialize(
+      data.minFailureDuration,
+      "number",
+      "int64"
+    );
 
-      res.followRedirects = ObjectSerializer.deserialize(data.follow_redirects, "boolean", "")
+    res.min_location_failed = ObjectSerializer.serialize(
+      data.minLocationFailed,
+      "number",
+      "int64"
+    );
 
-      res.minFailureDuration = ObjectSerializer.deserialize(data.min_failure_duration, "number", "int64")
+    res.monitor_name = ObjectSerializer.serialize(
+      data.monitorName,
+      "string",
+      ""
+    );
 
-      res.minLocationFailed = ObjectSerializer.deserialize(data.min_location_failed, "number", "int64")
+    res.monitor_options = ObjectSerializer.serialize(
+      data.monitorOptions,
+      "SyntheticsTestOptionsMonitorOptions",
+      ""
+    );
 
-      res.monitorName = ObjectSerializer.deserialize(data.monitor_name, "string", "")
+    res.monitor_priority = ObjectSerializer.serialize(
+      data.monitorPriority,
+      "number",
+      "int32"
+    );
 
-      res.monitorOptions = ObjectSerializer.deserialize(data.monitor_options, "SyntheticsTestOptionsMonitorOptions", "")
+    res.noScreenshot = ObjectSerializer.serialize(
+      data.noScreenshot,
+      "boolean",
+      ""
+    );
 
-      res.monitorPriority = ObjectSerializer.deserialize(data.monitor_priority, "number", "int32")
+    res.retry = ObjectSerializer.serialize(
+      data.retry,
+      "SyntheticsTestOptionsRetry",
+      ""
+    );
 
-      res.noScreenshot = ObjectSerializer.deserialize(data.noScreenshot, "boolean", "")
+    res.tick_every = ObjectSerializer.serialize(
+      data.tickEvery,
+      "number",
+      "int64"
+    );
 
-      res.retry = ObjectSerializer.deserialize(data.retry, "SyntheticsTestOptionsRetry", "")
+    return res;
+  }
 
-      res.tickEvery = ObjectSerializer.deserialize(data.tick_every, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsTestOptions): {[key: string]: any} {
-        let attributeTypes = SyntheticsTestOptions.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.accept_self_signed = ObjectSerializer.serialize(data.acceptSelfSigned, "boolean", "")
-
-        res.allow_insecure = ObjectSerializer.serialize(data.allowInsecure, "boolean", "")
-
-        res.device_ids = ObjectSerializer.serialize(data.deviceIds, "Array<SyntheticsDeviceID>", "")
-
-        res.disableCors = ObjectSerializer.serialize(data.disableCors, "boolean", "")
-
-        res.follow_redirects = ObjectSerializer.serialize(data.followRedirects, "boolean", "")
-
-        res.min_failure_duration = ObjectSerializer.serialize(data.minFailureDuration, "number", "int64")
-
-        res.min_location_failed = ObjectSerializer.serialize(data.minLocationFailed, "number", "int64")
-
-        res.monitor_name = ObjectSerializer.serialize(data.monitorName, "string", "")
-
-        res.monitor_options = ObjectSerializer.serialize(data.monitorOptions, "SyntheticsTestOptionsMonitorOptions", "")
-
-        res.monitor_priority = ObjectSerializer.serialize(data.monitorPriority, "number", "int32")
-
-        res.noScreenshot = ObjectSerializer.serialize(data.noScreenshot, "boolean", "")
-
-        res.retry = ObjectSerializer.serialize(data.retry, "SyntheticsTestOptionsRetry", "")
-
-        res.tick_every = ObjectSerializer.serialize(data.tickEvery, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

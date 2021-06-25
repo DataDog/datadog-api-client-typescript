@@ -8,55 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from './RelationshipToUser';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToUser } from "./RelationshipToUser";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Resources related to the application key.
-*/
+ * Resources related to the application key.
+ */
 
 export class ApplicationKeyRelationships {
-    'createdBy'?: RelationshipToUser;
+  "createdBy"?: RelationshipToUser;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "createdBy": {
-            "baseName": "created_by",
-            "type": "RelationshipToUser",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    createdBy: {
+      baseName: "created_by",
+      type: "RelationshipToUser",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ApplicationKeyRelationships.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ApplicationKeyRelationships.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): ApplicationKeyRelationships {
+    const res = new ApplicationKeyRelationships();
+
+    res.createdBy = ObjectSerializer.deserialize(
+      data.created_by,
+      "RelationshipToUser",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ApplicationKeyRelationships): { [key: string]: any } {
+    const attributeTypes = ApplicationKeyRelationships.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.created_by = ObjectSerializer.serialize(
+      data.createdBy,
+      "RelationshipToUser",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): ApplicationKeyRelationships {
-      let res = new ApplicationKeyRelationships();
+    return res;
+  }
 
-      res.createdBy = ObjectSerializer.deserialize(data.created_by, "RelationshipToUser", "")
-
-
-      return res;
-    }
-
-    static serialize(data: ApplicationKeyRelationships): {[key: string]: any} {
-        let attributeTypes = ApplicationKeyRelationships.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.created_by = ObjectSerializer.serialize(data.createdBy, "RelationshipToUser", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

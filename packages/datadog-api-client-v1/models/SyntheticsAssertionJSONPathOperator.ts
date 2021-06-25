@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Assertion operator to apply.
-*/
-
-export type SyntheticsAssertionJSONPathOperator = typeof VALIDATES_JSON_PATH ;
-export const VALIDATES_JSON_PATH = 'validatesJSONPath';
-
-
+export type SyntheticsAssertionJSONPathOperator = typeof VALIDATES_JSON_PATH;
+export const VALIDATES_JSON_PATH = "validatesJSONPath";

@@ -8,12 +8,9 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucketValueTimeseriesPoint } from './LogsAggregateBucketValueTimeseriesPoint';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsAggregateBucketValueTimeseriesPoint } from "./LogsAggregateBucketValueTimeseriesPoint";
 
-/**
-* A bucket value, can be either a timeseries or a single value
-*/
-
-export type LogsAggregateBucketValue = Array<LogsAggregateBucketValueTimeseriesPoint> | number | string;
+export type LogsAggregateBucketValue =
+  | Array<LogsAggregateBucketValueTimeseriesPoint>
+  | number
+  | string;

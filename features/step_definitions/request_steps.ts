@@ -67,14 +67,16 @@ Given("new {string} request", function (this: World, operationId: string) {
 When("the request is sent", async function (this: World) {
   // build request from scenario
   const api = (datadogApiClient as any)[this.apiVersion];
-  let configurationOpts = {
+  const configurationOpts = {
     authMethods: this.authMethods,
-    httpConfig: {compress: false},
-  }
+    httpConfig: { compress: false },
+  };
   if (process.env.DD_TEST_SITE) {
-    let serverConf = api.servers[2].getConfiguration();
-    api.servers[2].setVariables({"site": process.env.DD_TEST_SITE} as (typeof serverConf));
-    (configurationOpts as any)['serverIndex'] = 2;
+    const serverConf = api.servers[2].getConfiguration();
+    api.servers[2].setVariables({
+      site: process.env.DD_TEST_SITE,
+    } as typeof serverConf);
+    (configurationOpts as any)["serverIndex"] = 2;
   }
   const configuration = api.createConfiguration(configurationOpts);
   const apiInstance = new api[`${this.apiName}Api`](configuration);
@@ -91,11 +93,22 @@ When("the request is sent", async function (this: World) {
   })(apiInstance.api.responseProcessor);
   // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});
   try {
-    this.response = await apiInstance[this.operationId.toOperationName()](
-      this.opts
-    );
+    if (Object.keys(this.opts).length) {
+      this.response = await apiInstance[this.operationId.toOperationName()](
+        this.opts
+      );
+    } else {
+      this.response = await apiInstance[this.operationId.toOperationName()]();
+    }
     if (undoAction.undo.type == "unsafe") {
-      this.undo.push(buildUndoFor(this.apiVersion, undoAction, this.operationId, this.response));
+      this.undo.push(
+        buildUndoFor(
+          this.apiVersion,
+          undoAction,
+          this.operationId,
+          this.response
+        )
+      );
     }
   } catch (error) {
     console.log(error);

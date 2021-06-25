@@ -8,83 +8,84 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Define a request certificate.
-*/
+ * Define a request certificate.
+ */
 
 export class SyntheticsTestRequestCertificateItem {
-    /**
-    * Content of the certificate or key.
-    */
-    'content'?: string;
-    /**
-    * File name for the certificate or key.
-    */
-    'filename'?: string;
-    /**
-    * Date of update of the certificate or key, ISO format.
-    */
-    'updatedAt'?: string;
+  /**
+   * Content of the certificate or key.
+   */
+  "content"?: string;
+  /**
+   * File name for the certificate or key.
+   */
+  "filename"?: string;
+  /**
+   * Date of update of the certificate or key, ISO format.
+   */
+  "updatedAt"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "content": {
-            "baseName": "content",
-            "type": "string",
-            "format": ""
-        },
-        "filename": {
-            "baseName": "filename",
-            "type": "string",
-            "format": ""
-        },
-        "updatedAt": {
-            "baseName": "updatedAt",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    content: {
+      baseName: "content",
+      type: "string",
+      format: "",
+    },
+    filename: {
+      baseName: "filename",
+      type: "string",
+      format: "",
+    },
+    updatedAt: {
+      baseName: "updatedAt",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTestRequestCertificateItem.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTestRequestCertificateItem.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsTestRequestCertificateItem {
+    const res = new SyntheticsTestRequestCertificateItem();
+
+    res.content = ObjectSerializer.deserialize(data.content, "string", "");
+
+    res.filename = ObjectSerializer.deserialize(data.filename, "string", "");
+
+    res.updatedAt = ObjectSerializer.deserialize(data.updatedAt, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsTestRequestCertificateItem
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsTestRequestCertificateItem.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.content = ObjectSerializer.serialize(data.content, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTestRequestCertificateItem {
-      let res = new SyntheticsTestRequestCertificateItem();
+    res.filename = ObjectSerializer.serialize(data.filename, "string", "");
 
-      res.content = ObjectSerializer.deserialize(data.content, "string", "")
+    res.updatedAt = ObjectSerializer.serialize(data.updatedAt, "string", "");
 
-      res.filename = ObjectSerializer.deserialize(data.filename, "string", "")
+    return res;
+  }
 
-      res.updatedAt = ObjectSerializer.deserialize(data.updatedAt, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsTestRequestCertificateItem): {[key: string]: any} {
-        let attributeTypes = SyntheticsTestRequestCertificateItem.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.content = ObjectSerializer.serialize(data.content, "string", "")
-
-        res.filename = ObjectSerializer.serialize(data.filename, "string", "")
-
-        res.updatedAt = ObjectSerializer.serialize(data.updatedAt, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

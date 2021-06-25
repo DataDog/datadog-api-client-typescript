@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object listing all metric names stored by Datadog since a given time.
-*/
+ * Object listing all metric names stored by Datadog since a given time.
+ */
 
 export class MetricsListResponse {
-    /**
-    * Time when the metrics were active, seconds since the Unix epoch.
-    */
-    'from'?: string;
-    /**
-    * List of metric names.
-    */
-    'metrics'?: Array<string>;
+  /**
+   * Time when the metrics were active, seconds since the Unix epoch.
+   */
+  "from"?: string;
+  /**
+   * List of metric names.
+   */
+  "metrics"?: Array<string>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "from": {
-            "baseName": "from",
-            "type": "string",
-            "format": ""
-        },
-        "metrics": {
-            "baseName": "metrics",
-            "type": "Array<string>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    from: {
+      baseName: "from",
+      type: "string",
+      format: "",
+    },
+    metrics: {
+      baseName: "metrics",
+      type: "Array<string>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MetricsListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MetricsListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): MetricsListResponse {
+    const res = new MetricsListResponse();
+
+    res.from = ObjectSerializer.deserialize(data.from, "string", "");
+
+    res.metrics = ObjectSerializer.deserialize(
+      data.metrics,
+      "Array<string>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: MetricsListResponse): { [key: string]: any } {
+    const attributeTypes = MetricsListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.from = ObjectSerializer.serialize(data.from, "string", "");
 
-    static deserialize(data: {[key: string]: any}): MetricsListResponse {
-      let res = new MetricsListResponse();
+    res.metrics = ObjectSerializer.serialize(data.metrics, "Array<string>", "");
 
-      res.from = ObjectSerializer.deserialize(data.from, "string", "")
+    return res;
+  }
 
-      res.metrics = ObjectSerializer.deserialize(data.metrics, "Array<string>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: MetricsListResponse): {[key: string]: any} {
-        let attributeTypes = MetricsListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.from = ObjectSerializer.serialize(data.from, "string", "")
-
-        res.metrics = ObjectSerializer.serialize(data.metrics, "Array<string>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

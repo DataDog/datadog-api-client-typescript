@@ -8,82 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from './SecurityMonitoringRuleNewValueOptionsForgetAfter';
-import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from './SecurityMonitoringRuleNewValueOptionsLearningDuration';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Options on new value rules.
-*/
+import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./SecurityMonitoringRuleNewValueOptionsForgetAfter";
+import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./SecurityMonitoringRuleNewValueOptionsLearningDuration";
 
 export class SecurityMonitoringRuleNewValueOptions {
-    'forgetAfter'?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
-    'learningDuration'?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
+  "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
+  "learningDuration"?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "forgetAfter": {
-            "baseName": "forgetAfter",
-            "type": "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-            "format": ""
-        },
-        "learningDuration": {
-            "baseName": "learningDuration",
-            "type": "SecurityMonitoringRuleNewValueOptionsLearningDuration",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    forgetAfter: {
+      baseName: "forgetAfter",
+      type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
+      format: "",
+    },
+    learningDuration: {
+      baseName: "learningDuration",
+      type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringRuleNewValueOptions {
+    const res = new SecurityMonitoringRuleNewValueOptions();
+
+    if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
+      res.forgetAfter = data.forgetAfter;
+    } else {
+      throw TypeError(`invalid enum value ${data.forgetAfter} for forgetAfter`);
     }
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuleNewValueOptions {
-      let res = new SecurityMonitoringRuleNewValueOptions();
+    if ([0, 1, 7, undefined].includes(data.learningDuration)) {
+      res.learningDuration = data.learningDuration;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.learningDuration} for learningDuration`
+      );
+    }
 
-      if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
-          res.forgetAfter = data.forgetAfter;
-      } else {
-          throw TypeError(`invalid enum value ${ data.forgetAfter } for forgetAfter`);
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringRuleNewValueOptions
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringRuleNewValueOptions.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-
-      if ([0, 1, 7, undefined].includes(data.learningDuration)) {
-          res.learningDuration = data.learningDuration;
-      } else {
-          throw TypeError(`invalid enum value ${ data.learningDuration } for learningDuration`);
-      }
-
-
-      return res;
+    }
+    if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
+      res.forgetAfter = data.forgetAfter;
+    } else {
+      throw TypeError(`invalid enum value ${data.forgetAfter} for forgetAfter`);
     }
 
-    static serialize(data: SecurityMonitoringRuleNewValueOptions): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringRuleNewValueOptions.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
-            res.forgetAfter = data.forgetAfter;
-        } else {
-            throw TypeError(`invalid enum value ${ data.forgetAfter } for forgetAfter`);
-        }
-
-        if ([0, 1, 7, undefined].includes(data.learningDuration)) {
-            res.learningDuration = data.learningDuration;
-        } else {
-            throw TypeError(`invalid enum value ${ data.learningDuration } for learningDuration`);
-        }
-
-        return res
+    if ([0, 1, 7, undefined].includes(data.learningDuration)) {
+      res.learningDuration = data.learningDuration;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.learningDuration} for learningDuration`
+      );
     }
-    
-    public constructor() {
-    }
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { UsageIoTHour } from './UsageIoTHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageIoTHour } from "./UsageIoTHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing the IoT usage for each hour for a given organization.
-*/
+ * Response containing the IoT usage for each hour for a given organization.
+ */
 
 export class UsageIoTResponse {
-    /**
-    * Get hourly usage for IoT.
-    */
-    'usage'?: Array<UsageIoTHour>;
+  /**
+   * Get hourly usage for IoT.
+   */
+  "usage"?: Array<UsageIoTHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageIoTHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageIoTHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageIoTResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageIoTResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageIoTResponse {
+    const res = new UsageIoTResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageIoTHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageIoTResponse): { [key: string]: any } {
+    const attributeTypes = UsageIoTResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageIoTHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageIoTResponse {
-      let res = new UsageIoTResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageIoTHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageIoTResponse): {[key: string]: any} {
-        let attributeTypes = UsageIoTResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageIoTHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

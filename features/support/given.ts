@@ -24,7 +24,6 @@ interface IGivenStep {
 }
 
 const Versions = ["v1", "v2"] as const;
-type VersionsType = typeof Versions[number];
 
 for (const apiVersion of Versions) {
   const content = fs
@@ -38,18 +37,20 @@ for (const apiVersion of Versions) {
 
       // make sure we have a fresh instance of API client and configuration
       const api = getProperty(datadogApiClient, apiVersion);
-      let configurationOpts = {
+      const configurationOpts = {
         authMethods: {
           apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,
           appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
         },
-        httpConfig: {compress: false}
-      }
+        httpConfig: { compress: false },
+      };
       if (process.env.DD_TEST_SITE) {
-        let server = api.servers[2];
-        let serverConf = server.getConfiguration();
-        server.setVariables({"site": process.env.DD_TEST_SITE} as (typeof serverConf));
-        (configurationOpts as any)['baseServer'] = server;
+        const server = api.servers[2];
+        const serverConf = server.getConfiguration();
+        server.setVariables({
+          site: process.env.DD_TEST_SITE,
+        } as typeof serverConf);
+        (configurationOpts as any)["baseServer"] = server;
       }
       const configuration = api.createConfiguration(configurationOpts);
       const apiInstance = new (api as any)[`${apiName}Api`](configuration);
@@ -70,10 +71,10 @@ for (const apiVersion of Versions) {
 
       if (operation.parameters !== undefined) {
         for (const p of operation.parameters) {
-          let value: any;
           if (p.value !== undefined) {
             opts[p.name.toAttributeName()] = JSON.parse(
-              p.value?.templated(this.fixtures), fixKeys
+              p.value?.templated(this.fixtures),
+              fixKeys
             );
           }
           if (p.source !== undefined) {
@@ -85,12 +86,19 @@ for (const apiVersion of Versions) {
         }
       }
 
+      let result: any = {};
       // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});
-      let result = await apiInstance[operationName](opts);
+      if (Object.keys(opts).length) {
+        result = await apiInstance[operationName](opts);
+      } else {
+        result = await apiInstance[operationName]();
+      }
 
       // register undo method
       if (undoAction.undo.type == "unsafe") {
-        this.undo.push(buildUndoFor(apiVersion, undoAction, operationName, result));
+        this.undo.push(
+          buildUndoFor(apiVersion, undoAction, operationName, result)
+        );
       }
 
       // optional re-shaping

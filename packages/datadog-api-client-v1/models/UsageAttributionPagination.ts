@@ -8,83 +8,96 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The metadata for the current pagination.
-*/
+ * The metadata for the current pagination.
+ */
 
 export class UsageAttributionPagination {
-    /**
-    * Maximum amount of records to be returned.
-    */
-    'limit'?: number;
-    /**
-    * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of this next_record_id.
-    */
-    'nextRecordId'?: string;
-    /**
-    * Total number of records. (deprecated after May 1st, 2021)
-    */
-    'totalNumberOfRecords'?: number;
+  /**
+   * Maximum amount of records to be returned.
+   */
+  "limit"?: number;
+  /**
+   * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of this next_record_id.
+   */
+  "nextRecordId"?: string;
+  /**
+   * Total number of records. (deprecated after May 1st, 2021)
+   */
+  "totalNumberOfRecords"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "limit": {
-            "baseName": "limit",
-            "type": "number",
-            "format": "int64"
-        },
-        "nextRecordId": {
-            "baseName": "next_record_id",
-            "type": "string",
-            "format": ""
-        },
-        "totalNumberOfRecords": {
-            "baseName": "total_number_of_records",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
+    },
+    nextRecordId: {
+      baseName: "next_record_id",
+      type: "string",
+      format: "",
+    },
+    totalNumberOfRecords: {
+      baseName: "total_number_of_records",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageAttributionPagination.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageAttributionPagination.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageAttributionPagination {
+    const res = new UsageAttributionPagination();
+
+    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
+
+    res.nextRecordId = ObjectSerializer.deserialize(
+      data.next_record_id,
+      "string",
+      ""
+    );
+
+    res.totalNumberOfRecords = ObjectSerializer.deserialize(
+      data.total_number_of_records,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageAttributionPagination): { [key: string]: any } {
+    const attributeTypes = UsageAttributionPagination.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
 
-    static deserialize(data: {[key: string]: any}): UsageAttributionPagination {
-      let res = new UsageAttributionPagination();
+    res.next_record_id = ObjectSerializer.serialize(
+      data.nextRecordId,
+      "string",
+      ""
+    );
 
-      res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64")
+    res.total_number_of_records = ObjectSerializer.serialize(
+      data.totalNumberOfRecords,
+      "number",
+      "int64"
+    );
 
-      res.nextRecordId = ObjectSerializer.deserialize(data.next_record_id, "string", "")
+    return res;
+  }
 
-      res.totalNumberOfRecords = ObjectSerializer.deserialize(data.total_number_of_records, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageAttributionPagination): {[key: string]: any} {
-        let attributeTypes = UsageAttributionPagination.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.limit = ObjectSerializer.serialize(data.limit, "number", "int64")
-
-        res.next_record_id = ObjectSerializer.serialize(data.nextRecordId, "string", "")
-
-        res.total_number_of_records = ObjectSerializer.serialize(data.totalNumberOfRecords, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,80 +8,93 @@
  * Do not edit the class manually.
  */
 
-import { Log } from './Log';
-import { LogsListResponseLinks } from './LogsListResponseLinks';
-import { LogsResponseMetadata } from './LogsResponseMetadata';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { Log } from "./Log";
+import { LogsListResponseLinks } from "./LogsListResponseLinks";
+import { LogsResponseMetadata } from "./LogsResponseMetadata";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response object with all logs matching the request and pagination information.
-*/
+ * Response object with all logs matching the request and pagination information.
+ */
 
 export class LogsListResponse {
-    /**
-    * Array of logs matching the request.
-    */
-    'data'?: Array<Log>;
-    'links'?: LogsListResponseLinks;
-    'meta'?: LogsResponseMetadata;
+  /**
+   * Array of logs matching the request.
+   */
+  "data"?: Array<Log>;
+  "links"?: LogsListResponseLinks;
+  "meta"?: LogsResponseMetadata;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<Log>",
-            "format": ""
-        },
-        "links": {
-            "baseName": "links",
-            "type": "LogsListResponseLinks",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "LogsResponseMetadata",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<Log>",
+      format: "",
+    },
+    links: {
+      baseName: "links",
+      type: "LogsListResponseLinks",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "LogsResponseMetadata",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsListResponse {
+    const res = new LogsListResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "Array<Log>", "");
+
+    res.links = ObjectSerializer.deserialize(
+      data.links,
+      "LogsListResponseLinks",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "LogsResponseMetadata",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsListResponse): { [key: string]: any } {
+    const attributeTypes = LogsListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "Array<Log>", "");
 
-    static deserialize(data: {[key: string]: any}): LogsListResponse {
-      let res = new LogsListResponse();
+    res.links = ObjectSerializer.serialize(
+      data.links,
+      "LogsListResponseLinks",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<Log>", "")
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "LogsResponseMetadata",
+      ""
+    );
 
-      res.links = ObjectSerializer.deserialize(data.links, "LogsListResponseLinks", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "LogsResponseMetadata", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsListResponse): {[key: string]: any} {
-        let attributeTypes = LogsListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<Log>", "")
-
-        res.links = ObjectSerializer.serialize(data.links, "LogsListResponseLinks", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "LogsResponseMetadata", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

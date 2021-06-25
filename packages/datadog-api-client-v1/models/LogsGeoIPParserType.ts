@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of GeoIP parser.
-*/
-
-export type LogsGeoIPParserType = typeof GEO_IP_PARSER ;
-export const GEO_IP_PARSER = 'geo-ip-parser';
-
-
+export type LogsGeoIPParserType = typeof GEO_IP_PARSER;
+export const GEO_IP_PARSER = "geo-ip-parser";

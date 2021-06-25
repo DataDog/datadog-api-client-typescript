@@ -8,95 +8,136 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventAggregation } from './FormulaAndFunctionEventAggregation';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Compute options.
-*/
+ * Compute options.
+ */
 
 export class FormulaAndFunctionEventQueryDefinitionCompute {
-    'aggregation': FormulaAndFunctionEventAggregation;
-    /**
-    * A time interval in milliseconds.
-    */
-    'interval'?: number;
-    /**
-    * Measurable attribute to compute.
-    */
-    'metric'?: string;
+  "aggregation": FormulaAndFunctionEventAggregation;
+  /**
+   * A time interval in milliseconds.
+   */
+  "interval"?: number;
+  /**
+   * Measurable attribute to compute.
+   */
+  "metric"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "aggregation": {
-            "baseName": "aggregation",
-            "type": "FormulaAndFunctionEventAggregation",
-            "format": ""
-        },
-        "interval": {
-            "baseName": "interval",
-            "type": "number",
-            "format": "int64"
-        },
-        "metric": {
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    aggregation: {
+      baseName: "aggregation",
+      type: "FormulaAndFunctionEventAggregation",
+      format: "",
+    },
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "int64",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return FormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return FormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): FormulaAndFunctionEventQueryDefinitionCompute {
+    const res = new FormulaAndFunctionEventQueryDefinitionCompute();
+
+    if (data.aggregation === undefined) {
+      throw new TypeError(
+        "missing required attribute 'aggregation' on 'FormulaAndFunctionEventQueryDefinitionCompute' object"
+      );
+    }
+    if (
+      [
+        "count",
+        "cardinality",
+        "median",
+        "pc75",
+        "pc90",
+        "pc95",
+        "pc98",
+        "pc99",
+        "sum",
+        "min",
+        "max",
+        "avg",
+        undefined,
+      ].includes(data.aggregation)
+    ) {
+      res.aggregation = data.aggregation;
+    } else {
+      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
     }
 
-    static deserialize(data: {[key: string]: any}): FormulaAndFunctionEventQueryDefinitionCompute {
-      let res = new FormulaAndFunctionEventQueryDefinitionCompute();
+    res.interval = ObjectSerializer.deserialize(
+      data.interval,
+      "number",
+      "int64"
+    );
 
-      if (data.aggregation === undefined) {
-          throw new TypeError("missing required attribute 'aggregation' on 'FormulaAndFunctionEventQueryDefinitionCompute' object");
+    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: FormulaAndFunctionEventQueryDefinitionCompute
+  ): { [key: string]: any } {
+    const attributeTypes = FormulaAndFunctionEventQueryDefinitionCompute.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['count', 'cardinality', 'median', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg', undefined].includes(data.aggregation)) {
-          res.aggregation = data.aggregation;
-      } else {
-          throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
-      }
-
-      res.interval = ObjectSerializer.deserialize(data.interval, "number", "int64")
-
-      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
-
-
-      return res;
+    }
+    if (data.aggregation === undefined) {
+      throw new TypeError(
+        "missing required attribute 'aggregation' on 'FormulaAndFunctionEventQueryDefinitionCompute' object"
+      );
+    }
+    if (
+      [
+        "count",
+        "cardinality",
+        "median",
+        "pc75",
+        "pc90",
+        "pc95",
+        "pc98",
+        "pc99",
+        "sum",
+        "min",
+        "max",
+        "avg",
+        undefined,
+      ].includes(data.aggregation)
+    ) {
+      res.aggregation = data.aggregation;
+    } else {
+      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
     }
 
-    static serialize(data: FormulaAndFunctionEventQueryDefinitionCompute): {[key: string]: any} {
-        let attributeTypes = FormulaAndFunctionEventQueryDefinitionCompute.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.aggregation === undefined) {
-            throw new TypeError("missing required attribute 'aggregation' on 'FormulaAndFunctionEventQueryDefinitionCompute' object");
-        }
-        if (['count', 'cardinality', 'median', 'pc75', 'pc90', 'pc95', 'pc98', 'pc99', 'sum', 'min', 'max', 'avg', undefined].includes(data.aggregation)) {
-            res.aggregation = data.aggregation;
-        } else {
-            throw TypeError(`invalid enum value ${ data.aggregation } for aggregation`);
-        }
+    res.interval = ObjectSerializer.serialize(data.interval, "number", "int64");
 
-        res.interval = ObjectSerializer.serialize(data.interval, "number", "int64")
+    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
 
-        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

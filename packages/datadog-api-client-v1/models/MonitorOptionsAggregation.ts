@@ -8,83 +8,80 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Type of aggregation performed in the monitor query.
-*/
+ * Type of aggregation performed in the monitor query.
+ */
 
 export class MonitorOptionsAggregation {
-    /**
-    * Group to break down the monitor on.
-    */
-    'groupBy'?: string;
-    /**
-    * Metric name used in the monitor.
-    */
-    'metric'?: string;
-    /**
-    * Metric type used in the monitor.
-    */
-    'type'?: string;
+  /**
+   * Group to break down the monitor on.
+   */
+  "groupBy"?: string;
+  /**
+   * Metric name used in the monitor.
+   */
+  "metric"?: string;
+  /**
+   * Metric type used in the monitor.
+   */
+  "type"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "groupBy": {
-            "baseName": "group_by",
-            "type": "string",
-            "format": ""
-        },
-        "metric": {
-            "baseName": "metric",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    groupBy: {
+      baseName: "group_by",
+      type: "string",
+      format: "",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MonitorOptionsAggregation.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MonitorOptionsAggregation.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): MonitorOptionsAggregation {
+    const res = new MonitorOptionsAggregation();
+
+    res.groupBy = ObjectSerializer.deserialize(data.group_by, "string", "");
+
+    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
+
+    res.type = ObjectSerializer.deserialize(data.type, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: MonitorOptionsAggregation): { [key: string]: any } {
+    const attributeTypes = MonitorOptionsAggregation.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.group_by = ObjectSerializer.serialize(data.groupBy, "string", "");
 
-    static deserialize(data: {[key: string]: any}): MonitorOptionsAggregation {
-      let res = new MonitorOptionsAggregation();
+    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
 
-      res.groupBy = ObjectSerializer.deserialize(data.group_by, "string", "")
+    res.type = ObjectSerializer.serialize(data.type, "string", "");
 
-      res.metric = ObjectSerializer.deserialize(data.metric, "string", "")
+    return res;
+  }
 
-      res.type = ObjectSerializer.deserialize(data.type, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: MonitorOptionsAggregation): {[key: string]: any} {
-        let attributeTypes = MonitorOptionsAggregation.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.group_by = ObjectSerializer.serialize(data.groupBy, "string", "")
-
-        res.metric = ObjectSerializer.serialize(data.metric, "string", "")
-
-        res.type = ObjectSerializer.serialize(data.type, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

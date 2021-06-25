@@ -1,4 +1,4 @@
-import { After, Before } from "@cucumber/cucumber";
+import { Before } from "@cucumber/cucumber";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 
 import { World } from "./world";

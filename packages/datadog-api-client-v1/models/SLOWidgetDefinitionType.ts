@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of the SLO widget.
-*/
-
-export type SLOWidgetDefinitionType = typeof SLO ;
-export const SLO = 'slo';
-
-
+export type SLOWidgetDefinitionType = typeof SLO;
+export const SLO = "slo";

@@ -18,6 +18,7 @@ import { Observable{{classname}} } from "./ObservableAPI{{extensionForDeno}}";
 import { {{classname}}RequestFactory, {{classname}}ResponseProcessor} from "../apis/{{classname}}{{extensionForDeno}}";
 
 {{#operation}}
+{{#hasParams}}
 export interface {{classname}}{{operationIdCamelCase}}Request {
     {{#allParams}}
     /**
@@ -29,6 +30,7 @@ export interface {{classname}}{{operationIdCamelCase}}Request {
     {{/allParams}}
 }
 
+{{/hasParams}}
 {{/operation}}
 export class Object{{classname}} {
     private api: Observable{{classname}}
@@ -47,7 +49,7 @@ export class Object{{classname}} {
      {{/summary}}
      * @param param the request object
      */
-    public {{nickname}}(param: {{classname}}{{operationIdCamelCase}}Request{{^requiredParams}} = {}{{/requiredParams}}, options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {
+    public {{nickname}}({{#hasParams}}param: {{classname}}{{operationIdCamelCase}}Request{{^requiredParams}} = {}{{/requiredParams}}, {{/hasParams}}options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {
         return this.api.{{nickname}}({{#allParams}}param.{{paramName}}, {{/allParams}} options){{^useRxJS}}.toPromise(){{/useRxJS}};
     }
 

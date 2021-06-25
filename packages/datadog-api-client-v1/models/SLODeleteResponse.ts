@@ -8,70 +8,75 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A response list of all service level objective deleted.
-*/
+ * A response list of all service level objective deleted.
+ */
 
 export class SLODeleteResponse {
-    /**
-    * An array containing the ID of the deleted service level objective object.
-    */
-    'data'?: Array<string>;
-    /**
-    * An dictionary containing the ID of the SLO as key and a deletion error as value.
-    */
-    'errors'?: { [key: string]: string; };
+  /**
+   * An array containing the ID of the deleted service level objective object.
+   */
+  "data"?: Array<string>;
+  /**
+   * An dictionary containing the ID of the SLO as key and a deletion error as value.
+   */
+  "errors"?: { [key: string]: string };
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "errors": {
-            "baseName": "errors",
-            "type": "{ [key: string]: string; }",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<string>",
+      format: "",
+    },
+    errors: {
+      baseName: "errors",
+      type: "{ [key: string]: string; }",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLODeleteResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLODeleteResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLODeleteResponse {
+    const res = new SLODeleteResponse();
+
+    res.data = ObjectSerializer.deserialize(data.data, "Array<string>", "");
+
+    res.errors = ObjectSerializer.deserialize(
+      data.errors,
+      "{ [key: string]: string; }",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: SLODeleteResponse): { [key: string]: any } {
+    const attributeTypes = SLODeleteResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(data.data, "Array<string>", "");
 
-    static deserialize(data: {[key: string]: any}): SLODeleteResponse {
-      let res = new SLODeleteResponse();
+    res.errors = ObjectSerializer.serialize(
+      data.errors,
+      "{ [key: string]: string; }",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<string>", "")
+    return res;
+  }
 
-      res.errors = ObjectSerializer.deserialize(data.errors, "{ [key: string]: string; }", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SLODeleteResponse): {[key: string]: any} {
-        let attributeTypes = SLODeleteResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<string>", "")
-
-        res.errors = ObjectSerializer.serialize(data.errors, "{ [key: string]: string; }", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

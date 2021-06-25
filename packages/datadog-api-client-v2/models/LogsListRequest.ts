@@ -8,96 +8,109 @@
  * Do not edit the class manually.
  */
 
-import { LogsListRequestPage } from './LogsListRequestPage';
-import { LogsQueryFilter } from './LogsQueryFilter';
-import { LogsQueryOptions } from './LogsQueryOptions';
-import { LogsSort } from './LogsSort';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsListRequestPage } from "./LogsListRequestPage";
+import { LogsQueryFilter } from "./LogsQueryFilter";
+import { LogsQueryOptions } from "./LogsQueryOptions";
+import { LogsSort } from "./LogsSort";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The request for a logs list.
-*/
+ * The request for a logs list.
+ */
 
 export class LogsListRequest {
-    'filter'?: LogsQueryFilter;
-    'options'?: LogsQueryOptions;
-    'page'?: LogsListRequestPage;
-    'sort'?: LogsSort;
+  "filter"?: LogsQueryFilter;
+  "options"?: LogsQueryOptions;
+  "page"?: LogsListRequestPage;
+  "sort"?: LogsSort;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsQueryFilter",
-            "format": ""
-        },
-        "options": {
-            "baseName": "options",
-            "type": "LogsQueryOptions",
-            "format": ""
-        },
-        "page": {
-            "baseName": "page",
-            "type": "LogsListRequestPage",
-            "format": ""
-        },
-        "sort": {
-            "baseName": "sort",
-            "type": "LogsSort",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    filter: {
+      baseName: "filter",
+      type: "LogsQueryFilter",
+      format: "",
+    },
+    options: {
+      baseName: "options",
+      type: "LogsQueryOptions",
+      format: "",
+    },
+    page: {
+      baseName: "page",
+      type: "LogsListRequestPage",
+      format: "",
+    },
+    sort: {
+      baseName: "sort",
+      type: "LogsSort",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsListRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsListRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsListRequest {
+    const res = new LogsListRequest();
+
+    res.filter = ObjectSerializer.deserialize(
+      data.filter,
+      "LogsQueryFilter",
+      ""
+    );
+
+    res.options = ObjectSerializer.deserialize(
+      data.options,
+      "LogsQueryOptions",
+      ""
+    );
+
+    res.page = ObjectSerializer.deserialize(
+      data.page,
+      "LogsListRequestPage",
+      ""
+    );
+
+    if (["timestamp", "-timestamp", undefined].includes(data.sort)) {
+      res.sort = data.sort;
+    } else {
+      throw TypeError(`invalid enum value ${data.sort} for sort`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsListRequest {
-      let res = new LogsListRequest();
+    return res;
+  }
 
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsQueryFilter", "")
-
-      res.options = ObjectSerializer.deserialize(data.options, "LogsQueryOptions", "")
-
-      res.page = ObjectSerializer.deserialize(data.page, "LogsListRequestPage", "")
-
-      if (['timestamp', '-timestamp', undefined].includes(data.sort)) {
-          res.sort = data.sort;
-      } else {
-          throw TypeError(`invalid enum value ${ data.sort } for sort`);
+  static serialize(data: LogsListRequest): { [key: string]: any } {
+    const attributeTypes = LogsListRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.filter = ObjectSerializer.serialize(data.filter, "LogsQueryFilter", "");
 
+    res.options = ObjectSerializer.serialize(
+      data.options,
+      "LogsQueryOptions",
+      ""
+    );
 
-      return res;
+    res.page = ObjectSerializer.serialize(data.page, "LogsListRequestPage", "");
+
+    if (["timestamp", "-timestamp", undefined].includes(data.sort)) {
+      res.sort = data.sort;
+    } else {
+      throw TypeError(`invalid enum value ${data.sort} for sort`);
     }
 
-    static serialize(data: LogsListRequest): {[key: string]: any} {
-        let attributeTypes = LogsListRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsQueryFilter", "")
+    return res;
+  }
 
-        res.options = ObjectSerializer.serialize(data.options, "LogsQueryOptions", "")
-
-        res.page = ObjectSerializer.serialize(data.page, "LogsListRequestPage", "")
-
-        if (['timestamp', '-timestamp', undefined].includes(data.sort)) {
-            res.sort = data.sort;
-        } else {
-            throw TypeError(`invalid enum value ${ data.sort } for sort`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

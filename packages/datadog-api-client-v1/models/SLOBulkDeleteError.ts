@@ -8,107 +8,116 @@
  * Do not edit the class manually.
  */
 
-import { SLOErrorTimeframe } from './SLOErrorTimeframe';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SLOErrorTimeframe } from "./SLOErrorTimeframe";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the error.
-*/
+ * Object describing the error.
+ */
 
 export class SLOBulkDeleteError {
-    /**
-    * The ID of the service level objective object associated with this error.
-    */
-    'id': string;
-    /**
-    * The error message.
-    */
-    'message': string;
-    'timeframe': SLOErrorTimeframe;
+  /**
+   * The ID of the service level objective object associated with this error.
+   */
+  "id": string;
+  /**
+   * The error message.
+   */
+  "message": string;
+  "timeframe": SLOErrorTimeframe;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "timeframe": {
-            "baseName": "timeframe",
-            "type": "SLOErrorTimeframe",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    timeframe: {
+      baseName: "timeframe",
+      type: "SLOErrorTimeframe",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SLOBulkDeleteError.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SLOBulkDeleteError.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SLOBulkDeleteError {
+    const res = new SLOBulkDeleteError();
+
+    if (data.id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'id' on 'SLOBulkDeleteError' object"
+      );
+    }
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    if (data.message === undefined) {
+      throw new TypeError(
+        "missing required attribute 'message' on 'SLOBulkDeleteError' object"
+      );
+    }
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    if (data.timeframe === undefined) {
+      throw new TypeError(
+        "missing required attribute 'timeframe' on 'SLOBulkDeleteError' object"
+      );
+    }
+    if (["7d", "30d", "90d", "all", undefined].includes(data.timeframe)) {
+      res.timeframe = data.timeframe;
+    } else {
+      throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);
     }
 
-    static deserialize(data: {[key: string]: any}): SLOBulkDeleteError {
-      let res = new SLOBulkDeleteError();
+    return res;
+  }
 
-      if (data.id === undefined) {
-          throw new TypeError("missing required attribute 'id' on 'SLOBulkDeleteError' object");
+  static serialize(data: SLOBulkDeleteError): { [key: string]: any } {
+    const attributeTypes = SLOBulkDeleteError.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+    }
+    if (data.id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'id' on 'SLOBulkDeleteError' object"
+      );
+    }
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      if (data.message === undefined) {
-          throw new TypeError("missing required attribute 'message' on 'SLOBulkDeleteError' object");
-      }
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    if (data.message === undefined) {
+      throw new TypeError(
+        "missing required attribute 'message' on 'SLOBulkDeleteError' object"
+      );
+    }
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      if (data.timeframe === undefined) {
-          throw new TypeError("missing required attribute 'timeframe' on 'SLOBulkDeleteError' object");
-      }
-      if (['7d', '30d', '90d', 'all', undefined].includes(data.timeframe)) {
-          res.timeframe = data.timeframe;
-      } else {
-          throw TypeError(`invalid enum value ${ data.timeframe } for timeframe`);
-      }
-
-
-      return res;
+    if (data.timeframe === undefined) {
+      throw new TypeError(
+        "missing required attribute 'timeframe' on 'SLOBulkDeleteError' object"
+      );
+    }
+    if (["7d", "30d", "90d", "all", undefined].includes(data.timeframe)) {
+      res.timeframe = data.timeframe;
+    } else {
+      throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);
     }
 
-    static serialize(data: SLOBulkDeleteError): {[key: string]: any} {
-        let attributeTypes = SLOBulkDeleteError.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.id === undefined) {
-            throw new TypeError("missing required attribute 'id' on 'SLOBulkDeleteError' object");
-        }
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
+    return res;
+  }
 
-        if (data.message === undefined) {
-            throw new TypeError("missing required attribute 'message' on 'SLOBulkDeleteError' object");
-        }
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        if (data.timeframe === undefined) {
-            throw new TypeError("missing required attribute 'timeframe' on 'SLOBulkDeleteError' object");
-        }
-        if (['7d', '30d', '90d', 'all', undefined].includes(data.timeframe)) {
-            res.timeframe = data.timeframe;
-        } else {
-            throw TypeError(`invalid enum value ${ data.timeframe } for timeframe`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

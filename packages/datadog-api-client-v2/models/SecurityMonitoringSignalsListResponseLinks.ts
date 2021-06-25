@@ -8,57 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Links attributes.
-*/
+ * Links attributes.
+ */
 
 export class SecurityMonitoringSignalsListResponseLinks {
-    /**
-    * The link for the next set of results. **Note**: The request can also be made using the POST endpoint.
-    */
-    'next'?: string;
+  /**
+   * The link for the next set of results. **Note**: The request can also be made using the POST endpoint.
+   */
+  "next"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "next": {
-            "baseName": "next",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    next: {
+      baseName: "next",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringSignalsListResponseLinks.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringSignalsListResponseLinks.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringSignalsListResponseLinks {
+    const res = new SecurityMonitoringSignalsListResponseLinks();
+
+    res.next = ObjectSerializer.deserialize(data.next, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringSignalsListResponseLinks
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringSignalsListResponseLinks.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.next = ObjectSerializer.serialize(data.next, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalsListResponseLinks {
-      let res = new SecurityMonitoringSignalsListResponseLinks();
+    return res;
+  }
 
-      res.next = ObjectSerializer.deserialize(data.next, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityMonitoringSignalsListResponseLinks): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringSignalsListResponseLinks.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.next = ObjectSerializer.serialize(data.next, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,87 +8,92 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterAttributes } from './SecurityFilterAttributes';
-import { SecurityFilterType } from './SecurityFilterType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
+import { SecurityFilterType } from "./SecurityFilterType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The security filter's properties.
-*/
+ * The security filter's properties.
+ */
 
 export class SecurityFilter {
-    'attributes'?: SecurityFilterAttributes;
-    /**
-    * The ID of the security filter.
-    */
-    'id'?: string;
-    'type'?: SecurityFilterType;
+  "attributes"?: SecurityFilterAttributes;
+  /**
+   * The ID of the security filter.
+   */
+  "id"?: string;
+  "type"?: SecurityFilterType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "SecurityFilterAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SecurityFilterType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "SecurityFilterAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SecurityFilterType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityFilter.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityFilter.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SecurityFilter {
+    const res = new SecurityFilter();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "SecurityFilterAttributes",
+      ""
+    );
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    if (["security_filters", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): SecurityFilter {
-      let res = new SecurityFilter();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "SecurityFilterAttributes", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-      if (['security_filters', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: SecurityFilter): { [key: string]: any } {
+    const attributeTypes = SecurityFilter.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "SecurityFilterAttributes",
+      ""
+    );
 
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      return res;
+    if (["security_filters", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: SecurityFilter): {[key: string]: any} {
-        let attributeTypes = SecurityFilter.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "SecurityFilterAttributes", "")
+    return res;
+  }
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        if (['security_filters', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

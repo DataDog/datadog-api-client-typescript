@@ -8,61 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceUpdateData } from './IncidentServiceUpdateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Update request with an incident service payload.
-*/
+ * Update request with an incident service payload.
+ */
 
 export class IncidentServiceUpdateRequest {
-    'data': IncidentServiceUpdateData;
+  "data": IncidentServiceUpdateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "IncidentServiceUpdateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "IncidentServiceUpdateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentServiceUpdateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentServiceUpdateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentServiceUpdateRequest {
+    const res = new IncidentServiceUpdateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'IncidentServiceUpdateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "IncidentServiceUpdateData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): IncidentServiceUpdateRequest {
-      let res = new IncidentServiceUpdateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'IncidentServiceUpdateRequest' object");
+  static serialize(data: IncidentServiceUpdateRequest): { [key: string]: any } {
+    const attributeTypes = IncidentServiceUpdateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "IncidentServiceUpdateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: IncidentServiceUpdateRequest): {[key: string]: any} {
-        let attributeTypes = IncidentServiceUpdateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'IncidentServiceUpdateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "IncidentServiceUpdateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'IncidentServiceUpdateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "IncidentServiceUpdateData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

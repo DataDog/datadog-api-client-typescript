@@ -8,57 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* In this object, the key is the tag, the value is a list of host names that are reporting that tag.
-*/
+ * In this object, the key is the tag, the value is a list of host names that are reporting that tag.
+ */
 
 export class TagToHosts {
-    /**
-    * A list of tags to apply to the host.
-    */
-    'tags'?: { [key: string]: Array<string>; };
+  /**
+   * A list of tags to apply to the host.
+   */
+  "tags"?: { [key: string]: Array<string> };
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "tags": {
-            "baseName": "tags",
-            "type": "{ [key: string]: Array<string>; }",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    tags: {
+      baseName: "tags",
+      type: "{ [key: string]: Array<string>; }",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return TagToHosts.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return TagToHosts.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): TagToHosts {
+    const res = new TagToHosts();
+
+    res.tags = ObjectSerializer.deserialize(
+      data.tags,
+      "{ [key: string]: Array<string>; }",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: TagToHosts): { [key: string]: any } {
+    const attributeTypes = TagToHosts.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.tags = ObjectSerializer.serialize(
+      data.tags,
+      "{ [key: string]: Array<string>; }",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): TagToHosts {
-      let res = new TagToHosts();
+    return res;
+  }
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "{ [key: string]: Array<string>; }", "")
-
-
-      return res;
-    }
-
-    static serialize(data: TagToHosts): {[key: string]: any} {
-        let attributeTypes = TagToHosts.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.tags = ObjectSerializer.serialize(data.tags, "{ [key: string]: Array<string>; }", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

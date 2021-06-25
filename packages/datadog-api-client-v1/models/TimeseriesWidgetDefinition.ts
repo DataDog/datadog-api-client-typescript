@@ -8,267 +8,340 @@
  * Do not edit the class manually.
  */
 
-import { TimeseriesWidgetDefinitionType } from './TimeseriesWidgetDefinitionType';
-import { TimeseriesWidgetLegendColumn } from './TimeseriesWidgetLegendColumn';
-import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
-import { TimeseriesWidgetRequest } from './TimeseriesWidgetRequest';
-import { WidgetAxis } from './WidgetAxis';
-import { WidgetCustomLink } from './WidgetCustomLink';
-import { WidgetEvent } from './WidgetEvent';
-import { WidgetMarker } from './WidgetMarker';
-import { WidgetTextAlign } from './WidgetTextAlign';
-import { WidgetTime } from './WidgetTime';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { TimeseriesWidgetDefinitionType } from "./TimeseriesWidgetDefinitionType";
+import { TimeseriesWidgetLegendColumn } from "./TimeseriesWidgetLegendColumn";
+import { TimeseriesWidgetLegendLayout } from "./TimeseriesWidgetLegendLayout";
+import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
+import { WidgetAxis } from "./WidgetAxis";
+import { WidgetCustomLink } from "./WidgetCustomLink";
+import { WidgetEvent } from "./WidgetEvent";
+import { WidgetMarker } from "./WidgetMarker";
+import { WidgetTextAlign } from "./WidgetTextAlign";
+import { WidgetTime } from "./WidgetTime";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
-*/
+ * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
+ */
 
 export class TimeseriesWidgetDefinition {
-    /**
-    * List of custom links.
-    */
-    'customLinks'?: Array<WidgetCustomLink>;
-    /**
-    * List of widget events.
-    */
-    'events'?: Array<WidgetEvent>;
-    /**
-    * Columns displayed in the legend.
-    */
-    'legendColumns'?: Array<TimeseriesWidgetLegendColumn>;
-    'legendLayout'?: TimeseriesWidgetLegendLayout;
-    /**
-    * Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
-    */
-    'legendSize'?: string;
-    /**
-    * List of markers.
-    */
-    'markers'?: Array<WidgetMarker>;
-    /**
-    * List of timeseries widget requests.
-    */
-    'requests': Array<TimeseriesWidgetRequest>;
-    'rightYaxis'?: WidgetAxis;
-    /**
-    * (screenboard only) Show the legend for this widget.
-    */
-    'showLegend'?: boolean;
-    'time'?: WidgetTime;
-    /**
-    * Title of your widget.
-    */
-    'title'?: string;
-    'titleAlign'?: WidgetTextAlign;
-    /**
-    * Size of the title.
-    */
-    'titleSize'?: string;
-    'type': TimeseriesWidgetDefinitionType;
-    'yaxis'?: WidgetAxis;
+  /**
+   * List of custom links.
+   */
+  "customLinks"?: Array<WidgetCustomLink>;
+  /**
+   * List of widget events.
+   */
+  "events"?: Array<WidgetEvent>;
+  /**
+   * Columns displayed in the legend.
+   */
+  "legendColumns"?: Array<TimeseriesWidgetLegendColumn>;
+  "legendLayout"?: TimeseriesWidgetLegendLayout;
+  /**
+   * Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".
+   */
+  "legendSize"?: string;
+  /**
+   * List of markers.
+   */
+  "markers"?: Array<WidgetMarker>;
+  /**
+   * List of timeseries widget requests.
+   */
+  "requests": Array<TimeseriesWidgetRequest>;
+  "rightYaxis"?: WidgetAxis;
+  /**
+   * (screenboard only) Show the legend for this widget.
+   */
+  "showLegend"?: boolean;
+  "time"?: WidgetTime;
+  /**
+   * Title of your widget.
+   */
+  "title"?: string;
+  "titleAlign"?: WidgetTextAlign;
+  /**
+   * Size of the title.
+   */
+  "titleSize"?: string;
+  "type": TimeseriesWidgetDefinitionType;
+  "yaxis"?: WidgetAxis;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "customLinks": {
-            "baseName": "custom_links",
-            "type": "Array<WidgetCustomLink>",
-            "format": ""
-        },
-        "events": {
-            "baseName": "events",
-            "type": "Array<WidgetEvent>",
-            "format": ""
-        },
-        "legendColumns": {
-            "baseName": "legend_columns",
-            "type": "Array<TimeseriesWidgetLegendColumn>",
-            "format": ""
-        },
-        "legendLayout": {
-            "baseName": "legend_layout",
-            "type": "TimeseriesWidgetLegendLayout",
-            "format": ""
-        },
-        "legendSize": {
-            "baseName": "legend_size",
-            "type": "string",
-            "format": ""
-        },
-        "markers": {
-            "baseName": "markers",
-            "type": "Array<WidgetMarker>",
-            "format": ""
-        },
-        "requests": {
-            "baseName": "requests",
-            "type": "Array<TimeseriesWidgetRequest>",
-            "format": ""
-        },
-        "rightYaxis": {
-            "baseName": "right_yaxis",
-            "type": "WidgetAxis",
-            "format": ""
-        },
-        "showLegend": {
-            "baseName": "show_legend",
-            "type": "boolean",
-            "format": ""
-        },
-        "time": {
-            "baseName": "time",
-            "type": "WidgetTime",
-            "format": ""
-        },
-        "title": {
-            "baseName": "title",
-            "type": "string",
-            "format": ""
-        },
-        "titleAlign": {
-            "baseName": "title_align",
-            "type": "WidgetTextAlign",
-            "format": ""
-        },
-        "titleSize": {
-            "baseName": "title_size",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "TimeseriesWidgetDefinitionType",
-            "format": ""
-        },
-        "yaxis": {
-            "baseName": "yaxis",
-            "type": "WidgetAxis",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    customLinks: {
+      baseName: "custom_links",
+      type: "Array<WidgetCustomLink>",
+      format: "",
+    },
+    events: {
+      baseName: "events",
+      type: "Array<WidgetEvent>",
+      format: "",
+    },
+    legendColumns: {
+      baseName: "legend_columns",
+      type: "Array<TimeseriesWidgetLegendColumn>",
+      format: "",
+    },
+    legendLayout: {
+      baseName: "legend_layout",
+      type: "TimeseriesWidgetLegendLayout",
+      format: "",
+    },
+    legendSize: {
+      baseName: "legend_size",
+      type: "string",
+      format: "",
+    },
+    markers: {
+      baseName: "markers",
+      type: "Array<WidgetMarker>",
+      format: "",
+    },
+    requests: {
+      baseName: "requests",
+      type: "Array<TimeseriesWidgetRequest>",
+      format: "",
+    },
+    rightYaxis: {
+      baseName: "right_yaxis",
+      type: "WidgetAxis",
+      format: "",
+    },
+    showLegend: {
+      baseName: "show_legend",
+      type: "boolean",
+      format: "",
+    },
+    time: {
+      baseName: "time",
+      type: "WidgetTime",
+      format: "",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+      format: "",
+    },
+    titleAlign: {
+      baseName: "title_align",
+      type: "WidgetTextAlign",
+      format: "",
+    },
+    titleSize: {
+      baseName: "title_size",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "TimeseriesWidgetDefinitionType",
+      format: "",
+    },
+    yaxis: {
+      baseName: "yaxis",
+      type: "WidgetAxis",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return TimeseriesWidgetDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return TimeseriesWidgetDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): TimeseriesWidgetDefinition {
+    const res = new TimeseriesWidgetDefinition();
+
+    res.customLinks = ObjectSerializer.deserialize(
+      data.custom_links,
+      "Array<WidgetCustomLink>",
+      ""
+    );
+
+    res.events = ObjectSerializer.deserialize(
+      data.events,
+      "Array<WidgetEvent>",
+      ""
+    );
+
+    res.legendColumns = ObjectSerializer.deserialize(
+      data.legend_columns,
+      "Array<TimeseriesWidgetLegendColumn>",
+      ""
+    );
+
+    if (
+      ["auto", "horizontal", "vertical", undefined].includes(data.legend_layout)
+    ) {
+      res.legendLayout = data.legend_layout;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.legend_layout} for legend_layout`
+      );
     }
 
-    static deserialize(data: {[key: string]: any}): TimeseriesWidgetDefinition {
-      let res = new TimeseriesWidgetDefinition();
+    res.legendSize = ObjectSerializer.deserialize(
+      data.legend_size,
+      "string",
+      ""
+    );
 
-      res.customLinks = ObjectSerializer.deserialize(data.custom_links, "Array<WidgetCustomLink>", "")
+    res.markers = ObjectSerializer.deserialize(
+      data.markers,
+      "Array<WidgetMarker>",
+      ""
+    );
 
-      res.events = ObjectSerializer.deserialize(data.events, "Array<WidgetEvent>", "")
+    if (data.requests === undefined) {
+      throw new TypeError(
+        "missing required attribute 'requests' on 'TimeseriesWidgetDefinition' object"
+      );
+    }
+    res.requests = ObjectSerializer.deserialize(
+      data.requests,
+      "Array<TimeseriesWidgetRequest>",
+      ""
+    );
 
-      res.legendColumns = ObjectSerializer.deserialize(data.legend_columns, "Array<TimeseriesWidgetLegendColumn>", "")
+    res.rightYaxis = ObjectSerializer.deserialize(
+      data.right_yaxis,
+      "WidgetAxis",
+      ""
+    );
 
-      if (['auto', 'horizontal', 'vertical', undefined].includes(data.legend_layout)) {
-          res.legendLayout = data.legend_layout;
-      } else {
-          throw TypeError(`invalid enum value ${ data.legend_layout } for legend_layout`);
-      }
+    res.showLegend = ObjectSerializer.deserialize(
+      data.show_legend,
+      "boolean",
+      ""
+    );
 
-      res.legendSize = ObjectSerializer.deserialize(data.legend_size, "string", "")
+    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
 
-      res.markers = ObjectSerializer.deserialize(data.markers, "Array<WidgetMarker>", "")
+    res.title = ObjectSerializer.deserialize(data.title, "string", "");
 
-      if (data.requests === undefined) {
-          throw new TypeError("missing required attribute 'requests' on 'TimeseriesWidgetDefinition' object");
-      }
-      res.requests = ObjectSerializer.deserialize(data.requests, "Array<TimeseriesWidgetRequest>", "")
-
-      res.rightYaxis = ObjectSerializer.deserialize(data.right_yaxis, "WidgetAxis", "")
-
-      res.showLegend = ObjectSerializer.deserialize(data.show_legend, "boolean", "")
-
-      res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "")
-
-      res.title = ObjectSerializer.deserialize(data.title, "string", "")
-
-      if (['center', 'left', 'right', undefined].includes(data.title_align)) {
-          res.titleAlign = data.title_align;
-      } else {
-          throw TypeError(`invalid enum value ${ data.title_align } for title_align`);
-      }
-
-      res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'TimeseriesWidgetDefinition' object");
-      }
-      if (['timeseries', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-      res.yaxis = ObjectSerializer.deserialize(data.yaxis, "WidgetAxis", "")
-
-
-      return res;
+    if (["center", "left", "right", undefined].includes(data.title_align)) {
+      res.titleAlign = data.title_align;
+    } else {
+      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
     }
 
-    static serialize(data: TimeseriesWidgetDefinition): {[key: string]: any} {
-        let attributeTypes = TimeseriesWidgetDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.custom_links = ObjectSerializer.serialize(data.customLinks, "Array<WidgetCustomLink>", "")
+    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
 
-        res.events = ObjectSerializer.serialize(data.events, "Array<WidgetEvent>", "")
-
-        res.legend_columns = ObjectSerializer.serialize(data.legendColumns, "Array<TimeseriesWidgetLegendColumn>", "")
-
-        if (['auto', 'horizontal', 'vertical', undefined].includes(data.legendLayout)) {
-            res.legend_layout = data.legendLayout;
-        } else {
-            throw TypeError(`invalid enum value ${ data.legendLayout } for legendLayout`);
-        }
-
-        res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "")
-
-        res.markers = ObjectSerializer.serialize(data.markers, "Array<WidgetMarker>", "")
-
-        if (data.requests === undefined) {
-            throw new TypeError("missing required attribute 'requests' on 'TimeseriesWidgetDefinition' object");
-        }
-        res.requests = ObjectSerializer.serialize(data.requests, "Array<TimeseriesWidgetRequest>", "")
-
-        res.right_yaxis = ObjectSerializer.serialize(data.rightYaxis, "WidgetAxis", "")
-
-        res.show_legend = ObjectSerializer.serialize(data.showLegend, "boolean", "")
-
-        res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "")
-
-        res.title = ObjectSerializer.serialize(data.title, "string", "")
-
-        if (['center', 'left', 'right', undefined].includes(data.titleAlign)) {
-            res.title_align = data.titleAlign;
-        } else {
-            throw TypeError(`invalid enum value ${ data.titleAlign } for titleAlign`);
-        }
-
-        res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'TimeseriesWidgetDefinition' object");
-        }
-        if (['timeseries', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        res.yaxis = ObjectSerializer.serialize(data.yaxis, "WidgetAxis", "")
-
-        return res
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'TimeseriesWidgetDefinition' object"
+      );
     }
-    
-    public constructor() {
+    if (["timeseries", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
+
+    res.yaxis = ObjectSerializer.deserialize(data.yaxis, "WidgetAxis", "");
+
+    return res;
+  }
+
+  static serialize(data: TimeseriesWidgetDefinition): { [key: string]: any } {
+    const attributeTypes = TimeseriesWidgetDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
+    }
+    res.custom_links = ObjectSerializer.serialize(
+      data.customLinks,
+      "Array<WidgetCustomLink>",
+      ""
+    );
+
+    res.events = ObjectSerializer.serialize(
+      data.events,
+      "Array<WidgetEvent>",
+      ""
+    );
+
+    res.legend_columns = ObjectSerializer.serialize(
+      data.legendColumns,
+      "Array<TimeseriesWidgetLegendColumn>",
+      ""
+    );
+
+    if (
+      ["auto", "horizontal", "vertical", undefined].includes(data.legendLayout)
+    ) {
+      res.legend_layout = data.legendLayout;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.legendLayout} for legendLayout`
+      );
+    }
+
+    res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "");
+
+    res.markers = ObjectSerializer.serialize(
+      data.markers,
+      "Array<WidgetMarker>",
+      ""
+    );
+
+    if (data.requests === undefined) {
+      throw new TypeError(
+        "missing required attribute 'requests' on 'TimeseriesWidgetDefinition' object"
+      );
+    }
+    res.requests = ObjectSerializer.serialize(
+      data.requests,
+      "Array<TimeseriesWidgetRequest>",
+      ""
+    );
+
+    res.right_yaxis = ObjectSerializer.serialize(
+      data.rightYaxis,
+      "WidgetAxis",
+      ""
+    );
+
+    res.show_legend = ObjectSerializer.serialize(
+      data.showLegend,
+      "boolean",
+      ""
+    );
+
+    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
+
+    res.title = ObjectSerializer.serialize(data.title, "string", "");
+
+    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
+      res.title_align = data.titleAlign;
+    } else {
+      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
+    }
+
+    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'TimeseriesWidgetDefinition' object"
+      );
+    }
+    if (["timeseries", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
+
+    res.yaxis = ObjectSerializer.serialize(data.yaxis, "WidgetAxis", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

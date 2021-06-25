@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of logs arithmetic processor.
-*/
-
-export type LogsArithmeticProcessorType = typeof ARITHMETIC_PROCESSOR ;
-export const ARITHMETIC_PROCESSOR = 'arithmetic-processor';
-
-
+export type LogsArithmeticProcessorType = typeof ARITHMETIC_PROCESSOR;
+export const ARITHMETIC_PROCESSOR = "arithmetic-processor";

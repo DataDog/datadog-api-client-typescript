@@ -8,69 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { ProcessSummariesMeta } from './ProcessSummariesMeta';
-import { ProcessSummary } from './ProcessSummary';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
+import { ProcessSummary } from "./ProcessSummary";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* List of process summaries.
-*/
+ * List of process summaries.
+ */
 
 export class ProcessSummariesResponse {
-    /**
-    * Array of process summary objects.
-    */
-    'data'?: Array<ProcessSummary>;
-    'meta'?: ProcessSummariesMeta;
+  /**
+   * Array of process summary objects.
+   */
+  "data"?: Array<ProcessSummary>;
+  "meta"?: ProcessSummariesMeta;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<ProcessSummary>",
-            "format": ""
-        },
-        "meta": {
-            "baseName": "meta",
-            "type": "ProcessSummariesMeta",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<ProcessSummary>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "ProcessSummariesMeta",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ProcessSummariesResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ProcessSummariesResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): ProcessSummariesResponse {
+    const res = new ProcessSummariesResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<ProcessSummary>",
+      ""
+    );
+
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "ProcessSummariesMeta",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ProcessSummariesResponse): { [key: string]: any } {
+    const attributeTypes = ProcessSummariesResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<ProcessSummary>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): ProcessSummariesResponse {
-      let res = new ProcessSummariesResponse();
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "ProcessSummariesMeta",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<ProcessSummary>", "")
+    return res;
+  }
 
-      res.meta = ObjectSerializer.deserialize(data.meta, "ProcessSummariesMeta", "")
-
-
-      return res;
-    }
-
-    static serialize(data: ProcessSummariesResponse): {[key: string]: any} {
-        let attributeTypes = ProcessSummariesResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<ProcessSummary>", "")
-
-        res.meta = ObjectSerializer.serialize(data.meta, "ProcessSummariesMeta", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

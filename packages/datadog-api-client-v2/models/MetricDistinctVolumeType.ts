@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The metric distinct volume type.
-*/
-
-export type MetricDistinctVolumeType = typeof DISTINCT_METRIC_VOLUMES ;
-export const DISTINCT_METRIC_VOLUMES = 'distinct_metric_volumes';
-
-
+export type MetricDistinctVolumeType = typeof DISTINCT_METRIC_VOLUMES;
+export const DISTINCT_METRIC_VOLUMES = "distinct_metric_volumes";

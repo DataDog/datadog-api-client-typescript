@@ -8,162 +8,183 @@
  * Do not edit the class manually.
  */
 
-import { MetricsQueryMetadata } from './MetricsQueryMetadata';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response Object that includes your query and the list of metrics retrieved.
-*/
+ * Response Object that includes your query and the list of metrics retrieved.
+ */
 
 export class MetricsQueryResponse {
-    /**
-    * Message indicating the errors if status is not `ok`.
-    */
-    'error'?: string;
-    /**
-    * Start of requested time window, milliseconds since Unix epoch.
-    */
-    'fromDate'?: number;
-    /**
-    * List of tag keys on which to group.
-    */
-    'groupBy'?: Array<string>;
-    /**
-    * Message indicating `success` if status is `ok`.
-    */
-    'message'?: string;
-    /**
-    * Query string
-    */
-    'query'?: string;
-    /**
-    * Type of response.
-    */
-    'resType'?: string;
-    /**
-    * List of timeseries queried.
-    */
-    'series'?: Array<MetricsQueryMetadata>;
-    /**
-    * Status of the query.
-    */
-    'status'?: string;
-    /**
-    * End of requested time window, milliseconds since Unix epoch.
-    */
-    'toDate'?: number;
+  /**
+   * Message indicating the errors if status is not `ok`.
+   */
+  "error"?: string;
+  /**
+   * Start of requested time window, milliseconds since Unix epoch.
+   */
+  "fromDate"?: number;
+  /**
+   * List of tag keys on which to group.
+   */
+  "groupBy"?: Array<string>;
+  /**
+   * Message indicating `success` if status is `ok`.
+   */
+  "message"?: string;
+  /**
+   * Query string
+   */
+  "query"?: string;
+  /**
+   * Type of response.
+   */
+  "resType"?: string;
+  /**
+   * List of timeseries queried.
+   */
+  "series"?: Array<MetricsQueryMetadata>;
+  /**
+   * Status of the query.
+   */
+  "status"?: string;
+  /**
+   * End of requested time window, milliseconds since Unix epoch.
+   */
+  "toDate"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "error": {
-            "baseName": "error",
-            "type": "string",
-            "format": ""
-        },
-        "fromDate": {
-            "baseName": "from_date",
-            "type": "number",
-            "format": "int64"
-        },
-        "groupBy": {
-            "baseName": "group_by",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "query": {
-            "baseName": "query",
-            "type": "string",
-            "format": ""
-        },
-        "resType": {
-            "baseName": "res_type",
-            "type": "string",
-            "format": ""
-        },
-        "series": {
-            "baseName": "series",
-            "type": "Array<MetricsQueryMetadata>",
-            "format": ""
-        },
-        "status": {
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        "toDate": {
-            "baseName": "to_date",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    error: {
+      baseName: "error",
+      type: "string",
+      format: "",
+    },
+    fromDate: {
+      baseName: "from_date",
+      type: "number",
+      format: "int64",
+    },
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<string>",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    query: {
+      baseName: "query",
+      type: "string",
+      format: "",
+    },
+    resType: {
+      baseName: "res_type",
+      type: "string",
+      format: "",
+    },
+    series: {
+      baseName: "series",
+      type: "Array<MetricsQueryMetadata>",
+      format: "",
+    },
+    status: {
+      baseName: "status",
+      type: "string",
+      format: "",
+    },
+    toDate: {
+      baseName: "to_date",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MetricsQueryResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MetricsQueryResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): MetricsQueryResponse {
+    const res = new MetricsQueryResponse();
+
+    res.error = ObjectSerializer.deserialize(data.error, "string", "");
+
+    res.fromDate = ObjectSerializer.deserialize(
+      data.from_date,
+      "number",
+      "int64"
+    );
+
+    res.groupBy = ObjectSerializer.deserialize(
+      data.group_by,
+      "Array<string>",
+      ""
+    );
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    res.query = ObjectSerializer.deserialize(data.query, "string", "");
+
+    res.resType = ObjectSerializer.deserialize(data.res_type, "string", "");
+
+    res.series = ObjectSerializer.deserialize(
+      data.series,
+      "Array<MetricsQueryMetadata>",
+      ""
+    );
+
+    res.status = ObjectSerializer.deserialize(data.status, "string", "");
+
+    res.toDate = ObjectSerializer.deserialize(data.to_date, "number", "int64");
+
+    return res;
+  }
+
+  static serialize(data: MetricsQueryResponse): { [key: string]: any } {
+    const attributeTypes = MetricsQueryResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.error = ObjectSerializer.serialize(data.error, "string", "");
 
-    static deserialize(data: {[key: string]: any}): MetricsQueryResponse {
-      let res = new MetricsQueryResponse();
+    res.from_date = ObjectSerializer.serialize(
+      data.fromDate,
+      "number",
+      "int64"
+    );
 
-      res.error = ObjectSerializer.deserialize(data.error, "string", "")
+    res.group_by = ObjectSerializer.serialize(
+      data.groupBy,
+      "Array<string>",
+      ""
+    );
 
-      res.fromDate = ObjectSerializer.deserialize(data.from_date, "number", "int64")
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      res.groupBy = ObjectSerializer.deserialize(data.group_by, "Array<string>", "")
+    res.query = ObjectSerializer.serialize(data.query, "string", "");
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    res.res_type = ObjectSerializer.serialize(data.resType, "string", "");
 
-      res.query = ObjectSerializer.deserialize(data.query, "string", "")
+    res.series = ObjectSerializer.serialize(
+      data.series,
+      "Array<MetricsQueryMetadata>",
+      ""
+    );
 
-      res.resType = ObjectSerializer.deserialize(data.res_type, "string", "")
+    res.status = ObjectSerializer.serialize(data.status, "string", "");
 
-      res.series = ObjectSerializer.deserialize(data.series, "Array<MetricsQueryMetadata>", "")
+    res.to_date = ObjectSerializer.serialize(data.toDate, "number", "int64");
 
-      res.status = ObjectSerializer.deserialize(data.status, "string", "")
+    return res;
+  }
 
-      res.toDate = ObjectSerializer.deserialize(data.to_date, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: MetricsQueryResponse): {[key: string]: any} {
-        let attributeTypes = MetricsQueryResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.error = ObjectSerializer.serialize(data.error, "string", "")
-
-        res.from_date = ObjectSerializer.serialize(data.fromDate, "number", "int64")
-
-        res.group_by = ObjectSerializer.serialize(data.groupBy, "Array<string>", "")
-
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        res.query = ObjectSerializer.serialize(data.query, "string", "")
-
-        res.res_type = ObjectSerializer.serialize(data.resType, "string", "")
-
-        res.series = ObjectSerializer.serialize(data.series, "Array<MetricsQueryMetadata>", "")
-
-        res.status = ObjectSerializer.serialize(data.status, "string", "")
-
-        res.to_date = ObjectSerializer.serialize(data.toDate, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

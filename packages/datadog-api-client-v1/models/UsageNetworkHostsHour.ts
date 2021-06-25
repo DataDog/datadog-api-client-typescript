@@ -8,70 +8,75 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Number of active NPM hosts for each hour for a given organization.
-*/
+ * Number of active NPM hosts for each hour for a given organization.
+ */
 
 export class UsageNetworkHostsHour {
-    /**
-    * Contains the number of active NPM hosts.
-    */
-    'hostCount'?: number;
-    /**
-    * The hour for the usage.
-    */
-    'hour'?: Date;
+  /**
+   * Contains the number of active NPM hosts.
+   */
+  "hostCount"?: number;
+  /**
+   * The hour for the usage.
+   */
+  "hour"?: Date;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "hostCount": {
-            "baseName": "host_count",
-            "type": "number",
-            "format": "int64"
-        },
-        "hour": {
-            "baseName": "hour",
-            "type": "Date",
-            "format": "date-time"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    hostCount: {
+      baseName: "host_count",
+      type: "number",
+      format: "int64",
+    },
+    hour: {
+      baseName: "hour",
+      type: "Date",
+      format: "date-time",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageNetworkHostsHour.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageNetworkHostsHour.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageNetworkHostsHour {
+    const res = new UsageNetworkHostsHour();
+
+    res.hostCount = ObjectSerializer.deserialize(
+      data.host_count,
+      "number",
+      "int64"
+    );
+
+    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
+
+    return res;
+  }
+
+  static serialize(data: UsageNetworkHostsHour): { [key: string]: any } {
+    const attributeTypes = UsageNetworkHostsHour.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.host_count = ObjectSerializer.serialize(
+      data.hostCount,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageNetworkHostsHour {
-      let res = new UsageNetworkHostsHour();
+    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 
-      res.hostCount = ObjectSerializer.deserialize(data.host_count, "number", "int64")
+    return res;
+  }
 
-      res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageNetworkHostsHour): {[key: string]: any} {
-        let attributeTypes = UsageNetworkHostsHour.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.host_count = ObjectSerializer.serialize(data.hostCount, "number", "int64")
-
-        res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

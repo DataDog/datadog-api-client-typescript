@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of logs message remapper.
-*/
-
-export type LogsMessageRemapperType = typeof MESSAGE_REMAPPER ;
-export const MESSAGE_REMAPPER = 'message-remapper';
-
-
+export type LogsMessageRemapperType = typeof MESSAGE_REMAPPER;
+export const MESSAGE_REMAPPER = "message-remapper";

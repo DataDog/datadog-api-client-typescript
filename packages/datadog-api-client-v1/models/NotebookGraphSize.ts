@@ -8,18 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The size of the graph.
-*/
-
-export type NotebookGraphSize = typeof EXTRA_SMALL | typeof SMALL | typeof MEDIUM | typeof LARGE | typeof EXTRA_LARGE ;
-export const EXTRA_SMALL = 'xs';
-export const SMALL = 's';
-export const MEDIUM = 'm';
-export const LARGE = 'l';
-export const EXTRA_LARGE = 'xl';
-
-
+export type NotebookGraphSize =
+  | typeof EXTRA_SMALL
+  | typeof SMALL
+  | typeof MEDIUM
+  | typeof LARGE
+  | typeof EXTRA_LARGE;
+export const EXTRA_SMALL = "xs";
+export const SMALL = "s";
+export const MEDIUM = "m";
+export const LARGE = "l";
+export const EXTRA_LARGE = "xl";

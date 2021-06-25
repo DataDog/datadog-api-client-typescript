@@ -8,175 +8,216 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringFilter } from './SecurityMonitoringFilter';
-import { SecurityMonitoringRuleCase } from './SecurityMonitoringRuleCase';
-import { SecurityMonitoringRuleOptions } from './SecurityMonitoringRuleOptions';
-import { SecurityMonitoringRuleQuery } from './SecurityMonitoringRuleQuery';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
+import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
+import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
+import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Update an existing rule.
-*/
+ * Update an existing rule.
+ */
 
 export class SecurityMonitoringRuleUpdatePayload {
-    /**
-    * Cases for generating signals.
-    */
-    'cases'?: Array<SecurityMonitoringRuleCase>;
-    /**
-    * Additional queries to filter matched events before they are processed.
-    */
-    'filters'?: Array<SecurityMonitoringFilter>;
-    /**
-    * Whether the notifications include the triggering group-by values in their title.
-    */
-    'hasExtendedTitle'?: boolean;
-    /**
-    * Whether the rule is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Message for generated signals.
-    */
-    'message'?: string;
-    /**
-    * Name of the rule.
-    */
-    'name'?: string;
-    'options'?: SecurityMonitoringRuleOptions;
-    /**
-    * Queries for selecting logs which are part of the rule.
-    */
-    'queries'?: Array<SecurityMonitoringRuleQuery>;
-    /**
-    * Tags for generated signals.
-    */
-    'tags'?: Array<string>;
-    /**
-    * The version of the rule being updated.
-    */
-    'version'?: number;
+  /**
+   * Cases for generating signals.
+   */
+  "cases"?: Array<SecurityMonitoringRuleCase>;
+  /**
+   * Additional queries to filter matched events before they are processed.
+   */
+  "filters"?: Array<SecurityMonitoringFilter>;
+  /**
+   * Whether the notifications include the triggering group-by values in their title.
+   */
+  "hasExtendedTitle"?: boolean;
+  /**
+   * Whether the rule is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Message for generated signals.
+   */
+  "message"?: string;
+  /**
+   * Name of the rule.
+   */
+  "name"?: string;
+  "options"?: SecurityMonitoringRuleOptions;
+  /**
+   * Queries for selecting logs which are part of the rule.
+   */
+  "queries"?: Array<SecurityMonitoringRuleQuery>;
+  /**
+   * Tags for generated signals.
+   */
+  "tags"?: Array<string>;
+  /**
+   * The version of the rule being updated.
+   */
+  "version"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cases": {
-            "baseName": "cases",
-            "type": "Array<SecurityMonitoringRuleCase>",
-            "format": ""
-        },
-        "filters": {
-            "baseName": "filters",
-            "type": "Array<SecurityMonitoringFilter>",
-            "format": ""
-        },
-        "hasExtendedTitle": {
-            "baseName": "hasExtendedTitle",
-            "type": "boolean",
-            "format": ""
-        },
-        "isEnabled": {
-            "baseName": "isEnabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "options": {
-            "baseName": "options",
-            "type": "SecurityMonitoringRuleOptions",
-            "format": ""
-        },
-        "queries": {
-            "baseName": "queries",
-            "type": "Array<SecurityMonitoringRuleQuery>",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "version": {
-            "baseName": "version",
-            "type": "number",
-            "format": "int32"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cases: {
+      baseName: "cases",
+      type: "Array<SecurityMonitoringRuleCase>",
+      format: "",
+    },
+    filters: {
+      baseName: "filters",
+      type: "Array<SecurityMonitoringFilter>",
+      format: "",
+    },
+    hasExtendedTitle: {
+      baseName: "hasExtendedTitle",
+      type: "boolean",
+      format: "",
+    },
+    isEnabled: {
+      baseName: "isEnabled",
+      type: "boolean",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    options: {
+      baseName: "options",
+      type: "SecurityMonitoringRuleOptions",
+      format: "",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<SecurityMonitoringRuleQuery>",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int32",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringRuleUpdatePayload {
+    const res = new SecurityMonitoringRuleUpdatePayload();
+
+    res.cases = ObjectSerializer.deserialize(
+      data.cases,
+      "Array<SecurityMonitoringRuleCase>",
+      ""
+    );
+
+    res.filters = ObjectSerializer.deserialize(
+      data.filters,
+      "Array<SecurityMonitoringFilter>",
+      ""
+    );
+
+    res.hasExtendedTitle = ObjectSerializer.deserialize(
+      data.hasExtendedTitle,
+      "boolean",
+      ""
+    );
+
+    res.isEnabled = ObjectSerializer.deserialize(data.isEnabled, "boolean", "");
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.options = ObjectSerializer.deserialize(
+      data.options,
+      "SecurityMonitoringRuleOptions",
+      ""
+    );
+
+    res.queries = ObjectSerializer.deserialize(
+      data.queries,
+      "Array<SecurityMonitoringRuleQuery>",
+      ""
+    );
+
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    res.version = ObjectSerializer.deserialize(data.version, "number", "int32");
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringRuleUpdatePayload
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringRuleUpdatePayload.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.cases = ObjectSerializer.serialize(
+      data.cases,
+      "Array<SecurityMonitoringRuleCase>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuleUpdatePayload {
-      let res = new SecurityMonitoringRuleUpdatePayload();
+    res.filters = ObjectSerializer.serialize(
+      data.filters,
+      "Array<SecurityMonitoringFilter>",
+      ""
+    );
 
-      res.cases = ObjectSerializer.deserialize(data.cases, "Array<SecurityMonitoringRuleCase>", "")
+    res.hasExtendedTitle = ObjectSerializer.serialize(
+      data.hasExtendedTitle,
+      "boolean",
+      ""
+    );
 
-      res.filters = ObjectSerializer.deserialize(data.filters, "Array<SecurityMonitoringFilter>", "")
+    res.isEnabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-      res.hasExtendedTitle = ObjectSerializer.deserialize(data.hasExtendedTitle, "boolean", "")
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      res.isEnabled = ObjectSerializer.deserialize(data.isEnabled, "boolean", "")
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    res.options = ObjectSerializer.serialize(
+      data.options,
+      "SecurityMonitoringRuleOptions",
+      ""
+    );
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
+    res.queries = ObjectSerializer.serialize(
+      data.queries,
+      "Array<SecurityMonitoringRuleQuery>",
+      ""
+    );
 
-      res.options = ObjectSerializer.deserialize(data.options, "SecurityMonitoringRuleOptions", "")
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 
-      res.queries = ObjectSerializer.deserialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
+    res.version = ObjectSerializer.serialize(data.version, "number", "int32");
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+    return res;
+  }
 
-      res.version = ObjectSerializer.deserialize(data.version, "number", "int32")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityMonitoringRuleUpdatePayload): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringRuleUpdatePayload.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.cases = ObjectSerializer.serialize(data.cases, "Array<SecurityMonitoringRuleCase>", "")
-
-        res.filters = ObjectSerializer.serialize(data.filters, "Array<SecurityMonitoringFilter>", "")
-
-        res.hasExtendedTitle = ObjectSerializer.serialize(data.hasExtendedTitle, "boolean", "")
-
-        res.isEnabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
-
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.options = ObjectSerializer.serialize(data.options, "SecurityMonitoringRuleOptions", "")
-
-        res.queries = ObjectSerializer.serialize(data.queries, "Array<SecurityMonitoringRuleQuery>", "")
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        res.version = ObjectSerializer.serialize(data.version, "number", "int32")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

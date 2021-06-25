@@ -8,70 +8,75 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the retry strategy to apply to a Synthetic test.
-*/
+ * Object describing the retry strategy to apply to a Synthetic test.
+ */
 
 export class SyntheticsTestOptionsRetry {
-    /**
-    * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
-    */
-    'count'?: number;
-    /**
-    * Time interval between retries (in milliseconds). Defaults to 300ms.
-    */
-    'interval'?: number;
+  /**
+   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
+   */
+  "count"?: number;
+  /**
+   * Time interval between retries (in milliseconds). Defaults to 300ms.
+   */
+  "interval"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "count": {
-            "baseName": "count",
-            "type": "number",
-            "format": "int64"
-        },
-        "interval": {
-            "baseName": "interval",
-            "type": "number",
-            "format": "double"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    count: {
+      baseName: "count",
+      type: "number",
+      format: "int64",
+    },
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "double",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTestOptionsRetry.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTestOptionsRetry.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsTestOptionsRetry {
+    const res = new SyntheticsTestOptionsRetry();
+
+    res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
+
+    res.interval = ObjectSerializer.deserialize(
+      data.interval,
+      "number",
+      "double"
+    );
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsTestOptionsRetry): { [key: string]: any } {
+    const attributeTypes = SyntheticsTestOptionsRetry.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.count = ObjectSerializer.serialize(data.count, "number", "int64");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTestOptionsRetry {
-      let res = new SyntheticsTestOptionsRetry();
+    res.interval = ObjectSerializer.serialize(
+      data.interval,
+      "number",
+      "double"
+    );
 
-      res.count = ObjectSerializer.deserialize(data.count, "number", "int64")
+    return res;
+  }
 
-      res.interval = ObjectSerializer.deserialize(data.interval, "number", "double")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsTestOptionsRetry): {[key: string]: any} {
-        let attributeTypes = SyntheticsTestOptionsRetry.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.count = ObjectSerializer.serialize(data.count, "number", "int64")
-
-        res.interval = ObjectSerializer.serialize(data.interval, "number", "double")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

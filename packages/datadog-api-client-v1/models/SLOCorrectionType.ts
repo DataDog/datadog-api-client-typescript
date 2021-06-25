@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* SLO correction resource type.
-*/
-
-export type SLOCorrectionType = typeof CORRECTION ;
-export const CORRECTION = 'correction';
-
-
+export type SLOCorrectionType = typeof CORRECTION;
+export const CORRECTION = "correction";

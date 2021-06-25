@@ -8,108 +8,117 @@
  * Do not edit the class manually.
  */
 
-import { LogsTraceRemapperType } from './LogsTraceRemapperType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsTraceRemapperType } from "./LogsTraceRemapperType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* There are two ways to improve correlation between application traces and logs.    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default log integrations take care of all the rest of the setup.    2. Use the Trace remapper processor to define a log attribute as its associated trace ID.
-*/
+ * There are two ways to improve correlation between application traces and logs.    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default log integrations take care of all the rest of the setup.    2. Use the Trace remapper processor to define a log attribute as its associated trace ID.
+ */
 
 export class LogsTraceRemapper {
-    /**
-    * Whether or not the processor is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Name of the processor.
-    */
-    'name'?: string;
-    /**
-    * Array of source attributes.
-    */
-    'sources'?: Array<string>;
-    'type': LogsTraceRemapperType;
+  /**
+   * Whether or not the processor is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Name of the processor.
+   */
+  "name"?: string;
+  /**
+   * Array of source attributes.
+   */
+  "sources"?: Array<string>;
+  "type": LogsTraceRemapperType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "sources": {
-            "baseName": "sources",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsTraceRemapperType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    sources: {
+      baseName: "sources",
+      type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsTraceRemapperType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsTraceRemapper.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsTraceRemapper.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsTraceRemapper {
+    const res = new LogsTraceRemapper();
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.sources = ObjectSerializer.deserialize(
+      data.sources,
+      "Array<string>",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsTraceRemapper' object"
+      );
+    }
+    if (["trace-id-remapper", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsTraceRemapper {
-      let res = new LogsTraceRemapper();
+    return res;
+  }
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
-
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsTraceRemapper' object");
+  static serialize(data: LogsTraceRemapper): { [key: string]: any } {
+    const attributeTypes = LogsTraceRemapper.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      if (['trace-id-remapper', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    }
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      return res;
+    res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsTraceRemapper' object"
+      );
+    }
+    if (["trace-id-remapper", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsTraceRemapper): {[key: string]: any} {
-        let attributeTypes = LogsTraceRemapper.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    return res;
+  }
 
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsTraceRemapper' object");
-        }
-        if (['trace-id-remapper', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

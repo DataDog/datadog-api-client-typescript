@@ -8,20 +8,18 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Error code that can be returned by a Synthetic test.
-*/
-
-export type SyntheticsErrorCode = typeof NO_ERROR | typeof UNKNOWN | typeof DNS | typeof SSL | typeof TIMEOUT | typeof DENIED | typeof INCORRECT_ASSERTION ;
-export const NO_ERROR = 'NO_ERROR';
-export const UNKNOWN = 'UNKNOWN';
-export const DNS = 'DNS';
-export const SSL = 'SSL';
-export const TIMEOUT = 'TIMEOUT';
-export const DENIED = 'DENIED';
-export const INCORRECT_ASSERTION = 'INCORRECT_ASSERTION';
-
-
+export type SyntheticsErrorCode =
+  | typeof NO_ERROR
+  | typeof UNKNOWN
+  | typeof DNS
+  | typeof SSL
+  | typeof TIMEOUT
+  | typeof DENIED
+  | typeof INCORRECT_ASSERTION;
+export const NO_ERROR = "NO_ERROR";
+export const UNKNOWN = "UNKNOWN";
+export const DNS = "DNS";
+export const SSL = "SSL";
+export const TIMEOUT = "TIMEOUT";
+export const DENIED = "DENIED";
+export const INCORRECT_ASSERTION = "INCORRECT_ASSERTION";

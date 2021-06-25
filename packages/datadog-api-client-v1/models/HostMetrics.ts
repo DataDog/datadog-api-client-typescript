@@ -8,83 +8,80 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Host Metrics collected.
-*/
+ * Host Metrics collected.
+ */
 
 export class HostMetrics {
-    /**
-    * The percent of CPU used (everything but idle).
-    */
-    'cpu'?: number;
-    /**
-    * The percent of CPU spent waiting on the IO (not reported for all platforms).
-    */
-    'iowait'?: number;
-    /**
-    * The system load over the last 15 minutes.
-    */
-    'load'?: number;
+  /**
+   * The percent of CPU used (everything but idle).
+   */
+  "cpu"?: number;
+  /**
+   * The percent of CPU spent waiting on the IO (not reported for all platforms).
+   */
+  "iowait"?: number;
+  /**
+   * The system load over the last 15 minutes.
+   */
+  "load"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cpu": {
-            "baseName": "cpu",
-            "type": "number",
-            "format": "double"
-        },
-        "iowait": {
-            "baseName": "iowait",
-            "type": "number",
-            "format": "double"
-        },
-        "load": {
-            "baseName": "load",
-            "type": "number",
-            "format": "double"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cpu: {
+      baseName: "cpu",
+      type: "number",
+      format: "double",
+    },
+    iowait: {
+      baseName: "iowait",
+      type: "number",
+      format: "double",
+    },
+    load: {
+      baseName: "load",
+      type: "number",
+      format: "double",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return HostMetrics.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return HostMetrics.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): HostMetrics {
+    const res = new HostMetrics();
+
+    res.cpu = ObjectSerializer.deserialize(data.cpu, "number", "double");
+
+    res.iowait = ObjectSerializer.deserialize(data.iowait, "number", "double");
+
+    res.load = ObjectSerializer.deserialize(data.load, "number", "double");
+
+    return res;
+  }
+
+  static serialize(data: HostMetrics): { [key: string]: any } {
+    const attributeTypes = HostMetrics.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.cpu = ObjectSerializer.serialize(data.cpu, "number", "double");
 
-    static deserialize(data: {[key: string]: any}): HostMetrics {
-      let res = new HostMetrics();
+    res.iowait = ObjectSerializer.serialize(data.iowait, "number", "double");
 
-      res.cpu = ObjectSerializer.deserialize(data.cpu, "number", "double")
+    res.load = ObjectSerializer.serialize(data.load, "number", "double");
 
-      res.iowait = ObjectSerializer.deserialize(data.iowait, "number", "double")
+    return res;
+  }
 
-      res.load = ObjectSerializer.deserialize(data.load, "number", "double")
-
-
-      return res;
-    }
-
-    static serialize(data: HostMetrics): {[key: string]: any} {
-        let attributeTypes = HostMetrics.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.cpu = ObjectSerializer.serialize(data.cpu, "number", "double")
-
-        res.iowait = ObjectSerializer.serialize(data.iowait, "number", "double")
-
-        res.load = ObjectSerializer.serialize(data.load, "number", "double")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

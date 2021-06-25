@@ -8,55 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { RoleUpdateResponseData } from './RoleUpdateResponseData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing information about an updated role.
-*/
+ * Response containing information about an updated role.
+ */
 
 export class RoleUpdateResponse {
-    'data'?: RoleUpdateResponseData;
+  "data"?: RoleUpdateResponseData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "RoleUpdateResponseData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "RoleUpdateResponseData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RoleUpdateResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RoleUpdateResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): RoleUpdateResponse {
+    const res = new RoleUpdateResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "RoleUpdateResponseData",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: RoleUpdateResponse): { [key: string]: any } {
+    const attributeTypes = RoleUpdateResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "RoleUpdateResponseData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): RoleUpdateResponse {
-      let res = new RoleUpdateResponse();
+    return res;
+  }
 
-      res.data = ObjectSerializer.deserialize(data.data, "RoleUpdateResponseData", "")
-
-
-      return res;
-    }
-
-    static serialize(data: RoleUpdateResponse): {[key: string]: any} {
-        let attributeTypes = RoleUpdateResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "RoleUpdateResponseData", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

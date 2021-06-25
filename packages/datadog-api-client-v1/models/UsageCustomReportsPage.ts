@@ -8,57 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The object containing page total count.
-*/
+ * The object containing page total count.
+ */
 
 export class UsageCustomReportsPage {
-    /**
-    * Total page count.
-    */
-    'totalCount'?: number;
+  /**
+   * Total page count.
+   */
+  "totalCount"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "totalCount": {
-            "baseName": "total_count",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    totalCount: {
+      baseName: "total_count",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageCustomReportsPage.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageCustomReportsPage.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UsageCustomReportsPage {
+    const res = new UsageCustomReportsPage();
+
+    res.totalCount = ObjectSerializer.deserialize(
+      data.total_count,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: UsageCustomReportsPage): { [key: string]: any } {
+    const attributeTypes = UsageCustomReportsPage.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.total_count = ObjectSerializer.serialize(
+      data.totalCount,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageCustomReportsPage {
-      let res = new UsageCustomReportsPage();
+    return res;
+  }
 
-      res.totalCount = ObjectSerializer.deserialize(data.total_count, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageCustomReportsPage): {[key: string]: any} {
-        let attributeTypes = UsageCustomReportsPage.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.total_count = ObjectSerializer.serialize(data.totalCount, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

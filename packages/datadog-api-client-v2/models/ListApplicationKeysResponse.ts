@@ -8,72 +8,87 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyResponseIncludedItem } from './ApplicationKeyResponseIncludedItem';
-import { PartialApplicationKey } from './PartialApplicationKey';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
+import { PartialApplicationKey } from "./PartialApplicationKey";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response for a list of application keys.
-*/
+ * Response for a list of application keys.
+ */
 
 export class ListApplicationKeysResponse {
-    /**
-    * Array of application keys.
-    */
-    'data'?: Array<PartialApplicationKey>;
-    /**
-    * Array of objects related to the application key.
-    */
-    'included'?: Array<ApplicationKeyResponseIncludedItem>;
+  /**
+   * Array of application keys.
+   */
+  "data"?: Array<PartialApplicationKey>;
+  /**
+   * Array of objects related to the application key.
+   */
+  "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<PartialApplicationKey>",
-            "format": ""
-        },
-        "included": {
-            "baseName": "included",
-            "type": "Array<ApplicationKeyResponseIncludedItem>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<PartialApplicationKey>",
+      format: "",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<ApplicationKeyResponseIncludedItem>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return ListApplicationKeysResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return ListApplicationKeysResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): ListApplicationKeysResponse {
+    const res = new ListApplicationKeysResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<PartialApplicationKey>",
+      ""
+    );
+
+    res.included = ObjectSerializer.deserialize(
+      data.included,
+      "Array<ApplicationKeyResponseIncludedItem>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: ListApplicationKeysResponse): { [key: string]: any } {
+    const attributeTypes = ListApplicationKeysResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<PartialApplicationKey>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): ListApplicationKeysResponse {
-      let res = new ListApplicationKeysResponse();
+    res.included = ObjectSerializer.serialize(
+      data.included,
+      "Array<ApplicationKeyResponseIncludedItem>",
+      ""
+    );
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<PartialApplicationKey>", "")
+    return res;
+  }
 
-      res.included = ObjectSerializer.deserialize(data.included, "Array<ApplicationKeyResponseIncludedItem>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: ListApplicationKeysResponse): {[key: string]: any} {
-        let attributeTypes = ListApplicationKeysResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<PartialApplicationKey>", "")
-
-        res.included = ObjectSerializer.serialize(data.included, "Array<ApplicationKeyResponseIncludedItem>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

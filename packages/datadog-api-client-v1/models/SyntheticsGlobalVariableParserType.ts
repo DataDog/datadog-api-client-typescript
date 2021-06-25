@@ -8,16 +8,10 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Type of parser for a Synthetics global variable from a synthetics test.
-*/
-
-export type SyntheticsGlobalVariableParserType = typeof RAW | typeof JSON_PATH | typeof REGEX ;
-export const RAW = 'raw';
-export const JSON_PATH = 'json_path';
-export const REGEX = 'regex';
-
-
+export type SyntheticsGlobalVariableParserType =
+  | typeof RAW
+  | typeof JSON_PATH
+  | typeof REGEX;
+export const RAW = "raw";
+export const JSON_PATH = "json_path";
+export const REGEX = "regex";

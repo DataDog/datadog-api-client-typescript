@@ -8,15 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { Metric } from './Metric';
-import { MetricTagConfiguration } from './MetricTagConfiguration';
-import { MetricTagConfigurationAttributes } from './MetricTagConfigurationAttributes';
-import { MetricTagConfigurationType } from './MetricTagConfigurationType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Object for a metrics and metric tag configurations.
-*/
+import { Metric } from "./Metric";
+import { MetricTagConfiguration } from "./MetricTagConfiguration";
 
 export type MetricsAndMetricTagConfigurations = Metric | MetricTagConfiguration;

@@ -8,70 +8,83 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The Agent rule.
-*/
+ * The Agent rule.
+ */
 
 export class SecurityMonitoringRuntimeAgentRule {
-    /**
-    * The Agent rule ID. Must be unique within the rule.
-    */
-    'agentRuleId'?: string;
-    /**
-    * A Runtime Security expression determines what activity should be collected by the Datadog Agent. These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced option.
-    */
-    'expression'?: string;
+  /**
+   * The Agent rule ID. Must be unique within the rule.
+   */
+  "agentRuleId"?: string;
+  /**
+   * A Runtime Security expression determines what activity should be collected by the Datadog Agent. These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced option.
+   */
+  "expression"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "agentRuleId": {
-            "baseName": "agentRuleId",
-            "type": "string",
-            "format": ""
-        },
-        "expression": {
-            "baseName": "expression",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    agentRuleId: {
+      baseName: "agentRuleId",
+      type: "string",
+      format: "",
+    },
+    expression: {
+      baseName: "expression",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringRuntimeAgentRule.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringRuntimeAgentRule.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringRuntimeAgentRule {
+    const res = new SecurityMonitoringRuntimeAgentRule();
+
+    res.agentRuleId = ObjectSerializer.deserialize(
+      data.agentRuleId,
+      "string",
+      ""
+    );
+
+    res.expression = ObjectSerializer.deserialize(
+      data.expression,
+      "string",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: SecurityMonitoringRuntimeAgentRule
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringRuntimeAgentRule.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.agentRuleId = ObjectSerializer.serialize(
+      data.agentRuleId,
+      "string",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringRuntimeAgentRule {
-      let res = new SecurityMonitoringRuntimeAgentRule();
+    res.expression = ObjectSerializer.serialize(data.expression, "string", "");
 
-      res.agentRuleId = ObjectSerializer.deserialize(data.agentRuleId, "string", "")
+    return res;
+  }
 
-      res.expression = ObjectSerializer.deserialize(data.expression, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SecurityMonitoringRuntimeAgentRule): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringRuntimeAgentRule.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.agentRuleId = ObjectSerializer.serialize(data.agentRuleId, "string", "")
-
-        res.expression = ObjectSerializer.serialize(data.expression, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

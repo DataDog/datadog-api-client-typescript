@@ -8,61 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { MetricTagConfigurationUpdateData } from './MetricTagConfigurationUpdateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Request object that includes the metric that you would like to edit the tag configuration on.
-*/
+ * Request object that includes the metric that you would like to edit the tag configuration on.
+ */
 
 export class MetricTagConfigurationUpdateRequest {
-    'data': MetricTagConfigurationUpdateData;
+  "data": MetricTagConfigurationUpdateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "MetricTagConfigurationUpdateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "MetricTagConfigurationUpdateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MetricTagConfigurationUpdateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MetricTagConfigurationUpdateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): MetricTagConfigurationUpdateRequest {
+    const res = new MetricTagConfigurationUpdateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'MetricTagConfigurationUpdateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "MetricTagConfigurationUpdateData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): MetricTagConfigurationUpdateRequest {
-      let res = new MetricTagConfigurationUpdateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'MetricTagConfigurationUpdateRequest' object");
+  static serialize(
+    data: MetricTagConfigurationUpdateRequest
+  ): { [key: string]: any } {
+    const attributeTypes = MetricTagConfigurationUpdateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "MetricTagConfigurationUpdateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: MetricTagConfigurationUpdateRequest): {[key: string]: any} {
-        let attributeTypes = MetricTagConfigurationUpdateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'MetricTagConfigurationUpdateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "MetricTagConfigurationUpdateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'MetricTagConfigurationUpdateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "MetricTagConfigurationUpdateData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

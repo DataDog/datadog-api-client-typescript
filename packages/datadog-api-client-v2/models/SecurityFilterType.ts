@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The type of the resource. The value should always be `security_filters`.
-*/
-
-export type SecurityFilterType = typeof SECURITY_FILTERS ;
-export const SECURITY_FILTERS = 'security_filters';
-
-
+export type SecurityFilterType = typeof SECURITY_FILTERS;
+export const SECURITY_FILTERS = "security_filters";

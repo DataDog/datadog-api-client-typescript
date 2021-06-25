@@ -8,86 +8,99 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveOrderAttributes } from './LogsArchiveOrderAttributes';
-import { LogsArchiveOrderDefinitionType } from './LogsArchiveOrderDefinitionType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
+import { LogsArchiveOrderDefinitionType } from "./LogsArchiveOrderDefinitionType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The definition of an archive order.
-*/
+ * The definition of an archive order.
+ */
 
 export class LogsArchiveOrderDefinition {
-    'attributes': LogsArchiveOrderAttributes;
-    'type': LogsArchiveOrderDefinitionType;
+  "attributes": LogsArchiveOrderAttributes;
+  "type": LogsArchiveOrderDefinitionType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "LogsArchiveOrderAttributes",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsArchiveOrderDefinitionType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "LogsArchiveOrderAttributes",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsArchiveOrderDefinitionType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsArchiveOrderDefinition.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsArchiveOrderDefinition.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsArchiveOrderDefinition {
+    const res = new LogsArchiveOrderDefinition();
+
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'LogsArchiveOrderDefinition' object"
+      );
+    }
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "LogsArchiveOrderAttributes",
+      ""
+    );
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsArchiveOrderDefinition' object"
+      );
+    }
+    if (["archive_order", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsArchiveOrderDefinition {
-      let res = new LogsArchiveOrderDefinition();
+    return res;
+  }
 
-      if (data.attributes === undefined) {
-          throw new TypeError("missing required attribute 'attributes' on 'LogsArchiveOrderDefinition' object");
+  static serialize(data: LogsArchiveOrderDefinition): { [key: string]: any } {
+    const attributeTypes = LogsArchiveOrderDefinition.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "LogsArchiveOrderAttributes", "")
+    }
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'LogsArchiveOrderDefinition' object"
+      );
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "LogsArchiveOrderAttributes",
+      ""
+    );
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsArchiveOrderDefinition' object");
-      }
-      if (['archive_order', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsArchiveOrderDefinition' object"
+      );
+    }
+    if (["archive_order", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsArchiveOrderDefinition): {[key: string]: any} {
-        let attributeTypes = LogsArchiveOrderDefinition.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.attributes === undefined) {
-            throw new TypeError("missing required attribute 'attributes' on 'LogsArchiveOrderDefinition' object");
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "LogsArchiveOrderAttributes", "")
+    return res;
+  }
 
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsArchiveOrderDefinition' object");
-        }
-        if (['archive_order', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

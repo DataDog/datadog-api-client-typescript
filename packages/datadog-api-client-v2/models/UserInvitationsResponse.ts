@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { UserInvitationResponseData } from './UserInvitationResponseData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UserInvitationResponseData } from "./UserInvitationResponseData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* User invitations as returned by the API.
-*/
+ * User invitations as returned by the API.
+ */
 
 export class UserInvitationsResponse {
-    /**
-    * Array of user invitations.
-    */
-    'data'?: Array<UserInvitationResponseData>;
+  /**
+   * Array of user invitations.
+   */
+  "data"?: Array<UserInvitationResponseData>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<UserInvitationResponseData>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<UserInvitationResponseData>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserInvitationsResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserInvitationsResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserInvitationsResponse {
+    const res = new UserInvitationsResponse();
+
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<UserInvitationResponseData>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: UserInvitationsResponse): { [key: string]: any } {
+    const attributeTypes = UserInvitationsResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<UserInvitationResponseData>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UserInvitationsResponse {
-      let res = new UserInvitationsResponse();
+    return res;
+  }
 
-      res.data = ObjectSerializer.deserialize(data.data, "Array<UserInvitationResponseData>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UserInvitationsResponse): {[key: string]: any} {
-        let attributeTypes = UserInvitationsResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<UserInvitationResponseData>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

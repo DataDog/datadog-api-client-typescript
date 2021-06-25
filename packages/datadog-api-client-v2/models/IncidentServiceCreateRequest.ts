@@ -8,61 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceCreateData } from './IncidentServiceCreateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Create request with an incident service payload.
-*/
+ * Create request with an incident service payload.
+ */
 
 export class IncidentServiceCreateRequest {
-    'data': IncidentServiceCreateData;
+  "data": IncidentServiceCreateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "IncidentServiceCreateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "IncidentServiceCreateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentServiceCreateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentServiceCreateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentServiceCreateRequest {
+    const res = new IncidentServiceCreateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'IncidentServiceCreateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "IncidentServiceCreateData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): IncidentServiceCreateRequest {
-      let res = new IncidentServiceCreateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'IncidentServiceCreateRequest' object");
+  static serialize(data: IncidentServiceCreateRequest): { [key: string]: any } {
+    const attributeTypes = IncidentServiceCreateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "IncidentServiceCreateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: IncidentServiceCreateRequest): {[key: string]: any} {
-        let attributeTypes = IncidentServiceCreateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'IncidentServiceCreateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "IncidentServiceCreateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'IncidentServiceCreateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "IncidentServiceCreateData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

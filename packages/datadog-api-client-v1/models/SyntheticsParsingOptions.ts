@@ -8,100 +8,105 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariableParseTestOptionsType } from './SyntheticsGlobalVariableParseTestOptionsType';
-import { SyntheticsVariableParser } from './SyntheticsVariableParser';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
+import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Parsing options for variables to extract.
-*/
+ * Parsing options for variables to extract.
+ */
 
 export class SyntheticsParsingOptions {
-    /**
-    * When type is `http_header`, name of the header to use to extract the value.
-    */
-    'field'?: string;
-    /**
-    * Name of the variable to extract.
-    */
-    'name'?: string;
-    'parser'?: SyntheticsVariableParser;
-    'type'?: SyntheticsGlobalVariableParseTestOptionsType;
+  /**
+   * When type is `http_header`, name of the header to use to extract the value.
+   */
+  "field"?: string;
+  /**
+   * Name of the variable to extract.
+   */
+  "name"?: string;
+  "parser"?: SyntheticsVariableParser;
+  "type"?: SyntheticsGlobalVariableParseTestOptionsType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "field": {
-            "baseName": "field",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "parser": {
-            "baseName": "parser",
-            "type": "SyntheticsVariableParser",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsGlobalVariableParseTestOptionsType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    field: {
+      baseName: "field",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    parser: {
+      baseName: "parser",
+      type: "SyntheticsVariableParser",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsGlobalVariableParseTestOptionsType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsParsingOptions.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsParsingOptions.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsParsingOptions {
+    const res = new SyntheticsParsingOptions();
+
+    res.field = ObjectSerializer.deserialize(data.field, "string", "");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.parser = ObjectSerializer.deserialize(
+      data.parser,
+      "SyntheticsVariableParser",
+      ""
+    );
+
+    if (["http_body", "http_header", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsParsingOptions {
-      let res = new SyntheticsParsingOptions();
+    return res;
+  }
 
-      res.field = ObjectSerializer.deserialize(data.field, "string", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.parser = ObjectSerializer.deserialize(data.parser, "SyntheticsVariableParser", "")
-
-      if (['http_body', 'http_header', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: SyntheticsParsingOptions): { [key: string]: any } {
+    const attributeTypes = SyntheticsParsingOptions.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.field = ObjectSerializer.serialize(data.field, "string", "");
 
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      return res;
+    res.parser = ObjectSerializer.serialize(
+      data.parser,
+      "SyntheticsVariableParser",
+      ""
+    );
+
+    if (["http_body", "http_header", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: SyntheticsParsingOptions): {[key: string]: any} {
-        let attributeTypes = SyntheticsParsingOptions.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.field = ObjectSerializer.serialize(data.field, "string", "")
+    return res;
+  }
 
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.parser = ObjectSerializer.serialize(data.parser, "SyntheticsVariableParser", "")
-
-        if (['http_body', 'http_header', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

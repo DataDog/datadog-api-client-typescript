@@ -8,201 +8,238 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPITestConfig } from './SyntheticsAPITestConfig';
-import { SyntheticsAPITestType } from './SyntheticsAPITestType';
-import { SyntheticsTestDetailsSubType } from './SyntheticsTestDetailsSubType';
-import { SyntheticsTestOptions } from './SyntheticsTestOptions';
-import { SyntheticsTestPauseStatus } from './SyntheticsTestPauseStatus';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsAPITestConfig } from "./SyntheticsAPITestConfig";
+import { SyntheticsAPITestType } from "./SyntheticsAPITestType";
+import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
+import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
+import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing details about a Synthetic API test.
-*/
+ * Object containing details about a Synthetic API test.
+ */
 
 export class SyntheticsAPITest {
-    'config'?: SyntheticsAPITestConfig;
-    /**
-    * Array of locations used to run the test.
-    */
-    'locations'?: Array<string>;
-    /**
-    * Notification message associated with the test.
-    */
-    'message'?: string;
-    /**
-    * The associated monitor ID.
-    */
-    'monitorId'?: number;
-    /**
-    * Name of the test.
-    */
-    'name'?: string;
-    'options'?: SyntheticsTestOptions;
-    /**
-    * The public ID for the test.
-    */
-    'publicId'?: string;
-    'status'?: SyntheticsTestPauseStatus;
-    'subtype'?: SyntheticsTestDetailsSubType;
-    /**
-    * Array of tags attached to the test.
-    */
-    'tags'?: Array<string>;
-    'type'?: SyntheticsAPITestType;
+  "config"?: SyntheticsAPITestConfig;
+  /**
+   * Array of locations used to run the test.
+   */
+  "locations"?: Array<string>;
+  /**
+   * Notification message associated with the test.
+   */
+  "message"?: string;
+  /**
+   * The associated monitor ID.
+   */
+  "monitorId"?: number;
+  /**
+   * Name of the test.
+   */
+  "name"?: string;
+  "options"?: SyntheticsTestOptions;
+  /**
+   * The public ID for the test.
+   */
+  "publicId"?: string;
+  "status"?: SyntheticsTestPauseStatus;
+  "subtype"?: SyntheticsTestDetailsSubType;
+  /**
+   * Array of tags attached to the test.
+   */
+  "tags"?: Array<string>;
+  "type"?: SyntheticsAPITestType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "config": {
-            "baseName": "config",
-            "type": "SyntheticsAPITestConfig",
-            "format": ""
-        },
-        "locations": {
-            "baseName": "locations",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "message": {
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        "monitorId": {
-            "baseName": "monitor_id",
-            "type": "number",
-            "format": "int64"
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "options": {
-            "baseName": "options",
-            "type": "SyntheticsTestOptions",
-            "format": ""
-        },
-        "publicId": {
-            "baseName": "public_id",
-            "type": "string",
-            "format": ""
-        },
-        "status": {
-            "baseName": "status",
-            "type": "SyntheticsTestPauseStatus",
-            "format": ""
-        },
-        "subtype": {
-            "baseName": "subtype",
-            "type": "SyntheticsTestDetailsSubType",
-            "format": ""
-        },
-        "tags": {
-            "baseName": "tags",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "SyntheticsAPITestType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    config: {
+      baseName: "config",
+      type: "SyntheticsAPITestConfig",
+      format: "",
+    },
+    locations: {
+      baseName: "locations",
+      type: "Array<string>",
+      format: "",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
+      format: "",
+    },
+    monitorId: {
+      baseName: "monitor_id",
+      type: "number",
+      format: "int64",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    options: {
+      baseName: "options",
+      type: "SyntheticsTestOptions",
+      format: "",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+      format: "",
+    },
+    status: {
+      baseName: "status",
+      type: "SyntheticsTestPauseStatus",
+      format: "",
+    },
+    subtype: {
+      baseName: "subtype",
+      type: "SyntheticsTestDetailsSubType",
+      format: "",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SyntheticsAPITestType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsAPITest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsAPITest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsAPITest {
+    const res = new SyntheticsAPITest();
+
+    res.config = ObjectSerializer.deserialize(
+      data.config,
+      "SyntheticsAPITestConfig",
+      ""
+    );
+
+    res.locations = ObjectSerializer.deserialize(
+      data.locations,
+      "Array<string>",
+      ""
+    );
+
+    res.message = ObjectSerializer.deserialize(data.message, "string", "");
+
+    res.monitorId = ObjectSerializer.deserialize(
+      data.monitor_id,
+      "number",
+      "int64"
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    res.options = ObjectSerializer.deserialize(
+      data.options,
+      "SyntheticsTestOptions",
+      ""
+    );
+
+    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
+
+    if (["live", "paused", undefined].includes(data.status)) {
+      res.status = data.status;
+    } else {
+      throw TypeError(`invalid enum value ${data.status} for status`);
     }
 
-    static deserialize(data: {[key: string]: any}): SyntheticsAPITest {
-      let res = new SyntheticsAPITest();
+    if (
+      ["http", "ssl", "tcp", "dns", "multi", "icmp", undefined].includes(
+        data.subtype
+      )
+    ) {
+      res.subtype = data.subtype;
+    } else {
+      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
+    }
 
-      res.config = ObjectSerializer.deserialize(data.config, "SyntheticsAPITestConfig", "")
+    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
 
-      res.locations = ObjectSerializer.deserialize(data.locations, "Array<string>", "")
+    if (["api", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
 
-      res.message = ObjectSerializer.deserialize(data.message, "string", "")
+    return res;
+  }
 
-      res.monitorId = ObjectSerializer.deserialize(data.monitor_id, "number", "int64")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      res.options = ObjectSerializer.deserialize(data.options, "SyntheticsTestOptions", "")
-
-      res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "")
-
-      if (['live', 'paused', undefined].includes(data.status)) {
-          res.status = data.status;
-      } else {
-          throw TypeError(`invalid enum value ${ data.status } for status`);
+  static serialize(data: SyntheticsAPITest): { [key: string]: any } {
+    const attributeTypes = SyntheticsAPITest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.config = ObjectSerializer.serialize(
+      data.config,
+      "SyntheticsAPITestConfig",
+      ""
+    );
 
-      if (['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', undefined].includes(data.subtype)) {
-          res.subtype = data.subtype;
-      } else {
-          throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
-      }
+    res.locations = ObjectSerializer.serialize(
+      data.locations,
+      "Array<string>",
+      ""
+    );
 
-      res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "")
+    res.message = ObjectSerializer.serialize(data.message, "string", "");
 
-      if (['api', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    res.monitor_id = ObjectSerializer.serialize(
+      data.monitorId,
+      "number",
+      "int64"
+    );
 
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      return res;
+    res.options = ObjectSerializer.serialize(
+      data.options,
+      "SyntheticsTestOptions",
+      ""
+    );
+
+    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
+
+    if (["live", "paused", undefined].includes(data.status)) {
+      res.status = data.status;
+    } else {
+      throw TypeError(`invalid enum value ${data.status} for status`);
     }
 
-    static serialize(data: SyntheticsAPITest): {[key: string]: any} {
-        let attributeTypes = SyntheticsAPITest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.config = ObjectSerializer.serialize(data.config, "SyntheticsAPITestConfig", "")
-
-        res.locations = ObjectSerializer.serialize(data.locations, "Array<string>", "")
-
-        res.message = ObjectSerializer.serialize(data.message, "string", "")
-
-        res.monitor_id = ObjectSerializer.serialize(data.monitorId, "number", "int64")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        res.options = ObjectSerializer.serialize(data.options, "SyntheticsTestOptions", "")
-
-        res.public_id = ObjectSerializer.serialize(data.publicId, "string", "")
-
-        if (['live', 'paused', undefined].includes(data.status)) {
-            res.status = data.status;
-        } else {
-            throw TypeError(`invalid enum value ${ data.status } for status`);
-        }
-
-        if (['http', 'ssl', 'tcp', 'dns', 'multi', 'icmp', undefined].includes(data.subtype)) {
-            res.subtype = data.subtype;
-        } else {
-            throw TypeError(`invalid enum value ${ data.subtype } for subtype`);
-        }
-
-        res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "")
-
-        if (['api', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
+    if (
+      ["http", "ssl", "tcp", "dns", "multi", "icmp", undefined].includes(
+        data.subtype
+      )
+    ) {
+      res.subtype = data.subtype;
+    } else {
+      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
     }
-    
-    public constructor() {
+
+    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
+
+    if (["api", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

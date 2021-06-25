@@ -8,20 +8,11 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventQueryDefinition } from './FormulaAndFunctionEventQueryDefinition';
-import { FormulaAndFunctionEventQueryDefinitionCompute } from './FormulaAndFunctionEventQueryDefinitionCompute';
-import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFunctionEventQueryDefinitionSearch';
-import { FormulaAndFunctionEventQueryGroupBy } from './FormulaAndFunctionEventQueryGroupBy';
-import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricAggregation';
-import { FormulaAndFunctionMetricQueryDefinition } from './FormulaAndFunctionMetricQueryDefinition';
-import { FormulaAndFunctionProcessQueryDataSource } from './FormulaAndFunctionProcessQueryDataSource';
-import { FormulaAndFunctionProcessQueryDefinition } from './FormulaAndFunctionProcessQueryDefinition';
-import { QuerySortOrder } from './QuerySortOrder';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
+import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
+import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
 
-/**
-* A formula and function query.
-*/
-
-export type FormulaAndFunctionQueryDefinition = FormulaAndFunctionEventQueryDefinition | FormulaAndFunctionMetricQueryDefinition | FormulaAndFunctionProcessQueryDefinition;
+export type FormulaAndFunctionQueryDefinition =
+  | FormulaAndFunctionEventQueryDefinition
+  | FormulaAndFunctionMetricQueryDefinition
+  | FormulaAndFunctionProcessQueryDefinition;

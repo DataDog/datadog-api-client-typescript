@@ -8,14 +8,19 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
-*/
-
-export type SecurityMonitoringRuleMaxSignalDuration = typeof ZERO_MINUTES | typeof ONE_MINUTE | typeof FIVE_MINUTES | typeof TEN_MINUTES | typeof FIFTEEN_MINUTES | typeof THIRTY_MINUTES | typeof ONE_HOUR | typeof TWO_HOURS | typeof THREE_HOURS | typeof SIX_HOURS | typeof TWELVE_HOURS | typeof ONE_DAY ;
+export type SecurityMonitoringRuleMaxSignalDuration =
+  | typeof ZERO_MINUTES
+  | typeof ONE_MINUTE
+  | typeof FIVE_MINUTES
+  | typeof TEN_MINUTES
+  | typeof FIFTEEN_MINUTES
+  | typeof THIRTY_MINUTES
+  | typeof ONE_HOUR
+  | typeof TWO_HOURS
+  | typeof THREE_HOURS
+  | typeof SIX_HOURS
+  | typeof TWELVE_HOURS
+  | typeof ONE_DAY;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;
@@ -28,5 +33,3 @@ export const THREE_HOURS = 10800;
 export const SIX_HOURS = 21600;
 export const TWELVE_HOURS = 43200;
 export const ONE_DAY = 86400;
-
-

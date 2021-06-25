@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { AWSAccount } from './AWSAccount';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { AWSAccount } from "./AWSAccount";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* List of enabled AWS accounts.
-*/
+ * List of enabled AWS accounts.
+ */
 
 export class AWSAccountListResponse {
-    /**
-    * List of enabled AWS accounts.
-    */
-    'accounts'?: Array<AWSAccount>;
+  /**
+   * List of enabled AWS accounts.
+   */
+  "accounts"?: Array<AWSAccount>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "accounts": {
-            "baseName": "accounts",
-            "type": "Array<AWSAccount>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    accounts: {
+      baseName: "accounts",
+      type: "Array<AWSAccount>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return AWSAccountListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return AWSAccountListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): AWSAccountListResponse {
+    const res = new AWSAccountListResponse();
+
+    res.accounts = ObjectSerializer.deserialize(
+      data.accounts,
+      "Array<AWSAccount>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: AWSAccountListResponse): { [key: string]: any } {
+    const attributeTypes = AWSAccountListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.accounts = ObjectSerializer.serialize(
+      data.accounts,
+      "Array<AWSAccount>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): AWSAccountListResponse {
-      let res = new AWSAccountListResponse();
+    return res;
+  }
 
-      res.accounts = ObjectSerializer.deserialize(data.accounts, "Array<AWSAccount>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: AWSAccountListResponse): {[key: string]: any} {
-        let attributeTypes = AWSAccountListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.accounts = ObjectSerializer.serialize(data.accounts, "Array<AWSAccount>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

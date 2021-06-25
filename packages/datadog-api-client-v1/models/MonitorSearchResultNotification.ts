@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A notification triggered by the monitor.
-*/
+ * A notification triggered by the monitor.
+ */
 
 export class MonitorSearchResultNotification {
-    /**
-    * The email address that received the notification.
-    */
-    'handle'?: string;
-    /**
-    * The username receiving the notification
-    */
-    'name'?: string;
+  /**
+   * The email address that received the notification.
+   */
+  "handle"?: string;
+  /**
+   * The username receiving the notification
+   */
+  "name"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "handle": {
-            "baseName": "handle",
-            "type": "string",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    handle: {
+      baseName: "handle",
+      type: "string",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return MonitorSearchResultNotification.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return MonitorSearchResultNotification.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): MonitorSearchResultNotification {
+    const res = new MonitorSearchResultNotification();
+
+    res.handle = ObjectSerializer.deserialize(data.handle, "string", "");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: MonitorSearchResultNotification
+  ): { [key: string]: any } {
+    const attributeTypes = MonitorSearchResultNotification.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.handle = ObjectSerializer.serialize(data.handle, "string", "");
 
-    static deserialize(data: {[key: string]: any}): MonitorSearchResultNotification {
-      let res = new MonitorSearchResultNotification();
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.handle = ObjectSerializer.deserialize(data.handle, "string", "")
+    return res;
+  }
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: MonitorSearchResultNotification): {[key: string]: any} {
-        let attributeTypes = MonitorSearchResultNotification.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.handle = ObjectSerializer.serialize(data.handle, "string", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

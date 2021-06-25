@@ -8,87 +8,92 @@
  * Do not edit the class manually.
  */
 
-import { LogAttributes } from './LogAttributes';
-import { LogType } from './LogType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogAttributes } from "./LogAttributes";
+import { LogType } from "./LogType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object description of a log after being processed and stored by Datadog.
-*/
+ * Object description of a log after being processed and stored by Datadog.
+ */
 
 export class Log {
-    'attributes'?: LogAttributes;
-    /**
-    * Unique ID of the Log.
-    */
-    'id'?: string;
-    'type'?: LogType;
+  "attributes"?: LogAttributes;
+  /**
+   * Unique ID of the Log.
+   */
+  "id"?: string;
+  "type"?: LogType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "LogAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "LogAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return Log.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return Log.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): Log {
+    const res = new Log();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "LogAttributes",
+      ""
+    );
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    if (["log", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): Log {
-      let res = new Log();
+    return res;
+  }
 
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "LogAttributes", "")
-
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-      if (['log', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+  static serialize(data: Log): { [key: string]: any } {
+    const attributeTypes = Log.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "LogAttributes",
+      ""
+    );
 
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      return res;
+    if (["log", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: Log): {[key: string]: any} {
-        let attributeTypes = Log.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "LogAttributes", "")
+    return res;
+  }
 
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        if (['log', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

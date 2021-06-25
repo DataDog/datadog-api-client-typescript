@@ -8,61 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterUpdateData } from './SecurityFilterUpdateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The new security filter body.
-*/
+ * The new security filter body.
+ */
 
 export class SecurityFilterUpdateRequest {
-    'data': SecurityFilterUpdateData;
+  "data": SecurityFilterUpdateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "SecurityFilterUpdateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "SecurityFilterUpdateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityFilterUpdateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityFilterUpdateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityFilterUpdateRequest {
+    const res = new SecurityFilterUpdateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'SecurityFilterUpdateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "SecurityFilterUpdateData",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SecurityFilterUpdateRequest {
-      let res = new SecurityFilterUpdateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'SecurityFilterUpdateRequest' object");
+  static serialize(data: SecurityFilterUpdateRequest): { [key: string]: any } {
+    const attributeTypes = SecurityFilterUpdateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "SecurityFilterUpdateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: SecurityFilterUpdateRequest): {[key: string]: any} {
-        let attributeTypes = SecurityFilterUpdateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'SecurityFilterUpdateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "SecurityFilterUpdateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'SecurityFilterUpdateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "SecurityFilterUpdateData",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

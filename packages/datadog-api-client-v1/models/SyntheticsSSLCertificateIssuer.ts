@@ -8,122 +8,123 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the issuer of a SSL certificate.
-*/
+ * Object describing the issuer of a SSL certificate.
+ */
 
 export class SyntheticsSSLCertificateIssuer {
-    /**
-    * Country Name that issued the certificate.
-    */
-    'C'?: string;
-    /**
-    * Common Name that issued certificate.
-    */
-    'CN'?: string;
-    /**
-    * Locality that issued the certificate.
-    */
-    'L'?: string;
-    /**
-    * Organization that issued the certificate.
-    */
-    'O'?: string;
-    /**
-    * Organizational Unit that issued the certificate.
-    */
-    'OU'?: string;
-    /**
-    * State Or Province Name that issued the certificate.
-    */
-    'ST'?: string;
+  /**
+   * Country Name that issued the certificate.
+   */
+  "C"?: string;
+  /**
+   * Common Name that issued certificate.
+   */
+  "CN"?: string;
+  /**
+   * Locality that issued the certificate.
+   */
+  "L"?: string;
+  /**
+   * Organization that issued the certificate.
+   */
+  "O"?: string;
+  /**
+   * Organizational Unit that issued the certificate.
+   */
+  "OU"?: string;
+  /**
+   * State Or Province Name that issued the certificate.
+   */
+  "ST"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "C": {
-            "baseName": "C",
-            "type": "string",
-            "format": ""
-        },
-        "CN": {
-            "baseName": "CN",
-            "type": "string",
-            "format": ""
-        },
-        "L": {
-            "baseName": "L",
-            "type": "string",
-            "format": ""
-        },
-        "O": {
-            "baseName": "O",
-            "type": "string",
-            "format": ""
-        },
-        "OU": {
-            "baseName": "OU",
-            "type": "string",
-            "format": ""
-        },
-        "ST": {
-            "baseName": "ST",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    C: {
+      baseName: "C",
+      type: "string",
+      format: "",
+    },
+    CN: {
+      baseName: "CN",
+      type: "string",
+      format: "",
+    },
+    L: {
+      baseName: "L",
+      type: "string",
+      format: "",
+    },
+    O: {
+      baseName: "O",
+      type: "string",
+      format: "",
+    },
+    OU: {
+      baseName: "OU",
+      type: "string",
+      format: "",
+    },
+    ST: {
+      baseName: "ST",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsSSLCertificateIssuer.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsSSLCertificateIssuer.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsSSLCertificateIssuer {
+    const res = new SyntheticsSSLCertificateIssuer();
+
+    res.C = ObjectSerializer.deserialize(data.C, "string", "");
+
+    res.CN = ObjectSerializer.deserialize(data.CN, "string", "");
+
+    res.L = ObjectSerializer.deserialize(data.L, "string", "");
+
+    res.O = ObjectSerializer.deserialize(data.O, "string", "");
+
+    res.OU = ObjectSerializer.deserialize(data.OU, "string", "");
+
+    res.ST = ObjectSerializer.deserialize(data.ST, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsSSLCertificateIssuer
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsSSLCertificateIssuer.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.C = ObjectSerializer.serialize(data.C, "string", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsSSLCertificateIssuer {
-      let res = new SyntheticsSSLCertificateIssuer();
+    res.CN = ObjectSerializer.serialize(data.CN, "string", "");
 
-      res.C = ObjectSerializer.deserialize(data.C, "string", "")
+    res.L = ObjectSerializer.serialize(data.L, "string", "");
 
-      res.CN = ObjectSerializer.deserialize(data.CN, "string", "")
+    res.O = ObjectSerializer.serialize(data.O, "string", "");
 
-      res.L = ObjectSerializer.deserialize(data.L, "string", "")
+    res.OU = ObjectSerializer.serialize(data.OU, "string", "");
 
-      res.O = ObjectSerializer.deserialize(data.O, "string", "")
+    res.ST = ObjectSerializer.serialize(data.ST, "string", "");
 
-      res.OU = ObjectSerializer.deserialize(data.OU, "string", "")
+    return res;
+  }
 
-      res.ST = ObjectSerializer.deserialize(data.ST, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsSSLCertificateIssuer): {[key: string]: any} {
-        let attributeTypes = SyntheticsSSLCertificateIssuer.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.C = ObjectSerializer.serialize(data.C, "string", "")
-
-        res.CN = ObjectSerializer.serialize(data.CN, "string", "")
-
-        res.L = ObjectSerializer.serialize(data.L, "string", "")
-
-        res.O = ObjectSerializer.serialize(data.O, "string", "")
-
-        res.OU = ObjectSerializer.serialize(data.OU, "string", "")
-
-        res.ST = ObjectSerializer.serialize(data.ST, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

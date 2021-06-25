@@ -8,76 +8,77 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributesSingleValueType } from './IncidentFieldAttributesSingleValueType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A field with a single value selected.
-*/
+ * A field with a single value selected.
+ */
 
 export class IncidentFieldAttributesSingleValue {
-    'type'?: IncidentFieldAttributesSingleValueType;
-    /**
-    * The single value selected for this field.
-    */
-    'value'?: string;
+  "type"?: IncidentFieldAttributesSingleValueType;
+  /**
+   * The single value selected for this field.
+   */
+  "value"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "type": {
-            "baseName": "type",
-            "type": "IncidentFieldAttributesSingleValueType",
-            "format": ""
-        },
-        "value": {
-            "baseName": "value",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    type: {
+      baseName: "type",
+      type: "IncidentFieldAttributesSingleValueType",
+      format: "",
+    },
+    value: {
+      baseName: "value",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentFieldAttributesSingleValue.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentFieldAttributesSingleValue.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentFieldAttributesSingleValue {
+    const res = new IncidentFieldAttributesSingleValue();
+
+    if (["dropdown", "textbox", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): IncidentFieldAttributesSingleValue {
-      let res = new IncidentFieldAttributesSingleValue();
+    res.value = ObjectSerializer.deserialize(data.value, "string", "");
 
-      if (['dropdown', 'textbox', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
+    return res;
+  }
+
+  static serialize(
+    data: IncidentFieldAttributesSingleValue
+  ): { [key: string]: any } {
+    const attributeTypes = IncidentFieldAttributesSingleValue.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-
-      res.value = ObjectSerializer.deserialize(data.value, "string", "")
-
-
-      return res;
+    }
+    if (["dropdown", "textbox", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: IncidentFieldAttributesSingleValue): {[key: string]: any} {
-        let attributeTypes = IncidentFieldAttributesSingleValue.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (['dropdown', 'textbox', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
+    res.value = ObjectSerializer.serialize(data.value, "string", "");
 
-        res.value = ObjectSerializer.serialize(data.value, "string", "")
+    return res;
+  }
 
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

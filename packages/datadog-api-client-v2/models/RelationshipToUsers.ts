@@ -8,64 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUserData } from './RelationshipToUserData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { RelationshipToUserData } from "./RelationshipToUserData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Relationship to users.
-*/
+ * Relationship to users.
+ */
 
 export class RelationshipToUsers {
-    /**
-    * Relationships to user objects.
-    */
-    'data': Array<RelationshipToUserData>;
+  /**
+   * Relationships to user objects.
+   */
+  "data": Array<RelationshipToUserData>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "Array<RelationshipToUserData>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "Array<RelationshipToUserData>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return RelationshipToUsers.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return RelationshipToUsers.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): RelationshipToUsers {
+    const res = new RelationshipToUsers();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'RelationshipToUsers' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "Array<RelationshipToUserData>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): RelationshipToUsers {
-      let res = new RelationshipToUsers();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'RelationshipToUsers' object");
+  static serialize(data: RelationshipToUsers): { [key: string]: any } {
+    const attributeTypes = RelationshipToUsers.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "Array<RelationshipToUserData>", "")
-
-
-      return res;
     }
-
-    static serialize(data: RelationshipToUsers): {[key: string]: any} {
-        let attributeTypes = RelationshipToUsers.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'RelationshipToUsers' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "Array<RelationshipToUserData>", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'RelationshipToUsers' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "Array<RelationshipToUserData>",
+      ""
+    );
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

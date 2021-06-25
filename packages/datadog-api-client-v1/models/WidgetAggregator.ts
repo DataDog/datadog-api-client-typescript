@@ -8,18 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Aggregator used for the request.
-*/
-
-export type WidgetAggregator = typeof AVERAGE | typeof LAST | typeof MAXIMUM | typeof MINIMUM | typeof SUM ;
-export const AVERAGE = 'avg';
-export const LAST = 'last';
-export const MAXIMUM = 'max';
-export const MINIMUM = 'min';
-export const SUM = 'sum';
-
-
+export type WidgetAggregator =
+  | typeof AVERAGE
+  | typeof LAST
+  | typeof MAXIMUM
+  | typeof MINIMUM
+  | typeof SUM;
+export const AVERAGE = "avg";
+export const LAST = "last";
+export const MAXIMUM = "max";
+export const MINIMUM = "min";
+export const SUM = "sum";

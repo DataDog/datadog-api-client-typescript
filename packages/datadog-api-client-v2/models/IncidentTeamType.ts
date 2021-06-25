@@ -8,14 +8,5 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Incident Team resource type.
-*/
-
-export type IncidentTeamType = typeof TEAMS ;
-export const TEAMS = 'teams';
-
-
+export type IncidentTeamType = typeof TEAMS;
+export const TEAMS = "teams";

@@ -8,71 +8,84 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucketValue } from './LogsAggregateBucketValue';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* A bucket values
-*/
+ * A bucket values
+ */
 
 export class LogsAggregateBucket {
-    /**
-    * The key, value pairs for each group by
-    */
-    'by'?: { [key: string]: string; };
-    /**
-    * A map of the metric name -> value for regular compute or list of values for a timeseries
-    */
-    'computes'?: { [key: string]: LogsAggregateBucketValue; };
+  /**
+   * The key, value pairs for each group by
+   */
+  "by"?: { [key: string]: string };
+  /**
+   * A map of the metric name -> value for regular compute or list of values for a timeseries
+   */
+  "computes"?: { [key: string]: LogsAggregateBucketValue };
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "by": {
-            "baseName": "by",
-            "type": "{ [key: string]: string; }",
-            "format": ""
-        },
-        "computes": {
-            "baseName": "computes",
-            "type": "{ [key: string]: LogsAggregateBucketValue; }",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    by: {
+      baseName: "by",
+      type: "{ [key: string]: string; }",
+      format: "",
+    },
+    computes: {
+      baseName: "computes",
+      type: "{ [key: string]: LogsAggregateBucketValue; }",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAggregateBucket.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAggregateBucket.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsAggregateBucket {
+    const res = new LogsAggregateBucket();
+
+    res.by = ObjectSerializer.deserialize(
+      data.by,
+      "{ [key: string]: string; }",
+      ""
+    );
+
+    res.computes = ObjectSerializer.deserialize(
+      data.computes,
+      "{ [key: string]: LogsAggregateBucketValue; }",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsAggregateBucket): { [key: string]: any } {
+    const attributeTypes = LogsAggregateBucket.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.by = ObjectSerializer.serialize(
+      data.by,
+      "{ [key: string]: string; }",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsAggregateBucket {
-      let res = new LogsAggregateBucket();
+    res.computes = ObjectSerializer.serialize(
+      data.computes,
+      "{ [key: string]: LogsAggregateBucketValue; }",
+      ""
+    );
 
-      res.by = ObjectSerializer.deserialize(data.by, "{ [key: string]: string; }", "")
+    return res;
+  }
 
-      res.computes = ObjectSerializer.deserialize(data.computes, "{ [key: string]: LogsAggregateBucketValue; }", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAggregateBucket): {[key: string]: any} {
-        let attributeTypes = LogsAggregateBucket.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.by = ObjectSerializer.serialize(data.by, "{ [key: string]: string; }", "")
-
-        res.computes = ObjectSerializer.serialize(data.computes, "{ [key: string]: LogsAggregateBucketValue; }", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

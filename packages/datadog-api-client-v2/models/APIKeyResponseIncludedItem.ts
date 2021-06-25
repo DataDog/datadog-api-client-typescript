@@ -8,15 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { User } from './User';
-import { UserAttributes } from './UserAttributes';
-import { UserResponseRelationships } from './UserResponseRelationships';
-import { UsersType } from './UsersType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* An object related to an API key.
-*/
+import { User } from "./User";
 
 export type APIKeyResponseIncludedItem = User;

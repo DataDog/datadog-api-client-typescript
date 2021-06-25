@@ -8,105 +8,122 @@
  * Do not edit the class manually.
  */
 
-import { UserUpdateAttributes } from './UserUpdateAttributes';
-import { UsersType } from './UsersType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UserUpdateAttributes } from "./UserUpdateAttributes";
+import { UsersType } from "./UsersType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object to update a user.
-*/
+ * Object to update a user.
+ */
 
 export class UserUpdateData {
-    'attributes': UserUpdateAttributes;
-    /**
-    * ID of the user.
-    */
-    'id': string;
-    'type': UsersType;
+  "attributes": UserUpdateAttributes;
+  /**
+   * ID of the user.
+   */
+  "id": string;
+  "type": UsersType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "attributes": {
-            "baseName": "attributes",
-            "type": "UserUpdateAttributes",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "UsersType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    attributes: {
+      baseName: "attributes",
+      type: "UserUpdateAttributes",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "UsersType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserUpdateData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserUpdateData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserUpdateData {
+    const res = new UserUpdateData();
+
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'UserUpdateData' object"
+      );
+    }
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "UserUpdateAttributes",
+      ""
+    );
+
+    if (data.id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'id' on 'UserUpdateData' object"
+      );
+    }
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'UserUpdateData' object"
+      );
+    }
+    if (["users", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): UserUpdateData {
-      let res = new UserUpdateData();
+    return res;
+  }
 
-      if (data.attributes === undefined) {
-          throw new TypeError("missing required attribute 'attributes' on 'UserUpdateData' object");
+  static serialize(data: UserUpdateData): { [key: string]: any } {
+    const attributeTypes = UserUpdateData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.attributes = ObjectSerializer.deserialize(data.attributes, "UserUpdateAttributes", "")
+    }
+    if (data.attributes === undefined) {
+      throw new TypeError(
+        "missing required attribute 'attributes' on 'UserUpdateData' object"
+      );
+    }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "UserUpdateAttributes",
+      ""
+    );
 
-      if (data.id === undefined) {
-          throw new TypeError("missing required attribute 'id' on 'UserUpdateData' object");
-      }
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
+    if (data.id === undefined) {
+      throw new TypeError(
+        "missing required attribute 'id' on 'UserUpdateData' object"
+      );
+    }
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'UserUpdateData' object");
-      }
-      if (['users', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
-
-
-      return res;
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'UserUpdateData' object"
+      );
+    }
+    if (["users", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: UserUpdateData): {[key: string]: any} {
-        let attributeTypes = UserUpdateData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.attributes === undefined) {
-            throw new TypeError("missing required attribute 'attributes' on 'UserUpdateData' object");
-        }
-        res.attributes = ObjectSerializer.serialize(data.attributes, "UserUpdateAttributes", "")
+    return res;
+  }
 
-        if (data.id === undefined) {
-            throw new TypeError("missing required attribute 'id' on 'UserUpdateData' object");
-        }
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'UserUpdateData' object");
-        }
-        if (['users', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

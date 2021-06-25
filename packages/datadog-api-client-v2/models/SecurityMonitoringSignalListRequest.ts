@@ -8,85 +8,102 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringSignalListRequestFilter } from './SecurityMonitoringSignalListRequestFilter';
-import { SecurityMonitoringSignalListRequestPage } from './SecurityMonitoringSignalListRequestPage';
-import { SecurityMonitoringSignalsSort } from './SecurityMonitoringSignalsSort';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
+import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
+import { SecurityMonitoringSignalsSort } from "./SecurityMonitoringSignalsSort";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The request for a security signal list.
-*/
+ * The request for a security signal list.
+ */
 
 export class SecurityMonitoringSignalListRequest {
-    'filter'?: SecurityMonitoringSignalListRequestFilter;
-    'page'?: SecurityMonitoringSignalListRequestPage;
-    'sort'?: SecurityMonitoringSignalsSort;
+  "filter"?: SecurityMonitoringSignalListRequestFilter;
+  "page"?: SecurityMonitoringSignalListRequestPage;
+  "sort"?: SecurityMonitoringSignalsSort;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "filter": {
-            "baseName": "filter",
-            "type": "SecurityMonitoringSignalListRequestFilter",
-            "format": ""
-        },
-        "page": {
-            "baseName": "page",
-            "type": "SecurityMonitoringSignalListRequestPage",
-            "format": ""
-        },
-        "sort": {
-            "baseName": "sort",
-            "type": "SecurityMonitoringSignalsSort",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    filter: {
+      baseName: "filter",
+      type: "SecurityMonitoringSignalListRequestFilter",
+      format: "",
+    },
+    page: {
+      baseName: "page",
+      type: "SecurityMonitoringSignalListRequestPage",
+      format: "",
+    },
+    sort: {
+      baseName: "sort",
+      type: "SecurityMonitoringSignalsSort",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SecurityMonitoringSignalListRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SecurityMonitoringSignalListRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SecurityMonitoringSignalListRequest {
+    const res = new SecurityMonitoringSignalListRequest();
+
+    res.filter = ObjectSerializer.deserialize(
+      data.filter,
+      "SecurityMonitoringSignalListRequestFilter",
+      ""
+    );
+
+    res.page = ObjectSerializer.deserialize(
+      data.page,
+      "SecurityMonitoringSignalListRequestPage",
+      ""
+    );
+
+    if (["timestamp", "-timestamp", undefined].includes(data.sort)) {
+      res.sort = data.sort;
+    } else {
+      throw TypeError(`invalid enum value ${data.sort} for sort`);
     }
 
-    static deserialize(data: {[key: string]: any}): SecurityMonitoringSignalListRequest {
-      let res = new SecurityMonitoringSignalListRequest();
+    return res;
+  }
 
-      res.filter = ObjectSerializer.deserialize(data.filter, "SecurityMonitoringSignalListRequestFilter", "")
-
-      res.page = ObjectSerializer.deserialize(data.page, "SecurityMonitoringSignalListRequestPage", "")
-
-      if (['timestamp', '-timestamp', undefined].includes(data.sort)) {
-          res.sort = data.sort;
-      } else {
-          throw TypeError(`invalid enum value ${ data.sort } for sort`);
+  static serialize(
+    data: SecurityMonitoringSignalListRequest
+  ): { [key: string]: any } {
+    const attributeTypes = SecurityMonitoringSignalListRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    res.filter = ObjectSerializer.serialize(
+      data.filter,
+      "SecurityMonitoringSignalListRequestFilter",
+      ""
+    );
 
+    res.page = ObjectSerializer.serialize(
+      data.page,
+      "SecurityMonitoringSignalListRequestPage",
+      ""
+    );
 
-      return res;
+    if (["timestamp", "-timestamp", undefined].includes(data.sort)) {
+      res.sort = data.sort;
+    } else {
+      throw TypeError(`invalid enum value ${data.sort} for sort`);
     }
 
-    static serialize(data: SecurityMonitoringSignalListRequest): {[key: string]: any} {
-        let attributeTypes = SecurityMonitoringSignalListRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "SecurityMonitoringSignalListRequestFilter", "")
+    return res;
+  }
 
-        res.page = ObjectSerializer.serialize(data.page, "SecurityMonitoringSignalListRequestPage", "")
-
-        if (['timestamp', '-timestamp', undefined].includes(data.sort)) {
-            res.sort = data.sort;
-        } else {
-            throw TypeError(`invalid enum value ${ data.sort } for sort`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

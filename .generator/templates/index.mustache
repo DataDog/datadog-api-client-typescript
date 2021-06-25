@@ -12,7 +12,7 @@ export { Middleware } from './middleware{{extensionForDeno}}';
 export{{#platforms}}{{#deno}} type{{/deno}}{{/platforms}} { PromiseMiddleware as Middleware } from './middleware{{extensionForDeno}}';
 {{/useRxJS}}
 {{#useObjectParameters}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}{{classname}}{{operationIdCamelCase}}Request, {{/operation}}Object{{classname}} as {{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './types/ObjectParamAPI{{extensionForDeno}}';
+export { {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}{{#hasParams}}{{classname}}{{operationIdCamelCase}}Request, {{/hasParams}}{{/operation}}Object{{classname}} as {{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './types/ObjectParamAPI{{extensionForDeno}}';
 {{/useObjectParameters}}
 {{^useObjectParameters}}
 {{#useRxJS}}

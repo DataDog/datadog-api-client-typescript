@@ -8,68 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { SlackIntegrationChannelDisplay } from './SlackIntegrationChannelDisplay';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The Slack channel configuration.
-*/
+ * The Slack channel configuration.
+ */
 
 export class SlackIntegrationChannel {
-    'display'?: SlackIntegrationChannelDisplay;
-    /**
-    * Your channel name.
-    */
-    'name'?: string;
+  "display"?: SlackIntegrationChannelDisplay;
+  /**
+   * Your channel name.
+   */
+  "name"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "display": {
-            "baseName": "display",
-            "type": "SlackIntegrationChannelDisplay",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    display: {
+      baseName: "display",
+      type: "SlackIntegrationChannelDisplay",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SlackIntegrationChannel.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SlackIntegrationChannel.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SlackIntegrationChannel {
+    const res = new SlackIntegrationChannel();
+
+    res.display = ObjectSerializer.deserialize(
+      data.display,
+      "SlackIntegrationChannelDisplay",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: SlackIntegrationChannel): { [key: string]: any } {
+    const attributeTypes = SlackIntegrationChannel.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.display = ObjectSerializer.serialize(
+      data.display,
+      "SlackIntegrationChannelDisplay",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SlackIntegrationChannel {
-      let res = new SlackIntegrationChannel();
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.display = ObjectSerializer.deserialize(data.display, "SlackIntegrationChannelDisplay", "")
+    return res;
+  }
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SlackIntegrationChannel): {[key: string]: any} {
-        let attributeTypes = SlackIntegrationChannel.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.display = ObjectSerializer.serialize(data.display, "SlackIntegrationChannelDisplay", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

@@ -8,146 +8,167 @@
  * Do not edit the class manually.
  */
 
-import { LogsStringBuilderProcessorType } from './LogsStringBuilderProcessorType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsStringBuilderProcessorType } from "./LogsStringBuilderProcessorType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Use the string builder processor to add a new attribute (without spaces or special characters) to a log with the result of the provided template. This enables aggregation of different attributes or raw strings into a single attribute.  The template is defined by both raw text and blocks with the syntax `%{attribute_path}`.  **Notes**:  - The processor only accepts attributes with values or an array of values in the blocks. - If an attribute cannot be used (object or array of object),   it is replaced by an empty string or the entire operation is skipped depending on your selection. - If the target attribute already exists, it is overwritten by the result of the template. - Results of the template cannot exceed 256 characters.
-*/
+ * Use the string builder processor to add a new attribute (without spaces or special characters) to a log with the result of the provided template. This enables aggregation of different attributes or raw strings into a single attribute.  The template is defined by both raw text and blocks with the syntax `%{attribute_path}`.  **Notes**:  - The processor only accepts attributes with values or an array of values in the blocks. - If an attribute cannot be used (object or array of object),   it is replaced by an empty string or the entire operation is skipped depending on your selection. - If the target attribute already exists, it is overwritten by the result of the template. - Results of the template cannot exceed 256 characters.
+ */
 
 export class LogsStringBuilderProcessor {
-    /**
-    * Whether or not the processor is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * If true, it replaces all missing attributes of `template` by an empty string. If `false` (default), skips the operation for missing attributes.
-    */
-    'isReplaceMissing'?: boolean;
-    /**
-    * Name of the processor.
-    */
-    'name'?: string;
-    /**
-    * The name of the attribute that contains the result of the template.
-    */
-    'target': string;
-    /**
-    * A formula with one or more attributes and raw text.
-    */
-    'template': string;
-    'type': LogsStringBuilderProcessorType;
+  /**
+   * Whether or not the processor is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * If true, it replaces all missing attributes of `template` by an empty string. If `false` (default), skips the operation for missing attributes.
+   */
+  "isReplaceMissing"?: boolean;
+  /**
+   * Name of the processor.
+   */
+  "name"?: string;
+  /**
+   * The name of the attribute that contains the result of the template.
+   */
+  "target": string;
+  /**
+   * A formula with one or more attributes and raw text.
+   */
+  "template": string;
+  "type": LogsStringBuilderProcessorType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "isReplaceMissing": {
-            "baseName": "is_replace_missing",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "target": {
-            "baseName": "target",
-            "type": "string",
-            "format": ""
-        },
-        "template": {
-            "baseName": "template",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsStringBuilderProcessorType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    isReplaceMissing: {
+      baseName: "is_replace_missing",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    target: {
+      baseName: "target",
+      type: "string",
+      format: "",
+    },
+    template: {
+      baseName: "template",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsStringBuilderProcessorType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsStringBuilderProcessor.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsStringBuilderProcessor.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsStringBuilderProcessor {
+    const res = new LogsStringBuilderProcessor();
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    res.isReplaceMissing = ObjectSerializer.deserialize(
+      data.is_replace_missing,
+      "boolean",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (data.target === undefined) {
+      throw new TypeError(
+        "missing required attribute 'target' on 'LogsStringBuilderProcessor' object"
+      );
+    }
+    res.target = ObjectSerializer.deserialize(data.target, "string", "");
+
+    if (data.template === undefined) {
+      throw new TypeError(
+        "missing required attribute 'template' on 'LogsStringBuilderProcessor' object"
+      );
+    }
+    res.template = ObjectSerializer.deserialize(data.template, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsStringBuilderProcessor' object"
+      );
+    }
+    if (["string-builder-processor", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsStringBuilderProcessor {
-      let res = new LogsStringBuilderProcessor();
+    return res;
+  }
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.isReplaceMissing = ObjectSerializer.deserialize(data.is_replace_missing, "boolean", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      if (data.target === undefined) {
-          throw new TypeError("missing required attribute 'target' on 'LogsStringBuilderProcessor' object");
+  static serialize(data: LogsStringBuilderProcessor): { [key: string]: any } {
+    const attributeTypes = LogsStringBuilderProcessor.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.target = ObjectSerializer.deserialize(data.target, "string", "")
+    }
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-      if (data.template === undefined) {
-          throw new TypeError("missing required attribute 'template' on 'LogsStringBuilderProcessor' object");
-      }
-      res.template = ObjectSerializer.deserialize(data.template, "string", "")
+    res.is_replace_missing = ObjectSerializer.serialize(
+      data.isReplaceMissing,
+      "boolean",
+      ""
+    );
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsStringBuilderProcessor' object");
-      }
-      if (['string-builder-processor', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
+    if (data.target === undefined) {
+      throw new TypeError(
+        "missing required attribute 'target' on 'LogsStringBuilderProcessor' object"
+      );
+    }
+    res.target = ObjectSerializer.serialize(data.target, "string", "");
 
-      return res;
+    if (data.template === undefined) {
+      throw new TypeError(
+        "missing required attribute 'template' on 'LogsStringBuilderProcessor' object"
+      );
+    }
+    res.template = ObjectSerializer.serialize(data.template, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsStringBuilderProcessor' object"
+      );
+    }
+    if (["string-builder-processor", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsStringBuilderProcessor): {[key: string]: any} {
-        let attributeTypes = LogsStringBuilderProcessor.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    return res;
+  }
 
-        res.is_replace_missing = ObjectSerializer.serialize(data.isReplaceMissing, "boolean", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (data.target === undefined) {
-            throw new TypeError("missing required attribute 'target' on 'LogsStringBuilderProcessor' object");
-        }
-        res.target = ObjectSerializer.serialize(data.target, "string", "")
-
-        if (data.template === undefined) {
-            throw new TypeError("missing required attribute 'template' on 'LogsStringBuilderProcessor' object");
-        }
-        res.template = ObjectSerializer.serialize(data.template, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsStringBuilderProcessor' object");
-        }
-        if (['string-builder-processor', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

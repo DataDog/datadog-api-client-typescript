@@ -8,70 +8,83 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Pagination metadata returned by the API.
-*/
+ * Pagination metadata returned by the API.
+ */
 
 export class NotebooksResponsePage {
-    /**
-    * The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
-    */
-    'totalCount'?: number;
-    /**
-    * The total number of notebooks returned.
-    */
-    'totalFilteredCount'?: number;
+  /**
+   * The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
+   */
+  "totalCount"?: number;
+  /**
+   * The total number of notebooks returned.
+   */
+  "totalFilteredCount"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "totalCount": {
-            "baseName": "total_count",
-            "type": "number",
-            "format": "int64"
-        },
-        "totalFilteredCount": {
-            "baseName": "total_filtered_count",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    totalCount: {
+      baseName: "total_count",
+      type: "number",
+      format: "int64",
+    },
+    totalFilteredCount: {
+      baseName: "total_filtered_count",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return NotebooksResponsePage.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return NotebooksResponsePage.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): NotebooksResponsePage {
+    const res = new NotebooksResponsePage();
+
+    res.totalCount = ObjectSerializer.deserialize(
+      data.total_count,
+      "number",
+      "int64"
+    );
+
+    res.totalFilteredCount = ObjectSerializer.deserialize(
+      data.total_filtered_count,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: NotebooksResponsePage): { [key: string]: any } {
+    const attributeTypes = NotebooksResponsePage.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.total_count = ObjectSerializer.serialize(
+      data.totalCount,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): NotebooksResponsePage {
-      let res = new NotebooksResponsePage();
+    res.total_filtered_count = ObjectSerializer.serialize(
+      data.totalFilteredCount,
+      "number",
+      "int64"
+    );
 
-      res.totalCount = ObjectSerializer.deserialize(data.total_count, "number", "int64")
+    return res;
+  }
 
-      res.totalFilteredCount = ObjectSerializer.deserialize(data.total_filtered_count, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: NotebooksResponsePage): {[key: string]: any} {
-        let attributeTypes = NotebooksResponsePage.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.total_count = ObjectSerializer.serialize(data.totalCount, "number", "int64")
-
-        res.total_filtered_count = ObjectSerializer.serialize(data.totalFilteredCount, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

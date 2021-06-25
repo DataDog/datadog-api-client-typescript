@@ -8,16 +8,9 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAssertionJSONPathOperator } from './SyntheticsAssertionJSONPathOperator';
-import { SyntheticsAssertionJSONPathTarget } from './SyntheticsAssertionJSONPathTarget';
-import { SyntheticsAssertionJSONPathTargetTarget } from './SyntheticsAssertionJSONPathTargetTarget';
-import { SyntheticsAssertionTarget } from './SyntheticsAssertionTarget';
-import { SyntheticsAssertionType } from './SyntheticsAssertionType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
+import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 
-/**
-* Object describing the assertions type, their associated operator, which property they apply, and upon which target.
-*/
-
-export type SyntheticsAssertion = SyntheticsAssertionJSONPathTarget | SyntheticsAssertionTarget;
+export type SyntheticsAssertion =
+  | SyntheticsAssertionJSONPathTarget
+  | SyntheticsAssertionTarget;

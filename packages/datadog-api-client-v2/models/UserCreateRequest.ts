@@ -8,61 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { UserCreateData } from './UserCreateData';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UserCreateData } from "./UserCreateData";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Create a user.
-*/
+ * Create a user.
+ */
 
 export class UserCreateRequest {
-    'data': UserCreateData;
+  "data": UserCreateData;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "data": {
-            "baseName": "data",
-            "type": "UserCreateData",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    data: {
+      baseName: "data",
+      type: "UserCreateData",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UserCreateRequest.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UserCreateRequest.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): UserCreateRequest {
+    const res = new UserCreateRequest();
+
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'UserCreateRequest' object"
+      );
     }
+    res.data = ObjectSerializer.deserialize(data.data, "UserCreateData", "");
 
-    static deserialize(data: {[key: string]: any}): UserCreateRequest {
-      let res = new UserCreateRequest();
+    return res;
+  }
 
-      if (data.data === undefined) {
-          throw new TypeError("missing required attribute 'data' on 'UserCreateRequest' object");
+  static serialize(data: UserCreateRequest): { [key: string]: any } {
+    const attributeTypes = UserCreateRequest.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.data = ObjectSerializer.deserialize(data.data, "UserCreateData", "")
-
-
-      return res;
     }
-
-    static serialize(data: UserCreateRequest): {[key: string]: any} {
-        let attributeTypes = UserCreateRequest.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.data === undefined) {
-            throw new TypeError("missing required attribute 'data' on 'UserCreateRequest' object");
-        }
-        res.data = ObjectSerializer.serialize(data.data, "UserCreateData", "")
-
-        return res
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'UserCreateRequest' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.data = ObjectSerializer.serialize(data.data, "UserCreateData", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

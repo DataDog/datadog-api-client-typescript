@@ -8,16 +8,10 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* The SLO time window options.
-*/
-
-export type SLOTimeframe = typeof SEVEN_DAYS | typeof THIRTY_DAYS | typeof NINETY_DAYS ;
-export const SEVEN_DAYS = '7d';
-export const THIRTY_DAYS = '30d';
-export const NINETY_DAYS = '90d';
-
-
+export type SLOTimeframe =
+  | typeof SEVEN_DAYS
+  | typeof THIRTY_DAYS
+  | typeof NINETY_DAYS;
+export const SEVEN_DAYS = "7d";
+export const THIRTY_DAYS = "30d";
+export const NINETY_DAYS = "90d";

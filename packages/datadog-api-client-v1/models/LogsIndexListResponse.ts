@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { LogsIndex } from './LogsIndex';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsIndex } from "./LogsIndex";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object with all Index configurations for a given organization.
-*/
+ * Object with all Index configurations for a given organization.
+ */
 
 export class LogsIndexListResponse {
-    /**
-    * Array of Log index configurations.
-    */
-    'indexes'?: Array<LogsIndex>;
+  /**
+   * Array of Log index configurations.
+   */
+  "indexes"?: Array<LogsIndex>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "indexes": {
-            "baseName": "indexes",
-            "type": "Array<LogsIndex>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    indexes: {
+      baseName: "indexes",
+      type: "Array<LogsIndex>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsIndexListResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsIndexListResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsIndexListResponse {
+    const res = new LogsIndexListResponse();
+
+    res.indexes = ObjectSerializer.deserialize(
+      data.indexes,
+      "Array<LogsIndex>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsIndexListResponse): { [key: string]: any } {
+    const attributeTypes = LogsIndexListResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.indexes = ObjectSerializer.serialize(
+      data.indexes,
+      "Array<LogsIndex>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsIndexListResponse {
-      let res = new LogsIndexListResponse();
+    return res;
+  }
 
-      res.indexes = ObjectSerializer.deserialize(data.indexes, "Array<LogsIndex>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsIndexListResponse): {[key: string]: any} {
-        let attributeTypes = LogsIndexListResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.indexes = ObjectSerializer.serialize(data.indexes, "Array<LogsIndex>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

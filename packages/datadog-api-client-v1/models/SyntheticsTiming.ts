@@ -8,161 +8,190 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
-*/
+ * Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
+ */
 
 export class SyntheticsTiming {
-    /**
-    * The duration in millisecond of the DNS lookup.
-    */
-    'dns'?: number;
-    /**
-    * The time in millisecond to download the response.
-    */
-    'download'?: number;
-    /**
-    * The time in millisecond to first byte.
-    */
-    'firstByte'?: number;
-    /**
-    * The duration in millisecond of the TLS handshake.
-    */
-    'handshake'?: number;
-    /**
-    * The time in millisecond spent during redirections.
-    */
-    'redirect'?: number;
-    /**
-    * The duration in millisecond of the TLS handshake.
-    */
-    'ssl'?: number;
-    /**
-    * Time in millisecond to establish the TCP connection.
-    */
-    'tcp'?: number;
-    /**
-    * The overall time in millisecond the request took to be processed.
-    */
-    'total'?: number;
-    /**
-    * Time spent in millisecond waiting for a response.
-    */
-    'wait'?: number;
+  /**
+   * The duration in millisecond of the DNS lookup.
+   */
+  "dns"?: number;
+  /**
+   * The time in millisecond to download the response.
+   */
+  "download"?: number;
+  /**
+   * The time in millisecond to first byte.
+   */
+  "firstByte"?: number;
+  /**
+   * The duration in millisecond of the TLS handshake.
+   */
+  "handshake"?: number;
+  /**
+   * The time in millisecond spent during redirections.
+   */
+  "redirect"?: number;
+  /**
+   * The duration in millisecond of the TLS handshake.
+   */
+  "ssl"?: number;
+  /**
+   * Time in millisecond to establish the TCP connection.
+   */
+  "tcp"?: number;
+  /**
+   * The overall time in millisecond the request took to be processed.
+   */
+  "total"?: number;
+  /**
+   * Time spent in millisecond waiting for a response.
+   */
+  "wait"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "dns": {
-            "baseName": "dns",
-            "type": "number",
-            "format": "double"
-        },
-        "download": {
-            "baseName": "download",
-            "type": "number",
-            "format": "double"
-        },
-        "firstByte": {
-            "baseName": "firstByte",
-            "type": "number",
-            "format": "double"
-        },
-        "handshake": {
-            "baseName": "handshake",
-            "type": "number",
-            "format": "double"
-        },
-        "redirect": {
-            "baseName": "redirect",
-            "type": "number",
-            "format": "double"
-        },
-        "ssl": {
-            "baseName": "ssl",
-            "type": "number",
-            "format": "double"
-        },
-        "tcp": {
-            "baseName": "tcp",
-            "type": "number",
-            "format": "double"
-        },
-        "total": {
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
-        },
-        "wait": {
-            "baseName": "wait",
-            "type": "number",
-            "format": "double"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    dns: {
+      baseName: "dns",
+      type: "number",
+      format: "double",
+    },
+    download: {
+      baseName: "download",
+      type: "number",
+      format: "double",
+    },
+    firstByte: {
+      baseName: "firstByte",
+      type: "number",
+      format: "double",
+    },
+    handshake: {
+      baseName: "handshake",
+      type: "number",
+      format: "double",
+    },
+    redirect: {
+      baseName: "redirect",
+      type: "number",
+      format: "double",
+    },
+    ssl: {
+      baseName: "ssl",
+      type: "number",
+      format: "double",
+    },
+    tcp: {
+      baseName: "tcp",
+      type: "number",
+      format: "double",
+    },
+    total: {
+      baseName: "total",
+      type: "number",
+      format: "double",
+    },
+    wait: {
+      baseName: "wait",
+      type: "number",
+      format: "double",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTiming.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTiming.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): SyntheticsTiming {
+    const res = new SyntheticsTiming();
+
+    res.dns = ObjectSerializer.deserialize(data.dns, "number", "double");
+
+    res.download = ObjectSerializer.deserialize(
+      data.download,
+      "number",
+      "double"
+    );
+
+    res.firstByte = ObjectSerializer.deserialize(
+      data.firstByte,
+      "number",
+      "double"
+    );
+
+    res.handshake = ObjectSerializer.deserialize(
+      data.handshake,
+      "number",
+      "double"
+    );
+
+    res.redirect = ObjectSerializer.deserialize(
+      data.redirect,
+      "number",
+      "double"
+    );
+
+    res.ssl = ObjectSerializer.deserialize(data.ssl, "number", "double");
+
+    res.tcp = ObjectSerializer.deserialize(data.tcp, "number", "double");
+
+    res.total = ObjectSerializer.deserialize(data.total, "number", "double");
+
+    res.wait = ObjectSerializer.deserialize(data.wait, "number", "double");
+
+    return res;
+  }
+
+  static serialize(data: SyntheticsTiming): { [key: string]: any } {
+    const attributeTypes = SyntheticsTiming.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.dns = ObjectSerializer.serialize(data.dns, "number", "double");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTiming {
-      let res = new SyntheticsTiming();
+    res.download = ObjectSerializer.serialize(
+      data.download,
+      "number",
+      "double"
+    );
 
-      res.dns = ObjectSerializer.deserialize(data.dns, "number", "double")
+    res.firstByte = ObjectSerializer.serialize(
+      data.firstByte,
+      "number",
+      "double"
+    );
 
-      res.download = ObjectSerializer.deserialize(data.download, "number", "double")
+    res.handshake = ObjectSerializer.serialize(
+      data.handshake,
+      "number",
+      "double"
+    );
 
-      res.firstByte = ObjectSerializer.deserialize(data.firstByte, "number", "double")
+    res.redirect = ObjectSerializer.serialize(
+      data.redirect,
+      "number",
+      "double"
+    );
 
-      res.handshake = ObjectSerializer.deserialize(data.handshake, "number", "double")
+    res.ssl = ObjectSerializer.serialize(data.ssl, "number", "double");
 
-      res.redirect = ObjectSerializer.deserialize(data.redirect, "number", "double")
+    res.tcp = ObjectSerializer.serialize(data.tcp, "number", "double");
 
-      res.ssl = ObjectSerializer.deserialize(data.ssl, "number", "double")
+    res.total = ObjectSerializer.serialize(data.total, "number", "double");
 
-      res.tcp = ObjectSerializer.deserialize(data.tcp, "number", "double")
+    res.wait = ObjectSerializer.serialize(data.wait, "number", "double");
 
-      res.total = ObjectSerializer.deserialize(data.total, "number", "double")
+    return res;
+  }
 
-      res.wait = ObjectSerializer.deserialize(data.wait, "number", "double")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsTiming): {[key: string]: any} {
-        let attributeTypes = SyntheticsTiming.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.dns = ObjectSerializer.serialize(data.dns, "number", "double")
-
-        res.download = ObjectSerializer.serialize(data.download, "number", "double")
-
-        res.firstByte = ObjectSerializer.serialize(data.firstByte, "number", "double")
-
-        res.handshake = ObjectSerializer.serialize(data.handshake, "number", "double")
-
-        res.redirect = ObjectSerializer.serialize(data.redirect, "number", "double")
-
-        res.ssl = ObjectSerializer.serialize(data.ssl, "number", "double")
-
-        res.tcp = ObjectSerializer.serialize(data.tcp, "number", "double")
-
-        res.total = ObjectSerializer.serialize(data.total, "number", "double")
-
-        res.wait = ObjectSerializer.serialize(data.wait, "number", "double")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

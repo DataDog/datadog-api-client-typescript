@@ -8,63 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The incident team's attributes for a create request.
-*/
+ * The incident team's attributes for a create request.
+ */
 
 export class IncidentTeamCreateAttributes {
-    /**
-    * Name of the incident team.
-    */
-    'name': string;
+  /**
+   * Name of the incident team.
+   */
+  "name": string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return IncidentTeamCreateAttributes.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return IncidentTeamCreateAttributes.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): IncidentTeamCreateAttributes {
+    const res = new IncidentTeamCreateAttributes();
+
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'IncidentTeamCreateAttributes' object"
+      );
     }
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    static deserialize(data: {[key: string]: any}): IncidentTeamCreateAttributes {
-      let res = new IncidentTeamCreateAttributes();
+    return res;
+  }
 
-      if (data.name === undefined) {
-          throw new TypeError("missing required attribute 'name' on 'IncidentTeamCreateAttributes' object");
+  static serialize(data: IncidentTeamCreateAttributes): { [key: string]: any } {
+    const attributeTypes = IncidentTeamCreateAttributes.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
     }
-
-    static serialize(data: IncidentTeamCreateAttributes): {[key: string]: any} {
-        let attributeTypes = IncidentTeamCreateAttributes.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data.name === undefined) {
-            throw new TypeError("missing required attribute 'name' on 'IncidentTeamCreateAttributes' object");
-        }
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'IncidentTeamCreateAttributes' object"
+      );
     }
-    
-    public constructor() {
-    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    return res;
+  }
+
+  public constructor() {}
 }
-
-
-

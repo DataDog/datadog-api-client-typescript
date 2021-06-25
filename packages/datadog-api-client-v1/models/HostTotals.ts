@@ -8,70 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Total number of host currently monitored by Datadog.
-*/
+ * Total number of host currently monitored by Datadog.
+ */
 
 export class HostTotals {
-    /**
-    * Total number of active host (UP and ???) reporting to Datadog.
-    */
-    'totalActive'?: number;
-    /**
-    * Number of host that are UP and reporting to Datadog.
-    */
-    'totalUp'?: number;
+  /**
+   * Total number of active host (UP and ???) reporting to Datadog.
+   */
+  "totalActive"?: number;
+  /**
+   * Number of host that are UP and reporting to Datadog.
+   */
+  "totalUp"?: number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "totalActive": {
-            "baseName": "total_active",
-            "type": "number",
-            "format": "int64"
-        },
-        "totalUp": {
-            "baseName": "total_up",
-            "type": "number",
-            "format": "int64"
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    totalActive: {
+      baseName: "total_active",
+      type: "number",
+      format: "int64",
+    },
+    totalUp: {
+      baseName: "total_up",
+      type: "number",
+      format: "int64",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return HostTotals.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return HostTotals.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): HostTotals {
+    const res = new HostTotals();
+
+    res.totalActive = ObjectSerializer.deserialize(
+      data.total_active,
+      "number",
+      "int64"
+    );
+
+    res.totalUp = ObjectSerializer.deserialize(
+      data.total_up,
+      "number",
+      "int64"
+    );
+
+    return res;
+  }
+
+  static serialize(data: HostTotals): { [key: string]: any } {
+    const attributeTypes = HostTotals.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.total_active = ObjectSerializer.serialize(
+      data.totalActive,
+      "number",
+      "int64"
+    );
 
-    static deserialize(data: {[key: string]: any}): HostTotals {
-      let res = new HostTotals();
+    res.total_up = ObjectSerializer.serialize(data.totalUp, "number", "int64");
 
-      res.totalActive = ObjectSerializer.deserialize(data.total_active, "number", "int64")
+    return res;
+  }
 
-      res.totalUp = ObjectSerializer.deserialize(data.total_up, "number", "int64")
-
-
-      return res;
-    }
-
-    static serialize(data: HostTotals): {[key: string]: any} {
-        let attributeTypes = HostTotals.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.total_active = ObjectSerializer.serialize(data.totalActive, "number", "int64")
-
-        res.total_up = ObjectSerializer.serialize(data.totalUp, "number", "int64")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

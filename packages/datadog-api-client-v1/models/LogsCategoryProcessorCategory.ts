@@ -8,68 +8,69 @@
  * Do not edit the class manually.
  */
 
-import { LogsFilter } from './LogsFilter';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsFilter } from "./LogsFilter";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing the logs filter.
-*/
+ * Object describing the logs filter.
+ */
 
 export class LogsCategoryProcessorCategory {
-    'filter'?: LogsFilter;
-    /**
-    * Value to assign to the target attribute.
-    */
-    'name'?: string;
+  "filter"?: LogsFilter;
+  /**
+   * Value to assign to the target attribute.
+   */
+  "name"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "filter": {
-            "baseName": "filter",
-            "type": "LogsFilter",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    filter: {
+      baseName: "filter",
+      type: "LogsFilter",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsCategoryProcessorCategory.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsCategoryProcessorCategory.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): LogsCategoryProcessorCategory {
+    const res = new LogsCategoryProcessorCategory();
+
+    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: LogsCategoryProcessorCategory
+  ): { [key: string]: any } {
+    const attributeTypes = LogsCategoryProcessorCategory.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
 
-    static deserialize(data: {[key: string]: any}): LogsCategoryProcessorCategory {
-      let res = new LogsCategoryProcessorCategory();
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-      res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "")
+    return res;
+  }
 
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsCategoryProcessorCategory): {[key: string]: any} {
-        let attributeTypes = LogsCategoryProcessorCategory.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

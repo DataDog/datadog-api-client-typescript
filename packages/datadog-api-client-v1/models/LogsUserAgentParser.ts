@@ -8,146 +8,167 @@
  * Do not edit the class manually.
  */
 
-import { LogsUserAgentParserType } from './LogsUserAgentParserType';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsUserAgentParserType } from "./LogsUserAgentParserType";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
-*/
+ * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
+ */
 
 export class LogsUserAgentParser {
-    /**
-    * Whether or not the processor is enabled.
-    */
-    'isEnabled'?: boolean;
-    /**
-    * Define if the source attribute is URL encoded or not.
-    */
-    'isEncoded'?: boolean;
-    /**
-    * Name of the processor.
-    */
-    'name'?: string;
-    /**
-    * Array of source attributes.
-    */
-    'sources': Array<string>;
-    /**
-    * Name of the parent attribute that contains all the extracted details from the `sources`.
-    */
-    'target': string;
-    'type': LogsUserAgentParserType;
+  /**
+   * Whether or not the processor is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Define if the source attribute is URL encoded or not.
+   */
+  "isEncoded"?: boolean;
+  /**
+   * Name of the processor.
+   */
+  "name"?: string;
+  /**
+   * Array of source attributes.
+   */
+  "sources": Array<string>;
+  /**
+   * Name of the parent attribute that contains all the extracted details from the `sources`.
+   */
+  "target": string;
+  "type": LogsUserAgentParserType;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "isEnabled": {
-            "baseName": "is_enabled",
-            "type": "boolean",
-            "format": ""
-        },
-        "isEncoded": {
-            "baseName": "is_encoded",
-            "type": "boolean",
-            "format": ""
-        },
-        "name": {
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        "sources": {
-            "baseName": "sources",
-            "type": "Array<string>",
-            "format": ""
-        },
-        "target": {
-            "baseName": "target",
-            "type": "string",
-            "format": ""
-        },
-        "type": {
-            "baseName": "type",
-            "type": "LogsUserAgentParserType",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+      format: "",
+    },
+    isEncoded: {
+      baseName: "is_encoded",
+      type: "boolean",
+      format: "",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      format: "",
+    },
+    sources: {
+      baseName: "sources",
+      type: "Array<string>",
+      format: "",
+    },
+    target: {
+      baseName: "target",
+      type: "string",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "LogsUserAgentParserType",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsUserAgentParser.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsUserAgentParser.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsUserAgentParser {
+    const res = new LogsUserAgentParser();
+
+    res.isEnabled = ObjectSerializer.deserialize(
+      data.is_enabled,
+      "boolean",
+      ""
+    );
+
+    res.isEncoded = ObjectSerializer.deserialize(
+      data.is_encoded,
+      "boolean",
+      ""
+    );
+
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
+
+    if (data.sources === undefined) {
+      throw new TypeError(
+        "missing required attribute 'sources' on 'LogsUserAgentParser' object"
+      );
+    }
+    res.sources = ObjectSerializer.deserialize(
+      data.sources,
+      "Array<string>",
+      ""
+    );
+
+    if (data.target === undefined) {
+      throw new TypeError(
+        "missing required attribute 'target' on 'LogsUserAgentParser' object"
+      );
+    }
+    res.target = ObjectSerializer.deserialize(data.target, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsUserAgentParser' object"
+      );
+    }
+    if (["user-agent-parser", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static deserialize(data: {[key: string]: any}): LogsUserAgentParser {
-      let res = new LogsUserAgentParser();
+    return res;
+  }
 
-      res.isEnabled = ObjectSerializer.deserialize(data.is_enabled, "boolean", "")
-
-      res.isEncoded = ObjectSerializer.deserialize(data.is_encoded, "boolean", "")
-
-      res.name = ObjectSerializer.deserialize(data.name, "string", "")
-
-      if (data.sources === undefined) {
-          throw new TypeError("missing required attribute 'sources' on 'LogsUserAgentParser' object");
+  static serialize(data: LogsUserAgentParser): { [key: string]: any } {
+    const attributeTypes = LogsUserAgentParser.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
       }
-      res.sources = ObjectSerializer.deserialize(data.sources, "Array<string>", "")
+    }
+    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 
-      if (data.target === undefined) {
-          throw new TypeError("missing required attribute 'target' on 'LogsUserAgentParser' object");
-      }
-      res.target = ObjectSerializer.deserialize(data.target, "string", "")
+    res.is_encoded = ObjectSerializer.serialize(data.isEncoded, "boolean", "");
 
-      if (data.type === undefined) {
-          throw new TypeError("missing required attribute 'type' on 'LogsUserAgentParser' object");
-      }
-      if (['user-agent-parser', undefined].includes(data.type)) {
-          res.type = data.type;
-      } else {
-          throw TypeError(`invalid enum value ${ data.type } for type`);
-      }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
+    if (data.sources === undefined) {
+      throw new TypeError(
+        "missing required attribute 'sources' on 'LogsUserAgentParser' object"
+      );
+    }
+    res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "");
 
-      return res;
+    if (data.target === undefined) {
+      throw new TypeError(
+        "missing required attribute 'target' on 'LogsUserAgentParser' object"
+      );
+    }
+    res.target = ObjectSerializer.serialize(data.target, "string", "");
+
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'LogsUserAgentParser' object"
+      );
+    }
+    if (["user-agent-parser", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
     }
 
-    static serialize(data: LogsUserAgentParser): {[key: string]: any} {
-        let attributeTypes = LogsUserAgentParser.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "")
+    return res;
+  }
 
-        res.is_encoded = ObjectSerializer.serialize(data.isEncoded, "boolean", "")
-
-        res.name = ObjectSerializer.serialize(data.name, "string", "")
-
-        if (data.sources === undefined) {
-            throw new TypeError("missing required attribute 'sources' on 'LogsUserAgentParser' object");
-        }
-        res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "")
-
-        if (data.target === undefined) {
-            throw new TypeError("missing required attribute 'target' on 'LogsUserAgentParser' object");
-        }
-        res.target = ObjectSerializer.serialize(data.target, "string", "")
-
-        if (data.type === undefined) {
-            throw new TypeError("missing required attribute 'type' on 'LogsUserAgentParser' object");
-        }
-        if (['user-agent-parser', undefined].includes(data.type)) {
-            res.type = data.type;
-        } else {
-            throw TypeError(`invalid enum value ${ data.type } for type`);
-        }
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

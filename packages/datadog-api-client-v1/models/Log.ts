@@ -8,68 +8,65 @@
  * Do not edit the class manually.
  */
 
-import { LogContent } from './LogContent';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogContent } from "./LogContent";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Object describing a log after being processed and stored by Datadog.
-*/
+ * Object describing a log after being processed and stored by Datadog.
+ */
 
 export class Log {
-    'content'?: LogContent;
-    /**
-    * Unique ID of the Log.
-    */
-    'id'?: string;
+  "content"?: LogContent;
+  /**
+   * Unique ID of the Log.
+   */
+  "id"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "content": {
-            "baseName": "content",
-            "type": "LogContent",
-            "format": ""
-        },
-        "id": {
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    content: {
+      baseName: "content",
+      type: "LogContent",
+      format: "",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return Log.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return Log.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): Log {
+    const res = new Log();
+
+    res.content = ObjectSerializer.deserialize(data.content, "LogContent", "");
+
+    res.id = ObjectSerializer.deserialize(data.id, "string", "");
+
+    return res;
+  }
+
+  static serialize(data: Log): { [key: string]: any } {
+    const attributeTypes = Log.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.content = ObjectSerializer.serialize(data.content, "LogContent", "");
 
-    static deserialize(data: {[key: string]: any}): Log {
-      let res = new Log();
+    res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-      res.content = ObjectSerializer.deserialize(data.content, "LogContent", "")
+    return res;
+  }
 
-      res.id = ObjectSerializer.deserialize(data.id, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: Log): {[key: string]: any} {
-        let attributeTypes = Log.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.content = ObjectSerializer.serialize(data.content, "LogContent", "")
-
-        res.id = ObjectSerializer.serialize(data.id, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

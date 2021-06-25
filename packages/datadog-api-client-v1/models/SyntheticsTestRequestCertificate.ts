@@ -8,65 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTestRequestCertificateItem } from './SyntheticsTestRequestCertificateItem';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Client certificate to use when performing the test request.
-*/
+ * Client certificate to use when performing the test request.
+ */
 
 export class SyntheticsTestRequestCertificate {
-    'cert'?: SyntheticsTestRequestCertificateItem;
-    'key'?: SyntheticsTestRequestCertificateItem;
+  "cert"?: SyntheticsTestRequestCertificateItem;
+  "key"?: SyntheticsTestRequestCertificateItem;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "cert": {
-            "baseName": "cert",
-            "type": "SyntheticsTestRequestCertificateItem",
-            "format": ""
-        },
-        "key": {
-            "baseName": "key",
-            "type": "SyntheticsTestRequestCertificateItem",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    cert: {
+      baseName: "cert",
+      type: "SyntheticsTestRequestCertificateItem",
+      format: "",
+    },
+    key: {
+      baseName: "key",
+      type: "SyntheticsTestRequestCertificateItem",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsTestRequestCertificate.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsTestRequestCertificate.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsTestRequestCertificate {
+    const res = new SyntheticsTestRequestCertificate();
+
+    res.cert = ObjectSerializer.deserialize(
+      data.cert,
+      "SyntheticsTestRequestCertificateItem",
+      ""
+    );
+
+    res.key = ObjectSerializer.deserialize(
+      data.key,
+      "SyntheticsTestRequestCertificateItem",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsTestRequestCertificate
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsTestRequestCertificate.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.cert = ObjectSerializer.serialize(
+      data.cert,
+      "SyntheticsTestRequestCertificateItem",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): SyntheticsTestRequestCertificate {
-      let res = new SyntheticsTestRequestCertificate();
+    res.key = ObjectSerializer.serialize(
+      data.key,
+      "SyntheticsTestRequestCertificateItem",
+      ""
+    );
 
-      res.cert = ObjectSerializer.deserialize(data.cert, "SyntheticsTestRequestCertificateItem", "")
+    return res;
+  }
 
-      res.key = ObjectSerializer.deserialize(data.key, "SyntheticsTestRequestCertificateItem", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsTestRequestCertificate): {[key: string]: any} {
-        let attributeTypes = SyntheticsTestRequestCertificate.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.cert = ObjectSerializer.serialize(data.cert, "SyntheticsTestRequestCertificateItem", "")
-
-        res.key = ObjectSerializer.serialize(data.key, "SyntheticsTestRequestCertificateItem", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

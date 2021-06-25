@@ -8,58 +8,63 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucket } from './LogsAggregateBucket';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { LogsAggregateBucket } from "./LogsAggregateBucket";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* The query results
-*/
+ * The query results
+ */
 
 export class LogsAggregateResponseData {
-    /**
-    * The list of matching buckets, one item per bucket
-    */
-    'buckets'?: Array<LogsAggregateBucket>;
+  /**
+   * The list of matching buckets, one item per bucket
+   */
+  "buckets"?: Array<LogsAggregateBucket>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "buckets": {
-            "baseName": "buckets",
-            "type": "Array<LogsAggregateBucket>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    buckets: {
+      baseName: "buckets",
+      type: "Array<LogsAggregateBucket>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return LogsAggregateResponseData.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return LogsAggregateResponseData.attributeTypeMap;
+  }
+
+  static deserialize(data: { [key: string]: any }): LogsAggregateResponseData {
+    const res = new LogsAggregateResponseData();
+
+    res.buckets = ObjectSerializer.deserialize(
+      data.buckets,
+      "Array<LogsAggregateBucket>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(data: LogsAggregateResponseData): { [key: string]: any } {
+    const attributeTypes = LogsAggregateResponseData.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.buckets = ObjectSerializer.serialize(
+      data.buckets,
+      "Array<LogsAggregateBucket>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): LogsAggregateResponseData {
-      let res = new LogsAggregateResponseData();
+    return res;
+  }
 
-      res.buckets = ObjectSerializer.deserialize(data.buckets, "Array<LogsAggregateBucket>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: LogsAggregateResponseData): {[key: string]: any} {
-        let attributeTypes = LogsAggregateResponseData.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.buckets = ObjectSerializer.serialize(data.buckets, "Array<LogsAggregateBucket>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

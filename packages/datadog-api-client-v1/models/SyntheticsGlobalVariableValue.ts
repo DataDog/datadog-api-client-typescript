@@ -8,70 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Value of the global variable.
-*/
+ * Value of the global variable.
+ */
 
 export class SyntheticsGlobalVariableValue {
-    /**
-    * Determines if the variable is secure.
-    */
-    'secure'?: boolean;
-    /**
-    * Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
-    */
-    'value'?: string;
+  /**
+   * Determines if the variable is secure.
+   */
+  "secure"?: boolean;
+  /**
+   * Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
+   */
+  "value"?: string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "secure": {
-            "baseName": "secure",
-            "type": "boolean",
-            "format": ""
-        },
-        "value": {
-            "baseName": "value",
-            "type": "string",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    secure: {
+      baseName: "secure",
+      type: "boolean",
+      format: "",
+    },
+    value: {
+      baseName: "value",
+      type: "string",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return SyntheticsGlobalVariableValue.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return SyntheticsGlobalVariableValue.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsGlobalVariableValue {
+    const res = new SyntheticsGlobalVariableValue();
+
+    res.secure = ObjectSerializer.deserialize(data.secure, "boolean", "");
+
+    res.value = ObjectSerializer.deserialize(data.value, "string", "");
+
+    return res;
+  }
+
+  static serialize(
+    data: SyntheticsGlobalVariableValue
+  ): { [key: string]: any } {
+    const attributeTypes = SyntheticsGlobalVariableValue.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.secure = ObjectSerializer.serialize(data.secure, "boolean", "");
 
-    static deserialize(data: {[key: string]: any}): SyntheticsGlobalVariableValue {
-      let res = new SyntheticsGlobalVariableValue();
+    res.value = ObjectSerializer.serialize(data.value, "string", "");
 
-      res.secure = ObjectSerializer.deserialize(data.secure, "boolean", "")
+    return res;
+  }
 
-      res.value = ObjectSerializer.deserialize(data.value, "string", "")
-
-
-      return res;
-    }
-
-    static serialize(data: SyntheticsGlobalVariableValue): {[key: string]: any} {
-        let attributeTypes = SyntheticsGlobalVariableValue.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.secure = ObjectSerializer.serialize(data.secure, "boolean", "")
-
-        res.value = ObjectSerializer.serialize(data.value, "string", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

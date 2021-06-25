@@ -8,58 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { UsageIncidentManagementHour } from './UsageIncidentManagementHour';
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
+import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
+import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
-* Response containing the incident management usage for each hour for a given organization.
-*/
+ * Response containing the incident management usage for each hour for a given organization.
+ */
 
 export class UsageIncidentManagementResponse {
-    /**
-    * Get hourly usage for incident management.
-    */
-    'usage'?: Array<UsageIncidentManagementHour>;
+  /**
+   * Get hourly usage for incident management.
+   */
+  "usage"?: Array<UsageIncidentManagementHour>;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
-        "usage": {
-            "baseName": "usage",
-            "type": "Array<UsageIncidentManagementHour>",
-            "format": ""
-        }    };
+  static readonly attributeTypeMap: {
+    [key: string]: { baseName: string; type: string; format: string };
+  } = {
+    usage: {
+      baseName: "usage",
+      type: "Array<UsageIncidentManagementHour>",
+      format: "",
+    },
+  };
 
-    static getAttributeTypeMap() {
-        return UsageIncidentManagementResponse.attributeTypeMap;
+  static getAttributeTypeMap() {
+    return UsageIncidentManagementResponse.attributeTypeMap;
+  }
+
+  static deserialize(data: {
+    [key: string]: any;
+  }): UsageIncidentManagementResponse {
+    const res = new UsageIncidentManagementResponse();
+
+    res.usage = ObjectSerializer.deserialize(
+      data.usage,
+      "Array<UsageIncidentManagementHour>",
+      ""
+    );
+
+    return res;
+  }
+
+  static serialize(
+    data: UsageIncidentManagementResponse
+  ): { [key: string]: any } {
+    const attributeTypes = UsageIncidentManagementResponse.getAttributeTypeMap();
+    const res: { [index: string]: any } = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (!(key in attributeTypes)) {
+        throw new TypeError(`${key} attribute not in schema`);
+      }
     }
+    res.usage = ObjectSerializer.serialize(
+      data.usage,
+      "Array<UsageIncidentManagementHour>",
+      ""
+    );
 
-    static deserialize(data: {[key: string]: any}): UsageIncidentManagementResponse {
-      let res = new UsageIncidentManagementResponse();
+    return res;
+  }
 
-      res.usage = ObjectSerializer.deserialize(data.usage, "Array<UsageIncidentManagementHour>", "")
-
-
-      return res;
-    }
-
-    static serialize(data: UsageIncidentManagementResponse): {[key: string]: any} {
-        let attributeTypes = UsageIncidentManagementResponse.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        res.usage = ObjectSerializer.serialize(data.usage, "Array<UsageIncidentManagementHour>", "")
-
-        return res
-    }
-    
-    public constructor() {
-    }
+  public constructor() {}
 }
-
-
-

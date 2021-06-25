@@ -8,18 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
-import { ObjectSerializer } from './ObjectSerializer';
-
-/**
-* Legend column.
-*/
-
-export type TimeseriesWidgetLegendColumn = typeof VALUE | typeof AVG | typeof SUM | typeof MIN | typeof MAX ;
-export const VALUE = 'value';
-export const AVG = 'avg';
-export const SUM = 'sum';
-export const MIN = 'min';
-export const MAX = 'max';
-
-
+export type TimeseriesWidgetLegendColumn =
+  | typeof VALUE
+  | typeof AVG
+  | typeof SUM
+  | typeof MIN
+  | typeof MAX;
+export const VALUE = "value";
+export const AVG = "avg";
+export const SUM = "sum";
+export const MIN = "min";
+export const MAX = "max";
