@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then
 fi
 
 # install dependencies
-yarn
+yarn install --ignore-scripts
 
 ./extract-code-blocks.sh examples $1
 
