@@ -515,6 +515,12 @@ models/TimeseriesWidgetRequest.ts
 models/ToplistWidgetDefinition.ts
 models/ToplistWidgetDefinitionType.ts
 models/ToplistWidgetRequest.ts
+models/TreeMapColorBy.ts
+models/TreeMapGroupBy.ts
+models/TreeMapSizeBy.ts
+models/TreeMapWidgetDefinition.ts
+models/TreeMapWidgetDefinitionType.ts
+models/TreeMapWidgetRequest.ts
 models/UsageAnalyzedLogsHour.ts
 models/UsageAnalyzedLogsResponse.ts
 models/UsageAttributionAggregatesBody.ts
