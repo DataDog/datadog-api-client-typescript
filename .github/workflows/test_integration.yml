@@ -48,7 +48,7 @@ jobs:
           github-token: ${{ steps.get_token.outputs.token }}
           script: |
             const script = require('.github/workflows/scripts/test_integration.js')
-            await script.post_status_check(github, context, "pending")
+            await script.post_status_check(github, context, "integration", "pending")
       - name: Set up Node 14
         uses: actions/setup-node@v2
         with:
