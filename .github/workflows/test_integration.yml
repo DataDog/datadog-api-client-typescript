@@ -47,8 +47,8 @@ jobs:
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          status: success
-          context: pending
+          status: pending
+          context: integration
       - name: Set up Node 14
         uses: actions/setup-node@v2
         with:
