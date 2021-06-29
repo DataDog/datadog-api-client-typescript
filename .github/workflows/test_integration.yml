@@ -68,17 +68,15 @@ jobs:
           RECORD: "none"
       - name: Post failure status check
         if: failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
-        uses: actions/github-script@v4.0.2
+        uses: ./.github/actions/post-status-check
         with:
           github-token: ${{ steps.get_token.outputs.token }}
-          script: |
-            const script = require('./.github/workflows/scripts/test_integration.js')
-            await script.post_status_check(github, context, "integration", "failure")
+          context: integration
+          status: failure
       - name: Post success status check
         if: "!failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')"
-        uses: actions/github-script@v4.0.2
+        uses: ./.github/actions/post-status-check
         with:
           github-token: ${{ steps.get_token.outputs.token }}
-          script: |
-            const script = require('./.github/workflows/scripts/test_integration.js')
-            await script.post_status_check(github, context, "integration", "success")
+          context: integration
+          status: success
