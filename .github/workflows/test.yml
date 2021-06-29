@@ -66,8 +66,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Post status check
-        uses: ./.github/actions/post-status-check
+        uses: DataDog/github-actions/post-status-check@v1.0.0
         with:
           github-token: ${{ steps.get_token.outputs.token }}
+          repo: datadog-api-spec
           status: ${{ needs.test.result }}
           context: unit
