@@ -33,6 +33,7 @@ import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
+import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 
 export type WidgetDefinition =
   | AlertGraphWidgetDefinition
@@ -59,4 +60,5 @@ export type WidgetDefinition =
   | ServiceSummaryWidgetDefinition
   | TableWidgetDefinition
   | TimeseriesWidgetDefinition
-  | ToplistWidgetDefinition;
+  | ToplistWidgetDefinition
+  | TreeMapWidgetDefinition;
