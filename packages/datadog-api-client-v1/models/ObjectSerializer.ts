@@ -339,6 +339,8 @@ import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAli
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
+import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
 import { UsageAnalyzedLogsResponse } from "./UsageAnalyzedLogsResponse";
 import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
@@ -549,6 +551,10 @@ const enumsMap: Set<string> = new Set<string>([
   "TimeseriesWidgetLegendColumn",
   "TimeseriesWidgetLegendLayout",
   "ToplistWidgetDefinitionType",
+  "TreeMapColorBy",
+  "TreeMapGroupBy",
+  "TreeMapSizeBy",
+  "TreeMapWidgetDefinitionType",
   "UsageAttributionSort",
   "UsageAttributionSupportedMetrics",
   "UsageMetricCategory",
@@ -930,6 +936,8 @@ const typeMap: { [index: string]: any } = {
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
   ToplistWidgetDefinition: ToplistWidgetDefinition,
   ToplistWidgetRequest: ToplistWidgetRequest,
+  TreeMapWidgetDefinition: TreeMapWidgetDefinition,
+  TreeMapWidgetRequest: TreeMapWidgetRequest,
   UsageAnalyzedLogsHour: UsageAnalyzedLogsHour,
   UsageAnalyzedLogsResponse: UsageAnalyzedLogsResponse,
   UsageAttributionAggregatesBody: UsageAttributionAggregatesBody,
@@ -1108,6 +1116,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "TableWidgetDefinition",
     "TimeseriesWidgetDefinition",
     "ToplistWidgetDefinition",
+    "TreeMapWidgetDefinition",
   ],
 };
 
