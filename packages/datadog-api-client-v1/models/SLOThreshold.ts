@@ -91,7 +91,7 @@ export class SLOThreshold {
         "missing required attribute 'timeframe' on 'SLOThreshold' object"
       );
     }
-    if (["7d", "30d", "90d", undefined].includes(data.timeframe)) {
+    if (["7d", "30d", "90d", "custom", undefined].includes(data.timeframe)) {
       res.timeframe = data.timeframe;
     } else {
       throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);
@@ -138,7 +138,7 @@ export class SLOThreshold {
         "missing required attribute 'timeframe' on 'SLOThreshold' object"
       );
     }
-    if (["7d", "30d", "90d", undefined].includes(data.timeframe)) {
+    if (["7d", "30d", "90d", "custom", undefined].includes(data.timeframe)) {
       res.timeframe = data.timeframe;
     } else {
       throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);

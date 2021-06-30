@@ -3378,7 +3378,7 @@ export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
    */
   toTs: number;
   /**
-   * The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
+   * The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
    * @type number
    * @memberof ServiceLevelObjectivesApigetSLOHistory
    */
