@@ -351,11 +351,13 @@ models/OrganizationSubscription.ts
 models/PagerDutyService.ts
 models/PagerDutyServiceKey.ts
 models/PagerDutyServiceName.ts
+models/Pagination.ts
 models/ProcessQueryDefinition.ts
 models/QuerySortOrder.ts
 models/QueryValueWidgetDefinition.ts
 models/QueryValueWidgetDefinitionType.ts
 models/QueryValueWidgetRequest.ts
+models/ResponseMetaAttributes.ts
 models/SLOBulkDeleteError.ts
 models/SLOBulkDeleteResponse.ts
 models/SLOBulkDeleteResponseData.ts

@@ -219,9 +219,11 @@ import { OrganizationSubscription } from "./OrganizationSubscription";
 import { PagerDutyService } from "./PagerDutyService";
 import { PagerDutyServiceKey } from "./PagerDutyServiceKey";
 import { PagerDutyServiceName } from "./PagerDutyServiceName";
+import { Pagination } from "./Pagination";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponse } from "./SLOBulkDeleteResponse";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
@@ -816,9 +818,11 @@ const typeMap: { [index: string]: any } = {
   PagerDutyService: PagerDutyService,
   PagerDutyServiceKey: PagerDutyServiceKey,
   PagerDutyServiceName: PagerDutyServiceName,
+  Pagination: Pagination,
   ProcessQueryDefinition: ProcessQueryDefinition,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
+  ResponseMetaAttributes: ResponseMetaAttributes,
   SLOBulkDeleteError: SLOBulkDeleteError,
   SLOBulkDeleteResponse: SLOBulkDeleteResponse,
   SLOBulkDeleteResponseData: SLOBulkDeleteResponseData,

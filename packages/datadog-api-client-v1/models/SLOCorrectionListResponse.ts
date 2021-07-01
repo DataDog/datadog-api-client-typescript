@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOCorrection } from "./SLOCorrection";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -20,6 +21,7 @@ export class SLOCorrectionListResponse {
    * The list of of SLO corrections objects
    */
   "data"?: Array<SLOCorrection>;
+  "meta"?: ResponseMetaAttributes;
 
   static readonly discriminator: string | undefined = undefined;
 
@@ -29,6 +31,11 @@ export class SLOCorrectionListResponse {
     data: {
       baseName: "data",
       type: "Array<SLOCorrection>",
+      format: "",
+    },
+    meta: {
+      baseName: "meta",
+      type: "ResponseMetaAttributes",
       format: "",
     },
   };
@@ -46,6 +53,12 @@ export class SLOCorrectionListResponse {
       ""
     );
 
+    res.meta = ObjectSerializer.deserialize(
+      data.meta,
+      "ResponseMetaAttributes",
+      ""
+    );
+
     return res;
   }
 
@@ -60,6 +73,12 @@ export class SLOCorrectionListResponse {
     res.data = ObjectSerializer.serialize(
       data.data,
       "Array<SLOCorrection>",
+      ""
+    );
+
+    res.meta = ObjectSerializer.serialize(
+      data.meta,
+      "ResponseMetaAttributes",
       ""
     );
 
