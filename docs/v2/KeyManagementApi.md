@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key
 [**deleteCurrentUserApplicationKey**](KeyManagementApi.md#deleteCurrentUserApplicationKey) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user
 [**getAPIKey**](KeyManagementApi.md#getAPIKey) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
+[**getApplicationKey**](KeyManagementApi.md#getApplicationKey) | **GET** /api/v2/application_keys/{app_key_id} | Get an application key
 [**getCurrentUserApplicationKey**](KeyManagementApi.md#getCurrentUserApplicationKey) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user
 [**listAPIKeys**](KeyManagementApi.md#listAPIKeys) | **GET** /api/v2/api_keys | Get all API keys
 [**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v2/application_keys | Get all application keys
@@ -367,6 +368,66 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **getApplicationKey**
+> ApplicationKeyResponse getApplicationKey()
+
+Get an application key for your org.
+
+### Example
+
+
+```typescript
+import { v2 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v2.createConfiguration();
+const apiInstance = new v2.KeyManagementApi(configuration);
+
+let params:v2.KeyManagementApiGetApplicationKeyRequest = {
+  // string | The ID of the application key.
+  appKeyId: "app_key_id_example",
+  // string | Resource path for related resources to include in the response. Only `owned_by` is supported. (optional)
+  include: "owned_by",
+};
+
+apiInstance.getApplicationKey(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appKeyId** | [**string**] | The ID of the application key. | defaults to undefined
+ **include** | [**string**] | Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported. | (optional) defaults to undefined
+
+
+### Return type
+
+**ApplicationKeyResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 
