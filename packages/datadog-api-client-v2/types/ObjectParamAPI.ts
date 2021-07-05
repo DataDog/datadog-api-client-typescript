@@ -775,6 +775,21 @@ export interface KeyManagementApiGetAPIKeyRequest {
   include?: string;
 }
 
+export interface KeyManagementApiGetApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   * @memberof KeyManagementApigetApplicationKey
+   */
+  appKeyId: string;
+  /**
+   * Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+   * @type string
+   * @memberof KeyManagementApigetApplicationKey
+   */
+  include?: string;
+}
+
 export interface KeyManagementApiGetCurrentUserApplicationKeyRequest {
   /**
    * The ID of the application key.
@@ -1054,6 +1069,20 @@ export class ObjectKeyManagementApi {
   ): Promise<APIKeyResponse> {
     return this.api
       .getAPIKey(param.apiKeyId, param.include, options)
+      .toPromise();
+  }
+
+  /**
+   * Get an application key for your org.
+   * Get an application key
+   * @param param the request object
+   */
+  public getApplicationKey(
+    param: KeyManagementApiGetApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    return this.api
+      .getApplicationKey(param.appKeyId, param.include, options)
       .toPromise();
   }
 

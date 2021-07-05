@@ -36,6 +36,7 @@ export {
   KeyManagementApiDeleteApplicationKeyRequest,
   KeyManagementApiDeleteCurrentUserApplicationKeyRequest,
   KeyManagementApiGetAPIKeyRequest,
+  KeyManagementApiGetApplicationKeyRequest,
   KeyManagementApiGetCurrentUserApplicationKeyRequest,
   KeyManagementApiListAPIKeysRequest,
   KeyManagementApiListApplicationKeysRequest,

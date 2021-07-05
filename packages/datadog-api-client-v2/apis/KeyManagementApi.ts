@@ -367,6 +367,68 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   /**
+   * Get an application key for your org.
+   * Get an application key
+   * @param appKeyId The ID of the application key.
+   * @param include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+   */
+  public async getApplicationKey(
+    appKeyId: string,
+    include?: string,
+    options?: Configuration
+  ): Promise<RequestContext> {
+    const config = options || this.configuration;
+
+    // verify required parameter 'appKeyId' is not null or undefined
+    if (appKeyId === null || appKeyId === undefined) {
+      throw new RequiredError(
+        "Required parameter appKeyId was null or undefined when calling getApplicationKey."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/application_keys/{app_key_id}".replace(
+      "{" + "app_key_id" + "}",
+      encodeURIComponent(String(appKeyId))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      config,
+      "KeyManagementApi.getApplicationKey"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", "")
+      );
+    }
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    authMethod = config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
    * Get an application key owned by current user
    * Get one application key owned by current user
    * @param appKeyId The ID of the application key.
@@ -1231,6 +1293,69 @@ export class KeyManagementApiResponseProcessor {
         "APIKeyResponse",
         ""
       ) as APIKeyResponse;
+      return body;
+    }
+
+    const body = response.body || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getApplicationKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getApplicationKey(
+    response: ResponseContext
+  ): Promise<ApplicationKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ApplicationKeyResponse",
+        ""
+      ) as ApplicationKeyResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ApplicationKeyResponse",
+        ""
+      ) as ApplicationKeyResponse;
       return body;
     }
 
