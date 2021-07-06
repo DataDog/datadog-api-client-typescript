@@ -365,7 +365,7 @@ let params:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   fromTs: 1,
   // number | The `to` timestamp for the query window in epoch seconds.
   toTs: 1,
-  // number | The SLO target. If `target` is passed in, the response will include the error budget that remains. (optional)
+  // number | The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`. (optional)
   target: 0,
 };
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
  **sloId** | [**string**] | The ID of the service level objective object. | defaults to undefined
  **fromTs** | [**number**] | The &#x60;from&#x60; timestamp for the query window in epoch seconds. | defaults to undefined
  **toTs** | [**number**] | The &#x60;to&#x60; timestamp for the query window in epoch seconds. | defaults to undefined
- **target** | [**number**] | The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains. | (optional) defaults to undefined
+ **target** | [**number**] | The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;. | (optional) defaults to undefined
 
 
 ### Return type

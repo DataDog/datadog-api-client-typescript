@@ -581,6 +581,21 @@ export class PromiseKeyManagementApi {
   }
 
   /**
+   * Get an application key for your org.
+   * Get an application key
+   * @param appKeyId The ID of the application key.
+   * @param include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+   */
+  public getApplicationKey(
+    appKeyId: string,
+    include?: string,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const result = this.api.getApplicationKey(appKeyId, include, options);
+    return result.toPromise();
+  }
+
+  /**
    * Get an application key owned by current user
    * Get one application key owned by current user
    * @param appKeyId The ID of the application key.

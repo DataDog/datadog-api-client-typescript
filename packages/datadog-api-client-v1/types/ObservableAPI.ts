@@ -5744,7 +5744,7 @@ export class ObservableServiceLevelObjectivesApi {
    * @param sloId The ID of the service level objective object.
    * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds.
    * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds.
-   * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains.
+   * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
    */
   public getSLOHistory(
     sloId: string,

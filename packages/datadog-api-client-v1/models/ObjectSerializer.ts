@@ -219,9 +219,11 @@ import { OrganizationSubscription } from "./OrganizationSubscription";
 import { PagerDutyService } from "./PagerDutyService";
 import { PagerDutyServiceKey } from "./PagerDutyServiceKey";
 import { PagerDutyServiceName } from "./PagerDutyServiceName";
+import { Pagination } from "./Pagination";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponse } from "./SLOBulkDeleteResponse";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
@@ -339,6 +341,8 @@ import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAli
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
+import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
 import { UsageAnalyzedLogsResponse } from "./UsageAnalyzedLogsResponse";
 import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
@@ -549,6 +553,10 @@ const enumsMap: Set<string> = new Set<string>([
   "TimeseriesWidgetLegendColumn",
   "TimeseriesWidgetLegendLayout",
   "ToplistWidgetDefinitionType",
+  "TreeMapColorBy",
+  "TreeMapGroupBy",
+  "TreeMapSizeBy",
+  "TreeMapWidgetDefinitionType",
   "UsageAttributionSort",
   "UsageAttributionSupportedMetrics",
   "UsageMetricCategory",
@@ -810,9 +818,11 @@ const typeMap: { [index: string]: any } = {
   PagerDutyService: PagerDutyService,
   PagerDutyServiceKey: PagerDutyServiceKey,
   PagerDutyServiceName: PagerDutyServiceName,
+  Pagination: Pagination,
   ProcessQueryDefinition: ProcessQueryDefinition,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
+  ResponseMetaAttributes: ResponseMetaAttributes,
   SLOBulkDeleteError: SLOBulkDeleteError,
   SLOBulkDeleteResponse: SLOBulkDeleteResponse,
   SLOBulkDeleteResponseData: SLOBulkDeleteResponseData,
@@ -930,6 +940,8 @@ const typeMap: { [index: string]: any } = {
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
   ToplistWidgetDefinition: ToplistWidgetDefinition,
   ToplistWidgetRequest: ToplistWidgetRequest,
+  TreeMapWidgetDefinition: TreeMapWidgetDefinition,
+  TreeMapWidgetRequest: TreeMapWidgetRequest,
   UsageAnalyzedLogsHour: UsageAnalyzedLogsHour,
   UsageAnalyzedLogsResponse: UsageAnalyzedLogsResponse,
   UsageAttributionAggregatesBody: UsageAttributionAggregatesBody,
@@ -1108,6 +1120,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "TableWidgetDefinition",
     "TimeseriesWidgetDefinition",
     "ToplistWidgetDefinition",
+    "TreeMapWidgetDefinition",
   ],
 };
 

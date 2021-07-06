@@ -8,12 +8,7 @@
  * Do not edit the class manually.
  */
 
-export type SLOTimeframe =
-  | typeof SEVEN_DAYS
-  | typeof THIRTY_DAYS
-  | typeof NINETY_DAYS
-  | typeof CUSTOM;
-export const SEVEN_DAYS = "7d";
-export const THIRTY_DAYS = "30d";
-export const NINETY_DAYS = "90d";
-export const CUSTOM = "custom";
+export type TreeMapGroupBy = typeof USER | typeof FAMILY | typeof PROCESS;
+export const USER = "user";
+export const FAMILY = "family";
+export const PROCESS = "process";
