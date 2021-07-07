@@ -328,7 +328,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   /**
    * Get specified daily custom reports.
    * Get specified daily custom reports
-   * @param reportId The specified ID to search results for.
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
    */
   public async getSpecifiedDailyCustomReports(
     reportId: string,
@@ -382,7 +382,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   /**
    * Get specified monthly custom reports.
    * Get specified monthly custom reports
-   * @param reportId The specified ID to search results for.
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
    */
   public async getSpecifiedMonthlyCustomReports(
     reportId: string,

@@ -3128,7 +3128,7 @@ export class PromiseUsageMeteringApi {
   /**
    * Get specified daily custom reports.
    * Get specified daily custom reports
-   * @param reportId The specified ID to search results for.
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
    */
   public getSpecifiedDailyCustomReports(
     reportId: string,
@@ -3141,7 +3141,7 @@ export class PromiseUsageMeteringApi {
   /**
    * Get specified monthly custom reports.
    * Get specified monthly custom reports
-   * @param reportId The specified ID to search results for.
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
    */
   public getSpecifiedMonthlyCustomReports(
     reportId: string,
