@@ -4720,7 +4720,7 @@ export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
 
 export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
   /**
-   * The specified ID to search results for.
+   * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
    * @type string
    * @memberof UsageMeteringApigetSpecifiedDailyCustomReports
    */
@@ -4729,7 +4729,7 @@ export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
 
 export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
   /**
-   * The specified ID to search results for.
+   * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
    * @type string
    * @memberof UsageMeteringApigetSpecifiedMonthlyCustomReports
    */
