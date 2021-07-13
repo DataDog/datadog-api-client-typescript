@@ -18,6 +18,10 @@ import { ObjectSerializer } from "./ObjectSerializer";
  */
 
 export class SyntheticsTestRequest {
+  /**
+   * Allows loading insecure content for an HTTP request in a multistep test step.
+   */
+  "allowInsecure"?: boolean;
   "basicAuth"?: SyntheticsBasicAuth;
   /**
    * Body to include in the test.
@@ -75,6 +79,11 @@ export class SyntheticsTestRequest {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
+    allowInsecure: {
+      baseName: "allow_insecure",
+      type: "boolean",
+      format: "",
+    },
     basicAuth: {
       baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
@@ -158,6 +167,12 @@ export class SyntheticsTestRequest {
 
   static deserialize(data: { [key: string]: any }): SyntheticsTestRequest {
     const res = new SyntheticsTestRequest();
+
+    res.allowInsecure = ObjectSerializer.deserialize(
+      data.allow_insecure,
+      "boolean",
+      ""
+    );
 
     res.basicAuth = ObjectSerializer.deserialize(
       data.basicAuth,
@@ -247,6 +262,12 @@ export class SyntheticsTestRequest {
         throw new TypeError(`${key} attribute not in schema`);
       }
     }
+    res.allow_insecure = ObjectSerializer.serialize(
+      data.allowInsecure,
+      "boolean",
+      ""
+    );
+
     res.basicAuth = ObjectSerializer.serialize(
       data.basicAuth,
       "SyntheticsBasicAuth",
