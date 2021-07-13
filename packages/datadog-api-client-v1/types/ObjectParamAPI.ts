@@ -144,8 +144,6 @@ import { UsageSyntheticsBrowserResponse } from "../models/UsageSyntheticsBrowser
 import { UsageSyntheticsResponse } from "../models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
-import { UsageTraceResponse } from "../models/UsageTraceResponse";
-import { UsageTracingWithoutLimitsResponse } from "../models/UsageTracingWithoutLimitsResponse";
 import { User } from "../models/User";
 import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
@@ -4736,21 +4734,6 @@ export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
   reportId: string;
 }
 
-export interface UsageMeteringApiGetTracingWithoutLimitsRequest {
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetTracingWithoutLimits
-   */
-  startHr: Date;
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetTracingWithoutLimits
-   */
-  endHr?: Date;
-}
-
 export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -5174,21 +5157,6 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
   nextRecordId?: string;
 }
 
-export interface UsageMeteringApiGetUsageTraceRequest {
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetUsageTrace
-   */
-  startHr: Date;
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetUsageTrace
-   */
-  endHr?: Date;
-}
-
 export class ObjectUsageMeteringApi {
   private api: ObservableUsageMeteringApi;
 
@@ -5297,20 +5265,6 @@ export class ObjectUsageMeteringApi {
   ): Promise<UsageSpecifiedCustomReportsResponse> {
     return this.api
       .getSpecifiedMonthlyCustomReports(param.reportId, options)
-      .toPromise();
-  }
-
-  /**
-   * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-   * Get hourly usage for tracing without limits
-   * @param param the request object
-   */
-  public getTracingWithoutLimits(
-    param: UsageMeteringApiGetTracingWithoutLimitsRequest,
-    options?: Configuration
-  ): Promise<UsageTracingWithoutLimitsResponse> {
-    return this.api
-      .getTracingWithoutLimits(param.startHr, param.endHr, options)
       .toPromise();
   }
 
@@ -5682,20 +5636,6 @@ export class ObjectUsageMeteringApi {
         param.nextRecordId,
         options
       )
-      .toPromise();
-  }
-
-  /**
-   * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-   * Get hourly usage for Trace Search
-   * @param param the request object
-   */
-  public getUsageTrace(
-    param: UsageMeteringApiGetUsageTraceRequest,
-    options?: Configuration
-  ): Promise<UsageTraceResponse> {
-    return this.api
-      .getUsageTrace(param.startHr, param.endHr, options)
       .toPromise();
   }
 }
