@@ -23,6 +23,8 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
 {{/vars}}
 
+    'unparsedObject'?: { [property: string] : any; } = {};
+
     {{#discriminator}}
     static readonly discriminator: string | undefined = "{{discriminatorName}}";
     {{/discriminator}}
@@ -62,14 +64,23 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       }
         {{/required}}
         {{#allowableValues}}
+        {{#isEnum}}
       if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
       } else {
           throw TypeError(`invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
       }
+        {{/isEnum}}
         {{/allowableValues}}
         {{^allowableValues}}
-      res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
+        try {
+          res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
+        } catch(error) {
+          if (res?.unparsedObject !== undefined) {
+            res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
+          }
+        }
+
         {{/allowableValues}}
 
       {{/vars}}
@@ -105,7 +116,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         {{/vars}}
         return res
     }
-    
+
     public constructor() {
         {{#parent}}
         super();
