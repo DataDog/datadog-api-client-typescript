@@ -40,8 +40,6 @@ import { UsageSyntheticsBrowserResponse } from "../models/UsageSyntheticsBrowser
 import { UsageSyntheticsResponse } from "../models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
-import { UsageTraceResponse } from "../models/UsageTraceResponse";
-import { UsageTracingWithoutLimitsResponse } from "../models/UsageTracingWithoutLimitsResponse";
 
 /**
  * no description
@@ -412,71 +410,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(config.httpConfig);
 
     // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
-    // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    authMethod = config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-
-    return requestContext;
-  }
-
-  /**
-   * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-   * Get hourly usage for tracing without limits
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
-  public async getTracingWithoutLimits(
-    startHr: Date,
-    endHr?: Date,
-    options?: Configuration
-  ): Promise<RequestContext> {
-    const config = options || this.configuration;
-
-    // verify required parameter 'startHr' is not null or undefined
-    if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getTracingWithoutLimits."
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v1/usage/tracing-without-limits";
-
-    // Make Request Context
-    const requestContext = getServer(
-      config,
-      "UsageMeteringApi.getTracingWithoutLimits"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
-
-    // Query Params
-    if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
-      );
-    }
-    if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
-      );
-    }
 
     // Header Params
 
@@ -2183,71 +2116,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
-
-  /**
-   * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-   * Get hourly usage for Trace Search
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
-  public async getUsageTrace(
-    startHr: Date,
-    endHr?: Date,
-    options?: Configuration
-  ): Promise<RequestContext> {
-    const config = options || this.configuration;
-
-    // verify required parameter 'startHr' is not null or undefined
-    if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageTrace."
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v1/usage/traces";
-
-    // Make Request Context
-    const requestContext = getServer(
-      config,
-      "UsageMeteringApi.getUsageTrace"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
-
-    // Query Params
-    if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
-      );
-    }
-    if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
-      );
-    }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
-    // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    authMethod = config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-
-    return requestContext;
-  }
 }
 
 export class UsageMeteringApiResponseProcessor {
@@ -2563,61 +2431,6 @@ export class UsageMeteringApiResponseProcessor {
         "UsageSpecifiedCustomReportsResponse",
         ""
       ) as UsageSpecifiedCustomReportsResponse;
-      return body;
-    }
-
-    const body = response.body || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getTracingWithoutLimits
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getTracingWithoutLimits(
-    response: ResponseContext
-  ): Promise<UsageTracingWithoutLimitsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageTracingWithoutLimitsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageTracingWithoutLimitsResponse",
-        ""
-      ) as UsageTracingWithoutLimitsResponse;
-      return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageTracingWithoutLimitsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageTracingWithoutLimitsResponse",
-        ""
-      ) as UsageTracingWithoutLimitsResponse;
       return body;
     }
 
@@ -3985,61 +3798,6 @@ export class UsageMeteringApiResponseProcessor {
         "UsageTopAvgMetricsResponse",
         ""
       ) as UsageTopAvgMetricsResponse;
-      return body;
-    }
-
-    const body = response.body || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getUsageTrace
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getUsageTrace(
-    response: ResponseContext
-  ): Promise<UsageTraceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageTraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageTraceResponse",
-        ""
-      ) as UsageTraceResponse;
-      return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageTraceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageTraceResponse",
-        ""
-      ) as UsageTraceResponse;
       return body;
     }
 

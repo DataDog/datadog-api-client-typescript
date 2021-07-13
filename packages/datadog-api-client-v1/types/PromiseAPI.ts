@@ -144,8 +144,6 @@ import { UsageSyntheticsBrowserResponse } from "../models/UsageSyntheticsBrowser
 import { UsageSyntheticsResponse } from "../models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
-import { UsageTraceResponse } from "../models/UsageTraceResponse";
-import { UsageTracingWithoutLimitsResponse } from "../models/UsageTracingWithoutLimitsResponse";
 import { User } from "../models/User";
 import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
@@ -3152,21 +3150,6 @@ export class PromiseUsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-   * Get hourly usage for tracing without limits
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
-  public getTracingWithoutLimits(
-    startHr: Date,
-    endHr?: Date,
-    options?: Configuration
-  ): Promise<UsageTracingWithoutLimitsResponse> {
-    const result = this.api.getTracingWithoutLimits(startHr, endHr, options);
-    return result.toPromise();
-  }
-
-  /**
    * Get hourly usage for analyzed logs (Security Monitoring).
    * Get hourly usage for analyzed logs
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -3582,21 +3565,6 @@ export class PromiseUsageMeteringApi {
       nextRecordId,
       options
     );
-    return result.toPromise();
-  }
-
-  /**
-   * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-   * Get hourly usage for Trace Search
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
-  public getUsageTrace(
-    startHr: Date,
-    endHr?: Date,
-    options?: Configuration
-  ): Promise<UsageTraceResponse> {
-    const result = this.api.getUsageTrace(startHr, endHr, options);
     return result.toPromise();
   }
 }

@@ -415,10 +415,6 @@ import { UsageTimeseriesResponse } from "./UsageTimeseriesResponse";
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
 import { UsageTopAvgMetricsResponse } from "./UsageTopAvgMetricsResponse";
-import { UsageTraceHour } from "./UsageTraceHour";
-import { UsageTraceResponse } from "./UsageTraceResponse";
-import { UsageTracingWithoutLimitsHour } from "./UsageTracingWithoutLimitsHour";
-import { UsageTracingWithoutLimitsResponse } from "./UsageTracingWithoutLimitsResponse";
 import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
 import { UserListResponse } from "./UserListResponse";
@@ -1014,10 +1010,6 @@ const typeMap: { [index: string]: any } = {
   UsageTopAvgMetricsHour: UsageTopAvgMetricsHour,
   UsageTopAvgMetricsMetadata: UsageTopAvgMetricsMetadata,
   UsageTopAvgMetricsResponse: UsageTopAvgMetricsResponse,
-  UsageTraceHour: UsageTraceHour,
-  UsageTraceResponse: UsageTraceResponse,
-  UsageTracingWithoutLimitsHour: UsageTracingWithoutLimitsHour,
-  UsageTracingWithoutLimitsResponse: UsageTracingWithoutLimitsResponse,
   User: User,
   UserDisableResponse: UserDisableResponse,
   UserListResponse: UserListResponse,

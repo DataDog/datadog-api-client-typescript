@@ -601,10 +601,6 @@ models/UsageTimeseriesResponse.ts
 models/UsageTopAvgMetricsHour.ts
 models/UsageTopAvgMetricsMetadata.ts
 models/UsageTopAvgMetricsResponse.ts
-models/UsageTraceHour.ts
-models/UsageTraceResponse.ts
-models/UsageTracingWithoutLimitsHour.ts
-models/UsageTracingWithoutLimitsResponse.ts
 models/User.ts
 models/UserDisableResponse.ts
 models/UserListResponse.ts
