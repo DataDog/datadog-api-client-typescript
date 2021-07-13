@@ -27,7 +27,7 @@ export class SyntheticsBrowserError {
   /**
    * Status Code of the error.
    */
-  "statusCode"?: number;
+  "status"?: number;
   "type": SyntheticsBrowserErrorType;
 
   static readonly discriminator: string | undefined = undefined;
@@ -45,8 +45,8 @@ export class SyntheticsBrowserError {
       type: "string",
       format: "",
     },
-    statusCode: {
-      baseName: "statusCode",
+    status: {
+      baseName: "status",
       type: "number",
       format: "int64",
     },
@@ -82,11 +82,7 @@ export class SyntheticsBrowserError {
     }
     res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
-    res.statusCode = ObjectSerializer.deserialize(
-      data.statusCode,
-      "number",
-      "int64"
-    );
+    res.status = ObjectSerializer.deserialize(data.status, "number", "int64");
 
     if (data.type === undefined) {
       throw new TypeError(
@@ -128,11 +124,7 @@ export class SyntheticsBrowserError {
     }
     res.name = ObjectSerializer.serialize(data.name, "string", "");
 
-    res.statusCode = ObjectSerializer.serialize(
-      data.statusCode,
-      "number",
-      "int64"
-    );
+    res.status = ObjectSerializer.serialize(data.status, "number", "int64");
 
     if (data.type === undefined) {
       throw new TypeError(
