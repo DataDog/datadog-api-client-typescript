@@ -201,6 +201,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
@@ -258,6 +259,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           isCritical: true,
           name: "name_example",
           request: {
+            allowInsecure: true,
             basicAuth: {
               password: "",
               username: "",
@@ -395,6 +397,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
@@ -1580,6 +1583,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
@@ -1637,6 +1641,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
           isCritical: true,
           name: "name_example",
           request: {
+            allowInsecure: true,
             basicAuth: {
               password: "",
               username: "",
@@ -1777,6 +1782,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
   },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
