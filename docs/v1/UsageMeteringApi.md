@@ -301,7 +301,7 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 let params:v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest = {
-  // string | The specified ID to search results for.
+  // string | Date of the report in the format `YYYY-MM-DD`.
   reportId: "report_id_example",
 };
 
@@ -315,7 +315,7 @@ apiInstance.getSpecifiedDailyCustomReports(params).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportId** | [**string**] | The specified ID to search results for. | defaults to undefined
+ **reportId** | [**string**] | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. | defaults to undefined
 
 
 ### Return type
@@ -357,7 +357,7 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 let params:v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest = {
-  // string | The specified ID to search results for.
+  // string | Date of the report in the format `YYYY-MM-DD`.
   reportId: "report_id_example",
 };
 
@@ -371,7 +371,7 @@ apiInstance.getSpecifiedMonthlyCustomReports(params).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportId** | [**string**] | The specified ID to search results for. | defaults to undefined
+ **reportId** | [**string**] | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. | defaults to undefined
 
 
 ### Return type
