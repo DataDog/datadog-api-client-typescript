@@ -38,6 +38,7 @@
     }
   },
   "scripts": {
+    "prebuild": "node -p \"'export const version = ' + JSON.stringify(require('./package.json').version)\" > version.ts",
     "build": "tsc",
     "check-licenses": "node bin/check-licenses.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
