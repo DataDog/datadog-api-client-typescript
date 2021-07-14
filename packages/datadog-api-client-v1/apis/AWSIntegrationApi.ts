@@ -9,6 +9,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AWSAccount } from "../models/AWSAccount";
 import { AWSAccountCreateResponse } from "../models/AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "../models/AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "../models/AWSAccountListResponse";
 import { AWSTagFilterCreateRequest } from "../models/AWSTagFilterCreateRequest";
 import { AWSTagFilterDeleteRequest } from "../models/AWSTagFilterDeleteRequest";
@@ -204,7 +205,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
    * @param body AWS request object
    */
   public async deleteAWSAccount(
-    body: AWSAccount,
+    body: AWSAccountDeleteRequest,
     options?: Configuration
   ): Promise<RequestContext> {
     const config = options || this.configuration;
@@ -239,7 +240,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AWSAccount", ""),
+      ObjectSerializer.serialize(body, "AWSAccountDeleteRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);

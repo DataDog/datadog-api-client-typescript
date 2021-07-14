@@ -5,6 +5,7 @@ import { mergeMap, map } from "../rxjsStub";
 import { AWSAccount } from "../models/AWSAccount";
 import { AWSAccountAndLambdaRequest } from "../models/AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "../models/AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "../models/AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "../models/AWSAccountListResponse";
 import { AWSLogsAsyncResponse } from "../models/AWSLogsAsyncResponse";
 import { AWSLogsListResponse } from "../models/AWSLogsListResponse";
@@ -306,7 +307,7 @@ export class ObservableAWSIntegrationApi {
    * @param body AWS request object
    */
   public deleteAWSAccount(
-    body: AWSAccount,
+    body: AWSAccountDeleteRequest,
     options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteAWSAccount(
