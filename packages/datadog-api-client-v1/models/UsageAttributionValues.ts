@@ -114,19 +114,19 @@ export class UsageAttributionValues {
   /**
    * The percentage of profiled containers usage by tag(s).
    */
-  "profiledContainersPercentage"?: number;
+  "profiledContainerPercentage"?: number;
   /**
    * The profiled container usage by tag(s).
    */
-  "profiledContainersUsage"?: number;
+  "profiledContainerUsage"?: number;
   /**
    * The percentage of profiled hosts usage by tag(s).
    */
-  "profiledHostsPercentage"?: number;
+  "profiledHostPercentage"?: number;
   /**
    * The profiled host usage by tag(s).
    */
-  "profiledHostsUsage"?: number;
+  "profiledHostUsage"?: number;
   /**
    * The percentage of network device usage by tag(s).
    */
@@ -261,23 +261,23 @@ export class UsageAttributionValues {
       type: "number",
       format: "double",
     },
-    profiledContainersPercentage: {
-      baseName: "profiled_containers_percentage",
+    profiledContainerPercentage: {
+      baseName: "profiled_container_percentage",
       type: "number",
       format: "double",
     },
-    profiledContainersUsage: {
-      baseName: "profiled_containers_usage",
+    profiledContainerUsage: {
+      baseName: "profiled_container_usage",
       type: "number",
       format: "double",
     },
-    profiledHostsPercentage: {
-      baseName: "profiled_hosts_percentage",
+    profiledHostPercentage: {
+      baseName: "profiled_host_percentage",
       type: "number",
       format: "double",
     },
-    profiledHostsUsage: {
-      baseName: "profiled_hosts_usage",
+    profiledHostUsage: {
+      baseName: "profiled_host_usage",
       type: "number",
       format: "double",
     },
@@ -444,26 +444,26 @@ export class UsageAttributionValues {
       "double"
     );
 
-    res.profiledContainersPercentage = ObjectSerializer.deserialize(
-      data.profiled_containers_percentage,
+    res.profiledContainerPercentage = ObjectSerializer.deserialize(
+      data.profiled_container_percentage,
       "number",
       "double"
     );
 
-    res.profiledContainersUsage = ObjectSerializer.deserialize(
-      data.profiled_containers_usage,
+    res.profiledContainerUsage = ObjectSerializer.deserialize(
+      data.profiled_container_usage,
       "number",
       "double"
     );
 
-    res.profiledHostsPercentage = ObjectSerializer.deserialize(
-      data.profiled_hosts_percentage,
+    res.profiledHostPercentage = ObjectSerializer.deserialize(
+      data.profiled_host_percentage,
       "number",
       "double"
     );
 
-    res.profiledHostsUsage = ObjectSerializer.deserialize(
-      data.profiled_hosts_usage,
+    res.profiledHostUsage = ObjectSerializer.deserialize(
+      data.profiled_host_usage,
       "number",
       "double"
     );
@@ -635,26 +635,26 @@ export class UsageAttributionValues {
       "double"
     );
 
-    res.profiled_containers_percentage = ObjectSerializer.serialize(
-      data.profiledContainersPercentage,
+    res.profiled_container_percentage = ObjectSerializer.serialize(
+      data.profiledContainerPercentage,
       "number",
       "double"
     );
 
-    res.profiled_containers_usage = ObjectSerializer.serialize(
-      data.profiledContainersUsage,
+    res.profiled_container_usage = ObjectSerializer.serialize(
+      data.profiledContainerUsage,
       "number",
       "double"
     );
 
-    res.profiled_hosts_percentage = ObjectSerializer.serialize(
-      data.profiledHostsPercentage,
+    res.profiled_host_percentage = ObjectSerializer.serialize(
+      data.profiledHostPercentage,
       "number",
       "double"
     );
 
-    res.profiled_hosts_usage = ObjectSerializer.serialize(
-      data.profiledHostsUsage,
+    res.profiled_host_usage = ObjectSerializer.serialize(
+      data.profiledHostUsage,
       "number",
       "double"
     );
