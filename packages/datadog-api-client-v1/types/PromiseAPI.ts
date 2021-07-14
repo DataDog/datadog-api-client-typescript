@@ -4,6 +4,7 @@ import { Configuration } from "../configuration";
 import { AWSAccount } from "../models/AWSAccount";
 import { AWSAccountAndLambdaRequest } from "../models/AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "../models/AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "../models/AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "../models/AWSAccountListResponse";
 import { AWSLogsAsyncResponse } from "../models/AWSLogsAsyncResponse";
 import { AWSLogsListResponse } from "../models/AWSLogsListResponse";
@@ -214,7 +215,7 @@ export class PromiseAWSIntegrationApi {
    * @param body AWS request object
    */
   public deleteAWSAccount(
-    body: AWSAccount,
+    body: AWSAccountDeleteRequest,
     options?: Configuration
   ): Promise<any> {
     const result = this.api.deleteAWSAccount(body, options);

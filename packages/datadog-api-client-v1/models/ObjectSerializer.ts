@@ -2,6 +2,7 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { AWSAccount } from "./AWSAccount";
 import { AWSAccountAndLambdaRequest } from "./AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "./AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "./AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "./AWSAccountListResponse";
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
 import { AWSLogsAsyncResponse } from "./AWSLogsAsyncResponse";
@@ -597,6 +598,7 @@ const typeMap: { [index: string]: any } = {
   AWSAccount: AWSAccount,
   AWSAccountAndLambdaRequest: AWSAccountAndLambdaRequest,
   AWSAccountCreateResponse: AWSAccountCreateResponse,
+  AWSAccountDeleteRequest: AWSAccountDeleteRequest,
   AWSAccountListResponse: AWSAccountListResponse,
   AWSLogsAsyncError: AWSLogsAsyncError,
   AWSLogsAsyncResponse: AWSLogsAsyncResponse,

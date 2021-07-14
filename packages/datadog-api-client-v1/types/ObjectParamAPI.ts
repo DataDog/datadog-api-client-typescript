@@ -4,6 +4,7 @@ import { Configuration } from "../configuration";
 import { AWSAccount } from "../models/AWSAccount";
 import { AWSAccountAndLambdaRequest } from "../models/AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "../models/AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "../models/AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "../models/AWSAccountListResponse";
 import { AWSLogsAsyncResponse } from "../models/AWSLogsAsyncResponse";
 import { AWSLogsListResponse } from "../models/AWSLogsListResponse";
@@ -185,10 +186,10 @@ export interface AWSIntegrationApiCreateNewAWSExternalIDRequest {
 export interface AWSIntegrationApiDeleteAWSAccountRequest {
   /**
    * AWS request object
-   * @type AWSAccount
+   * @type AWSAccountDeleteRequest
    * @memberof AWSIntegrationApideleteAWSAccount
    */
-  body: AWSAccount;
+  body: AWSAccountDeleteRequest;
 }
 
 export interface AWSIntegrationApiDeleteAWSTagFilterRequest {

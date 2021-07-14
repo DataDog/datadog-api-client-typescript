@@ -69,6 +69,7 @@ models/APIErrorResponse.ts
 models/AWSAccount.ts
 models/AWSAccountAndLambdaRequest.ts
 models/AWSAccountCreateResponse.ts
+models/AWSAccountDeleteRequest.ts
 models/AWSAccountListResponse.ts
 models/AWSLogsAsyncError.ts
 models/AWSLogsAsyncResponse.ts
