@@ -1,0 +1,8 @@
+/**
+ * Represents an error caused by unknown enum value or an unknown OneOf instance
+ */
+export class ParseException<T> extends Error {
+    public constructor(public type: string, public message: string) {
+        super(type + " : " + message);
+    }
+}

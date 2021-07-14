@@ -6,6 +6,7 @@ import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
 {{/tsImports}}
 import { HttpFile } from '../http/http{{extensionForDeno}}';
 import { ObjectSerializer } from './ObjectSerializer';
+import { ParseException } from './ParseException';
 
 {{#description}}
 /**
@@ -68,7 +69,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
       } else {
-          throw TypeError(`invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
+          throw new ParseException("enum", `invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
       }
         {{/isEnum}}
         {{/allowableValues}}
@@ -76,9 +77,16 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         try {
           res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
         } catch(error) {
-          if (res?.unparsedObject !== undefined) {
-            res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
+          if (error instanceof ParseException) {
+            if (error.type == "enum") {
+              throw new ParseException("oneOf", "unrecognized OneOf instance")
+            } else {
+              if (res?.unparsedObject !== undefined) {
+                res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
+              }
+            }
           }
+
         }
 
         {{/allowableValues}}
