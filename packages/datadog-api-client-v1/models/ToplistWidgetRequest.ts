@@ -23,6 +23,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class ToplistWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
+  "auditQuery"?: LogQueryDefinition;
   /**
    * List of conditional formats.
    */
@@ -56,6 +57,11 @@ export class ToplistWidgetRequest {
   } = {
     apmQuery: {
       baseName: "apm_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    auditQuery: {
+      baseName: "audit_query",
       type: "LogQueryDefinition",
       format: "",
     },
@@ -135,6 +141,12 @@ export class ToplistWidgetRequest {
 
     res.apmQuery = ObjectSerializer.deserialize(
       data.apm_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.auditQuery = ObjectSerializer.deserialize(
+      data.audit_query,
       "LogQueryDefinition",
       ""
     );
@@ -228,6 +240,12 @@ export class ToplistWidgetRequest {
     }
     res.apm_query = ObjectSerializer.serialize(
       data.apmQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.audit_query = ObjectSerializer.serialize(
+      data.auditQuery,
       "LogQueryDefinition",
       ""
     );
