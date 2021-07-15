@@ -111,11 +111,9 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         }
           {{/required}}
           {{#allowableValues}}
-        if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{name}}})) {
-            res.{{baseName}} = data.{{{name}}};
-        } else {
-            throw TypeError(`invalid enum value ${ data.{{{name}}} } for {{name}}`);
-        }
+
+          res.{{baseName}} = data.{{{name}}};
+
           {{/allowableValues}}
           {{^allowableValues}}
         res.{{{baseName}}} = ObjectSerializer.serialize(data.{{{name}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
