@@ -37,10 +37,13 @@ import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
+import { DashboardBulkActionData } from "./DashboardBulkActionData";
+import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
 import { DashboardList } from "./DashboardList";
 import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
 import { DashboardListListResponse } from "./DashboardListListResponse";
+import { DashboardRestoreRequest } from "./DashboardRestoreRequest";
 import { DashboardSummary } from "./DashboardSummary";
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
@@ -461,6 +464,7 @@ const enumsMap: Set<string> = new Set<string>([
   "ContentEncoding",
   "DashboardLayoutType",
   "DashboardReflowType",
+  "DashboardResourceType",
   "DistributionWidgetDefinitionType",
   "EventAlertType",
   "EventPriority",
@@ -633,10 +637,13 @@ const typeMap: { [index: string]: any } = {
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
   Creator: Creator,
   Dashboard: Dashboard,
+  DashboardBulkActionData: DashboardBulkActionData,
+  DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
   DashboardDeleteResponse: DashboardDeleteResponse,
   DashboardList: DashboardList,
   DashboardListDeleteResponse: DashboardListDeleteResponse,
   DashboardListListResponse: DashboardListListResponse,
+  DashboardRestoreRequest: DashboardRestoreRequest,
   DashboardSummary: DashboardSummary,
   DashboardSummaryDefinition: DashboardSummaryDefinition,
   DashboardTemplateVariable: DashboardTemplateVariable,
