@@ -24,6 +24,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class TimeseriesWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
+  "auditQuery"?: LogQueryDefinition;
   "displayType"?: WidgetDisplayType;
   "eventQuery"?: LogQueryDefinition;
   /**
@@ -62,6 +63,11 @@ export class TimeseriesWidgetRequest {
   } = {
     apmQuery: {
       baseName: "apm_query",
+      type: "LogQueryDefinition",
+      format: "",
+    },
+    auditQuery: {
+      baseName: "audit_query",
       type: "LogQueryDefinition",
       format: "",
     },
@@ -151,6 +157,12 @@ export class TimeseriesWidgetRequest {
 
     res.apmQuery = ObjectSerializer.deserialize(
       data.apm_query,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.auditQuery = ObjectSerializer.deserialize(
+      data.audit_query,
       "LogQueryDefinition",
       ""
     );
@@ -258,6 +270,12 @@ export class TimeseriesWidgetRequest {
     }
     res.apm_query = ObjectSerializer.serialize(
       data.apmQuery,
+      "LogQueryDefinition",
+      ""
+    );
+
+    res.audit_query = ObjectSerializer.serialize(
+      data.auditQuery,
       "LogQueryDefinition",
       ""
     );
