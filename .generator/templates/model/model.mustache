@@ -65,28 +65,22 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       }
         {{/required}}
         {{#allowableValues}}
-        {{#isEnum}}
       if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
       } else {
+          console.error(`invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
           throw new ParseException("enum", `invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
       }
-        {{/isEnum}}
         {{/allowableValues}}
         {{^allowableValues}}
         try {
           res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
         } catch(error) {
-          if (error instanceof ParseException) {
-            if (error.type == "enum") {
-              throw new ParseException("oneOf", "unrecognized OneOf instance")
-            } else {
-              if (res?.unparsedObject !== undefined) {
-                res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
-              }
+          if (error instanceof ParseException && error.type == "oneOf") {
+            if (res?.unparsedObject !== undefined) {
+              res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
             }
           }
-
         }
 
         {{/allowableValues}}
@@ -111,9 +105,11 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         }
           {{/required}}
           {{#allowableValues}}
-
-          res.{{baseName}} = data.{{{name}}};
-
+        if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{name}}})) {
+            res.{{baseName}} = data.{{{name}}};
+        } else {
+            throw TypeError(`invalid enum value ${ data.{{{name}}} } for {{name}}`);
+        }
           {{/allowableValues}}
           {{^allowableValues}}
         res.{{{baseName}}} = ObjectSerializer.serialize(data.{{{name}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")

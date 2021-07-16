@@ -3,6 +3,7 @@
 import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName}} {{/isEnum}} {{/vars}}{{/hasEnums}} } from './{{{ classFilename }}}{{extensionForDeno}}';
 {{/model}}
 {{/models}}
+import { ParseException } from './ParseException';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -21,7 +22,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0
 }
 
-                 
+
 let enumsMap: Set<string> = new Set<string>([
     {{#models}}
         {{#model}}
@@ -197,14 +198,18 @@ export class ObjectSerializer {
                     try {
                         oneOfs.push(ObjectSerializer.deserialize(data, oneOf, format))
                     } catch (e) {
-                        console.debug(`could not deserialize ${oneOf} (${e})`)
+                        if (e instanceof ParseException) {
+                            if (e.type == "enum") {
+                                continue;
+                            }
+                        }
                     }
                 }
                 if (oneOfs.length > 1) {
                     throw new TypeError(`${data} matches multiple types from ${oneOfMap[type]} ${oneOfs}`);
                 }
                 if (oneOfs.length == 0) {
-                    throw new TypeError(`${data} doesn't match any type from ${oneOfMap[type]} ${oneOfs}`);
+                    throw new ParseException("oneOf", "Unrecognized oneOf");
                 }
                 return oneOfs[0];
             }
