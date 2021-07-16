@@ -28,10 +28,12 @@ import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorRe
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { Dashboard } from "../models/Dashboard";
+import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardList } from "../models/DashboardList";
 import { DashboardListDeleteResponse } from "../models/DashboardListDeleteResponse";
 import { DashboardListListResponse } from "../models/DashboardListListResponse";
+import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
 import { DeletedMonitor } from "../models/DeletedMonitor";
 import { Downtime } from "../models/Downtime";
@@ -1526,6 +1528,49 @@ export class ObservableDashboardsApi {
   }
 
   /**
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   * @param body Delete dashboards request body.
+   */
+  public deleteDashboards(
+    body: DashboardBulkDeleteRequest,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteDashboards(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteDashboards(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
    * Get a dashboard using the specified ID.
    * Get a dashboard
    * @param dashboardId The ID of the dashboard.
@@ -1605,6 +1650,49 @@ export class ObservableDashboardsApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.listDashboards(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   * @param body Restore dashboards request body.
+   */
+  public restoreDashboards(
+    body: DashboardRestoreRequest,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.restoreDashboards(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.restoreDashboards(rsp)
             )
           );
         })

@@ -27,10 +27,12 @@ import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorRe
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { Dashboard } from "../models/Dashboard";
+import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardList } from "../models/DashboardList";
 import { DashboardListDeleteResponse } from "../models/DashboardListDeleteResponse";
 import { DashboardListListResponse } from "../models/DashboardListListResponse";
+import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
 import { DeletedMonitor } from "../models/DeletedMonitor";
 import { Downtime } from "../models/Downtime";
@@ -844,6 +846,15 @@ export interface DashboardsApiDeleteDashboardRequest {
   dashboardId: string;
 }
 
+export interface DashboardsApiDeleteDashboardsRequest {
+  /**
+   * Delete dashboards request body.
+   * @type DashboardBulkDeleteRequest
+   * @memberof DashboardsApideleteDashboards
+   */
+  body: DashboardBulkDeleteRequest;
+}
+
 export interface DashboardsApiGetDashboardRequest {
   /**
    * The ID of the dashboard.
@@ -860,6 +871,15 @@ export interface DashboardsApiListDashboardsRequest {
    * @memberof DashboardsApilistDashboards
    */
   filterShared?: boolean;
+}
+
+export interface DashboardsApiRestoreDashboardsRequest {
+  /**
+   * Restore dashboards request body.
+   * @type DashboardRestoreRequest
+   * @memberof DashboardsApirestoreDashboards
+   */
+  body: DashboardRestoreRequest;
 }
 
 export interface DashboardsApiUpdateDashboardRequest {
@@ -917,6 +937,18 @@ export class ObjectDashboardsApi {
   }
 
   /**
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   * @param param the request object
+   */
+  public deleteDashboards(
+    param: DashboardsApiDeleteDashboardsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api.deleteDashboards(param.body, options).toPromise();
+  }
+
+  /**
    * Get a dashboard using the specified ID.
    * Get a dashboard
    * @param param the request object
@@ -938,6 +970,18 @@ export class ObjectDashboardsApi {
     options?: Configuration
   ): Promise<DashboardSummary> {
     return this.api.listDashboards(param.filterShared, options).toPromise();
+  }
+
+  /**
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   * @param param the request object
+   */
+  public restoreDashboards(
+    param: DashboardsApiRestoreDashboardsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api.restoreDashboards(param.body, options).toPromise();
   }
 
   /**

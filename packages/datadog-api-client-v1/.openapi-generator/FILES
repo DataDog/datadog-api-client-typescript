@@ -112,12 +112,16 @@ models/CheckStatusWidgetDefinitionType.ts
 models/ContentEncoding.ts
 models/Creator.ts
 models/Dashboard.ts
+models/DashboardBulkActionData.ts
+models/DashboardBulkDeleteRequest.ts
 models/DashboardDeleteResponse.ts
 models/DashboardLayoutType.ts
 models/DashboardList.ts
 models/DashboardListDeleteResponse.ts
 models/DashboardListListResponse.ts
 models/DashboardReflowType.ts
+models/DashboardResourceType.ts
+models/DashboardRestoreRequest.ts
 models/DashboardSummary.ts
 models/DashboardSummaryDefinition.ts
 models/DashboardTemplateVariable.ts

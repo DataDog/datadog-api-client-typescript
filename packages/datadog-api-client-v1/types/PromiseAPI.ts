@@ -27,10 +27,12 @@ import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorRe
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { Dashboard } from "../models/Dashboard";
+import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardList } from "../models/DashboardList";
 import { DashboardListDeleteResponse } from "../models/DashboardListDeleteResponse";
 import { DashboardListListResponse } from "../models/DashboardListListResponse";
+import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
 import { DeletedMonitor } from "../models/DeletedMonitor";
 import { Downtime } from "../models/Downtime";
@@ -669,6 +671,19 @@ export class PromiseDashboardsApi {
   }
 
   /**
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   * @param body Delete dashboards request body.
+   */
+  public deleteDashboards(
+    body: DashboardBulkDeleteRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const result = this.api.deleteDashboards(body, options);
+    return result.toPromise();
+  }
+
+  /**
    * Get a dashboard using the specified ID.
    * Get a dashboard
    * @param dashboardId The ID of the dashboard.
@@ -691,6 +706,19 @@ export class PromiseDashboardsApi {
     options?: Configuration
   ): Promise<DashboardSummary> {
     const result = this.api.listDashboards(filterShared, options);
+    return result.toPromise();
+  }
+
+  /**
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   * @param body Restore dashboards request body.
+   */
+  public restoreDashboards(
+    body: DashboardRestoreRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const result = this.api.restoreDashboards(body, options);
     return result.toPromise();
   }
 

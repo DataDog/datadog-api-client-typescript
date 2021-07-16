@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createDashboard**](DashboardsApi.md#createDashboard) | **POST** /api/v1/dashboard | Create a new dashboard
 [**deleteDashboard**](DashboardsApi.md#deleteDashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard
+[**deleteDashboards**](DashboardsApi.md#deleteDashboards) | **DELETE** /api/v1/dashboard | Delete dashboards
 [**getDashboard**](DashboardsApi.md#getDashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard
 [**listDashboards**](DashboardsApi.md#listDashboards) | **GET** /api/v1/dashboard | Get all dashboards
+[**restoreDashboards**](DashboardsApi.md#restoreDashboards) | **PATCH** /api/v1/dashboard | Restore deleted dashboards
 [**updateDashboard**](DashboardsApi.md#updateDashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard
 
 
@@ -177,6 +179,70 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+## **deleteDashboards**
+> void deleteDashboards(body)
+
+Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+
+### Example
+
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.DashboardsApi(configuration);
+
+let params:v1.DashboardsApiDeleteDashboardsRequest = {
+  // DashboardBulkDeleteRequest | Delete dashboards request body.
+  body: {
+    data: [
+      {
+        id: "123-abc-456",
+        type: "dashboard",
+      },
+    ],
+  },
+};
+
+apiInstance.deleteDashboards(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **DashboardBulkDeleteRequest**| Delete dashboards request body. |
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+**404** | Dashboards Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 ## **getDashboard**
 > Dashboard getDashboard()
 
@@ -288,6 +354,70 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **403** | Authentication Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **restoreDashboards**
+> void restoreDashboards(body)
+
+Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+
+### Example
+
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.DashboardsApi(configuration);
+
+let params:v1.DashboardsApiRestoreDashboardsRequest = {
+  // DashboardRestoreRequest | Restore dashboards request body.
+  body: {
+    data: [
+      {
+        id: "123-abc-456",
+        type: "dashboard",
+      },
+    ],
+  },
+};
+
+apiInstance.restoreDashboards(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **DashboardRestoreRequest**| Restore dashboards request body. |
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+**404** | Dashboards Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
