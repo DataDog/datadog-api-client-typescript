@@ -24,7 +24,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
 {{/vars}}
 
-    'unparsedObject'?: { [property: string] : any; } = {};
+    'unparsedObject'?: { [property: string] : any; };
 
     {{#discriminator}}
     static readonly discriminator: string | undefined = "{{discriminatorName}}";
@@ -65,6 +65,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       }
         {{/required}}
         {{#allowableValues}}
+        {{#isEnum}}
       if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
       } else {
@@ -78,6 +79,9 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         } catch(error) {
           if (error instanceof ParseException && error.type == "oneOf") {
             if (res?.unparsedObject !== undefined) {
+              res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
+            } else {
+              res.unparsedObject = {};
               res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
             }
           }
