@@ -95,6 +95,8 @@ export class ObjectSerializer {
     public static serialize(data: any, type: string, format: string) {
         if (data == undefined) {
             return data;
+        } else if (data.unparsedObject !== undefined) {
+            return JSON.stringify(data.unparsedObject);
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
