@@ -117,6 +117,9 @@ function fixKeys(key: string, value: any): void {
         value[k.toAttributeName()] = value[k];
         delete value[k];
       }
+      if (k === "unparsedObject" && Object.keys(value[k]).length === 0) {
+        delete value[k];
+      }
     });
   }
   return value;
