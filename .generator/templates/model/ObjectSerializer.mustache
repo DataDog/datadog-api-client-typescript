@@ -3,7 +3,6 @@
 import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName}} {{/isEnum}} {{/vars}}{{/hasEnums}} } from './{{{ classFilename }}}{{extensionForDeno}}';
 {{/model}}
 {{/models}}
-import { ParseException } from './ParseException';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -288,5 +287,15 @@ export class ObjectSerializer {
         }
 
         throw new Error("The mediaType " + mediaType + " is not supported by ObjectSerializer.parse.");
+    }
+}
+
+
+/**
+ * Represents an error caused by unknown enum value or an unknown OneOf instance
+ */
+export class ParseException extends Error {
+    public constructor(public type: string, public message: string) {
+        super(type + " : " + message);
     }
 }
