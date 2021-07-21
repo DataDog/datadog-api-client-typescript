@@ -154,7 +154,7 @@ export class ObjectSerializer {
             }
 
             if (!typeMap[type]) { // dont know the type
-                throw new TypeError(`unknown type '${type}'`);
+                return JSON.stringify(data);
             }
 
             return typeMap[type].serialize(data);
