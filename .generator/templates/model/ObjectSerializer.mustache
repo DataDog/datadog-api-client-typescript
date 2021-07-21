@@ -206,10 +206,7 @@ export class ObjectSerializer {
                         }
                     }
                 }
-                if (oneOfs.length > 1) {
-                    throw new TypeError(`${data} matches multiple types from ${oneOfMap[type]} ${oneOfs}`);
-                }
-                if (oneOfs.length == 0) {
+                if (oneOfs.length != 1) {
                     throw new ParseException("oneOf", "Unrecognized oneOf");
                 }
                 return oneOfs[0];
