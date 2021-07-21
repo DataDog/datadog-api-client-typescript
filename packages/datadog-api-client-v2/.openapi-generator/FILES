@@ -231,6 +231,7 @@ models/MetricsAndMetricTagConfigurationsResponse.ts
 models/ObjectSerializer.ts
 models/Organization.ts
 models/OrganizationAttributes.ts
+models/OrganizationsResponse.ts
 models/OrganizationsType.ts
 models/Pagination.ts
 models/PartialAPIKey.ts

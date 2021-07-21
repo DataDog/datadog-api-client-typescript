@@ -50,6 +50,7 @@ import { MetricTagConfigurationResponse } from "../models/MetricTagConfiguration
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
+import { OrganizationsResponse } from "../models/OrganizationsResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
@@ -2914,7 +2915,7 @@ export class ObjectUsersApi {
   public listUserOrganizations(
     param: UsersApiListUserOrganizationsRequest,
     options?: Configuration
-  ): Promise<UserResponse> {
+  ): Promise<OrganizationsResponse> {
     return this.api.listUserOrganizations(param.userId, options).toPromise();
   }
 

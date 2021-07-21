@@ -50,6 +50,7 @@ import { MetricTagConfigurationResponse } from "../models/MetricTagConfiguration
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
+import { OrganizationsResponse } from "../models/OrganizationsResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
@@ -1765,7 +1766,7 @@ export class PromiseUsersApi {
   public listUserOrganizations(
     userId: string,
     options?: Configuration
-  ): Promise<UserResponse> {
+  ): Promise<OrganizationsResponse> {
     const result = this.api.listUserOrganizations(userId, options);
     return result.toPromise();
   }

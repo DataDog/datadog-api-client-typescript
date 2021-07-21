@@ -52,6 +52,7 @@ import { MetricTagConfigurationResponse } from "../models/MetricTagConfiguration
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
+import { OrganizationsResponse } from "../models/OrganizationsResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
@@ -4313,7 +4314,7 @@ export class ObservableUsersApi {
   public listUserOrganizations(
     userId: string,
     options?: Configuration
-  ): Observable<UserResponse> {
+  ): Observable<OrganizationsResponse> {
     const requestContextPromise = this.requestFactory.listUserOrganizations(
       userId,
       options

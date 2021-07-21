@@ -7,6 +7,7 @@ import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { OrganizationsResponse } from "../models/OrganizationsResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
 import { UserCreateRequest } from "../models/UserCreateRequest";
@@ -793,16 +794,16 @@ export class UsersApiResponseProcessor {
    */
   public async listUserOrganizations(
     response: ResponseContext
-  ): Promise<UserResponse> {
+  ): Promise<OrganizationsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UserResponse = ObjectSerializer.deserialize(
+      const body: OrganizationsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserResponse",
+        "OrganizationsResponse",
         ""
-      ) as UserResponse;
+      ) as OrganizationsResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -824,11 +825,11 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserResponse = ObjectSerializer.deserialize(
+      const body: OrganizationsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserResponse",
+        "OrganizationsResponse",
         ""
-      ) as UserResponse;
+      ) as OrganizationsResponse;
       return body;
     }
 

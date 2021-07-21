@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listUserOrganizations**
-> UserResponse listUserOrganizations()
+> OrganizationsResponse listUserOrganizations()
 
 Get a user organization. Returns the user information and all organizations
 joined by this user.
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**UserResponse**
+**OrganizationsResponse**
 
 ### Authorization
 

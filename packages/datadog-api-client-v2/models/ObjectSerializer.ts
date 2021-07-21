@@ -147,6 +147,7 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
+import { OrganizationsResponse } from "./OrganizationsResponse";
 import { Pagination } from "./Pagination";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
@@ -471,6 +472,7 @@ const typeMap: { [index: string]: any } = {
   MetricsAndMetricTagConfigurationsResponse: MetricsAndMetricTagConfigurationsResponse,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
+  OrganizationsResponse: OrganizationsResponse,
   Pagination: Pagination,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
