@@ -8,6 +8,7 @@ import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
 import fs from "fs";
 import path from "path";
+import { ObjectSerializer } from "../../packages/datadog-api-client-v1/models/ObjectSerializer";
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
@@ -125,7 +126,8 @@ Then(
 Then(
   "the response {string} has the same value as {string}",
   function (this: World, responsePath: string, fixturePath: string) {
-    expect(pathLookup(this.response, responsePath)).to.equal(
+    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
+    expect(pathLookup(response, responsePath)).to.equal(
       pathLookup(this.fixtures, fixturePath)
     );
   }
@@ -134,7 +136,8 @@ Then(
 Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
-    expect(pathLookup(this.response, responsePath)).to.deep.equal(
+    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
+    expect(pathLookup(response, responsePath)).to.deep.equal(
       JSON.parse(value.templated(this.fixtures), fixKeys)
     );
   }
@@ -143,14 +146,16 @@ Then(
 Then(
   "the response {string} is false",
   function (this: World, responsePath: string) {
-    expect(pathLookup(this.response, responsePath)).to.equal(false);
+    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
+    expect(pathLookup(response, responsePath)).to.equal(false);
   }
 );
 
 Then(
   "the response {string} has length {int}",
   function (this: World, responsePath: string, fixtureLength: number) {
-    expect(pathLookup(this.response, responsePath).length).to.equal(
+    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
+    expect(pathLookup(response, responsePath).length).to.equal(
       fixtureLength
     );
   }
