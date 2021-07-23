@@ -109,6 +109,10 @@ import { IdpFormData } from "./IdpFormData";
 import { IdpResponse } from "./IdpResponse";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { ListStreamColumn } from "./ListStreamColumn";
+import { ListStreamQuery } from "./ListStreamQuery";
+import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
+import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
 import { Log } from "./Log";
 import { LogContent } from "./LogContent";
 import { LogQueryDefinition } from "./LogQueryDefinition";
@@ -484,6 +488,10 @@ const enumsMap: Set<string> = new Set<string>([
   "HostMapWidgetDefinitionType",
   "IFrameWidgetDefinitionType",
   "ImageWidgetDefinitionType",
+  "ListStreamColumnWidth",
+  "ListStreamResponseFormat",
+  "ListStreamSource",
+  "ListStreamWidgetDefinitionType",
   "LogStreamWidgetDefinitionType",
   "LogsArithmeticProcessorType",
   "LogsAttributeRemapperType",
@@ -709,6 +717,10 @@ const typeMap: { [index: string]: any } = {
   IdpResponse: IdpResponse,
   ImageWidgetDefinition: ImageWidgetDefinition,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  ListStreamColumn: ListStreamColumn,
+  ListStreamQuery: ListStreamQuery,
+  ListStreamWidgetDefinition: ListStreamWidgetDefinition,
+  ListStreamWidgetRequest: ListStreamWidgetRequest,
   Log: Log,
   LogContent: LogContent,
   LogQueryDefinition: LogQueryDefinition,
@@ -1110,6 +1122,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "HostMapWidgetDefinition",
     "IFrameWidgetDefinition",
     "ImageWidgetDefinition",
+    "ListStreamWidgetDefinition",
     "LogStreamWidgetDefinition",
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",

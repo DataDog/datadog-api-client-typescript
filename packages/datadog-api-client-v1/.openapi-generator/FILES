@@ -207,6 +207,14 @@ models/IdpResponse.ts
 models/ImageWidgetDefinition.ts
 models/ImageWidgetDefinitionType.ts
 models/IntakePayloadAccepted.ts
+models/ListStreamColumn.ts
+models/ListStreamColumnWidth.ts
+models/ListStreamQuery.ts
+models/ListStreamResponseFormat.ts
+models/ListStreamSource.ts
+models/ListStreamWidgetDefinition.ts
+models/ListStreamWidgetDefinitionType.ts
+models/ListStreamWidgetRequest.ts
 models/Log.ts
 models/LogContent.ts
 models/LogQueryDefinition.ts
