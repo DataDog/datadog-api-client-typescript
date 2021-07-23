@@ -5,6 +5,7 @@ import { mergeMap, map } from "../rxjsStub";
 import { AWSAccount } from "../models/AWSAccount";
 import { AWSAccountAndLambdaRequest } from "../models/AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "../models/AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "../models/AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "../models/AWSAccountListResponse";
 import { AWSLogsAsyncResponse } from "../models/AWSLogsAsyncResponse";
 import { AWSLogsListResponse } from "../models/AWSLogsListResponse";
@@ -27,10 +28,12 @@ import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorRe
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { Dashboard } from "../models/Dashboard";
+import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardList } from "../models/DashboardList";
 import { DashboardListDeleteResponse } from "../models/DashboardListDeleteResponse";
 import { DashboardListListResponse } from "../models/DashboardListListResponse";
+import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
 import { DeletedMonitor } from "../models/DeletedMonitor";
 import { Downtime } from "../models/Downtime";
@@ -145,8 +148,6 @@ import { UsageSyntheticsBrowserResponse } from "../models/UsageSyntheticsBrowser
 import { UsageSyntheticsResponse } from "../models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
-import { UsageTraceResponse } from "../models/UsageTraceResponse";
-import { UsageTracingWithoutLimitsResponse } from "../models/UsageTracingWithoutLimitsResponse";
 import { User } from "../models/User";
 import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
@@ -308,7 +309,7 @@ export class ObservableAWSIntegrationApi {
    * @param body AWS request object
    */
   public deleteAWSAccount(
-    body: AWSAccount,
+    body: AWSAccountDeleteRequest,
     options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteAWSAccount(
@@ -1527,6 +1528,49 @@ export class ObservableDashboardsApi {
   }
 
   /**
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   * @param body Delete dashboards request body.
+   */
+  public deleteDashboards(
+    body: DashboardBulkDeleteRequest,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteDashboards(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteDashboards(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
    * Get a dashboard using the specified ID.
    * Get a dashboard
    * @param dashboardId The ID of the dashboard.
@@ -1606,6 +1650,49 @@ export class ObservableDashboardsApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.listDashboards(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   * @param body Restore dashboards request body.
+   */
+  public restoreDashboards(
+    body: DashboardRestoreRequest,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.restoreDashboards(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.restoreDashboards(rsp)
             )
           );
         })
@@ -7901,52 +7988,6 @@ export class ObservableUsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-   * Get hourly usage for tracing without limits
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
-  public getTracingWithoutLimits(
-    startHr: Date,
-    endHr?: Date,
-    options?: Configuration
-  ): Observable<UsageTracingWithoutLimitsResponse> {
-    const requestContextPromise = this.requestFactory.getTracingWithoutLimits(
-      startHr,
-      endHr,
-      options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.getTracingWithoutLimits(rsp)
-            )
-          );
-        })
-      );
-  }
-
-  /**
    * Get hourly usage for analyzed logs (Security Monitoring).
    * Get hourly usage for analyzed logs
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -9114,52 +9155,6 @@ export class ObservableUsageMeteringApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.getUsageTopAvgMetrics(rsp)
-            )
-          );
-        })
-      );
-  }
-
-  /**
-   * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-   * Get hourly usage for Trace Search
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
-  public getUsageTrace(
-    startHr: Date,
-    endHr?: Date,
-    options?: Configuration
-  ): Observable<UsageTraceResponse> {
-    const requestContextPromise = this.requestFactory.getUsageTrace(
-      startHr,
-      endHr,
-      options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.getUsageTrace(rsp)
             )
           );
         })

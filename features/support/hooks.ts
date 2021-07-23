@@ -15,6 +15,13 @@ Before({ tags: "@integration-only" }, function () {
   }
 });
 
+Before({ tags: "@replay-only" }, function () {
+  if ("RECORD" in process.env && process.env["RECORD"] != "false") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return "skipped" as any;
+  }
+});
+
 Before(function (
   this: World,
   { gherkinDocument, pickle }: ITestCaseHookParameter

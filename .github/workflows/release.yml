@@ -11,6 +11,6 @@ jobs:
         with:
           node-version: '12.x'
       - run: yarn
-      - run: yarn publish
+      - run: yarn publish --tag=latest
         env:
           NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}

@@ -14,10 +14,12 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof NETWORK
   | typeof RUM
   | typeof SECURITY_SIGNALS
-  | typeof PROFILES;
+  | typeof PROFILES
+  | typeof AUDIT;
 export const LOGS = "logs";
 export const SPANS = "spans";
 export const NETWORK = "network";
 export const RUM = "rum";
 export const SECURITY_SIGNALS = "security_signals";
 export const PROFILES = "profiles";
+export const AUDIT = "audit";

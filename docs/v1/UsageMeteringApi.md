@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
 [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
 [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
-[**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 [**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
@@ -36,7 +35,6 @@ Method | HTTP request | Description
 [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
 [**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
-[**getUsageTrace**](UsageMeteringApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 
 
 ## **getDailyCustomReports**
@@ -395,67 +393,6 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **403** | Forbidden - User is not authorized |  -  |
 **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-## **getTracingWithoutLimits**
-> UsageTracingWithoutLimitsResponse getTracingWithoutLimits()
-
-Get hourly usage for tracing without limits.
-
-**Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-
-### Example
-
-
-```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
-
-const configuration = v1.createConfiguration();
-const apiInstance = new v1.UsageMeteringApi(configuration);
-
-let params:v1.UsageMeteringApiGetTracingWithoutLimitsRequest = {
-  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
-  startHr: new Date('1970-01-01T00:00:00.00Z'),
-  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
-  endHr: new Date('1970-01-01T00:00:00.00Z'),
-};
-
-apiInstance.getTracingWithoutLimits(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **startHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. | defaults to undefined
- **endHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | (optional) defaults to undefined
-
-
-### Return type
-
-**UsageTracingWithoutLimitsResponse**
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json;datetime-format=rfc3339
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden - User is not authorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -1941,67 +1878,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **UsageTopAvgMetricsResponse**
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json;datetime-format=rfc3339
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden - User is not authorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-## **getUsageTrace**
-> UsageTraceResponse getUsageTrace()
-
-Get hourly usage for trace search.
-
-**Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-
-### Example
-
-
-```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
-
-const configuration = v1.createConfiguration();
-const apiInstance = new v1.UsageMeteringApi(configuration);
-
-let params:v1.UsageMeteringApiGetUsageTraceRequest = {
-  // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-  startHr: new Date('1970-01-01T00:00:00.00Z'),
-  // Date | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. (optional)
-  endHr: new Date('1970-01-01T00:00:00.00Z'),
-};
-
-apiInstance.getUsageTrace(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **startHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. | defaults to undefined
- **endHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | (optional) defaults to undefined
-
-
-### Return type
-
-**UsageTraceResponse**
 
 ### Authorization
 

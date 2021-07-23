@@ -9,11 +9,14 @@
  */
 
 import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
+import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -39,6 +42,10 @@ export class TableWidgetRequest {
   "conditionalFormats"?: Array<WidgetConditionalFormat>;
   "eventQuery"?: LogQueryDefinition;
   /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   */
+  "formulas"?: Array<WidgetFormula>;
+  /**
    * For metric queries, the number of lines to show in the table. Only one request should have this property.
    */
   "limit"?: number;
@@ -51,6 +58,11 @@ export class TableWidgetRequest {
    * Query definition.
    */
   "q"?: string;
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
@@ -94,6 +106,11 @@ export class TableWidgetRequest {
       type: "LogQueryDefinition",
       format: "",
     },
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+      format: "",
+    },
     limit: {
       baseName: "limit",
       type: "number",
@@ -127,6 +144,16 @@ export class TableWidgetRequest {
     q: {
       baseName: "q",
       type: "string",
+      format: "",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+      format: "",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
       format: "",
     },
     rumQuery: {
@@ -188,6 +215,12 @@ export class TableWidgetRequest {
       ""
     );
 
+    res.formulas = ObjectSerializer.deserialize(
+      data.formulas,
+      "Array<WidgetFormula>",
+      ""
+    );
+
     res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
 
     res.logQuery = ObjectSerializer.deserialize(
@@ -221,6 +254,20 @@ export class TableWidgetRequest {
     );
 
     res.q = ObjectSerializer.deserialize(data.q, "string", "");
+
+    res.queries = ObjectSerializer.deserialize(
+      data.queries,
+      "Array<FormulaAndFunctionQueryDefinition>",
+      ""
+    );
+
+    if (["timeseries", "scalar", undefined].includes(data.response_format)) {
+      res.responseFormat = data.response_format;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.response_format} for response_format`
+      );
+    }
 
     res.rumQuery = ObjectSerializer.deserialize(
       data.rum_query,
@@ -285,6 +332,12 @@ export class TableWidgetRequest {
       ""
     );
 
+    res.formulas = ObjectSerializer.serialize(
+      data.formulas,
+      "Array<WidgetFormula>",
+      ""
+    );
+
     res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
 
     res.log_query = ObjectSerializer.serialize(
@@ -318,6 +371,20 @@ export class TableWidgetRequest {
     );
 
     res.q = ObjectSerializer.serialize(data.q, "string", "");
+
+    res.queries = ObjectSerializer.serialize(
+      data.queries,
+      "Array<FormulaAndFunctionQueryDefinition>",
+      ""
+    );
+
+    if (["timeseries", "scalar", undefined].includes(data.responseFormat)) {
+      res.response_format = data.responseFormat;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.responseFormat} for responseFormat`
+      );
+    }
 
     res.rum_query = ObjectSerializer.serialize(
       data.rumQuery,

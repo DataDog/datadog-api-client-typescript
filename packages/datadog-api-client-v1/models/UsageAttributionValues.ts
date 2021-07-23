@@ -48,6 +48,22 @@ export class UsageAttributionValues {
    */
   "containerUsage"?: number;
   /**
+   * The percentage of Cloud Security Posture Management container usage by tag(s)
+   */
+  "cspmContainerPercentage"?: number;
+  /**
+   * The Cloud Security Posture Management container usage by tag(s)
+   */
+  "cspmContainerUsage"?: number;
+  /**
+   * The percentage of Cloud Security Posture Management host usage by tag(s)
+   */
+  "cspmHostPercentage"?: number;
+  /**
+   * The Cloud Security Posture Management host usage by tag(s)
+   */
+  "cspmHostUsage"?: number;
+  /**
    * The percentage of custom metrics usage by tag(s).
    */
   "customTimeseriesPercentage"?: number;
@@ -178,6 +194,26 @@ export class UsageAttributionValues {
     },
     containerUsage: {
       baseName: "container_usage",
+      type: "number",
+      format: "double",
+    },
+    cspmContainerPercentage: {
+      baseName: "cspm_container_percentage",
+      type: "number",
+      format: "double",
+    },
+    cspmContainerUsage: {
+      baseName: "cspm_container_usage",
+      type: "number",
+      format: "double",
+    },
+    cspmHostPercentage: {
+      baseName: "cspm_host_percentage",
+      type: "number",
+      format: "double",
+    },
+    cspmHostUsage: {
+      baseName: "cspm_host_usage",
       type: "number",
       format: "double",
     },
@@ -344,6 +380,30 @@ export class UsageAttributionValues {
 
     res.containerUsage = ObjectSerializer.deserialize(
       data.container_usage,
+      "number",
+      "double"
+    );
+
+    res.cspmContainerPercentage = ObjectSerializer.deserialize(
+      data.cspm_container_percentage,
+      "number",
+      "double"
+    );
+
+    res.cspmContainerUsage = ObjectSerializer.deserialize(
+      data.cspm_container_usage,
+      "number",
+      "double"
+    );
+
+    res.cspmHostPercentage = ObjectSerializer.deserialize(
+      data.cspm_host_percentage,
+      "number",
+      "double"
+    );
+
+    res.cspmHostUsage = ObjectSerializer.deserialize(
+      data.cspm_host_usage,
       "number",
       "double"
     );
@@ -535,6 +595,30 @@ export class UsageAttributionValues {
 
     res.container_usage = ObjectSerializer.serialize(
       data.containerUsage,
+      "number",
+      "double"
+    );
+
+    res.cspm_container_percentage = ObjectSerializer.serialize(
+      data.cspmContainerPercentage,
+      "number",
+      "double"
+    );
+
+    res.cspm_container_usage = ObjectSerializer.serialize(
+      data.cspmContainerUsage,
+      "number",
+      "double"
+    );
+
+    res.cspm_host_percentage = ObjectSerializer.serialize(
+      data.cspmHostPercentage,
+      "number",
+      "double"
+    );
+
+    res.cspm_host_usage = ObjectSerializer.serialize(
+      data.cspmHostUsage,
       "number",
       "double"
     );

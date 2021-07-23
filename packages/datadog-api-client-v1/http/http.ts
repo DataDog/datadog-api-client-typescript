@@ -1,4 +1,4 @@
-import { userAgent } from "../../../version";
+import { userAgent } from "../../../userAgent";
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
 import URLParse from "url-parse";
