@@ -75,14 +75,12 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         try {
           res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
         } catch(error) {
-          if (error instanceof ParseException && error.type == "oneOf") {
             if (res?.unparsedObject !== undefined) {
               res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
             } else {
               res.unparsedObject = {};
               res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
             }
-          }
         }
 
         {{/allowableValues}}
