@@ -4,6 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getChargebackSummary**](UsageMeteringApi.md#getChargebackSummary) | **GET** /api/v1/usage/chargeback-summary | Get cost by sub-org
 [**getDailyCustomReports**](UsageMeteringApi.md#getDailyCustomReports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports
 [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management
 [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans
@@ -36,6 +37,65 @@ Method | HTTP request | Description
 [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
 [**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
 
+
+## **getChargebackSummary**
+> ChargebackSummaryResponse getChargebackSummary()
+
+Get usage cost per product for each sub-org across your multi-org account.
+
+### Example
+
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.UsageMeteringApi(configuration);
+
+let params:v1.UsageMeteringApiGetChargebackSummaryRequest = {
+  // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+  startMonth: new Date('1970-01-01T00:00:00.00Z'),
+  // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month. (optional)
+  endMonth: new Date('1970-01-01T00:00:00.00Z'),
+};
+
+apiInstance.getChargebackSummary(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startMonth** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. | defaults to undefined
+ **endMonth** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | (optional) defaults to undefined
+
+
+### Return type
+
+**ChargebackSummaryResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;datetime-format=rfc3339
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden - User is not authorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getDailyCustomReports**
 > UsageCustomReportsResponse getDailyCustomReports()

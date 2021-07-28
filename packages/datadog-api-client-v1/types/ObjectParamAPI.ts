@@ -23,6 +23,7 @@ import { AuthenticationValidationResponse } from "../models/AuthenticationValida
 import { AzureAccount } from "../models/AzureAccount";
 import { CancelDowntimesByScopeRequest } from "../models/CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "../models/CanceledDowntimesIds";
+import { ChargebackSummaryResponse } from "../models/ChargebackSummaryResponse";
 import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
@@ -4677,6 +4678,21 @@ import {
   UsageMeteringApiResponseProcessor,
 } from "../apis/UsageMeteringApi";
 
+export interface UsageMeteringApiGetChargebackSummaryRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @type Date
+   * @memberof UsageMeteringApigetChargebackSummary
+   */
+  startMonth: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * @type Date
+   * @memberof UsageMeteringApigetChargebackSummary
+   */
+  endMonth?: Date;
+}
+
 export interface UsageMeteringApiGetDailyCustomReportsRequest {
   /**
    * The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
@@ -5215,6 +5231,20 @@ export class ObjectUsageMeteringApi {
       requestFactory,
       responseProcessor
     );
+  }
+
+  /**
+   * Get usage cost per product for each sub-org across your multi-org account.
+   * Get cost by sub-org
+   * @param param the request object
+   */
+  public getChargebackSummary(
+    param: UsageMeteringApiGetChargebackSummaryRequest,
+    options?: Configuration
+  ): Promise<ChargebackSummaryResponse> {
+    return this.api
+      .getChargebackSummary(param.startMonth, param.endMonth, options)
+      .toPromise();
   }
 
   /**

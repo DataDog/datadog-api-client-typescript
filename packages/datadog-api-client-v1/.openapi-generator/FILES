@@ -103,6 +103,9 @@ models/CanceledDowntimesIds.ts
 models/ChangeWidgetDefinition.ts
 models/ChangeWidgetDefinitionType.ts
 models/ChangeWidgetRequest.ts
+models/ChargebackOrgMonth.ts
+models/ChargebackSummaryCharge.ts
+models/ChargebackSummaryResponse.ts
 models/CheckCanDeleteMonitorResponse.ts
 models/CheckCanDeleteMonitorResponseData.ts
 models/CheckCanDeleteSLOResponse.ts

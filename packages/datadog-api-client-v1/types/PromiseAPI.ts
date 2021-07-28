@@ -23,6 +23,7 @@ import { AuthenticationValidationResponse } from "../models/AuthenticationValida
 import { AzureAccount } from "../models/AzureAccount";
 import { CancelDowntimesByScopeRequest } from "../models/CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "../models/CanceledDowntimesIds";
+import { ChargebackSummaryResponse } from "../models/ChargebackSummaryResponse";
 import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
@@ -3070,6 +3071,21 @@ export class PromiseUsageMeteringApi {
       requestFactory,
       responseProcessor
     );
+  }
+
+  /**
+   * Get usage cost per product for each sub-org across your multi-org account.
+   * Get cost by sub-org
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   */
+  public getChargebackSummary(
+    startMonth: Date,
+    endMonth?: Date,
+    options?: Configuration
+  ): Promise<ChargebackSummaryResponse> {
+    const result = this.api.getChargebackSummary(startMonth, endMonth, options);
+    return result.toPromise();
   }
 
   /**

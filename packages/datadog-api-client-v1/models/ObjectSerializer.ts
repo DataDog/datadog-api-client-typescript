@@ -30,6 +30,9 @@ import { CancelDowntimesByScopeRequest } from "./CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "./CanceledDowntimesIds";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
+import { ChargebackOrgMonth } from "./ChargebackOrgMonth";
+import { ChargebackSummaryCharge } from "./ChargebackSummaryCharge";
+import { ChargebackSummaryResponse } from "./ChargebackSummaryResponse";
 import { CheckCanDeleteMonitorResponse } from "./CheckCanDeleteMonitorResponse";
 import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
 import { CheckCanDeleteSLOResponse } from "./CheckCanDeleteSLOResponse";
@@ -638,6 +641,9 @@ const typeMap: { [index: string]: any } = {
   CanceledDowntimesIds: CanceledDowntimesIds,
   ChangeWidgetDefinition: ChangeWidgetDefinition,
   ChangeWidgetRequest: ChangeWidgetRequest,
+  ChargebackOrgMonth: ChargebackOrgMonth,
+  ChargebackSummaryCharge: ChargebackSummaryCharge,
+  ChargebackSummaryResponse: ChargebackSummaryResponse,
   CheckCanDeleteMonitorResponse: CheckCanDeleteMonitorResponse,
   CheckCanDeleteMonitorResponseData: CheckCanDeleteMonitorResponseData,
   CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,

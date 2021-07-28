@@ -7,6 +7,7 @@ import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { ChargebackSummaryResponse } from "../models/ChargebackSummaryResponse";
 import { UsageAnalyzedLogsResponse } from "../models/UsageAnalyzedLogsResponse";
 import { UsageAttributionResponse } from "../models/UsageAttributionResponse";
 import { UsageAttributionSort } from "../models/UsageAttributionSort";
@@ -45,6 +46,71 @@ import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse
  * no description
  */
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  /**
+   * Get usage cost per product for each sub-org across your multi-org account.
+   * Get cost by sub-org
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   */
+  public async getChargebackSummary(
+    startMonth: Date,
+    endMonth?: Date,
+    options?: Configuration
+  ): Promise<RequestContext> {
+    const config = options || this.configuration;
+
+    // verify required parameter 'startMonth' is not null or undefined
+    if (startMonth === null || startMonth === undefined) {
+      throw new RequiredError(
+        "Required parameter startMonth was null or undefined when calling getChargebackSummary."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/usage/chargeback-summary";
+
+    // Make Request Context
+    const requestContext = getServer(
+      config,
+      "UsageMeteringApi.getChargebackSummary"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(config.httpConfig);
+
+    // Query Params
+    if (startMonth !== undefined) {
+      requestContext.setQueryParam(
+        "start_month",
+        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+      );
+    }
+    if (endMonth !== undefined) {
+      requestContext.setQueryParam(
+        "end_month",
+        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+      );
+    }
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    authMethod = config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
   /**
    * Get daily custom reports.
    * Get the list of available daily custom reports
@@ -2119,6 +2185,61 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UsageMeteringApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getChargebackSummary
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getChargebackSummary(
+    response: ResponseContext
+  ): Promise<ChargebackSummaryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: ChargebackSummaryResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ChargebackSummaryResponse",
+        ""
+      ) as ChargebackSummaryResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ChargebackSummaryResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ChargebackSummaryResponse",
+        ""
+      ) as ChargebackSummaryResponse;
+      return body;
+    }
+
+    const body = response.body || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects

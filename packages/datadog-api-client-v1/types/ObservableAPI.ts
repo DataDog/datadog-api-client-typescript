@@ -24,6 +24,7 @@ import { AuthenticationValidationResponse } from "../models/AuthenticationValida
 import { AzureAccount } from "../models/AzureAccount";
 import { CancelDowntimesByScopeRequest } from "../models/CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "../models/CanceledDowntimesIds";
+import { ChargebackSummaryResponse } from "../models/ChargebackSummaryResponse";
 import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
@@ -7703,6 +7704,52 @@ export class ObservableUsageMeteringApi {
       requestFactory || new UsageMeteringApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
+  }
+
+  /**
+   * Get usage cost per product for each sub-org across your multi-org account.
+   * Get cost by sub-org
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   */
+  public getChargebackSummary(
+    startMonth: Date,
+    endMonth?: Date,
+    options?: Configuration
+  ): Observable<ChargebackSummaryResponse> {
+    const requestContextPromise = this.requestFactory.getChargebackSummary(
+      startMonth,
+      endMonth,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getChargebackSummary(rsp)
+            )
+          );
+        })
+      );
   }
 
   /**
