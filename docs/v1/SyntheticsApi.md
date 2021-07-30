@@ -187,7 +187,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
@@ -241,7 +241,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
           ],
@@ -392,7 +392,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
@@ -1569,7 +1569,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
@@ -1623,7 +1623,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
             {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
           ],
@@ -1777,7 +1777,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
