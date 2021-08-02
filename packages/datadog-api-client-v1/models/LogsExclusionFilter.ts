@@ -20,7 +20,7 @@ export class LogsExclusionFilter {
    */
   "query"?: string;
   /**
-   * Sample rate to apply to logs going through this exclusion filter, a value of 1 will exclude all logs matching the query.
+   * Sample rate to apply to logs going through this exclusion filter, a value of 1.0 excludes all logs matching the query.
    */
   "sampleRate": number;
 
