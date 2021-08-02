@@ -97,7 +97,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
             }
         }
         if (data.unparsedObject !== undefined) {
-            return JSON.stringify(data.unparsedObject);
+            return {"unparsedObject" : JSON.stringify(data.unparsedObject)};
         }
         {{#vars}}
           {{#required}}
