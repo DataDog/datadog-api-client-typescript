@@ -96,6 +96,9 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
+        if (data.unparsedObject !== undefined) {
+            return JSON.stringify(data.unparsedObject);
+        }
         {{#vars}}
           {{#required}}
         if (data.{{{name}}} === undefined) {

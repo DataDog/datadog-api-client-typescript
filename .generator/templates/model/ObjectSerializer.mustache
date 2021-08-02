@@ -95,8 +95,6 @@ export class ObjectSerializer {
     public static serialize(data: any, type: string, format: string) {
         if (data == undefined) {
             return data;
-        } else if (data.unparsedObject !== undefined) {
-            return JSON.stringify(data.unparsedObject);
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
@@ -154,7 +152,7 @@ export class ObjectSerializer {
             }
 
             if (!typeMap[type]) { // dont know the type
-                return JSON.stringify(data);
+                throw new TypeError(`unknown type '${type}'`);
             }
 
             return typeMap[type].serialize(data);
@@ -199,11 +197,7 @@ export class ObjectSerializer {
                     try {
                         oneOfs.push(ObjectSerializer.deserialize(data, oneOf, format))
                     } catch (e) {
-                        if (e instanceof ParseException) {
-                            if (e.type == "enum") {
-                                continue;
-                            }
-                        }
+                        console.debug(`could not serialize ${oneOf} (${e})`)
                     }
                 }
                 if (oneOfs.length != 1) {
