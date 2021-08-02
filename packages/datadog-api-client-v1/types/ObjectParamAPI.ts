@@ -4,6 +4,7 @@ import { Configuration } from "../configuration";
 import { AWSAccount } from "../models/AWSAccount";
 import { AWSAccountAndLambdaRequest } from "../models/AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "../models/AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "../models/AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "../models/AWSAccountListResponse";
 import { AWSLogsAsyncResponse } from "../models/AWSLogsAsyncResponse";
 import { AWSLogsListResponse } from "../models/AWSLogsListResponse";
@@ -26,10 +27,12 @@ import { CheckCanDeleteMonitorResponse } from "../models/CheckCanDeleteMonitorRe
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { Dashboard } from "../models/Dashboard";
+import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardList } from "../models/DashboardList";
 import { DashboardListDeleteResponse } from "../models/DashboardListDeleteResponse";
 import { DashboardListListResponse } from "../models/DashboardListListResponse";
+import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
 import { DeletedMonitor } from "../models/DeletedMonitor";
 import { Downtime } from "../models/Downtime";
@@ -144,8 +147,6 @@ import { UsageSyntheticsBrowserResponse } from "../models/UsageSyntheticsBrowser
 import { UsageSyntheticsResponse } from "../models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
-import { UsageTraceResponse } from "../models/UsageTraceResponse";
-import { UsageTracingWithoutLimitsResponse } from "../models/UsageTracingWithoutLimitsResponse";
 import { User } from "../models/User";
 import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
@@ -187,10 +188,10 @@ export interface AWSIntegrationApiCreateNewAWSExternalIDRequest {
 export interface AWSIntegrationApiDeleteAWSAccountRequest {
   /**
    * AWS request object
-   * @type AWSAccount
+   * @type AWSAccountDeleteRequest
    * @memberof AWSIntegrationApideleteAWSAccount
    */
-  body: AWSAccount;
+  body: AWSAccountDeleteRequest;
 }
 
 export interface AWSIntegrationApiDeleteAWSTagFilterRequest {
@@ -845,6 +846,15 @@ export interface DashboardsApiDeleteDashboardRequest {
   dashboardId: string;
 }
 
+export interface DashboardsApiDeleteDashboardsRequest {
+  /**
+   * Delete dashboards request body.
+   * @type DashboardBulkDeleteRequest
+   * @memberof DashboardsApideleteDashboards
+   */
+  body: DashboardBulkDeleteRequest;
+}
+
 export interface DashboardsApiGetDashboardRequest {
   /**
    * The ID of the dashboard.
@@ -861,6 +871,15 @@ export interface DashboardsApiListDashboardsRequest {
    * @memberof DashboardsApilistDashboards
    */
   filterShared?: boolean;
+}
+
+export interface DashboardsApiRestoreDashboardsRequest {
+  /**
+   * Restore dashboards request body.
+   * @type DashboardRestoreRequest
+   * @memberof DashboardsApirestoreDashboards
+   */
+  body: DashboardRestoreRequest;
 }
 
 export interface DashboardsApiUpdateDashboardRequest {
@@ -918,6 +937,18 @@ export class ObjectDashboardsApi {
   }
 
   /**
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   * @param param the request object
+   */
+  public deleteDashboards(
+    param: DashboardsApiDeleteDashboardsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api.deleteDashboards(param.body, options).toPromise();
+  }
+
+  /**
    * Get a dashboard using the specified ID.
    * Get a dashboard
    * @param param the request object
@@ -939,6 +970,18 @@ export class ObjectDashboardsApi {
     options?: Configuration
   ): Promise<DashboardSummary> {
     return this.api.listDashboards(param.filterShared, options).toPromise();
+  }
+
+  /**
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   * @param param the request object
+   */
+  public restoreDashboards(
+    param: DashboardsApiRestoreDashboardsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api.restoreDashboards(param.body, options).toPromise();
   }
 
   /**
@@ -4736,21 +4779,6 @@ export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
   reportId: string;
 }
 
-export interface UsageMeteringApiGetTracingWithoutLimitsRequest {
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetTracingWithoutLimits
-   */
-  startHr: Date;
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetTracingWithoutLimits
-   */
-  endHr?: Date;
-}
-
 export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -5174,21 +5202,6 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
   nextRecordId?: string;
 }
 
-export interface UsageMeteringApiGetUsageTraceRequest {
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetUsageTrace
-   */
-  startHr: Date;
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   * @type Date
-   * @memberof UsageMeteringApigetUsageTrace
-   */
-  endHr?: Date;
-}
-
 export class ObjectUsageMeteringApi {
   private api: ObservableUsageMeteringApi;
 
@@ -5297,20 +5310,6 @@ export class ObjectUsageMeteringApi {
   ): Promise<UsageSpecifiedCustomReportsResponse> {
     return this.api
       .getSpecifiedMonthlyCustomReports(param.reportId, options)
-      .toPromise();
-  }
-
-  /**
-   * Get hourly usage for tracing without limits.  **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-   * Get hourly usage for tracing without limits
-   * @param param the request object
-   */
-  public getTracingWithoutLimits(
-    param: UsageMeteringApiGetTracingWithoutLimitsRequest,
-    options?: Configuration
-  ): Promise<UsageTracingWithoutLimitsResponse> {
-    return this.api
-      .getTracingWithoutLimits(param.startHr, param.endHr, options)
       .toPromise();
   }
 
@@ -5682,20 +5681,6 @@ export class ObjectUsageMeteringApi {
         param.nextRecordId,
         options
       )
-      .toPromise();
-  }
-
-  /**
-   * Get hourly usage for trace search.  **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-   * Get hourly usage for Trace Search
-   * @param param the request object
-   */
-  public getUsageTrace(
-    param: UsageMeteringApiGetUsageTraceRequest,
-    options?: Configuration
-  ): Promise<UsageTraceResponse> {
-    return this.api
-      .getUsageTrace(param.startHr, param.endHr, options)
       .toPromise();
   }
 }

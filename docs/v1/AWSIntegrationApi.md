@@ -229,18 +229,11 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
 let params:v1.AWSIntegrationApiDeleteAWSAccountRequest = {
-  // AWSAccount | AWS request object
+  // AWSAccountDeleteRequest | AWS request object
   body: {
     accessKeyId: "accessKeyId_example",
     accountId: "1234567",
-    accountSpecificNamespaceRules: {
-      "key": true,
-    },
-    excludedRegions: ["us-east-1","us-west-2"],
-    filterTags: ["<KEY>:<VALUE>"],
-    hostTags: ["<KEY>:<VALUE>"],
     roleName: "DatadogAWSIntegrationRole",
-    secretAccessKey: "secretAccessKey_example",
   },
 };
 
@@ -254,7 +247,7 @@ apiInstance.deleteAWSAccount(params).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **AWSAccount**| AWS request object |
+ **body** | **AWSAccountDeleteRequest**| AWS request object |
 
 
 ### Return type

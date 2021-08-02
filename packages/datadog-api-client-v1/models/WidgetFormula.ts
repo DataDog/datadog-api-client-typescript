@@ -8,6 +8,8 @@
  * Do not edit the class manually.
  */
 
+import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
+import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -20,6 +22,11 @@ export class WidgetFormula {
    * Expression alias.
    */
   "alias"?: string;
+  "cellDisplayMode"?: TableWidgetCellDisplayMode;
+  /**
+   * List of conditional formats.
+   */
+  "conditionalFormats"?: Array<WidgetConditionalFormat>;
   /**
    * String expression built from queries, formulas, and functions.
    */
@@ -34,6 +41,16 @@ export class WidgetFormula {
     alias: {
       baseName: "alias",
       type: "string",
+      format: "",
+    },
+    cellDisplayMode: {
+      baseName: "cell_display_mode",
+      type: "TableWidgetCellDisplayMode",
+      format: "",
+    },
+    conditionalFormats: {
+      baseName: "conditional_formats",
+      type: "Array<WidgetConditionalFormat>",
       format: "",
     },
     formula: {
@@ -56,6 +73,20 @@ export class WidgetFormula {
     const res = new WidgetFormula();
 
     res.alias = ObjectSerializer.deserialize(data.alias, "string", "");
+
+    if (["number", "bar", undefined].includes(data.cell_display_mode)) {
+      res.cellDisplayMode = data.cell_display_mode;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.cell_display_mode} for cell_display_mode`
+      );
+    }
+
+    res.conditionalFormats = ObjectSerializer.deserialize(
+      data.conditional_formats,
+      "Array<WidgetConditionalFormat>",
+      ""
+    );
 
     if (data.formula === undefined) {
       throw new TypeError(
@@ -82,6 +113,20 @@ export class WidgetFormula {
       }
     }
     res.alias = ObjectSerializer.serialize(data.alias, "string", "");
+
+    if (["number", "bar", undefined].includes(data.cellDisplayMode)) {
+      res.cell_display_mode = data.cellDisplayMode;
+    } else {
+      throw TypeError(
+        `invalid enum value ${data.cellDisplayMode} for cellDisplayMode`
+      );
+    }
+
+    res.conditional_formats = ObjectSerializer.serialize(
+      data.conditionalFormats,
+      "Array<WidgetConditionalFormat>",
+      ""
+    );
 
     if (data.formula === undefined) {
       throw new TypeError(

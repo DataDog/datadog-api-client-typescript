@@ -187,7 +187,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
@@ -201,6 +201,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
@@ -240,7 +241,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
           ],
@@ -258,6 +259,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           isCritical: true,
           name: "name_example",
           request: {
+            allowInsecure: true,
             basicAuth: {
               password: "",
               username: "",
@@ -390,11 +392,12 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
@@ -1566,7 +1569,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
@@ -1580,6 +1583,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",
@@ -1619,7 +1623,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
             {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
           ],
@@ -1637,6 +1641,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
           isCritical: true,
           name: "name_example",
           request: {
+            allowInsecure: true,
             basicAuth: {
               password: "",
               username: "",
@@ -1772,11 +1777,12 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
         {
     operator: "contains",
     property: "property_example",
-    target: {},
+    target: null,
     type: "body",
   },
       ],
       request: {
+        allowInsecure: true,
         basicAuth: {
           password: "",
           username: "",

@@ -2,6 +2,7 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { AWSAccount } from "./AWSAccount";
 import { AWSAccountAndLambdaRequest } from "./AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "./AWSAccountCreateResponse";
+import { AWSAccountDeleteRequest } from "./AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "./AWSAccountListResponse";
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
 import { AWSLogsAsyncResponse } from "./AWSLogsAsyncResponse";
@@ -36,10 +37,13 @@ import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
+import { DashboardBulkActionData } from "./DashboardBulkActionData";
+import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
 import { DashboardList } from "./DashboardList";
 import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
 import { DashboardListListResponse } from "./DashboardListListResponse";
+import { DashboardRestoreRequest } from "./DashboardRestoreRequest";
 import { DashboardSummary } from "./DashboardSummary";
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
@@ -105,6 +109,10 @@ import { IdpFormData } from "./IdpFormData";
 import { IdpResponse } from "./IdpResponse";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { ListStreamColumn } from "./ListStreamColumn";
+import { ListStreamQuery } from "./ListStreamQuery";
+import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
+import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
 import { Log } from "./Log";
 import { LogContent } from "./LogContent";
 import { LogQueryDefinition } from "./LogQueryDefinition";
@@ -415,10 +423,6 @@ import { UsageTimeseriesResponse } from "./UsageTimeseriesResponse";
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
 import { UsageTopAvgMetricsResponse } from "./UsageTopAvgMetricsResponse";
-import { UsageTraceHour } from "./UsageTraceHour";
-import { UsageTraceResponse } from "./UsageTraceResponse";
-import { UsageTracingWithoutLimitsHour } from "./UsageTracingWithoutLimitsHour";
-import { UsageTracingWithoutLimitsResponse } from "./UsageTracingWithoutLimitsResponse";
 import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
 import { UserListResponse } from "./UserListResponse";
@@ -464,6 +468,7 @@ const enumsMap: Set<string> = new Set<string>([
   "ContentEncoding",
   "DashboardLayoutType",
   "DashboardReflowType",
+  "DashboardResourceType",
   "DistributionWidgetDefinitionType",
   "EventAlertType",
   "EventPriority",
@@ -483,6 +488,10 @@ const enumsMap: Set<string> = new Set<string>([
   "HostMapWidgetDefinitionType",
   "IFrameWidgetDefinitionType",
   "ImageWidgetDefinitionType",
+  "ListStreamColumnWidth",
+  "ListStreamResponseFormat",
+  "ListStreamSource",
+  "ListStreamWidgetDefinitionType",
   "LogStreamWidgetDefinitionType",
   "LogsArithmeticProcessorType",
   "LogsAttributeRemapperType",
@@ -601,6 +610,7 @@ const typeMap: { [index: string]: any } = {
   AWSAccount: AWSAccount,
   AWSAccountAndLambdaRequest: AWSAccountAndLambdaRequest,
   AWSAccountCreateResponse: AWSAccountCreateResponse,
+  AWSAccountDeleteRequest: AWSAccountDeleteRequest,
   AWSAccountListResponse: AWSAccountListResponse,
   AWSLogsAsyncError: AWSLogsAsyncError,
   AWSLogsAsyncResponse: AWSLogsAsyncResponse,
@@ -635,10 +645,13 @@ const typeMap: { [index: string]: any } = {
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
   Creator: Creator,
   Dashboard: Dashboard,
+  DashboardBulkActionData: DashboardBulkActionData,
+  DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
   DashboardDeleteResponse: DashboardDeleteResponse,
   DashboardList: DashboardList,
   DashboardListDeleteResponse: DashboardListDeleteResponse,
   DashboardListListResponse: DashboardListListResponse,
+  DashboardRestoreRequest: DashboardRestoreRequest,
   DashboardSummary: DashboardSummary,
   DashboardSummaryDefinition: DashboardSummaryDefinition,
   DashboardTemplateVariable: DashboardTemplateVariable,
@@ -704,6 +717,10 @@ const typeMap: { [index: string]: any } = {
   IdpResponse: IdpResponse,
   ImageWidgetDefinition: ImageWidgetDefinition,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  ListStreamColumn: ListStreamColumn,
+  ListStreamQuery: ListStreamQuery,
+  ListStreamWidgetDefinition: ListStreamWidgetDefinition,
+  ListStreamWidgetRequest: ListStreamWidgetRequest,
   Log: Log,
   LogContent: LogContent,
   LogQueryDefinition: LogQueryDefinition,
@@ -1014,10 +1031,6 @@ const typeMap: { [index: string]: any } = {
   UsageTopAvgMetricsHour: UsageTopAvgMetricsHour,
   UsageTopAvgMetricsMetadata: UsageTopAvgMetricsMetadata,
   UsageTopAvgMetricsResponse: UsageTopAvgMetricsResponse,
-  UsageTraceHour: UsageTraceHour,
-  UsageTraceResponse: UsageTraceResponse,
-  UsageTracingWithoutLimitsHour: UsageTracingWithoutLimitsHour,
-  UsageTracingWithoutLimitsResponse: UsageTracingWithoutLimitsResponse,
   User: User,
   UserDisableResponse: UserDisableResponse,
   UserListResponse: UserListResponse,
@@ -1109,6 +1122,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "HostMapWidgetDefinition",
     "IFrameWidgetDefinition",
     "ImageWidgetDefinition",
+    "ListStreamWidgetDefinition",
     "LogStreamWidgetDefinition",
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
