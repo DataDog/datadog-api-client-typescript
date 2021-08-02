@@ -35,7 +35,7 @@ let params:v1.LogsIndexesApiCreateLogsIndexRequest = {
       {
         filter: {
           query: "*",
-          sampleRate: 1,
+          sampleRate: 1.0,
         },
         isEnabled: true,
         name: "payment",
@@ -268,7 +268,7 @@ let params:v1.LogsIndexesApiUpdateLogsIndexRequest = {
       {
         filter: {
           query: "*",
-          sampleRate: 1,
+          sampleRate: 1.0,
         },
         isEnabled: true,
         name: "payment",
