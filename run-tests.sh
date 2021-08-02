@@ -15,10 +15,10 @@ set +e
 yarn run check-licenses || exit 1
 
 # Run tests
-yarn run cucumber-js features/
+yarn run test
 TEST_RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$TEST_RESULT" -ne "0" ]; then
-    RECORD=true yarn run cucumber-js @rerun.txt
+    yarn run test:rerecord
     TEST_RESULT=$?
 fi
 

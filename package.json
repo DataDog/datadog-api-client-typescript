@@ -44,8 +44,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "yarn run build",
-    "test": "tsc && cucumber-js features/",
-    "test:rerecord": "tsc && RECORD=true cucumber-js @rerun.txt"
+    "test": "node bin/dd-cucumber-js features/",
+    "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt"
   },
   "dependencies": {
     "@types/node": "*",
@@ -74,7 +74,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "chai": "^4.2.0",
-    "dd-trace": "^0.31.0",
+    "dd-trace": "^0.36.1",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
