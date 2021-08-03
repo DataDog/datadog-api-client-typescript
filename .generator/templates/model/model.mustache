@@ -84,7 +84,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
             }
         }
         if (data instanceof UnparsedObject) {
-            return {"unparsedObject" : data.unparsedObject};
+            return data.unparsedObject;
         }
         {{#vars}}
           {{#required}}
