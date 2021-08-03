@@ -201,7 +201,7 @@ export class ObjectSerializer {
                     }
                 }
                 if (oneOfs.length != 1) {
-                    return new UnparsedObject(JSON.parse(data));
+                    return new UnparsedObject(data);
                 }
                 return oneOfs[0];
             }

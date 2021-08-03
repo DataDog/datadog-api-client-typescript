@@ -67,9 +67,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 
         {{/allowableValues}}
         {{^allowableValues}}
-
         res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
-
         {{/allowableValues}}
 
       {{/vars}}
