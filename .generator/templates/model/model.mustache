@@ -62,8 +62,11 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       }
         {{/required}}
         {{#allowableValues}}
-
-        res.{{name}} = data.{{{baseName}}};
+        if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
+          res.{{name}} = data.{{{baseName}}};
+        } else {
+          return new UnparsedObject(data);
+        }
 
         {{/allowableValues}}
         {{^allowableValues}}
