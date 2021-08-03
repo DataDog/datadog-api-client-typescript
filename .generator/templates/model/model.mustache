@@ -128,7 +128,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 
 {{#vars}}
 {{#isEnum}}
-export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}} | UnparsedObject;
+export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}};
 {{/isEnum}}
 {{/vars}}
 
@@ -140,6 +140,6 @@ export type {{classname}} = {{#allowableValues}}{{#enumVars}}typeof {{#enumClass
 export const {{#enumClassPrefix}}{{{classname.toUpperCase}}}_{{/enumClassPrefix}}{{name}} = {{{value}}};
 {{/enumVars}}{{/allowableValues}}
 {{/isEnum}}
-{{#oneOf}}{{#-first}}export type {{classname}} = {{/-first}}{{{.}}}{{^-last}} | {{/-last}}{{#-last}};{{/-last}}{{/oneOf}}
+{{#oneOf}}{{#-first}}export type {{classname}} = {{/-first}}{{{.}}}{{^-last}} | {{/-last}}{{#-last}} | UnparsedObject;{{/-last}}{{/oneOf}}
 {{/model}}
 {{/models}}
