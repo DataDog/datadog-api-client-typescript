@@ -201,7 +201,7 @@ export class ObjectSerializer {
                     }
                 }
                 if (oneOfs.length != 1) {
-                    throw new ParseException("oneOf", "Unrecognized oneOf");
+                    return new UnparsedObject(JSON.parse(data));
                 }
                 return oneOfs[0];
             }
@@ -283,12 +283,10 @@ export class ObjectSerializer {
     }
 }
 
-
-/**
- * Represents an error caused by unknown enum value or an unknown OneOf instance
- */
-export class ParseException extends Error {
-    public constructor(public type: string, public message: string) {
-        super(type + " : " + message);
+export class UnparsedObject {
+    unparsedObject:any;
+    constructor(data:any) {
+        this.unparsedObject = data;
     }
 }
+

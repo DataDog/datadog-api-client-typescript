@@ -5,7 +5,7 @@
 import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
 {{/tsImports}}
 import { HttpFile } from '../http/http{{extensionForDeno}}';
-import { ObjectSerializer, ParseException } from './ObjectSerializer';
+import { ObjectSerializer, UnparsedObject } from './ObjectSerializer';
 
 {{#description}}
 /**
@@ -22,8 +22,6 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 {{/description}}
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
 {{/vars}}
-
-    'unparsedObject'?: { [property: string] : any; };
 
     {{#discriminator}}
     static readonly discriminator: string | undefined = "{{discriminatorName}}";
@@ -64,22 +62,13 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       }
         {{/required}}
         {{#allowableValues}}
-      if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
-          res.{{name}} = data.{{{baseName}}};
-      } else {
-          console.error(`invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
-          throw new ParseException("enum", `invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
-      }
+
+        res.{{name}} = data.{{{baseName}}};
+
         {{/allowableValues}}
         {{^allowableValues}}
-        try {
-          res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
-        } catch(error) {
-            if (res?.unparsedObject === undefined) {
-              res.unparsedObject = {};
-            }
-            res.unparsedObject["{{{name}}}"] = data.{{{baseName}}};
-        }
+
+        res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
 
         {{/allowableValues}}
 
@@ -96,8 +85,8 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        if (data.unparsedObject !== undefined) {
-            return {"unparsedObject" : JSON.stringify(data.unparsedObject)};
+        if (data?.unparsedObject !== undefined) {
+            return {"unparsedObject" : data.unparsedObject};
         }
         {{#vars}}
           {{#required}}
@@ -139,7 +128,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 
 {{#vars}}
 {{#isEnum}}
-export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}};
+export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}} | UnparsedObject;
 {{/isEnum}}
 {{/vars}}
 
