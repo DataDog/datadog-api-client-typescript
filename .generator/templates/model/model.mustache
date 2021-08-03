@@ -23,6 +23,8 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
 {{/vars}}
 
+    'unparsedObject'?:any;
+
     {{#discriminator}}
     static readonly discriminator: string | undefined = "{{discriminatorName}}";
     {{/discriminator}}
@@ -65,7 +67,9 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
         } else {
-          return new UnparsedObject(data);
+          let raw = new {{classname}}();
+          raw.unparsedObject = data;
+          return raw;
         }
 
         {{/allowableValues}}
@@ -86,7 +90,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
                 throw new TypeError(`${key} attribute not in schema`);
             }
         }
-        if (data instanceof UnparsedObject) {
+        if (data?.unparsedObject !== undefined) {
             return data.unparsedObject;
         }
         {{#vars}}
