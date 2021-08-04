@@ -481,6 +481,8 @@ let params:v1.UsageMeteringApiGetUsageAttributionRequest = {
   sortDirection: "desc",
   // UsageAttributionSort | The field to sort by. (optional)
   sortName: "custom_timeseries_usage",
+  // boolean | Include child org usage in the response. Defaults to false. (optional)
+  includeDescendants: false,
 };
 
 apiInstance.getUsageAttribution(params).then((data:any) => {
@@ -498,6 +500,7 @@ Name | Type | Description  | Notes
  **endMonth** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | (optional) defaults to undefined
  **sortDirection** | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;. | (optional) defaults to undefined
  **sortName** | **UsageAttributionSort** | The field to sort by. | (optional) defaults to undefined
+ **includeDescendants** | [**boolean**] | Include child org usage in the response. Defaults to false. | (optional) defaults to undefined
 
 
 ### Return type
