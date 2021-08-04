@@ -65,6 +65,13 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part];
         } else if (part.toAttributeName() in value) {
           result = value[part.toAttributeName()];
+        } else if ("unparsedObject" in value) {
+          result = value["unparsedObject"];
+          if (part in result) {
+            result = result[part];
+          } else if (part.toAttributeName() in result) {
+            result = result[part.toAttributeName()];
+          }
         } else {
           throw new Error(
             `${part} not found in ${JSON.stringify(

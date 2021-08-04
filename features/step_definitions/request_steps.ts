@@ -126,8 +126,7 @@ Then(
 Then(
   "the response {string} has the same value as {string}",
   function (this: World, responsePath: string, fixturePath: string) {
-    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
-    expect(pathLookup(response, responsePath)).to.equal(
+    expect(pathLookup(this.response, responsePath)).to.equal(
       pathLookup(this.fixtures, fixturePath)
     );
   }
@@ -136,8 +135,7 @@ Then(
 Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
-    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
-    expect(pathLookup(response, responsePath)).to.deep.equal(
+    expect(pathLookup(this.response, responsePath)).to.deep.equal(
       JSON.parse(value.templated(this.fixtures), fixKeys)
     );
   }
@@ -146,16 +144,14 @@ Then(
 Then(
   "the response {string} is false",
   function (this: World, responsePath: string) {
-    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
-    expect(pathLookup(response, responsePath)).to.equal(false);
+    expect(pathLookup(this.response, responsePath)).to.equal(false);
   }
 );
 
 Then(
   "the response {string} has length {int}",
   function (this: World, responsePath: string, fixtureLength: number) {
-    let response = JSON.parse(ObjectSerializer.serialize(this.response, typeof(this.response), ""));
-    expect(pathLookup(response, responsePath).length).to.equal(
+    expect(pathLookup(this.response, responsePath).length).to.equal(
       fixtureLength
     );
   }
