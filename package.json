@@ -45,7 +45,9 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prepare": "yarn run build",
     "test": "tsc && cucumber-js features/",
-    "test:rerecord": "tsc && RECORD=true cucumber-js @rerun.txt"
+    "test:rerecord": "tsc && RECORD=true cucumber-js @rerun.txt",
+    "jest-test": "jest",
+    "jest-coverage": "jest --coverage"
   },
   "dependencies": {
     "@types/node": "*",
@@ -64,6 +66,7 @@
     "@pollyjs/core": "^5.1.0",
     "@pollyjs/persister-fs": "^5.0.0",
     "@types/chai": "^4.2.14",
+    "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.168",
     "@types/pollyjs__adapter-node-http": "^2.0.1",
     "@types/pollyjs__core": "^4.3.2",
@@ -81,9 +84,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-unused-imports": "^1.1.1",
+    "jest": "^27.0.6",
     "prettier": "^2.2.1",
+    "ts-jest": "^27.0.4",
     "ts-node": "^9.1.1",
-    "typescript": "^3.9.8"
+    "typescript": "^3.9.10"
   },
   "engines": {
     "node": ">=12.0.0"
