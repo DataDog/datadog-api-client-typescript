@@ -4825,6 +4825,12 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
    * @memberof UsageMeteringApigetUsageAttribution
    */
   sortName?: UsageAttributionSort;
+  /**
+   * Include child org usage in the response. Defaults to false.
+   * @type boolean
+   * @memberof UsageMeteringApigetUsageAttribution
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiGetUsageAuditLogsRequest {
@@ -5343,6 +5349,7 @@ export class ObjectUsageMeteringApi {
         param.endMonth,
         param.sortDirection,
         param.sortName,
+        param.includeDescendants,
         options
       )
       .toPromise();

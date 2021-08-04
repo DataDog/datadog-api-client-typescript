@@ -8041,6 +8041,7 @@ export class ObservableUsageMeteringApi {
    * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
    * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
    * @param sortName The field to sort by.
+   * @param includeDescendants Include child org usage in the response. Defaults to false.
    */
   public getUsageAttribution(
     startMonth: Date,
@@ -8048,6 +8049,7 @@ export class ObservableUsageMeteringApi {
     endMonth?: Date,
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
+    includeDescendants?: boolean,
     options?: Configuration
   ): Observable<UsageAttributionResponse> {
     const requestContextPromise = this.requestFactory.getUsageAttribution(
@@ -8056,6 +8058,7 @@ export class ObservableUsageMeteringApi {
       endMonth,
       sortDirection,
       sortName,
+      includeDescendants,
       options
     );
 
