@@ -9,6 +9,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
+import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
 import { UserCreateRequest } from "../models/UserCreateRequest";
 import { UserInvitationResponse } from "../models/UserInvitationResponse";
 import { UserInvitationsRequest } from "../models/UserInvitationsRequest";
@@ -21,6 +22,66 @@ import { UsersResponse } from "../models/UsersResponse";
  * no description
  */
 export class UsersApiRequestFactory extends BaseAPIRequestFactory {
+  /**
+   * Create a service account for your organization.
+   * Create a service account
+   * @param body
+   */
+  public async createServiceAccount(
+    body: ServiceAccountCreateRequest,
+    options?: Configuration
+  ): Promise<RequestContext> {
+    const config = options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createServiceAccount."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/service_accounts";
+
+    // Make Request Context
+    const requestContext = getServer(
+      config,
+      "UsersApi.createServiceAccount"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(config.httpConfig);
+
+    // Query Params
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ServiceAccountCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    authMethod = config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
   /**
    * Create a user for your organization.
    * Create a user
@@ -575,6 +636,61 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UsersApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createServiceAccount
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createServiceAccount(
+    response: ResponseContext
+  ): Promise<UserResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("201", response.httpStatusCode)) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse",
+        ""
+      ) as UserResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse",
+        ""
+      ) as UserResponse;
+      return body;
+    }
+
+    const body = response.body || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects

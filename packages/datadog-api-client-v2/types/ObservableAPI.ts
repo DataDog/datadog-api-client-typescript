@@ -52,6 +52,7 @@ import { MetricTagConfigurationResponse } from "../models/MetricTagConfiguration
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
+import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
@@ -76,6 +77,7 @@ import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitorin
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
+import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
 import { UserCreateRequest } from "../models/UserCreateRequest";
 import { UserInvitationResponse } from "../models/UserInvitationResponse";
 import { UserInvitationsRequest } from "../models/UserInvitationsRequest";
@@ -4121,6 +4123,276 @@ export class ObservableSecurityMonitoringApi {
 }
 
 import {
+  ServiceAccountsApiRequestFactory,
+  ServiceAccountsApiResponseProcessor,
+} from "../apis/ServiceAccountsApi";
+export class ObservableServiceAccountsApi {
+  private requestFactory: ServiceAccountsApiRequestFactory;
+  private responseProcessor: ServiceAccountsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceAccountsApiRequestFactory,
+    responseProcessor?: ServiceAccountsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new ServiceAccountsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ServiceAccountsApiResponseProcessor();
+  }
+
+  /**
+   * Create an application key for this service account.
+   * Create an application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param body
+   */
+  public createServiceAccountApplicationKey(
+    serviceAccountId: string,
+    body: ApplicationKeyCreateRequest,
+    options?: Configuration
+  ): Observable<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.createServiceAccountApplicationKey(
+      serviceAccountId,
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createServiceAccountApplicationKey(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Delete an application key owned by this service account.
+   * Delete an application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param appKeyId The ID of the application key.
+   */
+  public deleteServiceAccountApplicationKey(
+    serviceAccountId: string,
+    appKeyId: string,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteServiceAccountApplicationKey(
+      serviceAccountId,
+      appKeyId,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteServiceAccountApplicationKey(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Get an application key owned by this service account.
+   * Get one application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param appKeyId The ID of the application key.
+   */
+  public getServiceAccountApplicationKey(
+    serviceAccountId: string,
+    appKeyId: string,
+    options?: Configuration
+  ): Observable<PartialApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.getServiceAccountApplicationKey(
+      serviceAccountId,
+      appKeyId,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getServiceAccountApplicationKey(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * List all application keys available for this service account.
+   * List application keys for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param pageSize Size for a given page.
+   * @param pageNumber Specific page number to return.
+   * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @param filter Filter application keys by the specified string.
+   * @param filterCreatedAtStart Only include application keys created on or after the specified date.
+   * @param filterCreatedAtEnd Only include application keys created on or before the specified date.
+   */
+  public listServiceAccountApplicationKeys(
+    serviceAccountId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: ApplicationKeysSort,
+    filter?: string,
+    filterCreatedAtStart?: string,
+    filterCreatedAtEnd?: string,
+    options?: Configuration
+  ): Observable<ListApplicationKeysResponse> {
+    const requestContextPromise = this.requestFactory.listServiceAccountApplicationKeys(
+      serviceAccountId,
+      pageSize,
+      pageNumber,
+      sort,
+      filter,
+      filterCreatedAtStart,
+      filterCreatedAtEnd,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.listServiceAccountApplicationKeys(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Edit an application key owned by this service account.
+   * Edit an application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param appKeyId The ID of the application key.
+   * @param body
+   */
+  public updateServiceAccountApplicationKey(
+    serviceAccountId: string,
+    appKeyId: string,
+    body: ApplicationKeyUpdateRequest,
+    options?: Configuration
+  ): Observable<PartialApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateServiceAccountApplicationKey(
+      serviceAccountId,
+      appKeyId,
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateServiceAccountApplicationKey(rsp)
+            )
+          );
+        })
+      );
+  }
+}
+
+import {
   UsersApiRequestFactory,
   UsersApiResponseProcessor,
 } from "../apis/UsersApi";
@@ -4139,6 +4411,49 @@ export class ObservableUsersApi {
       requestFactory || new UsersApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
+  }
+
+  /**
+   * Create a service account for your organization.
+   * Create a service account
+   * @param body
+   */
+  public createServiceAccount(
+    body: ServiceAccountCreateRequest,
+    options?: Configuration
+  ): Observable<UserResponse> {
+    const requestContextPromise = this.requestFactory.createServiceAccount(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createServiceAccount(rsp)
+            )
+          );
+        })
+      );
   }
 
   /**

@@ -44,6 +44,10 @@ export class UserAttributes {
    */
   "name"?: string;
   /**
+   * Whether the user is a service account.
+   */
+  "serviceAccount"?: boolean;
+  /**
    * Status of the user.
    */
   "status"?: string;
@@ -96,6 +100,11 @@ export class UserAttributes {
       type: "string",
       format: "",
     },
+    serviceAccount: {
+      baseName: "service_account",
+      type: "boolean",
+      format: "",
+    },
     status: {
       baseName: "status",
       type: "string",
@@ -142,6 +151,12 @@ export class UserAttributes {
 
     res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
+    res.serviceAccount = ObjectSerializer.deserialize(
+      data.service_account,
+      "boolean",
+      ""
+    );
+
     res.status = ObjectSerializer.deserialize(data.status, "string", "");
 
     res.title = ObjectSerializer.deserialize(data.title, "string", "");
@@ -180,6 +195,12 @@ export class UserAttributes {
     );
 
     res.name = ObjectSerializer.serialize(data.name, "string", "");
+
+    res.service_account = ObjectSerializer.serialize(
+      data.serviceAccount,
+      "boolean",
+      ""
+    );
 
     res.status = ObjectSerializer.serialize(data.status, "string", "");
 
