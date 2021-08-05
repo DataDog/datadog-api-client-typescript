@@ -11,6 +11,7 @@ ProcessesApi.md
 README.md
 RolesApi.md
 SecurityMonitoringApi.md
+ServiceAccountsApi.md
 UsersApi.md
 apis/DashboardListsApi.ts
 apis/IncidentServicesApi.ts
@@ -24,6 +25,7 @@ apis/MetricsApi.ts
 apis/ProcessesApi.ts
 apis/RolesApi.ts
 apis/SecurityMonitoringApi.ts
+apis/ServiceAccountsApi.ts
 apis/UsersApi.ts
 apis/baseapi.ts
 apis/exception.ts
@@ -237,6 +239,7 @@ models/PartialAPIKey.ts
 models/PartialAPIKeyAttributes.ts
 models/PartialApplicationKey.ts
 models/PartialApplicationKeyAttributes.ts
+models/PartialApplicationKeyResponse.ts
 models/Permission.ts
 models/PermissionAttributes.ts
 models/PermissionsResponse.ts
@@ -330,6 +333,9 @@ models/SecurityMonitoringSignalsListResponseLinks.ts
 models/SecurityMonitoringSignalsListResponseMeta.ts
 models/SecurityMonitoringSignalsListResponseMetaPage.ts
 models/SecurityMonitoringSignalsSort.ts
+models/ServiceAccountCreateAttributes.ts
+models/ServiceAccountCreateData.ts
+models/ServiceAccountCreateRequest.ts
 models/User.ts
 models/UserAttributes.ts
 models/UserCreateAttributes.ts

@@ -50,6 +50,7 @@ import { MetricTagConfigurationResponse } from "../models/MetricTagConfiguration
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
+import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
@@ -74,6 +75,7 @@ import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitorin
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
+import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
 import { UserCreateRequest } from "../models/UserCreateRequest";
 import { UserInvitationResponse } from "../models/UserInvitationResponse";
 import { UserInvitationsRequest } from "../models/UserInvitationsRequest";
@@ -1687,6 +1689,141 @@ export class PromiseSecurityMonitoringApi {
   }
 }
 
+import { ObservableServiceAccountsApi } from "./ObservableAPI";
+
+import {
+  ServiceAccountsApiRequestFactory,
+  ServiceAccountsApiResponseProcessor,
+} from "../apis/ServiceAccountsApi";
+export class PromiseServiceAccountsApi {
+  private api: ObservableServiceAccountsApi;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceAccountsApiRequestFactory,
+    responseProcessor?: ServiceAccountsApiResponseProcessor
+  ) {
+    this.api = new ObservableServiceAccountsApi(
+      configuration,
+      requestFactory,
+      responseProcessor
+    );
+  }
+
+  /**
+   * Create an application key for this service account.
+   * Create an application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param body
+   */
+  public createServiceAccountApplicationKey(
+    serviceAccountId: string,
+    body: ApplicationKeyCreateRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const result = this.api.createServiceAccountApplicationKey(
+      serviceAccountId,
+      body,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Delete an application key owned by this service account.
+   * Delete an application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param appKeyId The ID of the application key.
+   */
+  public deleteServiceAccountApplicationKey(
+    serviceAccountId: string,
+    appKeyId: string,
+    options?: Configuration
+  ): Promise<void> {
+    const result = this.api.deleteServiceAccountApplicationKey(
+      serviceAccountId,
+      appKeyId,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Get an application key owned by this service account.
+   * Get one application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param appKeyId The ID of the application key.
+   */
+  public getServiceAccountApplicationKey(
+    serviceAccountId: string,
+    appKeyId: string,
+    options?: Configuration
+  ): Promise<PartialApplicationKeyResponse> {
+    const result = this.api.getServiceAccountApplicationKey(
+      serviceAccountId,
+      appKeyId,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * List all application keys available for this service account.
+   * List application keys for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param pageSize Size for a given page.
+   * @param pageNumber Specific page number to return.
+   * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @param filter Filter application keys by the specified string.
+   * @param filterCreatedAtStart Only include application keys created on or after the specified date.
+   * @param filterCreatedAtEnd Only include application keys created on or before the specified date.
+   */
+  public listServiceAccountApplicationKeys(
+    serviceAccountId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: ApplicationKeysSort,
+    filter?: string,
+    filterCreatedAtStart?: string,
+    filterCreatedAtEnd?: string,
+    options?: Configuration
+  ): Promise<ListApplicationKeysResponse> {
+    const result = this.api.listServiceAccountApplicationKeys(
+      serviceAccountId,
+      pageSize,
+      pageNumber,
+      sort,
+      filter,
+      filterCreatedAtStart,
+      filterCreatedAtEnd,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Edit an application key owned by this service account.
+   * Edit an application key for this service account
+   * @param serviceAccountId The ID of the service account.
+   * @param appKeyId The ID of the application key.
+   * @param body
+   */
+  public updateServiceAccountApplicationKey(
+    serviceAccountId: string,
+    appKeyId: string,
+    body: ApplicationKeyUpdateRequest,
+    options?: Configuration
+  ): Promise<PartialApplicationKeyResponse> {
+    const result = this.api.updateServiceAccountApplicationKey(
+      serviceAccountId,
+      appKeyId,
+      body,
+      options
+    );
+    return result.toPromise();
+  }
+}
+
 import { ObservableUsersApi } from "./ObservableAPI";
 
 import {
@@ -1706,6 +1843,19 @@ export class PromiseUsersApi {
       requestFactory,
       responseProcessor
     );
+  }
+
+  /**
+   * Create a service account for your organization.
+   * Create a service account
+   * @param body
+   */
+  public createServiceAccount(
+    body: ServiceAccountCreateRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const result = this.api.createServiceAccount(body, options);
+    return result.toPromise();
   }
 
   /**

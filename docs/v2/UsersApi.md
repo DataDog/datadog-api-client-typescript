@@ -4,6 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createServiceAccount**](UsersApi.md#createServiceAccount) | **POST** /api/v2/service_accounts | Create a service account
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
@@ -14,6 +15,82 @@ Method | HTTP request | Description
 [**sendInvitations**](UsersApi.md#sendInvitations) | **POST** /api/v2/user_invitations | Send invitation emails
 [**updateUser**](UsersApi.md#updateUser) | **PATCH** /api/v2/users/{user_id} | Update a user
 
+
+## **createServiceAccount**
+> UserResponse createServiceAccount(body)
+
+Create a service account for your organization.
+
+### Example
+
+
+```typescript
+import { v2 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
+
+const configuration = v2.createConfiguration();
+const apiInstance = new v2.UsersApi(configuration);
+
+let params:v2.UsersApiCreateServiceAccountRequest = {
+  // ServiceAccountCreateRequest
+  body: {
+    data: {
+      attributes: {
+        email: "jane.doe@example.com",
+        name: "name_example",
+        serviceAccount: true,
+        title: "title_example",
+      },
+      relationships: {
+        roles: {
+          data: [
+            {
+              id: "3653d3c6-0c75-11ea-ad28-fb5701eabc7d",
+              type: "roles",
+            },
+          ],
+        },
+      },
+      type: "users",
+    },
+  },
+};
+
+apiInstance.createServiceAccount(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **ServiceAccountCreateRequest**|  |
+
+
+### Return type
+
+**UserResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication error |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **createUser**
 > UserResponse createUser(body)

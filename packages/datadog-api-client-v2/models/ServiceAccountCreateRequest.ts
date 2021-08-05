@@ -8,57 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from "./RelationshipToUser";
+import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * Resources related to the application key.
+ * Create a service account.
  */
 
-export class ApplicationKeyRelationships {
-  "ownedBy"?: RelationshipToUser;
+export class ServiceAccountCreateRequest {
+  "data": ServiceAccountCreateData;
 
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
-    ownedBy: {
-      baseName: "owned_by",
-      type: "RelationshipToUser",
+    data: {
+      baseName: "data",
+      type: "ServiceAccountCreateData",
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
-    return ApplicationKeyRelationships.attributeTypeMap;
+    return ServiceAccountCreateRequest.attributeTypeMap;
   }
 
   static deserialize(data: {
     [key: string]: any;
-  }): ApplicationKeyRelationships {
-    const res = new ApplicationKeyRelationships();
+  }): ServiceAccountCreateRequest {
+    const res = new ServiceAccountCreateRequest();
 
-    res.ownedBy = ObjectSerializer.deserialize(
-      data.owned_by,
-      "RelationshipToUser",
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'ServiceAccountCreateRequest' object"
+      );
+    }
+    res.data = ObjectSerializer.deserialize(
+      data.data,
+      "ServiceAccountCreateData",
       ""
     );
 
     return res;
   }
 
-  static serialize(data: ApplicationKeyRelationships): { [key: string]: any } {
-    const attributeTypes = ApplicationKeyRelationships.getAttributeTypeMap();
+  static serialize(data: ServiceAccountCreateRequest): { [key: string]: any } {
+    const attributeTypes = ServiceAccountCreateRequest.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
     }
-    res.owned_by = ObjectSerializer.serialize(
-      data.ownedBy,
-      "RelationshipToUser",
+    if (data.data === undefined) {
+      throw new TypeError(
+        "missing required attribute 'data' on 'ServiceAccountCreateRequest' object"
+      );
+    }
+    res.data = ObjectSerializer.serialize(
+      data.data,
+      "ServiceAccountCreateData",
       ""
     );
 

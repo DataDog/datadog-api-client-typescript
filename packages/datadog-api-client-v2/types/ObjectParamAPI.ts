@@ -50,6 +50,7 @@ import { MetricTagConfigurationResponse } from "../models/MetricTagConfiguration
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
+import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
@@ -74,6 +75,7 @@ import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitorin
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
+import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
 import { UserCreateRequest } from "../models/UserCreateRequest";
 import { UserInvitationResponse } from "../models/UserInvitationResponse";
 import { UserInvitationsRequest } from "../models/UserInvitationsRequest";
@@ -2718,11 +2720,249 @@ export class ObjectSecurityMonitoringApi {
   }
 }
 
+import { ObservableServiceAccountsApi } from "./ObservableAPI";
+import {
+  ServiceAccountsApiRequestFactory,
+  ServiceAccountsApiResponseProcessor,
+} from "../apis/ServiceAccountsApi";
+
+export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   * @memberof ServiceAccountsApicreateServiceAccountApplicationKey
+   */
+  serviceAccountId: string;
+  /**
+   *
+   * @type ApplicationKeyCreateRequest
+   * @memberof ServiceAccountsApicreateServiceAccountApplicationKey
+   */
+  body: ApplicationKeyCreateRequest;
+}
+
+export interface ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   * @memberof ServiceAccountsApideleteServiceAccountApplicationKey
+   */
+  serviceAccountId: string;
+  /**
+   * The ID of the application key.
+   * @type string
+   * @memberof ServiceAccountsApideleteServiceAccountApplicationKey
+   */
+  appKeyId: string;
+}
+
+export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   * @memberof ServiceAccountsApigetServiceAccountApplicationKey
+   */
+  serviceAccountId: string;
+  /**
+   * The ID of the application key.
+   * @type string
+   * @memberof ServiceAccountsApigetServiceAccountApplicationKey
+   */
+  appKeyId: string;
+}
+
+export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  serviceAccountId: string;
+  /**
+   * Size for a given page.
+   * @type number
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  pageNumber?: number;
+  /**
+   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @type ApplicationKeysSort
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  sort?: ApplicationKeysSort;
+  /**
+   * Filter application keys by the specified string.
+   * @type string
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  filter?: string;
+  /**
+   * Only include application keys created on or after the specified date.
+   * @type string
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  filterCreatedAtStart?: string;
+  /**
+   * Only include application keys created on or before the specified date.
+   * @type string
+   * @memberof ServiceAccountsApilistServiceAccountApplicationKeys
+   */
+  filterCreatedAtEnd?: string;
+}
+
+export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   * @memberof ServiceAccountsApiupdateServiceAccountApplicationKey
+   */
+  serviceAccountId: string;
+  /**
+   * The ID of the application key.
+   * @type string
+   * @memberof ServiceAccountsApiupdateServiceAccountApplicationKey
+   */
+  appKeyId: string;
+  /**
+   *
+   * @type ApplicationKeyUpdateRequest
+   * @memberof ServiceAccountsApiupdateServiceAccountApplicationKey
+   */
+  body: ApplicationKeyUpdateRequest;
+}
+
+export class ObjectServiceAccountsApi {
+  private api: ObservableServiceAccountsApi;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceAccountsApiRequestFactory,
+    responseProcessor?: ServiceAccountsApiResponseProcessor
+  ) {
+    this.api = new ObservableServiceAccountsApi(
+      configuration,
+      requestFactory,
+      responseProcessor
+    );
+  }
+
+  /**
+   * Create an application key for this service account.
+   * Create an application key for this service account
+   * @param param the request object
+   */
+  public createServiceAccountApplicationKey(
+    param: ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    return this.api
+      .createServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.body,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * Delete an application key owned by this service account.
+   * Delete an application key for this service account
+   * @param param the request object
+   */
+  public deleteServiceAccountApplicationKey(
+    param: ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api
+      .deleteServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.appKeyId,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * Get an application key owned by this service account.
+   * Get one application key for this service account
+   * @param param the request object
+   */
+  public getServiceAccountApplicationKey(
+    param: ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<PartialApplicationKeyResponse> {
+    return this.api
+      .getServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.appKeyId,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * List all application keys available for this service account.
+   * List application keys for this service account
+   * @param param the request object
+   */
+  public listServiceAccountApplicationKeys(
+    param: ServiceAccountsApiListServiceAccountApplicationKeysRequest,
+    options?: Configuration
+  ): Promise<ListApplicationKeysResponse> {
+    return this.api
+      .listServiceAccountApplicationKeys(
+        param.serviceAccountId,
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filter,
+        param.filterCreatedAtStart,
+        param.filterCreatedAtEnd,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * Edit an application key owned by this service account.
+   * Edit an application key for this service account
+   * @param param the request object
+   */
+  public updateServiceAccountApplicationKey(
+    param: ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<PartialApplicationKeyResponse> {
+    return this.api
+      .updateServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.appKeyId,
+        param.body,
+        options
+      )
+      .toPromise();
+  }
+}
+
 import { ObservableUsersApi } from "./ObservableAPI";
 import {
   UsersApiRequestFactory,
   UsersApiResponseProcessor,
 } from "../apis/UsersApi";
+
+export interface UsersApiCreateServiceAccountRequest {
+  /**
+   *
+   * @type ServiceAccountCreateRequest
+   * @memberof UsersApicreateServiceAccount
+   */
+  body: ServiceAccountCreateRequest;
+}
 
 export interface UsersApiCreateUserRequest {
   /**
@@ -2854,6 +3094,18 @@ export class ObjectUsersApi {
       requestFactory,
       responseProcessor
     );
+  }
+
+  /**
+   * Create a service account for your organization.
+   * Create a service account
+   * @param param the request object
+   */
+  public createServiceAccount(
+    param: UsersApiCreateServiceAccountRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    return this.api.createServiceAccount(param.body, options).toPromise();
   }
 
   /**
