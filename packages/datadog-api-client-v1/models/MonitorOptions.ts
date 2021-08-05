@@ -57,7 +57,11 @@ export class MonitorOptions {
    */
   "minLocationFailed"?: number;
   /**
-   * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.
+   * Time (in seconds) to skip evaluations for new groups.  For example, this option can be used to skip evaluations for new hosts while they initialize.  Must be a non negative integer.
+   */
+  "newGroupDelay"?: number;
+  /**
+   * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.  Use new_group_delay instead.
    */
   "newHostDelay"?: number;
   /**
@@ -147,6 +151,11 @@ export class MonitorOptions {
     },
     minLocationFailed: {
       baseName: "min_location_failed",
+      type: "number",
+      format: "int64",
+    },
+    newGroupDelay: {
+      baseName: "new_group_delay",
       type: "number",
       format: "int64",
     },
@@ -266,6 +275,12 @@ export class MonitorOptions {
 
     res.minLocationFailed = ObjectSerializer.deserialize(
       data.min_location_failed,
+      "number",
+      "int64"
+    );
+
+    res.newGroupDelay = ObjectSerializer.deserialize(
+      data.new_group_delay,
       "number",
       "int64"
     );
@@ -399,6 +414,12 @@ export class MonitorOptions {
 
     res.min_location_failed = ObjectSerializer.serialize(
       data.minLocationFailed,
+      "number",
+      "int64"
+    );
+
+    res.new_group_delay = ObjectSerializer.serialize(
+      data.newGroupDelay,
       "number",
       "int64"
     );

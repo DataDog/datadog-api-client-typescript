@@ -504,6 +504,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
    * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
    * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
    * @param sortName The field to sort by.
+   * @param includeDescendants Include child org usage in the response. Defaults to false.
    */
   public async getUsageAttribution(
     startMonth: Date,
@@ -511,6 +512,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     endMonth?: Date,
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
+    includeDescendants?: boolean,
     options?: Configuration
   ): Promise<RequestContext> {
     const config = options || this.configuration;
@@ -573,6 +575,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort_name",
         ObjectSerializer.serialize(sortName, "UsageAttributionSort", "")
+      );
+    }
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", "")
       );
     }
 
