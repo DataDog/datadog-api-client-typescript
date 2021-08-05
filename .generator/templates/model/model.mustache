@@ -64,17 +64,17 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       }
         {{/required}}
         {{#allowableValues}}
-        if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
+      if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
-        } else {
+      } else {
           let raw = new {{classname}}();
           raw.unparsedObject = data;
           return raw;
-        }
+      }
 
         {{/allowableValues}}
         {{^allowableValues}}
-        res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
+      res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
         {{/allowableValues}}
 
       {{/vars}}

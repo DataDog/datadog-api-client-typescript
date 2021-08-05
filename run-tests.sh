@@ -25,6 +25,4 @@ if [ "$RERECORD_FAILED_TESTS" == "true" -a "$TEST_RESULT" -ne "0" ]; then
     TEST_RESULT=$?
 fi
 
-
-
 exit $TEST_RESULT
