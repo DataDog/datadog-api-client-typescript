@@ -14,6 +14,9 @@ set +e
 # Check licenses
 yarn run check-licenses || exit 1
 
+# Run unit tests
+yarn run jest-test
+
 # Run tests
 yarn run cucumber-js features/
 TEST_RESULT=$?
@@ -21,5 +24,7 @@ if [ "$RERECORD_FAILED_TESTS" == "true" -a "$TEST_RESULT" -ne "0" ]; then
     RECORD=true yarn run cucumber-js @rerun.txt
     TEST_RESULT=$?
 fi
+
+
 
 exit $TEST_RESULT

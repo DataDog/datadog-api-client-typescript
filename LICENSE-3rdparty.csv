@@ -5,6 +5,7 @@ Component,Licence,Copyright
 @pollyjs/core,Apache-2.0,
 @pollyjs/persister-fs,Apache-2.0,
 @types/chai,MIT,Copyright Microsoft Corporation
+@types/jest,MIT,Copyright Microsoft Corporation
 @types/lodash,MIT,Copyright Microsoft Corporation
 @types/node-fetch,MIT,Copyright Microsoft Corporation
 @types/node,MIT,Copyright Microsoft Corporation
@@ -18,6 +19,8 @@ Component,Licence,Copyright
 @typescript-eslint/parser,BSD-2-Clause,
 btoa,(MIT OR Apache-2.0),
 chai,MIT,Copyright (c) 2017 Chai.js Assertion Library
+jest,MIT,Copyright (c) Facebook, Inc. and its affiliates.
+ts-jest,MIT,Copyright (c) 2016-2018
 dd-trace,BSD-3-Clause,Copyright 2016-Present Datadog Inc.
 durations,MIT,Copyright (c) 2015, Joel Edwards
 es6-promise,MIT,Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
