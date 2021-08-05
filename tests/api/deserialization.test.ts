@@ -2,7 +2,7 @@
 import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-api-client-v1/models/ObjectSerializer';
 import { ObjectSerializer as ObjectSerializerV2 } from '../../packages/datadog-api-client-v2/models/ObjectSerializer';
 
-test('TestDeserializationUnknownTopLevelEnum', () => {
+test('TestDeserializationUnknownNestedOneOfInList', () => {
   let data = `
   {
       "status": "paused",
@@ -80,7 +80,7 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
 );
 
 
-test('TestDeserializationUnknownTopLevelEnum', () => {
+test('TestDeserializationUnknownNestedEnumInList', () => {
   let data = `
   {
       "status": "live",
@@ -155,7 +155,7 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
   }
 );
 
-test('TestDeserializationUnknownNestedEnumInList', () => {
+test('TestDeserializationUnknownTopLevelEnum', () => {
   let data = `
   {
       "status": "live",
