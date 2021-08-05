@@ -14,8 +14,15 @@ set +e
 # Check licenses
 yarn run check-licenses || exit 1
 
+
 # Run unit tests
-yarn run jest-test
+if [ "$RECORD" == "false" ]; then
+    yarn run jest-test
+    if [ "$?" -ne "0" ]; then
+        exit $?
+    fi
+fi
+
 
 # Run tests
 yarn run test

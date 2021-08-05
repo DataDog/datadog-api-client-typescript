@@ -46,8 +46,8 @@
     "prepare": "yarn run build",
     "test": "node bin/dd-cucumber-js features/",
     "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt",
-    "jest-test": "jest",
-    "jest-coverage": "jest --coverage"
+    "jest-test": "jest --no-cache",
+    "jest-coverage": "jest --no-cache --coverage"
   },
   "dependencies": {
     "@types/node": "*",
