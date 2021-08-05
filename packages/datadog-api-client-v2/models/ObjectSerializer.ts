@@ -152,6 +152,7 @@ import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
+import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
@@ -227,6 +228,9 @@ import { SecurityMonitoringSignalsListResponse } from "./SecurityMonitoringSigna
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
+import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
+import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
+import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
@@ -476,6 +480,7 @@ const typeMap: { [index: string]: any } = {
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
   PartialApplicationKey: PartialApplicationKey,
   PartialApplicationKeyAttributes: PartialApplicationKeyAttributes,
+  PartialApplicationKeyResponse: PartialApplicationKeyResponse,
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
@@ -551,6 +556,9 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringSignalsListResponseLinks: SecurityMonitoringSignalsListResponseLinks,
   SecurityMonitoringSignalsListResponseMeta: SecurityMonitoringSignalsListResponseMeta,
   SecurityMonitoringSignalsListResponseMetaPage: SecurityMonitoringSignalsListResponseMetaPage,
+  ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
+  ServiceAccountCreateData: ServiceAccountCreateData,
+  ServiceAccountCreateRequest: ServiceAccountCreateRequest,
   User: User,
   UserAttributes: UserAttributes,
   UserCreateAttributes: UserCreateAttributes,
