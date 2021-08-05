@@ -8,7 +8,6 @@ import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
 import fs from "fs";
 import path from "path";
-import { ObjectSerializer } from "../../packages/datadog-api-client-v1/models/ObjectSerializer";
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
