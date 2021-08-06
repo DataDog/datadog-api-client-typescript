@@ -529,6 +529,7 @@ const enumsMap: Set<string> = new Set<string>([
   "SLOTypeNumeric",
   "SLOWidgetDefinitionType",
   "ScatterPlotWidgetDefinitionType",
+  "ScatterplotWidgetAggregator",
   "ServiceCheckStatus",
   "ServiceMapWidgetDefinitionType",
   "ServiceSummaryWidgetDefinitionType",

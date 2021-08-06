@@ -73,6 +73,7 @@ export class FormulaAndFunctionMetricQueryDefinition {
         "last",
         "area",
         "l2norm",
+        "percentile",
         undefined,
       ].includes(data.aggregator)
     ) {
@@ -128,6 +129,7 @@ export class FormulaAndFunctionMetricQueryDefinition {
         "last",
         "area",
         "l2norm",
+        "percentile",
         undefined,
       ].includes(data.aggregator)
     ) {

@@ -10,7 +10,7 @@
 
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { WidgetAggregator } from "./WidgetAggregator";
+import { ScatterplotWidgetAggregator } from "./ScatterplotWidgetAggregator";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -18,7 +18,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
  */
 
 export class ScatterPlotRequest {
-  "aggregator"?: WidgetAggregator;
+  "aggregator"?: ScatterplotWidgetAggregator;
   "apmQuery"?: LogQueryDefinition;
   "eventQuery"?: LogQueryDefinition;
   "logQuery"?: LogQueryDefinition;
@@ -39,7 +39,7 @@ export class ScatterPlotRequest {
   } = {
     aggregator: {
       baseName: "aggregator",
-      type: "WidgetAggregator",
+      type: "ScatterplotWidgetAggregator",
       format: "",
     },
     apmQuery: {
