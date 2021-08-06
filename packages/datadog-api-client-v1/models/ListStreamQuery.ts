@@ -60,7 +60,11 @@ export class ListStreamQuery {
         "missing required attribute 'data_source' on 'ListStreamQuery' object"
       );
     }
-    if (["issue_stream", "logs_stream", undefined].includes(data.data_source)) {
+    if (
+      ["issue_stream", "logs_stream", "audit_stream", undefined].includes(
+        data.data_source
+      )
+    ) {
       res.dataSource = data.data_source;
     } else {
       throw TypeError(`invalid enum value ${data.data_source} for data_source`);
@@ -99,7 +103,11 @@ export class ListStreamQuery {
         "missing required attribute 'data_source' on 'ListStreamQuery' object"
       );
     }
-    if (["issue_stream", "logs_stream", undefined].includes(data.dataSource)) {
+    if (
+      ["issue_stream", "logs_stream", "audit_stream", undefined].includes(
+        data.dataSource
+      )
+    ) {
       res.data_source = data.dataSource;
     } else {
       throw TypeError(`invalid enum value ${data.dataSource} for dataSource`);
