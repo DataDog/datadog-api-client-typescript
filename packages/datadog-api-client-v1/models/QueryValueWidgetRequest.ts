@@ -140,7 +140,9 @@ export class QueryValueWidgetRequest {
     const res = new QueryValueWidgetRequest();
 
     if (
-      ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)
+      ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(
+        data.aggregator
+      )
     ) {
       res.aggregator = data.aggregator;
     } else {
@@ -241,7 +243,9 @@ export class QueryValueWidgetRequest {
       }
     }
     if (
-      ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)
+      ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(
+        data.aggregator
+      )
     ) {
       res.aggregator = data.aggregator;
     } else {

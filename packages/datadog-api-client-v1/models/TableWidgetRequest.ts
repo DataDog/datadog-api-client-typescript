@@ -176,7 +176,9 @@ export class TableWidgetRequest {
     const res = new TableWidgetRequest();
 
     if (
-      ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)
+      ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(
+        data.aggregator
+      )
     ) {
       res.aggregator = data.aggregator;
     } else {
@@ -293,7 +295,9 @@ export class TableWidgetRequest {
       }
     }
     if (
-      ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)
+      ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(
+        data.aggregator
+      )
     ) {
       res.aggregator = data.aggregator;
     } else {

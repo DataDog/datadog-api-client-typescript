@@ -96,6 +96,9 @@ export class SyntheticsDevice {
         "firefox.laptop_large",
         "firefox.tablet",
         "firefox.mobile_small",
+        "edge.laptop_large",
+        "edge.tablet",
+        "edge.mobile_small",
         undefined,
       ].includes(data.id)
     ) {
@@ -154,6 +157,9 @@ export class SyntheticsDevice {
         "firefox.laptop_large",
         "firefox.tablet",
         "firefox.mobile_small",
+        "edge.laptop_large",
+        "edge.tablet",
+        "edge.mobile_small",
         undefined,
       ].includes(data.id)
     ) {

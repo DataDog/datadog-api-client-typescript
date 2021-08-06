@@ -411,6 +411,7 @@ models/ScatterPlotRequest.ts
 models/ScatterPlotWidgetDefinition.ts
 models/ScatterPlotWidgetDefinitionRequests.ts
 models/ScatterPlotWidgetDefinitionType.ts
+models/ScatterplotWidgetAggregator.ts
 models/Series.ts
 models/ServiceCheck.ts
 models/ServiceCheckStatus.ts

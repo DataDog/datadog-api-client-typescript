@@ -116,6 +116,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
         "last",
         "area",
         "l2norm",
+        "percentile",
         undefined,
       ].includes(data.aggregator)
     ) {
@@ -197,6 +198,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
         "last",
         "area",
         "l2norm",
+        "percentile",
         undefined,
       ].includes(data.aggregator)
     ) {

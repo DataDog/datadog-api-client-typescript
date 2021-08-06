@@ -8,20 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type FormulaAndFunctionMetricAggregation =
-  | typeof AVG
-  | typeof MIN
-  | typeof MAX
-  | typeof SUM
+export type ScatterplotWidgetAggregator =
+  | typeof AVERAGE
   | typeof LAST
-  | typeof AREA
-  | typeof L2NORM
-  | typeof PERCENTILE;
-export const AVG = "avg";
-export const MIN = "min";
-export const MAX = "max";
-export const SUM = "sum";
+  | typeof MAXIMUM
+  | typeof MINIMUM
+  | typeof SUM;
+export const AVERAGE = "avg";
 export const LAST = "last";
-export const AREA = "area";
-export const L2NORM = "l2norm";
-export const PERCENTILE = "percentile";
+export const MAXIMUM = "max";
+export const MINIMUM = "min";
+export const SUM = "sum";
