@@ -32,6 +32,8 @@ export class UsageLogsByRetentionHour {
    */
   "retention"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -96,6 +98,9 @@ export class UsageLogsByRetentionHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.indexed_events_count = ObjectSerializer.serialize(
       data.indexedEventsCount,

@@ -34,6 +34,8 @@ export class MetricTagConfigurationAttributes {
    */
   "tags"?: Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -94,7 +96,9 @@ export class MetricTagConfigurationAttributes {
     ) {
       res.metricType = data.metric_type;
     } else {
-      throw TypeError(`invalid enum value ${data.metric_type} for metric_type`);
+      const raw = new MetricTagConfigurationAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.modifiedAt = ObjectSerializer.deserialize(
@@ -117,6 +121,9 @@ export class MetricTagConfigurationAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.created_at = ObjectSerializer.serialize(
       data.createdAt,

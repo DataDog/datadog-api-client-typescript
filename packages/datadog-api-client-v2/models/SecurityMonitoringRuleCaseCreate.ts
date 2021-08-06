@@ -30,6 +30,8 @@ export class SecurityMonitoringRuleCaseCreate {
   "notifications"?: Array<string>;
   "status": SecurityMonitoringRuleSeverity;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -88,7 +90,9 @@ export class SecurityMonitoringRuleCaseCreate {
     ) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new SecurityMonitoringRuleCaseCreate();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -103,6 +107,9 @@ export class SecurityMonitoringRuleCaseCreate {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.condition = ObjectSerializer.serialize(data.condition, "string", "");
 

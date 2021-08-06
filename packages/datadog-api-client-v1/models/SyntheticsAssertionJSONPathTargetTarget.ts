@@ -28,6 +28,8 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    */
   "targetValue"?: any;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -77,6 +79,9 @@ export class SyntheticsAssertionJSONPathTargetTarget {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.jsonPath = ObjectSerializer.serialize(data.jsonPath, "string", "");
 

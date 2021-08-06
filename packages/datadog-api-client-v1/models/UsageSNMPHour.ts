@@ -24,6 +24,8 @@ export class UsageSNMPHour {
    */
   "snmpDevices"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class UsageSNMPHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
 

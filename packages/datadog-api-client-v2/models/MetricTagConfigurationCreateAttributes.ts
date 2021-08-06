@@ -26,6 +26,8 @@ export class MetricTagConfigurationCreateAttributes {
    */
   "tags": Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -75,7 +77,9 @@ export class MetricTagConfigurationCreateAttributes {
     ) {
       res.metricType = data.metric_type;
     } else {
-      throw TypeError(`invalid enum value ${data.metric_type} for metric_type`);
+      const raw = new MetricTagConfigurationCreateAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.tags === undefined) {
@@ -97,6 +101,9 @@ export class MetricTagConfigurationCreateAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.include_percentiles = ObjectSerializer.serialize(
       data.includePercentiles,

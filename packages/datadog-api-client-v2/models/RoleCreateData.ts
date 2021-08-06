@@ -22,6 +22,8 @@ export class RoleCreateData {
   "relationships"?: RoleRelationships;
   "type"?: RolesType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -71,7 +73,9 @@ export class RoleCreateData {
     if (["roles", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new RoleCreateData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -84,6 +88,9 @@ export class RoleCreateData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.attributes === undefined) {
       throw new TypeError(

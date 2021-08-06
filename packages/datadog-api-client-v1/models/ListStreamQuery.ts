@@ -26,6 +26,8 @@ export class ListStreamQuery {
    */
   "queryString": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -67,7 +69,9 @@ export class ListStreamQuery {
     ) {
       res.dataSource = data.data_source;
     } else {
-      throw TypeError(`invalid enum value ${data.data_source} for data_source`);
+      const raw = new ListStreamQuery();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.indexes = ObjectSerializer.deserialize(
@@ -97,6 +101,9 @@ export class ListStreamQuery {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.dataSource === undefined) {
       throw new TypeError(

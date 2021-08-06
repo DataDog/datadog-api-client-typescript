@@ -34,6 +34,8 @@ export class SyntheticsDevice {
    */
   "width": number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -104,7 +106,9 @@ export class SyntheticsDevice {
     ) {
       res.id = data.id;
     } else {
-      throw TypeError(`invalid enum value ${data.id} for id`);
+      const raw = new SyntheticsDevice();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.isMobile = ObjectSerializer.deserialize(data.isMobile, "boolean", "");
@@ -133,6 +137,9 @@ export class SyntheticsDevice {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.height === undefined) {
       throw new TypeError(

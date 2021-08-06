@@ -74,6 +74,8 @@ export class SyntheticsTestRequest {
    */
   "url"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -218,7 +220,9 @@ export class SyntheticsTestRequest {
     ) {
       res.method = data.method;
     } else {
-      throw TypeError(`invalid enum value ${data.method} for method`);
+      const raw = new SyntheticsTestRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.noSavingResponseBody = ObjectSerializer.deserialize(
@@ -261,6 +265,9 @@ export class SyntheticsTestRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.allow_insecure = ObjectSerializer.serialize(
       data.allowInsecure,

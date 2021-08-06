@@ -49,6 +49,8 @@ export class UsageBillableSummaryKeys {
   "syntheticsBrowserChecksSum"?: UsageBillableSummaryBody;
   "timeseriesAverage"?: UsageBillableSummaryBody;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -425,6 +427,9 @@ export class UsageBillableSummaryKeys {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.apm_host_sum = ObjectSerializer.serialize(
       data.apmHostSum,

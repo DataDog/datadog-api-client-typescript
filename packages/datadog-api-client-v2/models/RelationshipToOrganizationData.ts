@@ -22,6 +22,8 @@ export class RelationshipToOrganizationData {
   "id": string;
   "type": OrganizationsType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -63,7 +65,9 @@ export class RelationshipToOrganizationData {
     if (["orgs", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new RelationshipToOrganizationData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -78,6 +82,9 @@ export class RelationshipToOrganizationData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.id === undefined) {
       throw new TypeError(

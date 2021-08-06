@@ -28,6 +28,8 @@ export class IncidentServicesResponse {
   "included"?: Array<IncidentServiceIncludedItems>;
   "meta"?: IncidentServicesResponseMeta;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -90,6 +92,9 @@ export class IncidentServicesResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.data === undefined) {
       throw new TypeError(

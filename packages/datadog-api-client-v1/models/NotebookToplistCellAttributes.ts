@@ -24,6 +24,8 @@ export class NotebookToplistCellAttributes {
   "splitBy"?: NotebookSplitBy;
   "time"?: NotebookCellTime;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -74,7 +76,9 @@ export class NotebookToplistCellAttributes {
     if (["xs", "s", "m", "l", "xl", undefined].includes(data.graph_size)) {
       res.graphSize = data.graph_size;
     } else {
-      throw TypeError(`invalid enum value ${data.graph_size} for graph_size`);
+      const raw = new NotebookToplistCellAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.splitBy = ObjectSerializer.deserialize(
@@ -97,6 +101,9 @@ export class NotebookToplistCellAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.definition === undefined) {
       throw new TypeError(

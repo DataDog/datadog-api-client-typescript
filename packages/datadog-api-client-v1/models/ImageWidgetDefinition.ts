@@ -42,6 +42,8 @@ export class ImageWidgetDefinition {
   "urlDarkTheme"?: string;
   "verticalAlign"?: WidgetVerticalAlign;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -118,15 +120,17 @@ export class ImageWidgetDefinition {
     ) {
       res.horizontalAlign = data.horizontal_align;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.horizontal_align} for horizontal_align`
-      );
+      const raw = new ImageWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (["sm", "md", "lg", "small", "large", undefined].includes(data.margin)) {
       res.margin = data.margin;
     } else {
-      throw TypeError(`invalid enum value ${data.margin} for margin`);
+      const raw = new ImageWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -144,7 +148,9 @@ export class ImageWidgetDefinition {
     ) {
       res.sizing = data.sizing;
     } else {
-      throw TypeError(`invalid enum value ${data.sizing} for sizing`);
+      const raw = new ImageWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.type === undefined) {
@@ -155,7 +161,9 @@ export class ImageWidgetDefinition {
     if (["image", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new ImageWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.url === undefined) {
@@ -174,9 +182,9 @@ export class ImageWidgetDefinition {
     if (["center", "top", "bottom", undefined].includes(data.vertical_align)) {
       res.verticalAlign = data.vertical_align;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.vertical_align} for vertical_align`
-      );
+      const raw = new ImageWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -189,6 +197,9 @@ export class ImageWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.has_background = ObjectSerializer.serialize(
       data.hasBackground,

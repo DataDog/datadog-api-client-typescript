@@ -50,6 +50,8 @@ export class DashboardSummaryDefinition {
    */
   "url"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -138,7 +140,9 @@ export class DashboardSummaryDefinition {
     if (["ordered", "free", undefined].includes(data.layout_type)) {
       res.layoutType = data.layout_type;
     } else {
-      throw TypeError(`invalid enum value ${data.layout_type} for layout_type`);
+      const raw = new DashboardSummaryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.modifiedAt = ObjectSerializer.deserialize(
@@ -161,6 +165,9 @@ export class DashboardSummaryDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.author_handle = ObjectSerializer.serialize(
       data.authorHandle,

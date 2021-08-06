@@ -28,6 +28,8 @@ export class LogsArchiveDestinationS3 {
   "path"?: string;
   "type": LogsArchiveDestinationS3Type;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -90,7 +92,9 @@ export class LogsArchiveDestinationS3 {
     if (["s3", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsArchiveDestinationS3();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -103,6 +107,9 @@ export class LogsArchiveDestinationS3 {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.bucket === undefined) {
       throw new TypeError(

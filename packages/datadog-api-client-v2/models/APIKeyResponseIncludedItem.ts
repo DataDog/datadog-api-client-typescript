@@ -9,5 +9,10 @@
  */
 
 import { User } from "./User";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type APIKeyResponseIncludedItem = User;
+/**
+ * An object related to an API key.
+ */
+
+export type APIKeyResponseIncludedItem = User | UnparsedObject;

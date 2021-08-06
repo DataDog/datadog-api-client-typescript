@@ -36,6 +36,8 @@ export class WidgetLayout {
    */
   "y": number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -119,6 +121,9 @@ export class WidgetLayout {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.height === undefined) {
       throw new TypeError(

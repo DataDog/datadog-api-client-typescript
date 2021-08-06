@@ -39,6 +39,8 @@ export class NotebookResponseDataAttributes {
   "status"?: NotebookStatus;
   "time": NotebookGlobalTime;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -129,7 +131,9 @@ export class NotebookResponseDataAttributes {
     if (["published", undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new NotebookResponseDataAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.time === undefined) {
@@ -155,6 +159,9 @@ export class NotebookResponseDataAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.author = ObjectSerializer.serialize(data.author, "NotebookAuthor", "");
 

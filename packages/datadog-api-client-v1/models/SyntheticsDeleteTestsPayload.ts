@@ -20,6 +20,8 @@ export class SyntheticsDeleteTestsPayload {
    */
   "publicIds"?: Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -57,6 +59,9 @@ export class SyntheticsDeleteTestsPayload {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.public_ids = ObjectSerializer.serialize(
       data.publicIds,

@@ -64,6 +64,8 @@ export class Event {
    */
   "url"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -157,7 +159,9 @@ export class Event {
     ) {
       res.alertType = data.alert_type;
     } else {
-      throw TypeError(`invalid enum value ${data.alert_type} for alert_type`);
+      const raw = new Event();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.dateHappened = ObjectSerializer.deserialize(
@@ -183,7 +187,9 @@ export class Event {
     if (["normal", "low", undefined].includes(data.priority)) {
       res.priority = data.priority;
     } else {
-      throw TypeError(`invalid enum value ${data.priority} for priority`);
+      const raw = new Event();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.sourceTypeName = ObjectSerializer.deserialize(
@@ -210,6 +216,9 @@ export class Event {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

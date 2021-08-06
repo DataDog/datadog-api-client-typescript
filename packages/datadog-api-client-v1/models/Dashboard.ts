@@ -75,6 +75,8 @@ export class Dashboard {
    */
   "widgets": Array<Widget>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -198,7 +200,9 @@ export class Dashboard {
     if (["ordered", "free", undefined].includes(data.layout_type)) {
       res.layoutType = data.layout_type;
     } else {
-      throw TypeError(`invalid enum value ${data.layout_type} for layout_type`);
+      const raw = new Dashboard();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.modifiedAt = ObjectSerializer.deserialize(
@@ -216,7 +220,9 @@ export class Dashboard {
     if (["auto", "fixed", undefined].includes(data.reflow_type)) {
       res.reflowType = data.reflow_type;
     } else {
-      throw TypeError(`invalid enum value ${data.reflow_type} for reflow_type`);
+      const raw = new Dashboard();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.restrictedRoles = ObjectSerializer.deserialize(
@@ -267,6 +273,9 @@ export class Dashboard {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.author_handle = ObjectSerializer.serialize(
       data.authorHandle,

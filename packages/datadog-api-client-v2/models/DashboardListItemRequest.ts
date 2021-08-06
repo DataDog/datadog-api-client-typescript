@@ -22,6 +22,8 @@ export class DashboardListItemRequest {
   "id": string;
   "type": DashboardType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -70,7 +72,9 @@ export class DashboardListItemRequest {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new DashboardListItemRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -83,6 +87,9 @@ export class DashboardListItemRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.id === undefined) {
       throw new TypeError(

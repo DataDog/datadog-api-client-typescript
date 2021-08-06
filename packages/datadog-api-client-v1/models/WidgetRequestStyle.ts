@@ -24,6 +24,8 @@ export class WidgetRequestStyle {
    */
   "palette"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -56,13 +58,17 @@ export class WidgetRequestStyle {
     if (["dashed", "dotted", "solid", undefined].includes(data.line_type)) {
       res.lineType = data.line_type;
     } else {
-      throw TypeError(`invalid enum value ${data.line_type} for line_type`);
+      const raw = new WidgetRequestStyle();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (["normal", "thick", "thin", undefined].includes(data.line_width)) {
       res.lineWidth = data.line_width;
     } else {
-      throw TypeError(`invalid enum value ${data.line_width} for line_width`);
+      const raw = new WidgetRequestStyle();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.palette = ObjectSerializer.deserialize(data.palette, "string", "");
@@ -77,6 +83,9 @@ export class WidgetRequestStyle {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["dashed", "dotted", "solid", undefined].includes(data.lineType)) {
       res.line_type = data.lineType;

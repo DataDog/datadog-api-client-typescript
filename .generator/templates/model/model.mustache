@@ -5,7 +5,7 @@
 import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
 {{/tsImports}}
 import { HttpFile } from '../http/http{{extensionForDeno}}';
-import { ObjectSerializer } from './ObjectSerializer';
+import { ObjectSerializer, UnparsedObject } from './ObjectSerializer';
 
 {{#description}}
 /**
@@ -22,6 +22,8 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 {{/description}}
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}};
 {{/vars}}
+
+    'unparsedObject'?:any;
 
     {{#discriminator}}
     static readonly discriminator: string | undefined = "{{discriminatorName}}";
@@ -65,8 +67,11 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
       if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
           res.{{name}} = data.{{{baseName}}};
       } else {
-          throw TypeError(`invalid enum value ${ data.{{{baseName}}} } for {{baseName}}`);
+          let raw = new {{classname}}();
+          raw.unparsedObject = data;
+          return raw;
       }
+
         {{/allowableValues}}
         {{^allowableValues}}
       res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
@@ -84,6 +89,9 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
             if (!(key in attributeTypes)) {
                 throw new TypeError(`${key} attribute not in schema`);
             }
+        }
+        if (data?.unparsedObject !== undefined) {
+            return data.unparsedObject;
         }
         {{#vars}}
           {{#required}}
@@ -105,7 +113,7 @@ export class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         {{/vars}}
         return res
     }
-    
+
     public constructor() {
         {{#parent}}
         super();
@@ -137,6 +145,6 @@ export type {{classname}} = {{#allowableValues}}{{#enumVars}}typeof {{#enumClass
 export const {{#enumClassPrefix}}{{{classname.toUpperCase}}}_{{/enumClassPrefix}}{{name}} = {{{value}}};
 {{/enumVars}}{{/allowableValues}}
 {{/isEnum}}
-{{#oneOf}}{{#-first}}export type {{classname}} = {{/-first}}{{{.}}}{{^-last}} | {{/-last}}{{#-last}};{{/-last}}{{/oneOf}}
+{{#oneOf}}{{#-first}}export type {{classname}} = {{/-first}}{{{.}}}{{^-last}} | {{/-last}}{{#-last}} | UnparsedObject;{{/-last}}{{/oneOf}}
 {{/model}}
 {{/models}}

@@ -48,6 +48,8 @@ export class SyntheticsAPITestResultData {
   "responseSize"?: number;
   "timings"?: SyntheticsTiming;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -134,7 +136,9 @@ export class SyntheticsAPITestResultData {
     ) {
       res.errorCode = data.errorCode;
     } else {
-      throw TypeError(`invalid enum value ${data.errorCode} for errorCode`);
+      const raw = new SyntheticsAPITestResultData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.errorMessage = ObjectSerializer.deserialize(
@@ -155,7 +159,9 @@ export class SyntheticsAPITestResultData {
     ) {
       res.eventType = data.eventType;
     } else {
-      throw TypeError(`invalid enum value ${data.eventType} for eventType`);
+      const raw = new SyntheticsAPITestResultData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.httpStatusCode = ObjectSerializer.deserialize(
@@ -204,6 +210,9 @@ export class SyntheticsAPITestResultData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.cert = ObjectSerializer.serialize(
       data.cert,

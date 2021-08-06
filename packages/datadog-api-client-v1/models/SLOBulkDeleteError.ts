@@ -26,6 +26,8 @@ export class SLOBulkDeleteError {
   "message": string;
   "timeframe": SLOErrorTimeframe;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -77,7 +79,9 @@ export class SLOBulkDeleteError {
     if (["7d", "30d", "90d", "all", undefined].includes(data.timeframe)) {
       res.timeframe = data.timeframe;
     } else {
-      throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);
+      const raw = new SLOBulkDeleteError();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -90,6 +94,9 @@ export class SLOBulkDeleteError {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.id === undefined) {
       throw new TypeError(

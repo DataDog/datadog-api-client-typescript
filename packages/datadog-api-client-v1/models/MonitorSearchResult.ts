@@ -59,6 +59,8 @@ export class MonitorSearchResult {
   "tags"?: Array<string>;
   "type"?: MonitorType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -181,7 +183,9 @@ export class MonitorSearchResult {
     ) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new MonitorSearchResult();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
@@ -205,7 +209,9 @@ export class MonitorSearchResult {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new MonitorSearchResult();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -218,6 +224,9 @@ export class MonitorSearchResult {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.classification = ObjectSerializer.serialize(
       data.classification,

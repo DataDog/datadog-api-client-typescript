@@ -25,6 +25,8 @@ export class LogsByRetentionMonthlyUsage {
    */
   "usage"?: Array<LogsRetentionSumUsage>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -69,6 +71,9 @@ export class LogsByRetentionMonthlyUsage {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.date = ObjectSerializer.serialize(data.date, "string", "datetime");
 

@@ -26,6 +26,8 @@ export class IncidentResponseData {
   "relationships"?: IncidentResponseRelationships;
   "type": IncidentType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -87,7 +89,9 @@ export class IncidentResponseData {
     if (["incidents", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new IncidentResponseData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -100,6 +104,9 @@ export class IncidentResponseData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.attributes = ObjectSerializer.serialize(
       data.attributes,

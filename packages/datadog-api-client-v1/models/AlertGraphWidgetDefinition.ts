@@ -36,6 +36,8 @@ export class AlertGraphWidgetDefinition {
   "type": AlertGraphWidgetDefinitionType;
   "vizType": WidgetVizType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -99,7 +101,9 @@ export class AlertGraphWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new AlertGraphWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -112,7 +116,9 @@ export class AlertGraphWidgetDefinition {
     if (["alert_graph", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new AlertGraphWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.viz_type === undefined) {
@@ -123,7 +129,9 @@ export class AlertGraphWidgetDefinition {
     if (["timeseries", "toplist", undefined].includes(data.viz_type)) {
       res.vizType = data.viz_type;
     } else {
-      throw TypeError(`invalid enum value ${data.viz_type} for viz_type`);
+      const raw = new AlertGraphWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -136,6 +144,9 @@ export class AlertGraphWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.alertId === undefined) {
       throw new TypeError(

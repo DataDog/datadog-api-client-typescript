@@ -50,6 +50,8 @@ export class SyntheticsAPITest {
   "tags"?: Array<string>;
   "type"?: SyntheticsAPITestType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -152,7 +154,9 @@ export class SyntheticsAPITest {
     if (["live", "paused", undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new SyntheticsAPITest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -162,7 +166,9 @@ export class SyntheticsAPITest {
     ) {
       res.subtype = data.subtype;
     } else {
-      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
+      const raw = new SyntheticsAPITest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
@@ -170,7 +176,9 @@ export class SyntheticsAPITest {
     if (["api", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsAPITest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -183,6 +191,9 @@ export class SyntheticsAPITest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.config = ObjectSerializer.serialize(
       data.config,

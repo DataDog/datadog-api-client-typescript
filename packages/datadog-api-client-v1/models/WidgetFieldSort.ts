@@ -22,6 +22,8 @@ export class WidgetFieldSort {
   "column": string;
   "order": WidgetSort;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -61,7 +63,9 @@ export class WidgetFieldSort {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new WidgetFieldSort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -74,6 +78,9 @@ export class WidgetFieldSort {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.column === undefined) {
       throw new TypeError(

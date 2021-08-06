@@ -770,20 +770,16 @@ export class ObjectSerializer {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
-            oneOfs.push(ObjectSerializer.deserialize(data, oneOf, format));
+            const d = ObjectSerializer.deserialize(data, oneOf, format);
+            if (d?.unparsedObject === undefined) {
+              oneOfs.push(d);
+            }
           } catch (e) {
             console.debug(`could not deserialize ${oneOf} (${e})`);
           }
         }
-        if (oneOfs.length > 1) {
-          throw new TypeError(
-            `${data} matches multiple types from ${oneOfMap[type]} ${oneOfs}`
-          );
-        }
-        if (oneOfs.length == 0) {
-          throw new TypeError(
-            `${data} doesn't match any type from ${oneOfMap[type]} ${oneOfs}`
-          );
+        if (oneOfs.length != 1) {
+          return new UnparsedObject(data);
         }
         return oneOfs[0];
       }
@@ -874,5 +870,12 @@ export class ObjectSerializer {
         mediaType +
         " is not supported by ObjectSerializer.parse."
     );
+  }
+}
+
+export class UnparsedObject {
+  unparsedObject: any;
+  constructor(data: any) {
+    this.unparsedObject = data;
   }
 }

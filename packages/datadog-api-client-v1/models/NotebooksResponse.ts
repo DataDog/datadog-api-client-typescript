@@ -23,6 +23,8 @@ export class NotebooksResponse {
   "data"?: Array<NotebooksResponseData>;
   "meta"?: NotebooksResponseMeta;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -69,6 +71,9 @@ export class NotebooksResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.data = ObjectSerializer.serialize(
       data.data,

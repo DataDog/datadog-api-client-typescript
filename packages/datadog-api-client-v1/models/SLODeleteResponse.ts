@@ -24,6 +24,8 @@ export class SLODeleteResponse {
    */
   "errors"?: { [key: string]: string };
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class SLODeleteResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.data = ObjectSerializer.serialize(data.data, "Array<string>", "");
 

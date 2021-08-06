@@ -70,6 +70,8 @@ export class ServiceSummaryWidgetDefinition {
   "titleSize"?: string;
   "type": ServiceSummaryWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -173,9 +175,9 @@ export class ServiceSummaryWidgetDefinition {
     ) {
       res.displayFormat = data.display_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.display_format} for display_format`
-      );
+      const raw = new ServiceSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.env === undefined) {
@@ -227,7 +229,9 @@ export class ServiceSummaryWidgetDefinition {
     if (["small", "medium", "large", undefined].includes(data.size_format)) {
       res.sizeFormat = data.size_format;
     } else {
-      throw TypeError(`invalid enum value ${data.size_format} for size_format`);
+      const raw = new ServiceSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.span_name === undefined) {
@@ -244,7 +248,9 @@ export class ServiceSummaryWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new ServiceSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -257,7 +263,9 @@ export class ServiceSummaryWidgetDefinition {
     if (["trace_service", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new ServiceSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -272,6 +280,9 @@ export class ServiceSummaryWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       ["one_column", "two_column", "three_column", undefined].includes(

@@ -35,6 +35,11 @@ import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
+ */
 
 export type WidgetDefinition =
   | AlertGraphWidgetDefinition
@@ -63,4 +68,5 @@ export type WidgetDefinition =
   | TableWidgetDefinition
   | TimeseriesWidgetDefinition
   | ToplistWidgetDefinition
-  | TreeMapWidgetDefinition;
+  | TreeMapWidgetDefinition
+  | UnparsedObject;

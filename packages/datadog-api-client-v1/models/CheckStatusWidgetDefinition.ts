@@ -48,6 +48,8 @@ export class CheckStatusWidgetDefinition {
   "titleSize"?: string;
   "type": CheckStatusWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -137,7 +139,9 @@ export class CheckStatusWidgetDefinition {
     if (["check", "cluster", undefined].includes(data.grouping)) {
       res.grouping = data.grouping;
     } else {
-      throw TypeError(`invalid enum value ${data.grouping} for grouping`);
+      const raw = new CheckStatusWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
@@ -149,7 +153,9 @@ export class CheckStatusWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new CheckStatusWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -162,7 +168,9 @@ export class CheckStatusWidgetDefinition {
     if (["check_status", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new CheckStatusWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -175,6 +183,9 @@ export class CheckStatusWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.check === undefined) {
       throw new TypeError(

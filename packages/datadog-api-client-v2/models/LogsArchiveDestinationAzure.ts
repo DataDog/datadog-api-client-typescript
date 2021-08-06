@@ -36,6 +36,8 @@ export class LogsArchiveDestinationAzure {
   "storageAccount": string;
   "type": LogsArchiveDestinationAzureType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -123,7 +125,9 @@ export class LogsArchiveDestinationAzure {
     if (["azure", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsArchiveDestinationAzure();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -136,6 +140,9 @@ export class LogsArchiveDestinationAzure {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.container === undefined) {
       throw new TypeError(

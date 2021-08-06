@@ -24,6 +24,8 @@ export class AWSAccountAndLambdaRequest {
    */
   "lambdaArn": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -72,6 +74,9 @@ export class AWSAccountAndLambdaRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.accountId === undefined) {
       throw new TypeError(

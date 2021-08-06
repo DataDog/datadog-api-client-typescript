@@ -33,6 +33,8 @@ export class LogsResponseMetadata {
    */
   "warnings"?: Array<LogsWarning>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -85,7 +87,9 @@ export class LogsResponseMetadata {
     if (["done", "timeout", undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new LogsResponseMetadata();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.warnings = ObjectSerializer.deserialize(
@@ -104,6 +108,9 @@ export class LogsResponseMetadata {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.elapsed = ObjectSerializer.serialize(data.elapsed, "number", "int64");
 

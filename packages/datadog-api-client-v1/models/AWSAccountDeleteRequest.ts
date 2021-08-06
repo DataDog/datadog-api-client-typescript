@@ -28,6 +28,8 @@ export class AWSAccountDeleteRequest {
    */
   "roleName"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -77,6 +79,9 @@ export class AWSAccountDeleteRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.access_key_id = ObjectSerializer.serialize(
       data.accessKeyId,

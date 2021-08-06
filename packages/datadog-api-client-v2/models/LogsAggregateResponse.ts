@@ -20,6 +20,8 @@ export class LogsAggregateResponse {
   "data"?: LogsAggregateResponseData;
   "meta"?: LogsResponseMetadata;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class LogsAggregateResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.data = ObjectSerializer.serialize(
       data.data,

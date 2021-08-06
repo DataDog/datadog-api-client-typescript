@@ -38,6 +38,8 @@ export class ServiceCheck {
    */
   "timestamp"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -106,7 +108,9 @@ export class ServiceCheck {
     if ([0, 1, 2, 3, undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new ServiceCheck();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.tags === undefined) {
@@ -132,6 +136,9 @@ export class ServiceCheck {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.check === undefined) {
       throw new TypeError(

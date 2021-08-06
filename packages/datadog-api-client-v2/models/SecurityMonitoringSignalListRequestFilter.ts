@@ -28,6 +28,8 @@ export class SecurityMonitoringSignalListRequestFilter {
    */
   "to"?: Date;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -77,6 +79,9 @@ export class SecurityMonitoringSignalListRequestFilter {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.from = ObjectSerializer.serialize(data.from, "Date", "date-time");
 

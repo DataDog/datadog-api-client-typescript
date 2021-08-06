@@ -21,6 +21,8 @@ export class AWSTagFilterListResponse {
    */
   "filters"?: Array<AWSTagFilter>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -56,6 +58,9 @@ export class AWSTagFilterListResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.filters = ObjectSerializer.serialize(
       data.filters,

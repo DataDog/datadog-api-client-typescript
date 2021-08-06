@@ -46,6 +46,8 @@ export class OrganizationSettings {
   "samlLoginUrl"?: string;
   "samlStrictMode"?: OrganizationSettingsSamlStrictMode;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -129,9 +131,9 @@ export class OrganizationSettings {
     ) {
       res.samlAutocreateAccessRole = data.saml_autocreate_access_role;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.saml_autocreate_access_role} for saml_autocreate_access_role`
-      );
+      const raw = new OrganizationSettings();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.samlAutocreateUsersDomains = ObjectSerializer.deserialize(
@@ -186,6 +188,9 @@ export class OrganizationSettings {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.private_widget_share = ObjectSerializer.serialize(
       data.privateWidgetShare,

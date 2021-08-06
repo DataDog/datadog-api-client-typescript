@@ -22,6 +22,8 @@ export class AWSTagFilter {
    */
   "tagFilterStr"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -60,7 +62,9 @@ export class AWSTagFilter {
     ) {
       res.namespace = data.namespace;
     } else {
-      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
+      const raw = new AWSTagFilter();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tagFilterStr = ObjectSerializer.deserialize(
@@ -79,6 +83,9 @@ export class AWSTagFilter {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

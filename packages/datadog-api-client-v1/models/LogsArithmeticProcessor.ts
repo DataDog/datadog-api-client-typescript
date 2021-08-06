@@ -38,6 +38,8 @@ export class LogsArithmeticProcessor {
   "target": string;
   "type": LogsArithmeticProcessorType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -122,7 +124,9 @@ export class LogsArithmeticProcessor {
     if (["arithmetic-processor", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsArithmeticProcessor();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -135,6 +139,9 @@ export class LogsArithmeticProcessor {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.expression === undefined) {
       throw new TypeError(

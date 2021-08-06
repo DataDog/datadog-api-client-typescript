@@ -22,6 +22,8 @@ export class RelationshipToUserData {
   "id": string;
   "type": UsersType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -61,7 +63,9 @@ export class RelationshipToUserData {
     if (["users", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new RelationshipToUserData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -74,6 +78,9 @@ export class RelationshipToUserData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.id === undefined) {
       throw new TypeError(

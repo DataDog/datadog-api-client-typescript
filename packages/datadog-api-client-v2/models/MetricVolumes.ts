@@ -10,5 +10,13 @@
 
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type MetricVolumes = MetricDistinctVolume | MetricIngestedIndexedVolume;
+/**
+ * Possible response objects for a metric's volume.
+ */
+
+export type MetricVolumes =
+  | MetricDistinctVolume
+  | MetricIngestedIndexedVolume
+  | UnparsedObject;

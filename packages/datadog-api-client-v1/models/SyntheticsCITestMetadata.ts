@@ -20,6 +20,8 @@ export class SyntheticsCITestMetadata {
   "ci"?: SyntheticsCITestMetadataCi;
   "git"?: SyntheticsCITestMetadataGit;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class SyntheticsCITestMetadata {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.ci = ObjectSerializer.serialize(
       data.ci,

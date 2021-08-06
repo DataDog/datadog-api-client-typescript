@@ -24,6 +24,8 @@ export class OrganizationCreateResponse {
   "org"?: Organization;
   "user"?: User;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -80,6 +82,9 @@ export class OrganizationCreateResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.api_key = ObjectSerializer.serialize(data.apiKey, "ApiKey", "");
 

@@ -25,6 +25,8 @@ export class SyntheticsGetAPITestLatestResultsResponse {
    */
   "results"?: Array<SyntheticsAPITestResultShort>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -75,6 +77,9 @@ export class SyntheticsGetAPITestLatestResultsResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.last_timestamp_fetched = ObjectSerializer.serialize(
       data.lastTimestampFetched,

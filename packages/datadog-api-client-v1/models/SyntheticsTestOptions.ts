@@ -65,6 +65,8 @@ export class SyntheticsTestOptions {
    */
   "tickEvery"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -232,6 +234,9 @@ export class SyntheticsTestOptions {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.accept_self_signed = ObjectSerializer.serialize(
       data.acceptSelfSigned,

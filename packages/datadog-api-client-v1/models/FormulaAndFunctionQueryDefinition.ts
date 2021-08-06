@@ -11,8 +11,14 @@
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * A formula and function query.
+ */
 
 export type FormulaAndFunctionQueryDefinition =
   | FormulaAndFunctionEventQueryDefinition
   | FormulaAndFunctionMetricQueryDefinition
-  | FormulaAndFunctionProcessQueryDefinition;
+  | FormulaAndFunctionProcessQueryDefinition
+  | UnparsedObject;

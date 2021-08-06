@@ -28,6 +28,8 @@ export class LogsGroupByHistogram {
    */
   "min": number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -92,6 +94,9 @@ export class LogsGroupByHistogram {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.interval === undefined) {
       throw new TypeError(

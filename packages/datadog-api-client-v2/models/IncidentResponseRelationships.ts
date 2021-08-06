@@ -24,6 +24,8 @@ export class IncidentResponseRelationships {
   "lastModifiedByUser"?: RelationshipToUser;
   "postmortem"?: RelationshipToIncidentPostmortem;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -107,6 +109,9 @@ export class IncidentResponseRelationships {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.commander_user = ObjectSerializer.serialize(
       data.commanderUser,

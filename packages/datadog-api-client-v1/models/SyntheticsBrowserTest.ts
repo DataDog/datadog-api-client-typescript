@@ -53,6 +53,8 @@ export class SyntheticsBrowserTest {
   "tags"?: Array<string>;
   "type"?: SyntheticsBrowserTestType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -160,7 +162,9 @@ export class SyntheticsBrowserTest {
     if (["live", "paused", undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new SyntheticsBrowserTest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.steps = ObjectSerializer.deserialize(
@@ -174,7 +178,9 @@ export class SyntheticsBrowserTest {
     if (["browser", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsBrowserTest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -187,6 +193,9 @@ export class SyntheticsBrowserTest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.config = ObjectSerializer.serialize(
       data.config,

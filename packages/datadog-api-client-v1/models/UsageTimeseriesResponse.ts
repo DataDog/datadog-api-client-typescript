@@ -21,6 +21,8 @@ export class UsageTimeseriesResponse {
    */
   "usage"?: Array<UsageTimeseriesHour>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -56,6 +58,9 @@ export class UsageTimeseriesResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.usage = ObjectSerializer.serialize(
       data.usage,

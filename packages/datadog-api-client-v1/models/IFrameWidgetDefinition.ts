@@ -22,6 +22,8 @@ export class IFrameWidgetDefinition {
    */
   "url": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -54,7 +56,9 @@ export class IFrameWidgetDefinition {
     if (["iframe", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new IFrameWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.url === undefined) {
@@ -74,6 +78,9 @@ export class IFrameWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.type === undefined) {
       throw new TypeError(

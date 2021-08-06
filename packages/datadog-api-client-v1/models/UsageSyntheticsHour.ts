@@ -24,6 +24,8 @@ export class UsageSyntheticsHour {
    */
   "hour"?: Date;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class UsageSyntheticsHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.check_calls_count = ObjectSerializer.serialize(
       data.checkCallsCount,

@@ -25,6 +25,8 @@ export class ListStreamWidgetRequest {
   "query": ListStreamQuery;
   "responseFormat": ListStreamResponseFormat;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -80,9 +82,9 @@ export class ListStreamWidgetRequest {
     if (["event_list", undefined].includes(data.response_format)) {
       res.responseFormat = data.response_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.response_format} for response_format`
-      );
+      const raw = new ListStreamWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -95,6 +97,9 @@ export class ListStreamWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.columns === undefined) {
       throw new TypeError(

@@ -48,6 +48,8 @@ export class NoteWidgetDefinition {
   "type": NoteWidgetDefinitionType;
   "verticalAlign"?: WidgetVerticalAlign;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -138,7 +140,9 @@ export class NoteWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.text_align)) {
       res.textAlign = data.text_align;
     } else {
-      throw TypeError(`invalid enum value ${data.text_align} for text_align`);
+      const raw = new NoteWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -146,7 +150,9 @@ export class NoteWidgetDefinition {
     ) {
       res.tickEdge = data.tick_edge;
     } else {
-      throw TypeError(`invalid enum value ${data.tick_edge} for tick_edge`);
+      const raw = new NoteWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tickPos = ObjectSerializer.deserialize(data.tick_pos, "string", "");
@@ -159,15 +165,17 @@ export class NoteWidgetDefinition {
     if (["note", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new NoteWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (["center", "top", "bottom", undefined].includes(data.vertical_align)) {
       res.verticalAlign = data.vertical_align;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.vertical_align} for vertical_align`
-      );
+      const raw = new NoteWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -180,6 +188,9 @@ export class NoteWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.background_color = ObjectSerializer.serialize(
       data.backgroundColor,

@@ -66,6 +66,8 @@ export class TableWidgetRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -182,7 +184,9 @@ export class TableWidgetRequest {
     ) {
       res.aggregator = data.aggregator;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
+      const raw = new TableWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.alias = ObjectSerializer.deserialize(data.alias, "string", "");
@@ -240,7 +244,9 @@ export class TableWidgetRequest {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new TableWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.processQuery = ObjectSerializer.deserialize(
@@ -266,9 +272,9 @@ export class TableWidgetRequest {
     if (["timeseries", "scalar", undefined].includes(data.response_format)) {
       res.responseFormat = data.response_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.response_format} for response_format`
-      );
+      const raw = new TableWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.rumQuery = ObjectSerializer.deserialize(
@@ -293,6 +299,9 @@ export class TableWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(

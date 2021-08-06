@@ -42,6 +42,8 @@ export class SyntheticsAPIStep {
   "request"?: SyntheticsTestRequest;
   "subtype"?: SyntheticsAPIStepSubtype;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -126,7 +128,9 @@ export class SyntheticsAPIStep {
     if (["http", undefined].includes(data.subtype)) {
       res.subtype = data.subtype;
     } else {
-      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
+      const raw = new SyntheticsAPIStep();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -139,6 +143,9 @@ export class SyntheticsAPIStep {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.allowFailure = ObjectSerializer.serialize(
       data.allowFailure,

@@ -192,6 +192,8 @@ export class UsageSummaryDateOrg {
    */
   "vsphereHostTop99p"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -688,6 +690,9 @@ export class UsageSummaryDateOrg {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.agent_host_top99p = ObjectSerializer.serialize(
       data.agentHostTop99p,

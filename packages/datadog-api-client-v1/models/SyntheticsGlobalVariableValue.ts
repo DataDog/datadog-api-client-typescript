@@ -24,6 +24,8 @@ export class SyntheticsGlobalVariableValue {
    */
   "value"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class SyntheticsGlobalVariableValue {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.secure = ObjectSerializer.serialize(data.secure, "boolean", "");
 

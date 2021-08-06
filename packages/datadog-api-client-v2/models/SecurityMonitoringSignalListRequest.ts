@@ -22,6 +22,8 @@ export class SecurityMonitoringSignalListRequest {
   "page"?: SecurityMonitoringSignalListRequestPage;
   "sort"?: SecurityMonitoringSignalsSort;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -68,7 +70,9 @@ export class SecurityMonitoringSignalListRequest {
     if (["timestamp", "-timestamp", undefined].includes(data.sort)) {
       res.sort = data.sort;
     } else {
-      throw TypeError(`invalid enum value ${data.sort} for sort`);
+      const raw = new SecurityMonitoringSignalListRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -83,6 +87,9 @@ export class SecurityMonitoringSignalListRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.filter = ObjectSerializer.serialize(
       data.filter,

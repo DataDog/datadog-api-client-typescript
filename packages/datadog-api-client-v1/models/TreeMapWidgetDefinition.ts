@@ -33,6 +33,8 @@ export class TreeMapWidgetDefinition {
   "title"?: string;
   "type": TreeMapWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -85,7 +87,9 @@ export class TreeMapWidgetDefinition {
     if (["user", undefined].includes(data.color_by)) {
       res.colorBy = data.color_by;
     } else {
-      throw TypeError(`invalid enum value ${data.color_by} for color_by`);
+      const raw = new TreeMapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.group_by === undefined) {
@@ -96,7 +100,9 @@ export class TreeMapWidgetDefinition {
     if (["user", "family", "process", undefined].includes(data.group_by)) {
       res.groupBy = data.group_by;
     } else {
-      throw TypeError(`invalid enum value ${data.group_by} for group_by`);
+      const raw = new TreeMapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.requests === undefined) {
@@ -118,7 +124,9 @@ export class TreeMapWidgetDefinition {
     if (["pct_cpu", "pct_mem", undefined].includes(data.size_by)) {
       res.sizeBy = data.size_by;
     } else {
-      throw TypeError(`invalid enum value ${data.size_by} for size_by`);
+      const raw = new TreeMapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.title = ObjectSerializer.deserialize(data.title, "string", "");
@@ -131,7 +139,9 @@ export class TreeMapWidgetDefinition {
     if (["treemap", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new TreeMapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -144,6 +154,9 @@ export class TreeMapWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.colorBy === undefined) {
       throw new TypeError(

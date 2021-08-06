@@ -48,6 +48,8 @@ export class WidgetConditionalFormat {
    */
   "value": number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -115,7 +117,9 @@ export class WidgetConditionalFormat {
     if ([">", ">=", "<", "<=", undefined].includes(data.comparator)) {
       res.comparator = data.comparator;
     } else {
-      throw TypeError(`invalid enum value ${data.comparator} for comparator`);
+      const raw = new WidgetConditionalFormat();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.customBgColor = ObjectSerializer.deserialize(
@@ -171,7 +175,9 @@ export class WidgetConditionalFormat {
     ) {
       res.palette = data.palette;
     } else {
-      throw TypeError(`invalid enum value ${data.palette} for palette`);
+      const raw = new WidgetConditionalFormat();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.timeframe = ObjectSerializer.deserialize(data.timeframe, "string", "");
@@ -193,6 +199,9 @@ export class WidgetConditionalFormat {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.comparator === undefined) {
       throw new TypeError(

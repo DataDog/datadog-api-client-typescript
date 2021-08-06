@@ -19,6 +19,8 @@ export class ScatterPlotWidgetDefinitionRequests {
   "x": ScatterPlotRequest;
   "y": ScatterPlotRequest;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -71,6 +73,9 @@ export class ScatterPlotWidgetDefinitionRequests {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.x === undefined) {
       throw new TypeError(

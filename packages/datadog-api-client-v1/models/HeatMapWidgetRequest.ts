@@ -33,6 +33,8 @@ export class HeatMapWidgetRequest {
   "securityQuery"?: LogQueryDefinition;
   "style"?: WidgetStyle;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -159,6 +161,9 @@ export class HeatMapWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.apm_query = ObjectSerializer.serialize(
       data.apmQuery,

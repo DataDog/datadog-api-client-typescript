@@ -32,6 +32,8 @@ export class ServiceAccountCreateAttributes {
    */
   "title"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -102,6 +104,9 @@ export class ServiceAccountCreateAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.email === undefined) {
       throw new TypeError(

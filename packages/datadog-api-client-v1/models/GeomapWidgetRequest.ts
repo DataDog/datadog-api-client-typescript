@@ -36,6 +36,8 @@ export class GeomapWidgetRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -108,9 +110,9 @@ export class GeomapWidgetRequest {
     if (["timeseries", "scalar", undefined].includes(data.response_format)) {
       res.responseFormat = data.response_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.response_format} for response_format`
-      );
+      const raw = new GeomapWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.rumQuery = ObjectSerializer.deserialize(
@@ -135,6 +137,9 @@ export class GeomapWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.formulas = ObjectSerializer.serialize(
       data.formulas,

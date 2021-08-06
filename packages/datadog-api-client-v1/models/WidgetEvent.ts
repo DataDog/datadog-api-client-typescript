@@ -24,6 +24,8 @@ export class WidgetEvent {
    */
   "tagsExecution"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -71,6 +73,9 @@ export class WidgetEvent {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.q === undefined) {
       throw new TypeError(

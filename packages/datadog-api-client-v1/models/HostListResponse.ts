@@ -29,6 +29,8 @@ export class HostListResponse {
    */
   "totalReturned"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -86,6 +88,9 @@ export class HostListResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.host_list = ObjectSerializer.serialize(
       data.hostList,

@@ -42,6 +42,8 @@ export class User {
    */
   "verified"?: boolean;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -94,7 +96,9 @@ export class User {
     if (["st", "adm", "ro", "ERROR", undefined].includes(data.access_role)) {
       res.accessRole = data.access_role;
     } else {
-      throw TypeError(`invalid enum value ${data.access_role} for access_role`);
+      const raw = new User();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "");
@@ -119,6 +123,9 @@ export class User {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["st", "adm", "ro", "ERROR", undefined].includes(data.accessRole)) {
       res.access_role = data.accessRole;

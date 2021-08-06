@@ -60,6 +60,8 @@ export class UserAttributes {
    */
   "verified"?: boolean;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -173,6 +175,9 @@ export class UserAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.created_at = ObjectSerializer.serialize(
       data.createdAt,

@@ -24,6 +24,8 @@ export class ServiceLevelObjectiveQuery {
    */
   "numerator": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -76,6 +78,9 @@ export class ServiceLevelObjectiveQuery {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.denominator === undefined) {
       throw new TypeError(

@@ -22,6 +22,8 @@ export class RelationshipToIncidentPostmortemData {
   "id": string;
   "type": IncidentPostmortemType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -63,7 +65,9 @@ export class RelationshipToIncidentPostmortemData {
     if (["incident_postmortems", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new RelationshipToIncidentPostmortemData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -78,6 +82,9 @@ export class RelationshipToIncidentPostmortemData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.id === undefined) {
       throw new TypeError(

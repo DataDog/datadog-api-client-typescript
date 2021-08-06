@@ -51,6 +51,8 @@ export class SLOWidgetDefinition {
    */
   "viewType": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -140,7 +142,9 @@ export class SLOWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new SLOWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -153,13 +157,17 @@ export class SLOWidgetDefinition {
     if (["slo", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SLOWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (["overall", "component", "both", undefined].includes(data.view_mode)) {
       res.viewMode = data.view_mode;
     } else {
-      throw TypeError(`invalid enum value ${data.view_mode} for view_mode`);
+      const raw = new SLOWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.view_type === undefined) {
@@ -179,6 +187,9 @@ export class SLOWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.global_time_target = ObjectSerializer.serialize(
       data.globalTimeTarget,

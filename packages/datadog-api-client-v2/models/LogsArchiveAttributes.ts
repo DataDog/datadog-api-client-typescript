@@ -36,6 +36,8 @@ export class LogsArchiveAttributes {
   "rehydrationTags"?: Array<string>;
   "state"?: LogsArchiveState;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -128,7 +130,9 @@ export class LogsArchiveAttributes {
     ) {
       res.state = data.state;
     } else {
-      throw TypeError(`invalid enum value ${data.state} for state`);
+      const raw = new LogsArchiveAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -141,6 +145,9 @@ export class LogsArchiveAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.destination === undefined) {
       throw new TypeError(

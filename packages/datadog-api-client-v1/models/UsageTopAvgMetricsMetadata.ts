@@ -26,6 +26,8 @@ export class UsageTopAvgMetricsMetadata {
   "month"?: Date;
   "pagination"?: UsageAttributionPagination;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -75,6 +77,9 @@ export class UsageTopAvgMetricsMetadata {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.day = ObjectSerializer.serialize(data.day, "Date", "date-time");
 

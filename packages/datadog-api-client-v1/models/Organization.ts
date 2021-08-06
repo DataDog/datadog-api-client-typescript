@@ -38,6 +38,8 @@ export class Organization {
   "settings"?: OrganizationSettings;
   "subscription"?: OrganizationSubscription;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -127,6 +129,9 @@ export class Organization {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.billing = ObjectSerializer.serialize(
       data.billing,

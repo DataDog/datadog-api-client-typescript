@@ -35,6 +35,8 @@ export class FormulaAndFunctionEventQueryDefinition {
   "name": string;
   "search"?: FormulaAndFunctionEventQueryDefinitionSearch;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -111,7 +113,9 @@ export class FormulaAndFunctionEventQueryDefinition {
     ) {
       res.dataSource = data.data_source;
     } else {
-      throw TypeError(`invalid enum value ${data.data_source} for data_source`);
+      const raw = new FormulaAndFunctionEventQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.groupBy = ObjectSerializer.deserialize(
@@ -151,6 +155,9 @@ export class FormulaAndFunctionEventQueryDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.compute === undefined) {
       throw new TypeError(

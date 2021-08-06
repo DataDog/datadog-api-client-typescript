@@ -43,6 +43,8 @@ export class ApmStatsQueryDefinition {
    */
   "service": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -133,7 +135,9 @@ export class ApmStatsQueryDefinition {
     if (["service", "resource", "span", undefined].includes(data.row_type)) {
       res.rowType = data.row_type;
     } else {
-      throw TypeError(`invalid enum value ${data.row_type} for row_type`);
+      const raw = new ApmStatsQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.service === undefined) {
@@ -153,6 +157,9 @@ export class ApmStatsQueryDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.columns = ObjectSerializer.serialize(
       data.columns,

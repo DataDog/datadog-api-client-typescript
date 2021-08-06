@@ -28,6 +28,8 @@ export class SyntheticsAssertionTarget {
   "target"?: any;
   "type": SyntheticsAssertionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -87,7 +89,9 @@ export class SyntheticsAssertionTarget {
     ) {
       res.operator = data.operator;
     } else {
-      throw TypeError(`invalid enum value ${data.operator} for operator`);
+      const raw = new SyntheticsAssertionTarget();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.property = ObjectSerializer.deserialize(data.property, "string", "");
@@ -120,7 +124,9 @@ export class SyntheticsAssertionTarget {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsAssertionTarget();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -133,6 +139,9 @@ export class SyntheticsAssertionTarget {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.operator === undefined) {
       throw new TypeError(

@@ -46,6 +46,8 @@ export class FormulaAndFunctionProcessQueryDefinition {
    */
   "textFilter"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -122,7 +124,9 @@ export class FormulaAndFunctionProcessQueryDefinition {
     ) {
       res.aggregator = data.aggregator;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
+      const raw = new FormulaAndFunctionProcessQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.data_source === undefined) {
@@ -133,7 +137,9 @@ export class FormulaAndFunctionProcessQueryDefinition {
     if (["process", "container", undefined].includes(data.data_source)) {
       res.dataSource = data.data_source;
     } else {
-      throw TypeError(`invalid enum value ${data.data_source} for data_source`);
+      const raw = new FormulaAndFunctionProcessQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.isNormalizedCpu = ObjectSerializer.deserialize(
@@ -161,7 +167,9 @@ export class FormulaAndFunctionProcessQueryDefinition {
     if (["asc", "desc", undefined].includes(data.sort)) {
       res.sort = data.sort;
     } else {
-      throw TypeError(`invalid enum value ${data.sort} for sort`);
+      const raw = new FormulaAndFunctionProcessQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tagFilters = ObjectSerializer.deserialize(
@@ -188,6 +196,9 @@ export class FormulaAndFunctionProcessQueryDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

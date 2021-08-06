@@ -48,6 +48,8 @@ export class UsageLogsHour {
    */
   "logsRehydratedIngestedBytes"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -156,6 +158,9 @@ export class UsageLogsHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.billable_ingested_bytes = ObjectSerializer.serialize(
       data.billableIngestedBytes,

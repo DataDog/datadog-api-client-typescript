@@ -32,6 +32,8 @@ export class WidgetMarker {
    */
   "value": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -93,6 +95,9 @@ export class WidgetMarker {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.display_type = ObjectSerializer.serialize(
       data.displayType,

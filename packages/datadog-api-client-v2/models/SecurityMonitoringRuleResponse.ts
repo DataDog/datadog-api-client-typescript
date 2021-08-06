@@ -81,6 +81,8 @@ export class SecurityMonitoringRuleResponse {
    */
   "version"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -253,6 +255,9 @@ export class SecurityMonitoringRuleResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.cases = ObjectSerializer.serialize(
       data.cases,

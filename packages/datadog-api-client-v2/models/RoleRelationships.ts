@@ -20,6 +20,8 @@ export class RoleRelationships {
   "permissions"?: RelationshipToPermissions;
   "users"?: RelationshipToUsers;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class RoleRelationships {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.permissions = ObjectSerializer.serialize(
       data.permissions,

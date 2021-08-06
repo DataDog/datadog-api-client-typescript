@@ -26,6 +26,8 @@ export class SecurityMonitoringRuleOptions {
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -74,9 +76,9 @@ export class SecurityMonitoringRuleOptions {
     ) {
       res.detectionMethod = data.detectionMethod;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.detectionMethod} for detectionMethod`
-      );
+      const raw = new SecurityMonitoringRuleOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -86,9 +88,9 @@ export class SecurityMonitoringRuleOptions {
     ) {
       res.evaluationWindow = data.evaluationWindow;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.evaluationWindow} for evaluationWindow`
-      );
+      const raw = new SecurityMonitoringRuleOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -108,7 +110,9 @@ export class SecurityMonitoringRuleOptions {
     ) {
       res.keepAlive = data.keepAlive;
     } else {
-      throw TypeError(`invalid enum value ${data.keepAlive} for keepAlive`);
+      const raw = new SecurityMonitoringRuleOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -130,9 +134,9 @@ export class SecurityMonitoringRuleOptions {
     ) {
       res.maxSignalDuration = data.maxSignalDuration;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.maxSignalDuration} for maxSignalDuration`
-      );
+      const raw = new SecurityMonitoringRuleOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.newValueOptions = ObjectSerializer.deserialize(
@@ -153,6 +157,9 @@ export class SecurityMonitoringRuleOptions {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       ["threshold", "new_value", "anomaly_detection", undefined].includes(

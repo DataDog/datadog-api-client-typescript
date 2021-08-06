@@ -72,6 +72,8 @@ export class UsageHostHour {
    */
   "vsphereHostCount"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -246,6 +248,9 @@ export class UsageHostHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.agent_host_count = ObjectSerializer.serialize(
       data.agentHostCount,

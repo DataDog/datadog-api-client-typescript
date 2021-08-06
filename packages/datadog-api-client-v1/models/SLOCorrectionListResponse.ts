@@ -23,6 +23,8 @@ export class SLOCorrectionListResponse {
   "data"?: Array<SLOCorrection>;
   "meta"?: ResponseMetaAttributes;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -69,6 +71,9 @@ export class SLOCorrectionListResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.data = ObjectSerializer.serialize(
       data.data,

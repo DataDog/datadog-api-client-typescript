@@ -24,6 +24,8 @@ export class Widget {
   "id"?: number;
   "layout"?: WidgetLayout;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -78,6 +80,9 @@ export class Widget {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.definition === undefined) {
       throw new TypeError(

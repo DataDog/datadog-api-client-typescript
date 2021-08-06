@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class IncidentCreateRelationships {
   "commander": RelationshipToUser;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -60,6 +62,9 @@ export class IncidentCreateRelationships {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.commander === undefined) {
       throw new TypeError(

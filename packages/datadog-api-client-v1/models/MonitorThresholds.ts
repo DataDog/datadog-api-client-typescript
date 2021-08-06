@@ -40,6 +40,8 @@ export class MonitorThresholds {
    */
   "warningRecovery"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -126,6 +128,9 @@ export class MonitorThresholds {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.critical = ObjectSerializer.serialize(
       data.critical,

@@ -8,4 +8,10 @@
  * Do not edit the class manually.
  */
 
-export type LogsGroupByMissing = number | string;
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * The value to use for logs that don't have the facet used to group by
+ */
+
+export type LogsGroupByMissing = number | string | UnparsedObject;

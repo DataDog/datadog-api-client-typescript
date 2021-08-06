@@ -52,6 +52,8 @@ export class LogsAttributeRemapper {
   "targetType"?: string;
   "type": LogsAttributeRemapperType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -167,9 +169,9 @@ export class LogsAttributeRemapper {
     ) {
       res.targetFormat = data.target_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.target_format} for target_format`
-      );
+      const raw = new LogsAttributeRemapper();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.targetType = ObjectSerializer.deserialize(
@@ -186,7 +188,9 @@ export class LogsAttributeRemapper {
     if (["attribute-remapper", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsAttributeRemapper();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -199,6 +203,9 @@ export class LogsAttributeRemapper {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 

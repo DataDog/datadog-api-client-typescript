@@ -22,6 +22,8 @@ export class RelationshipToIncidentIntegrationMetadataData {
   "id": string;
   "type": IncidentIntegrationMetadataType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -63,7 +65,9 @@ export class RelationshipToIncidentIntegrationMetadataData {
     if (["incident_integrations", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new RelationshipToIncidentIntegrationMetadataData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -78,6 +82,9 @@ export class RelationshipToIncidentIntegrationMetadataData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.id === undefined) {
       throw new TypeError(
