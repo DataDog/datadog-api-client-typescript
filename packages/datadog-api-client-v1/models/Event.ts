@@ -35,6 +35,10 @@ export class Event {
    */
   "id"?: number;
   /**
+   * Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some programming languages. Instead, use the string representation of the Event ID to avoid losing accuracy.
+   */
+  "idStr"?: string;
+  /**
    * Payload of the event.
    */
   "payload"?: string;
@@ -89,6 +93,11 @@ export class Event {
       baseName: "id",
       type: "number",
       format: "int64",
+    },
+    idStr: {
+      baseName: "id_str",
+      type: "string",
+      format: "",
     },
     payload: {
       baseName: "payload",
@@ -167,6 +176,8 @@ export class Event {
 
     res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
 
+    res.idStr = ObjectSerializer.deserialize(data.id_str, "string", "");
+
     res.payload = ObjectSerializer.deserialize(data.payload, "string", "");
 
     if (["normal", "low", undefined].includes(data.priority)) {
@@ -228,6 +239,8 @@ export class Event {
     res.host = ObjectSerializer.serialize(data.host, "string", "");
 
     res.id = ObjectSerializer.serialize(data.id, "number", "int64");
+
+    res.id_str = ObjectSerializer.serialize(data.idStr, "string", "");
 
     res.payload = ObjectSerializer.serialize(data.payload, "string", "");
 
