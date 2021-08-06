@@ -17,7 +17,10 @@ export type SyntheticsDeviceID =
   | typeof CHROME_MOBILE_SMALL
   | typeof FIREFOX_LAPTOP_LARGE
   | typeof FIREFOX_TABLET
-  | typeof FIREFOX_MOBILE_SMALL;
+  | typeof FIREFOX_MOBILE_SMALL
+  | typeof EDGE_LAPTOP_LARGE
+  | typeof EDGE_TABLET
+  | typeof EDGE_MOBILE_SMALL;
 export const LAPTOP_LARGE = "laptop_large";
 export const TABLET = "tablet";
 export const MOBILE_SMALL = "mobile_small";
@@ -27,3 +30,6 @@ export const CHROME_MOBILE_SMALL = "chrome.mobile_small";
 export const FIREFOX_LAPTOP_LARGE = "firefox.laptop_large";
 export const FIREFOX_TABLET = "firefox.tablet";
 export const FIREFOX_MOBILE_SMALL = "firefox.mobile_small";
+export const EDGE_LAPTOP_LARGE = "edge.laptop_large";
+export const EDGE_TABLET = "edge.tablet";
+export const EDGE_MOBILE_SMALL = "edge.mobile_small";
