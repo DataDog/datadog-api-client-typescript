@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class NotebookMarkdownCellAttributes {
   "definition": NotebookMarkdownCellDefinition;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -62,6 +64,9 @@ export class NotebookMarkdownCellAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.definition === undefined) {
       throw new TypeError(

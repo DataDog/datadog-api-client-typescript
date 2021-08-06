@@ -30,6 +30,8 @@ export class SLOHistoryMetricsSeries {
    */
   "values": Array<number>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -110,6 +112,9 @@ export class SLOHistoryMetricsSeries {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.count === undefined) {
       throw new TypeError(

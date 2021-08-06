@@ -36,6 +36,8 @@ export class LogsListRequest {
   "startAt"?: string;
   "time": LogsListRequestTime;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -89,7 +91,9 @@ export class LogsListRequest {
     if (["asc", "desc", undefined].includes(data.sort)) {
       res.sort = data.sort;
     } else {
-      throw TypeError(`invalid enum value ${data.sort} for sort`);
+      const raw = new LogsListRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.startAt = ObjectSerializer.deserialize(data.startAt, "string", "");
@@ -115,6 +119,9 @@ export class LogsListRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.index = ObjectSerializer.serialize(data.index, "string", "");
 

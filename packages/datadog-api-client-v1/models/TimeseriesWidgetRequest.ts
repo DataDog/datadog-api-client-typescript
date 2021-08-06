@@ -56,6 +56,8 @@ export class TimeseriesWidgetRequest {
   "securityQuery"?: LogQueryDefinition;
   "style"?: WidgetRequestStyle;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -170,9 +172,9 @@ export class TimeseriesWidgetRequest {
     if (["area", "bars", "line", undefined].includes(data.display_type)) {
       res.displayType = data.display_type;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.display_type} for display_type`
-      );
+      const raw = new TimeseriesWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.eventQuery = ObjectSerializer.deserialize(
@@ -234,9 +236,9 @@ export class TimeseriesWidgetRequest {
     if (["timeseries", "scalar", undefined].includes(data.response_format)) {
       res.responseFormat = data.response_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.response_format} for response_format`
-      );
+      const raw = new TimeseriesWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.rumQuery = ObjectSerializer.deserialize(
@@ -267,6 +269,9 @@ export class TimeseriesWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.apm_query = ObjectSerializer.serialize(
       data.apmQuery,

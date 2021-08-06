@@ -53,6 +53,8 @@ export class QueryValueWidgetDefinition {
   "titleSize"?: string;
   "type": QueryValueWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -156,7 +158,9 @@ export class QueryValueWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.text_align)) {
       res.textAlign = data.text_align;
     } else {
-      throw TypeError(`invalid enum value ${data.text_align} for text_align`);
+      const raw = new QueryValueWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
@@ -166,7 +170,9 @@ export class QueryValueWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new QueryValueWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -179,7 +185,9 @@ export class QueryValueWidgetDefinition {
     if (["query_value", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new QueryValueWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -192,6 +200,9 @@ export class QueryValueWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.autoscale = ObjectSerializer.serialize(data.autoscale, "boolean", "");
 

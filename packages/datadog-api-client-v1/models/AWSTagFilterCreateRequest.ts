@@ -26,6 +26,8 @@ export class AWSTagFilterCreateRequest {
    */
   "tagFilterStr"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -71,7 +73,9 @@ export class AWSTagFilterCreateRequest {
     ) {
       res.namespace = data.namespace;
     } else {
-      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
+      const raw = new AWSTagFilterCreateRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.tagFilterStr = ObjectSerializer.deserialize(
@@ -90,6 +94,9 @@ export class AWSTagFilterCreateRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
 

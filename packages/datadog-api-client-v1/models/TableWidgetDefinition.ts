@@ -42,6 +42,8 @@ export class TableWidgetDefinition {
   "titleSize"?: string;
   "type": TableWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -105,9 +107,9 @@ export class TableWidgetDefinition {
     if (["always", "never", "auto", undefined].includes(data.has_search_bar)) {
       res.hasSearchBar = data.has_search_bar;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.has_search_bar} for has_search_bar`
-      );
+      const raw = new TableWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.requests === undefined) {
@@ -128,7 +130,9 @@ export class TableWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new TableWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -141,7 +145,9 @@ export class TableWidgetDefinition {
     if (["query_table", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new TableWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -154,6 +160,9 @@ export class TableWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.custom_links = ObjectSerializer.serialize(
       data.customLinks,

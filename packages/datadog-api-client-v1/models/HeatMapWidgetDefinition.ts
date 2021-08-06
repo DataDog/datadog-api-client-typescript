@@ -55,6 +55,8 @@ export class HeatMapWidgetDefinition {
   "type": HeatMapWidgetDefinitionType;
   "yaxis"?: WidgetAxis;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -166,7 +168,9 @@ export class HeatMapWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new HeatMapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -179,7 +183,9 @@ export class HeatMapWidgetDefinition {
     if (["heatmap", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new HeatMapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.yaxis = ObjectSerializer.deserialize(data.yaxis, "WidgetAxis", "");
@@ -194,6 +200,9 @@ export class HeatMapWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.custom_links = ObjectSerializer.serialize(
       data.customLinks,

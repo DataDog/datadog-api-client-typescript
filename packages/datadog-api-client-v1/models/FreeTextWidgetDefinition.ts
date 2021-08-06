@@ -32,6 +32,8 @@ export class FreeTextWidgetDefinition {
   "textAlign"?: WidgetTextAlign;
   "type": FreeTextWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -85,7 +87,9 @@ export class FreeTextWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.text_align)) {
       res.textAlign = data.text_align;
     } else {
-      throw TypeError(`invalid enum value ${data.text_align} for text_align`);
+      const raw = new FreeTextWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.type === undefined) {
@@ -96,7 +100,9 @@ export class FreeTextWidgetDefinition {
     if (["free_text", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new FreeTextWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -109,6 +115,9 @@ export class FreeTextWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.color = ObjectSerializer.serialize(data.color, "string", "");
 

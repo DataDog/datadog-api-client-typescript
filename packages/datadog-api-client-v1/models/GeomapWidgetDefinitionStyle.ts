@@ -24,6 +24,8 @@ export class GeomapWidgetDefinitionStyle {
    */
   "paletteFlip": boolean;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -78,6 +80,9 @@ export class GeomapWidgetDefinitionStyle {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.palette === undefined) {
       throw new TypeError(

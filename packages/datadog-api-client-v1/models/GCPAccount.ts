@@ -68,6 +68,8 @@ export class GCPAccount {
    */
   "type"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -207,6 +209,9 @@ export class GCPAccount {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.auth_provider_x509_cert_url = ObjectSerializer.serialize(
       data.authProviderX509CertUrl,

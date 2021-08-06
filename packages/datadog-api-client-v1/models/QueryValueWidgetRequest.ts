@@ -50,6 +50,8 @@ export class QueryValueWidgetRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -146,7 +148,9 @@ export class QueryValueWidgetRequest {
     ) {
       res.aggregator = data.aggregator;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
+      const raw = new QueryValueWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.apmQuery = ObjectSerializer.deserialize(
@@ -214,9 +218,9 @@ export class QueryValueWidgetRequest {
     if (["timeseries", "scalar", undefined].includes(data.response_format)) {
       res.responseFormat = data.response_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.response_format} for response_format`
-      );
+      const raw = new QueryValueWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.rumQuery = ObjectSerializer.deserialize(
@@ -241,6 +245,9 @@ export class QueryValueWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(

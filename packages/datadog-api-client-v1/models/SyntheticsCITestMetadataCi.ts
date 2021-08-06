@@ -24,6 +24,8 @@ export class SyntheticsCITestMetadataCi {
    */
   "provider"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -62,6 +64,9 @@ export class SyntheticsCITestMetadataCi {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.pipeline = ObjectSerializer.serialize(data.pipeline, "string", "");
 

@@ -20,6 +20,8 @@ export class LogsArchiveOrderAttributes {
    */
   "archiveIds": Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -60,6 +62,9 @@ export class LogsArchiveOrderAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.archiveIds === undefined) {
       throw new TypeError(

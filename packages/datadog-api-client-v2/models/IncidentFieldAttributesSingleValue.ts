@@ -22,6 +22,8 @@ export class IncidentFieldAttributesSingleValue {
    */
   "value"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,7 +53,9 @@ export class IncidentFieldAttributesSingleValue {
     if (["dropdown", "textbox", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new IncidentFieldAttributesSingleValue();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.value = ObjectSerializer.deserialize(data.value, "string", "");
@@ -68,6 +72,9 @@ export class IncidentFieldAttributesSingleValue {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["dropdown", "textbox", undefined].includes(data.type)) {
       res.type = data.type;

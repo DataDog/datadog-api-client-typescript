@@ -48,6 +48,8 @@ export class AWSAccount {
    */
   "secretAccessKey"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -152,6 +154,9 @@ export class AWSAccount {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.access_key_id = ObjectSerializer.serialize(
       data.accessKeyId,

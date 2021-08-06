@@ -33,6 +33,8 @@ export class WidgetFormula {
   "formula": string;
   "limit"?: WidgetFormulaLimit;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -77,9 +79,9 @@ export class WidgetFormula {
     if (["number", "bar", undefined].includes(data.cell_display_mode)) {
       res.cellDisplayMode = data.cell_display_mode;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.cell_display_mode} for cell_display_mode`
-      );
+      const raw = new WidgetFormula();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.conditionalFormats = ObjectSerializer.deserialize(
@@ -111,6 +113,9 @@ export class WidgetFormula {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.alias = ObjectSerializer.serialize(data.alias, "string", "");
 

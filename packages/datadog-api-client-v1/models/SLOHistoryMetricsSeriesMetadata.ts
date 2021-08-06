@@ -41,6 +41,8 @@ export class SLOHistoryMetricsSeriesMetadata {
    */
   "unit"?: Array<SLOHistoryMetricsSeriesMetadataUnit>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -123,6 +125,9 @@ export class SLOHistoryMetricsSeriesMetadata {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.aggr = ObjectSerializer.serialize(data.aggr, "string", "");
 

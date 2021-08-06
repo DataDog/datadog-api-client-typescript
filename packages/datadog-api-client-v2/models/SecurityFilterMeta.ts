@@ -20,6 +20,8 @@ export class SecurityFilterMeta {
    */
   "warning"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,6 +53,9 @@ export class SecurityFilterMeta {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.warning = ObjectSerializer.serialize(data.warning, "string", "");
 

@@ -35,6 +35,8 @@ export class LogsCategoryProcessor {
   "target": string;
   "type": LogsCategoryProcessorType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -108,7 +110,9 @@ export class LogsCategoryProcessor {
     if (["category-processor", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsCategoryProcessor();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -121,6 +125,9 @@ export class LogsCategoryProcessor {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.categories === undefined) {
       throw new TypeError(

@@ -40,6 +40,8 @@ export class SyntheticsGlobalVariable {
   "tags": Array<string>;
   "value": SyntheticsGlobalVariableValue;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -149,6 +151,9 @@ export class SyntheticsGlobalVariable {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.description === undefined) {
       throw new TypeError(

@@ -40,6 +40,8 @@ export class ChangeWidgetDefinition {
   "titleSize"?: string;
   "type": ChangeWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -113,7 +115,9 @@ export class ChangeWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new ChangeWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -126,7 +130,9 @@ export class ChangeWidgetDefinition {
     if (["change", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new ChangeWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -139,6 +145,9 @@ export class ChangeWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.custom_links = ObjectSerializer.serialize(
       data.customLinks,

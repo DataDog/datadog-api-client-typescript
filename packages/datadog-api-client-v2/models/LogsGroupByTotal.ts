@@ -8,4 +8,10 @@
  * Do not edit the class manually.
  */
 
-export type LogsGroupByTotal = boolean | number | string;
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * A resulting object to put the given computes in over all the matching records.
+ */
+
+export type LogsGroupByTotal = boolean | number | string | UnparsedObject;

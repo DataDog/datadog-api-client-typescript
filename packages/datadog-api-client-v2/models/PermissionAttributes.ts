@@ -44,6 +44,8 @@ export class PermissionAttributes {
    */
   "restricted"?: boolean;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -137,6 +139,9 @@ export class PermissionAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
 

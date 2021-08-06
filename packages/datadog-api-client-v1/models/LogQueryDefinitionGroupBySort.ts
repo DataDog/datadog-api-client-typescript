@@ -26,6 +26,8 @@ export class LogQueryDefinitionGroupBySort {
   "facet"?: string;
   "order": WidgetSort;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -78,7 +80,9 @@ export class LogQueryDefinitionGroupBySort {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new LogQueryDefinitionGroupBySort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -93,6 +97,9 @@ export class LogQueryDefinitionGroupBySort {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.aggregation === undefined) {
       throw new TypeError(

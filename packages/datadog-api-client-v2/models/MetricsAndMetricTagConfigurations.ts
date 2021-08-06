@@ -10,5 +10,13 @@
 
 import { Metric } from "./Metric";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type MetricsAndMetricTagConfigurations = Metric | MetricTagConfiguration;
+/**
+ * Object for a metrics and metric tag configurations.
+ */
+
+export type MetricsAndMetricTagConfigurations =
+  | Metric
+  | MetricTagConfiguration
+  | UnparsedObject;

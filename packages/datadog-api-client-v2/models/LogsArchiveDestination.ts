@@ -11,8 +11,14 @@
 import { LogsArchiveDestinationAzure } from "./LogsArchiveDestinationAzure";
 import { LogsArchiveDestinationGCS } from "./LogsArchiveDestinationGCS";
 import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * An archive's destination.
+ */
 
 export type LogsArchiveDestination =
   | LogsArchiveDestinationAzure
   | LogsArchiveDestinationGCS
-  | LogsArchiveDestinationS3;
+  | LogsArchiveDestinationS3
+  | UnparsedObject;

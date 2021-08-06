@@ -44,6 +44,8 @@ export class GeomapWidgetDefinition {
   "type": GeomapWidgetDefinitionType;
   "view": GeomapWidgetDefinitionView;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -138,7 +140,9 @@ export class GeomapWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new GeomapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -151,7 +155,9 @@ export class GeomapWidgetDefinition {
     if (["geomap", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new GeomapWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.view === undefined) {
@@ -175,6 +181,9 @@ export class GeomapWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.custom_links = ObjectSerializer.serialize(
       data.customLinks,

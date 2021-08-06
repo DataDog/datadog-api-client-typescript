@@ -24,6 +24,8 @@ export class IPPrefixesProcess {
    */
   "prefixesIpv6"?: Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -70,6 +72,9 @@ export class IPPrefixesProcess {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.prefixes_ipv4 = ObjectSerializer.serialize(
       data.prefixesIpv4,

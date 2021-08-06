@@ -32,6 +32,8 @@ export class MonitorSearchResponseMetadata {
    */
   "totalCount"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -100,6 +102,9 @@ export class MonitorSearchResponseMetadata {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.page = ObjectSerializer.serialize(data.page, "number", "int64");
 

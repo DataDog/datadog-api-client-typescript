@@ -46,6 +46,8 @@ export class UsageBillableSummaryHour {
   "startDate"?: Date;
   "usage"?: UsageBillableSummaryKeys;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -150,6 +152,9 @@ export class UsageBillableSummaryHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.billing_plan = ObjectSerializer.serialize(
       data.billingPlan,

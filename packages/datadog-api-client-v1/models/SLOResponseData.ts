@@ -67,6 +67,8 @@ export class SLOResponseData {
   "thresholds"?: Array<SLOThreshold>;
   "type"?: SLOType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -212,7 +214,9 @@ export class SLOResponseData {
     if (["metric", "monitor", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SLOResponseData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -225,6 +229,9 @@ export class SLOResponseData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.configured_alert_ids = ObjectSerializer.serialize(
       data.configuredAlertIds,

@@ -38,6 +38,8 @@ export class SyntheticsAPITestResultFull {
   "resultId"?: string;
   "status"?: SyntheticsTestMonitorStatus;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -120,7 +122,9 @@ export class SyntheticsAPITestResultFull {
     if ([0, 1, 2, undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new SyntheticsAPITestResultFull();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -133,6 +137,9 @@ export class SyntheticsAPITestResultFull {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.check = ObjectSerializer.serialize(
       data.check,

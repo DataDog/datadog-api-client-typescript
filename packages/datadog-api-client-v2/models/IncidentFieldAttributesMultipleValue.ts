@@ -22,6 +22,8 @@ export class IncidentFieldAttributesMultipleValue {
    */
   "value"?: Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -59,7 +61,9 @@ export class IncidentFieldAttributesMultipleValue {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new IncidentFieldAttributesMultipleValue();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.value = ObjectSerializer.deserialize(data.value, "Array<string>", "");
@@ -76,6 +80,9 @@ export class IncidentFieldAttributesMultipleValue {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

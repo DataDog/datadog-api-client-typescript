@@ -28,6 +28,8 @@ export class FormulaAndFunctionMetricQueryDefinition {
    */
   "query": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -79,7 +81,9 @@ export class FormulaAndFunctionMetricQueryDefinition {
     ) {
       res.aggregator = data.aggregator;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
+      const raw = new FormulaAndFunctionMetricQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.data_source === undefined) {
@@ -90,7 +94,9 @@ export class FormulaAndFunctionMetricQueryDefinition {
     if (["metrics", undefined].includes(data.data_source)) {
       res.dataSource = data.data_source;
     } else {
-      throw TypeError(`invalid enum value ${data.data_source} for data_source`);
+      const raw = new FormulaAndFunctionMetricQueryDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.name === undefined) {
@@ -119,6 +125,9 @@ export class FormulaAndFunctionMetricQueryDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

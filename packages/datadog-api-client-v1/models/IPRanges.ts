@@ -38,6 +38,8 @@ export class IPRanges {
   "version"?: number;
   "webhooks"?: IPPrefixesWebhooks;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -141,6 +143,9 @@ export class IPRanges {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.agents = ObjectSerializer.serialize(
       data.agents,

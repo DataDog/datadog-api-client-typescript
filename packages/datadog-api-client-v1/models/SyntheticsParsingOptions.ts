@@ -28,6 +28,8 @@ export class SyntheticsParsingOptions {
   "parser"?: SyntheticsVariableParser;
   "type"?: SyntheticsGlobalVariableParseTestOptionsType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -75,7 +77,9 @@ export class SyntheticsParsingOptions {
     if (["http_body", "http_header", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsParsingOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -88,6 +92,9 @@ export class SyntheticsParsingOptions {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.field = ObjectSerializer.serialize(data.field, "string", "");
 

@@ -10,5 +10,10 @@
 
 import { Role } from "./Role";
 import { User } from "./User";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type ApplicationKeyResponseIncludedItem = Role | User;
+/**
+ * An object related to an application key.
+ */
+
+export type ApplicationKeyResponseIncludedItem = Role | User | UnparsedObject;

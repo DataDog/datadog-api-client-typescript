@@ -19,6 +19,8 @@ export class HostMapWidgetDefinitionRequests {
   "fill"?: HostMapRequest;
   "size"?: HostMapRequest;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -61,6 +63,9 @@ export class HostMapWidgetDefinitionRequests {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.fill = ObjectSerializer.serialize(data.fill, "HostMapRequest", "");
 

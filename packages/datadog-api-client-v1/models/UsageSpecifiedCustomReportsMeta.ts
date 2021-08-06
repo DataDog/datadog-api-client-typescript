@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class UsageSpecifiedCustomReportsMeta {
   "page"?: UsageSpecifiedCustomReportsPage;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -57,6 +59,9 @@ export class UsageSpecifiedCustomReportsMeta {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.page = ObjectSerializer.serialize(
       data.page,

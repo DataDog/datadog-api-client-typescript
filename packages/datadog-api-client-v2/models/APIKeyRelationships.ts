@@ -19,6 +19,8 @@ export class APIKeyRelationships {
   "createdBy"?: RelationshipToUser;
   "modifiedBy"?: RelationshipToUser;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -65,6 +67,9 @@ export class APIKeyRelationships {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.created_by = ObjectSerializer.serialize(
       data.createdBy,

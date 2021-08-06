@@ -35,6 +35,8 @@ export class SecurityFilterCreateAttributes {
    */
   "query": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -95,9 +97,9 @@ export class SecurityFilterCreateAttributes {
     if (["logs", undefined].includes(data.filtered_data_type)) {
       res.filteredDataType = data.filtered_data_type;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.filtered_data_type} for filtered_data_type`
-      );
+      const raw = new SecurityFilterCreateAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.is_enabled === undefined) {
@@ -137,6 +139,9 @@ export class SecurityFilterCreateAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.exclusionFilters === undefined) {
       throw new TypeError(

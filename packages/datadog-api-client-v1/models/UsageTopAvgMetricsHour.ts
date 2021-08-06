@@ -30,6 +30,8 @@ export class UsageTopAvgMetricsHour {
    */
   "metricName"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -79,9 +81,9 @@ export class UsageTopAvgMetricsHour {
     if (["standard", "custom", undefined].includes(data.metric_category)) {
       res.metricCategory = data.metric_category;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.metric_category} for metric_category`
-      );
+      const raw = new UsageTopAvgMetricsHour();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.metricName = ObjectSerializer.deserialize(
@@ -100,6 +102,9 @@ export class UsageTopAvgMetricsHour {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.avg_metric_hour = ObjectSerializer.serialize(
       data.avgMetricHour,

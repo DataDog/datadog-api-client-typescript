@@ -24,6 +24,8 @@ export class FormulaAndFunctionEventQueryGroupBySort {
   "metric"?: string;
   "order"?: QuerySortOrder;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -79,7 +81,9 @@ export class FormulaAndFunctionEventQueryGroupBySort {
     ) {
       res.aggregation = data.aggregation;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
+      const raw = new FormulaAndFunctionEventQueryGroupBySort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
@@ -87,7 +91,9 @@ export class FormulaAndFunctionEventQueryGroupBySort {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new FormulaAndFunctionEventQueryGroupBySort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -102,6 +108,9 @@ export class FormulaAndFunctionEventQueryGroupBySort {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.aggregation === undefined) {
       throw new TypeError(

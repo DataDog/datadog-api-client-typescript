@@ -22,6 +22,8 @@ export class AWSTagFilterDeleteRequest {
   "accountId"?: string;
   "namespace"?: AWSNamespace;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -62,7 +64,9 @@ export class AWSTagFilterDeleteRequest {
     ) {
       res.namespace = data.namespace;
     } else {
-      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
+      const raw = new AWSTagFilterDeleteRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -75,6 +79,9 @@ export class AWSTagFilterDeleteRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
 

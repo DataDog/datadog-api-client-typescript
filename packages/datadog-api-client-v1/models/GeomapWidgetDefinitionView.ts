@@ -20,6 +20,8 @@ export class GeomapWidgetDefinitionView {
    */
   "focus": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -56,6 +58,9 @@ export class GeomapWidgetDefinitionView {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.focus === undefined) {
       throw new TypeError(

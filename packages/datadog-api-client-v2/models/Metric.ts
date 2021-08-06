@@ -22,6 +22,8 @@ export class Metric {
   "id"?: string;
   "type"?: MetricType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,7 +53,9 @@ export class Metric {
     if (["metrics", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new Metric();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -64,6 +68,9 @@ export class Metric {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.id = ObjectSerializer.serialize(data.id, "string", "");
 

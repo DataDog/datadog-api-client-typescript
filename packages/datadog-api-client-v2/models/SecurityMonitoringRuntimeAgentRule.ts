@@ -24,6 +24,8 @@ export class SecurityMonitoringRuntimeAgentRule {
    */
   "expression"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -74,6 +76,9 @@ export class SecurityMonitoringRuntimeAgentRule {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.agentRuleId = ObjectSerializer.serialize(
       data.agentRuleId,

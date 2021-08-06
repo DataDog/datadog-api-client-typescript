@@ -44,6 +44,8 @@ export class ScatterPlotWidgetDefinition {
   "xaxis"?: WidgetAxis;
   "yaxis"?: WidgetAxis;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -140,7 +142,9 @@ export class ScatterPlotWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new ScatterPlotWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -153,7 +157,9 @@ export class ScatterPlotWidgetDefinition {
     if (["scatterplot", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new ScatterPlotWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.xaxis = ObjectSerializer.deserialize(data.xaxis, "WidgetAxis", "");
@@ -170,6 +176,9 @@ export class ScatterPlotWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.color_by_groups = ObjectSerializer.serialize(
       data.colorByGroups,

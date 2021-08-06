@@ -24,6 +24,8 @@ export class SyntheticsDeletedTest {
    */
   "publicId"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -66,6 +68,9 @@ export class SyntheticsDeletedTest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.deleted_at = ObjectSerializer.serialize(
       data.deletedAt,

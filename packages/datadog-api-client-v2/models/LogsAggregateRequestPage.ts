@@ -20,6 +20,8 @@ export class LogsAggregateRequestPage {
    */
   "cursor"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,6 +53,9 @@ export class LogsAggregateRequestPage {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.cursor = ObjectSerializer.serialize(data.cursor, "string", "");
 

@@ -15,6 +15,8 @@ export class SecurityMonitoringRuleNewValueOptions {
   "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
   "learningDuration"?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -44,15 +46,17 @@ export class SecurityMonitoringRuleNewValueOptions {
     if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
       res.forgetAfter = data.forgetAfter;
     } else {
-      throw TypeError(`invalid enum value ${data.forgetAfter} for forgetAfter`);
+      const raw = new SecurityMonitoringRuleNewValueOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if ([0, 1, 7, undefined].includes(data.learningDuration)) {
       res.learningDuration = data.learningDuration;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.learningDuration} for learningDuration`
-      );
+      const raw = new SecurityMonitoringRuleNewValueOptions();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -67,6 +71,9 @@ export class SecurityMonitoringRuleNewValueOptions {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
       res.forgetAfter = data.forgetAfter;

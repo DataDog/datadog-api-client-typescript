@@ -22,6 +22,8 @@ export class LogsMetricCompute {
    */
   "path"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -54,9 +56,9 @@ export class LogsMetricCompute {
     if (["count", "distribution", undefined].includes(data.aggregation_type)) {
       res.aggregationType = data.aggregation_type;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.aggregation_type} for aggregation_type`
-      );
+      const raw = new LogsMetricCompute();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.path = ObjectSerializer.deserialize(data.path, "string", "");
@@ -71,6 +73,9 @@ export class LogsMetricCompute {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.aggregationType === undefined) {
       throw new TypeError(

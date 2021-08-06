@@ -9,5 +9,12 @@
  */
 
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type IncidentTimelineCellCreateAttributes = IncidentTimelineCellMarkdownCreateAttributes;
+/**
+ * The timeline cell's attributes for a create request.
+ */
+
+export type IncidentTimelineCellCreateAttributes =
+  | IncidentTimelineCellMarkdownCreateAttributes
+  | UnparsedObject;

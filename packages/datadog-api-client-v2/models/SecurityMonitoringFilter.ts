@@ -22,6 +22,8 @@ export class SecurityMonitoringFilter {
    */
   "query"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -49,7 +51,9 @@ export class SecurityMonitoringFilter {
     if (["require", "suppress", undefined].includes(data.action)) {
       res.action = data.action;
     } else {
-      throw TypeError(`invalid enum value ${data.action} for action`);
+      const raw = new SecurityMonitoringFilter();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.query = ObjectSerializer.deserialize(data.query, "string", "");
@@ -64,6 +68,9 @@ export class SecurityMonitoringFilter {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["require", "suppress", undefined].includes(data.action)) {
       res.action = data.action;

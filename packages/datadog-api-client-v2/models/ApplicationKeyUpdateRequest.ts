@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class ApplicationKeyUpdateRequest {
   "data": ApplicationKeyUpdateData;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -60,6 +62,9 @@ export class ApplicationKeyUpdateRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.data === undefined) {
       throw new TypeError(

@@ -39,6 +39,8 @@ export class LogsIndex {
    */
   "numRetentionDays"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -131,6 +133,9 @@ export class LogsIndex {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.daily_limit = ObjectSerializer.serialize(
       data.dailyLimit,

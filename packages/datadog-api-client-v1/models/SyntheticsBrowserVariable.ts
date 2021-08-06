@@ -34,6 +34,8 @@ export class SyntheticsBrowserVariable {
   "pattern"?: string;
   "type": SyntheticsBrowserVariableType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -98,7 +100,9 @@ export class SyntheticsBrowserVariable {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsBrowserVariable();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -111,6 +115,9 @@ export class SyntheticsBrowserVariable {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.example = ObjectSerializer.serialize(data.example, "string", "");
 

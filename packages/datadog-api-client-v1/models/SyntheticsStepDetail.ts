@@ -81,6 +81,8 @@ export class SyntheticsStepDetail {
    */
   "warnings"?: Array<SyntheticsStepDetailWarning>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -207,7 +209,9 @@ export class SyntheticsStepDetail {
     ) {
       res.checkType = data.checkType;
     } else {
-      throw TypeError(`invalid enum value ${data.checkType} for checkType`);
+      const raw = new SyntheticsStepDetail();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.description = ObjectSerializer.deserialize(
@@ -227,7 +231,9 @@ export class SyntheticsStepDetail {
     if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
       res.playingTab = data.playingTab;
     } else {
-      throw TypeError(`invalid enum value ${data.playingTab} for playingTab`);
+      const raw = new SyntheticsStepDetail();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.screenshotBucketKey = ObjectSerializer.deserialize(
@@ -290,7 +296,9 @@ export class SyntheticsStepDetail {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsStepDetail();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.url = ObjectSerializer.deserialize(data.url, "string", "");
@@ -319,6 +327,9 @@ export class SyntheticsStepDetail {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.browserErrors = ObjectSerializer.serialize(
       data.browserErrors,

@@ -36,6 +36,8 @@ export class UsageCustomReportsAttributes {
    */
   "tags"?: Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -101,6 +103,9 @@ export class UsageCustomReportsAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.computed_on = ObjectSerializer.serialize(data.computedOn, "string", "");
 

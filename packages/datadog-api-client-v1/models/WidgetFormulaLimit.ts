@@ -22,6 +22,8 @@ export class WidgetFormulaLimit {
   "count"?: number;
   "order"?: QuerySortOrder;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,7 +53,9 @@ export class WidgetFormulaLimit {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new WidgetFormulaLimit();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -64,6 +68,9 @@ export class WidgetFormulaLimit {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.count = ObjectSerializer.serialize(data.count, "number", "int64");
 

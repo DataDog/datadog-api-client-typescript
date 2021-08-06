@@ -44,6 +44,8 @@ export class AzureAccount {
    */
   "tenantName"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -137,6 +139,9 @@ export class AzureAccount {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.client_id = ObjectSerializer.serialize(data.clientId, "string", "");
 

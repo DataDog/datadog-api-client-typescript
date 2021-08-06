@@ -13,6 +13,8 @@ import { WidgetLiveSpan } from "./WidgetLiveSpan";
 export class NotebookRelativeTime {
   "liveSpan": WidgetLiveSpan;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -59,7 +61,9 @@ export class NotebookRelativeTime {
     ) {
       res.liveSpan = data.live_span;
     } else {
-      throw TypeError(`invalid enum value ${data.live_span} for live_span`);
+      const raw = new NotebookRelativeTime();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -72,6 +76,9 @@ export class NotebookRelativeTime {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.liveSpan === undefined) {
       throw new TypeError(

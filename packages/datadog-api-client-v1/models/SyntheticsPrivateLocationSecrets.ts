@@ -20,6 +20,8 @@ export class SyntheticsPrivateLocationSecrets {
   "authentication"?: SyntheticsPrivateLocationSecretsAuthentication;
   "configDecryption"?: SyntheticsPrivateLocationSecretsConfigDecryption;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -70,6 +72,9 @@ export class SyntheticsPrivateLocationSecrets {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.authentication = ObjectSerializer.serialize(
       data.authentication,

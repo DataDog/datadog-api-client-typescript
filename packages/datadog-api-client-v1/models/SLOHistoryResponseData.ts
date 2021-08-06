@@ -49,6 +49,8 @@ export class SLOHistoryResponseData {
   "type"?: SLOType;
   "typeId"?: SLOTypeNumeric;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -156,13 +158,17 @@ export class SLOHistoryResponseData {
     if (["metric", "monitor", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SLOHistoryResponseData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if ([0, 1, undefined].includes(data.type_id)) {
       res.typeId = data.type_id;
     } else {
-      throw TypeError(`invalid enum value ${data.type_id} for type_id`);
+      const raw = new SLOHistoryResponseData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -175,6 +181,9 @@ export class SLOHistoryResponseData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.from_ts = ObjectSerializer.serialize(data.fromTs, "number", "int64");
 

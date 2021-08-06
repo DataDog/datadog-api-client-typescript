@@ -24,6 +24,8 @@ export class LogsGrokParserRules {
    */
   "supportRules"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -75,6 +77,9 @@ export class LogsGrokParserRules {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.matchRules === undefined) {
       throw new TypeError(

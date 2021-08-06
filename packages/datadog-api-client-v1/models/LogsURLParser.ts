@@ -38,6 +38,8 @@ export class LogsURLParser {
   "target": string;
   "type": LogsURLParserType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -122,7 +124,9 @@ export class LogsURLParser {
     if (["url-parser", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsURLParser();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -135,6 +139,9 @@ export class LogsURLParser {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
 

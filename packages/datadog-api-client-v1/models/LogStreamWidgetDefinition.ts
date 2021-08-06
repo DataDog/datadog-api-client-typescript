@@ -58,6 +58,8 @@ export class LogStreamWidgetDefinition {
   "titleSize"?: string;
   "type": LogStreamWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -158,9 +160,9 @@ export class LogStreamWidgetDefinition {
     ) {
       res.messageDisplay = data.message_display;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.message_display} for message_display`
-      );
+      const raw = new LogStreamWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.query = ObjectSerializer.deserialize(data.query, "string", "");
@@ -186,7 +188,9 @@ export class LogStreamWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new LogStreamWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -199,7 +203,9 @@ export class LogStreamWidgetDefinition {
     if (["log_stream", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogStreamWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -212,6 +218,9 @@ export class LogStreamWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.columns = ObjectSerializer.serialize(data.columns, "Array<string>", "");
 

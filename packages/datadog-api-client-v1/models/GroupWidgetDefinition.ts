@@ -43,6 +43,8 @@ export class GroupWidgetDefinition {
    */
   "widgets": Array<Widget>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -113,7 +115,9 @@ export class GroupWidgetDefinition {
     if (["ordered", undefined].includes(data.layout_type)) {
       res.layoutType = data.layout_type;
     } else {
-      throw TypeError(`invalid enum value ${data.layout_type} for layout_type`);
+      const raw = new GroupWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.showTitle = ObjectSerializer.deserialize(
@@ -127,7 +131,9 @@ export class GroupWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new GroupWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.type === undefined) {
@@ -138,7 +144,9 @@ export class GroupWidgetDefinition {
     if (["group", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new GroupWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.widgets === undefined) {
@@ -162,6 +170,9 @@ export class GroupWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.background_color = ObjectSerializer.serialize(
       data.backgroundColor,

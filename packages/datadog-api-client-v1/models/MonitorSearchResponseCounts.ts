@@ -32,6 +32,8 @@ export class MonitorSearchResponseCounts {
    */
   "type"?: Array<any>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -86,6 +88,9 @@ export class MonitorSearchResponseCounts {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.muted = ObjectSerializer.serialize(data.muted, "Array<any>", "");
 

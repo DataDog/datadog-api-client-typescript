@@ -10,5 +10,13 @@
 
 import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
 import { NotebookRelativeTime } from "./NotebookRelativeTime";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type NotebookGlobalTime = NotebookAbsoluteTime | NotebookRelativeTime;
+/**
+ * Notebook global timeframe.
+ */
+
+export type NotebookGlobalTime =
+  | NotebookAbsoluteTime
+  | NotebookRelativeTime
+  | UnparsedObject;

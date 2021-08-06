@@ -22,6 +22,8 @@ export class ListStreamColumn {
   "field": string;
   "width": ListStreamColumnWidth;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -61,7 +63,9 @@ export class ListStreamColumn {
     if (["auto", "compact", "full", undefined].includes(data.width)) {
       res.width = data.width;
     } else {
-      throw TypeError(`invalid enum value ${data.width} for width`);
+      const raw = new ListStreamColumn();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -74,6 +78,9 @@ export class ListStreamColumn {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.field === undefined) {
       throw new TypeError(

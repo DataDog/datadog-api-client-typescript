@@ -20,6 +20,8 @@ export class IntakePayloadAccepted {
    */
   "status"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,6 +53,9 @@ export class IntakePayloadAccepted {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.status = ObjectSerializer.serialize(data.status, "string", "");
 

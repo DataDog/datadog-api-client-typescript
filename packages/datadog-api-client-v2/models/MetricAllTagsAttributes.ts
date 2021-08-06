@@ -20,6 +20,8 @@ export class MetricAllTagsAttributes {
    */
   "tags"?: Array<string>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -51,6 +53,9 @@ export class MetricAllTagsAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
 

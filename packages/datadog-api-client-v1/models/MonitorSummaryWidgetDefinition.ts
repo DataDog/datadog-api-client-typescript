@@ -56,6 +56,8 @@ export class MonitorSummaryWidgetDefinition {
   "titleSize"?: string;
   "type": MonitorSummaryWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -140,9 +142,9 @@ export class MonitorSummaryWidgetDefinition {
     if (["background", "text", undefined].includes(data.color_preference)) {
       res.colorPreference = data.color_preference;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.color_preference} for color_preference`
-      );
+      const raw = new MonitorSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
@@ -154,9 +156,9 @@ export class MonitorSummaryWidgetDefinition {
     ) {
       res.displayFormat = data.display_format;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.display_format} for display_format`
-      );
+      const raw = new MonitorSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.hideZeroCounts = ObjectSerializer.deserialize(
@@ -200,7 +202,9 @@ export class MonitorSummaryWidgetDefinition {
     ) {
       res.sort = data.sort;
     } else {
-      throw TypeError(`invalid enum value ${data.sort} for sort`);
+      const raw = new MonitorSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.start = ObjectSerializer.deserialize(data.start, "number", "int64");
@@ -210,9 +214,9 @@ export class MonitorSummaryWidgetDefinition {
     ) {
       res.summaryType = data.summary_type;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.summary_type} for summary_type`
-      );
+      const raw = new MonitorSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.title = ObjectSerializer.deserialize(data.title, "string", "");
@@ -220,7 +224,9 @@ export class MonitorSummaryWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new MonitorSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -233,7 +239,9 @@ export class MonitorSummaryWidgetDefinition {
     if (["manage_status", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new MonitorSummaryWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -248,6 +256,9 @@ export class MonitorSummaryWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["background", "text", undefined].includes(data.colorPreference)) {
       res.color_preference = data.colorPreference;

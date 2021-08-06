@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class ApplicationKeyRelationships {
   "ownedBy"?: RelationshipToUser;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -55,6 +57,9 @@ export class ApplicationKeyRelationships {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.owned_by = ObjectSerializer.serialize(
       data.ownedBy,

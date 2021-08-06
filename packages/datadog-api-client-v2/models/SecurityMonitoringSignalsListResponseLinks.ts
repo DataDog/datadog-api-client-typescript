@@ -20,6 +20,8 @@ export class SecurityMonitoringSignalsListResponseLinks {
    */
   "next"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -55,6 +57,9 @@ export class SecurityMonitoringSignalsListResponseLinks {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.next = ObjectSerializer.serialize(data.next, "string", "");
 

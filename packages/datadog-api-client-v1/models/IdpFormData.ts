@@ -21,6 +21,8 @@ export class IdpFormData {
    */
   "idpFile": HttpFile;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -61,6 +63,9 @@ export class IdpFormData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.idpFile === undefined) {
       throw new TypeError(

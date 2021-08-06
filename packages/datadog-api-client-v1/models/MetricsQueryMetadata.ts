@@ -69,6 +69,8 @@ export class MetricsQueryMetadata {
    */
   "unit"?: Array<MetricsQueryUnit>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -212,6 +214,9 @@ export class MetricsQueryMetadata {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.aggr = ObjectSerializer.serialize(data.aggr, "string", "");
 

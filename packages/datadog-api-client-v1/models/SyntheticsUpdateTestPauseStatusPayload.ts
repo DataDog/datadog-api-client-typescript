@@ -13,6 +13,8 @@ import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 export class SyntheticsUpdateTestPauseStatusPayload {
   "newStatus"?: SyntheticsTestPauseStatus;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -37,7 +39,9 @@ export class SyntheticsUpdateTestPauseStatusPayload {
     if (["live", "paused", undefined].includes(data.new_status)) {
       res.newStatus = data.new_status;
     } else {
-      throw TypeError(`invalid enum value ${data.new_status} for new_status`);
+      const raw = new SyntheticsUpdateTestPauseStatusPayload();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -52,6 +56,9 @@ export class SyntheticsUpdateTestPauseStatusPayload {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["live", "paused", undefined].includes(data.newStatus)) {
       res.new_status = data.newStatus;

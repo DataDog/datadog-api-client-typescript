@@ -10,7 +10,13 @@
 
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * Dynamic fields for which selections can be made, with field names as keys.
+ */
 
 export type IncidentFieldAttributes =
   | IncidentFieldAttributesMultipleValue
-  | IncidentFieldAttributesSingleValue;
+  | IncidentFieldAttributesSingleValue
+  | UnparsedObject;

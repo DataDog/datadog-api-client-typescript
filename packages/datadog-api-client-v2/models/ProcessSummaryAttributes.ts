@@ -48,6 +48,8 @@ export class ProcessSummaryAttributes {
    */
   "user"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -128,6 +130,9 @@ export class ProcessSummaryAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.cmdline = ObjectSerializer.serialize(data.cmdline, "string", "");
 

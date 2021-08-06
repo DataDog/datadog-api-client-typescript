@@ -29,6 +29,8 @@ export class NotebookUpdateDataAttributes {
   "status"?: NotebookStatus;
   "time": NotebookGlobalTime;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -86,7 +88,9 @@ export class NotebookUpdateDataAttributes {
     if (["published", undefined].includes(data.status)) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new NotebookUpdateDataAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.time === undefined) {
@@ -110,6 +114,9 @@ export class NotebookUpdateDataAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.cells === undefined) {
       throw new TypeError(

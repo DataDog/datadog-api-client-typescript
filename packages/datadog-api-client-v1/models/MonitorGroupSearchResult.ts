@@ -42,6 +42,8 @@ export class MonitorGroupSearchResult {
   "monitorName"?: string;
   "status"?: MonitorOverallStates;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -137,7 +139,9 @@ export class MonitorGroupSearchResult {
     ) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new MonitorGroupSearchResult();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -150,6 +154,9 @@ export class MonitorGroupSearchResult {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.group = ObjectSerializer.serialize(data.group, "string", "");
 

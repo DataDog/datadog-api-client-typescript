@@ -26,6 +26,8 @@ export class FormulaAndFunctionEventQueryGroupBy {
   "limit"?: number;
   "sort"?: FormulaAndFunctionEventQueryGroupBySort;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -84,6 +86,9 @@ export class FormulaAndFunctionEventQueryGroupBy {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.facet === undefined) {
       throw new TypeError(

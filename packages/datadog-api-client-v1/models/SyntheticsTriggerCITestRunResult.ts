@@ -30,6 +30,8 @@ export class SyntheticsTriggerCITestRunResult {
    */
   "resultId"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -85,7 +87,9 @@ export class SyntheticsTriggerCITestRunResult {
     ) {
       res.device = data.device;
     } else {
-      throw TypeError(`invalid enum value ${data.device} for device`);
+      const raw = new SyntheticsTriggerCITestRunResult();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.location = ObjectSerializer.deserialize(
@@ -110,6 +114,9 @@ export class SyntheticsTriggerCITestRunResult {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

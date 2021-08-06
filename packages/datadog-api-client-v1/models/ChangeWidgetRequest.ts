@@ -46,6 +46,8 @@ export class ChangeWidgetRequest {
    */
   "showPresent"?: boolean;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -144,7 +146,9 @@ export class ChangeWidgetRequest {
     if (["absolute", "relative", undefined].includes(data.change_type)) {
       res.changeType = data.change_type;
     } else {
-      throw TypeError(`invalid enum value ${data.change_type} for change_type`);
+      const raw = new ChangeWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (
@@ -158,7 +162,9 @@ export class ChangeWidgetRequest {
     ) {
       res.compareTo = data.compare_to;
     } else {
-      throw TypeError(`invalid enum value ${data.compare_to} for compare_to`);
+      const raw = new ChangeWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.eventQuery = ObjectSerializer.deserialize(
@@ -190,13 +196,17 @@ export class ChangeWidgetRequest {
     ) {
       res.orderBy = data.order_by;
     } else {
-      throw TypeError(`invalid enum value ${data.order_by} for order_by`);
+      const raw = new ChangeWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (["asc", "desc", undefined].includes(data.order_dir)) {
       res.orderDir = data.order_dir;
     } else {
-      throw TypeError(`invalid enum value ${data.order_dir} for order_dir`);
+      const raw = new ChangeWidgetRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.processQuery = ObjectSerializer.deserialize(
@@ -241,6 +251,9 @@ export class ChangeWidgetRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.apm_query = ObjectSerializer.serialize(
       data.apmQuery,

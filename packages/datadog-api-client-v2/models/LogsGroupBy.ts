@@ -32,6 +32,8 @@ export class LogsGroupBy {
   "sort"?: LogsAggregateSort;
   "total"?: LogsGroupByTotal;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -115,6 +117,9 @@ export class LogsGroupBy {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.facet === undefined) {
       throw new TypeError(

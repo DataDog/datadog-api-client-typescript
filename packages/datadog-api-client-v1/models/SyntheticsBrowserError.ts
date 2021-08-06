@@ -30,6 +30,8 @@ export class SyntheticsBrowserError {
   "status"?: number;
   "type": SyntheticsBrowserErrorType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -92,7 +94,9 @@ export class SyntheticsBrowserError {
     if (["network", "js", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsBrowserError();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -105,6 +109,9 @@ export class SyntheticsBrowserError {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.description === undefined) {
       throw new TypeError(

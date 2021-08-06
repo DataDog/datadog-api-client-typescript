@@ -38,6 +38,8 @@ export class MonitorStateGroup {
   "name"?: string;
   "status"?: MonitorOverallStates;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -122,7 +124,9 @@ export class MonitorStateGroup {
     ) {
       res.status = data.status;
     } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
+      const raw = new MonitorStateGroup();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -135,6 +139,9 @@ export class MonitorStateGroup {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.last_nodata_ts = ObjectSerializer.serialize(
       data.lastNodataTs,

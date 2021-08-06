@@ -14,6 +14,11 @@ import { NotebookLogStreamCellAttributes } from "./NotebookLogStreamCellAttribut
 import { NotebookMarkdownCellAttributes } from "./NotebookMarkdownCellAttributes";
 import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
 import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
+ */
 
 export type NotebookCellCreateRequestAttributes =
   | NotebookDistributionCellAttributes
@@ -21,4 +26,5 @@ export type NotebookCellCreateRequestAttributes =
   | NotebookLogStreamCellAttributes
   | NotebookMarkdownCellAttributes
   | NotebookTimeseriesCellAttributes
-  | NotebookToplistCellAttributes;
+  | NotebookToplistCellAttributes
+  | UnparsedObject;

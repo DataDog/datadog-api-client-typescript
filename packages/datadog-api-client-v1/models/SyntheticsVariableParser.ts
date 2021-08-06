@@ -22,6 +22,8 @@ export class SyntheticsVariableParser {
    */
   "value"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -54,7 +56,9 @@ export class SyntheticsVariableParser {
     if (["raw", "json_path", "regex", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsVariableParser();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.value = ObjectSerializer.deserialize(data.value, "string", "");
@@ -69,6 +73,9 @@ export class SyntheticsVariableParser {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.type === undefined) {
       throw new TypeError(

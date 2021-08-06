@@ -70,6 +70,8 @@ export class Monitor {
   "tags"?: Array<string>;
   "type": MonitorType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -212,9 +214,9 @@ export class Monitor {
     ) {
       res.overallState = data.overall_state;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.overall_state} for overall_state`
-      );
+      const raw = new Monitor();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.priority = ObjectSerializer.deserialize(
@@ -264,7 +266,9 @@ export class Monitor {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new Monitor();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -277,6 +281,9 @@ export class Monitor {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
 

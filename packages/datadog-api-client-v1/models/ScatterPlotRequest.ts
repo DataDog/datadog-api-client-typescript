@@ -32,6 +32,8 @@ export class ScatterPlotRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -101,7 +103,9 @@ export class ScatterPlotRequest {
     ) {
       res.aggregator = data.aggregator;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
+      const raw = new ScatterPlotRequest();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.apmQuery = ObjectSerializer.deserialize(
@@ -164,6 +168,9 @@ export class ScatterPlotRequest {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       ["avg", "last", "max", "min", "sum", undefined].includes(data.aggregator)

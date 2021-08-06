@@ -34,6 +34,8 @@ export class SyntheticsStep {
   "timeout"?: number;
   "type"?: SyntheticsStepType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -117,7 +119,9 @@ export class SyntheticsStep {
     ) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new SyntheticsStep();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -130,6 +134,9 @@ export class SyntheticsStep {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.allowFailure = ObjectSerializer.serialize(
       data.allowFailure,

@@ -28,6 +28,8 @@ export class DashboardTemplateVariable {
    */
   "prefix"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -78,6 +80,9 @@ export class DashboardTemplateVariable {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.default = ObjectSerializer.serialize(data._default, "string", "");
 

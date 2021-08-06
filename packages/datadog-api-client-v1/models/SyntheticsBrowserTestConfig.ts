@@ -32,6 +32,8 @@ export class SyntheticsBrowserTestConfig {
    */
   "variables"?: Array<SyntheticsBrowserVariable>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -108,6 +110,9 @@ export class SyntheticsBrowserTestConfig {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.assertions === undefined) {
       throw new TypeError(

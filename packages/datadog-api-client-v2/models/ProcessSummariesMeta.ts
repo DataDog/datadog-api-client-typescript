@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class ProcessSummariesMeta {
   "page"?: ProcessSummariesMetaPage;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -53,6 +55,9 @@ export class ProcessSummariesMeta {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.page = ObjectSerializer.serialize(
       data.page,

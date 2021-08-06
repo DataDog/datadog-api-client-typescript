@@ -28,6 +28,8 @@ export class ApmStatsQueryColumnType {
   "name": string;
   "order"?: WidgetSort;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -67,9 +69,9 @@ export class ApmStatsQueryColumnType {
     if (["number", "bar", undefined].includes(data.cell_display_mode)) {
       res.cellDisplayMode = data.cell_display_mode;
     } else {
-      throw TypeError(
-        `invalid enum value ${data.cell_display_mode} for cell_display_mode`
-      );
+      const raw = new ApmStatsQueryColumnType();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.name === undefined) {
@@ -82,7 +84,9 @@ export class ApmStatsQueryColumnType {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new ApmStatsQueryColumnType();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -95,6 +99,9 @@ export class ApmStatsQueryColumnType {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.alias = ObjectSerializer.serialize(data.alias, "string", "");
 

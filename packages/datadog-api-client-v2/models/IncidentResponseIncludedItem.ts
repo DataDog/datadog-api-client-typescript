@@ -9,5 +9,10 @@
  */
 
 import { User } from "./User";
+import { UnparsedObject } from "./ObjectSerializer";
 
-export type IncidentResponseIncludedItem = User;
+/**
+ * An object related to an incident that is included in the response.
+ */
+
+export type IncidentResponseIncludedItem = User | UnparsedObject;

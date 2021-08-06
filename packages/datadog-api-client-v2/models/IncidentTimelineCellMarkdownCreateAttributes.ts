@@ -24,6 +24,8 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
    */
   "important"?: boolean;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -63,7 +65,9 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
     if (["markdown", undefined].includes(data.cell_type)) {
       res.cellType = data.cell_type;
     } else {
-      throw TypeError(`invalid enum value ${data.cell_type} for cell_type`);
+      const raw = new IncidentTimelineCellMarkdownCreateAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.content === undefined) {
@@ -91,6 +95,9 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.cellType === undefined) {
       throw new TypeError(

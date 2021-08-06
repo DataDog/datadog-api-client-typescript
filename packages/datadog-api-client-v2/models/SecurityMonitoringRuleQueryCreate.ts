@@ -40,6 +40,8 @@ export class SecurityMonitoringRuleQueryCreate {
    */
   "query": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -104,7 +106,9 @@ export class SecurityMonitoringRuleQueryCreate {
     ) {
       res.aggregation = data.aggregation;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
+      const raw = new SecurityMonitoringRuleQueryCreate();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.distinctFields = ObjectSerializer.deserialize(
@@ -142,6 +146,9 @@ export class SecurityMonitoringRuleQueryCreate {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.agentRule = ObjectSerializer.serialize(
       data.agentRule,

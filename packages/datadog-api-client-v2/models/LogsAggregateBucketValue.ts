@@ -9,8 +9,14 @@
  */
 
 import { LogsAggregateBucketValueTimeseriesPoint } from "./LogsAggregateBucketValueTimeseriesPoint";
+import { UnparsedObject } from "./ObjectSerializer";
+
+/**
+ * A bucket value, can be either a timeseries or a single value
+ */
 
 export type LogsAggregateBucketValue =
   | Array<LogsAggregateBucketValueTimeseriesPoint>
   | number
-  | string;
+  | string
+  | UnparsedObject;

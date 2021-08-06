@@ -28,6 +28,8 @@ export class NotebookAbsoluteTime {
    */
   "start": Date;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -83,6 +85,9 @@ export class NotebookAbsoluteTime {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.end === undefined) {
       throw new TypeError(

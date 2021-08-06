@@ -28,6 +28,8 @@ export class SyntheticsCoreWebVitals {
    */
   "url"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -73,6 +75,9 @@ export class SyntheticsCoreWebVitals {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.cls = ObjectSerializer.serialize(data.cls, "number", "int64");
 

@@ -18,6 +18,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
 export class LogsAPIErrorResponse {
   "error"?: LogsAPIError;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -49,6 +51,9 @@ export class LogsAPIErrorResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.error = ObjectSerializer.serialize(data.error, "LogsAPIError", "");
 

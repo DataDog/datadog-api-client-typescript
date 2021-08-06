@@ -28,6 +28,8 @@ export class PartialApplicationKeyAttributes {
    */
   "name"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -77,6 +79,9 @@ export class PartialApplicationKeyAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.created_at = ObjectSerializer.serialize(data.createdAt, "string", "");
 

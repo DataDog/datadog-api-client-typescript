@@ -34,6 +34,8 @@ export class SLOThreshold {
    */
   "warningDisplay"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -94,7 +96,9 @@ export class SLOThreshold {
     if (["7d", "30d", "90d", "custom", undefined].includes(data.timeframe)) {
       res.timeframe = data.timeframe;
     } else {
-      throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);
+      const raw = new SLOThreshold();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.warning = ObjectSerializer.deserialize(
@@ -119,6 +123,9 @@ export class SLOThreshold {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.target === undefined) {
       throw new TypeError(

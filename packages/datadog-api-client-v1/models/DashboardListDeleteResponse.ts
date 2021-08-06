@@ -20,6 +20,8 @@ export class DashboardListDeleteResponse {
    */
   "deletedDashboardListId"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -57,6 +59,9 @@ export class DashboardListDeleteResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.deleted_dashboard_list_id = ObjectSerializer.serialize(
       data.deletedDashboardListId,

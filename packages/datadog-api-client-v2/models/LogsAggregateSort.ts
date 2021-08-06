@@ -26,6 +26,8 @@ export class LogsAggregateSort {
   "order"?: LogsSortOrder;
   "type"?: LogsAggregateSortType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -78,7 +80,9 @@ export class LogsAggregateSort {
     ) {
       res.aggregation = data.aggregation;
     } else {
-      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
+      const raw = new LogsAggregateSort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
@@ -86,13 +90,17 @@ export class LogsAggregateSort {
     if (["asc", "desc", undefined].includes(data.order)) {
       res.order = data.order;
     } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
+      const raw = new LogsAggregateSort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (["alphabetical", "measure", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new LogsAggregateSort();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -105,6 +113,9 @@ export class LogsAggregateSort {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (
       [

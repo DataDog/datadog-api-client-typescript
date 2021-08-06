@@ -28,6 +28,8 @@ export class UsageAttributionPagination {
    */
   "totalNumberOfRecords"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -81,6 +83,9 @@ export class UsageAttributionPagination {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
 

@@ -21,6 +21,8 @@ export class UsageCloudSecurityPostureManagementResponse {
    */
   "usage"?: Array<UsageCloudSecurityPostureManagementHour>;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -60,6 +62,9 @@ export class UsageCloudSecurityPostureManagementResponse {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.usage = ObjectSerializer.serialize(
       data.usage,

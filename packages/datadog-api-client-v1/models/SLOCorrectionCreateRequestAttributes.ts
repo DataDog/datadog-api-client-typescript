@@ -38,6 +38,8 @@ export class SLOCorrectionCreateRequestAttributes {
    */
   "timezone"?: string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -100,7 +102,9 @@ export class SLOCorrectionCreateRequestAttributes {
     ) {
       res.category = data.category;
     } else {
-      throw TypeError(`invalid enum value ${data.category} for category`);
+      const raw = new SLOCorrectionCreateRequestAttributes();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.description = ObjectSerializer.deserialize(
@@ -144,6 +148,9 @@ export class SLOCorrectionCreateRequestAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.category === undefined) {
       throw new TypeError(

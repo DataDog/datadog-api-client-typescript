@@ -20,6 +20,8 @@ export class UserInvitationData {
   "relationships": UserInvitationRelationships;
   "type": UserInvitationsType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -63,7 +65,9 @@ export class UserInvitationData {
     if (["user_invitations", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new UserInvitationData();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -76,6 +80,9 @@ export class UserInvitationData {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (data.relationships === undefined) {
       throw new TypeError(

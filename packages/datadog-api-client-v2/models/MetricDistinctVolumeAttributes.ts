@@ -20,6 +20,8 @@ export class MetricDistinctVolumeAttributes {
    */
   "distinctVolume"?: number;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -59,6 +61,9 @@ export class MetricDistinctVolumeAttributes {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.distinct_volume = ObjectSerializer.serialize(
       data.distinctVolume,

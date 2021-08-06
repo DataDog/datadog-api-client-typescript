@@ -40,6 +40,8 @@ export class EventStreamWidgetDefinition {
   "titleSize"?: string;
   "type": EventStreamWidgetDefinitionType;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -99,7 +101,9 @@ export class EventStreamWidgetDefinition {
     if (["s", "l", undefined].includes(data.event_size)) {
       res.eventSize = data.event_size;
     } else {
-      throw TypeError(`invalid enum value ${data.event_size} for event_size`);
+      const raw = new EventStreamWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     if (data.query === undefined) {
@@ -122,7 +126,9 @@ export class EventStreamWidgetDefinition {
     if (["center", "left", "right", undefined].includes(data.title_align)) {
       res.titleAlign = data.title_align;
     } else {
-      throw TypeError(`invalid enum value ${data.title_align} for title_align`);
+      const raw = new EventStreamWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
@@ -135,7 +141,9 @@ export class EventStreamWidgetDefinition {
     if (["event_stream", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
+      const raw = new EventStreamWidgetDefinition();
+      raw.unparsedObject = data;
+      return raw;
     }
 
     return res;
@@ -148,6 +156,9 @@ export class EventStreamWidgetDefinition {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     if (["s", "l", undefined].includes(data.eventSize)) {
       res.event_size = data.eventSize;

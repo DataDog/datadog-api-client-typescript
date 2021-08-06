@@ -24,6 +24,8 @@ export class TimeseriesWidgetExpressionAlias {
    */
   "expression": string;
 
+  "unparsedObject"?: any;
+
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
@@ -75,6 +77,9 @@ export class TimeseriesWidgetExpressionAlias {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
+    }
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
     }
     res.alias_name = ObjectSerializer.serialize(data.aliasName, "string", "");
 
