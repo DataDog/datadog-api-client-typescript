@@ -29,7 +29,7 @@ export class SLOHistorySLIData {
    */
   "group"?: string;
   /**
-   * For `monitor` based SLOs, this includes the aggregated history uptime time series.
+   * For `monitor` based SLOs, this includes the aggregated history as arrays that include time series and uptime data where `0=monitor` is in `OK` state and `1=monitor` is in `alert` state.
    */
   "history"?: Array<Array<number>>;
   /**
