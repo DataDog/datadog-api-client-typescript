@@ -28,6 +28,7 @@ SyntheticsApi.md
 TagsApi.md
 UsageMeteringApi.md
 UsersApi.md
+WebhooksIntegrationApi.md
 apis/AWSIntegrationApi.ts
 apis/AWSLogsIntegrationApi.ts
 apis/AuthenticationApi.ts
@@ -57,6 +58,7 @@ apis/SyntheticsApi.ts
 apis/TagsApi.ts
 apis/UsageMeteringApi.ts
 apis/UsersApi.ts
+apis/WebhooksIntegrationApi.ts
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
@@ -619,6 +621,12 @@ models/User.ts
 models/UserDisableResponse.ts
 models/UserListResponse.ts
 models/UserResponse.ts
+models/WebhooksIntegration.ts
+models/WebhooksIntegrationCustomVariable.ts
+models/WebhooksIntegrationCustomVariableResponse.ts
+models/WebhooksIntegrationCustomVariableUpdateRequest.ts
+models/WebhooksIntegrationEncoding.ts
+models/WebhooksIntegrationUpdateRequest.ts
 models/Widget.ts
 models/WidgetAggregator.ts
 models/WidgetAxis.ts

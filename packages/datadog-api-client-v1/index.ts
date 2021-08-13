@@ -209,4 +209,13 @@ export {
   UsersApiGetUserRequest,
   UsersApiUpdateUserRequest,
   ObjectUsersApi as UsersApi,
+  WebhooksIntegrationApiCreateWebhooksIntegrationRequest,
+  WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest,
+  WebhooksIntegrationApiDeleteWebhooksIntegrationRequest,
+  WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest,
+  WebhooksIntegrationApiGetWebhooksIntegrationRequest,
+  WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest,
+  WebhooksIntegrationApiUpdateWebhooksIntegrationRequest,
+  WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest,
+  ObjectWebhooksIntegrationApi as WebhooksIntegrationApi,
 } from "./types/ObjectParamAPI";

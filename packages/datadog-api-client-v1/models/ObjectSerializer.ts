@@ -427,6 +427,11 @@ import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
 import { UserListResponse } from "./UserListResponse";
 import { UserResponse } from "./UserResponse";
+import { WebhooksIntegration } from "./WebhooksIntegration";
+import { WebhooksIntegrationCustomVariable } from "./WebhooksIntegrationCustomVariable";
+import { WebhooksIntegrationCustomVariableResponse } from "./WebhooksIntegrationCustomVariableResponse";
+import { WebhooksIntegrationCustomVariableUpdateRequest } from "./WebhooksIntegrationCustomVariableUpdateRequest";
+import { WebhooksIntegrationUpdateRequest } from "./WebhooksIntegrationUpdateRequest";
 import { Widget } from "./Widget";
 import { WidgetAxis } from "./WidgetAxis";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
@@ -573,6 +578,7 @@ const enumsMap: Set<string> = new Set<string>([
   "UsageReportsType",
   "UsageSort",
   "UsageSortDirection",
+  "WebhooksIntegrationEncoding",
   "WidgetAggregator",
   "WidgetChangeType",
   "WidgetColorPreference",
@@ -1036,6 +1042,11 @@ const typeMap: { [index: string]: any } = {
   UserDisableResponse: UserDisableResponse,
   UserListResponse: UserListResponse,
   UserResponse: UserResponse,
+  WebhooksIntegration: WebhooksIntegration,
+  WebhooksIntegrationCustomVariable: WebhooksIntegrationCustomVariable,
+  WebhooksIntegrationCustomVariableResponse: WebhooksIntegrationCustomVariableResponse,
+  WebhooksIntegrationCustomVariableUpdateRequest: WebhooksIntegrationCustomVariableUpdateRequest,
+  WebhooksIntegrationUpdateRequest: WebhooksIntegrationUpdateRequest,
   Widget: Widget,
   WidgetAxis: WidgetAxis,
   WidgetConditionalFormat: WidgetConditionalFormat,

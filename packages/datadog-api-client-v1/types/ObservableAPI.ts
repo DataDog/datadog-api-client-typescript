@@ -152,6 +152,11 @@ import { User } from "../models/User";
 import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
 import { UserResponse } from "../models/UserResponse";
+import { WebhooksIntegration } from "../models/WebhooksIntegration";
+import { WebhooksIntegrationCustomVariable } from "../models/WebhooksIntegrationCustomVariable";
+import { WebhooksIntegrationCustomVariableResponse } from "../models/WebhooksIntegrationCustomVariableResponse";
+import { WebhooksIntegrationCustomVariableUpdateRequest } from "../models/WebhooksIntegrationCustomVariableUpdateRequest";
+import { WebhooksIntegrationUpdateRequest } from "../models/WebhooksIntegrationUpdateRequest";
 
 import {
   AWSIntegrationApiRequestFactory,
@@ -9384,6 +9389,384 @@ export class ObservableUsersApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.updateUser(rsp)
+            )
+          );
+        })
+      );
+  }
+}
+
+import {
+  WebhooksIntegrationApiRequestFactory,
+  WebhooksIntegrationApiResponseProcessor,
+} from "../apis/WebhooksIntegrationApi";
+export class ObservableWebhooksIntegrationApi {
+  private requestFactory: WebhooksIntegrationApiRequestFactory;
+  private responseProcessor: WebhooksIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: WebhooksIntegrationApiRequestFactory,
+    responseProcessor?: WebhooksIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new WebhooksIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new WebhooksIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Creates an endpoint with the name `<WEBHOOK_NAME>`.
+   * Create a webhooks integration
+   * @param body Create a webhooks integration request body.
+   */
+  public createWebhooksIntegration(
+    body: WebhooksIntegration,
+    options?: Configuration
+  ): Observable<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.createWebhooksIntegration(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createWebhooksIntegration(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * Create a custom variable
+   * @param body Define a custom variable request body.
+   */
+  public createWebhooksIntegrationCustomVariable(
+    body: WebhooksIntegrationCustomVariable,
+    options?: Configuration
+  ): Observable<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise = this.requestFactory.createWebhooksIntegrationCustomVariable(
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createWebhooksIntegrationCustomVariable(
+                rsp
+              )
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Deletes the endpoint with the name `<WEBHOOK NAME>`.
+   * Delete a webhook
+   * @param webhookName The name of the webhook.
+   */
+  public deleteWebhooksIntegration(
+    webhookName: string,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteWebhooksIntegration(
+      webhookName,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteWebhooksIntegration(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * Delete a custom variable
+   * @param customVariableName The name of the custom variable.
+   */
+  public deleteWebhooksIntegrationCustomVariable(
+    customVariableName: string,
+    options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteWebhooksIntegrationCustomVariable(
+      customVariableName,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteWebhooksIntegrationCustomVariable(
+                rsp
+              )
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
+   * Get a webhook integration
+   * @param webhookName The name of the webhook.
+   */
+  public getWebhooksIntegration(
+    webhookName: string,
+    options?: Configuration
+  ): Observable<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.getWebhooksIntegration(
+      webhookName,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getWebhooksIntegration(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.  If the custom variable is secret, the value does not return in the response payload.
+   * Get a custom variable
+   * @param customVariableName The name of the custom variable.
+   */
+  public getWebhooksIntegrationCustomVariable(
+    customVariableName: string,
+    options?: Configuration
+  ): Observable<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise = this.requestFactory.getWebhooksIntegrationCustomVariable(
+      customVariableName,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getWebhooksIntegrationCustomVariable(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Updates the endpoint with the name `<WEBHOOK_NAME>`.
+   * Update a webhook
+   * @param webhookName The name of the webhook.
+   * @param body Update an existing Datadog-Webhooks integration.
+   */
+  public updateWebhooksIntegration(
+    webhookName: string,
+    body: WebhooksIntegrationUpdateRequest,
+    options?: Configuration
+  ): Observable<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.updateWebhooksIntegration(
+      webhookName,
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateWebhooksIntegration(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * Update a custom variable
+   * @param customVariableName The name of the custom variable.
+   * @param body Update an existing custom variable request body.
+   */
+  public updateWebhooksIntegrationCustomVariable(
+    customVariableName: string,
+    body: WebhooksIntegrationCustomVariableUpdateRequest,
+    options?: Configuration
+  ): Observable<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise = this.requestFactory.updateWebhooksIntegrationCustomVariable(
+      customVariableName,
+      body,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateWebhooksIntegrationCustomVariable(
+                rsp
+              )
             )
           );
         })

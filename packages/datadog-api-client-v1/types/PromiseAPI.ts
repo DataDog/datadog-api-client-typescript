@@ -151,6 +151,11 @@ import { User } from "../models/User";
 import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
 import { UserResponse } from "../models/UserResponse";
+import { WebhooksIntegration } from "../models/WebhooksIntegration";
+import { WebhooksIntegrationCustomVariable } from "../models/WebhooksIntegrationCustomVariable";
+import { WebhooksIntegrationCustomVariableResponse } from "../models/WebhooksIntegrationCustomVariableResponse";
+import { WebhooksIntegrationCustomVariableUpdateRequest } from "../models/WebhooksIntegrationCustomVariableUpdateRequest";
+import { WebhooksIntegrationUpdateRequest } from "../models/WebhooksIntegrationUpdateRequest";
 import { ObservableAWSIntegrationApi } from "./ObservableAPI";
 
 import {
@@ -3682,6 +3687,153 @@ export class PromiseUsersApi {
     options?: Configuration
   ): Promise<UserResponse> {
     const result = this.api.updateUser(userHandle, body, options);
+    return result.toPromise();
+  }
+}
+
+import { ObservableWebhooksIntegrationApi } from "./ObservableAPI";
+
+import {
+  WebhooksIntegrationApiRequestFactory,
+  WebhooksIntegrationApiResponseProcessor,
+} from "../apis/WebhooksIntegrationApi";
+export class PromiseWebhooksIntegrationApi {
+  private api: ObservableWebhooksIntegrationApi;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: WebhooksIntegrationApiRequestFactory,
+    responseProcessor?: WebhooksIntegrationApiResponseProcessor
+  ) {
+    this.api = new ObservableWebhooksIntegrationApi(
+      configuration,
+      requestFactory,
+      responseProcessor
+    );
+  }
+
+  /**
+   * Creates an endpoint with the name `<WEBHOOK_NAME>`.
+   * Create a webhooks integration
+   * @param body Create a webhooks integration request body.
+   */
+  public createWebhooksIntegration(
+    body: WebhooksIntegration,
+    options?: Configuration
+  ): Promise<WebhooksIntegration> {
+    const result = this.api.createWebhooksIntegration(body, options);
+    return result.toPromise();
+  }
+
+  /**
+   * Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * Create a custom variable
+   * @param body Define a custom variable request body.
+   */
+  public createWebhooksIntegrationCustomVariable(
+    body: WebhooksIntegrationCustomVariable,
+    options?: Configuration
+  ): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const result = this.api.createWebhooksIntegrationCustomVariable(
+      body,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Deletes the endpoint with the name `<WEBHOOK NAME>`.
+   * Delete a webhook
+   * @param webhookName The name of the webhook.
+   */
+  public deleteWebhooksIntegration(
+    webhookName: string,
+    options?: Configuration
+  ): Promise<void> {
+    const result = this.api.deleteWebhooksIntegration(webhookName, options);
+    return result.toPromise();
+  }
+
+  /**
+   * Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * Delete a custom variable
+   * @param customVariableName The name of the custom variable.
+   */
+  public deleteWebhooksIntegrationCustomVariable(
+    customVariableName: string,
+    options?: Configuration
+  ): Promise<void> {
+    const result = this.api.deleteWebhooksIntegrationCustomVariable(
+      customVariableName,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
+   * Get a webhook integration
+   * @param webhookName The name of the webhook.
+   */
+  public getWebhooksIntegration(
+    webhookName: string,
+    options?: Configuration
+  ): Promise<WebhooksIntegration> {
+    const result = this.api.getWebhooksIntegration(webhookName, options);
+    return result.toPromise();
+  }
+
+  /**
+   * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.  If the custom variable is secret, the value does not return in the response payload.
+   * Get a custom variable
+   * @param customVariableName The name of the custom variable.
+   */
+  public getWebhooksIntegrationCustomVariable(
+    customVariableName: string,
+    options?: Configuration
+  ): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const result = this.api.getWebhooksIntegrationCustomVariable(
+      customVariableName,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Updates the endpoint with the name `<WEBHOOK_NAME>`.
+   * Update a webhook
+   * @param webhookName The name of the webhook.
+   * @param body Update an existing Datadog-Webhooks integration.
+   */
+  public updateWebhooksIntegration(
+    webhookName: string,
+    body: WebhooksIntegrationUpdateRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegration> {
+    const result = this.api.updateWebhooksIntegration(
+      webhookName,
+      body,
+      options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * Update a custom variable
+   * @param customVariableName The name of the custom variable.
+   * @param body Update an existing custom variable request body.
+   */
+  public updateWebhooksIntegrationCustomVariable(
+    customVariableName: string,
+    body: WebhooksIntegrationCustomVariableUpdateRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const result = this.api.updateWebhooksIntegrationCustomVariable(
+      customVariableName,
+      body,
+      options
+    );
     return result.toPromise();
   }
 }
