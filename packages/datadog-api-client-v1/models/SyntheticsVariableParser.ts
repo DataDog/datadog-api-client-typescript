@@ -53,7 +53,9 @@ export class SyntheticsVariableParser {
         "missing required attribute 'type' on 'SyntheticsVariableParser' object"
       );
     }
-    if (["raw", "json_path", "regex", undefined].includes(data.type)) {
+    if (
+      ["raw", "json_path", "regex", "x_path", undefined].includes(data.type)
+    ) {
       res.type = data.type;
     } else {
       const raw = new SyntheticsVariableParser();
@@ -82,7 +84,9 @@ export class SyntheticsVariableParser {
         "missing required attribute 'type' on 'SyntheticsVariableParser' object"
       );
     }
-    if (["raw", "json_path", "regex", undefined].includes(data.type)) {
+    if (
+      ["raw", "json_path", "regex", "x_path", undefined].includes(data.type)
+    ) {
       res.type = data.type;
     } else {
       throw TypeError(`invalid enum value ${data.type} for type`);
