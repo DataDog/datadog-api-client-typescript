@@ -80,10 +80,14 @@ Before(function (
   const unique = `${prefix}-${name}-${Math.floor(now)}`;
   this.fixtures["unique"] = unique;
   this.fixtures["unique_lower"] = unique.toLowerCase();
+  this.fixtures["unique_upper"] = unique.toUpperCase();
   this.fixtures["unique_alnum"] = unique.replace(/[^A-Za-z0-9]+/g, "");
   this.fixtures["unique_lower_alnum"] = this.fixtures[
     "unique_alnum"
   ].toLowerCase();
+  this.fixtures["unique_upper_alnum"] = this.fixtures[
+    "unique_alnum"
+  ].toUpperCase();
   this.fixtures["now"] = date;
 
   // make sure that we are not recording APM traces
