@@ -108,6 +108,7 @@ export class FormulaAndFunctionEventQueryDefinition {
         "security_signals",
         "profiles",
         "audit",
+        "events",
         undefined,
       ].includes(data.data_source)
     ) {
@@ -184,6 +185,7 @@ export class FormulaAndFunctionEventQueryDefinition {
         "security_signals",
         "profiles",
         "audit",
+        "events",
         undefined,
       ].includes(data.dataSource)
     ) {
