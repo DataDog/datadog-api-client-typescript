@@ -308,6 +308,7 @@ import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsGetAPITestLatestResultsResponse } from "./SyntheticsGetAPITestLatestResultsResponse";
 import { SyntheticsGetBrowserTestLatestResultsResponse } from "./SyntheticsGetBrowserTestLatestResultsResponse";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
+import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { SyntheticsListGlobalVariablesResponse } from "./SyntheticsListGlobalVariablesResponse";
@@ -923,6 +924,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsGetAPITestLatestResultsResponse: SyntheticsGetAPITestLatestResultsResponse,
   SyntheticsGetBrowserTestLatestResultsResponse: SyntheticsGetBrowserTestLatestResultsResponse,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
+  SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
   SyntheticsGlobalVariableParseTestOptions: SyntheticsGlobalVariableParseTestOptions,
   SyntheticsGlobalVariableValue: SyntheticsGlobalVariableValue,
   SyntheticsListGlobalVariablesResponse: SyntheticsListGlobalVariablesResponse,
