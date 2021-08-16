@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { ObjectSerializer } from "./ObjectSerializer";
@@ -17,6 +18,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
  */
 
 export class SyntheticsGlobalVariable {
+  "attributes"?: SyntheticsGlobalVariableAttributes;
   /**
    * Description of the global variable.
    */
@@ -47,6 +49,11 @@ export class SyntheticsGlobalVariable {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
+    attributes: {
+      baseName: "attributes",
+      type: "SyntheticsGlobalVariableAttributes",
+      format: "",
+    },
     description: {
       baseName: "description",
       type: "string",
@@ -90,6 +97,12 @@ export class SyntheticsGlobalVariable {
 
   static deserialize(data: { [key: string]: any }): SyntheticsGlobalVariable {
     const res = new SyntheticsGlobalVariable();
+
+    res.attributes = ObjectSerializer.deserialize(
+      data.attributes,
+      "SyntheticsGlobalVariableAttributes",
+      ""
+    );
 
     if (data.description === undefined) {
       throw new TypeError(
@@ -155,6 +168,12 @@ export class SyntheticsGlobalVariable {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
+    res.attributes = ObjectSerializer.serialize(
+      data.attributes,
+      "SyntheticsGlobalVariableAttributes",
+      ""
+    );
+
     if (data.description === undefined) {
       throw new TypeError(
         "missing required attribute 'description' on 'SyntheticsGlobalVariable' object"

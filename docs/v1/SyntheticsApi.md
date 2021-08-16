@@ -49,6 +49,11 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
   // SyntheticsGlobalVariable | Details of the global variable to create.
   body: {
+    attributes: {
+      restrictedRoles: [
+        "restrictedRoles_example",
+      ],
+    },
     description: "Example description",
     name: "MY_VARIABLE",
     parseTestOptions: {
@@ -713,6 +718,11 @@ let params:v1.SyntheticsApiEditGlobalVariableRequest = {
   variableId: "variable_id_example",
   // SyntheticsGlobalVariable | Details of the global variable to update.
   body: {
+    attributes: {
+      restrictedRoles: [
+        "restrictedRoles_example",
+      ],
+    },
     description: "Example description",
     name: "MY_VARIABLE",
     parseTestOptions: {

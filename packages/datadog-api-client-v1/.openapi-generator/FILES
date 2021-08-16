@@ -474,6 +474,7 @@ models/SyntheticsErrorCode.ts
 models/SyntheticsGetAPITestLatestResultsResponse.ts
 models/SyntheticsGetBrowserTestLatestResultsResponse.ts
 models/SyntheticsGlobalVariable.ts
+models/SyntheticsGlobalVariableAttributes.ts
 models/SyntheticsGlobalVariableParseTestOptions.ts
 models/SyntheticsGlobalVariableParseTestOptionsType.ts
 models/SyntheticsGlobalVariableParserType.ts
