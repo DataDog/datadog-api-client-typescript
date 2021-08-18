@@ -85,6 +85,7 @@ models/IncidentFieldAttributesSingleValue.ts
 models/IncidentFieldAttributesSingleValueType.ts
 models/IncidentFieldAttributesValueType.ts
 models/IncidentIntegrationMetadataType.ts
+models/IncidentNotificationHandle.ts
 models/IncidentPostmortemType.ts
 models/IncidentRelatedObject.ts
 models/IncidentResponse.ts

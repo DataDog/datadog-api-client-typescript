@@ -37,6 +37,7 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
@@ -365,6 +366,7 @@ const typeMap: { [index: string]: any } = {
   IncidentCreateRequest: IncidentCreateRequest,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+  IncidentNotificationHandle: IncidentNotificationHandle,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,

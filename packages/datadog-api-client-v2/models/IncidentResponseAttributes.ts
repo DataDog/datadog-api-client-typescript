@@ -9,6 +9,7 @@
  */
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
+import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -55,7 +56,7 @@ export class IncidentResponseAttributes {
   /**
    * Notification handles that will be notified of the incident during update.
    */
-  "notificationHandles"?: Array<string>;
+  "notificationHandles"?: Array<IncidentNotificationHandle>;
   /**
    * The UUID of the postmortem object attached to the incident.
    */
@@ -143,7 +144,7 @@ export class IncidentResponseAttributes {
     },
     notificationHandles: {
       baseName: "notification_handles",
-      type: "Array<string>",
+      type: "Array<IncidentNotificationHandle>",
       format: "",
     },
     postmortemId: {
@@ -251,7 +252,7 @@ export class IncidentResponseAttributes {
 
     res.notificationHandles = ObjectSerializer.deserialize(
       data.notification_handles,
-      "Array<string>",
+      "Array<IncidentNotificationHandle>",
       ""
     );
 
@@ -370,7 +371,7 @@ export class IncidentResponseAttributes {
 
     res.notification_handles = ObjectSerializer.serialize(
       data.notificationHandles,
-      "Array<string>",
+      "Array<IncidentNotificationHandle>",
       ""
     );
 

@@ -9,6 +9,7 @@
  */
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
+import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -28,11 +29,11 @@ export class IncidentCreateAttributes {
   /**
    * An array of initial timeline cells to be placed at the beginning of the incident timeline.
    */
-  "initialTimelineCells"?: Array<IncidentTimelineCellCreateAttributes>;
+  "initialCells"?: Array<IncidentTimelineCellCreateAttributes>;
   /**
    * Notification handles that will be notified of the incident at creation.
    */
-  "notificationHandles"?: Array<string>;
+  "notificationHandles"?: Array<IncidentNotificationHandle>;
   /**
    * The title of the incident, which summarizes what happened.
    */
@@ -55,14 +56,14 @@ export class IncidentCreateAttributes {
       type: "{ [key: string]: IncidentFieldAttributes; }",
       format: "",
     },
-    initialTimelineCells: {
-      baseName: "initial_timeline_cells",
+    initialCells: {
+      baseName: "initial_cells",
       type: "Array<IncidentTimelineCellCreateAttributes>",
       format: "",
     },
     notificationHandles: {
       baseName: "notification_handles",
-      type: "Array<string>",
+      type: "Array<IncidentNotificationHandle>",
       format: "",
     },
     title: {
@@ -96,15 +97,15 @@ export class IncidentCreateAttributes {
       ""
     );
 
-    res.initialTimelineCells = ObjectSerializer.deserialize(
-      data.initial_timeline_cells,
+    res.initialCells = ObjectSerializer.deserialize(
+      data.initial_cells,
       "Array<IncidentTimelineCellCreateAttributes>",
       ""
     );
 
     res.notificationHandles = ObjectSerializer.deserialize(
       data.notification_handles,
-      "Array<string>",
+      "Array<IncidentNotificationHandle>",
       ""
     );
 
@@ -146,15 +147,15 @@ export class IncidentCreateAttributes {
       ""
     );
 
-    res.initial_timeline_cells = ObjectSerializer.serialize(
-      data.initialTimelineCells,
+    res.initial_cells = ObjectSerializer.serialize(
+      data.initialCells,
       "Array<IncidentTimelineCellCreateAttributes>",
       ""
     );
 
     res.notification_handles = ObjectSerializer.serialize(
       data.notificationHandles,
-      "Array<string>",
+      "Array<IncidentNotificationHandle>",
       ""
     );
 
