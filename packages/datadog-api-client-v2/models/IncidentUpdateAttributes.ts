@@ -9,6 +9,7 @@
  */
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
+import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -43,7 +44,7 @@ export class IncidentUpdateAttributes {
   /**
    * Notification handles that will be notified of the incident during update.
    */
-  "notificationHandles"?: Array<string>;
+  "notificationHandles"?: Array<IncidentNotificationHandle>;
   /**
    * Timestamp when the incident's state was set to resolved.
    */
@@ -92,7 +93,7 @@ export class IncidentUpdateAttributes {
     },
     notificationHandles: {
       baseName: "notification_handles",
-      type: "Array<string>",
+      type: "Array<IncidentNotificationHandle>",
       format: "",
     },
     resolved: {
@@ -152,7 +153,7 @@ export class IncidentUpdateAttributes {
 
     res.notificationHandles = ObjectSerializer.deserialize(
       data.notification_handles,
-      "Array<string>",
+      "Array<IncidentNotificationHandle>",
       ""
     );
 
@@ -216,7 +217,7 @@ export class IncidentUpdateAttributes {
 
     res.notification_handles = ObjectSerializer.serialize(
       data.notificationHandles,
-      "Array<string>",
+      "Array<IncidentNotificationHandle>",
       ""
     );
 

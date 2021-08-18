@@ -38,7 +38,7 @@ let params:v2.IncidentsApiCreateIncidentRequest = {
     value: "SEV-1",
   },
         },
-        initialTimelineCells: [
+        initialCells: [
           {
     cellType: "markdown",
     content: {
@@ -48,7 +48,10 @@ let params:v2.IncidentsApiCreateIncidentRequest = {
   },
         ],
         notificationHandles: [
-          "@test.user@test.com",
+          {
+            displayName: "Jane Doe",
+            handle: "@test.user@test.com",
+          },
         ],
         title: "A test incident title",
       },
@@ -324,7 +327,10 @@ let params:v2.IncidentsApiUpdateIncidentRequest = {
   },
         },
         notificationHandles: [
-          "@test.user@test.com",
+          {
+            displayName: "Jane Doe",
+            handle: "@test.user@test.com",
+          },
         ],
         resolved: new Date('1970-01-01T00:00:00.00Z'),
         title: "A test incident title",
