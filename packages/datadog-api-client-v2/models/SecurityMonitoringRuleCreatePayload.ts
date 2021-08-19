@@ -12,6 +12,7 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
+import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -52,6 +53,7 @@ export class SecurityMonitoringRuleCreatePayload {
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
+  "type"?: SecurityMonitoringRuleTypeCreate;
 
   "unparsedObject"?: any;
 
@@ -103,6 +105,11 @@ export class SecurityMonitoringRuleCreatePayload {
     tags: {
       baseName: "tags",
       type: "Array<string>",
+      format: "",
+    },
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringRuleTypeCreate",
       format: "",
     },
   };
@@ -183,6 +190,14 @@ export class SecurityMonitoringRuleCreatePayload {
     );
 
     res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    if (["log_detection", "workload_security", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      const raw = new SecurityMonitoringRuleCreatePayload();
+      raw.unparsedObject = data;
+      return raw;
+    }
 
     return res;
   }
@@ -267,6 +282,12 @@ export class SecurityMonitoringRuleCreatePayload {
     );
 
     res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
+
+    if (["log_detection", "workload_security", undefined].includes(data.type)) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
 
     return res;
   }
