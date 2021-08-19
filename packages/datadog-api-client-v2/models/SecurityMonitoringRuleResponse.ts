@@ -12,6 +12,7 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
+import { SecurityMonitoringRuleTypeRead } from "./SecurityMonitoringRuleTypeRead";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -72,6 +73,7 @@ export class SecurityMonitoringRuleResponse {
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
+  "type"?: SecurityMonitoringRuleTypeRead;
   /**
    * User ID of the user who updated the rule.
    */
@@ -158,6 +160,11 @@ export class SecurityMonitoringRuleResponse {
       type: "Array<string>",
       format: "",
     },
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringRuleTypeRead",
+      format: "",
+    },
     updateAuthorId: {
       baseName: "updateAuthorId",
       type: "number",
@@ -234,6 +241,22 @@ export class SecurityMonitoringRuleResponse {
     );
 
     res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
+
+    if (
+      [
+        "log_detection",
+        "infrastructure_configuration",
+        "workload_security",
+        "cloud_configuration",
+        undefined,
+      ].includes(data.type)
+    ) {
+      res.type = data.type;
+    } else {
+      const raw = new SecurityMonitoringRuleResponse();
+      raw.unparsedObject = data;
+      return raw;
+    }
 
     res.updateAuthorId = ObjectSerializer.deserialize(
       data.updateAuthorId,
@@ -314,6 +337,20 @@ export class SecurityMonitoringRuleResponse {
     );
 
     res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
+
+    if (
+      [
+        "log_detection",
+        "infrastructure_configuration",
+        "workload_security",
+        "cloud_configuration",
+        undefined,
+      ].includes(data.type)
+    ) {
+      res.type = data.type;
+    } else {
+      throw TypeError(`invalid enum value ${data.type} for type`);
+    }
 
     res.updateAuthorId = ObjectSerializer.serialize(
       data.updateAuthorId,

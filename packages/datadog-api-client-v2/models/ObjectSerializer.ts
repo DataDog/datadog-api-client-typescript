@@ -320,6 +320,8 @@ const enumsMap: Set<string> = new Set<string>([
   "SecurityMonitoringRuleNewValueOptionsLearningDuration",
   "SecurityMonitoringRuleQueryAggregation",
   "SecurityMonitoringRuleSeverity",
+  "SecurityMonitoringRuleTypeCreate",
+  "SecurityMonitoringRuleTypeRead",
   "SecurityMonitoringSignalType",
   "SecurityMonitoringSignalsSort",
   "UserInvitationsType",

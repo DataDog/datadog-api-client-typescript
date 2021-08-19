@@ -162,6 +162,7 @@ let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
       },
     ],
     tags: ["env:prod","team:security"],
+    type: "log_detection",
   },
 };
 
