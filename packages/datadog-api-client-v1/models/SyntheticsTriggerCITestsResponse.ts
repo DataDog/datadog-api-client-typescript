@@ -18,6 +18,10 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class SyntheticsTriggerCITestsResponse {
   /**
+   * The public ID of the batch triggered.
+   */
+  "batchId"?: string;
+  /**
    * List of Synthetics locations.
    */
   "locations"?: Array<SyntheticsTriggerCITestLocation>;
@@ -37,6 +41,11 @@ export class SyntheticsTriggerCITestsResponse {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
+    batchId: {
+      baseName: "batch_id",
+      type: "string",
+      format: "",
+    },
     locations: {
       baseName: "locations",
       type: "Array<SyntheticsTriggerCITestLocation>",
@@ -62,6 +71,8 @@ export class SyntheticsTriggerCITestsResponse {
     [key: string]: any;
   }): SyntheticsTriggerCITestsResponse {
     const res = new SyntheticsTriggerCITestsResponse();
+
+    res.batchId = ObjectSerializer.deserialize(data.batch_id, "string", "");
 
     res.locations = ObjectSerializer.deserialize(
       data.locations,
@@ -97,6 +108,8 @@ export class SyntheticsTriggerCITestsResponse {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
+    res.batch_id = ObjectSerializer.serialize(data.batchId, "string", "");
+
     res.locations = ObjectSerializer.serialize(
       data.locations,
       "Array<SyntheticsTriggerCITestLocation>",

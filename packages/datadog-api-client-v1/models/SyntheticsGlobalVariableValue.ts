@@ -16,11 +16,11 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class SyntheticsGlobalVariableValue {
   /**
-   * Determines if the variable is secure.
+   * Determines if the value of the variable is hidden.
    */
   "secure"?: boolean;
   /**
-   * Value of the global variable. When reading a global variable, the value will not be present if the variable is secure.
+   * Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the `secure` property.
    */
   "value"?: string;
 
