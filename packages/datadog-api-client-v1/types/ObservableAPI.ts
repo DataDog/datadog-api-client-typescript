@@ -124,6 +124,7 @@ import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResp
 import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementResponse } from "../models/UsageCloudSecurityPostureManagementResponse";
 import { UsageCustomReportsResponse } from "../models/UsageCustomReportsResponse";
+import { UsageDBMResponse } from "../models/UsageDBMResponse";
 import { UsageFargateResponse } from "../models/UsageFargateResponse";
 import { UsageHostsResponse } from "../models/UsageHostsResponse";
 import { UsageIncidentManagementResponse } from "../models/UsageIncidentManagementResponse";
@@ -8271,6 +8272,52 @@ export class ObservableUsageMeteringApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.getUsageCloudSecurityPostureManagement(rsp)
+            )
+          );
+        })
+      );
+  }
+
+  /**
+   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   */
+  public getUsageDBM(
+    startHr: Date,
+    endHr?: Date,
+    options?: Configuration
+  ): Observable<UsageDBMResponse> {
+    const requestContextPromise = this.requestFactory.getUsageDBM(
+      startHr,
+      endHr,
+      options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getUsageDBM(rsp)
             )
           );
         })

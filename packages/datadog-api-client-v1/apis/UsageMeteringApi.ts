@@ -16,6 +16,7 @@ import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResp
 import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementResponse } from "../models/UsageCloudSecurityPostureManagementResponse";
 import { UsageCustomReportsResponse } from "../models/UsageCustomReportsResponse";
+import { UsageDBMResponse } from "../models/UsageDBMResponse";
 import { UsageFargateResponse } from "../models/UsageFargateResponse";
 import { UsageHostsResponse } from "../models/UsageHostsResponse";
 import { UsageIncidentManagementResponse } from "../models/UsageIncidentManagementResponse";
@@ -811,6 +812,71 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = getServer(
       config,
       "UsageMeteringApi.getUsageCloudSecurityPostureManagement"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(config.httpConfig);
+
+    // Query Params
+    if (startHr !== undefined) {
+      requestContext.setQueryParam(
+        "start_hr",
+        ObjectSerializer.serialize(startHr, "Date", "date-time")
+      );
+    }
+    if (endHr !== undefined) {
+      requestContext.setQueryParam(
+        "end_hr",
+        ObjectSerializer.serialize(endHr, "Date", "date-time")
+      );
+    }
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    authMethod = config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
+   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   */
+  public async getUsageDBM(
+    startHr: Date,
+    endHr?: Date,
+    options?: Configuration
+  ): Promise<RequestContext> {
+    const config = options || this.configuration;
+
+    // verify required parameter 'startHr' is not null or undefined
+    if (startHr === null || startHr === undefined) {
+      throw new RequiredError(
+        "Required parameter startHr was null or undefined when calling getUsageDBM."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/usage/dbm";
+
+    // Make Request Context
+    const requestContext = getServer(
+      config,
+      "UsageMeteringApi.getUsageDBM"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(config.httpConfig);
@@ -2761,6 +2827,61 @@ export class UsageMeteringApiResponseProcessor {
         "UsageCloudSecurityPostureManagementResponse",
         ""
       ) as UsageCloudSecurityPostureManagementResponse;
+      return body;
+    }
+
+    const body = response.body || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getUsageDBM
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageDBM(
+    response: ResponseContext
+  ): Promise<UsageDBMResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: UsageDBMResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageDBMResponse",
+        ""
+      ) as UsageDBMResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageDBMResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageDBMResponse",
+        ""
+      ) as UsageDBMResponse;
       return body;
     }
 

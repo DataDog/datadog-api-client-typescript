@@ -84,6 +84,14 @@ export class UsageSummaryDateOrg {
    */
   "cwsHostTop99p"?: number;
   /**
+   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
+   */
+  "dbmHostTop99pSum"?: number;
+  /**
+   * Shows the sum of all distinct Database Monitoring normalized queries over all hours in the current month for all organizations.
+   */
+  "dbmQueriesAggSum"?: number;
+  /**
    * The average task count for Fargate.
    */
   "fargateTasksCountAvg"?: number;
@@ -281,6 +289,16 @@ export class UsageSummaryDateOrg {
     },
     cwsHostTop99p: {
       baseName: "cws_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    dbmHostTop99pSum: {
+      baseName: "dbm_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    dbmQueriesAggSum: {
+      baseName: "dbm_queries_agg_sum",
       type: "number",
       format: "int64",
     },
@@ -526,6 +544,18 @@ export class UsageSummaryDateOrg {
 
     res.cwsHostTop99p = ObjectSerializer.deserialize(
       data.cws_host_top99p,
+      "number",
+      "int64"
+    );
+
+    res.dbmHostTop99pSum = ObjectSerializer.deserialize(
+      data.dbm_host_top99p_sum,
+      "number",
+      "int64"
+    );
+
+    res.dbmQueriesAggSum = ObjectSerializer.deserialize(
+      data.dbm_queries_agg_sum,
       "number",
       "int64"
     );
@@ -792,6 +822,18 @@ export class UsageSummaryDateOrg {
 
     res.cws_host_top99p = ObjectSerializer.serialize(
       data.cwsHostTop99p,
+      "number",
+      "int64"
+    );
+
+    res.dbm_host_top99p_sum = ObjectSerializer.serialize(
+      data.dbmHostTop99pSum,
+      "number",
+      "int64"
+    );
+
+    res.dbm_queries_agg_sum = ObjectSerializer.serialize(
+      data.dbmQueriesAggSum,
       "number",
       "int64"
     );

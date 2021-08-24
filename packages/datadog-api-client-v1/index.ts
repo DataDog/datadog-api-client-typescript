@@ -184,6 +184,7 @@ export {
   UsageMeteringApiGetUsageBillableSummaryRequest,
   UsageMeteringApiGetUsageCWSRequest,
   UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest,
+  UsageMeteringApiGetUsageDBMRequest,
   UsageMeteringApiGetUsageFargateRequest,
   UsageMeteringApiGetUsageHostsRequest,
   UsageMeteringApiGetUsageIndexedSpansRequest,

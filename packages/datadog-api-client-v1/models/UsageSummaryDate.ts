@@ -89,6 +89,14 @@ export class UsageSummaryDate {
    */
   "date"?: Date;
   /**
+   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current date for all organizations.
+   */
+  "dbmHostTop99p"?: number;
+  /**
+   * Shows the average of all normalized Database Monitoring queries over all hours in the current date for all organizations.
+   */
+  "dbmQueriesCountAvg"?: number;
+  /**
    * Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations.
    */
   "fargateTasksCountAvg"?: number;
@@ -285,6 +293,16 @@ export class UsageSummaryDate {
       baseName: "date",
       type: "Date",
       format: "date-time",
+    },
+    dbmHostTop99p: {
+      baseName: "dbm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    dbmQueriesCountAvg: {
+      baseName: "dbm_queries_count_avg",
+      type: "number",
+      format: "int64",
     },
     fargateTasksCountAvg: {
       baseName: "fargate_tasks_count_avg",
@@ -523,6 +541,18 @@ export class UsageSummaryDate {
     );
 
     res.date = ObjectSerializer.deserialize(data.date, "Date", "date-time");
+
+    res.dbmHostTop99p = ObjectSerializer.deserialize(
+      data.dbm_host_top99p,
+      "number",
+      "int64"
+    );
+
+    res.dbmQueriesCountAvg = ObjectSerializer.deserialize(
+      data.dbm_queries_count_avg,
+      "number",
+      "int64"
+    );
 
     res.fargateTasksCountAvg = ObjectSerializer.deserialize(
       data.fargate_tasks_count_avg,
@@ -791,6 +821,18 @@ export class UsageSummaryDate {
     );
 
     res.date = ObjectSerializer.serialize(data.date, "Date", "date-time");
+
+    res.dbm_host_top99p = ObjectSerializer.serialize(
+      data.dbmHostTop99p,
+      "number",
+      "int64"
+    );
+
+    res.dbm_queries_count_avg = ObjectSerializer.serialize(
+      data.dbmQueriesCountAvg,
+      "number",
+      "int64"
+    );
 
     res.fargate_tasks_count_avg = ObjectSerializer.serialize(
       data.fargateTasksCountAvg,

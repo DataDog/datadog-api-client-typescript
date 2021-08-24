@@ -37,6 +37,10 @@ export type UsageAttributionSupportedMetrics =
   | typeof PROFILED_HOST_PERCENTAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_CONTAINER_PERCENTAGE
+  | typeof DBM_HOST_USAGE
+  | typeof DBM_HOST_PERCENTAGE
+  | typeof DBM_QUERIES_USAGE
+  | typeof DBM_QUERIES_PERCENTAGE
   | typeof ALL;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
@@ -66,4 +70,8 @@ export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage";
+export const DBM_HOST_USAGE = "dbm_host_usage";
+export const DBM_HOST_PERCENTAGE = "dbm_host_percentage";
+export const DBM_QUERIES_USAGE = "dbm_queries_usage";
+export const DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
 export const ALL = "*";

@@ -565,6 +565,8 @@ models/UsageCustomReportsData.ts
 models/UsageCustomReportsMeta.ts
 models/UsageCustomReportsPage.ts
 models/UsageCustomReportsResponse.ts
+models/UsageDBMHour.ts
+models/UsageDBMResponse.ts
 models/UsageFargateHour.ts
 models/UsageFargateResponse.ts
 models/UsageHostHour.ts

@@ -375,6 +375,8 @@ import { UsageCustomReportsData } from "./UsageCustomReportsData";
 import { UsageCustomReportsMeta } from "./UsageCustomReportsMeta";
 import { UsageCustomReportsPage } from "./UsageCustomReportsPage";
 import { UsageCustomReportsResponse } from "./UsageCustomReportsResponse";
+import { UsageDBMHour } from "./UsageDBMHour";
+import { UsageDBMResponse } from "./UsageDBMResponse";
 import { UsageFargateHour } from "./UsageFargateHour";
 import { UsageFargateResponse } from "./UsageFargateResponse";
 import { UsageHostHour } from "./UsageHostHour";
@@ -991,6 +993,8 @@ const typeMap: { [index: string]: any } = {
   UsageCustomReportsMeta: UsageCustomReportsMeta,
   UsageCustomReportsPage: UsageCustomReportsPage,
   UsageCustomReportsResponse: UsageCustomReportsResponse,
+  UsageDBMHour: UsageDBMHour,
+  UsageDBMResponse: UsageDBMResponse,
   UsageFargateHour: UsageFargateHour,
   UsageFargateResponse: UsageFargateResponse,
   UsageHostHour: UsageHostHour,

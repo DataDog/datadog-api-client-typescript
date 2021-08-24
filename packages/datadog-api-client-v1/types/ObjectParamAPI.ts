@@ -123,6 +123,7 @@ import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResp
 import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementResponse } from "../models/UsageCloudSecurityPostureManagementResponse";
 import { UsageCustomReportsResponse } from "../models/UsageCustomReportsResponse";
+import { UsageDBMResponse } from "../models/UsageDBMResponse";
 import { UsageFargateResponse } from "../models/UsageFargateResponse";
 import { UsageHostsResponse } from "../models/UsageHostsResponse";
 import { UsageIncidentManagementResponse } from "../models/UsageIncidentManagementResponse";
@@ -4892,6 +4893,21 @@ export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
   endHr?: Date;
 }
 
+export interface UsageMeteringApiGetUsageDBMRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetUsageDBM
+   */
+  startHr: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetUsageDBM
+   */
+  endHr?: Date;
+}
+
 export interface UsageMeteringApiGetUsageFargateRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
@@ -5415,6 +5431,20 @@ export class ObjectUsageMeteringApi {
         param.endHr,
         options
       )
+      .toPromise();
+  }
+
+  /**
+   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   * @param param the request object
+   */
+  public getUsageDBM(
+    param: UsageMeteringApiGetUsageDBMRequest,
+    options?: Configuration
+  ): Promise<UsageDBMResponse> {
+    return this.api
+      .getUsageDBM(param.startHr, param.endHr, options)
       .toPromise();
   }
 
