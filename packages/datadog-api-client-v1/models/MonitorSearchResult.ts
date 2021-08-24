@@ -204,6 +204,7 @@ export class MonitorSearchResult {
         "trace-analytics alert",
         "slo alert",
         "event-v2 alert",
+        "audit alert",
         undefined,
       ].includes(data.type)
     ) {
@@ -291,6 +292,7 @@ export class MonitorSearchResult {
         "trace-analytics alert",
         "slo alert",
         "event-v2 alert",
+        "audit alert",
         undefined,
       ].includes(data.type)
     ) {
