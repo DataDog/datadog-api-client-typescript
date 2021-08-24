@@ -854,9 +854,9 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 let params:v1.SyntheticsApiGetAPITestLatestResultsRequest = {
   // string | The public ID of the test for which to search results for.
   publicId: "public_id_example",
-  // number | Timestamp from which to start querying results. (optional)
+  // number | Timestamp in milliseconds from which to start querying results. (optional)
   fromTs: 1,
-  // number | Timestamp up to which to query results. (optional)
+  // number | Timestamp in milliseconds up to which to query results. (optional)
   toTs: 1,
   // Array<string> | Locations for which to query results. (optional)
   probeDc: [
@@ -875,8 +875,8 @@ apiInstance.getAPITestLatestResults(params).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | [**string**] | The public ID of the test for which to search results for. | defaults to undefined
- **fromTs** | [**number**] | Timestamp from which to start querying results. | (optional) defaults to undefined
- **toTs** | [**number**] | Timestamp up to which to query results. | (optional) defaults to undefined
+ **fromTs** | [**number**] | Timestamp in milliseconds from which to start querying results. | (optional) defaults to undefined
+ **toTs** | [**number**] | Timestamp in milliseconds up to which to query results. | (optional) defaults to undefined
  **probeDc** | **Array&lt;string&gt;** | Locations for which to query results. | (optional) defaults to undefined
 
 
@@ -1037,9 +1037,9 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 let params:v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
   // string | The public ID of the browser test for which to search results for.
   publicId: "public_id_example",
-  // number | Timestamp from which to start querying results. (optional)
+  // number | Timestamp in milliseconds from which to start querying results. (optional)
   fromTs: 1,
-  // number | Timestamp up to which to query results. (optional)
+  // number | Timestamp in milliseconds up to which to query results. (optional)
   toTs: 1,
   // Array<string> | Locations for which to query results. (optional)
   probeDc: [
@@ -1058,8 +1058,8 @@ apiInstance.getBrowserTestLatestResults(params).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | [**string**] | The public ID of the browser test for which to search results for. | defaults to undefined
- **fromTs** | [**number**] | Timestamp from which to start querying results. | (optional) defaults to undefined
- **toTs** | [**number**] | Timestamp up to which to query results. | (optional) defaults to undefined
+ **fromTs** | [**number**] | Timestamp in milliseconds from which to start querying results. | (optional) defaults to undefined
+ **toTs** | [**number**] | Timestamp in milliseconds up to which to query results. | (optional) defaults to undefined
  **probeDc** | **Array&lt;string&gt;** | Locations for which to query results. | (optional) defaults to undefined
 
 

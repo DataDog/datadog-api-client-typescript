@@ -3979,13 +3979,13 @@ export interface SyntheticsApiGetAPITestLatestResultsRequest {
    */
   publicId: string;
   /**
-   * Timestamp from which to start querying results.
+   * Timestamp in milliseconds from which to start querying results.
    * @type number
    * @memberof SyntheticsApigetAPITestLatestResults
    */
   fromTs?: number;
   /**
-   * Timestamp up to which to query results.
+   * Timestamp in milliseconds up to which to query results.
    * @type number
    * @memberof SyntheticsApigetAPITestLatestResults
    */
@@ -4030,13 +4030,13 @@ export interface SyntheticsApiGetBrowserTestLatestResultsRequest {
    */
   publicId: string;
   /**
-   * Timestamp from which to start querying results.
+   * Timestamp in milliseconds from which to start querying results.
    * @type number
    * @memberof SyntheticsApigetBrowserTestLatestResults
    */
   fromTs?: number;
   /**
-   * Timestamp up to which to query results.
+   * Timestamp in milliseconds up to which to query results.
    * @type number
    * @memberof SyntheticsApigetBrowserTestLatestResults
    */

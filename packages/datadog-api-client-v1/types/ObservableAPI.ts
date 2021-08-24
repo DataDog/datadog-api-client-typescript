@@ -6730,8 +6730,8 @@ export class ObservableSyntheticsApi {
    * Get the last 50 test results summaries for a given Synthetics API test.
    * Get an API test's latest results summaries
    * @param publicId The public ID of the test for which to search results for.
-   * @param fromTs Timestamp from which to start querying results.
-   * @param toTs Timestamp up to which to query results.
+   * @param fromTs Timestamp in milliseconds from which to start querying results.
+   * @param toTs Timestamp in milliseconds up to which to query results.
    * @param probeDc Locations for which to query results.
    */
   public getAPITestLatestResults(
@@ -6871,8 +6871,8 @@ export class ObservableSyntheticsApi {
    * Get the last 50 test results summaries for a given Synthetics Browser test.
    * Get a browser test's latest results summaries
    * @param publicId The public ID of the browser test for which to search results for.
-   * @param fromTs Timestamp from which to start querying results.
-   * @param toTs Timestamp up to which to query results.
+   * @param fromTs Timestamp in milliseconds from which to start querying results.
+   * @param toTs Timestamp in milliseconds up to which to query results.
    * @param probeDc Locations for which to query results.
    */
   public getBrowserTestLatestResults(
