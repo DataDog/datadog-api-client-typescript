@@ -401,6 +401,15 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     type: "body",
   },
       ],
+      configVariables: [
+        {
+          example: "example_example",
+          id: "id_example",
+          name: "VARIABLE_NAME",
+          pattern: "pattern_example",
+          type: "global",
+        },
+      ],
       request: {
         allowInsecure: true,
         basicAuth: {
@@ -1790,6 +1799,15 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
     target: null,
     type: "body",
   },
+      ],
+      configVariables: [
+        {
+          example: "example_example",
+          id: "id_example",
+          name: "VARIABLE_NAME",
+          pattern: "pattern_example",
+          type: "global",
+        },
       ],
       request: {
         allowInsecure: true,
