@@ -10,6 +10,7 @@
 
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
+import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -22,6 +23,10 @@ export class SyntheticsBrowserTestConfig {
    * Array of assertions used for the test.
    */
   "assertions": Array<SyntheticsAssertion>;
+  /**
+   * Array of variables used for the test.
+   */
+  "configVariables"?: Array<SyntheticsConfigVariable>;
   "request": SyntheticsTestRequest;
   /**
    * Cookies to be used for the request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -42,6 +47,11 @@ export class SyntheticsBrowserTestConfig {
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
+      format: "",
+    },
+    configVariables: {
+      baseName: "configVariables",
+      type: "Array<SyntheticsConfigVariable>",
       format: "",
     },
     request: {
@@ -78,6 +88,12 @@ export class SyntheticsBrowserTestConfig {
     res.assertions = ObjectSerializer.deserialize(
       data.assertions,
       "Array<SyntheticsAssertion>",
+      ""
+    );
+
+    res.configVariables = ObjectSerializer.deserialize(
+      data.configVariables,
+      "Array<SyntheticsConfigVariable>",
       ""
     );
 
@@ -122,6 +138,12 @@ export class SyntheticsBrowserTestConfig {
     res.assertions = ObjectSerializer.serialize(
       data.assertions,
       "Array<SyntheticsAssertion>",
+      ""
+    );
+
+    res.configVariables = ObjectSerializer.serialize(
+      data.configVariables,
+      "Array<SyntheticsConfigVariable>",
       ""
     );
 

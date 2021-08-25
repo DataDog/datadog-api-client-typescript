@@ -24,7 +24,7 @@ export class SyntheticsTestConfig {
    */
   "assertions"?: Array<SyntheticsAssertion>;
   /**
-   * API tests only - array of variables used for the test.
+   * Array of variables used for the test.
    */
   "configVariables"?: Array<SyntheticsConfigVariable>;
   "request"?: SyntheticsTestRequest;
