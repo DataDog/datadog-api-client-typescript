@@ -123,6 +123,7 @@ import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResp
 import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementResponse } from "../models/UsageCloudSecurityPostureManagementResponse";
 import { UsageCustomReportsResponse } from "../models/UsageCustomReportsResponse";
+import { UsageDBMResponse } from "../models/UsageDBMResponse";
 import { UsageFargateResponse } from "../models/UsageFargateResponse";
 import { UsageHostsResponse } from "../models/UsageHostsResponse";
 import { UsageIncidentManagementResponse } from "../models/UsageIncidentManagementResponse";
@@ -3288,6 +3289,21 @@ export class PromiseUsageMeteringApi {
       endHr,
       options
     );
+    return result.toPromise();
+  }
+
+  /**
+   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   */
+  public getUsageDBM(
+    startHr: Date,
+    endHr?: Date,
+    options?: Configuration
+  ): Promise<UsageDBMResponse> {
+    const result = this.api.getUsageDBM(startHr, endHr, options);
     return result.toPromise();
   }
 

@@ -88,6 +88,22 @@ export class UsageAttributionValues {
    */
   "cwsHostUsage"?: number;
   /**
+   * The percentage of Database Monitoring host usage by tag(s).
+   */
+  "dbmHostPercentage"?: number;
+  /**
+   * The Database Monitoring host usage by tag(s).
+   */
+  "dbmHostUsage"?: number;
+  /**
+   * The percentage of Database Monitoring normalized queries usage by tag(s).
+   */
+  "dbmQueriesPercentage"?: number;
+  /**
+   * The Database Monitoring normalized queries usage by tag(s).
+   */
+  "dbmQueriesUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -246,6 +262,26 @@ export class UsageAttributionValues {
     },
     cwsHostUsage: {
       baseName: "cws_host_usage",
+      type: "number",
+      format: "double",
+    },
+    dbmHostPercentage: {
+      baseName: "dbm_host_percentage",
+      type: "number",
+      format: "double",
+    },
+    dbmHostUsage: {
+      baseName: "dbm_host_usage",
+      type: "number",
+      format: "double",
+    },
+    dbmQueriesPercentage: {
+      baseName: "dbm_queries_percentage",
+      type: "number",
+      format: "double",
+    },
+    dbmQueriesUsage: {
+      baseName: "dbm_queries_usage",
       type: "number",
       format: "double",
     },
@@ -442,6 +478,30 @@ export class UsageAttributionValues {
 
     res.cwsHostUsage = ObjectSerializer.deserialize(
       data.cws_host_usage,
+      "number",
+      "double"
+    );
+
+    res.dbmHostPercentage = ObjectSerializer.deserialize(
+      data.dbm_host_percentage,
+      "number",
+      "double"
+    );
+
+    res.dbmHostUsage = ObjectSerializer.deserialize(
+      data.dbm_host_usage,
+      "number",
+      "double"
+    );
+
+    res.dbmQueriesPercentage = ObjectSerializer.deserialize(
+      data.dbm_queries_percentage,
+      "number",
+      "double"
+    );
+
+    res.dbmQueriesUsage = ObjectSerializer.deserialize(
+      data.dbm_queries_usage,
       "number",
       "double"
     );
@@ -660,6 +720,30 @@ export class UsageAttributionValues {
 
     res.cws_host_usage = ObjectSerializer.serialize(
       data.cwsHostUsage,
+      "number",
+      "double"
+    );
+
+    res.dbm_host_percentage = ObjectSerializer.serialize(
+      data.dbmHostPercentage,
+      "number",
+      "double"
+    );
+
+    res.dbm_host_usage = ObjectSerializer.serialize(
+      data.dbmHostUsage,
+      "number",
+      "double"
+    );
+
+    res.dbm_queries_percentage = ObjectSerializer.serialize(
+      data.dbmQueriesPercentage,
+      "number",
+      "double"
+    );
+
+    res.dbm_queries_usage = ObjectSerializer.serialize(
+      data.dbmQueriesUsage,
       "number",
       "double"
     );

@@ -90,6 +90,14 @@ export class UsageSummaryResponse {
    */
   "cwsHostTop99pSum"?: number;
   /**
+   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
+   */
+  "dbmHostTop99pSum"?: number;
+  /**
+   * Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations.
+   */
+  "dbmQueriesAggSum"?: number;
+  /**
    * Shows the last date of usage in the current months for all organizations.
    */
   "endDate"?: Date;
@@ -317,6 +325,16 @@ export class UsageSummaryResponse {
     },
     cwsHostTop99pSum: {
       baseName: "cws_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    dbmHostTop99pSum: {
+      baseName: "dbm_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    dbmQueriesAggSum: {
+      baseName: "dbm_queries_agg_sum",
       type: "number",
       format: "int64",
     },
@@ -603,6 +621,18 @@ export class UsageSummaryResponse {
 
     res.cwsHostTop99pSum = ObjectSerializer.deserialize(
       data.cws_host_top99p_sum,
+      "number",
+      "int64"
+    );
+
+    res.dbmHostTop99pSum = ObjectSerializer.deserialize(
+      data.dbm_host_top99p_sum,
+      "number",
+      "int64"
+    );
+
+    res.dbmQueriesAggSum = ObjectSerializer.deserialize(
+      data.dbm_queries_agg_sum,
       "number",
       "int64"
     );
@@ -929,6 +959,18 @@ export class UsageSummaryResponse {
 
     res.cws_host_top99p_sum = ObjectSerializer.serialize(
       data.cwsHostTop99pSum,
+      "number",
+      "int64"
+    );
+
+    res.dbm_host_top99p_sum = ObjectSerializer.serialize(
+      data.dbmHostTop99pSum,
+      "number",
+      "int64"
+    );
+
+    res.dbm_queries_agg_sum = ObjectSerializer.serialize(
+      data.dbmQueriesAggSum,
       "number",
       "int64"
     );
