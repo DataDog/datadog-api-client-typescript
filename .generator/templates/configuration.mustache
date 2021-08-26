@@ -79,9 +79,6 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     if (process.env.DD_SITE) {
         let serverConf = server1.getConfiguration();
         server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
-        for (const op in operationServers) {
-            (operationServers[op][0] as any).setVariables({ site: process.env.DD_SITE });
-        }
     }
 
     const authMethods = conf.authMethods || {};
