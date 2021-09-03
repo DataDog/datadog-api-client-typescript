@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
+import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -21,9 +21,9 @@ export class SLOHistorySLIData {
    */
   "errorBudgetRemaining"?: { [key: string]: number };
   /**
-   * A list of errors while querying the history data for the service level objective.
+   * An array of error objects returned while querying the history data for the service level objective.
    */
-  "errors"?: Array<SLOHistoryResponseError>;
+  "errors"?: Array<SLOHistoryResponseErrorWithType>;
   /**
    * For groups in a grouped SLO, this is the group name.
    */
@@ -79,7 +79,7 @@ export class SLOHistorySLIData {
     },
     errors: {
       baseName: "errors",
-      type: "Array<SLOHistoryResponseError>",
+      type: "Array<SLOHistoryResponseErrorWithType>",
       format: "",
     },
     group: {
@@ -149,7 +149,7 @@ export class SLOHistorySLIData {
 
     res.errors = ObjectSerializer.deserialize(
       data.errors,
-      "Array<SLOHistoryResponseError>",
+      "Array<SLOHistoryResponseErrorWithType>",
       ""
     );
 
@@ -219,7 +219,7 @@ export class SLOHistorySLIData {
 
     res.errors = ObjectSerializer.serialize(
       data.errors,
-      "Array<SLOHistoryResponseError>",
+      "Array<SLOHistoryResponseErrorWithType>",
       ""
     );
 
