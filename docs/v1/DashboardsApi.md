@@ -55,6 +55,7 @@ let params:v1.DashboardsApiCreateDashboardRequest = {
     ],
     templateVariables: [
       {
+        availableValues: ["my-host","host1","host2"],
         _default: "my-host",
         name: "host1",
         prefix: "host",
@@ -464,6 +465,7 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
     ],
     templateVariables: [
       {
+        availableValues: ["my-host","host1","host2"],
         _default: "my-host",
         name: "host1",
         prefix: "host",
