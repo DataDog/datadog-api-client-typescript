@@ -253,6 +253,7 @@ import { SLOHistoryMetricsSeriesMetadataUnit } from "./SLOHistoryMetricsSeriesMe
 import { SLOHistoryResponse } from "./SLOHistoryResponse";
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
+import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
 import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOListResponse } from "./SLOListResponse";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
@@ -871,6 +872,7 @@ const typeMap: { [index: string]: any } = {
   SLOHistoryResponse: SLOHistoryResponse,
   SLOHistoryResponseData: SLOHistoryResponseData,
   SLOHistoryResponseError: SLOHistoryResponseError,
+  SLOHistoryResponseErrorWithType: SLOHistoryResponseErrorWithType,
   SLOHistorySLIData: SLOHistorySLIData,
   SLOListResponse: SLOListResponse,
   SLOListResponseMetadata: SLOListResponseMetadata,
