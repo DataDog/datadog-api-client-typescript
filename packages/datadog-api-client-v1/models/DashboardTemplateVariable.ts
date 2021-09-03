@@ -16,6 +16,10 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class DashboardTemplateVariable {
   /**
+   * The list of values that the template variable drop-down is limited to.
+   */
+  "availableValues"?: Array<string>;
+  /**
    * The default value for the template variable on dashboard load.
    */
   "_default"?: string;
@@ -35,6 +39,11 @@ export class DashboardTemplateVariable {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
+    availableValues: {
+      baseName: "available_values",
+      type: "Array<string>",
+      format: "",
+    },
     _default: {
       baseName: "default",
       type: "string",
@@ -58,6 +67,12 @@ export class DashboardTemplateVariable {
 
   static deserialize(data: { [key: string]: any }): DashboardTemplateVariable {
     const res = new DashboardTemplateVariable();
+
+    res.availableValues = ObjectSerializer.deserialize(
+      data.available_values,
+      "Array<string>",
+      ""
+    );
 
     res._default = ObjectSerializer.deserialize(data.default, "string", "");
 
@@ -84,6 +99,12 @@ export class DashboardTemplateVariable {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
+    res.available_values = ObjectSerializer.serialize(
+      data.availableValues,
+      "Array<string>",
+      ""
+    );
+
     res.default = ObjectSerializer.serialize(data._default, "string", "");
 
     if (data.name === undefined) {
