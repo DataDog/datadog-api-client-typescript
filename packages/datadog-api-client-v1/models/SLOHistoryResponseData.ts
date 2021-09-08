@@ -9,6 +9,7 @@
  */
 
 import { SLOHistoryMetrics } from "./SLOHistoryMetrics";
+import { SLOHistoryMonitor } from "./SLOHistoryMonitor";
 import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
@@ -31,11 +32,11 @@ export class SLOHistoryResponseData {
   /**
    * For grouped SLOs, this represents SLI data for specific groups.  This is not included in the responses for `metric` based SLOs.
    */
-  "groups"?: Array<SLOHistorySLIData>;
+  "groups"?: Array<SLOHistoryMonitor>;
   /**
    * For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not included in the responses for `metric` based SLOs.
    */
-  "monitors"?: Array<SLOHistorySLIData>;
+  "monitors"?: Array<SLOHistoryMonitor>;
   "overall"?: SLOHistorySLIData;
   "series"?: SLOHistoryMetrics;
   /**
@@ -68,12 +69,12 @@ export class SLOHistoryResponseData {
     },
     groups: {
       baseName: "groups",
-      type: "Array<SLOHistorySLIData>",
+      type: "Array<SLOHistoryMonitor>",
       format: "",
     },
     monitors: {
       baseName: "monitors",
-      type: "Array<SLOHistorySLIData>",
+      type: "Array<SLOHistoryMonitor>",
       format: "",
     },
     overall: {
@@ -125,13 +126,13 @@ export class SLOHistoryResponseData {
 
     res.groups = ObjectSerializer.deserialize(
       data.groups,
-      "Array<SLOHistorySLIData>",
+      "Array<SLOHistoryMonitor>",
       ""
     );
 
     res.monitors = ObjectSerializer.deserialize(
       data.monitors,
-      "Array<SLOHistorySLIData>",
+      "Array<SLOHistoryMonitor>",
       ""
     );
 
@@ -195,13 +196,13 @@ export class SLOHistoryResponseData {
 
     res.groups = ObjectSerializer.serialize(
       data.groups,
-      "Array<SLOHistorySLIData>",
+      "Array<SLOHistoryMonitor>",
       ""
     );
 
     res.monitors = ObjectSerializer.serialize(
       data.monitors,
-      "Array<SLOHistorySLIData>",
+      "Array<SLOHistoryMonitor>",
       ""
     );
 
