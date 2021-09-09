@@ -226,6 +226,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         },
         dnsServer: "dnsServer_example",
         dnsServerPort: 1,
+        followRedirects: true,
         headers: {
           "key": "key_example",
         },
@@ -284,6 +285,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             },
             dnsServer: "dnsServer_example",
             dnsServerPort: 1,
+            followRedirects: true,
             headers: {
               "key": "key_example",
             },
@@ -431,6 +433,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         },
         dnsServer: "dnsServer_example",
         dnsServerPort: 1,
+        followRedirects: true,
         headers: {
           "key": "key_example",
         },
@@ -1622,6 +1625,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         },
         dnsServer: "dnsServer_example",
         dnsServerPort: 1,
+        followRedirects: true,
         headers: {
           "key": "key_example",
         },
@@ -1680,6 +1684,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
             },
             dnsServer: "dnsServer_example",
             dnsServerPort: 1,
+            followRedirects: true,
             headers: {
               "key": "key_example",
             },
@@ -1830,6 +1835,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
         },
         dnsServer: "dnsServer_example",
         dnsServerPort: 1,
+        followRedirects: true,
         headers: {
           "key": "key_example",
         },
