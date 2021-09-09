@@ -37,6 +37,10 @@ export class SyntheticsTestRequest {
    */
   "dnsServerPort"?: number;
   /**
+   * Specifies whether or not the request follows redirects.
+   */
+  "followRedirects"?: boolean;
+  /**
    * Headers to include when performing the test.
    */
   "headers"?: { [key: string]: string };
@@ -110,6 +114,11 @@ export class SyntheticsTestRequest {
       baseName: "dnsServerPort",
       type: "number",
       format: "int32",
+    },
+    followRedirects: {
+      baseName: "follow_redirects",
+      type: "boolean",
+      format: "",
     },
     headers: {
       baseName: "headers",
@@ -196,6 +205,12 @@ export class SyntheticsTestRequest {
       data.dnsServerPort,
       "number",
       "int32"
+    );
+
+    res.followRedirects = ObjectSerializer.deserialize(
+      data.follow_redirects,
+      "boolean",
+      ""
     );
 
     res.headers = ObjectSerializer.deserialize(
@@ -295,6 +310,12 @@ export class SyntheticsTestRequest {
       data.dnsServerPort,
       "number",
       "int32"
+    );
+
+    res.follow_redirects = ObjectSerializer.serialize(
+      data.followRedirects,
+      "boolean",
+      ""
     );
 
     res.headers = ObjectSerializer.serialize(
