@@ -394,6 +394,7 @@ models/SLOHistoryMetrics.ts
 models/SLOHistoryMetricsSeries.ts
 models/SLOHistoryMetricsSeriesMetadata.ts
 models/SLOHistoryMetricsSeriesMetadataUnit.ts
+models/SLOHistoryMonitor.ts
 models/SLOHistoryResponse.ts
 models/SLOHistoryResponseData.ts
 models/SLOHistoryResponseError.ts
