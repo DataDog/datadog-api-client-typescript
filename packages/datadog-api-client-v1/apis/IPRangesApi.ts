@@ -16,19 +16,19 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
    * Get information about Datadog IP ranges.
    * List IP Ranges
    */
-  public async getIPRanges(options?: Configuration): Promise<RequestContext> {
-    const config = options || this.configuration;
+  public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "IPRangesApi.getIPRanges"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -37,8 +37,6 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     // Form Params
 
     // Body Params
-
-    // Apply auth methods
 
     return requestContext;
   }

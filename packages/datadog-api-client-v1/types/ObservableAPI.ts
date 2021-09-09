@@ -187,11 +187,11 @@ export class ObservableAWSIntegrationApi {
    */
   public createAWSAccount(
     body: AWSAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AWSAccountCreateResponse> {
     const requestContextPromise = this.requestFactory.createAWSAccount(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -222,7 +222,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * Set an AWS tag filter.
    * Set an AWS tag filter
@@ -230,11 +229,11 @@ export class ObservableAWSIntegrationApi {
    */
   public createAWSTagFilter(
     body: AWSTagFilterCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.createAWSTagFilter(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -265,7 +264,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * Generate a new AWS external ID for a given AWS account ID and role name pair.
    * Generate a new external ID
@@ -273,11 +271,11 @@ export class ObservableAWSIntegrationApi {
    */
   public createNewAWSExternalID(
     body: AWSAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AWSAccountCreateResponse> {
     const requestContextPromise = this.requestFactory.createNewAWSExternalID(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -308,7 +306,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
    * Delete an AWS integration
@@ -316,11 +313,11 @@ export class ObservableAWSIntegrationApi {
    */
   public deleteAWSAccount(
     body: AWSAccountDeleteRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteAWSAccount(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -351,7 +348,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * Delete a tag filtering entry.
    * Delete a tag filtering entry
@@ -359,11 +355,11 @@ export class ObservableAWSIntegrationApi {
    */
   public deleteAWSTagFilter(
     body: AWSTagFilterDeleteRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteAWSTagFilter(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -394,7 +390,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * List all Datadog-AWS integrations available in your Datadog organization.
    * List all AWS integrations
@@ -406,13 +401,13 @@ export class ObservableAWSIntegrationApi {
     accountId?: string,
     roleName?: string,
     accessKeyId?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AWSAccountListResponse> {
     const requestContextPromise = this.requestFactory.listAWSAccounts(
       accountId,
       roleName,
       accessKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -443,7 +438,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * Get all AWS tag filters.
    * Get all AWS tag filters
@@ -451,11 +445,11 @@ export class ObservableAWSIntegrationApi {
    */
   public listAWSTagFilters(
     accountId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AWSTagFilterListResponse> {
     const requestContextPromise = this.requestFactory.listAWSTagFilters(
       accountId,
-      options
+      _options
     );
 
     // build promise chain
@@ -486,16 +480,15 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
    * List namespace rules
    */
   public listAvailableAWSNamespaces(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<string>> {
     const requestContextPromise = this.requestFactory.listAvailableAWSNamespaces(
-      options
+      _options
     );
 
     // build promise chain
@@ -526,7 +519,6 @@ export class ObservableAWSIntegrationApi {
         })
       );
   }
-
   /**
    * Update a Datadog-Amazon Web Services integration.
    * Update an AWS integration
@@ -540,14 +532,14 @@ export class ObservableAWSIntegrationApi {
     accountId?: string,
     roleName?: string,
     accessKeyId?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.updateAWSAccount(
       body,
       accountId,
       roleName,
       accessKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -608,11 +600,11 @@ export class ObservableAWSLogsIntegrationApi {
    */
   public checkAWSLogsLambdaAsync(
     body: AWSAccountAndLambdaRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AWSLogsAsyncResponse> {
     const requestContextPromise = this.requestFactory.checkAWSLogsLambdaAsync(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -643,7 +635,6 @@ export class ObservableAWSLogsIntegrationApi {
         })
       );
   }
-
   /**
    * Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for `EnableAWSLogServices`. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of `created` when it's checking if the permissions exists   in the AWS account. - Returns a status of `waiting` while checking. - Returns a status of `checked and ok` if the Lambda exists. - Returns a status of `error` if the Lambda does not exist.
    * Check permissions for log services
@@ -651,11 +642,11 @@ export class ObservableAWSLogsIntegrationApi {
    */
   public checkAWSLogsServicesAsync(
     body: AWSLogsServicesRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AWSLogsAsyncResponse> {
     const requestContextPromise = this.requestFactory.checkAWSLogsServicesAsync(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -686,7 +677,6 @@ export class ObservableAWSLogsIntegrationApi {
         })
       );
   }
-
   /**
    * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
    * Add AWS Log Lambda ARN
@@ -694,11 +684,11 @@ export class ObservableAWSLogsIntegrationApi {
    */
   public createAWSLambdaARN(
     body: AWSAccountAndLambdaRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.createAWSLambdaARN(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -729,7 +719,6 @@ export class ObservableAWSLogsIntegrationApi {
         })
       );
   }
-
   /**
    * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
    * Delete an AWS Logs integration
@@ -737,11 +726,11 @@ export class ObservableAWSLogsIntegrationApi {
    */
   public deleteAWSLambdaARN(
     body: AWSAccountAndLambdaRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteAWSLambdaARN(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -772,7 +761,6 @@ export class ObservableAWSLogsIntegrationApi {
         })
       );
   }
-
   /**
    * Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
    * Enable an AWS Logs integration
@@ -780,11 +768,11 @@ export class ObservableAWSLogsIntegrationApi {
    */
   public enableAWSLogServices(
     body: AWSLogsServicesRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.enableAWSLogServices(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -815,16 +803,15 @@ export class ObservableAWSLogsIntegrationApi {
         })
       );
   }
-
   /**
    * List all Datadog-AWS Logs integrations configured in your Datadog account.
    * List all AWS Logs integrations
    */
   public listAWSLogsIntegrations(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<AWSLogsListResponse>> {
     const requestContextPromise = this.requestFactory.listAWSLogsIntegrations(
-      options
+      _options
     );
 
     // build promise chain
@@ -855,16 +842,15 @@ export class ObservableAWSLogsIntegrationApi {
         })
       );
   }
-
   /**
    * Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
    * Get list of AWS log ready services
    */
   public listAWSLogsServices(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<AWSLogsListServicesResponse>> {
     const requestContextPromise = this.requestFactory.listAWSLogsServices(
-      options
+      _options
     );
 
     // build promise chain
@@ -923,9 +909,9 @@ export class ObservableAuthenticationApi {
    * Validate API key
    */
   public validate(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<AuthenticationValidationResponse> {
-    const requestContextPromise = this.requestFactory.validate(options);
+    const requestContextPromise = this.requestFactory.validate(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -983,11 +969,11 @@ export class ObservableAzureIntegrationApi {
    */
   public createAzureIntegration(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.createAzureIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1018,7 +1004,6 @@ export class ObservableAzureIntegrationApi {
         })
       );
   }
-
   /**
    * Delete a given Datadog-Azure integration from your Datadog account.
    * Delete an Azure integration
@@ -1026,11 +1011,11 @@ export class ObservableAzureIntegrationApi {
    */
   public deleteAzureIntegration(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteAzureIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1061,16 +1046,15 @@ export class ObservableAzureIntegrationApi {
         })
       );
   }
-
   /**
    * List all Datadog-Azure integrations configured in your Datadog account.
    * List all Azure integrations
    */
   public listAzureIntegration(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<AzureAccount>> {
     const requestContextPromise = this.requestFactory.listAzureIntegration(
-      options
+      _options
     );
 
     // build promise chain
@@ -1101,7 +1085,6 @@ export class ObservableAzureIntegrationApi {
         })
       );
   }
-
   /**
    * Update the defined list of host filters for a given Datadog-Azure integration.
    * Update Azure integration host filters
@@ -1109,11 +1092,11 @@ export class ObservableAzureIntegrationApi {
    */
   public updateAzureHostFilters(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.updateAzureHostFilters(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1144,7 +1127,6 @@ export class ObservableAzureIntegrationApi {
         })
       );
   }
-
   /**
    * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
    * Update an Azure integration
@@ -1152,11 +1134,11 @@ export class ObservableAzureIntegrationApi {
    */
   public updateAzureIntegration(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.updateAzureIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1217,11 +1199,11 @@ export class ObservableDashboardListsApi {
    */
   public createDashboardList(
     body: DashboardList,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardList> {
     const requestContextPromise = this.requestFactory.createDashboardList(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1252,7 +1234,6 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Delete a dashboard list.
    * Delete a dashboard list
@@ -1260,11 +1241,11 @@ export class ObservableDashboardListsApi {
    */
   public deleteDashboardList(
     listId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardListDeleteResponse> {
     const requestContextPromise = this.requestFactory.deleteDashboardList(
       listId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1295,7 +1276,6 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Fetch an existing dashboard list's definition.
    * Get a dashboard list
@@ -1303,11 +1283,11 @@ export class ObservableDashboardListsApi {
    */
   public getDashboardList(
     listId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardList> {
     const requestContextPromise = this.requestFactory.getDashboardList(
       listId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1338,16 +1318,15 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Fetch all of your existing dashboard list definitions.
    * Get all dashboard lists
    */
   public listDashboardLists(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardListListResponse> {
     const requestContextPromise = this.requestFactory.listDashboardLists(
-      options
+      _options
     );
 
     // build promise chain
@@ -1378,7 +1357,6 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Update the name of a dashboard list.
    * Update a dashboard list
@@ -1388,12 +1366,12 @@ export class ObservableDashboardListsApi {
   public updateDashboardList(
     listId: number,
     body: DashboardList,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardList> {
     const requestContextPromise = this.requestFactory.updateDashboardList(
       listId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1454,11 +1432,11 @@ export class ObservableDashboardsApi {
    */
   public createDashboard(
     body: Dashboard,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Dashboard> {
     const requestContextPromise = this.requestFactory.createDashboard(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1489,7 +1467,6 @@ export class ObservableDashboardsApi {
         })
       );
   }
-
   /**
    * Delete a dashboard using the specified ID.
    * Delete a dashboard
@@ -1497,11 +1474,11 @@ export class ObservableDashboardsApi {
    */
   public deleteDashboard(
     dashboardId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardDeleteResponse> {
     const requestContextPromise = this.requestFactory.deleteDashboard(
       dashboardId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1532,7 +1509,6 @@ export class ObservableDashboardsApi {
         })
       );
   }
-
   /**
    * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
    * Delete dashboards
@@ -1540,11 +1516,11 @@ export class ObservableDashboardsApi {
    */
   public deleteDashboards(
     body: DashboardBulkDeleteRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteDashboards(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1575,7 +1551,6 @@ export class ObservableDashboardsApi {
         })
       );
   }
-
   /**
    * Get a dashboard using the specified ID.
    * Get a dashboard
@@ -1583,11 +1558,11 @@ export class ObservableDashboardsApi {
    */
   public getDashboard(
     dashboardId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Dashboard> {
     const requestContextPromise = this.requestFactory.getDashboard(
       dashboardId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1618,7 +1593,6 @@ export class ObservableDashboardsApi {
         })
       );
   }
-
   /**
    * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
    * Get all dashboards
@@ -1626,11 +1600,11 @@ export class ObservableDashboardsApi {
    */
   public listDashboards(
     filterShared?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardSummary> {
     const requestContextPromise = this.requestFactory.listDashboards(
       filterShared,
-      options
+      _options
     );
 
     // build promise chain
@@ -1661,7 +1635,6 @@ export class ObservableDashboardsApi {
         })
       );
   }
-
   /**
    * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
    * Restore deleted dashboards
@@ -1669,11 +1642,11 @@ export class ObservableDashboardsApi {
    */
   public restoreDashboards(
     body: DashboardRestoreRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.restoreDashboards(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1704,7 +1677,6 @@ export class ObservableDashboardsApi {
         })
       );
   }
-
   /**
    * Update a dashboard using the specified ID.
    * Update a dashboard
@@ -1714,12 +1686,12 @@ export class ObservableDashboardsApi {
   public updateDashboard(
     dashboardId: string,
     body: Dashboard,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Dashboard> {
     const requestContextPromise = this.requestFactory.updateDashboard(
       dashboardId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1780,11 +1752,11 @@ export class ObservableDowntimesApi {
    */
   public cancelDowntime(
     downtimeId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.cancelDowntime(
       downtimeId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1815,7 +1787,6 @@ export class ObservableDowntimesApi {
         })
       );
   }
-
   /**
    * Delete all downtimes that match the scope of `X`.
    * Cancel downtimes by scope
@@ -1823,11 +1794,11 @@ export class ObservableDowntimesApi {
    */
   public cancelDowntimesByScope(
     body: CancelDowntimesByScopeRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<CanceledDowntimesIds> {
     const requestContextPromise = this.requestFactory.cancelDowntimesByScope(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1858,7 +1829,6 @@ export class ObservableDowntimesApi {
         })
       );
   }
-
   /**
    * Schedule a downtime.
    * Schedule a downtime
@@ -1866,11 +1836,11 @@ export class ObservableDowntimesApi {
    */
   public createDowntime(
     body: Downtime,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Downtime> {
     const requestContextPromise = this.requestFactory.createDowntime(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1901,7 +1871,6 @@ export class ObservableDowntimesApi {
         })
       );
   }
-
   /**
    * Get downtime detail by `downtime_id`.
    * Get a downtime
@@ -1909,11 +1878,11 @@ export class ObservableDowntimesApi {
    */
   public getDowntime(
     downtimeId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Downtime> {
     const requestContextPromise = this.requestFactory.getDowntime(
       downtimeId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1944,7 +1913,6 @@ export class ObservableDowntimesApi {
         })
       );
   }
-
   /**
    * Get all scheduled downtimes.
    * Get all downtimes
@@ -1952,11 +1920,11 @@ export class ObservableDowntimesApi {
    */
   public listDowntimes(
     currentOnly?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<Downtime>> {
     const requestContextPromise = this.requestFactory.listDowntimes(
       currentOnly,
-      options
+      _options
     );
 
     // build promise chain
@@ -1987,7 +1955,6 @@ export class ObservableDowntimesApi {
         })
       );
   }
-
   /**
    * Get all downtimes for the specified monitor
    * Get all downtimes for a monitor
@@ -1995,11 +1962,11 @@ export class ObservableDowntimesApi {
    */
   public listMonitorDowntimes(
     monitorId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<Downtime>> {
     const requestContextPromise = this.requestFactory.listMonitorDowntimes(
       monitorId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2030,7 +1997,6 @@ export class ObservableDowntimesApi {
         })
       );
   }
-
   /**
    * Update a single downtime by `downtime_id`.
    * Update a downtime
@@ -2040,12 +2006,12 @@ export class ObservableDowntimesApi {
   public updateDowntime(
     downtimeId: number,
     body: Downtime,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Downtime> {
     const requestContextPromise = this.requestFactory.updateDowntime(
       downtimeId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2106,11 +2072,11 @@ export class ObservableEventsApi {
    */
   public createEvent(
     body: EventCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<EventCreateResponse> {
     const requestContextPromise = this.requestFactory.createEvent(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2141,7 +2107,6 @@ export class ObservableEventsApi {
         })
       );
   }
-
   /**
    * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
    * Get an event
@@ -2149,11 +2114,11 @@ export class ObservableEventsApi {
    */
   public getEvent(
     eventId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<EventResponse> {
     const requestContextPromise = this.requestFactory.getEvent(
       eventId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2182,7 +2147,6 @@ export class ObservableEventsApi {
         })
       );
   }
-
   /**
    * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
    * Query the event stream
@@ -2204,7 +2168,7 @@ export class ObservableEventsApi {
     unaggregated?: boolean,
     excludeAggregate?: boolean,
     page?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<EventListResponse> {
     const requestContextPromise = this.requestFactory.listEvents(
       start,
@@ -2215,7 +2179,7 @@ export class ObservableEventsApi {
       unaggregated,
       excludeAggregate,
       page,
-      options
+      _options
     );
 
     // build promise chain
@@ -2276,11 +2240,11 @@ export class ObservableGCPIntegrationApi {
    */
   public createGCPIntegration(
     body: GCPAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.createGCPIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2311,7 +2275,6 @@ export class ObservableGCPIntegrationApi {
         })
       );
   }
-
   /**
    * Delete a given Datadog-GCP integration.
    * Delete a GCP integration
@@ -2319,11 +2282,11 @@ export class ObservableGCPIntegrationApi {
    */
   public deleteGCPIntegration(
     body: GCPAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.deleteGCPIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2354,16 +2317,15 @@ export class ObservableGCPIntegrationApi {
         })
       );
   }
-
   /**
    * List all Datadog-GCP integrations configured in your Datadog account.
    * List all GCP integrations
    */
   public listGCPIntegration(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<GCPAccount>> {
     const requestContextPromise = this.requestFactory.listGCPIntegration(
-      options
+      _options
     );
 
     // build promise chain
@@ -2394,7 +2356,6 @@ export class ObservableGCPIntegrationApi {
         })
       );
   }
-
   /**
    * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
    * Update a GCP integration
@@ -2402,11 +2363,11 @@ export class ObservableGCPIntegrationApi {
    */
   public updateGCPIntegration(
     body: GCPAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.updateGCPIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2467,11 +2428,11 @@ export class ObservableHostsApi {
    */
   public getHostTotals(
     from?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostTotals> {
     const requestContextPromise = this.requestFactory.getHostTotals(
       from,
-      options
+      _options
     );
 
     // build promise chain
@@ -2502,7 +2463,6 @@ export class ObservableHostsApi {
         })
       );
   }
-
   /**
    * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
    * Get all hosts for your organization
@@ -2524,7 +2484,7 @@ export class ObservableHostsApi {
     from?: number,
     includeMutedHostsData?: boolean,
     includeHostsMetadata?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostListResponse> {
     const requestContextPromise = this.requestFactory.listHosts(
       filter,
@@ -2535,7 +2495,7 @@ export class ObservableHostsApi {
       from,
       includeMutedHostsData,
       includeHostsMetadata,
-      options
+      _options
     );
 
     // build promise chain
@@ -2564,7 +2524,6 @@ export class ObservableHostsApi {
         })
       );
   }
-
   /**
    * Mute a host.
    * Mute a host
@@ -2574,12 +2533,12 @@ export class ObservableHostsApi {
   public muteHost(
     hostName: string,
     body: HostMuteSettings,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostMuteResponse> {
     const requestContextPromise = this.requestFactory.muteHost(
       hostName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2608,7 +2567,6 @@ export class ObservableHostsApi {
         })
       );
   }
-
   /**
    * Unmutes a host. This endpoint takes no JSON arguments.
    * Unmute a host
@@ -2616,11 +2574,11 @@ export class ObservableHostsApi {
    */
   public unmuteHost(
     hostName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostMuteResponse> {
     const requestContextPromise = this.requestFactory.unmuteHost(
       hostName,
-      options
+      _options
     );
 
     // build promise chain
@@ -2678,8 +2636,8 @@ export class ObservableIPRangesApi {
    * Get information about Datadog IP ranges.
    * List IP Ranges
    */
-  public getIPRanges(options?: Configuration): Observable<IPRanges> {
-    const requestContextPromise = this.requestFactory.getIPRanges(options);
+  public getIPRanges(_options?: Configuration): Observable<IPRanges> {
+    const requestContextPromise = this.requestFactory.getIPRanges(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2739,11 +2697,11 @@ export class ObservableKeyManagementApi {
    */
   public createAPIKey(
     body: ApiKey,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApiKeyResponse> {
     const requestContextPromise = this.requestFactory.createAPIKey(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2774,7 +2732,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Create an application key with a given name.
    * Create an application key
@@ -2782,11 +2739,11 @@ export class ObservableKeyManagementApi {
    */
   public createApplicationKey(
     body: ApplicationKey,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.createApplicationKey(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2817,7 +2774,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Delete a given API key.
    * Delete an API key
@@ -2825,11 +2781,11 @@ export class ObservableKeyManagementApi {
    */
   public deleteAPIKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApiKeyResponse> {
     const requestContextPromise = this.requestFactory.deleteAPIKey(
       key,
-      options
+      _options
     );
 
     // build promise chain
@@ -2860,7 +2816,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Delete a given application key.
    * Delete an application key
@@ -2868,11 +2823,11 @@ export class ObservableKeyManagementApi {
    */
   public deleteApplicationKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.deleteApplicationKey(
       key,
-      options
+      _options
     );
 
     // build promise chain
@@ -2903,7 +2858,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get a given API key.
    * Get API key
@@ -2911,9 +2865,9 @@ export class ObservableKeyManagementApi {
    */
   public getAPIKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApiKeyResponse> {
-    const requestContextPromise = this.requestFactory.getAPIKey(key, options);
+    const requestContextPromise = this.requestFactory.getAPIKey(key, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2941,7 +2895,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get a given application key.
    * Get an application key
@@ -2949,11 +2902,11 @@ export class ObservableKeyManagementApi {
    */
   public getApplicationKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.getApplicationKey(
       key,
-      options
+      _options
     );
 
     // build promise chain
@@ -2984,13 +2937,12 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get all API keys available for your account.
    * Get all API keys
    */
-  public listAPIKeys(options?: Configuration): Observable<ApiKeyListResponse> {
-    const requestContextPromise = this.requestFactory.listAPIKeys(options);
+  public listAPIKeys(_options?: Configuration): Observable<ApiKeyListResponse> {
+    const requestContextPromise = this.requestFactory.listAPIKeys(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3020,16 +2972,15 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get all application keys available for your Datadog account.
    * Get all application keys
    */
   public listApplicationKeys(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyListResponse> {
     const requestContextPromise = this.requestFactory.listApplicationKeys(
-      options
+      _options
     );
 
     // build promise chain
@@ -3060,7 +3011,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Edit an API key name.
    * Edit an API key
@@ -3070,12 +3020,12 @@ export class ObservableKeyManagementApi {
   public updateAPIKey(
     key: string,
     body: ApiKey,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApiKeyResponse> {
     const requestContextPromise = this.requestFactory.updateAPIKey(
       key,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3106,7 +3056,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Edit an application key name.
    * Edit an application key
@@ -3116,12 +3065,12 @@ export class ObservableKeyManagementApi {
   public updateApplicationKey(
     key: string,
     body: ApplicationKey,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.updateApplicationKey(
       key,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3182,9 +3131,9 @@ export class ObservableLogsApi {
    */
   public listLogs(
     body: LogsListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsListResponse> {
-    const requestContextPromise = this.requestFactory.listLogs(body, options);
+    const requestContextPromise = this.requestFactory.listLogs(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3212,7 +3161,6 @@ export class ObservableLogsApi {
         })
       );
   }
-
   /**
    * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
    * Send logs
@@ -3224,13 +3172,13 @@ export class ObservableLogsApi {
     body: Array<HTTPLogItem>,
     contentEncoding?: ContentEncoding,
     ddtags?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.submitLog(
       body,
       contentEncoding,
       ddtags,
-      options
+      _options
     );
 
     // build promise chain
@@ -3289,11 +3237,11 @@ export class ObservableLogsIndexesApi {
    */
   public createLogsIndex(
     body: LogsIndex,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsIndex> {
     const requestContextPromise = this.requestFactory.createLogsIndex(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3324,7 +3272,6 @@ export class ObservableLogsIndexesApi {
         })
       );
   }
-
   /**
    * Get one log index from your organization. This endpoint takes no JSON arguments.
    * Get an index
@@ -3332,11 +3279,11 @@ export class ObservableLogsIndexesApi {
    */
   public getLogsIndex(
     name: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsIndex> {
     const requestContextPromise = this.requestFactory.getLogsIndex(
       name,
-      options
+      _options
     );
 
     // build promise chain
@@ -3367,16 +3314,15 @@ export class ObservableLogsIndexesApi {
         })
       );
   }
-
   /**
    * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * Get indexes order
    */
   public getLogsIndexOrder(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsIndexesOrder> {
     const requestContextPromise = this.requestFactory.getLogsIndexOrder(
-      options
+      _options
     );
 
     // build promise chain
@@ -3407,15 +3353,14 @@ export class ObservableLogsIndexesApi {
         })
       );
   }
-
   /**
    * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
    * Get all indexes
    */
   public listLogIndexes(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsIndexListResponse> {
-    const requestContextPromise = this.requestFactory.listLogIndexes(options);
+    const requestContextPromise = this.requestFactory.listLogIndexes(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3445,7 +3390,6 @@ export class ObservableLogsIndexesApi {
         })
       );
   }
-
   /**
    * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
    * Update an index
@@ -3455,12 +3399,12 @@ export class ObservableLogsIndexesApi {
   public updateLogsIndex(
     name: string,
     body: LogsIndexUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsIndex> {
     const requestContextPromise = this.requestFactory.updateLogsIndex(
       name,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3491,7 +3435,6 @@ export class ObservableLogsIndexesApi {
         })
       );
   }
-
   /**
    * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
    * Update indexes order
@@ -3499,11 +3442,11 @@ export class ObservableLogsIndexesApi {
    */
   public updateLogsIndexOrder(
     body: LogsIndexesOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsIndexesOrder> {
     const requestContextPromise = this.requestFactory.updateLogsIndexOrder(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3564,11 +3507,11 @@ export class ObservableLogsPipelinesApi {
    */
   public createLogsPipeline(
     body: LogsPipeline,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsPipeline> {
     const requestContextPromise = this.requestFactory.createLogsPipeline(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3599,7 +3542,6 @@ export class ObservableLogsPipelinesApi {
         })
       );
   }
-
   /**
    * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
    * Delete a pipeline
@@ -3607,11 +3549,11 @@ export class ObservableLogsPipelinesApi {
    */
   public deleteLogsPipeline(
     pipelineId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteLogsPipeline(
       pipelineId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3642,7 +3584,6 @@ export class ObservableLogsPipelinesApi {
         })
       );
   }
-
   /**
    * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
    * Get a pipeline
@@ -3650,11 +3591,11 @@ export class ObservableLogsPipelinesApi {
    */
   public getLogsPipeline(
     pipelineId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsPipeline> {
     const requestContextPromise = this.requestFactory.getLogsPipeline(
       pipelineId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3685,16 +3626,15 @@ export class ObservableLogsPipelinesApi {
         })
       );
   }
-
   /**
    * Get the current order of your pipelines. This endpoint takes no JSON arguments.
    * Get pipeline order
    */
   public getLogsPipelineOrder(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsPipelinesOrder> {
     const requestContextPromise = this.requestFactory.getLogsPipelineOrder(
-      options
+      _options
     );
 
     // build promise chain
@@ -3725,16 +3665,15 @@ export class ObservableLogsPipelinesApi {
         })
       );
   }
-
   /**
    * Get all pipelines from your organization. This endpoint takes no JSON arguments.
    * Get all pipelines
    */
   public listLogsPipelines(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<LogsPipeline>> {
     const requestContextPromise = this.requestFactory.listLogsPipelines(
-      options
+      _options
     );
 
     // build promise chain
@@ -3765,7 +3704,6 @@ export class ObservableLogsPipelinesApi {
         })
       );
   }
-
   /**
    * Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
    * Update a pipeline
@@ -3775,12 +3713,12 @@ export class ObservableLogsPipelinesApi {
   public updateLogsPipeline(
     pipelineId: string,
     body: LogsPipeline,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsPipeline> {
     const requestContextPromise = this.requestFactory.updateLogsPipeline(
       pipelineId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3811,7 +3749,6 @@ export class ObservableLogsPipelinesApi {
         })
       );
   }
-
   /**
    * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
    * Update pipeline order
@@ -3819,11 +3756,11 @@ export class ObservableLogsPipelinesApi {
    */
   public updateLogsPipelineOrder(
     body: LogsPipelinesOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsPipelinesOrder> {
     const requestContextPromise = this.requestFactory.updateLogsPipelineOrder(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3884,11 +3821,11 @@ export class ObservableMetricsApi {
    */
   public getMetricMetadata(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricMetadata> {
     const requestContextPromise = this.requestFactory.getMetricMetadata(
       metricName,
-      options
+      _options
     );
 
     // build promise chain
@@ -3919,7 +3856,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Get the list of actively reporting metrics from a given time until now.
    * Get active metrics list
@@ -3931,13 +3867,13 @@ export class ObservableMetricsApi {
     from: number,
     host?: string,
     tagFilter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricsListResponse> {
     const requestContextPromise = this.requestFactory.listActiveMetrics(
       from,
       host,
       tagFilter,
-      options
+      _options
     );
 
     // build promise chain
@@ -3968,7 +3904,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Search for metrics from the last 24 hours in Datadog.
    * Search metrics
@@ -3976,9 +3911,9 @@ export class ObservableMetricsApi {
    */
   public listMetrics(
     q: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricSearchResponse> {
-    const requestContextPromise = this.requestFactory.listMetrics(q, options);
+    const requestContextPromise = this.requestFactory.listMetrics(q, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4008,7 +3943,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Query timeseries points.
    * Query timeseries points
@@ -4020,13 +3954,13 @@ export class ObservableMetricsApi {
     from: number,
     to: number,
     query: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricsQueryResponse> {
     const requestContextPromise = this.requestFactory.queryMetrics(
       from,
       to,
       query,
-      options
+      _options
     );
 
     // build promise chain
@@ -4057,7 +3991,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
    * Submit metrics
@@ -4065,11 +3998,11 @@ export class ObservableMetricsApi {
    */
   public submitMetrics(
     body: MetricsPayload,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IntakePayloadAccepted> {
     const requestContextPromise = this.requestFactory.submitMetrics(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4100,7 +4033,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
    * Edit metric metadata
@@ -4110,12 +4042,12 @@ export class ObservableMetricsApi {
   public updateMetricMetadata(
     metricName: string,
     body: MetricMetadata,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricMetadata> {
     const requestContextPromise = this.requestFactory.updateMetricMetadata(
       metricName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4176,11 +4108,11 @@ export class ObservableMonitorsApi {
    */
   public checkCanDeleteMonitor(
     monitorIds: Array<number>,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<CheckCanDeleteMonitorResponse> {
     const requestContextPromise = this.requestFactory.checkCanDeleteMonitor(
       monitorIds,
-      options
+      _options
     );
 
     // build promise chain
@@ -4211,7 +4143,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Create a monitor using the specified options.  #### Monitor Types  The type of monitor chosen from:  - anomaly: `query alert` - APM: `query alert` or `trace-analytics alert` - composite: `composite` - custom: `service check` - event: `event alert` - forecast: `query alert` - host: `service check` - integration: `query alert` or `service check` - live process: `process alert` - logs: `log alert` - metric: `metric alert` - network: `service check` - outlier: `query alert` - process: `service check` - rum: `rum alert` - SLO: `slo alert` - watchdog: `event alert` - event-v2: `event-v2 alert` - audit: `audit alert`  #### Query Types  **Metric Alert Query**  Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`  - `time_aggr`: avg, sum, max, min, change, or pct_change - `time_window`: `last_#m` (with `#` between 1 and 10080 depending on the monitor type) or `last_#h`(with `#` between 1 and 168 depending on the monitor type) or `last_1d`, or `last_1w` - `space_aggr`: avg, sum, min, or max - `tags`: one or more tags (comma-separated), or * - `key`: a 'key' in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) - `operator`: <, <=, >, >=, ==, or != - `#`: an integer or decimal number used to set the threshold  If you are using the `_change_` or `_pct_change_` time aggregator, instead use `change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}] operator #` with:  - `change_aggr` change, pct_change - `time_aggr` avg, sum, max, min [Learn more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) - `time_window` last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago  Use this to create an outlier monitor using the following query: `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`  **Service Check Query**  Example: `\"check\".over(tags).last(count).by(group).count_by_status()`  - **`check`** name of the check, e.g. `datadog.agent.up` - **`tags`** one or more quoted tags (comma-separated), or \"*\". e.g.: `.over(\"env:prod\", \"role:db\")`; **`over`** cannot be blank. - **`count`** must be at greater than or equal to your max threshold (defined in the `options`). It is limited to 100. For example, if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, `count` should be at least 3. - **`group`** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks. For example, Postgres integration monitors are tagged by `db`, `host`, and `port`, and Network monitors by `host`, `instance`, and `url`. See [Service Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more information.  **Event Alert Query**  Example: `events('sources:nagios status:error,warning priority:normal tags: \"string query\"').rollup(\"count\").last(\"1h\")\"`  - **`event`**, the event query string: - **`string_query`** free text query to match against event title and text. - **`sources`** event sources (comma-separated). - **`status`** event statuses (comma-separated). Valid options: error, warn, and info. - **`priority`** event priorities (comma-separated). Valid options: low, normal, all. - **`host`** event reporting host (comma-separated). - **`tags`** event tags (comma-separated). - **`excluded_tags`** excluded event tags (comma-separated). - **`rollup`** the stats roll-up method. `count` is the only supported method now. - **`last`** the timeframe to roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.  **NOTE** Only available on US1 and EU.  **Event V2 Alert Query**  Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1.  **Process Alert Query**  Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`  - **`search`** free text search string for querying processes. Matching processes match results on the [Live Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) page. - **`tags`** one or more tags (comma-separated) - **`timeframe`** the timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d - **`operator`** <, <=, >, >=, ==, or != - **`#`** an integer or decimal number used to set the threshold  **Logs Alert Query**  Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`index_name`** For multi-index organizations, the log index in which the request is performed. - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **Composite Query**  Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors  * **`name`** [*required*, *default* = **dynamic, based on query**]: The name of the alert. * **`message`** [*required*, *default* = **dynamic, based on query**]: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the same '@username' notation as events. * **`tags`** [*optional*, *default* = **empty list**]: A list of tags to associate with your monitor. When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags. It is only available via the API and isn't visible or editable in the Datadog UI.  **SLO Alert Query**  Example: `error_budget(\"slo_id\").over(\"time_window\") operator #`  - **`slo_id`**: The alphanumeric SLO ID of the SLO you are configuring the alert for. - **`time_window`**: The time window of the SLO target you wish to alert on. Valid options: `7d`, `30d`, `90d`. - **`operator`**: `>=` or `>`  **Audit Alert Query**  Example: `audits(query).rollup(rollup_method[, measure]).last(time_window) operator #`  - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). - **`rollup_method`** The stats roll-up method - supports `count`, `avg` and `cardinality`. - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure or the facet name you want to use. - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48). - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`. - **`#`** an integer or decimal number used to set the threshold.  **NOTE** Only available on US1-FED and in closed beta on EU, US3, and US1.
    * Create a monitor
@@ -4219,11 +4150,11 @@ export class ObservableMonitorsApi {
    */
   public createMonitor(
     body: Monitor,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Monitor> {
     const requestContextPromise = this.requestFactory.createMonitor(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4254,7 +4185,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Delete the specified monitor
    * Delete a monitor
@@ -4264,12 +4194,12 @@ export class ObservableMonitorsApi {
   public deleteMonitor(
     monitorId: number,
     force?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DeletedMonitor> {
     const requestContextPromise = this.requestFactory.deleteMonitor(
       monitorId,
       force,
-      options
+      _options
     );
 
     // build promise chain
@@ -4300,7 +4230,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Get details about the specified monitor from your organization.
    * Get a monitor's details
@@ -4310,12 +4239,12 @@ export class ObservableMonitorsApi {
   public getMonitor(
     monitorId: number,
     groupStates?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Monitor> {
     const requestContextPromise = this.requestFactory.getMonitor(
       monitorId,
       groupStates,
-      options
+      _options
     );
 
     // build promise chain
@@ -4346,7 +4275,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Get details about the specified monitor from your organization.
    * Get all monitor details
@@ -4368,7 +4296,7 @@ export class ObservableMonitorsApi {
     idOffset?: number,
     page?: number,
     pageSize?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<Monitor>> {
     const requestContextPromise = this.requestFactory.listMonitors(
       groupStates,
@@ -4379,7 +4307,7 @@ export class ObservableMonitorsApi {
       idOffset,
       page,
       pageSize,
-      options
+      _options
     );
 
     // build promise chain
@@ -4410,7 +4338,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Search and filter your monitor groups details.
    * Monitors group search
@@ -4424,14 +4351,14 @@ export class ObservableMonitorsApi {
     page?: number,
     perPage?: number,
     sort?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MonitorGroupSearchResponse> {
     const requestContextPromise = this.requestFactory.searchMonitorGroups(
       query,
       page,
       perPage,
       sort,
-      options
+      _options
     );
 
     // build promise chain
@@ -4462,7 +4389,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Search and filter your monitors details.
    * Monitors search
@@ -4476,14 +4402,14 @@ export class ObservableMonitorsApi {
     page?: number,
     perPage?: number,
     sort?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MonitorSearchResponse> {
     const requestContextPromise = this.requestFactory.searchMonitors(
       query,
       page,
       perPage,
       sort,
-      options
+      _options
     );
 
     // build promise chain
@@ -4514,7 +4440,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Edit the specified monitor.
    * Edit a monitor
@@ -4524,12 +4449,12 @@ export class ObservableMonitorsApi {
   public updateMonitor(
     monitorId: number,
     body: MonitorUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Monitor> {
     const requestContextPromise = this.requestFactory.updateMonitor(
       monitorId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4560,7 +4485,6 @@ export class ObservableMonitorsApi {
         })
       );
   }
-
   /**
    * Validate the monitor provided in the request.
    * Validate a monitor
@@ -4568,11 +4492,11 @@ export class ObservableMonitorsApi {
    */
   public validateMonitor(
     body: Monitor,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<any> {
     const requestContextPromise = this.requestFactory.validateMonitor(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4633,11 +4557,11 @@ export class ObservableNotebooksApi {
    */
   public createNotebook(
     body: NotebookCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<NotebookResponse> {
     const requestContextPromise = this.requestFactory.createNotebook(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4668,7 +4592,6 @@ export class ObservableNotebooksApi {
         })
       );
   }
-
   /**
    * Delete a notebook using the specified ID.
    * Delete a notebook
@@ -4676,11 +4599,11 @@ export class ObservableNotebooksApi {
    */
   public deleteNotebook(
     notebookId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteNotebook(
       notebookId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4711,7 +4634,6 @@ export class ObservableNotebooksApi {
         })
       );
   }
-
   /**
    * Get a notebook using the specified notebook ID.
    * Get a notebook
@@ -4719,11 +4641,11 @@ export class ObservableNotebooksApi {
    */
   public getNotebook(
     notebookId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<NotebookResponse> {
     const requestContextPromise = this.requestFactory.getNotebook(
       notebookId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4754,7 +4676,6 @@ export class ObservableNotebooksApi {
         })
       );
   }
-
   /**
    * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
    * Get all notebooks
@@ -4776,7 +4697,7 @@ export class ObservableNotebooksApi {
     sortDir?: string,
     query?: string,
     includeCells?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<NotebooksResponse> {
     const requestContextPromise = this.requestFactory.listNotebooks(
       authorHandle,
@@ -4787,7 +4708,7 @@ export class ObservableNotebooksApi {
       sortDir,
       query,
       includeCells,
-      options
+      _options
     );
 
     // build promise chain
@@ -4818,7 +4739,6 @@ export class ObservableNotebooksApi {
         })
       );
   }
-
   /**
    * Update a notebook using the specified ID.
    * Update a notebook
@@ -4828,12 +4748,12 @@ export class ObservableNotebooksApi {
   public updateNotebook(
     notebookId: number,
     body: NotebookUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<NotebookResponse> {
     const requestContextPromise = this.requestFactory.updateNotebook(
       notebookId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4894,11 +4814,11 @@ export class ObservableOrganizationsApi {
    */
   public createChildOrg(
     body: OrganizationCreateBody,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<OrganizationCreateResponse> {
     const requestContextPromise = this.requestFactory.createChildOrg(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4929,7 +4849,6 @@ export class ObservableOrganizationsApi {
         })
       );
   }
-
   /**
    * Get organization information.
    * Get organization information
@@ -4937,9 +4856,12 @@ export class ObservableOrganizationsApi {
    */
   public getOrg(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<OrganizationResponse> {
-    const requestContextPromise = this.requestFactory.getOrg(publicId, options);
+    const requestContextPromise = this.requestFactory.getOrg(
+      publicId,
+      _options
+    );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4967,15 +4889,14 @@ export class ObservableOrganizationsApi {
         })
       );
   }
-
   /**
    * List your managed organizations.
    * List your managed organizations
    */
   public listOrgs(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<OrganizationListResponse> {
-    const requestContextPromise = this.requestFactory.listOrgs(options);
+    const requestContextPromise = this.requestFactory.listOrgs(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5003,7 +4924,6 @@ export class ObservableOrganizationsApi {
         })
       );
   }
-
   /**
    * Update your organization.
    * Update your organization
@@ -5013,12 +4933,12 @@ export class ObservableOrganizationsApi {
   public updateOrg(
     publicId: string,
     body: Organization,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<OrganizationResponse> {
     const requestContextPromise = this.requestFactory.updateOrg(
       publicId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5047,7 +4967,6 @@ export class ObservableOrganizationsApi {
         })
       );
   }
-
   /**
    * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
    * Upload IdP metadata
@@ -5057,12 +4976,12 @@ export class ObservableOrganizationsApi {
   public uploadIdPForOrg(
     publicId: string,
     idpFile: HttpFile,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IdpResponse> {
     const requestContextPromise = this.requestFactory.uploadIdPForOrg(
       publicId,
       idpFile,
-      options
+      _options
     );
 
     // build promise chain
@@ -5124,11 +5043,11 @@ export class ObservablePagerDutyIntegrationApi {
    */
   public createPagerDutyIntegrationService(
     body: PagerDutyService,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PagerDutyServiceName> {
     const requestContextPromise = this.requestFactory.createPagerDutyIntegrationService(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5159,7 +5078,6 @@ export class ObservablePagerDutyIntegrationApi {
         })
       );
   }
-
   /**
    * Delete a single service object in the Datadog-PagerDuty integration.
    * Delete a single service object
@@ -5167,11 +5085,11 @@ export class ObservablePagerDutyIntegrationApi {
    */
   public deletePagerDutyIntegrationService(
     serviceName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deletePagerDutyIntegrationService(
       serviceName,
-      options
+      _options
     );
 
     // build promise chain
@@ -5202,7 +5120,6 @@ export class ObservablePagerDutyIntegrationApi {
         })
       );
   }
-
   /**
    * Get service name in the Datadog-PagerDuty integration.
    * Get a single service object
@@ -5210,11 +5127,11 @@ export class ObservablePagerDutyIntegrationApi {
    */
   public getPagerDutyIntegrationService(
     serviceName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PagerDutyServiceName> {
     const requestContextPromise = this.requestFactory.getPagerDutyIntegrationService(
       serviceName,
-      options
+      _options
     );
 
     // build promise chain
@@ -5245,7 +5162,6 @@ export class ObservablePagerDutyIntegrationApi {
         })
       );
   }
-
   /**
    * Update a single service object in the Datadog-PagerDuty integration.
    * Update a single service object
@@ -5255,12 +5171,12 @@ export class ObservablePagerDutyIntegrationApi {
   public updatePagerDutyIntegrationService(
     serviceName: string,
     body: PagerDutyServiceKey,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.updatePagerDutyIntegrationService(
       serviceName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5321,11 +5237,11 @@ export class ObservableServiceChecksApi {
    */
   public submitServiceCheck(
     body: Array<ServiceCheck>,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IntakePayloadAccepted> {
     const requestContextPromise = this.requestFactory.submitServiceCheck(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5388,11 +5304,11 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
    */
   public createSLOCorrection(
     body: SLOCorrectionCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOCorrectionResponse> {
     const requestContextPromise = this.requestFactory.createSLOCorrection(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5423,7 +5339,6 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
         })
       );
   }
-
   /**
    * Permanently delete the specified SLO correction object
    * Delete an SLO correction
@@ -5431,11 +5346,11 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
    */
   public deleteSLOCorrection(
     sloCorrectionId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteSLOCorrection(
       sloCorrectionId,
-      options
+      _options
     );
 
     // build promise chain
@@ -5466,7 +5381,6 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
         })
       );
   }
-
   /**
    * Get an SLO correction
    * Get an SLO correction for an SLO
@@ -5474,11 +5388,11 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
    */
   public getSLOCorrection(
     sloCorrectionId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOCorrectionResponse> {
     const requestContextPromise = this.requestFactory.getSLOCorrection(
       sloCorrectionId,
-      options
+      _options
     );
 
     // build promise chain
@@ -5509,16 +5423,15 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
         })
       );
   }
-
   /**
    * Get all Service Level Objective corrections
    * Get all SLO corrections
    */
   public listSLOCorrection(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOCorrectionListResponse> {
     const requestContextPromise = this.requestFactory.listSLOCorrection(
-      options
+      _options
     );
 
     // build promise chain
@@ -5549,7 +5462,6 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
         })
       );
   }
-
   /**
    * Update the specified SLO correction object object
    * Update an SLO correction
@@ -5559,12 +5471,12 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
   public updateSLOCorrection(
     sloCorrectionId: string,
     body: SLOCorrectionUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOCorrectionResponse> {
     const requestContextPromise = this.requestFactory.updateSLOCorrection(
       sloCorrectionId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5626,11 +5538,11 @@ export class ObservableServiceLevelObjectivesApi {
    */
   public checkCanDeleteSLO(
     ids: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<CheckCanDeleteSLOResponse> {
     const requestContextPromise = this.requestFactory.checkCanDeleteSLO(
       ids,
-      options
+      _options
     );
 
     // build promise chain
@@ -5661,7 +5573,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Create a service level objective object.
    * Create an SLO object
@@ -5669,9 +5580,9 @@ export class ObservableServiceLevelObjectivesApi {
    */
   public createSLO(
     body: ServiceLevelObjectiveRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOListResponse> {
-    const requestContextPromise = this.requestFactory.createSLO(body, options);
+    const requestContextPromise = this.requestFactory.createSLO(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5699,7 +5610,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
    * Delete an SLO
@@ -5709,12 +5619,12 @@ export class ObservableServiceLevelObjectivesApi {
   public deleteSLO(
     sloId: string,
     force?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLODeleteResponse> {
     const requestContextPromise = this.requestFactory.deleteSLO(
       sloId,
       force,
-      options
+      _options
     );
 
     // build promise chain
@@ -5743,7 +5653,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
    * Bulk Delete SLO Timeframes
@@ -5751,11 +5660,11 @@ export class ObservableServiceLevelObjectivesApi {
    */
   public deleteSLOTimeframeInBulk(
     body: { [key: string]: Array<SLOTimeframe> },
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOBulkDeleteResponse> {
     const requestContextPromise = this.requestFactory.deleteSLOTimeframeInBulk(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -5786,7 +5695,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Get a service level objective object.
    * Get an SLO's details
@@ -5796,12 +5704,12 @@ export class ObservableServiceLevelObjectivesApi {
   public getSLO(
     sloId: string,
     withConfiguredAlertIds?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOResponse> {
     const requestContextPromise = this.requestFactory.getSLO(
       sloId,
       withConfiguredAlertIds,
-      options
+      _options
     );
 
     // build promise chain
@@ -5830,7 +5738,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
    * Get an SLO's history
@@ -5844,14 +5751,14 @@ export class ObservableServiceLevelObjectivesApi {
     fromTs: number,
     toTs: number,
     target?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOHistoryResponse> {
     const requestContextPromise = this.requestFactory.getSLOHistory(
       sloId,
       fromTs,
       toTs,
       target,
-      options
+      _options
     );
 
     // build promise chain
@@ -5882,7 +5789,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Get a list of service level objective objects for your organization.
    * Get all SLOs
@@ -5900,7 +5806,7 @@ export class ObservableServiceLevelObjectivesApi {
     metricsQuery?: string,
     limit?: number,
     offset?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOListResponse> {
     const requestContextPromise = this.requestFactory.listSLOs(
       ids,
@@ -5909,7 +5815,7 @@ export class ObservableServiceLevelObjectivesApi {
       metricsQuery,
       limit,
       offset,
-      options
+      _options
     );
 
     // build promise chain
@@ -5938,7 +5844,6 @@ export class ObservableServiceLevelObjectivesApi {
         })
       );
   }
-
   /**
    * Update the specified service level objective object.
    * Update an SLO
@@ -5948,12 +5853,12 @@ export class ObservableServiceLevelObjectivesApi {
   public updateSLO(
     sloId: string,
     body: ServiceLevelObjective,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SLOListResponse> {
     const requestContextPromise = this.requestFactory.updateSLO(
       sloId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6014,12 +5919,12 @@ export class ObservableSlackIntegrationApi {
   public createSlackIntegrationChannel(
     accountName: string,
     body: SlackIntegrationChannel,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SlackIntegrationChannel> {
     const requestContextPromise = this.requestFactory.createSlackIntegrationChannel(
       accountName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6050,7 +5955,6 @@ export class ObservableSlackIntegrationApi {
         })
       );
   }
-
   /**
    * Get a channel configured for your Datadog-Slack integration.
    * Get a Slack integration channel
@@ -6060,12 +5964,12 @@ export class ObservableSlackIntegrationApi {
   public getSlackIntegrationChannel(
     accountName: string,
     channelName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SlackIntegrationChannel> {
     const requestContextPromise = this.requestFactory.getSlackIntegrationChannel(
       accountName,
       channelName,
-      options
+      _options
     );
 
     // build promise chain
@@ -6096,7 +6000,6 @@ export class ObservableSlackIntegrationApi {
         })
       );
   }
-
   /**
    * Get a list of all channels configured for your Datadog-Slack integration.
    * Get all channels in a Slack integration
@@ -6104,11 +6007,11 @@ export class ObservableSlackIntegrationApi {
    */
   public getSlackIntegrationChannels(
     accountName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<Array<SlackIntegrationChannel>> {
     const requestContextPromise = this.requestFactory.getSlackIntegrationChannels(
       accountName,
-      options
+      _options
     );
 
     // build promise chain
@@ -6139,7 +6042,6 @@ export class ObservableSlackIntegrationApi {
         })
       );
   }
-
   /**
    * Remove a channel from your Datadog-Slack integration.
    * Remove a Slack integration channel
@@ -6149,12 +6051,12 @@ export class ObservableSlackIntegrationApi {
   public removeSlackIntegrationChannel(
     accountName: string,
     channelName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.removeSlackIntegrationChannel(
       accountName,
       channelName,
-      options
+      _options
     );
 
     // build promise chain
@@ -6185,7 +6087,6 @@ export class ObservableSlackIntegrationApi {
         })
       );
   }
-
   /**
    * Update a channel used in your Datadog-Slack integration.
    * Update a Slack integration channel
@@ -6197,13 +6098,13 @@ export class ObservableSlackIntegrationApi {
     accountName: string,
     channelName: string,
     body: SlackIntegrationChannel,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SlackIntegrationChannel> {
     const requestContextPromise = this.requestFactory.updateSlackIntegrationChannel(
       accountName,
       channelName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6274,7 +6175,7 @@ export class ObservableSnapshotsApi {
     eventQuery?: string,
     graphDef?: string,
     title?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<GraphSnapshot> {
     const requestContextPromise = this.requestFactory.getGraphSnapshot(
       start,
@@ -6283,7 +6184,7 @@ export class ObservableSnapshotsApi {
       eventQuery,
       graphDef,
       title,
-      options
+      _options
     );
 
     // build promise chain
@@ -6344,11 +6245,11 @@ export class ObservableSyntheticsApi {
    */
   public createGlobalVariable(
     body: SyntheticsGlobalVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsGlobalVariable> {
     const requestContextPromise = this.requestFactory.createGlobalVariable(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6379,7 +6280,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Create a new Synthetics private location.
    * Create a private location
@@ -6387,11 +6287,11 @@ export class ObservableSyntheticsApi {
    */
   public createPrivateLocation(
     body: SyntheticsPrivateLocation,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsPrivateLocationCreationResponse> {
     const requestContextPromise = this.requestFactory.createPrivateLocation(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6422,7 +6322,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Create a Synthetic API test.
    * Create an API test
@@ -6430,11 +6329,11 @@ export class ObservableSyntheticsApi {
    */
   public createSyntheticsAPITest(
     body: SyntheticsAPITest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsAPITest> {
     const requestContextPromise = this.requestFactory.createSyntheticsAPITest(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6465,7 +6364,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Create a Synthetic browser test.
    * Create a browser test
@@ -6473,11 +6371,11 @@ export class ObservableSyntheticsApi {
    */
   public createSyntheticsBrowserTest(
     body: SyntheticsBrowserTest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsBrowserTest> {
     const requestContextPromise = this.requestFactory.createSyntheticsBrowserTest(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6508,7 +6406,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Delete a Synthetics global variable.
    * Delete a global variable
@@ -6516,11 +6413,11 @@ export class ObservableSyntheticsApi {
    */
   public deleteGlobalVariable(
     variableId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteGlobalVariable(
       variableId,
-      options
+      _options
     );
 
     // build promise chain
@@ -6551,7 +6448,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Delete a Synthetics private location.
    * Delete a private location
@@ -6559,11 +6455,11 @@ export class ObservableSyntheticsApi {
    */
   public deletePrivateLocation(
     locationId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deletePrivateLocation(
       locationId,
-      options
+      _options
     );
 
     // build promise chain
@@ -6594,7 +6490,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Delete multiple Synthetic tests by ID.
    * Delete tests
@@ -6602,11 +6497,11 @@ export class ObservableSyntheticsApi {
    */
   public deleteTests(
     body: SyntheticsDeleteTestsPayload,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsDeleteTestsResponse> {
     const requestContextPromise = this.requestFactory.deleteTests(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6637,7 +6532,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Edit a Synthetics global variable.
    * Edit a global variable
@@ -6647,12 +6541,12 @@ export class ObservableSyntheticsApi {
   public editGlobalVariable(
     variableId: string,
     body: SyntheticsGlobalVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsGlobalVariable> {
     const requestContextPromise = this.requestFactory.editGlobalVariable(
       variableId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -6683,7 +6577,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the detailed configuration associated with a Synthetic API test.
    * Get an API test
@@ -6691,11 +6584,11 @@ export class ObservableSyntheticsApi {
    */
   public getAPITest(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsAPITest> {
     const requestContextPromise = this.requestFactory.getAPITest(
       publicId,
-      options
+      _options
     );
 
     // build promise chain
@@ -6726,7 +6619,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the last 50 test results summaries for a given Synthetics API test.
    * Get an API test's latest results summaries
@@ -6740,14 +6632,14 @@ export class ObservableSyntheticsApi {
     fromTs?: number,
     toTs?: number,
     probeDc?: Array<string>,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsGetAPITestLatestResultsResponse> {
     const requestContextPromise = this.requestFactory.getAPITestLatestResults(
       publicId,
       fromTs,
       toTs,
       probeDc,
-      options
+      _options
     );
 
     // build promise chain
@@ -6778,7 +6670,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get a specific full result from a given (API) Synthetic test.
    * Get an API test result
@@ -6788,12 +6679,12 @@ export class ObservableSyntheticsApi {
   public getAPITestResult(
     publicId: string,
     resultId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsAPITestResultFull> {
     const requestContextPromise = this.requestFactory.getAPITestResult(
       publicId,
       resultId,
-      options
+      _options
     );
 
     // build promise chain
@@ -6824,7 +6715,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the detailed configuration (including steps) associated with a Synthetic browser test.
    * Get a browser test
@@ -6832,11 +6722,11 @@ export class ObservableSyntheticsApi {
    */
   public getBrowserTest(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsBrowserTest> {
     const requestContextPromise = this.requestFactory.getBrowserTest(
       publicId,
-      options
+      _options
     );
 
     // build promise chain
@@ -6867,7 +6757,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the last 50 test results summaries for a given Synthetics Browser test.
    * Get a browser test's latest results summaries
@@ -6881,14 +6770,14 @@ export class ObservableSyntheticsApi {
     fromTs?: number,
     toTs?: number,
     probeDc?: Array<string>,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsGetBrowserTestLatestResultsResponse> {
     const requestContextPromise = this.requestFactory.getBrowserTestLatestResults(
       publicId,
       fromTs,
       toTs,
       probeDc,
-      options
+      _options
     );
 
     // build promise chain
@@ -6919,7 +6808,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get a specific full result from a given (browser) Synthetic test.
    * Get a browser test result
@@ -6929,12 +6817,12 @@ export class ObservableSyntheticsApi {
   public getBrowserTestResult(
     publicId: string,
     resultId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsBrowserTestResultFull> {
     const requestContextPromise = this.requestFactory.getBrowserTestResult(
       publicId,
       resultId,
-      options
+      _options
     );
 
     // build promise chain
@@ -6965,7 +6853,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the detailed configuration of a global variable.
    * Get a global variable
@@ -6973,11 +6860,11 @@ export class ObservableSyntheticsApi {
    */
   public getGlobalVariable(
     variableId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsGlobalVariable> {
     const requestContextPromise = this.requestFactory.getGlobalVariable(
       variableId,
-      options
+      _options
     );
 
     // build promise chain
@@ -7008,7 +6895,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get a Synthetics private location.
    * Get a private location
@@ -7016,11 +6902,11 @@ export class ObservableSyntheticsApi {
    */
   public getPrivateLocation(
     locationId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsPrivateLocation> {
     const requestContextPromise = this.requestFactory.getPrivateLocation(
       locationId,
-      options
+      _options
     );
 
     // build promise chain
@@ -7051,7 +6937,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the detailed configuration associated with a Synthetics test.
    * Get a test configuration
@@ -7059,11 +6944,11 @@ export class ObservableSyntheticsApi {
    */
   public getTest(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsTestDetails> {
     const requestContextPromise = this.requestFactory.getTest(
       publicId,
-      options
+      _options
     );
 
     // build promise chain
@@ -7092,16 +6977,15 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the list of all Synthetics global variables.
    * Get all global variables
    */
   public listGlobalVariables(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsListGlobalVariablesResponse> {
     const requestContextPromise = this.requestFactory.listGlobalVariables(
-      options
+      _options
     );
 
     // build promise chain
@@ -7132,15 +7016,14 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the list of public and private locations available for Synthetic tests. No arguments required.
    * Get all locations (public and private)
    */
   public listLocations(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsLocations> {
-    const requestContextPromise = this.requestFactory.listLocations(options);
+    const requestContextPromise = this.requestFactory.listLocations(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -7170,15 +7053,14 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Get the list of all Synthetic tests.
    * Get the list of all tests
    */
   public listTests(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsListTestsResponse> {
-    const requestContextPromise = this.requestFactory.listTests(options);
+    const requestContextPromise = this.requestFactory.listTests(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -7206,7 +7088,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Trigger a set of Synthetics tests for continuous integration.
    * Trigger tests from CI/CD pipelines
@@ -7214,11 +7095,11 @@ export class ObservableSyntheticsApi {
    */
   public triggerCITests(
     body: SyntheticsCITestBody,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsTriggerCITestsResponse> {
     const requestContextPromise = this.requestFactory.triggerCITests(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -7249,7 +7130,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Edit the configuration of a Synthetic API test.
    * Edit an API test
@@ -7259,12 +7139,12 @@ export class ObservableSyntheticsApi {
   public updateAPITest(
     publicId: string,
     body: SyntheticsAPITest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsAPITest> {
     const requestContextPromise = this.requestFactory.updateAPITest(
       publicId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -7295,7 +7175,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Edit the configuration of a Synthetic browser test.
    * Edit a browser test
@@ -7305,12 +7184,12 @@ export class ObservableSyntheticsApi {
   public updateBrowserTest(
     publicId: string,
     body: SyntheticsBrowserTest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsBrowserTest> {
     const requestContextPromise = this.requestFactory.updateBrowserTest(
       publicId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -7341,7 +7220,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Edit a Synthetics private location.
    * Edit a private location
@@ -7351,12 +7229,12 @@ export class ObservableSyntheticsApi {
   public updatePrivateLocation(
     locationId: string,
     body: SyntheticsPrivateLocation,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SyntheticsPrivateLocation> {
     const requestContextPromise = this.requestFactory.updatePrivateLocation(
       locationId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -7387,7 +7265,6 @@ export class ObservableSyntheticsApi {
         })
       );
   }
-
   /**
    * Pause or start a Synthetics test by changing the status.
    * Pause or start a test
@@ -7397,12 +7274,12 @@ export class ObservableSyntheticsApi {
   public updateTestPauseStatus(
     publicId: string,
     body: SyntheticsUpdateTestPauseStatusPayload,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<boolean> {
     const requestContextPromise = this.requestFactory.updateTestPauseStatus(
       publicId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -7467,13 +7344,13 @@ export class ObservableTagsApi {
     hostName: string,
     body: HostTags,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostTags> {
     const requestContextPromise = this.requestFactory.createHostTags(
       hostName,
       body,
       source,
-      options
+      _options
     );
 
     // build promise chain
@@ -7504,7 +7381,6 @@ export class ObservableTagsApi {
         })
       );
   }
-
   /**
    * This endpoint allows you to remove all user-assigned tags for a single host.
    * Remove host tags
@@ -7514,12 +7390,12 @@ export class ObservableTagsApi {
   public deleteHostTags(
     hostName: string,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteHostTags(
       hostName,
       source,
-      options
+      _options
     );
 
     // build promise chain
@@ -7550,7 +7426,6 @@ export class ObservableTagsApi {
         })
       );
   }
-
   /**
    * Return the list of tags that apply to a given host.
    * Get host tags
@@ -7560,12 +7435,12 @@ export class ObservableTagsApi {
   public getHostTags(
     hostName: string,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostTags> {
     const requestContextPromise = this.requestFactory.getHostTags(
       hostName,
       source,
-      options
+      _options
     );
 
     // build promise chain
@@ -7596,7 +7471,6 @@ export class ObservableTagsApi {
         })
       );
   }
-
   /**
    * Return a mapping of tags to hosts for your whole infrastructure.
    * Get Tags
@@ -7604,11 +7478,11 @@ export class ObservableTagsApi {
    */
   public listHostTags(
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<TagToHosts> {
     const requestContextPromise = this.requestFactory.listHostTags(
       source,
-      options
+      _options
     );
 
     // build promise chain
@@ -7639,7 +7513,6 @@ export class ObservableTagsApi {
         })
       );
   }
-
   /**
    * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
    * Update host tags
@@ -7651,13 +7524,13 @@ export class ObservableTagsApi {
     hostName: string,
     body: HostTags,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<HostTags> {
     const requestContextPromise = this.requestFactory.updateHostTags(
       hostName,
       body,
       source,
-      options
+      _options
     );
 
     // build promise chain
@@ -7724,14 +7597,14 @@ export class ObservableUsageMeteringApi {
     pageNumber?: number,
     sortDir?: UsageSortDirection,
     sort?: UsageSort,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageCustomReportsResponse> {
     const requestContextPromise = this.requestFactory.getDailyCustomReports(
       pageSize,
       pageNumber,
       sortDir,
       sort,
-      options
+      _options
     );
 
     // build promise chain
@@ -7762,7 +7635,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for incident management.
    * Get hourly usage for incident management
@@ -7772,12 +7644,12 @@ export class ObservableUsageMeteringApi {
   public getIncidentManagement(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageIncidentManagementResponse> {
     const requestContextPromise = this.requestFactory.getIncidentManagement(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -7808,7 +7680,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for ingested spans.
    * Get hourly usage for ingested spans
@@ -7818,12 +7689,12 @@ export class ObservableUsageMeteringApi {
   public getIngestedSpans(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageIngestedSpansResponse> {
     const requestContextPromise = this.requestFactory.getIngestedSpans(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -7854,7 +7725,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get monthly custom reports.
    * Get the list of available monthly custom reports
@@ -7868,14 +7738,14 @@ export class ObservableUsageMeteringApi {
     pageNumber?: number,
     sortDir?: UsageSortDirection,
     sort?: UsageSort,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageCustomReportsResponse> {
     const requestContextPromise = this.requestFactory.getMonthlyCustomReports(
       pageSize,
       pageNumber,
       sortDir,
       sort,
-      options
+      _options
     );
 
     // build promise chain
@@ -7906,7 +7776,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get specified daily custom reports.
    * Get specified daily custom reports
@@ -7914,11 +7783,11 @@ export class ObservableUsageMeteringApi {
    */
   public getSpecifiedDailyCustomReports(
     reportId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSpecifiedCustomReportsResponse> {
     const requestContextPromise = this.requestFactory.getSpecifiedDailyCustomReports(
       reportId,
-      options
+      _options
     );
 
     // build promise chain
@@ -7949,7 +7818,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get specified monthly custom reports.
    * Get specified monthly custom reports
@@ -7957,11 +7825,11 @@ export class ObservableUsageMeteringApi {
    */
   public getSpecifiedMonthlyCustomReports(
     reportId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSpecifiedCustomReportsResponse> {
     const requestContextPromise = this.requestFactory.getSpecifiedMonthlyCustomReports(
       reportId,
-      options
+      _options
     );
 
     // build promise chain
@@ -7992,7 +7860,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for analyzed logs (Security Monitoring).
    * Get hourly usage for analyzed logs
@@ -8002,12 +7869,12 @@ export class ObservableUsageMeteringApi {
   public getUsageAnalyzedLogs(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageAnalyzedLogsResponse> {
     const requestContextPromise = this.requestFactory.getUsageAnalyzedLogs(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8038,7 +7905,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get Usage Attribution.
    * Get Usage Attribution
@@ -8056,7 +7922,7 @@ export class ObservableUsageMeteringApi {
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
     includeDescendants?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageAttributionResponse> {
     const requestContextPromise = this.requestFactory.getUsageAttribution(
       startMonth,
@@ -8065,7 +7931,7 @@ export class ObservableUsageMeteringApi {
       sortDirection,
       sortName,
       includeDescendants,
-      options
+      _options
     );
 
     // build promise chain
@@ -8096,7 +7962,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for audit logs.
    * Get hourly usage for audit logs
@@ -8106,12 +7971,12 @@ export class ObservableUsageMeteringApi {
   public getUsageAuditLogs(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageAuditLogsResponse> {
     const requestContextPromise = this.requestFactory.getUsageAuditLogs(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8142,7 +8007,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get billable usage across your account.
    * Get billable usage across your account
@@ -8150,11 +8014,11 @@ export class ObservableUsageMeteringApi {
    */
   public getUsageBillableSummary(
     month?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageBillableSummaryResponse> {
     const requestContextPromise = this.requestFactory.getUsageBillableSummary(
       month,
-      options
+      _options
     );
 
     // build promise chain
@@ -8185,7 +8049,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for Cloud Workload Security.
    * Get hourly usage for Cloud Workload Security
@@ -8195,12 +8058,12 @@ export class ObservableUsageMeteringApi {
   public getUsageCWS(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageCWSResponse> {
     const requestContextPromise = this.requestFactory.getUsageCWS(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8231,7 +8094,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for Cloud Security Posture Management (CSPM).
    * Get hourly usage for CSPM
@@ -8241,12 +8103,12 @@ export class ObservableUsageMeteringApi {
   public getUsageCloudSecurityPostureManagement(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageCloudSecurityPostureManagementResponse> {
     const requestContextPromise = this.requestFactory.getUsageCloudSecurityPostureManagement(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8277,7 +8139,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for Database Monitoring
    * Get hourly usage for Database Monitoring
@@ -8287,12 +8148,12 @@ export class ObservableUsageMeteringApi {
   public getUsageDBM(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageDBMResponse> {
     const requestContextPromise = this.requestFactory.getUsageDBM(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8323,7 +8184,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
    * Get hourly usage for Fargate
@@ -8333,12 +8193,12 @@ export class ObservableUsageMeteringApi {
   public getUsageFargate(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageFargateResponse> {
     const requestContextPromise = this.requestFactory.getUsageFargate(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8369,7 +8229,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for hosts and containers.
    * Get hourly usage for hosts and containers
@@ -8379,12 +8238,12 @@ export class ObservableUsageMeteringApi {
   public getUsageHosts(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageHostsResponse> {
     const requestContextPromise = this.requestFactory.getUsageHosts(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8415,7 +8274,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for indexed spans.
    * Get hourly usage for indexed spans
@@ -8425,12 +8283,12 @@ export class ObservableUsageMeteringApi {
   public getUsageIndexedSpans(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageIndexedSpansResponse> {
     const requestContextPromise = this.requestFactory.getUsageIndexedSpans(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8461,7 +8319,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for IoT.
    * Get hourly usage for IoT
@@ -8471,12 +8328,12 @@ export class ObservableUsageMeteringApi {
   public getUsageInternetOfThings(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageIoTResponse> {
     const requestContextPromise = this.requestFactory.getUsageInternetOfThings(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8507,7 +8364,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for lambda.
    * Get hourly usage for Lambda
@@ -8517,12 +8373,12 @@ export class ObservableUsageMeteringApi {
   public getUsageLambda(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageLambdaResponse> {
     const requestContextPromise = this.requestFactory.getUsageLambda(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8553,7 +8409,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for logs.
    * Get hourly usage for Logs
@@ -8563,12 +8418,12 @@ export class ObservableUsageMeteringApi {
   public getUsageLogs(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageLogsResponse> {
     const requestContextPromise = this.requestFactory.getUsageLogs(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8599,7 +8454,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for logs by index.
    * Get hourly usage for Logs by Index
@@ -8611,13 +8465,13 @@ export class ObservableUsageMeteringApi {
     startHr: Date,
     endHr?: Date,
     indexName?: Array<string>,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageLogsByIndexResponse> {
     const requestContextPromise = this.requestFactory.getUsageLogsByIndex(
       startHr,
       endHr,
       indexName,
-      options
+      _options
     );
 
     // build promise chain
@@ -8648,7 +8502,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for indexed logs by retention period.
    * Get hourly logs usage by retention
@@ -8658,12 +8511,12 @@ export class ObservableUsageMeteringApi {
   public getUsageLogsByRetention(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageLogsByRetentionResponse> {
     const requestContextPromise = this.requestFactory.getUsageLogsByRetention(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8694,7 +8547,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for network flows.
    * Get hourly usage for Network Flows
@@ -8704,12 +8556,12 @@ export class ObservableUsageMeteringApi {
   public getUsageNetworkFlows(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageNetworkFlowsResponse> {
     const requestContextPromise = this.requestFactory.getUsageNetworkFlows(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8740,7 +8592,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for network hosts.
    * Get hourly usage for Network Hosts
@@ -8750,12 +8601,12 @@ export class ObservableUsageMeteringApi {
   public getUsageNetworkHosts(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageNetworkHostsResponse> {
     const requestContextPromise = this.requestFactory.getUsageNetworkHosts(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8786,7 +8637,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for profiled hosts.
    * Get hourly usage for profiled hosts
@@ -8796,12 +8646,12 @@ export class ObservableUsageMeteringApi {
   public getUsageProfiling(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageProfilingResponse> {
     const requestContextPromise = this.requestFactory.getUsageProfiling(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8832,7 +8682,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
    * Get hourly usage for RUM Sessions
@@ -8844,13 +8693,13 @@ export class ObservableUsageMeteringApi {
     startHr: Date,
     endHr?: Date,
     type?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageRumSessionsResponse> {
     const requestContextPromise = this.requestFactory.getUsageRumSessions(
       startHr,
       endHr,
       type,
-      options
+      _options
     );
 
     // build promise chain
@@ -8881,7 +8730,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for SNMP devices.
    * Get hourly usage for SNMP devices
@@ -8891,12 +8739,12 @@ export class ObservableUsageMeteringApi {
   public getUsageSNMP(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSNMPResponse> {
     const requestContextPromise = this.requestFactory.getUsageSNMP(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -8927,7 +8775,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get usage across your multi-org account. You must have the multi-org feature enabled.
    * Get usage across your multi-org account
@@ -8939,13 +8786,13 @@ export class ObservableUsageMeteringApi {
     startMonth: Date,
     endMonth?: Date,
     includeOrgDetails?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSummaryResponse> {
     const requestContextPromise = this.requestFactory.getUsageSummary(
       startMonth,
       endMonth,
       includeOrgDetails,
-      options
+      _options
     );
 
     // build promise chain
@@ -8976,7 +8823,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
    * Get hourly usage for Synthetics Checks
@@ -8986,12 +8832,12 @@ export class ObservableUsageMeteringApi {
   public getUsageSynthetics(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSyntheticsResponse> {
     const requestContextPromise = this.requestFactory.getUsageSynthetics(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -9022,7 +8868,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
    * Get hourly usage for Synthetics API Checks
@@ -9032,12 +8877,12 @@ export class ObservableUsageMeteringApi {
   public getUsageSyntheticsAPI(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSyntheticsAPIResponse> {
     const requestContextPromise = this.requestFactory.getUsageSyntheticsAPI(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -9068,7 +8913,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for synthetics browser checks.
    * Get hourly usage for Synthetics Browser Checks
@@ -9078,12 +8922,12 @@ export class ObservableUsageMeteringApi {
   public getUsageSyntheticsBrowser(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageSyntheticsBrowserResponse> {
     const requestContextPromise = this.requestFactory.getUsageSyntheticsBrowser(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -9114,7 +8958,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
    * Get hourly usage for custom metrics
@@ -9124,12 +8967,12 @@ export class ObservableUsageMeteringApi {
   public getUsageTimeseries(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageTimeseriesResponse> {
     const requestContextPromise = this.requestFactory.getUsageTimeseries(
       startHr,
       endHr,
-      options
+      _options
     );
 
     // build promise chain
@@ -9160,7 +9003,6 @@ export class ObservableUsageMeteringApi {
         })
       );
   }
-
   /**
    * Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
    * Get all custom metrics by hourly average
@@ -9176,7 +9018,7 @@ export class ObservableUsageMeteringApi {
     names?: Array<string>,
     limit?: number,
     nextRecordId?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsageTopAvgMetricsResponse> {
     const requestContextPromise = this.requestFactory.getUsageTopAvgMetrics(
       month,
@@ -9184,7 +9026,7 @@ export class ObservableUsageMeteringApi {
       names,
       limit,
       nextRecordId,
-      options
+      _options
     );
 
     // build promise chain
@@ -9245,9 +9087,12 @@ export class ObservableUsersApi {
    */
   public createUser(
     body: User,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
-    const requestContextPromise = this.requestFactory.createUser(body, options);
+    const requestContextPromise = this.requestFactory.createUser(
+      body,
+      _options
+    );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -9277,7 +9122,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
    * Disable a user
@@ -9285,11 +9129,11 @@ export class ObservableUsersApi {
    */
   public disableUser(
     userHandle: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserDisableResponse> {
     const requestContextPromise = this.requestFactory.disableUser(
       userHandle,
-      options
+      _options
     );
 
     // build promise chain
@@ -9320,7 +9164,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Get a user's details.
    * Get user details
@@ -9328,11 +9171,11 @@ export class ObservableUsersApi {
    */
   public getUser(
     userHandle: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
     const requestContextPromise = this.requestFactory.getUser(
       userHandle,
-      options
+      _options
     );
 
     // build promise chain
@@ -9361,13 +9204,12 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * List all users for your organization.
    * List all users
    */
-  public listUsers(options?: Configuration): Observable<UserListResponse> {
-    const requestContextPromise = this.requestFactory.listUsers(options);
+  public listUsers(_options?: Configuration): Observable<UserListResponse> {
+    const requestContextPromise = this.requestFactory.listUsers(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -9395,7 +9237,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
    * Update a user
@@ -9405,12 +9246,12 @@ export class ObservableUsersApi {
   public updateUser(
     userHandle: string,
     body: User,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
     const requestContextPromise = this.requestFactory.updateUser(
       userHandle,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -9471,11 +9312,11 @@ export class ObservableWebhooksIntegrationApi {
    */
   public createWebhooksIntegration(
     body: WebhooksIntegration,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<WebhooksIntegration> {
     const requestContextPromise = this.requestFactory.createWebhooksIntegration(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -9506,7 +9347,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
    * Create a custom variable
@@ -9514,11 +9354,11 @@ export class ObservableWebhooksIntegrationApi {
    */
   public createWebhooksIntegrationCustomVariable(
     body: WebhooksIntegrationCustomVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<WebhooksIntegrationCustomVariableResponse> {
     const requestContextPromise = this.requestFactory.createWebhooksIntegrationCustomVariable(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -9551,7 +9391,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Deletes the endpoint with the name `<WEBHOOK NAME>`.
    * Delete a webhook
@@ -9559,11 +9398,11 @@ export class ObservableWebhooksIntegrationApi {
    */
   public deleteWebhooksIntegration(
     webhookName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteWebhooksIntegration(
       webhookName,
-      options
+      _options
     );
 
     // build promise chain
@@ -9594,7 +9433,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
    * Delete a custom variable
@@ -9602,11 +9440,11 @@ export class ObservableWebhooksIntegrationApi {
    */
   public deleteWebhooksIntegrationCustomVariable(
     customVariableName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteWebhooksIntegrationCustomVariable(
       customVariableName,
-      options
+      _options
     );
 
     // build promise chain
@@ -9639,7 +9477,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
    * Get a webhook integration
@@ -9647,11 +9484,11 @@ export class ObservableWebhooksIntegrationApi {
    */
   public getWebhooksIntegration(
     webhookName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<WebhooksIntegration> {
     const requestContextPromise = this.requestFactory.getWebhooksIntegration(
       webhookName,
-      options
+      _options
     );
 
     // build promise chain
@@ -9682,7 +9519,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.  If the custom variable is secret, the value does not return in the response payload.
    * Get a custom variable
@@ -9690,11 +9526,11 @@ export class ObservableWebhooksIntegrationApi {
    */
   public getWebhooksIntegrationCustomVariable(
     customVariableName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<WebhooksIntegrationCustomVariableResponse> {
     const requestContextPromise = this.requestFactory.getWebhooksIntegrationCustomVariable(
       customVariableName,
-      options
+      _options
     );
 
     // build promise chain
@@ -9725,7 +9561,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Updates the endpoint with the name `<WEBHOOK_NAME>`.
    * Update a webhook
@@ -9735,12 +9570,12 @@ export class ObservableWebhooksIntegrationApi {
   public updateWebhooksIntegration(
     webhookName: string,
     body: WebhooksIntegrationUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<WebhooksIntegration> {
     const requestContextPromise = this.requestFactory.updateWebhooksIntegration(
       webhookName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -9771,7 +9606,6 @@ export class ObservableWebhooksIntegrationApi {
         })
       );
   }
-
   /**
    * Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
    * Update a custom variable
@@ -9781,12 +9615,12 @@ export class ObservableWebhooksIntegrationApi {
   public updateWebhooksIntegrationCustomVariable(
     customVariableName: string,
     body: WebhooksIntegrationCustomVariableUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<WebhooksIntegrationCustomVariableResponse> {
     const requestContextPromise = this.requestFactory.updateWebhooksIntegrationCustomVariable(
       customVariableName,
       body,
-      options
+      _options
     );
 
     // build promise chain

@@ -185,9 +185,9 @@ export class PromiseAWSIntegrationApi {
    */
   public createAWSAccount(
     body: AWSAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AWSAccountCreateResponse> {
-    const result = this.api.createAWSAccount(body, options);
+    const result = this.api.createAWSAccount(body, _options);
     return result.toPromise();
   }
 
@@ -198,9 +198,9 @@ export class PromiseAWSIntegrationApi {
    */
   public createAWSTagFilter(
     body: AWSTagFilterCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.createAWSTagFilter(body, options);
+    const result = this.api.createAWSTagFilter(body, _options);
     return result.toPromise();
   }
 
@@ -211,9 +211,9 @@ export class PromiseAWSIntegrationApi {
    */
   public createNewAWSExternalID(
     body: AWSAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AWSAccountCreateResponse> {
-    const result = this.api.createNewAWSExternalID(body, options);
+    const result = this.api.createNewAWSExternalID(body, _options);
     return result.toPromise();
   }
 
@@ -224,9 +224,9 @@ export class PromiseAWSIntegrationApi {
    */
   public deleteAWSAccount(
     body: AWSAccountDeleteRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.deleteAWSAccount(body, options);
+    const result = this.api.deleteAWSAccount(body, _options);
     return result.toPromise();
   }
 
@@ -237,9 +237,9 @@ export class PromiseAWSIntegrationApi {
    */
   public deleteAWSTagFilter(
     body: AWSTagFilterDeleteRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.deleteAWSTagFilter(body, options);
+    const result = this.api.deleteAWSTagFilter(body, _options);
     return result.toPromise();
   }
 
@@ -254,13 +254,13 @@ export class PromiseAWSIntegrationApi {
     accountId?: string,
     roleName?: string,
     accessKeyId?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AWSAccountListResponse> {
     const result = this.api.listAWSAccounts(
       accountId,
       roleName,
       accessKeyId,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -272,9 +272,9 @@ export class PromiseAWSIntegrationApi {
    */
   public listAWSTagFilters(
     accountId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AWSTagFilterListResponse> {
-    const result = this.api.listAWSTagFilters(accountId, options);
+    const result = this.api.listAWSTagFilters(accountId, _options);
     return result.toPromise();
   }
 
@@ -283,9 +283,9 @@ export class PromiseAWSIntegrationApi {
    * List namespace rules
    */
   public listAvailableAWSNamespaces(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<string>> {
-    const result = this.api.listAvailableAWSNamespaces(options);
+    const result = this.api.listAvailableAWSNamespaces(_options);
     return result.toPromise();
   }
 
@@ -302,14 +302,14 @@ export class PromiseAWSIntegrationApi {
     accountId?: string,
     roleName?: string,
     accessKeyId?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
     const result = this.api.updateAWSAccount(
       body,
       accountId,
       roleName,
       accessKeyId,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -343,9 +343,9 @@ export class PromiseAWSLogsIntegrationApi {
    */
   public checkAWSLogsLambdaAsync(
     body: AWSAccountAndLambdaRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AWSLogsAsyncResponse> {
-    const result = this.api.checkAWSLogsLambdaAsync(body, options);
+    const result = this.api.checkAWSLogsLambdaAsync(body, _options);
     return result.toPromise();
   }
 
@@ -356,9 +356,9 @@ export class PromiseAWSLogsIntegrationApi {
    */
   public checkAWSLogsServicesAsync(
     body: AWSLogsServicesRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AWSLogsAsyncResponse> {
-    const result = this.api.checkAWSLogsServicesAsync(body, options);
+    const result = this.api.checkAWSLogsServicesAsync(body, _options);
     return result.toPromise();
   }
 
@@ -369,9 +369,9 @@ export class PromiseAWSLogsIntegrationApi {
    */
   public createAWSLambdaARN(
     body: AWSAccountAndLambdaRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.createAWSLambdaARN(body, options);
+    const result = this.api.createAWSLambdaARN(body, _options);
     return result.toPromise();
   }
 
@@ -382,9 +382,9 @@ export class PromiseAWSLogsIntegrationApi {
    */
   public deleteAWSLambdaARN(
     body: AWSAccountAndLambdaRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.deleteAWSLambdaARN(body, options);
+    const result = this.api.deleteAWSLambdaARN(body, _options);
     return result.toPromise();
   }
 
@@ -395,9 +395,9 @@ export class PromiseAWSLogsIntegrationApi {
    */
   public enableAWSLogServices(
     body: AWSLogsServicesRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.enableAWSLogServices(body, options);
+    const result = this.api.enableAWSLogServices(body, _options);
     return result.toPromise();
   }
 
@@ -406,9 +406,9 @@ export class PromiseAWSLogsIntegrationApi {
    * List all AWS Logs integrations
    */
   public listAWSLogsIntegrations(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<AWSLogsListResponse>> {
-    const result = this.api.listAWSLogsIntegrations(options);
+    const result = this.api.listAWSLogsIntegrations(_options);
     return result.toPromise();
   }
 
@@ -417,9 +417,9 @@ export class PromiseAWSLogsIntegrationApi {
    * Get list of AWS log ready services
    */
   public listAWSLogsServices(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<AWSLogsListServicesResponse>> {
-    const result = this.api.listAWSLogsServices(options);
+    const result = this.api.listAWSLogsServices(_options);
     return result.toPromise();
   }
 }
@@ -450,9 +450,9 @@ export class PromiseAuthenticationApi {
    * Validate API key
    */
   public validate(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<AuthenticationValidationResponse> {
-    const result = this.api.validate(options);
+    const result = this.api.validate(_options);
     return result.toPromise();
   }
 }
@@ -485,9 +485,9 @@ export class PromiseAzureIntegrationApi {
    */
   public createAzureIntegration(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.createAzureIntegration(body, options);
+    const result = this.api.createAzureIntegration(body, _options);
     return result.toPromise();
   }
 
@@ -498,9 +498,9 @@ export class PromiseAzureIntegrationApi {
    */
   public deleteAzureIntegration(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.deleteAzureIntegration(body, options);
+    const result = this.api.deleteAzureIntegration(body, _options);
     return result.toPromise();
   }
 
@@ -509,9 +509,9 @@ export class PromiseAzureIntegrationApi {
    * List all Azure integrations
    */
   public listAzureIntegration(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<AzureAccount>> {
-    const result = this.api.listAzureIntegration(options);
+    const result = this.api.listAzureIntegration(_options);
     return result.toPromise();
   }
 
@@ -522,9 +522,9 @@ export class PromiseAzureIntegrationApi {
    */
   public updateAzureHostFilters(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.updateAzureHostFilters(body, options);
+    const result = this.api.updateAzureHostFilters(body, _options);
     return result.toPromise();
   }
 
@@ -535,9 +535,9 @@ export class PromiseAzureIntegrationApi {
    */
   public updateAzureIntegration(
     body: AzureAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.updateAzureIntegration(body, options);
+    const result = this.api.updateAzureIntegration(body, _options);
     return result.toPromise();
   }
 }
@@ -570,9 +570,9 @@ export class PromiseDashboardListsApi {
    */
   public createDashboardList(
     body: DashboardList,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardList> {
-    const result = this.api.createDashboardList(body, options);
+    const result = this.api.createDashboardList(body, _options);
     return result.toPromise();
   }
 
@@ -583,9 +583,9 @@ export class PromiseDashboardListsApi {
    */
   public deleteDashboardList(
     listId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardListDeleteResponse> {
-    const result = this.api.deleteDashboardList(listId, options);
+    const result = this.api.deleteDashboardList(listId, _options);
     return result.toPromise();
   }
 
@@ -596,9 +596,9 @@ export class PromiseDashboardListsApi {
    */
   public getDashboardList(
     listId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardList> {
-    const result = this.api.getDashboardList(listId, options);
+    const result = this.api.getDashboardList(listId, _options);
     return result.toPromise();
   }
 
@@ -607,9 +607,9 @@ export class PromiseDashboardListsApi {
    * Get all dashboard lists
    */
   public listDashboardLists(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardListListResponse> {
-    const result = this.api.listDashboardLists(options);
+    const result = this.api.listDashboardLists(_options);
     return result.toPromise();
   }
 
@@ -622,9 +622,9 @@ export class PromiseDashboardListsApi {
   public updateDashboardList(
     listId: number,
     body: DashboardList,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardList> {
-    const result = this.api.updateDashboardList(listId, body, options);
+    const result = this.api.updateDashboardList(listId, body, _options);
     return result.toPromise();
   }
 }
@@ -657,9 +657,9 @@ export class PromiseDashboardsApi {
    */
   public createDashboard(
     body: Dashboard,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Dashboard> {
-    const result = this.api.createDashboard(body, options);
+    const result = this.api.createDashboard(body, _options);
     return result.toPromise();
   }
 
@@ -670,9 +670,9 @@ export class PromiseDashboardsApi {
    */
   public deleteDashboard(
     dashboardId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardDeleteResponse> {
-    const result = this.api.deleteDashboard(dashboardId, options);
+    const result = this.api.deleteDashboard(dashboardId, _options);
     return result.toPromise();
   }
 
@@ -683,9 +683,9 @@ export class PromiseDashboardsApi {
    */
   public deleteDashboards(
     body: DashboardBulkDeleteRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteDashboards(body, options);
+    const result = this.api.deleteDashboards(body, _options);
     return result.toPromise();
   }
 
@@ -696,9 +696,9 @@ export class PromiseDashboardsApi {
    */
   public getDashboard(
     dashboardId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Dashboard> {
-    const result = this.api.getDashboard(dashboardId, options);
+    const result = this.api.getDashboard(dashboardId, _options);
     return result.toPromise();
   }
 
@@ -709,9 +709,9 @@ export class PromiseDashboardsApi {
    */
   public listDashboards(
     filterShared?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardSummary> {
-    const result = this.api.listDashboards(filterShared, options);
+    const result = this.api.listDashboards(filterShared, _options);
     return result.toPromise();
   }
 
@@ -722,9 +722,9 @@ export class PromiseDashboardsApi {
    */
   public restoreDashboards(
     body: DashboardRestoreRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.restoreDashboards(body, options);
+    const result = this.api.restoreDashboards(body, _options);
     return result.toPromise();
   }
 
@@ -737,9 +737,9 @@ export class PromiseDashboardsApi {
   public updateDashboard(
     dashboardId: string,
     body: Dashboard,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Dashboard> {
-    const result = this.api.updateDashboard(dashboardId, body, options);
+    const result = this.api.updateDashboard(dashboardId, body, _options);
     return result.toPromise();
   }
 }
@@ -772,9 +772,9 @@ export class PromiseDowntimesApi {
    */
   public cancelDowntime(
     downtimeId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.cancelDowntime(downtimeId, options);
+    const result = this.api.cancelDowntime(downtimeId, _options);
     return result.toPromise();
   }
 
@@ -785,9 +785,9 @@ export class PromiseDowntimesApi {
    */
   public cancelDowntimesByScope(
     body: CancelDowntimesByScopeRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<CanceledDowntimesIds> {
-    const result = this.api.cancelDowntimesByScope(body, options);
+    const result = this.api.cancelDowntimesByScope(body, _options);
     return result.toPromise();
   }
 
@@ -798,9 +798,9 @@ export class PromiseDowntimesApi {
    */
   public createDowntime(
     body: Downtime,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Downtime> {
-    const result = this.api.createDowntime(body, options);
+    const result = this.api.createDowntime(body, _options);
     return result.toPromise();
   }
 
@@ -811,9 +811,9 @@ export class PromiseDowntimesApi {
    */
   public getDowntime(
     downtimeId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Downtime> {
-    const result = this.api.getDowntime(downtimeId, options);
+    const result = this.api.getDowntime(downtimeId, _options);
     return result.toPromise();
   }
 
@@ -824,9 +824,9 @@ export class PromiseDowntimesApi {
    */
   public listDowntimes(
     currentOnly?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<Downtime>> {
-    const result = this.api.listDowntimes(currentOnly, options);
+    const result = this.api.listDowntimes(currentOnly, _options);
     return result.toPromise();
   }
 
@@ -837,9 +837,9 @@ export class PromiseDowntimesApi {
    */
   public listMonitorDowntimes(
     monitorId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<Downtime>> {
-    const result = this.api.listMonitorDowntimes(monitorId, options);
+    const result = this.api.listMonitorDowntimes(monitorId, _options);
     return result.toPromise();
   }
 
@@ -852,9 +852,9 @@ export class PromiseDowntimesApi {
   public updateDowntime(
     downtimeId: number,
     body: Downtime,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Downtime> {
-    const result = this.api.updateDowntime(downtimeId, body, options);
+    const result = this.api.updateDowntime(downtimeId, body, _options);
     return result.toPromise();
   }
 }
@@ -887,9 +887,9 @@ export class PromiseEventsApi {
    */
   public createEvent(
     body: EventCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<EventCreateResponse> {
-    const result = this.api.createEvent(body, options);
+    const result = this.api.createEvent(body, _options);
     return result.toPromise();
   }
 
@@ -900,9 +900,9 @@ export class PromiseEventsApi {
    */
   public getEvent(
     eventId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<EventResponse> {
-    const result = this.api.getEvent(eventId, options);
+    const result = this.api.getEvent(eventId, _options);
     return result.toPromise();
   }
 
@@ -927,7 +927,7 @@ export class PromiseEventsApi {
     unaggregated?: boolean,
     excludeAggregate?: boolean,
     page?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<EventListResponse> {
     const result = this.api.listEvents(
       start,
@@ -938,7 +938,7 @@ export class PromiseEventsApi {
       unaggregated,
       excludeAggregate,
       page,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -972,9 +972,9 @@ export class PromiseGCPIntegrationApi {
    */
   public createGCPIntegration(
     body: GCPAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.createGCPIntegration(body, options);
+    const result = this.api.createGCPIntegration(body, _options);
     return result.toPromise();
   }
 
@@ -985,9 +985,9 @@ export class PromiseGCPIntegrationApi {
    */
   public deleteGCPIntegration(
     body: GCPAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.deleteGCPIntegration(body, options);
+    const result = this.api.deleteGCPIntegration(body, _options);
     return result.toPromise();
   }
 
@@ -996,9 +996,9 @@ export class PromiseGCPIntegrationApi {
    * List all GCP integrations
    */
   public listGCPIntegration(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<GCPAccount>> {
-    const result = this.api.listGCPIntegration(options);
+    const result = this.api.listGCPIntegration(_options);
     return result.toPromise();
   }
 
@@ -1009,9 +1009,9 @@ export class PromiseGCPIntegrationApi {
    */
   public updateGCPIntegration(
     body: GCPAccount,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.updateGCPIntegration(body, options);
+    const result = this.api.updateGCPIntegration(body, _options);
     return result.toPromise();
   }
 }
@@ -1044,9 +1044,9 @@ export class PromiseHostsApi {
    */
   public getHostTotals(
     from?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostTotals> {
-    const result = this.api.getHostTotals(from, options);
+    const result = this.api.getHostTotals(from, _options);
     return result.toPromise();
   }
 
@@ -1071,7 +1071,7 @@ export class PromiseHostsApi {
     from?: number,
     includeMutedHostsData?: boolean,
     includeHostsMetadata?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostListResponse> {
     const result = this.api.listHosts(
       filter,
@@ -1082,7 +1082,7 @@ export class PromiseHostsApi {
       from,
       includeMutedHostsData,
       includeHostsMetadata,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1096,9 +1096,9 @@ export class PromiseHostsApi {
   public muteHost(
     hostName: string,
     body: HostMuteSettings,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostMuteResponse> {
-    const result = this.api.muteHost(hostName, body, options);
+    const result = this.api.muteHost(hostName, body, _options);
     return result.toPromise();
   }
 
@@ -1109,9 +1109,9 @@ export class PromiseHostsApi {
    */
   public unmuteHost(
     hostName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostMuteResponse> {
-    const result = this.api.unmuteHost(hostName, options);
+    const result = this.api.unmuteHost(hostName, _options);
     return result.toPromise();
   }
 }
@@ -1141,8 +1141,8 @@ export class PromiseIPRangesApi {
    * Get information about Datadog IP ranges.
    * List IP Ranges
    */
-  public getIPRanges(options?: Configuration): Promise<IPRanges> {
-    const result = this.api.getIPRanges(options);
+  public getIPRanges(_options?: Configuration): Promise<IPRanges> {
+    const result = this.api.getIPRanges(_options);
     return result.toPromise();
   }
 }
@@ -1175,9 +1175,9 @@ export class PromiseKeyManagementApi {
    */
   public createAPIKey(
     body: ApiKey,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApiKeyResponse> {
-    const result = this.api.createAPIKey(body, options);
+    const result = this.api.createAPIKey(body, _options);
     return result.toPromise();
   }
 
@@ -1188,9 +1188,9 @@ export class PromiseKeyManagementApi {
    */
   public createApplicationKey(
     body: ApplicationKey,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.createApplicationKey(body, options);
+    const result = this.api.createApplicationKey(body, _options);
     return result.toPromise();
   }
 
@@ -1201,9 +1201,9 @@ export class PromiseKeyManagementApi {
    */
   public deleteAPIKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApiKeyResponse> {
-    const result = this.api.deleteAPIKey(key, options);
+    const result = this.api.deleteAPIKey(key, _options);
     return result.toPromise();
   }
 
@@ -1214,9 +1214,9 @@ export class PromiseKeyManagementApi {
    */
   public deleteApplicationKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.deleteApplicationKey(key, options);
+    const result = this.api.deleteApplicationKey(key, _options);
     return result.toPromise();
   }
 
@@ -1227,9 +1227,9 @@ export class PromiseKeyManagementApi {
    */
   public getAPIKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApiKeyResponse> {
-    const result = this.api.getAPIKey(key, options);
+    const result = this.api.getAPIKey(key, _options);
     return result.toPromise();
   }
 
@@ -1240,9 +1240,9 @@ export class PromiseKeyManagementApi {
    */
   public getApplicationKey(
     key: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.getApplicationKey(key, options);
+    const result = this.api.getApplicationKey(key, _options);
     return result.toPromise();
   }
 
@@ -1250,8 +1250,8 @@ export class PromiseKeyManagementApi {
    * Get all API keys available for your account.
    * Get all API keys
    */
-  public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
-    const result = this.api.listAPIKeys(options);
+  public listAPIKeys(_options?: Configuration): Promise<ApiKeyListResponse> {
+    const result = this.api.listAPIKeys(_options);
     return result.toPromise();
   }
 
@@ -1260,9 +1260,9 @@ export class PromiseKeyManagementApi {
    * Get all application keys
    */
   public listApplicationKeys(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyListResponse> {
-    const result = this.api.listApplicationKeys(options);
+    const result = this.api.listApplicationKeys(_options);
     return result.toPromise();
   }
 
@@ -1275,9 +1275,9 @@ export class PromiseKeyManagementApi {
   public updateAPIKey(
     key: string,
     body: ApiKey,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApiKeyResponse> {
-    const result = this.api.updateAPIKey(key, body, options);
+    const result = this.api.updateAPIKey(key, body, _options);
     return result.toPromise();
   }
 
@@ -1290,9 +1290,9 @@ export class PromiseKeyManagementApi {
   public updateApplicationKey(
     key: string,
     body: ApplicationKey,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.updateApplicationKey(key, body, options);
+    const result = this.api.updateApplicationKey(key, body, _options);
     return result.toPromise();
   }
 }
@@ -1325,9 +1325,9 @@ export class PromiseLogsApi {
    */
   public listLogs(
     body: LogsListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsListResponse> {
-    const result = this.api.listLogs(body, options);
+    const result = this.api.listLogs(body, _options);
     return result.toPromise();
   }
 
@@ -1342,9 +1342,9 @@ export class PromiseLogsApi {
     body: Array<HTTPLogItem>,
     contentEncoding?: ContentEncoding,
     ddtags?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<any> {
-    const result = this.api.submitLog(body, contentEncoding, ddtags, options);
+    const result = this.api.submitLog(body, contentEncoding, ddtags, _options);
     return result.toPromise();
   }
 }
@@ -1377,9 +1377,9 @@ export class PromiseLogsIndexesApi {
    */
   public createLogsIndex(
     body: LogsIndex,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsIndex> {
-    const result = this.api.createLogsIndex(body, options);
+    const result = this.api.createLogsIndex(body, _options);
     return result.toPromise();
   }
 
@@ -1390,9 +1390,9 @@ export class PromiseLogsIndexesApi {
    */
   public getLogsIndex(
     name: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsIndex> {
-    const result = this.api.getLogsIndex(name, options);
+    const result = this.api.getLogsIndex(name, _options);
     return result.toPromise();
   }
 
@@ -1400,8 +1400,10 @@ export class PromiseLogsIndexesApi {
    * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * Get indexes order
    */
-  public getLogsIndexOrder(options?: Configuration): Promise<LogsIndexesOrder> {
-    const result = this.api.getLogsIndexOrder(options);
+  public getLogsIndexOrder(
+    _options?: Configuration
+  ): Promise<LogsIndexesOrder> {
+    const result = this.api.getLogsIndexOrder(_options);
     return result.toPromise();
   }
 
@@ -1410,9 +1412,9 @@ export class PromiseLogsIndexesApi {
    * Get all indexes
    */
   public listLogIndexes(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsIndexListResponse> {
-    const result = this.api.listLogIndexes(options);
+    const result = this.api.listLogIndexes(_options);
     return result.toPromise();
   }
 
@@ -1425,9 +1427,9 @@ export class PromiseLogsIndexesApi {
   public updateLogsIndex(
     name: string,
     body: LogsIndexUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsIndex> {
-    const result = this.api.updateLogsIndex(name, body, options);
+    const result = this.api.updateLogsIndex(name, body, _options);
     return result.toPromise();
   }
 
@@ -1438,9 +1440,9 @@ export class PromiseLogsIndexesApi {
    */
   public updateLogsIndexOrder(
     body: LogsIndexesOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsIndexesOrder> {
-    const result = this.api.updateLogsIndexOrder(body, options);
+    const result = this.api.updateLogsIndexOrder(body, _options);
     return result.toPromise();
   }
 }
@@ -1473,9 +1475,9 @@ export class PromiseLogsPipelinesApi {
    */
   public createLogsPipeline(
     body: LogsPipeline,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsPipeline> {
-    const result = this.api.createLogsPipeline(body, options);
+    const result = this.api.createLogsPipeline(body, _options);
     return result.toPromise();
   }
 
@@ -1486,9 +1488,9 @@ export class PromiseLogsPipelinesApi {
    */
   public deleteLogsPipeline(
     pipelineId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteLogsPipeline(pipelineId, options);
+    const result = this.api.deleteLogsPipeline(pipelineId, _options);
     return result.toPromise();
   }
 
@@ -1499,9 +1501,9 @@ export class PromiseLogsPipelinesApi {
    */
   public getLogsPipeline(
     pipelineId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsPipeline> {
-    const result = this.api.getLogsPipeline(pipelineId, options);
+    const result = this.api.getLogsPipeline(pipelineId, _options);
     return result.toPromise();
   }
 
@@ -1510,9 +1512,9 @@ export class PromiseLogsPipelinesApi {
    * Get pipeline order
    */
   public getLogsPipelineOrder(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsPipelinesOrder> {
-    const result = this.api.getLogsPipelineOrder(options);
+    const result = this.api.getLogsPipelineOrder(_options);
     return result.toPromise();
   }
 
@@ -1521,9 +1523,9 @@ export class PromiseLogsPipelinesApi {
    * Get all pipelines
    */
   public listLogsPipelines(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<LogsPipeline>> {
-    const result = this.api.listLogsPipelines(options);
+    const result = this.api.listLogsPipelines(_options);
     return result.toPromise();
   }
 
@@ -1536,9 +1538,9 @@ export class PromiseLogsPipelinesApi {
   public updateLogsPipeline(
     pipelineId: string,
     body: LogsPipeline,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsPipeline> {
-    const result = this.api.updateLogsPipeline(pipelineId, body, options);
+    const result = this.api.updateLogsPipeline(pipelineId, body, _options);
     return result.toPromise();
   }
 
@@ -1549,9 +1551,9 @@ export class PromiseLogsPipelinesApi {
    */
   public updateLogsPipelineOrder(
     body: LogsPipelinesOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsPipelinesOrder> {
-    const result = this.api.updateLogsPipelineOrder(body, options);
+    const result = this.api.updateLogsPipelineOrder(body, _options);
     return result.toPromise();
   }
 }
@@ -1584,9 +1586,9 @@ export class PromiseMetricsApi {
    */
   public getMetricMetadata(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricMetadata> {
-    const result = this.api.getMetricMetadata(metricName, options);
+    const result = this.api.getMetricMetadata(metricName, _options);
     return result.toPromise();
   }
 
@@ -1601,9 +1603,9 @@ export class PromiseMetricsApi {
     from: number,
     host?: string,
     tagFilter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricsListResponse> {
-    const result = this.api.listActiveMetrics(from, host, tagFilter, options);
+    const result = this.api.listActiveMetrics(from, host, tagFilter, _options);
     return result.toPromise();
   }
 
@@ -1614,9 +1616,9 @@ export class PromiseMetricsApi {
    */
   public listMetrics(
     q: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricSearchResponse> {
-    const result = this.api.listMetrics(q, options);
+    const result = this.api.listMetrics(q, _options);
     return result.toPromise();
   }
 
@@ -1631,9 +1633,9 @@ export class PromiseMetricsApi {
     from: number,
     to: number,
     query: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricsQueryResponse> {
-    const result = this.api.queryMetrics(from, to, query, options);
+    const result = this.api.queryMetrics(from, to, query, _options);
     return result.toPromise();
   }
 
@@ -1644,9 +1646,9 @@ export class PromiseMetricsApi {
    */
   public submitMetrics(
     body: MetricsPayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IntakePayloadAccepted> {
-    const result = this.api.submitMetrics(body, options);
+    const result = this.api.submitMetrics(body, _options);
     return result.toPromise();
   }
 
@@ -1659,9 +1661,9 @@ export class PromiseMetricsApi {
   public updateMetricMetadata(
     metricName: string,
     body: MetricMetadata,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricMetadata> {
-    const result = this.api.updateMetricMetadata(metricName, body, options);
+    const result = this.api.updateMetricMetadata(metricName, body, _options);
     return result.toPromise();
   }
 }
@@ -1694,9 +1696,9 @@ export class PromiseMonitorsApi {
    */
   public checkCanDeleteMonitor(
     monitorIds: Array<number>,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<CheckCanDeleteMonitorResponse> {
-    const result = this.api.checkCanDeleteMonitor(monitorIds, options);
+    const result = this.api.checkCanDeleteMonitor(monitorIds, _options);
     return result.toPromise();
   }
 
@@ -1707,9 +1709,9 @@ export class PromiseMonitorsApi {
    */
   public createMonitor(
     body: Monitor,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Monitor> {
-    const result = this.api.createMonitor(body, options);
+    const result = this.api.createMonitor(body, _options);
     return result.toPromise();
   }
 
@@ -1722,9 +1724,9 @@ export class PromiseMonitorsApi {
   public deleteMonitor(
     monitorId: number,
     force?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DeletedMonitor> {
-    const result = this.api.deleteMonitor(monitorId, force, options);
+    const result = this.api.deleteMonitor(monitorId, force, _options);
     return result.toPromise();
   }
 
@@ -1737,9 +1739,9 @@ export class PromiseMonitorsApi {
   public getMonitor(
     monitorId: number,
     groupStates?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Monitor> {
-    const result = this.api.getMonitor(monitorId, groupStates, options);
+    const result = this.api.getMonitor(monitorId, groupStates, _options);
     return result.toPromise();
   }
 
@@ -1764,7 +1766,7 @@ export class PromiseMonitorsApi {
     idOffset?: number,
     page?: number,
     pageSize?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<Monitor>> {
     const result = this.api.listMonitors(
       groupStates,
@@ -1775,7 +1777,7 @@ export class PromiseMonitorsApi {
       idOffset,
       page,
       pageSize,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1793,14 +1795,14 @@ export class PromiseMonitorsApi {
     page?: number,
     perPage?: number,
     sort?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MonitorGroupSearchResponse> {
     const result = this.api.searchMonitorGroups(
       query,
       page,
       perPage,
       sort,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1818,9 +1820,15 @@ export class PromiseMonitorsApi {
     page?: number,
     perPage?: number,
     sort?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MonitorSearchResponse> {
-    const result = this.api.searchMonitors(query, page, perPage, sort, options);
+    const result = this.api.searchMonitors(
+      query,
+      page,
+      perPage,
+      sort,
+      _options
+    );
     return result.toPromise();
   }
 
@@ -1833,9 +1841,9 @@ export class PromiseMonitorsApi {
   public updateMonitor(
     monitorId: number,
     body: MonitorUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Monitor> {
-    const result = this.api.updateMonitor(monitorId, body, options);
+    const result = this.api.updateMonitor(monitorId, body, _options);
     return result.toPromise();
   }
 
@@ -1844,8 +1852,11 @@ export class PromiseMonitorsApi {
    * Validate a monitor
    * @param body Monitor request object
    */
-  public validateMonitor(body: Monitor, options?: Configuration): Promise<any> {
-    const result = this.api.validateMonitor(body, options);
+  public validateMonitor(
+    body: Monitor,
+    _options?: Configuration
+  ): Promise<any> {
+    const result = this.api.validateMonitor(body, _options);
     return result.toPromise();
   }
 }
@@ -1878,9 +1889,9 @@ export class PromiseNotebooksApi {
    */
   public createNotebook(
     body: NotebookCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<NotebookResponse> {
-    const result = this.api.createNotebook(body, options);
+    const result = this.api.createNotebook(body, _options);
     return result.toPromise();
   }
 
@@ -1891,9 +1902,9 @@ export class PromiseNotebooksApi {
    */
   public deleteNotebook(
     notebookId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteNotebook(notebookId, options);
+    const result = this.api.deleteNotebook(notebookId, _options);
     return result.toPromise();
   }
 
@@ -1904,9 +1915,9 @@ export class PromiseNotebooksApi {
    */
   public getNotebook(
     notebookId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<NotebookResponse> {
-    const result = this.api.getNotebook(notebookId, options);
+    const result = this.api.getNotebook(notebookId, _options);
     return result.toPromise();
   }
 
@@ -1931,7 +1942,7 @@ export class PromiseNotebooksApi {
     sortDir?: string,
     query?: string,
     includeCells?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<NotebooksResponse> {
     const result = this.api.listNotebooks(
       authorHandle,
@@ -1942,7 +1953,7 @@ export class PromiseNotebooksApi {
       sortDir,
       query,
       includeCells,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1956,9 +1967,9 @@ export class PromiseNotebooksApi {
   public updateNotebook(
     notebookId: number,
     body: NotebookUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<NotebookResponse> {
-    const result = this.api.updateNotebook(notebookId, body, options);
+    const result = this.api.updateNotebook(notebookId, body, _options);
     return result.toPromise();
   }
 }
@@ -1991,9 +2002,9 @@ export class PromiseOrganizationsApi {
    */
   public createChildOrg(
     body: OrganizationCreateBody,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<OrganizationCreateResponse> {
-    const result = this.api.createChildOrg(body, options);
+    const result = this.api.createChildOrg(body, _options);
     return result.toPromise();
   }
 
@@ -2004,9 +2015,9 @@ export class PromiseOrganizationsApi {
    */
   public getOrg(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<OrganizationResponse> {
-    const result = this.api.getOrg(publicId, options);
+    const result = this.api.getOrg(publicId, _options);
     return result.toPromise();
   }
 
@@ -2014,8 +2025,8 @@ export class PromiseOrganizationsApi {
    * List your managed organizations.
    * List your managed organizations
    */
-  public listOrgs(options?: Configuration): Promise<OrganizationListResponse> {
-    const result = this.api.listOrgs(options);
+  public listOrgs(_options?: Configuration): Promise<OrganizationListResponse> {
+    const result = this.api.listOrgs(_options);
     return result.toPromise();
   }
 
@@ -2028,9 +2039,9 @@ export class PromiseOrganizationsApi {
   public updateOrg(
     publicId: string,
     body: Organization,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<OrganizationResponse> {
-    const result = this.api.updateOrg(publicId, body, options);
+    const result = this.api.updateOrg(publicId, body, _options);
     return result.toPromise();
   }
 
@@ -2043,9 +2054,9 @@ export class PromiseOrganizationsApi {
   public uploadIdPForOrg(
     publicId: string,
     idpFile: HttpFile,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IdpResponse> {
-    const result = this.api.uploadIdPForOrg(publicId, idpFile, options);
+    const result = this.api.uploadIdPForOrg(publicId, idpFile, _options);
     return result.toPromise();
   }
 }
@@ -2078,9 +2089,9 @@ export class PromisePagerDutyIntegrationApi {
    */
   public createPagerDutyIntegrationService(
     body: PagerDutyService,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PagerDutyServiceName> {
-    const result = this.api.createPagerDutyIntegrationService(body, options);
+    const result = this.api.createPagerDutyIntegrationService(body, _options);
     return result.toPromise();
   }
 
@@ -2091,11 +2102,11 @@ export class PromisePagerDutyIntegrationApi {
    */
   public deletePagerDutyIntegrationService(
     serviceName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
     const result = this.api.deletePagerDutyIntegrationService(
       serviceName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2107,11 +2118,11 @@ export class PromisePagerDutyIntegrationApi {
    */
   public getPagerDutyIntegrationService(
     serviceName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PagerDutyServiceName> {
     const result = this.api.getPagerDutyIntegrationService(
       serviceName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2125,12 +2136,12 @@ export class PromisePagerDutyIntegrationApi {
   public updatePagerDutyIntegrationService(
     serviceName: string,
     body: PagerDutyServiceKey,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
     const result = this.api.updatePagerDutyIntegrationService(
       serviceName,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2164,9 +2175,9 @@ export class PromiseServiceChecksApi {
    */
   public submitServiceCheck(
     body: Array<ServiceCheck>,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IntakePayloadAccepted> {
-    const result = this.api.submitServiceCheck(body, options);
+    const result = this.api.submitServiceCheck(body, _options);
     return result.toPromise();
   }
 }
@@ -2199,9 +2210,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
    */
   public createSLOCorrection(
     body: SLOCorrectionCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOCorrectionResponse> {
-    const result = this.api.createSLOCorrection(body, options);
+    const result = this.api.createSLOCorrection(body, _options);
     return result.toPromise();
   }
 
@@ -2212,9 +2223,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
    */
   public deleteSLOCorrection(
     sloCorrectionId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteSLOCorrection(sloCorrectionId, options);
+    const result = this.api.deleteSLOCorrection(sloCorrectionId, _options);
     return result.toPromise();
   }
 
@@ -2225,9 +2236,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
    */
   public getSLOCorrection(
     sloCorrectionId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOCorrectionResponse> {
-    const result = this.api.getSLOCorrection(sloCorrectionId, options);
+    const result = this.api.getSLOCorrection(sloCorrectionId, _options);
     return result.toPromise();
   }
 
@@ -2236,9 +2247,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
    * Get all SLO corrections
    */
   public listSLOCorrection(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOCorrectionListResponse> {
-    const result = this.api.listSLOCorrection(options);
+    const result = this.api.listSLOCorrection(_options);
     return result.toPromise();
   }
 
@@ -2251,9 +2262,13 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
   public updateSLOCorrection(
     sloCorrectionId: string,
     body: SLOCorrectionUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOCorrectionResponse> {
-    const result = this.api.updateSLOCorrection(sloCorrectionId, body, options);
+    const result = this.api.updateSLOCorrection(
+      sloCorrectionId,
+      body,
+      _options
+    );
     return result.toPromise();
   }
 }
@@ -2286,9 +2301,9 @@ export class PromiseServiceLevelObjectivesApi {
    */
   public checkCanDeleteSLO(
     ids: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<CheckCanDeleteSLOResponse> {
-    const result = this.api.checkCanDeleteSLO(ids, options);
+    const result = this.api.checkCanDeleteSLO(ids, _options);
     return result.toPromise();
   }
 
@@ -2299,9 +2314,9 @@ export class PromiseServiceLevelObjectivesApi {
    */
   public createSLO(
     body: ServiceLevelObjectiveRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOListResponse> {
-    const result = this.api.createSLO(body, options);
+    const result = this.api.createSLO(body, _options);
     return result.toPromise();
   }
 
@@ -2314,9 +2329,9 @@ export class PromiseServiceLevelObjectivesApi {
   public deleteSLO(
     sloId: string,
     force?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLODeleteResponse> {
-    const result = this.api.deleteSLO(sloId, force, options);
+    const result = this.api.deleteSLO(sloId, force, _options);
     return result.toPromise();
   }
 
@@ -2327,9 +2342,9 @@ export class PromiseServiceLevelObjectivesApi {
    */
   public deleteSLOTimeframeInBulk(
     body: { [key: string]: Array<SLOTimeframe> },
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOBulkDeleteResponse> {
-    const result = this.api.deleteSLOTimeframeInBulk(body, options);
+    const result = this.api.deleteSLOTimeframeInBulk(body, _options);
     return result.toPromise();
   }
 
@@ -2342,9 +2357,9 @@ export class PromiseServiceLevelObjectivesApi {
   public getSLO(
     sloId: string,
     withConfiguredAlertIds?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOResponse> {
-    const result = this.api.getSLO(sloId, withConfiguredAlertIds, options);
+    const result = this.api.getSLO(sloId, withConfiguredAlertIds, _options);
     return result.toPromise();
   }
 
@@ -2361,9 +2376,15 @@ export class PromiseServiceLevelObjectivesApi {
     fromTs: number,
     toTs: number,
     target?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOHistoryResponse> {
-    const result = this.api.getSLOHistory(sloId, fromTs, toTs, target, options);
+    const result = this.api.getSLOHistory(
+      sloId,
+      fromTs,
+      toTs,
+      target,
+      _options
+    );
     return result.toPromise();
   }
 
@@ -2384,7 +2405,7 @@ export class PromiseServiceLevelObjectivesApi {
     metricsQuery?: string,
     limit?: number,
     offset?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOListResponse> {
     const result = this.api.listSLOs(
       ids,
@@ -2393,7 +2414,7 @@ export class PromiseServiceLevelObjectivesApi {
       metricsQuery,
       limit,
       offset,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2407,9 +2428,9 @@ export class PromiseServiceLevelObjectivesApi {
   public updateSLO(
     sloId: string,
     body: ServiceLevelObjective,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SLOListResponse> {
-    const result = this.api.updateSLO(sloId, body, options);
+    const result = this.api.updateSLO(sloId, body, _options);
     return result.toPromise();
   }
 }
@@ -2444,12 +2465,12 @@ export class PromiseSlackIntegrationApi {
   public createSlackIntegrationChannel(
     accountName: string,
     body: SlackIntegrationChannel,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SlackIntegrationChannel> {
     const result = this.api.createSlackIntegrationChannel(
       accountName,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2463,12 +2484,12 @@ export class PromiseSlackIntegrationApi {
   public getSlackIntegrationChannel(
     accountName: string,
     channelName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SlackIntegrationChannel> {
     const result = this.api.getSlackIntegrationChannel(
       accountName,
       channelName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2480,9 +2501,9 @@ export class PromiseSlackIntegrationApi {
    */
   public getSlackIntegrationChannels(
     accountName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<Array<SlackIntegrationChannel>> {
-    const result = this.api.getSlackIntegrationChannels(accountName, options);
+    const result = this.api.getSlackIntegrationChannels(accountName, _options);
     return result.toPromise();
   }
 
@@ -2495,12 +2516,12 @@ export class PromiseSlackIntegrationApi {
   public removeSlackIntegrationChannel(
     accountName: string,
     channelName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
     const result = this.api.removeSlackIntegrationChannel(
       accountName,
       channelName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2516,13 +2537,13 @@ export class PromiseSlackIntegrationApi {
     accountName: string,
     channelName: string,
     body: SlackIntegrationChannel,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SlackIntegrationChannel> {
     const result = this.api.updateSlackIntegrationChannel(
       accountName,
       channelName,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2566,7 +2587,7 @@ export class PromiseSnapshotsApi {
     eventQuery?: string,
     graphDef?: string,
     title?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<GraphSnapshot> {
     const result = this.api.getGraphSnapshot(
       start,
@@ -2575,7 +2596,7 @@ export class PromiseSnapshotsApi {
       eventQuery,
       graphDef,
       title,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2609,9 +2630,9 @@ export class PromiseSyntheticsApi {
    */
   public createGlobalVariable(
     body: SyntheticsGlobalVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsGlobalVariable> {
-    const result = this.api.createGlobalVariable(body, options);
+    const result = this.api.createGlobalVariable(body, _options);
     return result.toPromise();
   }
 
@@ -2622,9 +2643,9 @@ export class PromiseSyntheticsApi {
    */
   public createPrivateLocation(
     body: SyntheticsPrivateLocation,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsPrivateLocationCreationResponse> {
-    const result = this.api.createPrivateLocation(body, options);
+    const result = this.api.createPrivateLocation(body, _options);
     return result.toPromise();
   }
 
@@ -2635,9 +2656,9 @@ export class PromiseSyntheticsApi {
    */
   public createSyntheticsAPITest(
     body: SyntheticsAPITest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsAPITest> {
-    const result = this.api.createSyntheticsAPITest(body, options);
+    const result = this.api.createSyntheticsAPITest(body, _options);
     return result.toPromise();
   }
 
@@ -2648,9 +2669,9 @@ export class PromiseSyntheticsApi {
    */
   public createSyntheticsBrowserTest(
     body: SyntheticsBrowserTest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTest> {
-    const result = this.api.createSyntheticsBrowserTest(body, options);
+    const result = this.api.createSyntheticsBrowserTest(body, _options);
     return result.toPromise();
   }
 
@@ -2661,9 +2682,9 @@ export class PromiseSyntheticsApi {
    */
   public deleteGlobalVariable(
     variableId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteGlobalVariable(variableId, options);
+    const result = this.api.deleteGlobalVariable(variableId, _options);
     return result.toPromise();
   }
 
@@ -2674,9 +2695,9 @@ export class PromiseSyntheticsApi {
    */
   public deletePrivateLocation(
     locationId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deletePrivateLocation(locationId, options);
+    const result = this.api.deletePrivateLocation(locationId, _options);
     return result.toPromise();
   }
 
@@ -2687,9 +2708,9 @@ export class PromiseSyntheticsApi {
    */
   public deleteTests(
     body: SyntheticsDeleteTestsPayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsDeleteTestsResponse> {
-    const result = this.api.deleteTests(body, options);
+    const result = this.api.deleteTests(body, _options);
     return result.toPromise();
   }
 
@@ -2702,9 +2723,9 @@ export class PromiseSyntheticsApi {
   public editGlobalVariable(
     variableId: string,
     body: SyntheticsGlobalVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsGlobalVariable> {
-    const result = this.api.editGlobalVariable(variableId, body, options);
+    const result = this.api.editGlobalVariable(variableId, body, _options);
     return result.toPromise();
   }
 
@@ -2715,9 +2736,9 @@ export class PromiseSyntheticsApi {
    */
   public getAPITest(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsAPITest> {
-    const result = this.api.getAPITest(publicId, options);
+    const result = this.api.getAPITest(publicId, _options);
     return result.toPromise();
   }
 
@@ -2734,14 +2755,14 @@ export class PromiseSyntheticsApi {
     fromTs?: number,
     toTs?: number,
     probeDc?: Array<string>,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsGetAPITestLatestResultsResponse> {
     const result = this.api.getAPITestLatestResults(
       publicId,
       fromTs,
       toTs,
       probeDc,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2755,9 +2776,9 @@ export class PromiseSyntheticsApi {
   public getAPITestResult(
     publicId: string,
     resultId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsAPITestResultFull> {
-    const result = this.api.getAPITestResult(publicId, resultId, options);
+    const result = this.api.getAPITestResult(publicId, resultId, _options);
     return result.toPromise();
   }
 
@@ -2768,9 +2789,9 @@ export class PromiseSyntheticsApi {
    */
   public getBrowserTest(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTest> {
-    const result = this.api.getBrowserTest(publicId, options);
+    const result = this.api.getBrowserTest(publicId, _options);
     return result.toPromise();
   }
 
@@ -2787,14 +2808,14 @@ export class PromiseSyntheticsApi {
     fromTs?: number,
     toTs?: number,
     probeDc?: Array<string>,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsGetBrowserTestLatestResultsResponse> {
     const result = this.api.getBrowserTestLatestResults(
       publicId,
       fromTs,
       toTs,
       probeDc,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -2808,9 +2829,9 @@ export class PromiseSyntheticsApi {
   public getBrowserTestResult(
     publicId: string,
     resultId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTestResultFull> {
-    const result = this.api.getBrowserTestResult(publicId, resultId, options);
+    const result = this.api.getBrowserTestResult(publicId, resultId, _options);
     return result.toPromise();
   }
 
@@ -2821,9 +2842,9 @@ export class PromiseSyntheticsApi {
    */
   public getGlobalVariable(
     variableId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsGlobalVariable> {
-    const result = this.api.getGlobalVariable(variableId, options);
+    const result = this.api.getGlobalVariable(variableId, _options);
     return result.toPromise();
   }
 
@@ -2834,9 +2855,9 @@ export class PromiseSyntheticsApi {
    */
   public getPrivateLocation(
     locationId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsPrivateLocation> {
-    const result = this.api.getPrivateLocation(locationId, options);
+    const result = this.api.getPrivateLocation(locationId, _options);
     return result.toPromise();
   }
 
@@ -2847,9 +2868,9 @@ export class PromiseSyntheticsApi {
    */
   public getTest(
     publicId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsTestDetails> {
-    const result = this.api.getTest(publicId, options);
+    const result = this.api.getTest(publicId, _options);
     return result.toPromise();
   }
 
@@ -2858,9 +2879,9 @@ export class PromiseSyntheticsApi {
    * Get all global variables
    */
   public listGlobalVariables(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsListGlobalVariablesResponse> {
-    const result = this.api.listGlobalVariables(options);
+    const result = this.api.listGlobalVariables(_options);
     return result.toPromise();
   }
 
@@ -2868,8 +2889,8 @@ export class PromiseSyntheticsApi {
    * Get the list of public and private locations available for Synthetic tests. No arguments required.
    * Get all locations (public and private)
    */
-  public listLocations(options?: Configuration): Promise<SyntheticsLocations> {
-    const result = this.api.listLocations(options);
+  public listLocations(_options?: Configuration): Promise<SyntheticsLocations> {
+    const result = this.api.listLocations(_options);
     return result.toPromise();
   }
 
@@ -2878,9 +2899,9 @@ export class PromiseSyntheticsApi {
    * Get the list of all tests
    */
   public listTests(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsListTestsResponse> {
-    const result = this.api.listTests(options);
+    const result = this.api.listTests(_options);
     return result.toPromise();
   }
 
@@ -2891,9 +2912,9 @@ export class PromiseSyntheticsApi {
    */
   public triggerCITests(
     body: SyntheticsCITestBody,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsTriggerCITestsResponse> {
-    const result = this.api.triggerCITests(body, options);
+    const result = this.api.triggerCITests(body, _options);
     return result.toPromise();
   }
 
@@ -2906,9 +2927,9 @@ export class PromiseSyntheticsApi {
   public updateAPITest(
     publicId: string,
     body: SyntheticsAPITest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsAPITest> {
-    const result = this.api.updateAPITest(publicId, body, options);
+    const result = this.api.updateAPITest(publicId, body, _options);
     return result.toPromise();
   }
 
@@ -2921,9 +2942,9 @@ export class PromiseSyntheticsApi {
   public updateBrowserTest(
     publicId: string,
     body: SyntheticsBrowserTest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTest> {
-    const result = this.api.updateBrowserTest(publicId, body, options);
+    const result = this.api.updateBrowserTest(publicId, body, _options);
     return result.toPromise();
   }
 
@@ -2936,9 +2957,9 @@ export class PromiseSyntheticsApi {
   public updatePrivateLocation(
     locationId: string,
     body: SyntheticsPrivateLocation,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SyntheticsPrivateLocation> {
-    const result = this.api.updatePrivateLocation(locationId, body, options);
+    const result = this.api.updatePrivateLocation(locationId, body, _options);
     return result.toPromise();
   }
 
@@ -2951,9 +2972,9 @@ export class PromiseSyntheticsApi {
   public updateTestPauseStatus(
     publicId: string,
     body: SyntheticsUpdateTestPauseStatusPayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<boolean> {
-    const result = this.api.updateTestPauseStatus(publicId, body, options);
+    const result = this.api.updateTestPauseStatus(publicId, body, _options);
     return result.toPromise();
   }
 }
@@ -2990,9 +3011,9 @@ export class PromiseTagsApi {
     hostName: string,
     body: HostTags,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostTags> {
-    const result = this.api.createHostTags(hostName, body, source, options);
+    const result = this.api.createHostTags(hostName, body, source, _options);
     return result.toPromise();
   }
 
@@ -3005,9 +3026,9 @@ export class PromiseTagsApi {
   public deleteHostTags(
     hostName: string,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteHostTags(hostName, source, options);
+    const result = this.api.deleteHostTags(hostName, source, _options);
     return result.toPromise();
   }
 
@@ -3020,9 +3041,9 @@ export class PromiseTagsApi {
   public getHostTags(
     hostName: string,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostTags> {
-    const result = this.api.getHostTags(hostName, source, options);
+    const result = this.api.getHostTags(hostName, source, _options);
     return result.toPromise();
   }
 
@@ -3033,9 +3054,9 @@ export class PromiseTagsApi {
    */
   public listHostTags(
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<TagToHosts> {
-    const result = this.api.listHostTags(source, options);
+    const result = this.api.listHostTags(source, _options);
     return result.toPromise();
   }
 
@@ -3050,9 +3071,9 @@ export class PromiseTagsApi {
     hostName: string,
     body: HostTags,
     source?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<HostTags> {
-    const result = this.api.updateHostTags(hostName, body, source, options);
+    const result = this.api.updateHostTags(hostName, body, source, _options);
     return result.toPromise();
   }
 }
@@ -3091,14 +3112,14 @@ export class PromiseUsageMeteringApi {
     pageNumber?: number,
     sortDir?: UsageSortDirection,
     sort?: UsageSort,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageCustomReportsResponse> {
     const result = this.api.getDailyCustomReports(
       pageSize,
       pageNumber,
       sortDir,
       sort,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3112,9 +3133,9 @@ export class PromiseUsageMeteringApi {
   public getIncidentManagement(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageIncidentManagementResponse> {
-    const result = this.api.getIncidentManagement(startHr, endHr, options);
+    const result = this.api.getIncidentManagement(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3127,9 +3148,9 @@ export class PromiseUsageMeteringApi {
   public getIngestedSpans(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageIngestedSpansResponse> {
-    const result = this.api.getIngestedSpans(startHr, endHr, options);
+    const result = this.api.getIngestedSpans(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3146,14 +3167,14 @@ export class PromiseUsageMeteringApi {
     pageNumber?: number,
     sortDir?: UsageSortDirection,
     sort?: UsageSort,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageCustomReportsResponse> {
     const result = this.api.getMonthlyCustomReports(
       pageSize,
       pageNumber,
       sortDir,
       sort,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3165,9 +3186,9 @@ export class PromiseUsageMeteringApi {
    */
   public getSpecifiedDailyCustomReports(
     reportId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSpecifiedCustomReportsResponse> {
-    const result = this.api.getSpecifiedDailyCustomReports(reportId, options);
+    const result = this.api.getSpecifiedDailyCustomReports(reportId, _options);
     return result.toPromise();
   }
 
@@ -3178,9 +3199,12 @@ export class PromiseUsageMeteringApi {
    */
   public getSpecifiedMonthlyCustomReports(
     reportId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSpecifiedCustomReportsResponse> {
-    const result = this.api.getSpecifiedMonthlyCustomReports(reportId, options);
+    const result = this.api.getSpecifiedMonthlyCustomReports(
+      reportId,
+      _options
+    );
     return result.toPromise();
   }
 
@@ -3193,9 +3217,9 @@ export class PromiseUsageMeteringApi {
   public getUsageAnalyzedLogs(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageAnalyzedLogsResponse> {
-    const result = this.api.getUsageAnalyzedLogs(startHr, endHr, options);
+    const result = this.api.getUsageAnalyzedLogs(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3216,7 +3240,7 @@ export class PromiseUsageMeteringApi {
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
     includeDescendants?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageAttributionResponse> {
     const result = this.api.getUsageAttribution(
       startMonth,
@@ -3225,7 +3249,7 @@ export class PromiseUsageMeteringApi {
       sortDirection,
       sortName,
       includeDescendants,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3239,9 +3263,9 @@ export class PromiseUsageMeteringApi {
   public getUsageAuditLogs(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageAuditLogsResponse> {
-    const result = this.api.getUsageAuditLogs(startHr, endHr, options);
+    const result = this.api.getUsageAuditLogs(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3252,9 +3276,9 @@ export class PromiseUsageMeteringApi {
    */
   public getUsageBillableSummary(
     month?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageBillableSummaryResponse> {
-    const result = this.api.getUsageBillableSummary(month, options);
+    const result = this.api.getUsageBillableSummary(month, _options);
     return result.toPromise();
   }
 
@@ -3267,9 +3291,9 @@ export class PromiseUsageMeteringApi {
   public getUsageCWS(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageCWSResponse> {
-    const result = this.api.getUsageCWS(startHr, endHr, options);
+    const result = this.api.getUsageCWS(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3282,12 +3306,12 @@ export class PromiseUsageMeteringApi {
   public getUsageCloudSecurityPostureManagement(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageCloudSecurityPostureManagementResponse> {
     const result = this.api.getUsageCloudSecurityPostureManagement(
       startHr,
       endHr,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3301,9 +3325,9 @@ export class PromiseUsageMeteringApi {
   public getUsageDBM(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageDBMResponse> {
-    const result = this.api.getUsageDBM(startHr, endHr, options);
+    const result = this.api.getUsageDBM(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3316,9 +3340,9 @@ export class PromiseUsageMeteringApi {
   public getUsageFargate(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageFargateResponse> {
-    const result = this.api.getUsageFargate(startHr, endHr, options);
+    const result = this.api.getUsageFargate(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3331,9 +3355,9 @@ export class PromiseUsageMeteringApi {
   public getUsageHosts(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageHostsResponse> {
-    const result = this.api.getUsageHosts(startHr, endHr, options);
+    const result = this.api.getUsageHosts(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3346,9 +3370,9 @@ export class PromiseUsageMeteringApi {
   public getUsageIndexedSpans(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageIndexedSpansResponse> {
-    const result = this.api.getUsageIndexedSpans(startHr, endHr, options);
+    const result = this.api.getUsageIndexedSpans(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3361,9 +3385,9 @@ export class PromiseUsageMeteringApi {
   public getUsageInternetOfThings(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageIoTResponse> {
-    const result = this.api.getUsageInternetOfThings(startHr, endHr, options);
+    const result = this.api.getUsageInternetOfThings(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3376,9 +3400,9 @@ export class PromiseUsageMeteringApi {
   public getUsageLambda(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageLambdaResponse> {
-    const result = this.api.getUsageLambda(startHr, endHr, options);
+    const result = this.api.getUsageLambda(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3391,9 +3415,9 @@ export class PromiseUsageMeteringApi {
   public getUsageLogs(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageLogsResponse> {
-    const result = this.api.getUsageLogs(startHr, endHr, options);
+    const result = this.api.getUsageLogs(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3408,13 +3432,13 @@ export class PromiseUsageMeteringApi {
     startHr: Date,
     endHr?: Date,
     indexName?: Array<string>,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageLogsByIndexResponse> {
     const result = this.api.getUsageLogsByIndex(
       startHr,
       endHr,
       indexName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3428,9 +3452,9 @@ export class PromiseUsageMeteringApi {
   public getUsageLogsByRetention(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageLogsByRetentionResponse> {
-    const result = this.api.getUsageLogsByRetention(startHr, endHr, options);
+    const result = this.api.getUsageLogsByRetention(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3443,9 +3467,9 @@ export class PromiseUsageMeteringApi {
   public getUsageNetworkFlows(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageNetworkFlowsResponse> {
-    const result = this.api.getUsageNetworkFlows(startHr, endHr, options);
+    const result = this.api.getUsageNetworkFlows(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3458,9 +3482,9 @@ export class PromiseUsageMeteringApi {
   public getUsageNetworkHosts(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageNetworkHostsResponse> {
-    const result = this.api.getUsageNetworkHosts(startHr, endHr, options);
+    const result = this.api.getUsageNetworkHosts(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3473,9 +3497,9 @@ export class PromiseUsageMeteringApi {
   public getUsageProfiling(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageProfilingResponse> {
-    const result = this.api.getUsageProfiling(startHr, endHr, options);
+    const result = this.api.getUsageProfiling(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3490,9 +3514,9 @@ export class PromiseUsageMeteringApi {
     startHr: Date,
     endHr?: Date,
     type?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageRumSessionsResponse> {
-    const result = this.api.getUsageRumSessions(startHr, endHr, type, options);
+    const result = this.api.getUsageRumSessions(startHr, endHr, type, _options);
     return result.toPromise();
   }
 
@@ -3505,9 +3529,9 @@ export class PromiseUsageMeteringApi {
   public getUsageSNMP(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSNMPResponse> {
-    const result = this.api.getUsageSNMP(startHr, endHr, options);
+    const result = this.api.getUsageSNMP(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3522,13 +3546,13 @@ export class PromiseUsageMeteringApi {
     startMonth: Date,
     endMonth?: Date,
     includeOrgDetails?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSummaryResponse> {
     const result = this.api.getUsageSummary(
       startMonth,
       endMonth,
       includeOrgDetails,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3542,9 +3566,9 @@ export class PromiseUsageMeteringApi {
   public getUsageSynthetics(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSyntheticsResponse> {
-    const result = this.api.getUsageSynthetics(startHr, endHr, options);
+    const result = this.api.getUsageSynthetics(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3557,9 +3581,9 @@ export class PromiseUsageMeteringApi {
   public getUsageSyntheticsAPI(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSyntheticsAPIResponse> {
-    const result = this.api.getUsageSyntheticsAPI(startHr, endHr, options);
+    const result = this.api.getUsageSyntheticsAPI(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3572,9 +3596,9 @@ export class PromiseUsageMeteringApi {
   public getUsageSyntheticsBrowser(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageSyntheticsBrowserResponse> {
-    const result = this.api.getUsageSyntheticsBrowser(startHr, endHr, options);
+    const result = this.api.getUsageSyntheticsBrowser(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3587,9 +3611,9 @@ export class PromiseUsageMeteringApi {
   public getUsageTimeseries(
     startHr: Date,
     endHr?: Date,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageTimeseriesResponse> {
-    const result = this.api.getUsageTimeseries(startHr, endHr, options);
+    const result = this.api.getUsageTimeseries(startHr, endHr, _options);
     return result.toPromise();
   }
 
@@ -3608,7 +3632,7 @@ export class PromiseUsageMeteringApi {
     names?: Array<string>,
     limit?: number,
     nextRecordId?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsageTopAvgMetricsResponse> {
     const result = this.api.getUsageTopAvgMetrics(
       month,
@@ -3616,7 +3640,7 @@ export class PromiseUsageMeteringApi {
       names,
       limit,
       nextRecordId,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3650,9 +3674,9 @@ export class PromiseUsersApi {
    */
   public createUser(
     body: User,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.createUser(body, options);
+    const result = this.api.createUser(body, _options);
     return result.toPromise();
   }
 
@@ -3663,9 +3687,9 @@ export class PromiseUsersApi {
    */
   public disableUser(
     userHandle: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserDisableResponse> {
-    const result = this.api.disableUser(userHandle, options);
+    const result = this.api.disableUser(userHandle, _options);
     return result.toPromise();
   }
 
@@ -3676,9 +3700,9 @@ export class PromiseUsersApi {
    */
   public getUser(
     userHandle: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.getUser(userHandle, options);
+    const result = this.api.getUser(userHandle, _options);
     return result.toPromise();
   }
 
@@ -3686,8 +3710,8 @@ export class PromiseUsersApi {
    * List all users for your organization.
    * List all users
    */
-  public listUsers(options?: Configuration): Promise<UserListResponse> {
-    const result = this.api.listUsers(options);
+  public listUsers(_options?: Configuration): Promise<UserListResponse> {
+    const result = this.api.listUsers(_options);
     return result.toPromise();
   }
 
@@ -3700,9 +3724,9 @@ export class PromiseUsersApi {
   public updateUser(
     userHandle: string,
     body: User,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.updateUser(userHandle, body, options);
+    const result = this.api.updateUser(userHandle, body, _options);
     return result.toPromise();
   }
 }
@@ -3735,9 +3759,9 @@ export class PromiseWebhooksIntegrationApi {
    */
   public createWebhooksIntegration(
     body: WebhooksIntegration,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<WebhooksIntegration> {
-    const result = this.api.createWebhooksIntegration(body, options);
+    const result = this.api.createWebhooksIntegration(body, _options);
     return result.toPromise();
   }
 
@@ -3748,11 +3772,11 @@ export class PromiseWebhooksIntegrationApi {
    */
   public createWebhooksIntegrationCustomVariable(
     body: WebhooksIntegrationCustomVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<WebhooksIntegrationCustomVariableResponse> {
     const result = this.api.createWebhooksIntegrationCustomVariable(
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3764,9 +3788,9 @@ export class PromiseWebhooksIntegrationApi {
    */
   public deleteWebhooksIntegration(
     webhookName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteWebhooksIntegration(webhookName, options);
+    const result = this.api.deleteWebhooksIntegration(webhookName, _options);
     return result.toPromise();
   }
 
@@ -3777,11 +3801,11 @@ export class PromiseWebhooksIntegrationApi {
    */
   public deleteWebhooksIntegrationCustomVariable(
     customVariableName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
     const result = this.api.deleteWebhooksIntegrationCustomVariable(
       customVariableName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3793,9 +3817,9 @@ export class PromiseWebhooksIntegrationApi {
    */
   public getWebhooksIntegration(
     webhookName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<WebhooksIntegration> {
-    const result = this.api.getWebhooksIntegration(webhookName, options);
+    const result = this.api.getWebhooksIntegration(webhookName, _options);
     return result.toPromise();
   }
 
@@ -3806,11 +3830,11 @@ export class PromiseWebhooksIntegrationApi {
    */
   public getWebhooksIntegrationCustomVariable(
     customVariableName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<WebhooksIntegrationCustomVariableResponse> {
     const result = this.api.getWebhooksIntegrationCustomVariable(
       customVariableName,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3824,12 +3848,12 @@ export class PromiseWebhooksIntegrationApi {
   public updateWebhooksIntegration(
     webhookName: string,
     body: WebhooksIntegrationUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<WebhooksIntegration> {
     const result = this.api.updateWebhooksIntegration(
       webhookName,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -3843,12 +3867,12 @@ export class PromiseWebhooksIntegrationApi {
   public updateWebhooksIntegrationCustomVariable(
     customVariableName: string,
     body: WebhooksIntegrationCustomVariableUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<WebhooksIntegrationCustomVariableResponse> {
     const result = this.api.updateWebhooksIntegrationCustomVariable(
       customVariableName,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }

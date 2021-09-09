@@ -17,19 +17,19 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
    * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
    * Validate API key
    */
-  public async validate(options?: Configuration): Promise<RequestContext> {
-    const config = options || this.configuration;
+  public async validate(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/validate";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "AuthenticationApi.validate"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -41,7 +41,7 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
