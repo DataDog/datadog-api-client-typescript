@@ -22,6 +22,26 @@ export interface TokenProvider {
 }
 
 /**
+ * Applies oauth2 authentication to the request context.
+ */
+export class AuthZAuthentication implements SecurityAuthentication {
+  /**
+   * Configures OAuth2 with the necessary properties
+   *
+   * @param accessToken: The access token to be used for every request
+   */
+  public constructor(private accessToken: string) {}
+
+  public getName(): string {
+    return "AuthZ";
+  }
+
+  public applySecurityAuthentication(context: RequestContext) {
+    context.setHeaderParam("Authorization", "Bearer " + this.accessToken);
+  }
+}
+
+/**
  * Applies apiKey authentication to the request context.
  */
 export class ApiKeyAuthAuthentication implements SecurityAuthentication {
@@ -62,6 +82,7 @@ export class AppKeyAuthAuthentication implements SecurityAuthentication {
 }
 
 export type AuthMethods = {
+  AuthZ?: SecurityAuthentication;
   apiKeyAuth?: SecurityAuthentication;
   appKeyAuth?: SecurityAuthentication;
 };
@@ -72,6 +93,7 @@ export type HttpBearerConfiguration = { tokenProvider: TokenProvider };
 export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
+  AuthZ?: OAuth2Configuration;
   apiKeyAuth?: ApiKeyConfiguration;
   appKeyAuth?: ApiKeyConfiguration;
 };
@@ -87,6 +109,12 @@ export function configureAuthMethods(
 
   if (!config) {
     return authMethods;
+  }
+
+  if (config["AuthZ"]) {
+    authMethods["AuthZ"] = new AuthZAuthentication(
+      config["AuthZ"]["accessToken"]
+    );
   }
 
   if (config["apiKeyAuth"]) {
