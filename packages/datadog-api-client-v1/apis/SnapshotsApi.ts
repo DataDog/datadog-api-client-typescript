@@ -30,9 +30,9 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     eventQuery?: string,
     graphDef?: string,
     title?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'start' is not null or undefined
     if (start === null || start === undefined) {
@@ -53,11 +53,11 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SnapshotsApi.getGraphSnapshot"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (metricQuery !== undefined) {
@@ -105,11 +105,12 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

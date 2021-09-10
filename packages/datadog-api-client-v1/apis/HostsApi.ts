@@ -23,20 +23,20 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async getHostTotals(
     from?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/hosts/totals";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "HostsApi.getHostTotals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (from !== undefined) {
@@ -54,11 +54,12 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -87,20 +88,20 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     from?: number,
     includeMutedHostsData?: boolean,
     includeHostsMetadata?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/hosts";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "HostsApi.listHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filter !== undefined) {
@@ -160,11 +161,12 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -181,9 +183,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
   public async muteHost(
     hostName: string,
     body: HostMuteSettings,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
@@ -207,11 +209,11 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "HostsApi.muteHost"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -232,11 +234,12 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -251,9 +254,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async unmuteHost(
     hostName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
@@ -270,11 +273,11 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "HostsApi.unmuteHost"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -286,11 +289,12 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

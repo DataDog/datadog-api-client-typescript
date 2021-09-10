@@ -113,12 +113,12 @@ export class PromiseDashboardListsApi {
   public createDashboardListItems(
     dashboardListId: number,
     body: DashboardListAddItemsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardListAddItemsResponse> {
     const result = this.api.createDashboardListItems(
       dashboardListId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -132,12 +132,12 @@ export class PromiseDashboardListsApi {
   public deleteDashboardListItems(
     dashboardListId: number,
     body: DashboardListDeleteItemsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardListDeleteItemsResponse> {
     const result = this.api.deleteDashboardListItems(
       dashboardListId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -149,9 +149,9 @@ export class PromiseDashboardListsApi {
    */
   public getDashboardListItems(
     dashboardListId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardListItems> {
-    const result = this.api.getDashboardListItems(dashboardListId, options);
+    const result = this.api.getDashboardListItems(dashboardListId, _options);
     return result.toPromise();
   }
 
@@ -164,12 +164,12 @@ export class PromiseDashboardListsApi {
   public updateDashboardListItems(
     dashboardListId: number,
     body: DashboardListUpdateItemsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<DashboardListUpdateItemsResponse> {
     const result = this.api.updateDashboardListItems(
       dashboardListId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -203,9 +203,9 @@ export class PromiseIncidentServicesApi {
    */
   public createIncidentService(
     body: IncidentServiceCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentServiceResponse> {
-    const result = this.api.createIncidentService(body, options);
+    const result = this.api.createIncidentService(body, _options);
     return result.toPromise();
   }
 
@@ -216,9 +216,9 @@ export class PromiseIncidentServicesApi {
    */
   public deleteIncidentService(
     serviceId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteIncidentService(serviceId, options);
+    const result = this.api.deleteIncidentService(serviceId, _options);
     return result.toPromise();
   }
 
@@ -231,9 +231,9 @@ export class PromiseIncidentServicesApi {
   public getIncidentService(
     serviceId: string,
     include?: IncidentRelatedObject,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentServiceResponse> {
-    const result = this.api.getIncidentService(serviceId, include, options);
+    const result = this.api.getIncidentService(serviceId, include, _options);
     return result.toPromise();
   }
 
@@ -250,14 +250,14 @@ export class PromiseIncidentServicesApi {
     pageSize?: number,
     pageOffset?: number,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentServicesResponse> {
     const result = this.api.listIncidentServices(
       include,
       pageSize,
       pageOffset,
       filter,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -271,9 +271,9 @@ export class PromiseIncidentServicesApi {
   public updateIncidentService(
     serviceId: string,
     body: IncidentServiceUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentServiceResponse> {
-    const result = this.api.updateIncidentService(serviceId, body, options);
+    const result = this.api.updateIncidentService(serviceId, body, _options);
     return result.toPromise();
   }
 }
@@ -306,9 +306,9 @@ export class PromiseIncidentTeamsApi {
    */
   public createIncidentTeam(
     body: IncidentTeamCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentTeamResponse> {
-    const result = this.api.createIncidentTeam(body, options);
+    const result = this.api.createIncidentTeam(body, _options);
     return result.toPromise();
   }
 
@@ -319,9 +319,9 @@ export class PromiseIncidentTeamsApi {
    */
   public deleteIncidentTeam(
     teamId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteIncidentTeam(teamId, options);
+    const result = this.api.deleteIncidentTeam(teamId, _options);
     return result.toPromise();
   }
 
@@ -334,9 +334,9 @@ export class PromiseIncidentTeamsApi {
   public getIncidentTeam(
     teamId: string,
     include?: IncidentRelatedObject,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentTeamResponse> {
-    const result = this.api.getIncidentTeam(teamId, include, options);
+    const result = this.api.getIncidentTeam(teamId, include, _options);
     return result.toPromise();
   }
 
@@ -353,14 +353,14 @@ export class PromiseIncidentTeamsApi {
     pageSize?: number,
     pageOffset?: number,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentTeamsResponse> {
     const result = this.api.listIncidentTeams(
       include,
       pageSize,
       pageOffset,
       filter,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -374,9 +374,9 @@ export class PromiseIncidentTeamsApi {
   public updateIncidentTeam(
     teamId: string,
     body: IncidentTeamUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentTeamResponse> {
-    const result = this.api.updateIncidentTeam(teamId, body, options);
+    const result = this.api.updateIncidentTeam(teamId, body, _options);
     return result.toPromise();
   }
 }
@@ -409,9 +409,9 @@ export class PromiseIncidentsApi {
    */
   public createIncident(
     body: IncidentCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentResponse> {
-    const result = this.api.createIncident(body, options);
+    const result = this.api.createIncident(body, _options);
     return result.toPromise();
   }
 
@@ -422,9 +422,9 @@ export class PromiseIncidentsApi {
    */
   public deleteIncident(
     incidentId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteIncident(incidentId, options);
+    const result = this.api.deleteIncident(incidentId, _options);
     return result.toPromise();
   }
 
@@ -437,9 +437,9 @@ export class PromiseIncidentsApi {
   public getIncident(
     incidentId: string,
     include?: Array<IncidentRelatedObject>,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentResponse> {
-    const result = this.api.getIncident(incidentId, include, options);
+    const result = this.api.getIncident(incidentId, include, _options);
     return result.toPromise();
   }
 
@@ -454,13 +454,13 @@ export class PromiseIncidentsApi {
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
     pageOffset?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentsResponse> {
     const result = this.api.listIncidents(
       include,
       pageSize,
       pageOffset,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -474,9 +474,9 @@ export class PromiseIncidentsApi {
   public updateIncident(
     incidentId: string,
     body: IncidentUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<IncidentResponse> {
-    const result = this.api.updateIncident(incidentId, body, options);
+    const result = this.api.updateIncident(incidentId, body, _options);
     return result.toPromise();
   }
 }
@@ -509,9 +509,9 @@ export class PromiseKeyManagementApi {
    */
   public createAPIKey(
     body: APIKeyCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<APIKeyResponse> {
-    const result = this.api.createAPIKey(body, options);
+    const result = this.api.createAPIKey(body, _options);
     return result.toPromise();
   }
 
@@ -522,9 +522,9 @@ export class PromiseKeyManagementApi {
    */
   public createCurrentUserApplicationKey(
     body: ApplicationKeyCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.createCurrentUserApplicationKey(body, options);
+    const result = this.api.createCurrentUserApplicationKey(body, _options);
     return result.toPromise();
   }
 
@@ -535,9 +535,9 @@ export class PromiseKeyManagementApi {
    */
   public deleteAPIKey(
     apiKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteAPIKey(apiKeyId, options);
+    const result = this.api.deleteAPIKey(apiKeyId, _options);
     return result.toPromise();
   }
 
@@ -548,9 +548,9 @@ export class PromiseKeyManagementApi {
    */
   public deleteApplicationKey(
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteApplicationKey(appKeyId, options);
+    const result = this.api.deleteApplicationKey(appKeyId, _options);
     return result.toPromise();
   }
 
@@ -561,9 +561,9 @@ export class PromiseKeyManagementApi {
    */
   public deleteCurrentUserApplicationKey(
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteCurrentUserApplicationKey(appKeyId, options);
+    const result = this.api.deleteCurrentUserApplicationKey(appKeyId, _options);
     return result.toPromise();
   }
 
@@ -576,9 +576,9 @@ export class PromiseKeyManagementApi {
   public getAPIKey(
     apiKeyId: string,
     include?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<APIKeyResponse> {
-    const result = this.api.getAPIKey(apiKeyId, include, options);
+    const result = this.api.getAPIKey(apiKeyId, include, _options);
     return result.toPromise();
   }
 
@@ -591,9 +591,9 @@ export class PromiseKeyManagementApi {
   public getApplicationKey(
     appKeyId: string,
     include?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.getApplicationKey(appKeyId, include, options);
+    const result = this.api.getApplicationKey(appKeyId, include, _options);
     return result.toPromise();
   }
 
@@ -604,9 +604,9 @@ export class PromiseKeyManagementApi {
    */
   public getCurrentUserApplicationKey(
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.getCurrentUserApplicationKey(appKeyId, options);
+    const result = this.api.getCurrentUserApplicationKey(appKeyId, _options);
     return result.toPromise();
   }
 
@@ -633,7 +633,7 @@ export class PromiseKeyManagementApi {
     filterModifiedAtStart?: string,
     filterModifiedAtEnd?: string,
     include?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<APIKeysResponse> {
     const result = this.api.listAPIKeys(
       pageSize,
@@ -645,7 +645,7 @@ export class PromiseKeyManagementApi {
       filterModifiedAtStart,
       filterModifiedAtEnd,
       include,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -667,7 +667,7 @@ export class PromiseKeyManagementApi {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ListApplicationKeysResponse> {
     const result = this.api.listApplicationKeys(
       pageSize,
@@ -676,7 +676,7 @@ export class PromiseKeyManagementApi {
       filter,
       filterCreatedAtStart,
       filterCreatedAtEnd,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -698,7 +698,7 @@ export class PromiseKeyManagementApi {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ListApplicationKeysResponse> {
     const result = this.api.listCurrentUserApplicationKeys(
       pageSize,
@@ -707,7 +707,7 @@ export class PromiseKeyManagementApi {
       filter,
       filterCreatedAtStart,
       filterCreatedAtEnd,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -721,9 +721,9 @@ export class PromiseKeyManagementApi {
   public updateAPIKey(
     apiKeyId: string,
     body: APIKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<APIKeyResponse> {
-    const result = this.api.updateAPIKey(apiKeyId, body, options);
+    const result = this.api.updateAPIKey(apiKeyId, body, _options);
     return result.toPromise();
   }
 
@@ -736,9 +736,9 @@ export class PromiseKeyManagementApi {
   public updateApplicationKey(
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
-    const result = this.api.updateApplicationKey(appKeyId, body, options);
+    const result = this.api.updateApplicationKey(appKeyId, body, _options);
     return result.toPromise();
   }
 
@@ -751,12 +751,12 @@ export class PromiseKeyManagementApi {
   public updateCurrentUserApplicationKey(
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
     const result = this.api.updateCurrentUserApplicationKey(
       appKeyId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -790,9 +790,9 @@ export class PromiseLogsApi {
    */
   public aggregateLogs(
     body: LogsAggregateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsAggregateResponse> {
-    const result = this.api.aggregateLogs(body, options);
+    const result = this.api.aggregateLogs(body, _options);
     return result.toPromise();
   }
 
@@ -803,9 +803,9 @@ export class PromiseLogsApi {
    */
   public listLogs(
     body?: LogsListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsListResponse> {
-    const result = this.api.listLogs(body, options);
+    const result = this.api.listLogs(body, _options);
     return result.toPromise();
   }
 
@@ -828,7 +828,7 @@ export class PromiseLogsApi {
     sort?: LogsSort,
     pageCursor?: string,
     pageLimit?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsListResponse> {
     const result = this.api.listLogsGet(
       filterQuery,
@@ -838,7 +838,7 @@ export class PromiseLogsApi {
       sort,
       pageCursor,
       pageLimit,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -874,9 +874,9 @@ export class PromiseLogsArchivesApi {
   public addReadRoleToArchive(
     archiveId: string,
     body: RelationshipToRole,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.addReadRoleToArchive(archiveId, body, options);
+    const result = this.api.addReadRoleToArchive(archiveId, body, _options);
     return result.toPromise();
   }
 
@@ -887,9 +887,9 @@ export class PromiseLogsArchivesApi {
    */
   public createLogsArchive(
     body: LogsArchiveCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsArchive> {
-    const result = this.api.createLogsArchive(body, options);
+    const result = this.api.createLogsArchive(body, _options);
     return result.toPromise();
   }
 
@@ -900,9 +900,9 @@ export class PromiseLogsArchivesApi {
    */
   public deleteLogsArchive(
     archiveId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteLogsArchive(archiveId, options);
+    const result = this.api.deleteLogsArchive(archiveId, _options);
     return result.toPromise();
   }
 
@@ -913,9 +913,9 @@ export class PromiseLogsArchivesApi {
    */
   public getLogsArchive(
     archiveId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsArchive> {
-    const result = this.api.getLogsArchive(archiveId, options);
+    const result = this.api.getLogsArchive(archiveId, _options);
     return result.toPromise();
   }
 
@@ -924,9 +924,9 @@ export class PromiseLogsArchivesApi {
    * Get archive order
    */
   public getLogsArchiveOrder(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsArchiveOrder> {
-    const result = this.api.getLogsArchiveOrder(options);
+    const result = this.api.getLogsArchiveOrder(_options);
     return result.toPromise();
   }
 
@@ -937,9 +937,9 @@ export class PromiseLogsArchivesApi {
    */
   public listArchiveReadRoles(
     archiveId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RolesResponse> {
-    const result = this.api.listArchiveReadRoles(archiveId, options);
+    const result = this.api.listArchiveReadRoles(archiveId, _options);
     return result.toPromise();
   }
 
@@ -947,8 +947,8 @@ export class PromiseLogsArchivesApi {
    * Get the list of configured logs archives with their definitions.
    * Get all archives
    */
-  public listLogsArchives(options?: Configuration): Promise<LogsArchives> {
-    const result = this.api.listLogsArchives(options);
+  public listLogsArchives(_options?: Configuration): Promise<LogsArchives> {
+    const result = this.api.listLogsArchives(_options);
     return result.toPromise();
   }
 
@@ -961,9 +961,9 @@ export class PromiseLogsArchivesApi {
   public removeRoleFromArchive(
     archiveId: string,
     body: RelationshipToRole,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.removeRoleFromArchive(archiveId, body, options);
+    const result = this.api.removeRoleFromArchive(archiveId, body, _options);
     return result.toPromise();
   }
 
@@ -976,9 +976,9 @@ export class PromiseLogsArchivesApi {
   public updateLogsArchive(
     archiveId: string,
     body: LogsArchiveCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsArchive> {
-    const result = this.api.updateLogsArchive(archiveId, body, options);
+    const result = this.api.updateLogsArchive(archiveId, body, _options);
     return result.toPromise();
   }
 
@@ -989,9 +989,9 @@ export class PromiseLogsArchivesApi {
    */
   public updateLogsArchiveOrder(
     body: LogsArchiveOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsArchiveOrder> {
-    const result = this.api.updateLogsArchiveOrder(body, options);
+    const result = this.api.updateLogsArchiveOrder(body, _options);
     return result.toPromise();
   }
 }
@@ -1024,9 +1024,9 @@ export class PromiseLogsMetricsApi {
    */
   public createLogsMetric(
     body: LogsMetricCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsMetricResponse> {
-    const result = this.api.createLogsMetric(body, options);
+    const result = this.api.createLogsMetric(body, _options);
     return result.toPromise();
   }
 
@@ -1037,9 +1037,9 @@ export class PromiseLogsMetricsApi {
    */
   public deleteLogsMetric(
     metricId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteLogsMetric(metricId, options);
+    const result = this.api.deleteLogsMetric(metricId, _options);
     return result.toPromise();
   }
 
@@ -1050,9 +1050,9 @@ export class PromiseLogsMetricsApi {
    */
   public getLogsMetric(
     metricId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsMetricResponse> {
-    const result = this.api.getLogsMetric(metricId, options);
+    const result = this.api.getLogsMetric(metricId, _options);
     return result.toPromise();
   }
 
@@ -1061,9 +1061,9 @@ export class PromiseLogsMetricsApi {
    * Get all log-based metrics
    */
   public listLogsMetrics(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsMetricsResponse> {
-    const result = this.api.listLogsMetrics(options);
+    const result = this.api.listLogsMetrics(_options);
     return result.toPromise();
   }
 
@@ -1076,9 +1076,9 @@ export class PromiseLogsMetricsApi {
   public updateLogsMetric(
     metricId: string,
     body: LogsMetricUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<LogsMetricResponse> {
-    const result = this.api.updateLogsMetric(metricId, body, options);
+    const result = this.api.updateLogsMetric(metricId, body, _options);
     return result.toPromise();
   }
 }
@@ -1113,9 +1113,9 @@ export class PromiseMetricsApi {
   public createTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricTagConfigurationResponse> {
-    const result = this.api.createTagConfiguration(metricName, body, options);
+    const result = this.api.createTagConfiguration(metricName, body, _options);
     return result.toPromise();
   }
 
@@ -1126,9 +1126,9 @@ export class PromiseMetricsApi {
    */
   public deleteTagConfiguration(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteTagConfiguration(metricName, options);
+    const result = this.api.deleteTagConfiguration(metricName, _options);
     return result.toPromise();
   }
 
@@ -1139,9 +1139,9 @@ export class PromiseMetricsApi {
    */
   public listTagConfigurationByName(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricTagConfigurationResponse> {
-    const result = this.api.listTagConfigurationByName(metricName, options);
+    const result = this.api.listTagConfigurationByName(metricName, _options);
     return result.toPromise();
   }
 
@@ -1162,7 +1162,7 @@ export class PromiseMetricsApi {
     filterIncludePercentiles?: boolean,
     filterTags?: string,
     windowSeconds?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricsAndMetricTagConfigurationsResponse> {
     const result = this.api.listTagConfigurations(
       filterConfigured,
@@ -1171,7 +1171,7 @@ export class PromiseMetricsApi {
       filterIncludePercentiles,
       filterTags,
       windowSeconds,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1183,9 +1183,9 @@ export class PromiseMetricsApi {
    */
   public listTagsByMetricName(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricAllTagsResponse> {
-    const result = this.api.listTagsByMetricName(metricName, options);
+    const result = this.api.listTagsByMetricName(metricName, _options);
     return result.toPromise();
   }
 
@@ -1196,9 +1196,9 @@ export class PromiseMetricsApi {
    */
   public listVolumesByMetricName(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricVolumesResponse> {
-    const result = this.api.listVolumesByMetricName(metricName, options);
+    const result = this.api.listVolumesByMetricName(metricName, _options);
     return result.toPromise();
   }
 
@@ -1211,9 +1211,9 @@ export class PromiseMetricsApi {
   public updateTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<MetricTagConfigurationResponse> {
-    const result = this.api.updateTagConfiguration(metricName, body, options);
+    const result = this.api.updateTagConfiguration(metricName, body, _options);
     return result.toPromise();
   }
 }
@@ -1256,7 +1256,7 @@ export class PromiseProcessesApi {
     to?: number,
     pageLimit?: number,
     pageCursor?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ProcessSummariesResponse> {
     const result = this.api.listProcesses(
       search,
@@ -1265,7 +1265,7 @@ export class PromiseProcessesApi {
       to,
       pageLimit,
       pageCursor,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1301,9 +1301,9 @@ export class PromiseRolesApi {
   public addPermissionToRole(
     roleId: string,
     body: RelationshipToPermission,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PermissionsResponse> {
-    const result = this.api.addPermissionToRole(roleId, body, options);
+    const result = this.api.addPermissionToRole(roleId, body, _options);
     return result.toPromise();
   }
 
@@ -1316,9 +1316,9 @@ export class PromiseRolesApi {
   public addUserToRole(
     roleId: string,
     body: RelationshipToUser,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsersResponse> {
-    const result = this.api.addUserToRole(roleId, body, options);
+    const result = this.api.addUserToRole(roleId, body, _options);
     return result.toPromise();
   }
 
@@ -1329,9 +1329,9 @@ export class PromiseRolesApi {
    */
   public createRole(
     body: RoleCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RoleCreateResponse> {
-    const result = this.api.createRole(body, options);
+    const result = this.api.createRole(body, _options);
     return result.toPromise();
   }
 
@@ -1340,8 +1340,8 @@ export class PromiseRolesApi {
    * Delete role
    * @param roleId The ID of the role.
    */
-  public deleteRole(roleId: string, options?: Configuration): Promise<void> {
-    const result = this.api.deleteRole(roleId, options);
+  public deleteRole(roleId: string, _options?: Configuration): Promise<void> {
+    const result = this.api.deleteRole(roleId, _options);
     return result.toPromise();
   }
 
@@ -1352,9 +1352,9 @@ export class PromiseRolesApi {
    */
   public getRole(
     roleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RoleResponse> {
-    const result = this.api.getRole(roleId, options);
+    const result = this.api.getRole(roleId, _options);
     return result.toPromise();
   }
 
@@ -1363,9 +1363,9 @@ export class PromiseRolesApi {
    * List permissions
    */
   public listPermissions(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PermissionsResponse> {
-    const result = this.api.listPermissions(options);
+    const result = this.api.listPermissions(_options);
     return result.toPromise();
   }
 
@@ -1376,9 +1376,9 @@ export class PromiseRolesApi {
    */
   public listRolePermissions(
     roleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PermissionsResponse> {
-    const result = this.api.listRolePermissions(roleId, options);
+    const result = this.api.listRolePermissions(roleId, _options);
     return result.toPromise();
   }
 
@@ -1397,7 +1397,7 @@ export class PromiseRolesApi {
     pageNumber?: number,
     sort?: string,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsersResponse> {
     const result = this.api.listRoleUsers(
       roleId,
@@ -1405,7 +1405,7 @@ export class PromiseRolesApi {
       pageNumber,
       sort,
       filter,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1423,14 +1423,14 @@ export class PromiseRolesApi {
     pageNumber?: number,
     sort?: RolesSort,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RolesResponse> {
     const result = this.api.listRoles(
       pageSize,
       pageNumber,
       sort,
       filter,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1444,9 +1444,9 @@ export class PromiseRolesApi {
   public removePermissionFromRole(
     roleId: string,
     body: RelationshipToPermission,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PermissionsResponse> {
-    const result = this.api.removePermissionFromRole(roleId, body, options);
+    const result = this.api.removePermissionFromRole(roleId, body, _options);
     return result.toPromise();
   }
 
@@ -1459,9 +1459,9 @@ export class PromiseRolesApi {
   public removeUserFromRole(
     roleId: string,
     body: RelationshipToUser,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsersResponse> {
-    const result = this.api.removeUserFromRole(roleId, body, options);
+    const result = this.api.removeUserFromRole(roleId, body, _options);
     return result.toPromise();
   }
 
@@ -1474,9 +1474,9 @@ export class PromiseRolesApi {
   public updateRole(
     roleId: string,
     body: RoleUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RoleUpdateResponse> {
-    const result = this.api.updateRole(roleId, body, options);
+    const result = this.api.updateRole(roleId, body, _options);
     return result.toPromise();
   }
 }
@@ -1509,9 +1509,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public createSecurityFilter(
     body: SecurityFilterCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityFilterResponse> {
-    const result = this.api.createSecurityFilter(body, options);
+    const result = this.api.createSecurityFilter(body, _options);
     return result.toPromise();
   }
 
@@ -1522,9 +1522,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public createSecurityMonitoringRule(
     body: SecurityMonitoringRuleCreatePayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityMonitoringRuleResponse> {
-    const result = this.api.createSecurityMonitoringRule(body, options);
+    const result = this.api.createSecurityMonitoringRule(body, _options);
     return result.toPromise();
   }
 
@@ -1535,9 +1535,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public deleteSecurityFilter(
     securityFilterId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteSecurityFilter(securityFilterId, options);
+    const result = this.api.deleteSecurityFilter(securityFilterId, _options);
     return result.toPromise();
   }
 
@@ -1548,9 +1548,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public deleteSecurityMonitoringRule(
     ruleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
-    const result = this.api.deleteSecurityMonitoringRule(ruleId, options);
+    const result = this.api.deleteSecurityMonitoringRule(ruleId, _options);
     return result.toPromise();
   }
 
@@ -1561,9 +1561,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public getSecurityFilter(
     securityFilterId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityFilterResponse> {
-    const result = this.api.getSecurityFilter(securityFilterId, options);
+    const result = this.api.getSecurityFilter(securityFilterId, _options);
     return result.toPromise();
   }
 
@@ -1574,9 +1574,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public getSecurityMonitoringRule(
     ruleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityMonitoringRuleResponse> {
-    const result = this.api.getSecurityMonitoringRule(ruleId, options);
+    const result = this.api.getSecurityMonitoringRule(ruleId, _options);
     return result.toPromise();
   }
 
@@ -1585,9 +1585,9 @@ export class PromiseSecurityMonitoringApi {
    * Get all security filters
    */
   public listSecurityFilters(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityFiltersResponse> {
-    const result = this.api.listSecurityFilters(options);
+    const result = this.api.listSecurityFilters(_options);
     return result.toPromise();
   }
 
@@ -1600,12 +1600,12 @@ export class PromiseSecurityMonitoringApi {
   public listSecurityMonitoringRules(
     pageSize?: number,
     pageNumber?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityMonitoringListRulesResponse> {
     const result = this.api.listSecurityMonitoringRules(
       pageSize,
       pageNumber,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1627,7 +1627,7 @@ export class PromiseSecurityMonitoringApi {
     sort?: SecurityMonitoringSignalsSort,
     pageCursor?: string,
     pageLimit?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityMonitoringSignalsListResponse> {
     const result = this.api.listSecurityMonitoringSignals(
       filterQuery,
@@ -1636,7 +1636,7 @@ export class PromiseSecurityMonitoringApi {
       sort,
       pageCursor,
       pageLimit,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1648,9 +1648,9 @@ export class PromiseSecurityMonitoringApi {
    */
   public searchSecurityMonitoringSignals(
     body?: SecurityMonitoringSignalListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityMonitoringSignalsListResponse> {
-    const result = this.api.searchSecurityMonitoringSignals(body, options);
+    const result = this.api.searchSecurityMonitoringSignals(body, _options);
     return result.toPromise();
   }
 
@@ -1663,12 +1663,12 @@ export class PromiseSecurityMonitoringApi {
   public updateSecurityFilter(
     securityFilterId: string,
     body: SecurityFilterUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityFilterResponse> {
     const result = this.api.updateSecurityFilter(
       securityFilterId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1682,9 +1682,13 @@ export class PromiseSecurityMonitoringApi {
   public updateSecurityMonitoringRule(
     ruleId: string,
     body: SecurityMonitoringRuleUpdatePayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<SecurityMonitoringRuleResponse> {
-    const result = this.api.updateSecurityMonitoringRule(ruleId, body, options);
+    const result = this.api.updateSecurityMonitoringRule(
+      ruleId,
+      body,
+      _options
+    );
     return result.toPromise();
   }
 }
@@ -1719,12 +1723,12 @@ export class PromiseServiceAccountsApi {
   public createServiceAccountApplicationKey(
     serviceAccountId: string,
     body: ApplicationKeyCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
     const result = this.api.createServiceAccountApplicationKey(
       serviceAccountId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1738,12 +1742,12 @@ export class PromiseServiceAccountsApi {
   public deleteServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<void> {
     const result = this.api.deleteServiceAccountApplicationKey(
       serviceAccountId,
       appKeyId,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1757,12 +1761,12 @@ export class PromiseServiceAccountsApi {
   public getServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PartialApplicationKeyResponse> {
     const result = this.api.getServiceAccountApplicationKey(
       serviceAccountId,
       appKeyId,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1786,7 +1790,7 @@ export class PromiseServiceAccountsApi {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<ListApplicationKeysResponse> {
     const result = this.api.listServiceAccountApplicationKeys(
       serviceAccountId,
@@ -1796,7 +1800,7 @@ export class PromiseServiceAccountsApi {
       filter,
       filterCreatedAtStart,
       filterCreatedAtEnd,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1812,13 +1816,13 @@ export class PromiseServiceAccountsApi {
     serviceAccountId: string,
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PartialApplicationKeyResponse> {
     const result = this.api.updateServiceAccountApplicationKey(
       serviceAccountId,
       appKeyId,
       body,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1852,9 +1856,9 @@ export class PromiseUsersApi {
    */
   public createServiceAccount(
     body: ServiceAccountCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.createServiceAccount(body, options);
+    const result = this.api.createServiceAccount(body, _options);
     return result.toPromise();
   }
 
@@ -1865,9 +1869,9 @@ export class PromiseUsersApi {
    */
   public createUser(
     body: UserCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.createUser(body, options);
+    const result = this.api.createUser(body, _options);
     return result.toPromise();
   }
 
@@ -1876,8 +1880,8 @@ export class PromiseUsersApi {
    * Disable a user
    * @param userId The ID of the user.
    */
-  public disableUser(userId: string, options?: Configuration): Promise<void> {
-    const result = this.api.disableUser(userId, options);
+  public disableUser(userId: string, _options?: Configuration): Promise<void> {
+    const result = this.api.disableUser(userId, _options);
     return result.toPromise();
   }
 
@@ -1888,9 +1892,9 @@ export class PromiseUsersApi {
    */
   public getInvitation(
     userInvitationUuid: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserInvitationResponse> {
-    const result = this.api.getInvitation(userInvitationUuid, options);
+    const result = this.api.getInvitation(userInvitationUuid, _options);
     return result.toPromise();
   }
 
@@ -1901,9 +1905,9 @@ export class PromiseUsersApi {
    */
   public getUser(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.getUser(userId, options);
+    const result = this.api.getUser(userId, _options);
     return result.toPromise();
   }
 
@@ -1914,9 +1918,9 @@ export class PromiseUsersApi {
    */
   public listUserOrganizations(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.listUserOrganizations(userId, options);
+    const result = this.api.listUserOrganizations(userId, _options);
     return result.toPromise();
   }
 
@@ -1927,9 +1931,9 @@ export class PromiseUsersApi {
    */
   public listUserPermissions(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<PermissionsResponse> {
-    const result = this.api.listUserPermissions(userId, options);
+    const result = this.api.listUserPermissions(userId, _options);
     return result.toPromise();
   }
 
@@ -1950,7 +1954,7 @@ export class PromiseUsersApi {
     sortDir?: QuerySortOrder,
     filter?: string,
     filterStatus?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UsersResponse> {
     const result = this.api.listUsers(
       pageSize,
@@ -1959,7 +1963,7 @@ export class PromiseUsersApi {
       sortDir,
       filter,
       filterStatus,
-      options
+      _options
     );
     return result.toPromise();
   }
@@ -1971,9 +1975,9 @@ export class PromiseUsersApi {
    */
   public sendInvitations(
     body: UserInvitationsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserInvitationsResponse> {
-    const result = this.api.sendInvitations(body, options);
+    const result = this.api.sendInvitations(body, _options);
     return result.toPromise();
   }
 
@@ -1986,9 +1990,9 @@ export class PromiseUsersApi {
   public updateUser(
     userId: string,
     body: UserUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<UserResponse> {
-    const result = this.api.updateUser(userId, body, options);
+    const result = this.api.updateUser(userId, body, _options);
     return result.toPromise();
   }
 }

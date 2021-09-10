@@ -30,9 +30,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async createSecurityFilter(
     body: SecurityFilterCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -47,11 +47,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.createSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -72,11 +72,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -91,9 +92,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async createSecurityMonitoringRule(
     body: SecurityMonitoringRuleCreatePayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -107,11 +108,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.createSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -136,11 +137,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -155,9 +157,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async deleteSecurityFilter(
     securityFilterId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
@@ -174,11 +176,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.deleteSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -190,11 +192,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -209,9 +212,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async deleteSecurityMonitoringRule(
     ruleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
@@ -228,11 +231,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.deleteSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -244,11 +247,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -263,9 +267,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async getSecurityFilter(
     securityFilterId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
@@ -282,11 +286,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.getSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -298,11 +302,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -317,9 +322,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async getSecurityMonitoringRule(
     ruleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
@@ -336,11 +341,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.getSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -352,11 +357,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -369,9 +375,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    * Get all security filters
    */
   public async listSecurityFilters(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath =
@@ -379,11 +385,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.listSecurityFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -395,11 +401,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -416,20 +423,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async listSecurityMonitoringRules(
     pageSize?: number,
     pageNumber?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.listSecurityMonitoringRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageSize !== undefined) {
@@ -453,11 +460,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -482,20 +490,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     sort?: SecurityMonitoringSignalsSort,
     pageCursor?: string,
     pageLimit?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.listSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filterQuery !== undefined) {
@@ -543,11 +551,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -562,20 +571,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async searchSecurityMonitoringSignals(
     body?: SecurityMonitoringSignalListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals/search";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.searchSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -600,11 +609,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -621,9 +631,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async updateSecurityFilter(
     securityFilterId: string,
     body: SecurityFilterUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
@@ -647,11 +657,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.updateSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -672,11 +682,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -693,9 +704,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async updateSecurityMonitoringRule(
     ruleId: string,
     body: SecurityMonitoringRuleUpdatePayload,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
@@ -719,11 +730,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "SecurityMonitoringApi.updateSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -748,11 +759,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

@@ -24,9 +24,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
    */
   public async createWebhooksIntegration(
     body: WebhooksIntegration,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -40,11 +40,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.createWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -65,11 +65,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -84,9 +85,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
    */
   public async createWebhooksIntegrationCustomVariable(
     body: WebhooksIntegrationCustomVariable,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -101,11 +102,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -126,11 +127,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -145,9 +147,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
    */
   public async deleteWebhooksIntegration(
     webhookName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
@@ -164,11 +166,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.deleteWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -180,11 +182,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -199,9 +202,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
    */
   public async deleteWebhooksIntegrationCustomVariable(
     customVariableName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
@@ -218,11 +221,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -234,11 +237,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -253,9 +257,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
    */
   public async getWebhooksIntegration(
     webhookName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
@@ -272,11 +276,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.getWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -288,11 +292,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -307,9 +312,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
    */
   public async getWebhooksIntegrationCustomVariable(
     customVariableName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
@@ -326,11 +331,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -342,11 +347,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -363,9 +369,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
   public async updateWebhooksIntegration(
     webhookName: string,
     body: WebhooksIntegrationUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
@@ -389,11 +395,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.updateWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -414,11 +420,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -435,9 +442,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
   public async updateWebhooksIntegrationCustomVariable(
     customVariableName: string,
     body: WebhooksIntegrationCustomVariableUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
@@ -461,11 +468,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -490,11 +497,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

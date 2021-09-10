@@ -24,9 +24,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async createLogsIndex(
     body: LogsIndex,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -40,11 +40,11 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "LogsIndexesApi.createLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -65,11 +65,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -84,9 +85,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async getLogsIndex(
     name: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
@@ -103,11 +104,11 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "LogsIndexesApi.getLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -119,11 +120,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -136,20 +138,20 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
    * Get indexes order
    */
   public async getLogsIndexOrder(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/index-order";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "LogsIndexesApi.getLogsIndexOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -161,11 +163,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -178,20 +181,20 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
    * Get all indexes
    */
   public async listLogIndexes(
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/indexes";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "LogsIndexesApi.listLogIndexes"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -203,11 +206,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -224,9 +228,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
   public async updateLogsIndex(
     name: string,
     body: LogsIndexUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
@@ -250,11 +254,11 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "LogsIndexesApi.updateLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -275,11 +279,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -294,9 +299,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async updateLogsIndexOrder(
     body: LogsIndexesOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -310,11 +315,11 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "LogsIndexesApi.updateLogsIndexOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -335,11 +340,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

@@ -116,12 +116,12 @@ export class ObservableDashboardListsApi {
   public createDashboardListItems(
     dashboardListId: number,
     body: DashboardListAddItemsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardListAddItemsResponse> {
     const requestContextPromise = this.requestFactory.createDashboardListItems(
       dashboardListId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -152,7 +152,6 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Delete dashboards from an existing dashboard list.
    * Delete items from a dashboard list
@@ -162,12 +161,12 @@ export class ObservableDashboardListsApi {
   public deleteDashboardListItems(
     dashboardListId: number,
     body: DashboardListDeleteItemsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardListDeleteItemsResponse> {
     const requestContextPromise = this.requestFactory.deleteDashboardListItems(
       dashboardListId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -198,7 +197,6 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Fetch the dashboard list’s dashboard definitions.
    * Get items of a Dashboard List
@@ -206,11 +204,11 @@ export class ObservableDashboardListsApi {
    */
   public getDashboardListItems(
     dashboardListId: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardListItems> {
     const requestContextPromise = this.requestFactory.getDashboardListItems(
       dashboardListId,
-      options
+      _options
     );
 
     // build promise chain
@@ -241,7 +239,6 @@ export class ObservableDashboardListsApi {
         })
       );
   }
-
   /**
    * Update dashboards of an existing dashboard list.
    * Update items of a dashboard list
@@ -251,12 +248,12 @@ export class ObservableDashboardListsApi {
   public updateDashboardListItems(
     dashboardListId: number,
     body: DashboardListUpdateItemsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<DashboardListUpdateItemsResponse> {
     const requestContextPromise = this.requestFactory.updateDashboardListItems(
       dashboardListId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -317,11 +314,11 @@ export class ObservableIncidentServicesApi {
    */
   public createIncidentService(
     body: IncidentServiceCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentServiceResponse> {
     const requestContextPromise = this.requestFactory.createIncidentService(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -352,7 +349,6 @@ export class ObservableIncidentServicesApi {
         })
       );
   }
-
   /**
    * Deletes an existing incident service.
    * Delete an existing incident service
@@ -360,11 +356,11 @@ export class ObservableIncidentServicesApi {
    */
   public deleteIncidentService(
     serviceId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteIncidentService(
       serviceId,
-      options
+      _options
     );
 
     // build promise chain
@@ -395,7 +391,6 @@ export class ObservableIncidentServicesApi {
         })
       );
   }
-
   /**
    * Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
    * Get details of an incident service
@@ -405,12 +400,12 @@ export class ObservableIncidentServicesApi {
   public getIncidentService(
     serviceId: string,
     include?: IncidentRelatedObject,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentServiceResponse> {
     const requestContextPromise = this.requestFactory.getIncidentService(
       serviceId,
       include,
-      options
+      _options
     );
 
     // build promise chain
@@ -441,7 +436,6 @@ export class ObservableIncidentServicesApi {
         })
       );
   }
-
   /**
    * Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
    * Get a list of all incident services
@@ -455,14 +449,14 @@ export class ObservableIncidentServicesApi {
     pageSize?: number,
     pageOffset?: number,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentServicesResponse> {
     const requestContextPromise = this.requestFactory.listIncidentServices(
       include,
       pageSize,
       pageOffset,
       filter,
-      options
+      _options
     );
 
     // build promise chain
@@ -493,7 +487,6 @@ export class ObservableIncidentServicesApi {
         })
       );
   }
-
   /**
    * Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
    * Update an existing incident service
@@ -503,12 +496,12 @@ export class ObservableIncidentServicesApi {
   public updateIncidentService(
     serviceId: string,
     body: IncidentServiceUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentServiceResponse> {
     const requestContextPromise = this.requestFactory.updateIncidentService(
       serviceId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -569,11 +562,11 @@ export class ObservableIncidentTeamsApi {
    */
   public createIncidentTeam(
     body: IncidentTeamCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentTeamResponse> {
     const requestContextPromise = this.requestFactory.createIncidentTeam(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -604,7 +597,6 @@ export class ObservableIncidentTeamsApi {
         })
       );
   }
-
   /**
    * Deletes an existing incident team.
    * Delete an existing incident team
@@ -612,11 +604,11 @@ export class ObservableIncidentTeamsApi {
    */
   public deleteIncidentTeam(
     teamId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteIncidentTeam(
       teamId,
-      options
+      _options
     );
 
     // build promise chain
@@ -647,7 +639,6 @@ export class ObservableIncidentTeamsApi {
         })
       );
   }
-
   /**
    * Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
    * Get details of an incident team
@@ -657,12 +648,12 @@ export class ObservableIncidentTeamsApi {
   public getIncidentTeam(
     teamId: string,
     include?: IncidentRelatedObject,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentTeamResponse> {
     const requestContextPromise = this.requestFactory.getIncidentTeam(
       teamId,
       include,
-      options
+      _options
     );
 
     // build promise chain
@@ -693,7 +684,6 @@ export class ObservableIncidentTeamsApi {
         })
       );
   }
-
   /**
    * Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
    * Get a list of all incident teams
@@ -707,14 +697,14 @@ export class ObservableIncidentTeamsApi {
     pageSize?: number,
     pageOffset?: number,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentTeamsResponse> {
     const requestContextPromise = this.requestFactory.listIncidentTeams(
       include,
       pageSize,
       pageOffset,
       filter,
-      options
+      _options
     );
 
     // build promise chain
@@ -745,7 +735,6 @@ export class ObservableIncidentTeamsApi {
         })
       );
   }
-
   /**
    * Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
    * Update an existing incident team
@@ -755,12 +744,12 @@ export class ObservableIncidentTeamsApi {
   public updateIncidentTeam(
     teamId: string,
     body: IncidentTeamUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentTeamResponse> {
     const requestContextPromise = this.requestFactory.updateIncidentTeam(
       teamId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -821,11 +810,11 @@ export class ObservableIncidentsApi {
    */
   public createIncident(
     body: IncidentCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentResponse> {
     const requestContextPromise = this.requestFactory.createIncident(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -856,7 +845,6 @@ export class ObservableIncidentsApi {
         })
       );
   }
-
   /**
    * Deletes an existing incident from the users organization.
    * Delete an existing incident
@@ -864,11 +852,11 @@ export class ObservableIncidentsApi {
    */
   public deleteIncident(
     incidentId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteIncident(
       incidentId,
-      options
+      _options
     );
 
     // build promise chain
@@ -899,7 +887,6 @@ export class ObservableIncidentsApi {
         })
       );
   }
-
   /**
    * Get the details of an incident by `incident_id`.
    * Get the details of an incident
@@ -909,12 +896,12 @@ export class ObservableIncidentsApi {
   public getIncident(
     incidentId: string,
     include?: Array<IncidentRelatedObject>,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentResponse> {
     const requestContextPromise = this.requestFactory.getIncident(
       incidentId,
       include,
-      options
+      _options
     );
 
     // build promise chain
@@ -945,7 +932,6 @@ export class ObservableIncidentsApi {
         })
       );
   }
-
   /**
    * Get all incidents for the user's organization.
    * Get a list of incidents
@@ -957,13 +943,13 @@ export class ObservableIncidentsApi {
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
     pageOffset?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentsResponse> {
     const requestContextPromise = this.requestFactory.listIncidents(
       include,
       pageSize,
       pageOffset,
-      options
+      _options
     );
 
     // build promise chain
@@ -994,7 +980,6 @@ export class ObservableIncidentsApi {
         })
       );
   }
-
   /**
    * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
    * Update an existing incident
@@ -1004,12 +989,12 @@ export class ObservableIncidentsApi {
   public updateIncident(
     incidentId: string,
     body: IncidentUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<IncidentResponse> {
     const requestContextPromise = this.requestFactory.updateIncident(
       incidentId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1070,11 +1055,11 @@ export class ObservableKeyManagementApi {
    */
   public createAPIKey(
     body: APIKeyCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<APIKeyResponse> {
     const requestContextPromise = this.requestFactory.createAPIKey(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1105,7 +1090,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Create an application key for current user
    * Create an application key for current user
@@ -1113,11 +1097,11 @@ export class ObservableKeyManagementApi {
    */
   public createCurrentUserApplicationKey(
     body: ApplicationKeyCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.createCurrentUserApplicationKey(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1148,7 +1132,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Delete an API key.
    * Delete an API key
@@ -1156,11 +1139,11 @@ export class ObservableKeyManagementApi {
    */
   public deleteAPIKey(
     apiKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteAPIKey(
       apiKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1191,7 +1174,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Delete an application key
    * Delete an application key
@@ -1199,11 +1181,11 @@ export class ObservableKeyManagementApi {
    */
   public deleteApplicationKey(
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteApplicationKey(
       appKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1234,7 +1216,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Delete an application key owned by current user
    * Delete an application key owned by current user
@@ -1242,11 +1223,11 @@ export class ObservableKeyManagementApi {
    */
   public deleteCurrentUserApplicationKey(
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteCurrentUserApplicationKey(
       appKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1277,7 +1258,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get an API key.
    * Get API key
@@ -1287,12 +1267,12 @@ export class ObservableKeyManagementApi {
   public getAPIKey(
     apiKeyId: string,
     include?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<APIKeyResponse> {
     const requestContextPromise = this.requestFactory.getAPIKey(
       apiKeyId,
       include,
-      options
+      _options
     );
 
     // build promise chain
@@ -1321,7 +1301,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get an application key for your org.
    * Get an application key
@@ -1331,12 +1310,12 @@ export class ObservableKeyManagementApi {
   public getApplicationKey(
     appKeyId: string,
     include?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.getApplicationKey(
       appKeyId,
       include,
-      options
+      _options
     );
 
     // build promise chain
@@ -1367,7 +1346,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Get an application key owned by current user
    * Get one application key owned by current user
@@ -1375,11 +1353,11 @@ export class ObservableKeyManagementApi {
    */
   public getCurrentUserApplicationKey(
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.getCurrentUserApplicationKey(
       appKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -1410,7 +1388,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * List all API keys available for your account.
    * Get all API keys
@@ -1434,7 +1411,7 @@ export class ObservableKeyManagementApi {
     filterModifiedAtStart?: string,
     filterModifiedAtEnd?: string,
     include?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<APIKeysResponse> {
     const requestContextPromise = this.requestFactory.listAPIKeys(
       pageSize,
@@ -1446,7 +1423,7 @@ export class ObservableKeyManagementApi {
       filterModifiedAtStart,
       filterModifiedAtEnd,
       include,
-      options
+      _options
     );
 
     // build promise chain
@@ -1477,7 +1454,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * List all application keys available for your org
    * Get all application keys
@@ -1495,7 +1471,7 @@ export class ObservableKeyManagementApi {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ListApplicationKeysResponse> {
     const requestContextPromise = this.requestFactory.listApplicationKeys(
       pageSize,
@@ -1504,7 +1480,7 @@ export class ObservableKeyManagementApi {
       filter,
       filterCreatedAtStart,
       filterCreatedAtEnd,
-      options
+      _options
     );
 
     // build promise chain
@@ -1535,7 +1511,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * List all application keys available for current user
    * Get all application keys owned by current user
@@ -1553,7 +1528,7 @@ export class ObservableKeyManagementApi {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ListApplicationKeysResponse> {
     const requestContextPromise = this.requestFactory.listCurrentUserApplicationKeys(
       pageSize,
@@ -1562,7 +1537,7 @@ export class ObservableKeyManagementApi {
       filter,
       filterCreatedAtStart,
       filterCreatedAtEnd,
-      options
+      _options
     );
 
     // build promise chain
@@ -1593,7 +1568,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Update an API key.
    * Edit an API key
@@ -1603,12 +1577,12 @@ export class ObservableKeyManagementApi {
   public updateAPIKey(
     apiKeyId: string,
     body: APIKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<APIKeyResponse> {
     const requestContextPromise = this.requestFactory.updateAPIKey(
       apiKeyId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1639,7 +1613,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Edit an application key
    * Edit an application key
@@ -1649,12 +1622,12 @@ export class ObservableKeyManagementApi {
   public updateApplicationKey(
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.updateApplicationKey(
       appKeyId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1685,7 +1658,6 @@ export class ObservableKeyManagementApi {
         })
       );
   }
-
   /**
    * Edit an application key owned by current user
    * Edit an application key owned by current user
@@ -1695,12 +1667,12 @@ export class ObservableKeyManagementApi {
   public updateCurrentUserApplicationKey(
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.updateCurrentUserApplicationKey(
       appKeyId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1761,11 +1733,11 @@ export class ObservableLogsApi {
    */
   public aggregateLogs(
     body: LogsAggregateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsAggregateResponse> {
     const requestContextPromise = this.requestFactory.aggregateLogs(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1796,7 +1768,6 @@ export class ObservableLogsApi {
         })
       );
   }
-
   /**
    * List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to build complex logs filtering and search.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    * Search logs
@@ -1804,9 +1775,9 @@ export class ObservableLogsApi {
    */
   public listLogs(
     body?: LogsListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsListResponse> {
-    const requestContextPromise = this.requestFactory.listLogs(body, options);
+    const requestContextPromise = this.requestFactory.listLogs(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1834,7 +1805,6 @@ export class ObservableLogsApi {
         })
       );
   }
-
   /**
    * List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to see your latest logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    * Get a list of logs
@@ -1854,7 +1824,7 @@ export class ObservableLogsApi {
     sort?: LogsSort,
     pageCursor?: string,
     pageLimit?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsListResponse> {
     const requestContextPromise = this.requestFactory.listLogsGet(
       filterQuery,
@@ -1864,7 +1834,7 @@ export class ObservableLogsApi {
       sort,
       pageCursor,
       pageLimit,
-      options
+      _options
     );
 
     // build promise chain
@@ -1927,12 +1897,12 @@ export class ObservableLogsArchivesApi {
   public addReadRoleToArchive(
     archiveId: string,
     body: RelationshipToRole,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.addReadRoleToArchive(
       archiveId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -1963,7 +1933,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Create an archive in your organization.
    * Create an archive
@@ -1971,11 +1940,11 @@ export class ObservableLogsArchivesApi {
    */
   public createLogsArchive(
     body: LogsArchiveCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsArchive> {
     const requestContextPromise = this.requestFactory.createLogsArchive(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2006,7 +1975,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Delete a given archive from your organization.
    * Delete an archive
@@ -2014,11 +1982,11 @@ export class ObservableLogsArchivesApi {
    */
   public deleteLogsArchive(
     archiveId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteLogsArchive(
       archiveId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2049,7 +2017,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Get a specific archive from your organization.
    * Get an archive
@@ -2057,11 +2024,11 @@ export class ObservableLogsArchivesApi {
    */
   public getLogsArchive(
     archiveId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsArchive> {
     const requestContextPromise = this.requestFactory.getLogsArchive(
       archiveId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2092,16 +2059,15 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Get the current order of your archives. This endpoint takes no JSON arguments.
    * Get archive order
    */
   public getLogsArchiveOrder(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsArchiveOrder> {
     const requestContextPromise = this.requestFactory.getLogsArchiveOrder(
-      options
+      _options
     );
 
     // build promise chain
@@ -2132,7 +2098,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Returns all read roles a given archive is restricted to.
    * List read roles for an archive
@@ -2140,11 +2105,11 @@ export class ObservableLogsArchivesApi {
    */
   public listArchiveReadRoles(
     archiveId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<RolesResponse> {
     const requestContextPromise = this.requestFactory.listArchiveReadRoles(
       archiveId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2175,13 +2140,14 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Get the list of configured logs archives with their definitions.
    * Get all archives
    */
-  public listLogsArchives(options?: Configuration): Observable<LogsArchives> {
-    const requestContextPromise = this.requestFactory.listLogsArchives(options);
+  public listLogsArchives(_options?: Configuration): Observable<LogsArchives> {
+    const requestContextPromise = this.requestFactory.listLogsArchives(
+      _options
+    );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2211,7 +2177,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
    * Revoke role from an archive
@@ -2221,12 +2186,12 @@ export class ObservableLogsArchivesApi {
   public removeRoleFromArchive(
     archiveId: string,
     body: RelationshipToRole,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.removeRoleFromArchive(
       archiveId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2257,7 +2222,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
    * Update an archive
@@ -2267,12 +2231,12 @@ export class ObservableLogsArchivesApi {
   public updateLogsArchive(
     archiveId: string,
     body: LogsArchiveCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsArchive> {
     const requestContextPromise = this.requestFactory.updateLogsArchive(
       archiveId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2303,7 +2267,6 @@ export class ObservableLogsArchivesApi {
         })
       );
   }
-
   /**
    * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
    * Update archive order
@@ -2311,11 +2274,11 @@ export class ObservableLogsArchivesApi {
    */
   public updateLogsArchiveOrder(
     body: LogsArchiveOrder,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsArchiveOrder> {
     const requestContextPromise = this.requestFactory.updateLogsArchiveOrder(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2376,11 +2339,11 @@ export class ObservableLogsMetricsApi {
    */
   public createLogsMetric(
     body: LogsMetricCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsMetricResponse> {
     const requestContextPromise = this.requestFactory.createLogsMetric(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2411,7 +2374,6 @@ export class ObservableLogsMetricsApi {
         })
       );
   }
-
   /**
    * Delete a specific log-based metric from your organization.
    * Delete a log-based metric
@@ -2419,11 +2381,11 @@ export class ObservableLogsMetricsApi {
    */
   public deleteLogsMetric(
     metricId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteLogsMetric(
       metricId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2454,7 +2416,6 @@ export class ObservableLogsMetricsApi {
         })
       );
   }
-
   /**
    * Get a specific log-based metric from your organization.
    * Get a log-based metric
@@ -2462,11 +2423,11 @@ export class ObservableLogsMetricsApi {
    */
   public getLogsMetric(
     metricId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsMetricResponse> {
     const requestContextPromise = this.requestFactory.getLogsMetric(
       metricId,
-      options
+      _options
     );
 
     // build promise chain
@@ -2497,15 +2458,14 @@ export class ObservableLogsMetricsApi {
         })
       );
   }
-
   /**
    * Get the list of configured log-based metrics with their definitions.
    * Get all log-based metrics
    */
   public listLogsMetrics(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listLogsMetrics(options);
+    const requestContextPromise = this.requestFactory.listLogsMetrics(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2535,7 +2495,6 @@ export class ObservableLogsMetricsApi {
         })
       );
   }
-
   /**
    * Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
    * Update a log-based metric
@@ -2545,12 +2504,12 @@ export class ObservableLogsMetricsApi {
   public updateLogsMetric(
     metricId: string,
     body: LogsMetricUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<LogsMetricResponse> {
     const requestContextPromise = this.requestFactory.updateLogsMetric(
       metricId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2613,12 +2572,12 @@ export class ObservableMetricsApi {
   public createTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricTagConfigurationResponse> {
     const requestContextPromise = this.requestFactory.createTagConfiguration(
       metricName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2649,7 +2608,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
    * Delete a tag configuration
@@ -2657,11 +2615,11 @@ export class ObservableMetricsApi {
    */
   public deleteTagConfiguration(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteTagConfiguration(
       metricName,
-      options
+      _options
     );
 
     // build promise chain
@@ -2692,7 +2650,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Returns the tag configuration for the given metric name.
    * List tag configuration by name
@@ -2700,11 +2657,11 @@ export class ObservableMetricsApi {
    */
   public listTagConfigurationByName(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricTagConfigurationResponse> {
     const requestContextPromise = this.requestFactory.listTagConfigurationByName(
       metricName,
-      options
+      _options
     );
 
     // build promise chain
@@ -2735,7 +2692,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
    * List tag configurations
@@ -2753,7 +2709,7 @@ export class ObservableMetricsApi {
     filterIncludePercentiles?: boolean,
     filterTags?: string,
     windowSeconds?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricsAndMetricTagConfigurationsResponse> {
     const requestContextPromise = this.requestFactory.listTagConfigurations(
       filterConfigured,
@@ -2762,7 +2718,7 @@ export class ObservableMetricsApi {
       filterIncludePercentiles,
       filterTags,
       windowSeconds,
-      options
+      _options
     );
 
     // build promise chain
@@ -2793,7 +2749,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * View indexed tag key-value pairs for a given metric name.
    * List tags by metric name
@@ -2801,11 +2756,11 @@ export class ObservableMetricsApi {
    */
   public listTagsByMetricName(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricAllTagsResponse> {
     const requestContextPromise = this.requestFactory.listTagsByMetricName(
       metricName,
-      options
+      _options
     );
 
     // build promise chain
@@ -2836,7 +2791,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
    * List distinct metric volumes by metric name
@@ -2844,11 +2798,11 @@ export class ObservableMetricsApi {
    */
   public listVolumesByMetricName(
     metricName: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricVolumesResponse> {
     const requestContextPromise = this.requestFactory.listVolumesByMetricName(
       metricName,
-      options
+      _options
     );
 
     // build promise chain
@@ -2879,7 +2833,6 @@ export class ObservableMetricsApi {
         })
       );
   }
-
   /**
    * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
    * Update a tag configuration
@@ -2889,12 +2842,12 @@ export class ObservableMetricsApi {
   public updateTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<MetricTagConfigurationResponse> {
     const requestContextPromise = this.requestFactory.updateTagConfiguration(
       metricName,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -2965,7 +2918,7 @@ export class ObservableProcessesApi {
     to?: number,
     pageLimit?: number,
     pageCursor?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ProcessSummariesResponse> {
     const requestContextPromise = this.requestFactory.listProcesses(
       search,
@@ -2974,7 +2927,7 @@ export class ObservableProcessesApi {
       to,
       pageLimit,
       pageCursor,
-      options
+      _options
     );
 
     // build promise chain
@@ -3037,12 +2990,12 @@ export class ObservableRolesApi {
   public addPermissionToRole(
     roleId: string,
     body: RelationshipToPermission,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PermissionsResponse> {
     const requestContextPromise = this.requestFactory.addPermissionToRole(
       roleId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3073,7 +3026,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Adds a user to a role.
    * Add a user to a role
@@ -3083,12 +3035,12 @@ export class ObservableRolesApi {
   public addUserToRole(
     roleId: string,
     body: RelationshipToUser,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsersResponse> {
     const requestContextPromise = this.requestFactory.addUserToRole(
       roleId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3119,7 +3071,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Create a new role for your organization.
    * Create role
@@ -3127,9 +3078,12 @@ export class ObservableRolesApi {
    */
   public createRole(
     body: RoleCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<RoleCreateResponse> {
-    const requestContextPromise = this.requestFactory.createRole(body, options);
+    const requestContextPromise = this.requestFactory.createRole(
+      body,
+      _options
+    );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3159,16 +3113,18 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Disables a role.
    * Delete role
    * @param roleId The ID of the role.
    */
-  public deleteRole(roleId: string, options?: Configuration): Observable<void> {
+  public deleteRole(
+    roleId: string,
+    _options?: Configuration
+  ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteRole(
       roleId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3199,7 +3155,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Get a role in the organization specified by the role’s `role_id`.
    * Get a role
@@ -3207,9 +3162,9 @@ export class ObservableRolesApi {
    */
   public getRole(
     roleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<RoleResponse> {
-    const requestContextPromise = this.requestFactory.getRole(roleId, options);
+    const requestContextPromise = this.requestFactory.getRole(roleId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3237,15 +3192,14 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Returns a list of all permissions, including name, description, and ID.
    * List permissions
    */
   public listPermissions(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PermissionsResponse> {
-    const requestContextPromise = this.requestFactory.listPermissions(options);
+    const requestContextPromise = this.requestFactory.listPermissions(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3275,7 +3229,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Returns a list of all permissions for a single role.
    * List permissions for a role
@@ -3283,11 +3236,11 @@ export class ObservableRolesApi {
    */
   public listRolePermissions(
     roleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PermissionsResponse> {
     const requestContextPromise = this.requestFactory.listRolePermissions(
       roleId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3318,7 +3271,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Gets all users of a role.
    * Get all users of a role
@@ -3334,7 +3286,7 @@ export class ObservableRolesApi {
     pageNumber?: number,
     sort?: string,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsersResponse> {
     const requestContextPromise = this.requestFactory.listRoleUsers(
       roleId,
@@ -3342,7 +3294,7 @@ export class ObservableRolesApi {
       pageNumber,
       sort,
       filter,
-      options
+      _options
     );
 
     // build promise chain
@@ -3373,7 +3325,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Returns all roles, including their names and IDs.
    * List roles
@@ -3387,14 +3338,14 @@ export class ObservableRolesApi {
     pageNumber?: number,
     sort?: RolesSort,
     filter?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<RolesResponse> {
     const requestContextPromise = this.requestFactory.listRoles(
       pageSize,
       pageNumber,
       sort,
       filter,
-      options
+      _options
     );
 
     // build promise chain
@@ -3423,7 +3374,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Removes a permission from a role.
    * Revoke permission
@@ -3433,12 +3383,12 @@ export class ObservableRolesApi {
   public removePermissionFromRole(
     roleId: string,
     body: RelationshipToPermission,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PermissionsResponse> {
     const requestContextPromise = this.requestFactory.removePermissionFromRole(
       roleId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3469,7 +3419,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Removes a user from a role.
    * Remove a user from a role
@@ -3479,12 +3428,12 @@ export class ObservableRolesApi {
   public removeUserFromRole(
     roleId: string,
     body: RelationshipToUser,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsersResponse> {
     const requestContextPromise = this.requestFactory.removeUserFromRole(
       roleId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3515,7 +3464,6 @@ export class ObservableRolesApi {
         })
       );
   }
-
   /**
    * Edit a role. Can only be used with application keys belonging to administrators.
    * Update a role
@@ -3525,12 +3473,12 @@ export class ObservableRolesApi {
   public updateRole(
     roleId: string,
     body: RoleUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<RoleUpdateResponse> {
     const requestContextPromise = this.requestFactory.updateRole(
       roleId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3591,11 +3539,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public createSecurityFilter(
     body: SecurityFilterCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityFilterResponse> {
     const requestContextPromise = this.requestFactory.createSecurityFilter(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3626,7 +3574,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Create a detection rule.
    * Create a detection rule
@@ -3634,11 +3581,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public createSecurityMonitoringRule(
     body: SecurityMonitoringRuleCreatePayload,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityMonitoringRuleResponse> {
     const requestContextPromise = this.requestFactory.createSecurityMonitoringRule(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -3669,7 +3616,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Delete a specific security filter.
    * Delete a security filter
@@ -3677,11 +3623,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public deleteSecurityFilter(
     securityFilterId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteSecurityFilter(
       securityFilterId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3712,7 +3658,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Delete an existing rule. Default rules cannot be deleted.
    * Delete an existing rule
@@ -3720,11 +3665,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public deleteSecurityMonitoringRule(
     ruleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteSecurityMonitoringRule(
       ruleId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3755,7 +3700,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
    * Get a security filter
@@ -3763,11 +3707,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public getSecurityFilter(
     securityFilterId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityFilterResponse> {
     const requestContextPromise = this.requestFactory.getSecurityFilter(
       securityFilterId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3798,7 +3742,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Get a rule's details.
    * Get a rule's details
@@ -3806,11 +3749,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public getSecurityMonitoringRule(
     ruleId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityMonitoringRuleResponse> {
     const requestContextPromise = this.requestFactory.getSecurityMonitoringRule(
       ruleId,
-      options
+      _options
     );
 
     // build promise chain
@@ -3841,16 +3784,15 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Get the list of configured security filters with their definitions.
    * Get all security filters
    */
   public listSecurityFilters(
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityFiltersResponse> {
     const requestContextPromise = this.requestFactory.listSecurityFilters(
-      options
+      _options
     );
 
     // build promise chain
@@ -3881,7 +3823,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * List rules.
    * List rules
@@ -3891,12 +3832,12 @@ export class ObservableSecurityMonitoringApi {
   public listSecurityMonitoringRules(
     pageSize?: number,
     pageNumber?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityMonitoringListRulesResponse> {
     const requestContextPromise = this.requestFactory.listSecurityMonitoringRules(
       pageSize,
       pageNumber,
-      options
+      _options
     );
 
     // build promise chain
@@ -3927,7 +3868,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
    * Get a quick list of security signals
@@ -3945,7 +3885,7 @@ export class ObservableSecurityMonitoringApi {
     sort?: SecurityMonitoringSignalsSort,
     pageCursor?: string,
     pageLimit?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityMonitoringSignalsListResponse> {
     const requestContextPromise = this.requestFactory.listSecurityMonitoringSignals(
       filterQuery,
@@ -3954,7 +3894,7 @@ export class ObservableSecurityMonitoringApi {
       sort,
       pageCursor,
       pageLimit,
-      options
+      _options
     );
 
     // build promise chain
@@ -3985,7 +3925,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
    * Get a list of security signals
@@ -3993,11 +3932,11 @@ export class ObservableSecurityMonitoringApi {
    */
   public searchSecurityMonitoringSignals(
     body?: SecurityMonitoringSignalListRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityMonitoringSignalsListResponse> {
     const requestContextPromise = this.requestFactory.searchSecurityMonitoringSignals(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4028,7 +3967,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Update a specific security filter. Returns the security filter object when the request is successful.
    * Update a security filter
@@ -4038,12 +3976,12 @@ export class ObservableSecurityMonitoringApi {
   public updateSecurityFilter(
     securityFilterId: string,
     body: SecurityFilterUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityFilterResponse> {
     const requestContextPromise = this.requestFactory.updateSecurityFilter(
       securityFilterId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4074,7 +4012,6 @@ export class ObservableSecurityMonitoringApi {
         })
       );
   }
-
   /**
    * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
    * Update an existing rule
@@ -4084,12 +4021,12 @@ export class ObservableSecurityMonitoringApi {
   public updateSecurityMonitoringRule(
     ruleId: string,
     body: SecurityMonitoringRuleUpdatePayload,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<SecurityMonitoringRuleResponse> {
     const requestContextPromise = this.requestFactory.updateSecurityMonitoringRule(
       ruleId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4152,12 +4089,12 @@ export class ObservableServiceAccountsApi {
   public createServiceAccountApplicationKey(
     serviceAccountId: string,
     body: ApplicationKeyCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.createServiceAccountApplicationKey(
       serviceAccountId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4188,7 +4125,6 @@ export class ObservableServiceAccountsApi {
         })
       );
   }
-
   /**
    * Delete an application key owned by this service account.
    * Delete an application key for this service account
@@ -4198,12 +4134,12 @@ export class ObservableServiceAccountsApi {
   public deleteServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.deleteServiceAccountApplicationKey(
       serviceAccountId,
       appKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4234,7 +4170,6 @@ export class ObservableServiceAccountsApi {
         })
       );
   }
-
   /**
    * Get an application key owned by this service account.
    * Get one application key for this service account
@@ -4244,12 +4179,12 @@ export class ObservableServiceAccountsApi {
   public getServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PartialApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.getServiceAccountApplicationKey(
       serviceAccountId,
       appKeyId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4280,7 +4215,6 @@ export class ObservableServiceAccountsApi {
         })
       );
   }
-
   /**
    * List all application keys available for this service account.
    * List application keys for this service account
@@ -4300,7 +4234,7 @@ export class ObservableServiceAccountsApi {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<ListApplicationKeysResponse> {
     const requestContextPromise = this.requestFactory.listServiceAccountApplicationKeys(
       serviceAccountId,
@@ -4310,7 +4244,7 @@ export class ObservableServiceAccountsApi {
       filter,
       filterCreatedAtStart,
       filterCreatedAtEnd,
-      options
+      _options
     );
 
     // build promise chain
@@ -4341,7 +4275,6 @@ export class ObservableServiceAccountsApi {
         })
       );
   }
-
   /**
    * Edit an application key owned by this service account.
    * Edit an application key for this service account
@@ -4353,13 +4286,13 @@ export class ObservableServiceAccountsApi {
     serviceAccountId: string,
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PartialApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.updateServiceAccountApplicationKey(
       serviceAccountId,
       appKeyId,
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4420,11 +4353,11 @@ export class ObservableUsersApi {
    */
   public createServiceAccount(
     body: ServiceAccountCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
     const requestContextPromise = this.requestFactory.createServiceAccount(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4455,7 +4388,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Create a user for your organization.
    * Create a user
@@ -4463,9 +4395,12 @@ export class ObservableUsersApi {
    */
   public createUser(
     body: UserCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
-    const requestContextPromise = this.requestFactory.createUser(body, options);
+    const requestContextPromise = this.requestFactory.createUser(
+      body,
+      _options
+    );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4495,7 +4430,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Disable a user. Can only be used with an application key belonging to an administrator user.
    * Disable a user
@@ -4503,11 +4437,11 @@ export class ObservableUsersApi {
    */
   public disableUser(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<void> {
     const requestContextPromise = this.requestFactory.disableUser(
       userId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4538,7 +4472,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Returns a single user invitation by its UUID.
    * Get a user invitation
@@ -4546,11 +4479,11 @@ export class ObservableUsersApi {
    */
   public getInvitation(
     userInvitationUuid: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserInvitationResponse> {
     const requestContextPromise = this.requestFactory.getInvitation(
       userInvitationUuid,
-      options
+      _options
     );
 
     // build promise chain
@@ -4581,7 +4514,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Get a user in the organization specified by the user’s `user_id`.
    * Get user details
@@ -4589,9 +4521,9 @@ export class ObservableUsersApi {
    */
   public getUser(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
-    const requestContextPromise = this.requestFactory.getUser(userId, options);
+    const requestContextPromise = this.requestFactory.getUser(userId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4619,7 +4551,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Get a user organization. Returns the user information and all organizations joined by this user.
    * Get a user organization
@@ -4627,11 +4558,11 @@ export class ObservableUsersApi {
    */
   public listUserOrganizations(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
     const requestContextPromise = this.requestFactory.listUserOrganizations(
       userId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4662,7 +4593,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
    * Get a user permissions
@@ -4670,11 +4600,11 @@ export class ObservableUsersApi {
    */
   public listUserPermissions(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<PermissionsResponse> {
     const requestContextPromise = this.requestFactory.listUserPermissions(
       userId,
-      options
+      _options
     );
 
     // build promise chain
@@ -4705,7 +4635,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
    * List all users
@@ -4723,7 +4652,7 @@ export class ObservableUsersApi {
     sortDir?: QuerySortOrder,
     filter?: string,
     filterStatus?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UsersResponse> {
     const requestContextPromise = this.requestFactory.listUsers(
       pageSize,
@@ -4732,7 +4661,7 @@ export class ObservableUsersApi {
       sortDir,
       filter,
       filterStatus,
-      options
+      _options
     );
 
     // build promise chain
@@ -4761,7 +4690,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Sends emails to one or more users inviting them to join the organization.
    * Send invitation emails
@@ -4769,11 +4697,11 @@ export class ObservableUsersApi {
    */
   public sendInvitations(
     body: UserInvitationsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserInvitationsResponse> {
     const requestContextPromise = this.requestFactory.sendInvitations(
       body,
-      options
+      _options
     );
 
     // build promise chain
@@ -4804,7 +4732,6 @@ export class ObservableUsersApi {
         })
       );
   }
-
   /**
    * Edit a user. Can only be used with an application key belonging to an administrator user.
    * Update a user
@@ -4814,12 +4741,12 @@ export class ObservableUsersApi {
   public updateUser(
     userId: string,
     body: UserUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Observable<UserResponse> {
     const requestContextPromise = this.requestFactory.updateUser(
       userId,
       body,
-      options
+      _options
     );
 
     // build promise chain

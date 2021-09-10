@@ -1,6 +1,6 @@
 ## @datadog/datadog-api-client@0.1.0
 
-This generator creates TypeScript/JavaScript client that utilizes fetch-api. 
+This generator creates TypeScript/JavaScript client that utilizes fetch-api.
 
 ### Building
 

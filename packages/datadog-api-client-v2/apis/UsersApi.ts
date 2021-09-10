@@ -29,9 +29,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async createServiceAccount(
     body: ServiceAccountCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -45,11 +45,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.createServiceAccount"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -70,11 +70,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -89,9 +90,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async createUser(
     body: UserCreateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -105,11 +106,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.createUser"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -130,11 +131,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -149,9 +151,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async disableUser(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
@@ -168,11 +170,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.disableUser"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -184,11 +186,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -203,9 +206,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async getInvitation(
     userInvitationUuid: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'userInvitationUuid' is not null or undefined
     if (userInvitationUuid === null || userInvitationUuid === undefined) {
@@ -222,11 +225,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.getInvitation"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -238,11 +241,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -257,9 +261,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async getUser(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
@@ -276,11 +280,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.getUser"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -292,11 +296,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -311,9 +316,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async listUserOrganizations(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
@@ -330,11 +335,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.listUserOrganizations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -346,11 +351,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -365,9 +371,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async listUserPermissions(
     userId: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
@@ -384,11 +390,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.listUserPermissions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -400,11 +406,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -429,20 +436,20 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     sortDir?: QuerySortOrder,
     filter?: string,
     filterStatus?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/users";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.listUsers"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageSize !== undefined) {
@@ -490,11 +497,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -509,9 +517,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
    */
   public async sendInvitations(
     body: UserInvitationsRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -525,11 +533,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.sendInvitations"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -550,11 +558,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -571,9 +580,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
   public async updateUser(
     userId: string,
     body: UserUpdateRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
@@ -597,11 +606,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "UsersApi.updateUser"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -622,11 +631,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

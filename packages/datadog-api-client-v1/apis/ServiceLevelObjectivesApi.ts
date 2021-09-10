@@ -28,9 +28,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
    */
   public async checkCanDeleteSLO(
     ids: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'ids' is not null or undefined
     if (ids === null || ids === undefined) {
@@ -44,11 +44,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.checkCanDeleteSLO"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (ids !== undefined) {
@@ -66,11 +66,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -85,9 +86,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
    */
   public async createSLO(
     body: ServiceLevelObjectiveRequest,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -101,11 +102,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.createSLO"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -126,11 +127,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -147,9 +149,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   public async deleteSLO(
     sloId: string,
     force?: string,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
@@ -166,11 +168,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.deleteSLO"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (force !== undefined) {
@@ -188,11 +190,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -207,9 +210,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
    */
   public async deleteSLOTimeframeInBulk(
     body: { [key: string]: Array<SLOTimeframe> },
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -223,11 +226,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -252,11 +255,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -273,9 +277,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   public async getSLO(
     sloId: string,
     withConfiguredAlertIds?: boolean,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
@@ -292,11 +296,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.getSLO"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (withConfiguredAlertIds !== undefined) {
@@ -314,11 +318,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -339,9 +344,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     fromTs: number,
     toTs: number,
     target?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
@@ -372,11 +377,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.getSLOHistory"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (fromTs !== undefined) {
@@ -406,11 +411,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -435,20 +441,20 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     metricsQuery?: string,
     limit?: number,
     offset?: number,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.listSLOs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (ids !== undefined) {
@@ -496,11 +502,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
@@ -517,9 +524,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   public async updateSLO(
     sloId: string,
     body: ServiceLevelObjective,
-    options?: Configuration
+    _options?: Configuration
   ): Promise<RequestContext> {
-    const config = options || this.configuration;
+    const _config = _options || this.configuration;
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
@@ -543,11 +550,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = getServer(
-      config,
+      _config,
       "ServiceLevelObjectivesApi.updateSLO"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-    requestContext.setHttpConfig(config.httpConfig);
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
 
@@ -568,11 +575,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     let authMethod = null;
     // Apply auth methods
-    authMethod = config.authMethods["apiKeyAuth"];
+    authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }
-    authMethod = config.authMethods["appKeyAuth"];
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
     }

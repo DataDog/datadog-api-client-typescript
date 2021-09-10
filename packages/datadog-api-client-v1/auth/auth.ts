@@ -57,7 +57,7 @@ export class ApiKeyAuthQueryAuthentication implements SecurityAuthentication {
   }
 
   public applySecurityAuthentication(context: RequestContext) {
-    context.addCookie("api_key", this.apiKey);
+    context.setQueryParam("api_key", this.apiKey);
   }
 }
 
@@ -97,7 +97,7 @@ export class AppKeyAuthQueryAuthentication implements SecurityAuthentication {
   }
 
   public applySecurityAuthentication(context: RequestContext) {
-    context.addCookie("application_key", this.apiKey);
+    context.setQueryParam("application_key", this.apiKey);
   }
 }
 
@@ -111,7 +111,7 @@ export type AuthMethods = {
 export type ApiKeyConfiguration = string;
 export type HttpBasicConfiguration = { username: string; password: string };
 export type HttpBearerConfiguration = { tokenProvider: TokenProvider };
-export type OAuth2Configuration = string;
+export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
   apiKeyAuth?: ApiKeyConfiguration;
