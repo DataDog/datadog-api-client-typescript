@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKeyAuth](README.md#apiKeyAuth)
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth)
 
 ### HTTP request headers
 

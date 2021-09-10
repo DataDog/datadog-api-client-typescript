@@ -137,6 +137,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
@@ -246,6 +251,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Body Params
 
     let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
@@ -357,6 +367,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
@@ -460,6 +475,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
@@ -551,6 +571,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     let authMethod = null;
     // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
       await authMethod.applySecurityAuthentication(requestContext);
@@ -608,6 +633,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
@@ -758,6 +788,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
