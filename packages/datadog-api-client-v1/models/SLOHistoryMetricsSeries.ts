@@ -20,7 +20,7 @@ export class SLOHistoryMetricsSeries {
    * Count of submitted metrics.
    */
   "count": number;
-  "metadata": SLOHistoryMetricsSeriesMetadata;
+  "metadata"?: SLOHistoryMetricsSeriesMetadata;
   /**
    * Total sum of the query.
    */
@@ -73,11 +73,6 @@ export class SLOHistoryMetricsSeries {
     }
     res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
 
-    if (data.metadata === undefined) {
-      throw new TypeError(
-        "missing required attribute 'metadata' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
     res.metadata = ObjectSerializer.deserialize(
       data.metadata,
       "SLOHistoryMetricsSeriesMetadata",
@@ -123,11 +118,6 @@ export class SLOHistoryMetricsSeries {
     }
     res.count = ObjectSerializer.serialize(data.count, "number", "int64");
 
-    if (data.metadata === undefined) {
-      throw new TypeError(
-        "missing required attribute 'metadata' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
     res.metadata = ObjectSerializer.serialize(
       data.metadata,
       "SLOHistoryMetricsSeriesMetadata",
