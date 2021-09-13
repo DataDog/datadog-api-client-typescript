@@ -71,7 +71,7 @@ Before(function (
     ) {
       fs.mkdirSync(path.dirname(frozen), { recursive: true });
       fs.writeFileSync(frozen, JSON.stringify(date));
-    } else {
+    } else if (this.polly?.mode == MODES.REPLAY) {
       throw new Error(`Time file '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``);
     }
   }
