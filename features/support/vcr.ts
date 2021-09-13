@@ -9,6 +9,7 @@ import { After, Before } from "@cucumber/cucumber";
 import { World } from "./world";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 import { MODES } from "@pollyjs/utils";
+import { FetchError } from "node-fetch";
 
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
@@ -70,6 +71,8 @@ Before(function (
     ) {
       fs.mkdirSync(path.dirname(frozen), { recursive: true });
       fs.writeFileSync(frozen, JSON.stringify(date));
+    } else {
+      throw new Error(`Cassette '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``);
     }
   }
 
