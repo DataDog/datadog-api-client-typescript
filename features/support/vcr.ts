@@ -72,7 +72,7 @@ Before(function (
       fs.mkdirSync(path.dirname(frozen), { recursive: true });
       fs.writeFileSync(frozen, JSON.stringify(date));
     } else {
-      throw new Error(`Cassette '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``);
+      throw new Error(`Time file '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``);
     }
   }
 
