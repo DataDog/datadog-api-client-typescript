@@ -76,6 +76,13 @@ Before(function (
     }
   }
 
+  const cassette = path.join(recordingsDir, this.polly?.recordingId, "recording.har")
+  const cassetteExists = fs.existsSync(cassette)
+
+  if (!cassetteExists && this.polly?.mode == MODES.REPLAY) {
+    throw new Error(`Cassette '${cassette}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``);
+  }
+
   const now = date.getTime() / 1000;
   const name = pickle.name?.replace(/[^A-Za-z0-9]+/g, "_").substr(0, 100);
   const prefix =
