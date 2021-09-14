@@ -17,7 +17,7 @@ import { SLOCorrectionUpdateRequest } from "../models/SLOCorrectionUpdateRequest
  */
 export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRequestFactory {
   /**
-   * Create an SLO Correction
+   * Create an SLO Correction.
    * Create an SLO correction
    * @param body Create an SLO Correction
    */
@@ -78,9 +78,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   /**
-   * Permanently delete the specified SLO correction object
+   * Permanently delete the specified SLO correction object.
    * Delete an SLO correction
-   * @param sloCorrectionId The ID of the SLO correction object
+   * @param sloCorrectionId The ID of the SLO correction object.
    */
   public async deleteSLOCorrection(
     sloCorrectionId: string,
@@ -133,9 +133,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   /**
-   * Get an SLO correction
+   * Get an SLO correction.
    * Get an SLO correction for an SLO
-   * @param sloCorrectionId The ID of the SLO correction object
+   * @param sloCorrectionId The ID of the SLO correction object.
    */
   public async getSLOCorrection(
     sloCorrectionId: string,
@@ -188,7 +188,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   /**
-   * Get all Service Level Objective corrections
+   * Get all Service Level Objective corrections.
    * Get all SLO corrections
    */
   public async listSLOCorrection(
@@ -231,9 +231,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   /**
-   * Update the specified SLO correction object object
+   * Update the specified SLO correction object object.
    * Update an SLO correction
-   * @param sloCorrectionId The ID of the SLO correction object
+   * @param sloCorrectionId The ID of the SLO correction object.
    * @param body The edited SLO correction object.
    */
   public async updateSLOCorrection(

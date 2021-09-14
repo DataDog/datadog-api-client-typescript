@@ -13,12 +13,12 @@ import { SLOCorrectionType } from "./SLOCorrectionType";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * The data object associated with the SLO correction to be created
+ * The data object associated with the SLO correction to be created.
  */
 
 export class SLOCorrectionCreateData {
   "attributes"?: SLOCorrectionCreateRequestAttributes;
-  "type"?: SLOCorrectionType;
+  "type": SLOCorrectionType;
 
   "unparsedObject"?: any;
 
@@ -52,6 +52,11 @@ export class SLOCorrectionCreateData {
       ""
     );
 
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SLOCorrectionCreateData' object"
+      );
+    }
     if (["correction", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
@@ -80,6 +85,11 @@ export class SLOCorrectionCreateData {
       ""
     );
 
+    if (data.type === undefined) {
+      throw new TypeError(
+        "missing required attribute 'type' on 'SLOCorrectionCreateData' object"
+      );
+    }
     if (["correction", undefined].includes(data.type)) {
       res.type = data.type;
     } else {

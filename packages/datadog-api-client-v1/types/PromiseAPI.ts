@@ -2204,7 +2204,7 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO Correction
+   * Create an SLO Correction.
    * Create an SLO correction
    * @param body Create an SLO Correction
    */
@@ -2217,9 +2217,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Permanently delete the specified SLO correction object
+   * Permanently delete the specified SLO correction object.
    * Delete an SLO correction
-   * @param sloCorrectionId The ID of the SLO correction object
+   * @param sloCorrectionId The ID of the SLO correction object.
    */
   public deleteSLOCorrection(
     sloCorrectionId: string,
@@ -2230,9 +2230,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction
+   * Get an SLO correction.
    * Get an SLO correction for an SLO
-   * @param sloCorrectionId The ID of the SLO correction object
+   * @param sloCorrectionId The ID of the SLO correction object.
    */
   public getSLOCorrection(
     sloCorrectionId: string,
@@ -2243,7 +2243,7 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all Service Level Objective corrections
+   * Get all Service Level Objective corrections.
    * Get all SLO corrections
    */
   public listSLOCorrection(
@@ -2254,9 +2254,9 @@ export class PromiseServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update the specified SLO correction object object
+   * Update the specified SLO correction object object.
    * Update an SLO correction
-   * @param sloCorrectionId The ID of the SLO correction object
+   * @param sloCorrectionId The ID of the SLO correction object.
    * @param body The edited SLO correction object.
    */
   public updateSLOCorrection(
