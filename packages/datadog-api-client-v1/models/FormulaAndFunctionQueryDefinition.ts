@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
@@ -18,6 +19,7 @@ import { UnparsedObject } from "./ObjectSerializer";
  */
 
 export type FormulaAndFunctionQueryDefinition =
+  | FormulaAndFunctionApmDependencyStatsQueryDefinition
   | FormulaAndFunctionEventQueryDefinition
   | FormulaAndFunctionMetricQueryDefinition
   | FormulaAndFunctionProcessQueryDefinition
