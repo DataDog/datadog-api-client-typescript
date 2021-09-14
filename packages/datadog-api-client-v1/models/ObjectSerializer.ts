@@ -65,6 +65,7 @@ import { EventQueryDefinition } from "./EventQueryDefinition";
 import { EventResponse } from "./EventResponse";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
+import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
@@ -484,6 +485,8 @@ const enumsMap: Set<string> = new Set<string>([
   "EventPriority",
   "EventStreamWidgetDefinitionType",
   "EventTimelineWidgetDefinitionType",
+  "FormulaAndFunctionApmDependencyStatName",
+  "FormulaAndFunctionApmDependencyStatsDataSource",
   "FormulaAndFunctionEventAggregation",
   "FormulaAndFunctionEventsDataSource",
   "FormulaAndFunctionMetricAggregation",
@@ -685,6 +688,7 @@ const typeMap: { [index: string]: any } = {
   EventResponse: EventResponse,
   EventStreamWidgetDefinition: EventStreamWidgetDefinition,
   EventTimelineWidgetDefinition: EventTimelineWidgetDefinition,
+  FormulaAndFunctionApmDependencyStatsQueryDefinition: FormulaAndFunctionApmDependencyStatsQueryDefinition,
   FormulaAndFunctionEventQueryDefinition: FormulaAndFunctionEventQueryDefinition,
   FormulaAndFunctionEventQueryDefinitionCompute: FormulaAndFunctionEventQueryDefinitionCompute,
   FormulaAndFunctionEventQueryDefinitionSearch: FormulaAndFunctionEventQueryDefinitionSearch,
@@ -1074,6 +1078,7 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   FormulaAndFunctionQueryDefinition: [
+    "FormulaAndFunctionApmDependencyStatsQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionProcessQueryDefinition",
