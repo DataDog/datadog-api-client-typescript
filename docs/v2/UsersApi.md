@@ -541,17 +541,6 @@ let params:v2.UsersApiSendInvitationsRequest = {
   // UserInvitationsRequest
   body: {
     data: [
-      {
-        relationships: {
-          user: {
-            data: {
-              id: "00000000-0000-0000-0000-000000000000",
-              type: "users",
-            },
-          },
-        },
-        type: "user_invitations",
-      },
     ],
   },
 };

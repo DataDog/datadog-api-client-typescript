@@ -338,7 +338,11 @@ const apiInstance = new v1.LogsIndexesApi(configuration);
 let params:v1.LogsIndexesApiUpdateLogsIndexOrderRequest = {
   // LogsIndexesOrder | Object containing the new ordered list of index names
   body: {
-    indexNames: ["main","payments","web"],
+    indexNames: [
+      "main",
+      "payments",
+      "web",
+    ],
   },
 };
 

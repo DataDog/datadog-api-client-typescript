@@ -42,11 +42,21 @@ example content`,
   },
             type: "notebook_cells",
           },
+          {
+            attributes: {
+    definition: {
+      text: `# Example Header 
+example content`,
+      type: "markdown",
+    },
+  },
+            type: "notebook_cells",
+          },
         ],
         name: "Example Notebook",
         status: "published",
         time: {
-    liveSpan: "1m",
+    liveSpan: "5m",
   },
       },
       type: "notebooks",
@@ -315,11 +325,21 @@ example content`,
   },
     type: "notebook_cells",
   },
+          {
+    attributes: {
+    definition: {
+      text: `# Example Header 
+example content`,
+      type: "markdown",
+    },
+  },
+    type: "notebook_cells",
+  },
         ],
         name: "Example Notebook",
         status: "published",
         time: {
-    liveSpan: "1m",
+    liveSpan: "5m",
   },
       },
       type: "notebooks",

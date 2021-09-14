@@ -41,9 +41,16 @@ let params:v1.AWSIntegrationApiCreateAWSAccountRequest = {
     accountSpecificNamespaceRules: {
       "key": true,
     },
-    excludedRegions: ["us-east-1","us-west-2"],
-    filterTags: ["<KEY>:<VALUE>"],
-    hostTags: ["<KEY>:<VALUE>"],
+    excludedRegions: [
+      "us-east-1",
+      "us-west-2",
+    ],
+    filterTags: [
+      "<KEY>:<VALUE>",
+    ],
+    hostTags: [
+      "<KEY>:<VALUE>",
+    ],
     roleName: "DatadogAWSIntegrationRole",
     secretAccessKey: "secretAccessKey_example",
   },
@@ -169,9 +176,16 @@ let params:v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
     accountSpecificNamespaceRules: {
       "key": true,
     },
-    excludedRegions: ["us-east-1","us-west-2"],
-    filterTags: ["<KEY>:<VALUE>"],
-    hostTags: ["<KEY>:<VALUE>"],
+    excludedRegions: [
+      "us-east-1",
+      "us-west-2",
+    ],
+    filterTags: [
+      "<KEY>:<VALUE>",
+    ],
+    hostTags: [
+      "<KEY>:<VALUE>",
+    ],
     roleName: "DatadogAWSIntegrationRole",
     secretAccessKey: "secretAccessKey_example",
   },
@@ -522,9 +536,16 @@ let params:v1.AWSIntegrationApiUpdateAWSAccountRequest = {
     accountSpecificNamespaceRules: {
       "key": true,
     },
-    excludedRegions: ["us-east-1","us-west-2"],
-    filterTags: ["<KEY>:<VALUE>"],
-    hostTags: ["<KEY>:<VALUE>"],
+    excludedRegions: [
+      "us-east-1",
+      "us-west-2",
+    ],
+    filterTags: [
+      "<KEY>:<VALUE>",
+    ],
+    hostTags: [
+      "<KEY>:<VALUE>",
+    ],
     roleName: "DatadogAWSIntegrationRole",
     secretAccessKey: "secretAccessKey_example",
   },
