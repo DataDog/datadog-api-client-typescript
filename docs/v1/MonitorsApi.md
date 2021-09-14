@@ -466,7 +466,7 @@ let params:v1.MonitorsApiListMonitorsRequest = {
   tags: "host:host0",
   // string | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`. (optional)
   monitorTags: "service:my-app",
-  // boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor. (optional)
+  // boolean | If this argument is set to true, then the returned data includes all current active downtimes for each monitor. (optional)
   withDowntimes: true,
   // number | Monitor ID offset. (optional)
   idOffset: 1,
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
  **name** | [**string**] | A string to filter monitors by name. | (optional) defaults to undefined
  **tags** | [**string**] | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;. | (optional) defaults to undefined
  **monitorTags** | [**string**] | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;. | (optional) defaults to undefined
- **withDowntimes** | [**boolean**] | If this argument is set to true, then the returned data includes all current downtimes for each monitor. | (optional) defaults to undefined
+ **withDowntimes** | [**boolean**] | If this argument is set to true, then the returned data includes all current active downtimes for each monitor. | (optional) defaults to undefined
  **idOffset** | [**number**] | Monitor ID offset. | (optional) defaults to undefined
  **page** | [**number**] | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination. | (optional) defaults to undefined
  **pageSize** | [**number**] | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100. | (optional) defaults to undefined
