@@ -281,8 +281,15 @@ let params:v1.MetricsApiSubmitMetricsRequest = {
         host: "test.example.com",
         interval: 20,
         metric: "system.load.1",
-        points: [[1575317847,0.5]],
-        tags: ["environment:test"],
+        points: [
+          [
+            1.575317847E9,
+            0.5,
+          ],
+        ],
+        tags: [
+          "environment:test",
+        ],
         type: "rate",
       },
     ],

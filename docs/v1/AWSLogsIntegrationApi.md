@@ -107,7 +107,14 @@ let params:v1.AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest = {
   // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
   body: {
     accountId: "1234567",
-    services: ["s3","elb","elbv2","cloudfront","redshift","lambda"],
+    services: [
+      "s3",
+      "elb",
+      "elbv2",
+      "cloudfront",
+      "redshift",
+      "lambda",
+    ],
   },
 };
 
@@ -284,7 +291,14 @@ let params:v1.AWSLogsIntegrationApiEnableAWSLogServicesRequest = {
   // AWSLogsServicesRequest | Enable AWS Log Services request body.
   body: {
     accountId: "1234567",
-    services: ["s3","elb","elbv2","cloudfront","redshift","lambda"],
+    services: [
+      "s3",
+      "elb",
+      "elbv2",
+      "cloudfront",
+      "redshift",
+      "lambda",
+    ],
   },
 };
 

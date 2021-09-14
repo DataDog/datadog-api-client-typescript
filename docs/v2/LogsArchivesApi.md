@@ -115,7 +115,10 @@ let params:v2.LogsArchivesApiCreateLogsArchiveRequest = {
         includeTags: false,
         name: "Nginx Archive",
         query: "source:nginx",
-        rehydrationTags: ["team:intake","team:app"],
+        rehydrationTags: [
+          "team:intake",
+          "team:app",
+        ],
       },
       type: "archives",
     },
@@ -530,7 +533,10 @@ let params:v2.LogsArchivesApiUpdateLogsArchiveRequest = {
         includeTags: false,
         name: "Nginx Archive",
         query: "source:nginx",
-        rehydrationTags: ["team:intake","team:app"],
+        rehydrationTags: [
+          "team:intake",
+          "team:app",
+        ],
       },
       type: "archives",
     },
@@ -599,7 +605,11 @@ let params:v2.LogsArchivesApiUpdateLogsArchiveOrderRequest = {
   body: {
     data: {
       attributes: {
-        archiveIds: ["a2zcMylnM4OCHpYusxIi1g","a2zcMylnM4OCHpYusxIi2g","a2zcMylnM4OCHpYusxIi3g"],
+        archiveIds: [
+          "a2zcMylnM4OCHpYusxIi1g",
+          "a2zcMylnM4OCHpYusxIi2g",
+          "a2zcMylnM4OCHpYusxIi3g",
+        ],
       },
       type: "archive_order",
     },
