@@ -34,7 +34,9 @@ let params:v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
     clientEmail: "api-dev@datadog-sandbox.iam.gserviceaccount.com",
     clientId: "123456712345671234567",
     clientX509CertUrl: "https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     privateKey: "private_key",
     privateKeyId: "123456789abcdefghi123456789abcdefghijklm",
@@ -104,7 +106,9 @@ let params:v1.GCPIntegrationApiDeleteGCPIntegrationRequest = {
     clientEmail: "api-dev@datadog-sandbox.iam.gserviceaccount.com",
     clientId: "123456712345671234567",
     clientX509CertUrl: "https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     privateKey: "private_key",
     privateKeyId: "123456789abcdefghi123456789abcdefghijklm",
@@ -226,7 +230,9 @@ let params:v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
     clientEmail: "api-dev@datadog-sandbox.iam.gserviceaccount.com",
     clientId: "123456712345671234567",
     clientX509CertUrl: "https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     privateKey: "private_key",
     privateKeyId: "123456789abcdefghi123456789abcdefghijklm",

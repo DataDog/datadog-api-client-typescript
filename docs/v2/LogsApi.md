@@ -37,7 +37,10 @@ let params:v2.LogsApiAggregateLogsRequest = {
     ],
     filter: {
       from: "now-15m",
-      indexes: ["main","web"],
+      indexes: [
+        "main",
+        "web",
+      ],
       query: "service:web* AND @http.status_code:[200 TO 299]",
       to: "now",
     },
@@ -136,7 +139,10 @@ let params:v2.LogsApiListLogsRequest = {
   body: {
     filter: {
       from: "now-15m",
-      indexes: ["main","web"],
+      indexes: [
+        "main",
+        "web",
+      ],
       query: "service:web* AND @http.status_code:[200 TO 299]",
       to: "now",
     },

@@ -181,10 +181,6 @@ let params:v2.RolesApiCreateRoleRequest = {
         },
         users: {
           data: [
-            {
-              id: "00000000-0000-0000-0000-000000000000",
-              type: "users",
-            },
           ],
         },
       },

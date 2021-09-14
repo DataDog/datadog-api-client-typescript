@@ -65,7 +65,10 @@ let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
       type: "http_body",
     },
     parseTestPublicId: "abc-def-123",
-    tags: ["team:front","test:workflow-1"],
+    tags: [
+      "team:front",
+      "test:workflow-1",
+    ],
     value: {
       secure: true,
       value: "example-value",
@@ -129,7 +132,9 @@ let params:v1.SyntheticsApiCreatePrivateLocationRequest = {
   body: {
     description: "Description of private location",
     name: "New private location",
-    tags: ["team:front"],
+    tags: [
+      "team:front",
+    ],
   },
 };
 
@@ -189,12 +194,6 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   body: {
     config: {
       assertions: [
-        {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "body",
-  },
       ],
       configVariables: [
         {
@@ -202,7 +201,7 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "global",
+          type: "text",
         },
       ],
       request: {
@@ -244,12 +243,6 @@ let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         {
           allowFailure: true,
           assertions: [
-            {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "body",
-  },
           ],
           extractedValues: [
             {
@@ -396,12 +389,6 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   body: {
     config: {
       assertions: [
-        {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "body",
-  },
       ],
       configVariables: [
         {
@@ -409,7 +396,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
           id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "global",
+          type: "text",
         },
       ],
       request: {
@@ -454,7 +441,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
           id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "element",
+          type: "text",
         },
       ],
     },
@@ -492,7 +479,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         name: "name_example",
         params: {},
         timeout: 1,
-        type: "assertCurrentUrl",
+        type: "assertElementContent",
       },
     ],
     tags: [
@@ -669,7 +656,8 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 let params:v1.SyntheticsApiDeleteTestsRequest = {
   // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
   body: {
-    publicIds: [],
+    publicIds: [
+    ],
   },
 };
 
@@ -746,7 +734,10 @@ let params:v1.SyntheticsApiEditGlobalVariableRequest = {
       type: "http_body",
     },
     parseTestPublicId: "abc-def-123",
-    tags: ["team:front","test:workflow-1"],
+    tags: [
+      "team:front",
+      "test:workflow-1",
+    ],
     value: {
       secure: true,
       value: "example-value",
@@ -1588,12 +1579,6 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
   body: {
     config: {
       assertions: [
-        {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "body",
-  },
       ],
       configVariables: [
         {
@@ -1601,7 +1586,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
           id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "global",
+          type: "text",
         },
       ],
       request: {
@@ -1643,12 +1628,6 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         {
           allowFailure: true,
           assertions: [
-            {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "body",
-  },
           ],
           extractedValues: [
             {
@@ -1798,12 +1777,6 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
   body: {
     config: {
       assertions: [
-        {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "body",
-  },
       ],
       configVariables: [
         {
@@ -1811,7 +1784,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
           id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "global",
+          type: "text",
         },
       ],
       request: {
@@ -1856,7 +1829,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
           id: "id_example",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
-          type: "element",
+          type: "text",
         },
       ],
     },
@@ -1894,7 +1867,7 @@ let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
         name: "name_example",
         params: {},
         timeout: 1,
-        type: "assertCurrentUrl",
+        type: "assertElementContent",
       },
     ],
     tags: [
@@ -1964,7 +1937,9 @@ let params:v1.SyntheticsApiUpdatePrivateLocationRequest = {
   body: {
     description: "Description of private location",
     name: "New private location",
-    tags: ["team:front"],
+    tags: [
+      "team:front",
+    ],
   },
 };
 

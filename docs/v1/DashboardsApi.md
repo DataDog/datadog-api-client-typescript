@@ -55,7 +55,11 @@ let params:v1.DashboardsApiCreateDashboardRequest = {
     ],
     templateVariables: [
       {
-        availableValues: ["my-host","host1","host2"],
+        availableValues: [
+          "my-host",
+          "host1",
+          "host2",
+        ],
         _default: "my-host",
         name: "host1",
         prefix: "host",
@@ -67,7 +71,7 @@ let params:v1.DashboardsApiCreateDashboardRequest = {
         definition: {
     alertId: "",
     time: {
-      liveSpan: "1m",
+      liveSpan: "5m",
     },
     title: "title_example",
     titleAlign: "center",
@@ -465,7 +469,11 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
     ],
     templateVariables: [
       {
-        availableValues: ["my-host","host1","host2"],
+        availableValues: [
+          "my-host",
+          "host1",
+          "host2",
+        ],
         _default: "my-host",
         name: "host1",
         prefix: "host",
@@ -477,7 +485,7 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
         definition: {
     alertId: "",
     time: {
-      liveSpan: "1m",
+      liveSpan: "5m",
     },
     title: "title_example",
     titleAlign: "center",

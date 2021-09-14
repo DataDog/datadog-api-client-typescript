@@ -91,7 +91,10 @@ let params:v1.ServiceLevelObjectivesApiCreateSLORequest = {
   // ServiceLevelObjectiveRequest | Service level objective request object.
   body: {
     description: "description_example",
-    groups: ["env:prod","role:mysql"],
+    groups: [
+      "env:prod",
+      "role:mysql",
+    ],
     monitorIds: [
       1,
     ],
@@ -100,12 +103,22 @@ let params:v1.ServiceLevelObjectivesApiCreateSLORequest = {
       denominator: "sum:my.custom.metric{*}.as_count()",
       numerator: "sum:my.custom.metric{type:good}.as_count()",
     },
-    tags: ["env:prod","app:core"],
+    tags: [
+      "env:prod",
+      "app:core",
+    ],
     thresholds: [
       {
         target: 99.9,
         targetDisplay: "99.9",
-        timeframe: "7d",
+        timeframe: "30d",
+        warning: 90.0,
+        warningDisplay: "90.0",
+      },
+      {
+        target: 99.9,
+        targetDisplay: "99.9",
+        timeframe: "30d",
         warning: 90.0,
         warningDisplay: "90.0",
       },
@@ -236,7 +249,7 @@ let params:v1.ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest = {
   // { [key: string]: Array<SLOTimeframe>; } | Delete multiple service level objective objects request body.
   body: {
     "key": [
-      "7d",
+      "30d",
     ],
   },
 };
@@ -502,7 +515,10 @@ let params:v1.ServiceLevelObjectivesApiUpdateSLORequest = {
   // ServiceLevelObjective | The edited service level objective request object.
   body: {
     description: "description_example",
-    groups: ["env:prod","role:mysql"],
+    groups: [
+      "env:prod",
+      "role:mysql",
+    ],
     monitorIds: [
       1,
     ],
@@ -514,12 +530,22 @@ let params:v1.ServiceLevelObjectivesApiUpdateSLORequest = {
       denominator: "sum:my.custom.metric{*}.as_count()",
       numerator: "sum:my.custom.metric{type:good}.as_count()",
     },
-    tags: ["env:prod","app:core"],
+    tags: [
+      "env:prod",
+      "app:core",
+    ],
     thresholds: [
       {
         target: 99.9,
         targetDisplay: "99.9",
-        timeframe: "7d",
+        timeframe: "30d",
+        warning: 90.0,
+        warningDisplay: "90.0",
+      },
+      {
+        target: 99.9,
+        targetDisplay: "99.9",
+        timeframe: "30d",
         warning: 90.0,
         warningDisplay: "90.0",
       },

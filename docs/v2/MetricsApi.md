@@ -38,7 +38,10 @@ let params:v2.MetricsApiCreateTagConfigurationRequest = {
       attributes: {
         includePercentiles: true,
         metricType: "count",
-        tags: ["app","datacenter"],
+        tags: [
+          "app",
+          "datacenter",
+        ],
       },
       id: "test.metric.latency",
       type: "manage_tags",
@@ -417,7 +420,10 @@ let params:v2.MetricsApiUpdateTagConfigurationRequest = {
     data: {
       attributes: {
         includePercentiles: true,
-        tags: ["app","datacenter"],
+        tags: [
+          "app",
+          "datacenter",
+        ],
       },
       id: "test.metric.latency",
       type: "manage_tags",

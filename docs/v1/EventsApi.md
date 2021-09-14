@@ -36,7 +36,9 @@ let params:v1.EventsApiCreateEventRequest = {
     priority: "normal",
     relatedEventId: 1,
     sourceTypeName: "sourceTypeName_example",
-    tags: ["environment:test"],
+    tags: [
+      "environment:test",
+    ],
     text: "Oh boy!",
     title: "Did you hear the news today?",
   },
