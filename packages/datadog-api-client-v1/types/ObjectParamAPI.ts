@@ -3232,7 +3232,7 @@ export interface ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest {
 
 export interface ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest {
   /**
-   * The ID of the SLO correction object
+   * The ID of the SLO correction object.
    * @type string
    * @memberof ServiceLevelObjectiveCorrectionsApideleteSLOCorrection
    */
@@ -3241,7 +3241,7 @@ export interface ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest {
 
 export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
   /**
-   * The ID of the SLO correction object
+   * The ID of the SLO correction object.
    * @type string
    * @memberof ServiceLevelObjectiveCorrectionsApigetSLOCorrection
    */
@@ -3250,7 +3250,7 @@ export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
 
 export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
   /**
-   * The ID of the SLO correction object
+   * The ID of the SLO correction object.
    * @type string
    * @memberof ServiceLevelObjectiveCorrectionsApiupdateSLOCorrection
    */
@@ -3279,7 +3279,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO Correction
+   * Create an SLO Correction.
    * Create an SLO correction
    * @param param the request object
    */
@@ -3291,7 +3291,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Permanently delete the specified SLO correction object
+   * Permanently delete the specified SLO correction object.
    * Delete an SLO correction
    * @param param the request object
    */
@@ -3305,7 +3305,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction
+   * Get an SLO correction.
    * Get an SLO correction for an SLO
    * @param param the request object
    */
@@ -3319,7 +3319,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all Service Level Objective corrections
+   * Get all Service Level Objective corrections.
    * Get all SLO corrections
    * @param param the request object
    */
@@ -3330,7 +3330,7 @@ export class ObjectServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update the specified SLO correction object object
+   * Update the specified SLO correction object object.
    * Update an SLO correction
    * @param param the request object
    */

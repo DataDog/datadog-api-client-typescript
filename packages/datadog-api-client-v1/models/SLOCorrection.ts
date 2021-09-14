@@ -13,13 +13,13 @@ import { SLOCorrectionType } from "./SLOCorrectionType";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * The response object of a list of SLO corrections
+ * The response object of a list of SLO corrections.
  */
 
 export class SLOCorrection {
   "attributes"?: SLOCorrectionResponseAttributes;
   /**
-   * The ID of the SLO correction
+   * The ID of the SLO correction.
    */
   "id"?: string;
   "type"?: SLOCorrectionType;

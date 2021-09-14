@@ -13,7 +13,7 @@ import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateReque
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * The data object associated with the SLO correction to be updated
+ * The data object associated with the SLO correction to be updated.
  */
 
 export class SLOCorrectionUpdateData {
