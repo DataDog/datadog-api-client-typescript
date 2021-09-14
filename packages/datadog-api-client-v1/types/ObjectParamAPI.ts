@@ -2471,7 +2471,7 @@ export interface MonitorsApiListMonitorsRequest {
    */
   monitorTags?: string;
   /**
-   * If this argument is set to true, then the returned data includes all current downtimes for each monitor.
+   * If this argument is set to true, then the returned data includes all current active downtimes for each monitor.
    * @type boolean
    * @memberof MonitorsApilistMonitors
    */
