@@ -114,14 +114,6 @@ let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   // SecurityMonitoringRuleCreatePayload
   body: {
     cases: [
-      {
-        condition: "condition_example",
-        name: "name_example",
-        notifications: [
-          "notifications_example",
-        ],
-        status: "info",
-      },
     ],
     filters: [
       {
@@ -144,24 +136,11 @@ let params:v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
       },
     },
     queries: [
-      {
-        agentRule: {
-          agentRuleId: "etc_shadow",
-          expression: "expression_example",
-        },
-        aggregation: "count",
-        distinctFields: [
-          "distinctFields_example",
-        ],
-        groupByFields: [
-          "groupByFields_example",
-        ],
-        metric: "metric_example",
-        name: "name_example",
-        query: "a > 3",
-      },
     ],
-    tags: ["env:prod","team:security"],
+    tags: [
+      "env:prod",
+      "team:security",
+    ],
     type: "log_detection",
   },
 };
@@ -703,10 +682,6 @@ let params:v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
     data: {
       attributes: {
         exclusionFilters: [
-          {
-            name: "Exclude staging",
-            query: "source:staging",
-          },
         ],
         filteredDataType: "logs",
         isEnabled: true,
@@ -788,7 +763,7 @@ let params:v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
         notifications: [
           "notifications_example",
         ],
-        status: "info",
+        status: "critical",
       },
     ],
     filters: [

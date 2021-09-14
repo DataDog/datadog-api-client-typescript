@@ -3,14 +3,14 @@
     "info_version": "2",
     "spec_versions": {
         "v1": {
-            "apigentools_version": "1.4.1.dev11",
-            "regenerated": "2021-09-10 14:44:11.775331",
-            "spec_repo_commit": "028f995"
+            "apigentools_version": "1.5.1.dev2",
+            "regenerated": "2021-09-14 08:53:08.609340",
+            "spec_repo_commit": "092cad9"
         },
         "v2": {
-            "apigentools_version": "1.4.1.dev11",
-            "regenerated": "2021-09-10 14:45:36.301646",
-            "spec_repo_commit": "028f995"
+            "apigentools_version": "1.5.1.dev2",
+            "regenerated": "2021-09-14 08:54:28.802569",
+            "spec_repo_commit": "092cad9"
         }
     }
 }

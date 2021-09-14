@@ -415,7 +415,11 @@ const apiInstance = new v1.LogsPipelinesApi(configuration);
 let params:v1.LogsPipelinesApiUpdateLogsPipelineOrderRequest = {
   // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
   body: {
-    pipelineIds: ["tags","org_ids","products"],
+    pipelineIds: [
+      "tags",
+      "org_ids",
+      "products",
+    ],
   },
 };
 

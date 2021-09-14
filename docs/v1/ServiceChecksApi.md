@@ -32,7 +32,9 @@ let params:v1.ServiceChecksApiSubmitServiceCheckRequest = {
       hostName: "app.host1",
       message: "app is running",
       status: 0,
-      tags: ["environment:test"],
+      tags: [
+        "environment:test",
+      ],
       timestamp: 1,
     },
   ],

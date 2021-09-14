@@ -150,7 +150,9 @@ let params:v1.DowntimesApiCreateDowntimeRequest = {
     end: 1412793983,
     message: "Message on the downtime",
     monitorId: 123456,
-    monitorTags: ["*"],
+    monitorTags: [
+      "*",
+    ],
     parentId: 123,
     recurrence: {
       period: 1,
@@ -158,9 +160,14 @@ let params:v1.DowntimesApiCreateDowntimeRequest = {
       type: "weeks",
       untilDate: 1447786293,
       untilOccurrences: 2,
-      weekDays: ["Mon","Tue"],
+      weekDays: [
+        "Mon",
+        "Tue",
+      ],
     },
-    scope: ["env:staging"],
+    scope: [
+      "env:staging",
+    ],
     start: 1412792983,
     timezone: "America/New_York",
   },
@@ -393,7 +400,9 @@ let params:v1.DowntimesApiUpdateDowntimeRequest = {
     end: 1412793983,
     message: "Message on the downtime",
     monitorId: 123456,
-    monitorTags: ["*"],
+    monitorTags: [
+      "*",
+    ],
     parentId: 123,
     recurrence: {
       period: 1,
@@ -401,9 +410,14 @@ let params:v1.DowntimesApiUpdateDowntimeRequest = {
       type: "weeks",
       untilDate: 1447786293,
       untilOccurrences: 2,
-      weekDays: ["Mon","Tue"],
+      weekDays: [
+        "Mon",
+        "Tue",
+      ],
     },
-    scope: ["env:staging"],
+    scope: [
+      "env:staging",
+    ],
     start: 1412792983,
     timezone: "America/New_York",
   },

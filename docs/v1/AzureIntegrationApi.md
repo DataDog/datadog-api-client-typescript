@@ -37,7 +37,9 @@ let params:v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
     newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
@@ -101,7 +103,9 @@ let params:v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
     newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
@@ -214,7 +218,9 @@ let params:v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
     newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
@@ -280,7 +286,9 @@ let params:v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
   body: {
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
-    errors: ["*"],
+    errors: [
+      "*",
+    ],
     hostFilters: "key:value,filter:example",
     newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
     newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
