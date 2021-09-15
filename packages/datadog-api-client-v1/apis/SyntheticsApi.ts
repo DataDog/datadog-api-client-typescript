@@ -363,10 +363,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/synthetics/private-locations/{location_id}".replace(
-      "{" + "location_id" + "}",
-      encodeURIComponent(String(locationId))
-    );
+    const localVarPath =
+      "/api/v1/synthetics/private-locations/{location_id}".replace(
+        "{" + "location_id" + "}",
+        encodeURIComponent(String(locationId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -710,9 +711,10 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/synthetics/tests/{public_id}/results/{result_id}"
-      .replace("{" + "public_id" + "}", encodeURIComponent(String(publicId)))
-      .replace("{" + "result_id" + "}", encodeURIComponent(String(resultId)));
+    const localVarPath =
+      "/api/v1/synthetics/tests/{public_id}/results/{result_id}"
+        .replace("{" + "public_id" + "}", encodeURIComponent(String(publicId)))
+        .replace("{" + "result_id" + "}", encodeURIComponent(String(resultId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -835,10 +837,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/synthetics/tests/browser/{public_id}/results".replace(
-      "{" + "public_id" + "}",
-      encodeURIComponent(String(publicId))
-    );
+    const localVarPath =
+      "/api/v1/synthetics/tests/browser/{public_id}/results".replace(
+        "{" + "public_id" + "}",
+        encodeURIComponent(String(publicId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -922,9 +925,10 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}"
-      .replace("{" + "public_id" + "}", encodeURIComponent(String(publicId)))
-      .replace("{" + "result_id" + "}", encodeURIComponent(String(resultId)));
+    const localVarPath =
+      "/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}"
+        .replace("{" + "public_id" + "}", encodeURIComponent(String(publicId)))
+        .replace("{" + "result_id" + "}", encodeURIComponent(String(resultId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -1041,10 +1045,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/synthetics/private-locations/{location_id}".replace(
-      "{" + "location_id" + "}",
-      encodeURIComponent(String(locationId))
-    );
+    const localVarPath =
+      "/api/v1/synthetics/private-locations/{location_id}".replace(
+        "{" + "location_id" + "}",
+        encodeURIComponent(String(locationId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -1519,10 +1524,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/synthetics/private-locations/{location_id}".replace(
-      "{" + "location_id" + "}",
-      encodeURIComponent(String(locationId))
-    );
+    const localVarPath =
+      "/api/v1/synthetics/private-locations/{location_id}".replace(
+        "{" + "location_id" + "}",
+        encodeURIComponent(String(locationId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -1717,11 +1723,12 @@ export class SyntheticsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SyntheticsPrivateLocationCreationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsPrivateLocationCreationResponse",
-        ""
-      ) as SyntheticsPrivateLocationCreationResponse;
+      const body: SyntheticsPrivateLocationCreationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsPrivateLocationCreationResponse",
+          ""
+        ) as SyntheticsPrivateLocationCreationResponse;
       return body;
     }
     if (isCodeInRange("402", response.httpStatusCode)) {
@@ -1743,11 +1750,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsPrivateLocationCreationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsPrivateLocationCreationResponse",
-        ""
-      ) as SyntheticsPrivateLocationCreationResponse;
+      const body: SyntheticsPrivateLocationCreationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsPrivateLocationCreationResponse",
+          ""
+        ) as SyntheticsPrivateLocationCreationResponse;
       return body;
     }
 
@@ -2167,11 +2175,12 @@ export class SyntheticsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SyntheticsGetAPITestLatestResultsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGetAPITestLatestResultsResponse",
-        ""
-      ) as SyntheticsGetAPITestLatestResultsResponse;
+      const body: SyntheticsGetAPITestLatestResultsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsGetAPITestLatestResultsResponse",
+          ""
+        ) as SyntheticsGetAPITestLatestResultsResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -2193,11 +2202,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsGetAPITestLatestResultsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGetAPITestLatestResultsResponse",
-        ""
-      ) as SyntheticsGetAPITestLatestResultsResponse;
+      const body: SyntheticsGetAPITestLatestResultsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsGetAPITestLatestResultsResponse",
+          ""
+        ) as SyntheticsGetAPITestLatestResultsResponse;
       return body;
     }
 
@@ -2332,11 +2342,12 @@ export class SyntheticsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SyntheticsGetBrowserTestLatestResultsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGetBrowserTestLatestResultsResponse",
-        ""
-      ) as SyntheticsGetBrowserTestLatestResultsResponse;
+      const body: SyntheticsGetBrowserTestLatestResultsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsGetBrowserTestLatestResultsResponse",
+          ""
+        ) as SyntheticsGetBrowserTestLatestResultsResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -2358,11 +2369,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsGetBrowserTestLatestResultsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGetBrowserTestLatestResultsResponse",
-        ""
-      ) as SyntheticsGetBrowserTestLatestResultsResponse;
+      const body: SyntheticsGetBrowserTestLatestResultsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsGetBrowserTestLatestResultsResponse",
+          ""
+        ) as SyntheticsGetBrowserTestLatestResultsResponse;
       return body;
     }
 
@@ -2387,11 +2399,12 @@ export class SyntheticsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SyntheticsBrowserTestResultFull = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsBrowserTestResultFull",
-        ""
-      ) as SyntheticsBrowserTestResultFull;
+      const body: SyntheticsBrowserTestResultFull =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsBrowserTestResultFull",
+          ""
+        ) as SyntheticsBrowserTestResultFull;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -2413,11 +2426,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsBrowserTestResultFull = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsBrowserTestResultFull",
-        ""
-      ) as SyntheticsBrowserTestResultFull;
+      const body: SyntheticsBrowserTestResultFull =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsBrowserTestResultFull",
+          ""
+        ) as SyntheticsBrowserTestResultFull;
       return body;
     }
 
@@ -2599,11 +2613,12 @@ export class SyntheticsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SyntheticsListGlobalVariablesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsListGlobalVariablesResponse",
-        ""
-      ) as SyntheticsListGlobalVariablesResponse;
+      const body: SyntheticsListGlobalVariablesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsListGlobalVariablesResponse",
+          ""
+        ) as SyntheticsListGlobalVariablesResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -2617,11 +2632,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsListGlobalVariablesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsListGlobalVariablesResponse",
-        ""
-      ) as SyntheticsListGlobalVariablesResponse;
+      const body: SyntheticsListGlobalVariablesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsListGlobalVariablesResponse",
+          ""
+        ) as SyntheticsListGlobalVariablesResponse;
       return body;
     }
 
@@ -2740,11 +2756,12 @@ export class SyntheticsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SyntheticsTriggerCITestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsTriggerCITestsResponse",
-        ""
-      ) as SyntheticsTriggerCITestsResponse;
+      const body: SyntheticsTriggerCITestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTriggerCITestsResponse",
+          ""
+        ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -2758,11 +2775,12 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTriggerCITestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsTriggerCITestsResponse",
-        ""
-      ) as SyntheticsTriggerCITestsResponse;
+      const body: SyntheticsTriggerCITestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTriggerCITestsResponse",
+          ""
+        ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
 

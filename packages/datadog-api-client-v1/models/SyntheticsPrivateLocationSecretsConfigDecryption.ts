@@ -48,10 +48,11 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsPrivateLocationSecretsConfigDecryption
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsPrivateLocationSecretsConfigDecryption.getAttributeTypeMap();
+  static serialize(data: SyntheticsPrivateLocationSecretsConfigDecryption): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsPrivateLocationSecretsConfigDecryption.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

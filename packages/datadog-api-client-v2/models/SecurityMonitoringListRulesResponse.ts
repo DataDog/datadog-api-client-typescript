@@ -66,10 +66,11 @@ export class SecurityMonitoringListRulesResponse {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringListRulesResponse
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringListRulesResponse.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringListRulesResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringListRulesResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

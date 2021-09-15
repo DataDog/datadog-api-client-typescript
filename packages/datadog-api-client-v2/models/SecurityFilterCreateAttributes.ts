@@ -130,9 +130,9 @@ export class SecurityFilterCreateAttributes {
     return res;
   }
 
-  static serialize(
-    data: SecurityFilterCreateAttributes
-  ): { [key: string]: any } {
+  static serialize(data: SecurityFilterCreateAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = SecurityFilterCreateAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

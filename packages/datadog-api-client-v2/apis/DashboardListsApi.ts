@@ -47,10 +47,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{" + "dashboard_list_id" + "}",
-      encodeURIComponent(String(dashboardListId))
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -120,10 +121,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{" + "dashboard_list_id" + "}",
-      encodeURIComponent(String(dashboardListId))
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -184,10 +186,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{" + "dashboard_list_id" + "}",
-      encodeURIComponent(String(dashboardListId))
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -253,10 +256,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{" + "dashboard_list_id" + "}",
-      encodeURIComponent(String(dashboardListId))
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -377,11 +381,12 @@ export class DashboardListsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: DashboardListDeleteItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListDeleteItemsResponse",
-        ""
-      ) as DashboardListDeleteItemsResponse;
+      const body: DashboardListDeleteItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListDeleteItemsResponse",
+          ""
+        ) as DashboardListDeleteItemsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -411,11 +416,12 @@ export class DashboardListsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DashboardListDeleteItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListDeleteItemsResponse",
-        ""
-      ) as DashboardListDeleteItemsResponse;
+      const body: DashboardListDeleteItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListDeleteItemsResponse",
+          ""
+        ) as DashboardListDeleteItemsResponse;
       return body;
     }
 
@@ -495,11 +501,12 @@ export class DashboardListsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: DashboardListUpdateItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListUpdateItemsResponse",
-        ""
-      ) as DashboardListUpdateItemsResponse;
+      const body: DashboardListUpdateItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListUpdateItemsResponse",
+          ""
+        ) as DashboardListUpdateItemsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -529,11 +536,12 @@ export class DashboardListsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DashboardListUpdateItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListUpdateItemsResponse",
-        ""
-      ) as DashboardListUpdateItemsResponse;
+      const body: DashboardListUpdateItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListUpdateItemsResponse",
+          ""
+        ) as DashboardListUpdateItemsResponse;
       return body;
     }
 

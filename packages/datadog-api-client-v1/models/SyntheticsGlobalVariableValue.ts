@@ -59,9 +59,9 @@ export class SyntheticsGlobalVariableValue {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsGlobalVariableValue
-  ): { [key: string]: any } {
+  static serialize(data: SyntheticsGlobalVariableValue): {
+    [key: string]: any;
+  } {
     const attributeTypes = SyntheticsGlobalVariableValue.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

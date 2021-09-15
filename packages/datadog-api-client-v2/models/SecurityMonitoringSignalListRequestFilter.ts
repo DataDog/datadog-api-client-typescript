@@ -70,10 +70,11 @@ export class SecurityMonitoringSignalListRequestFilter {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringSignalListRequestFilter
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringSignalListRequestFilter.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringSignalListRequestFilter): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringSignalListRequestFilter.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

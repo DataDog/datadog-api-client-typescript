@@ -159,10 +159,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-      "{" + "webhook_name" + "}",
-      encodeURIComponent(String(webhookName))
-    );
+    const localVarPath =
+      "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
+        "{" + "webhook_name" + "}",
+        encodeURIComponent(String(webhookName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -214,10 +215,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-      "{" + "custom_variable_name" + "}",
-      encodeURIComponent(String(customVariableName))
-    );
+    const localVarPath =
+      "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
+        "{" + "custom_variable_name" + "}",
+        encodeURIComponent(String(customVariableName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -269,10 +271,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-      "{" + "webhook_name" + "}",
-      encodeURIComponent(String(webhookName))
-    );
+    const localVarPath =
+      "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
+        "{" + "webhook_name" + "}",
+        encodeURIComponent(String(webhookName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -324,10 +327,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-      "{" + "custom_variable_name" + "}",
-      encodeURIComponent(String(customVariableName))
-    );
+    const localVarPath =
+      "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
+        "{" + "custom_variable_name" + "}",
+        encodeURIComponent(String(customVariableName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -388,10 +392,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-      "{" + "webhook_name" + "}",
-      encodeURIComponent(String(webhookName))
-    );
+    const localVarPath =
+      "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
+        "{" + "webhook_name" + "}",
+        encodeURIComponent(String(webhookName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -461,10 +466,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-      "{" + "custom_variable_name" + "}",
-      encodeURIComponent(String(customVariableName))
-    );
+    const localVarPath =
+      "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
+        "{" + "custom_variable_name" + "}",
+        encodeURIComponent(String(customVariableName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -581,11 +587,12 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("201", response.httpStatusCode)) {
-      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegrationCustomVariableResponse",
-        ""
-      ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse",
+          ""
+        ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -607,11 +614,12 @@ export class WebhooksIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegrationCustomVariableResponse",
-        ""
-      ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse",
+          ""
+        ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
 
@@ -799,11 +807,12 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegrationCustomVariableResponse",
-        ""
-      ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse",
+          ""
+        ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -833,11 +842,12 @@ export class WebhooksIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegrationCustomVariableResponse",
-        ""
-      ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse",
+          ""
+        ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
 
@@ -925,11 +935,12 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegrationCustomVariableResponse",
-        ""
-      ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse",
+          ""
+        ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -959,11 +970,12 @@ export class WebhooksIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegrationCustomVariableResponse",
-        ""
-      ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WebhooksIntegrationCustomVariableResponse",
+          ""
+        ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
 

@@ -92,10 +92,11 @@ export class NotebookTimeseriesCellAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebookTimeseriesCellAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = NotebookTimeseriesCellAttributes.getAttributeTypeMap();
+  static serialize(data: NotebookTimeseriesCellAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      NotebookTimeseriesCellAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -139,10 +139,11 @@ export class SLOCorrectionCreateRequestAttributes {
     return res;
   }
 
-  static serialize(
-    data: SLOCorrectionCreateRequestAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = SLOCorrectionCreateRequestAttributes.getAttributeTypeMap();
+  static serialize(data: SLOCorrectionCreateRequestAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SLOCorrectionCreateRequestAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

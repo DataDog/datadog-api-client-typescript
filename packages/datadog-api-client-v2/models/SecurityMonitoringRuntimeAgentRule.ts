@@ -67,10 +67,11 @@ export class SecurityMonitoringRuntimeAgentRule {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuntimeAgentRule
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringRuntimeAgentRule.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringRuntimeAgentRule): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringRuntimeAgentRule.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

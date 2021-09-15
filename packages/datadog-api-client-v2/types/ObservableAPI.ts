@@ -1099,10 +1099,8 @@ export class ObservableKeyManagementApi {
     body: ApplicationKeyCreateRequest,
     _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.createCurrentUserApplicationKey(
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createCurrentUserApplicationKey(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1225,10 +1223,8 @@ export class ObservableKeyManagementApi {
     appKeyId: string,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.deleteCurrentUserApplicationKey(
-      appKeyId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteCurrentUserApplicationKey(appKeyId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1355,10 +1351,8 @@ export class ObservableKeyManagementApi {
     appKeyId: string,
     _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.getCurrentUserApplicationKey(
-      appKeyId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getCurrentUserApplicationKey(appKeyId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1530,15 +1524,16 @@ export class ObservableKeyManagementApi {
     filterCreatedAtEnd?: string,
     _options?: Configuration
   ): Observable<ListApplicationKeysResponse> {
-    const requestContextPromise = this.requestFactory.listCurrentUserApplicationKeys(
-      pageSize,
-      pageNumber,
-      sort,
-      filter,
-      filterCreatedAtStart,
-      filterCreatedAtEnd,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listCurrentUserApplicationKeys(
+        pageSize,
+        pageNumber,
+        sort,
+        filter,
+        filterCreatedAtStart,
+        filterCreatedAtEnd,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1669,11 +1664,12 @@ export class ObservableKeyManagementApi {
     body: ApplicationKeyUpdateRequest,
     _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.updateCurrentUserApplicationKey(
-      appKeyId,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.updateCurrentUserApplicationKey(
+        appKeyId,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2066,9 +2062,8 @@ export class ObservableLogsArchivesApi {
   public getLogsArchiveOrder(
     _options?: Configuration
   ): Observable<LogsArchiveOrder> {
-    const requestContextPromise = this.requestFactory.getLogsArchiveOrder(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getLogsArchiveOrder(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2145,9 +2140,8 @@ export class ObservableLogsArchivesApi {
    * Get all archives
    */
   public listLogsArchives(_options?: Configuration): Observable<LogsArchives> {
-    const requestContextPromise = this.requestFactory.listLogsArchives(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listLogsArchives(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2659,10 +2653,8 @@ export class ObservableMetricsApi {
     metricName: string,
     _options?: Configuration
   ): Observable<MetricTagConfigurationResponse> {
-    const requestContextPromise = this.requestFactory.listTagConfigurationByName(
-      metricName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listTagConfigurationByName(metricName, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3583,10 +3575,8 @@ export class ObservableSecurityMonitoringApi {
     body: SecurityMonitoringRuleCreatePayload,
     _options?: Configuration
   ): Observable<SecurityMonitoringRuleResponse> {
-    const requestContextPromise = this.requestFactory.createSecurityMonitoringRule(
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringRule(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3667,10 +3657,8 @@ export class ObservableSecurityMonitoringApi {
     ruleId: string,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.deleteSecurityMonitoringRule(
-      ruleId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringRule(ruleId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3791,9 +3779,8 @@ export class ObservableSecurityMonitoringApi {
   public listSecurityFilters(
     _options?: Configuration
   ): Observable<SecurityFiltersResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityFilters(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityFilters(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3834,11 +3821,12 @@ export class ObservableSecurityMonitoringApi {
     pageNumber?: number,
     _options?: Configuration
   ): Observable<SecurityMonitoringListRulesResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityMonitoringRules(
-      pageSize,
-      pageNumber,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringRules(
+        pageSize,
+        pageNumber,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3887,15 +3875,16 @@ export class ObservableSecurityMonitoringApi {
     pageLimit?: number,
     _options?: Configuration
   ): Observable<SecurityMonitoringSignalsListResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityMonitoringSignals(
-      filterQuery,
-      filterFrom,
-      filterTo,
-      sort,
-      pageCursor,
-      pageLimit,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringSignals(
+        filterQuery,
+        filterFrom,
+        filterTo,
+        sort,
+        pageCursor,
+        pageLimit,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3934,10 +3923,8 @@ export class ObservableSecurityMonitoringApi {
     body?: SecurityMonitoringSignalListRequest,
     _options?: Configuration
   ): Observable<SecurityMonitoringSignalsListResponse> {
-    const requestContextPromise = this.requestFactory.searchSecurityMonitoringSignals(
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.searchSecurityMonitoringSignals(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4023,11 +4010,8 @@ export class ObservableSecurityMonitoringApi {
     body: SecurityMonitoringRuleUpdatePayload,
     _options?: Configuration
   ): Observable<SecurityMonitoringRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateSecurityMonitoringRule(
-      ruleId,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringRule(ruleId, body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4091,11 +4075,12 @@ export class ObservableServiceAccountsApi {
     body: ApplicationKeyCreateRequest,
     _options?: Configuration
   ): Observable<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.createServiceAccountApplicationKey(
-      serviceAccountId,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createServiceAccountApplicationKey(
+        serviceAccountId,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4136,11 +4121,12 @@ export class ObservableServiceAccountsApi {
     appKeyId: string,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.deleteServiceAccountApplicationKey(
-      serviceAccountId,
-      appKeyId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteServiceAccountApplicationKey(
+        serviceAccountId,
+        appKeyId,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4181,11 +4167,12 @@ export class ObservableServiceAccountsApi {
     appKeyId: string,
     _options?: Configuration
   ): Observable<PartialApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.getServiceAccountApplicationKey(
-      serviceAccountId,
-      appKeyId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getServiceAccountApplicationKey(
+        serviceAccountId,
+        appKeyId,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4236,16 +4223,17 @@ export class ObservableServiceAccountsApi {
     filterCreatedAtEnd?: string,
     _options?: Configuration
   ): Observable<ListApplicationKeysResponse> {
-    const requestContextPromise = this.requestFactory.listServiceAccountApplicationKeys(
-      serviceAccountId,
-      pageSize,
-      pageNumber,
-      sort,
-      filter,
-      filterCreatedAtStart,
-      filterCreatedAtEnd,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listServiceAccountApplicationKeys(
+        serviceAccountId,
+        pageSize,
+        pageNumber,
+        sort,
+        filter,
+        filterCreatedAtStart,
+        filterCreatedAtEnd,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -4288,12 +4276,13 @@ export class ObservableServiceAccountsApi {
     body: ApplicationKeyUpdateRequest,
     _options?: Configuration
   ): Observable<PartialApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.updateServiceAccountApplicationKey(
-      serviceAccountId,
-      appKeyId,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.updateServiceAccountApplicationKey(
+        serviceAccountId,
+        appKeyId,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);

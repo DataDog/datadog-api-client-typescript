@@ -119,10 +119,11 @@ export class SyntheticsAssertionJSONPathTarget {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsAssertionJSONPathTarget
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsAssertionJSONPathTarget.getAttributeTypeMap();
+  static serialize(data: SyntheticsAssertionJSONPathTarget): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsAssertionJSONPathTarget.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

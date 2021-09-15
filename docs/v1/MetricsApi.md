@@ -2,48 +2,50 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getMetricMetadata**](MetricsApi.md#getMetricMetadata) | **GET** /api/v1/metrics/{metric_name} | Get metric metadata
-[**listActiveMetrics**](MetricsApi.md#listActiveMetrics) | **GET** /api/v1/metrics | Get active metrics list
-[**listMetrics**](MetricsApi.md#listMetrics) | **GET** /api/v1/search | Search metrics
-[**queryMetrics**](MetricsApi.md#queryMetrics) | **GET** /api/v1/query | Query timeseries points
-[**submitMetrics**](MetricsApi.md#submitMetrics) | **POST** /api/v1/series | Submit metrics
-[**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
-
+| Method                                                         | HTTP request                          | Description             |
+| -------------------------------------------------------------- | ------------------------------------- | ----------------------- |
+| [**getMetricMetadata**](MetricsApi.md#getMetricMetadata)       | **GET** /api/v1/metrics/{metric_name} | Get metric metadata     |
+| [**listActiveMetrics**](MetricsApi.md#listActiveMetrics)       | **GET** /api/v1/metrics               | Get active metrics list |
+| [**listMetrics**](MetricsApi.md#listMetrics)                   | **GET** /api/v1/search                | Search metrics          |
+| [**queryMetrics**](MetricsApi.md#queryMetrics)                 | **GET** /api/v1/query                 | Query timeseries points |
+| [**submitMetrics**](MetricsApi.md#submitMetrics)               | **POST** /api/v1/series               | Submit metrics          |
+| [**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata    |
 
 ## **getMetricMetadata**
+
 > MetricMetadata getMetricMetadata()
 
 Get metadata about a specific metric.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params:v1.MetricsApiGetMetricMetadataRequest = {
+let params: v1.MetricsApiGetMetricMetadataRequest = {
   // string | Name of the metric for which to get metadata.
   metricName: "metric_name_example",
 };
 
-apiInstance.getMetricMetadata(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .getMetricMetadata(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **metricName** | [**string**] | Name of the metric for which to get metadata. | defaults to undefined
-
+| Name           | Type         | Description                                   | Notes                 |
+| -------------- | ------------ | --------------------------------------------- | --------------------- |
+| **metricName** | [**string**] | Name of the metric for which to get metadata. | defaults to undefined |
 
 ### Return type
 
@@ -55,35 +57,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listActiveMetrics**
+
 > MetricsListResponse listActiveMetrics()
 
 Get the list of actively reporting metrics from a given time until now.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params:v1.MetricsApiListActiveMetricsRequest = {
+let params: v1.MetricsApiListActiveMetricsRequest = {
   // number | Seconds since the Unix epoch.
   from: 1,
   // string | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. (optional)
@@ -92,20 +94,23 @@ let params:v1.MetricsApiListActiveMetricsRequest = {
   tagFilter: "env IN (staging,test) AND service:web",
 };
 
-apiInstance.listActiveMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listActiveMetrics(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | [**number**] | Seconds since the Unix epoch. | defaults to undefined
- **host** | [**string**] | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | (optional) defaults to undefined
- **tagFilter** | [**string**] | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | (optional) defaults to undefined
-
+| Name          | Type         | Description                                                                                                                                    | Notes                            |
+| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **from**      | [**number**] | Seconds since the Unix epoch.                                                                                                                  | defaults to undefined            |
+| **host**      | [**string**] | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.                  | (optional) defaults to undefined |
+| **tagFilter** | [**string**] | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | (optional) defaults to undefined |
 
 ### Return type
 
@@ -117,51 +122,54 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listMetrics**
+
 > MetricSearchResponse listMetrics()
 
 Search for metrics from the last 24 hours in Datadog.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params:v1.MetricsApiListMetricsRequest = {
+let params: v1.MetricsApiListMetricsRequest = {
   // string | Query string to search metrics upon. Must be prefixed with `metrics:`.
   q: "q_example",
 };
 
-apiInstance.listMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listMetrics(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | [**string**] | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. | defaults to undefined
-
+| Name  | Type         | Description                                                                      | Notes                 |
+| ----- | ------------ | -------------------------------------------------------------------------------- | --------------------- |
+| **q** | [**string**] | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. | defaults to undefined |
 
 ### Return type
 
@@ -173,35 +181,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **queryMetrics**
+
 > MetricsQueryResponse queryMetrics()
 
 Query timeseries points.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params:v1.MetricsApiQueryMetricsRequest = {
+let params: v1.MetricsApiQueryMetricsRequest = {
   // number | Start of the queried time period, seconds since the Unix epoch.
   from: 1,
   // number | End of the queried time period, seconds since the Unix epoch.
@@ -210,20 +218,23 @@ let params:v1.MetricsApiQueryMetricsRequest = {
   query: "query_example",
 };
 
-apiInstance.queryMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .queryMetrics(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | [**number**] | Start of the queried time period, seconds since the Unix epoch. | defaults to undefined
- **to** | [**number**] | End of the queried time period, seconds since the Unix epoch. | defaults to undefined
- **query** | [**string**] | Query string. | defaults to undefined
-
+| Name      | Type         | Description                                                     | Notes                 |
+| --------- | ------------ | --------------------------------------------------------------- | --------------------- |
+| **from**  | [**number**] | Start of the queried time period, seconds since the Unix epoch. | defaults to undefined |
+| **to**    | [**number**] | End of the queried time period, seconds since the Unix epoch.   | defaults to undefined |
+| **query** | [**string**] | Query string.                                                   | defaults to undefined |
 
 ### Return type
 
@@ -235,20 +246,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **submitMetrics**
+
 > IntakePayloadAccepted submitMetrics(body)
 
 The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
@@ -261,19 +273,18 @@ If you’re submitting metrics directly to the Datadog API without using DogStat
 - 20 bytes for the metric names
 - 50 bytes for the timeseries
 - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-compression is applied, which reduces the payload size.
+  compression is applied, which reduces the payload size.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params:v1.MetricsApiSubmitMetricsRequest = {
+let params: v1.MetricsApiSubmitMetricsRequest = {
   // MetricsPayload
   body: {
     series: [
@@ -281,33 +292,29 @@ let params:v1.MetricsApiSubmitMetricsRequest = {
         host: "test.example.com",
         interval: 20,
         metric: "system.load.1",
-        points: [
-          [
-            1.575317847E9,
-            0.5,
-          ],
-        ],
-        tags: [
-          "environment:test",
-        ],
+        points: [[1.575317847e9, 0.5]],
+        tags: ["environment:test"],
         type: "rate",
       },
     ],
   },
 };
 
-apiInstance.submitMetrics(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .submitMetrics(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **MetricsPayload**|  |
-
+| Name     | Type               | Description | Notes |
+| -------- | ------------------ | ----------- | ----- |
+| **body** | **MetricsPayload** |             |
 
 ### Return type
 
@@ -319,37 +326,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Payload accepted |  -  |
-**400** | Bad Request |  -  |
-**403** | Authentication error |  -  |
-**408** | Request timeout |  -  |
-**413** | Payload too large |  -  |
+
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **202**     | Payload accepted     | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **408**     | Request timeout      | -                |
+| **413**     | Payload too large    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **updateMetricMetadata**
+
 > MetricMetadata updateMetricMetadata(body)
 
 Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params:v1.MetricsApiUpdateMetricMetadataRequest = {
+let params: v1.MetricsApiUpdateMetricMetadataRequest = {
   // string | Name of the metric for which to edit metadata.
   metricName: "metric_name_example",
   // MetricMetadata | New metadata.
@@ -363,19 +370,22 @@ let params:v1.MetricsApiUpdateMetricMetadataRequest = {
   },
 };
 
-apiInstance.updateMetricMetadata(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .updateMetricMetadata(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **MetricMetadata**| New metadata. |
- **metricName** | [**string**] | Name of the metric for which to edit metadata. | defaults to undefined
-
+| Name           | Type               | Description                                    | Notes                 |
+| -------------- | ------------------ | ---------------------------------------------- | --------------------- |
+| **body**       | **MetricMetadata** | New metadata.                                  |
+| **metricName** | [**string**]       | Name of the metric for which to edit metadata. | defaults to undefined |
 
 ### Return type
 
@@ -387,17 +397,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-

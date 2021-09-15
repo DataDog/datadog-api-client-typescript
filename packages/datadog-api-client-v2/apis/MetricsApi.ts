@@ -711,11 +711,12 @@ export class MetricsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: MetricsAndMetricTagConfigurationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsAndMetricTagConfigurationsResponse",
-        ""
-      ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricsAndMetricTagConfigurationsResponse",
+          ""
+        ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -745,11 +746,12 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricsAndMetricTagConfigurationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsAndMetricTagConfigurationsResponse",
-        ""
-      ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricsAndMetricTagConfigurationsResponse",
+          ""
+        ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
 

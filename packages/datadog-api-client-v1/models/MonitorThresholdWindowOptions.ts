@@ -67,9 +67,9 @@ export class MonitorThresholdWindowOptions {
     return res;
   }
 
-  static serialize(
-    data: MonitorThresholdWindowOptions
-  ): { [key: string]: any } {
+  static serialize(data: MonitorThresholdWindowOptions): {
+    [key: string]: any;
+  } {
     const attributeTypes = MonitorThresholdWindowOptions.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

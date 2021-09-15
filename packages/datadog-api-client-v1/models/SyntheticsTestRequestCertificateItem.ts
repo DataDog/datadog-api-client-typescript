@@ -70,10 +70,11 @@ export class SyntheticsTestRequestCertificateItem {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsTestRequestCertificateItem
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsTestRequestCertificateItem.getAttributeTypeMap();
+  static serialize(data: SyntheticsTestRequestCertificateItem): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsTestRequestCertificateItem.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

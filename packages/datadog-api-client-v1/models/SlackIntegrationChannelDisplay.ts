@@ -81,9 +81,9 @@ export class SlackIntegrationChannelDisplay {
     return res;
   }
 
-  static serialize(
-    data: SlackIntegrationChannelDisplay
-  ): { [key: string]: any } {
+  static serialize(data: SlackIntegrationChannelDisplay): {
+    [key: string]: any;
+  } {
     const attributeTypes = SlackIntegrationChannelDisplay.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

@@ -269,9 +269,9 @@ export class SecurityMonitoringRuleResponse {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuleResponse
-  ): { [key: string]: any } {
+  static serialize(data: SecurityMonitoringRuleResponse): {
+    [key: string]: any;
+  } {
     const attributeTypes = SecurityMonitoringRuleResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

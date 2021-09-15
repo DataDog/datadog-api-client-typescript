@@ -55,10 +55,11 @@ export class SyntheticsBrowserTestResultFullCheck {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsBrowserTestResultFullCheck
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsBrowserTestResultFullCheck.getAttributeTypeMap();
+  static serialize(data: SyntheticsBrowserTestResultFullCheck): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsBrowserTestResultFullCheck.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

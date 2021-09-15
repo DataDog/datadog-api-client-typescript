@@ -86,10 +86,11 @@ export class SyntheticsGlobalVariableParseTestOptions {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsGlobalVariableParseTestOptions
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsGlobalVariableParseTestOptions.getAttributeTypeMap();
+  static serialize(data: SyntheticsGlobalVariableParseTestOptions): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsGlobalVariableParseTestOptions.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

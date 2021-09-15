@@ -24,10 +24,8 @@ ts-jest,MIT,Copyright (c) 2016-2018
 dd-trace,BSD-3-Clause,Copyright 2016-Present Datadog Inc.
 durations,MIT,Copyright (c) 2015, Joel Edwards
 es6-promise,MIT,Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
-eslint-config-prettier,MIT,Copyright (c) 2017, 2018, 2019, 2020, 2021 Simon Lydell and contributors
 eslint-plugin-import,MIT,Copyright (c) 2015 Ben Mosher
 eslint-plugin-node,MIT,Copyright (c) 2015 Toru Nagashima
-eslint-plugin-prettier,MIT,Copyright © 2017 Andres Suarez and Teddy Katz
 eslint-plugin-unused-imports,MIT,Copyright (c) 2021 Mikkel Holmer
 eslint,MIT,Copyright JS Foundation and other contributors, https://js.foundation
 form-data,MIT,Copyright (c) 2012 Felix Geisendörfer (felix@debuggable.com) and contributors

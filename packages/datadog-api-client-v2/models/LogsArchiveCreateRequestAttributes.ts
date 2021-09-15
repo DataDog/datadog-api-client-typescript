@@ -117,10 +117,11 @@ export class LogsArchiveCreateRequestAttributes {
     return res;
   }
 
-  static serialize(
-    data: LogsArchiveCreateRequestAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = LogsArchiveCreateRequestAttributes.getAttributeTypeMap();
+  static serialize(data: LogsArchiveCreateRequestAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      LogsArchiveCreateRequestAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

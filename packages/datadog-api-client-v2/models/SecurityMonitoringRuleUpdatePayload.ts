@@ -168,10 +168,11 @@ export class SecurityMonitoringRuleUpdatePayload {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuleUpdatePayload
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringRuleUpdatePayload.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringRuleUpdatePayload): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringRuleUpdatePayload.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

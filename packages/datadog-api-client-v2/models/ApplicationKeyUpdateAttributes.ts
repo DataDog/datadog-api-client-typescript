@@ -53,9 +53,9 @@ export class ApplicationKeyUpdateAttributes {
     return res;
   }
 
-  static serialize(
-    data: ApplicationKeyUpdateAttributes
-  ): { [key: string]: any } {
+  static serialize(data: ApplicationKeyUpdateAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = ApplicationKeyUpdateAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

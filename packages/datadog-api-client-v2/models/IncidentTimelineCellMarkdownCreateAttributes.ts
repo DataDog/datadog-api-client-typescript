@@ -86,10 +86,11 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
     return res;
   }
 
-  static serialize(
-    data: IncidentTimelineCellMarkdownCreateAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = IncidentTimelineCellMarkdownCreateAttributes.getAttributeTypeMap();
+  static serialize(data: IncidentTimelineCellMarkdownCreateAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      IncidentTimelineCellMarkdownCreateAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

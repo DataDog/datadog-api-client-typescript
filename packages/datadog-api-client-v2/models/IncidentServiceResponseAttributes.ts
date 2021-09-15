@@ -78,10 +78,11 @@ export class IncidentServiceResponseAttributes {
     return res;
   }
 
-  static serialize(
-    data: IncidentServiceResponseAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = IncidentServiceResponseAttributes.getAttributeTypeMap();
+  static serialize(data: IncidentServiceResponseAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      IncidentServiceResponseAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

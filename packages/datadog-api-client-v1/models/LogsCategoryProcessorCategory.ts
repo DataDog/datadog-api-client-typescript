@@ -57,9 +57,9 @@ export class LogsCategoryProcessorCategory {
     return res;
   }
 
-  static serialize(
-    data: LogsCategoryProcessorCategory
-  ): { [key: string]: any } {
+  static serialize(data: LogsCategoryProcessorCategory): {
+    [key: string]: any;
+  } {
     const attributeTypes = LogsCategoryProcessorCategory.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

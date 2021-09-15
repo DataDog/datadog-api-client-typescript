@@ -59,10 +59,11 @@ export class LogsAggregateBucketValueTimeseriesPoint {
     return res;
   }
 
-  static serialize(
-    data: LogsAggregateBucketValueTimeseriesPoint
-  ): { [key: string]: any } {
-    const attributeTypes = LogsAggregateBucketValueTimeseriesPoint.getAttributeTypeMap();
+  static serialize(data: LogsAggregateBucketValueTimeseriesPoint): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      LogsAggregateBucketValueTimeseriesPoint.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -77,10 +77,11 @@ export class FormulaAndFunctionEventQueryGroupBy {
     return res;
   }
 
-  static serialize(
-    data: FormulaAndFunctionEventQueryGroupBy
-  ): { [key: string]: any } {
-    const attributeTypes = FormulaAndFunctionEventQueryGroupBy.getAttributeTypeMap();
+  static serialize(data: FormulaAndFunctionEventQueryGroupBy): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      FormulaAndFunctionEventQueryGroupBy.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

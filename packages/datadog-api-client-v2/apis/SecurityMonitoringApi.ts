@@ -174,10 +174,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-      "{" + "security_filter_id" + "}",
-      encodeURIComponent(String(securityFilterId))
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
+        "{" + "security_filter_id" + "}",
+        encodeURIComponent(String(securityFilterId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -289,10 +290,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-      "{" + "security_filter_id" + "}",
-      encodeURIComponent(String(securityFilterId))
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
+        "{" + "security_filter_id" + "}",
+        encodeURIComponent(String(securityFilterId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -680,10 +682,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-      "{" + "security_filter_id" + "}",
-      encodeURIComponent(String(securityFilterId))
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
+        "{" + "security_filter_id" + "}",
+        encodeURIComponent(String(securityFilterId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -1220,11 +1223,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SecurityMonitoringListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringListRulesResponse",
-        ""
-      ) as SecurityMonitoringListRulesResponse;
+      const body: SecurityMonitoringListRulesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringListRulesResponse",
+          ""
+        ) as SecurityMonitoringListRulesResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -1238,11 +1242,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringListRulesResponse",
-        ""
-      ) as SecurityMonitoringListRulesResponse;
+      const body: SecurityMonitoringListRulesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringListRulesResponse",
+          ""
+        ) as SecurityMonitoringListRulesResponse;
       return body;
     }
 
@@ -1267,11 +1272,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-        ""
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+          ""
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -1293,11 +1299,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-        ""
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+          ""
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 
@@ -1322,11 +1329,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-        ""
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+          ""
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -1348,11 +1356,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-        ""
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+          ""
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 

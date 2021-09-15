@@ -116,10 +116,11 @@ export class SLOHistoryMetricsSeriesMetadata {
     return res;
   }
 
-  static serialize(
-    data: SLOHistoryMetricsSeriesMetadata
-  ): { [key: string]: any } {
-    const attributeTypes = SLOHistoryMetricsSeriesMetadata.getAttributeTypeMap();
+  static serialize(data: SLOHistoryMetricsSeriesMetadata): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SLOHistoryMetricsSeriesMetadata.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

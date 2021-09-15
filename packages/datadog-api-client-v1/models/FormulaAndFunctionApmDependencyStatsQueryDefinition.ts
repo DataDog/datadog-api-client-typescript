@@ -216,10 +216,11 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
     return res;
   }
 
-  static serialize(
-    data: FormulaAndFunctionApmDependencyStatsQueryDefinition
-  ): { [key: string]: any } {
-    const attributeTypes = FormulaAndFunctionApmDependencyStatsQueryDefinition.getAttributeTypeMap();
+  static serialize(data: FormulaAndFunctionApmDependencyStatsQueryDefinition): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      FormulaAndFunctionApmDependencyStatsQueryDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

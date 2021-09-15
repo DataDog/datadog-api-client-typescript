@@ -140,10 +140,11 @@ export class NotebooksResponseDataAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebooksResponseDataAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = NotebooksResponseDataAttributes.getAttributeTypeMap();
+  static serialize(data: NotebooksResponseDataAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      NotebooksResponseDataAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

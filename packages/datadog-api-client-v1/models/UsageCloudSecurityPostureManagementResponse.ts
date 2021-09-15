@@ -53,10 +53,11 @@ export class UsageCloudSecurityPostureManagementResponse {
     return res;
   }
 
-  static serialize(
-    data: UsageCloudSecurityPostureManagementResponse
-  ): { [key: string]: any } {
-    const attributeTypes = UsageCloudSecurityPostureManagementResponse.getAttributeTypeMap();
+  static serialize(data: UsageCloudSecurityPostureManagementResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageCloudSecurityPostureManagementResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

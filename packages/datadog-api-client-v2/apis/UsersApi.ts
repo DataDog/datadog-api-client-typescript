@@ -228,10 +228,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/user_invitations/{user_invitation_uuid}".replace(
-      "{" + "user_invitation_uuid" + "}",
-      encodeURIComponent(String(userInvitationUuid))
-    );
+    const localVarPath =
+      "/api/v2/user_invitations/{user_invitation_uuid}".replace(
+        "{" + "user_invitation_uuid" + "}",
+        encodeURIComponent(String(userInvitationUuid))
+      );
 
     // Make Request Context
     const requestContext = getServer(

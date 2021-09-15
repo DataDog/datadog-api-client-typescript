@@ -79,10 +79,11 @@ export class NotebookLogStreamCellAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebookLogStreamCellAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = NotebookLogStreamCellAttributes.getAttributeTypeMap();
+  static serialize(data: NotebookLogStreamCellAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      NotebookLogStreamCellAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

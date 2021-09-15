@@ -69,9 +69,9 @@ export class SecurityFilterExclusionFilter {
     return res;
   }
 
-  static serialize(
-    data: SecurityFilterExclusionFilter
-  ): { [key: string]: any } {
+  static serialize(data: SecurityFilterExclusionFilter): {
+    [key: string]: any;
+  } {
     const attributeTypes = SecurityFilterExclusionFilter.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

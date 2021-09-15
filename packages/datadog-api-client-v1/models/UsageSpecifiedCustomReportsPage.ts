@@ -52,10 +52,11 @@ export class UsageSpecifiedCustomReportsPage {
     return res;
   }
 
-  static serialize(
-    data: UsageSpecifiedCustomReportsPage
-  ): { [key: string]: any } {
-    const attributeTypes = UsageSpecifiedCustomReportsPage.getAttributeTypeMap();
+  static serialize(data: UsageSpecifiedCustomReportsPage): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageSpecifiedCustomReportsPage.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

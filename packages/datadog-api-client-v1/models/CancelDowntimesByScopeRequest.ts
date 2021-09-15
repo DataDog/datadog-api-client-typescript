@@ -53,9 +53,9 @@ export class CancelDowntimesByScopeRequest {
     return res;
   }
 
-  static serialize(
-    data: CancelDowntimesByScopeRequest
-  ): { [key: string]: any } {
+  static serialize(data: CancelDowntimesByScopeRequest): {
+    [key: string]: any;
+  } {
     const attributeTypes = CancelDowntimesByScopeRequest.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

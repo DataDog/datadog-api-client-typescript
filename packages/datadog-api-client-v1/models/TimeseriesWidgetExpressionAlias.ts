@@ -68,10 +68,11 @@ export class TimeseriesWidgetExpressionAlias {
     return res;
   }
 
-  static serialize(
-    data: TimeseriesWidgetExpressionAlias
-  ): { [key: string]: any } {
-    const attributeTypes = TimeseriesWidgetExpressionAlias.getAttributeTypeMap();
+  static serialize(data: TimeseriesWidgetExpressionAlias): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      TimeseriesWidgetExpressionAlias.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

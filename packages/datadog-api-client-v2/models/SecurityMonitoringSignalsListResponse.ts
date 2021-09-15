@@ -79,10 +79,11 @@ export class SecurityMonitoringSignalsListResponse {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringSignalsListResponse
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringSignalsListResponse.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringSignalsListResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringSignalsListResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

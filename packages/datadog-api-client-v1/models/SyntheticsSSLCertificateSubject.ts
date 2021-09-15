@@ -114,10 +114,11 @@ export class SyntheticsSSLCertificateSubject {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsSSLCertificateSubject
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsSSLCertificateSubject.getAttributeTypeMap();
+  static serialize(data: SyntheticsSSLCertificateSubject): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsSSLCertificateSubject.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

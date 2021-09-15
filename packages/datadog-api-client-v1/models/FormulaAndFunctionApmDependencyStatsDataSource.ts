@@ -8,5 +8,6 @@
  * Do not edit the class manually.
  */
 
-export type FormulaAndFunctionApmDependencyStatsDataSource = typeof APM_DEPENDENCY_STATS;
+export type FormulaAndFunctionApmDependencyStatsDataSource =
+  typeof APM_DEPENDENCY_STATS;
 export const APM_DEPENDENCY_STATS = "apm_dependency_stats";

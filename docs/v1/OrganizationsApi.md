@@ -2,16 +2,16 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createChildOrg**](OrganizationsApi.md#createChildOrg) | **POST** /api/v1/org | Create a child organization
-[**getOrg**](OrganizationsApi.md#getOrg) | **GET** /api/v1/org/{public_id} | Get organization information
-[**listOrgs**](OrganizationsApi.md#listOrgs) | **GET** /api/v1/org | List your managed organizations
-[**updateOrg**](OrganizationsApi.md#updateOrg) | **PUT** /api/v1/org/{public_id} | Update your organization
-[**uploadIdPForOrg**](OrganizationsApi.md#uploadIdPForOrg) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata
-
+| Method                                                     | HTTP request                                  | Description                     |
+| ---------------------------------------------------------- | --------------------------------------------- | ------------------------------- |
+| [**createChildOrg**](OrganizationsApi.md#createChildOrg)   | **POST** /api/v1/org                          | Create a child organization     |
+| [**getOrg**](OrganizationsApi.md#getOrg)                   | **GET** /api/v1/org/{public_id}               | Get organization information    |
+| [**listOrgs**](OrganizationsApi.md#listOrgs)               | **GET** /api/v1/org                           | List your managed organizations |
+| [**updateOrg**](OrganizationsApi.md#updateOrg)             | **PUT** /api/v1/org/{public_id}               | Update your organization        |
+| [**uploadIdPForOrg**](OrganizationsApi.md#uploadIdPForOrg) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata             |
 
 ## **createChildOrg**
+
 > OrganizationCreateResponse createChildOrg(body)
 
 Create a child organization.
@@ -27,15 +27,14 @@ by using the `org.public_id`, `api_key.key`, and
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let params:v1.OrganizationsApiCreateChildOrgRequest = {
+let params: v1.OrganizationsApiCreateChildOrgRequest = {
   // OrganizationCreateBody | Organization object that needs to be created
   body: {
     billing: {
@@ -48,18 +47,21 @@ let params:v1.OrganizationsApiCreateChildOrgRequest = {
   },
 };
 
-apiInstance.createChildOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createChildOrg(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **OrganizationCreateBody**| Organization object that needs to be created |
-
+| Name     | Type                       | Description                                  | Notes |
+| -------- | -------------------------- | -------------------------------------------- | ----- |
+| **body** | **OrganizationCreateBody** | Organization object that needs to be created |
 
 ### Return type
 
@@ -71,51 +73,54 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getOrg**
+
 > OrganizationResponse getOrg()
 
 Get organization information.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let params:v1.OrganizationsApiGetOrgRequest = {
+let params: v1.OrganizationsApiGetOrgRequest = {
   // string | The `public_id` of the organization you are operating within.
   publicId: "abc123",
 };
 
-apiInstance.getOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .getOrg(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **publicId** | [**string**] | The &#x60;public_id&#x60; of the organization you are operating within. | defaults to undefined
-
+| Name         | Type         | Description                                                             | Notes                 |
+| ------------ | ------------ | ----------------------------------------------------------------------- | --------------------- |
+| **publicId** | [**string**] | The &#x60;public_id&#x60; of the organization you are operating within. | defaults to undefined |
 
 ### Return type
 
@@ -127,44 +132,47 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listOrgs**
+
 > OrganizationListResponse listOrgs()
 
 List your managed organizations.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-
-apiInstance.listOrgs().then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listOrgs()
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -176,34 +184,34 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **updateOrg**
+
 > OrganizationResponse updateOrg(body)
 
 Update your organization.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let params:v1.OrganizationsApiUpdateOrgRequest = {
+let params: v1.OrganizationsApiUpdateOrgRequest = {
   // string | The `public_id` of the organization you are operating within.
   publicId: "abc123",
   // Organization
@@ -221,9 +229,7 @@ let params:v1.OrganizationsApiUpdateOrgRequest = {
       },
       samlAutocreateAccessRole: "st",
       samlAutocreateUsersDomains: {
-        domains: [
-          "example.com",
-        ],
+        domains: ["example.com"],
         enabled: false,
       },
       samlCanBeEnabled: false,
@@ -243,19 +249,22 @@ let params:v1.OrganizationsApiUpdateOrgRequest = {
   },
 };
 
-apiInstance.updateOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .updateOrg(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **Organization**|  |
- **publicId** | [**string**] | The &#x60;public_id&#x60; of the organization you are operating within. | defaults to undefined
-
+| Name         | Type             | Description                                                             | Notes                 |
+| ------------ | ---------------- | ----------------------------------------------------------------------- | --------------------- |
+| **body**     | **Organization** |                                                                         |
+| **publicId** | [**string**]     | The &#x60;public_id&#x60; of the organization you are operating within. | defaults to undefined |
 
 ### Return type
 
@@ -267,59 +276,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **uploadIdPForOrg**
+
 > IdpResponse uploadIdPForOrg()
 
 There are a couple of options for updating the Identity Provider (IdP)
 metadata from your SAML IdP.
 
-* **Multipart Form-Data**: Post the IdP metadata file using a form post.
+- **Multipart Form-Data**: Post the IdP metadata file using a form post.
 
-* **XML Body:** Post the IdP metadata file as the body of the request.
+- **XML Body:** Post the IdP metadata file as the body of the request.
 
 ### Example
 
-
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
-let params:v1.OrganizationsApiUploadIdPForOrgRequest = {
+let params: v1.OrganizationsApiUploadIdPForOrgRequest = {
   // string | The `public_id` of the organization you are operating with
   publicId: "abc123",
   // HttpFile | The path to the XML metadata file you wish to upload.
-  idpFile: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
+  idpFile: {
+    data: Buffer.from(fs.readFileSync("/path/to/file", "utf-8")),
+    name: "/path/to/file",
+  },
 };
 
-apiInstance.uploadIdPForOrg(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .uploadIdPForOrg(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **publicId** | [**string**] | The &#x60;public_id&#x60; of the organization you are operating with | defaults to undefined
- **idpFile** | [**HttpFile**] | The path to the XML metadata file you wish to upload. | defaults to undefined
-
+| Name         | Type           | Description                                                          | Notes                 |
+| ------------ | -------------- | -------------------------------------------------------------------- | --------------------- |
+| **publicId** | [**string**]   | The &#x60;public_id&#x60; of the organization you are operating with | defaults to undefined |
+| **idpFile**  | [**HttpFile**] | The path to the XML metadata file you wish to upload.                | defaults to undefined |
 
 ### Return type
 
@@ -331,17 +346,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
-**415** | Unsupported Media Type |  -  |
+
+| Status code | Description            | Response headers |
+| ----------- | ---------------------- | ---------------- |
+| **200**     | OK                     | -                |
+| **400**     | Bad Request            | -                |
+| **403**     | Forbidden              | -                |
+| **415**     | Unsupported Media Type | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-

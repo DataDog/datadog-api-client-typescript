@@ -53,9 +53,9 @@ export class UsageSyntheticsBrowserResponse {
     return res;
   }
 
-  static serialize(
-    data: UsageSyntheticsBrowserResponse
-  ): { [key: string]: any } {
+  static serialize(data: UsageSyntheticsBrowserResponse): {
+    [key: string]: any;
+  } {
     const attributeTypes = UsageSyntheticsBrowserResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

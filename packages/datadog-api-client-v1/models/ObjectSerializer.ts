@@ -688,14 +688,21 @@ const typeMap: { [index: string]: any } = {
   EventResponse: EventResponse,
   EventStreamWidgetDefinition: EventStreamWidgetDefinition,
   EventTimelineWidgetDefinition: EventTimelineWidgetDefinition,
-  FormulaAndFunctionApmDependencyStatsQueryDefinition: FormulaAndFunctionApmDependencyStatsQueryDefinition,
-  FormulaAndFunctionEventQueryDefinition: FormulaAndFunctionEventQueryDefinition,
-  FormulaAndFunctionEventQueryDefinitionCompute: FormulaAndFunctionEventQueryDefinitionCompute,
-  FormulaAndFunctionEventQueryDefinitionSearch: FormulaAndFunctionEventQueryDefinitionSearch,
+  FormulaAndFunctionApmDependencyStatsQueryDefinition:
+    FormulaAndFunctionApmDependencyStatsQueryDefinition,
+  FormulaAndFunctionEventQueryDefinition:
+    FormulaAndFunctionEventQueryDefinition,
+  FormulaAndFunctionEventQueryDefinitionCompute:
+    FormulaAndFunctionEventQueryDefinitionCompute,
+  FormulaAndFunctionEventQueryDefinitionSearch:
+    FormulaAndFunctionEventQueryDefinitionSearch,
   FormulaAndFunctionEventQueryGroupBy: FormulaAndFunctionEventQueryGroupBy,
-  FormulaAndFunctionEventQueryGroupBySort: FormulaAndFunctionEventQueryGroupBySort,
-  FormulaAndFunctionMetricQueryDefinition: FormulaAndFunctionMetricQueryDefinition,
-  FormulaAndFunctionProcessQueryDefinition: FormulaAndFunctionProcessQueryDefinition,
+  FormulaAndFunctionEventQueryGroupBySort:
+    FormulaAndFunctionEventQueryGroupBySort,
+  FormulaAndFunctionMetricQueryDefinition:
+    FormulaAndFunctionMetricQueryDefinition,
+  FormulaAndFunctionProcessQueryDefinition:
+    FormulaAndFunctionProcessQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
   GCPAccount: GCPAccount,
   GeomapWidgetDefinition: GeomapWidgetDefinition,
@@ -844,8 +851,10 @@ const typeMap: { [index: string]: any } = {
   OrganizationResponse: OrganizationResponse,
   OrganizationSettings: OrganizationSettings,
   OrganizationSettingsSaml: OrganizationSettingsSaml,
-  OrganizationSettingsSamlAutocreateUsersDomains: OrganizationSettingsSamlAutocreateUsersDomains,
-  OrganizationSettingsSamlIdpInitiatedLogin: OrganizationSettingsSamlIdpInitiatedLogin,
+  OrganizationSettingsSamlAutocreateUsersDomains:
+    OrganizationSettingsSamlAutocreateUsersDomains,
+  OrganizationSettingsSamlIdpInitiatedLogin:
+    OrganizationSettingsSamlIdpInitiatedLogin,
   OrganizationSettingsSamlStrictMode: OrganizationSettingsSamlStrictMode,
   OrganizationSubscription: OrganizationSubscription,
   PagerDutyService: PagerDutyService,
@@ -908,7 +917,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAPITestResultShort: SyntheticsAPITestResultShort,
   SyntheticsAPITestResultShortResult: SyntheticsAPITestResultShortResult,
   SyntheticsAssertionJSONPathTarget: SyntheticsAssertionJSONPathTarget,
-  SyntheticsAssertionJSONPathTargetTarget: SyntheticsAssertionJSONPathTargetTarget,
+  SyntheticsAssertionJSONPathTargetTarget:
+    SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsBasicAuth: SyntheticsBasicAuth,
   SyntheticsBrowserError: SyntheticsBrowserError,
@@ -918,7 +928,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsBrowserTestResultFull: SyntheticsBrowserTestResultFull,
   SyntheticsBrowserTestResultFullCheck: SyntheticsBrowserTestResultFullCheck,
   SyntheticsBrowserTestResultShort: SyntheticsBrowserTestResultShort,
-  SyntheticsBrowserTestResultShortResult: SyntheticsBrowserTestResultShortResult,
+  SyntheticsBrowserTestResultShortResult:
+    SyntheticsBrowserTestResultShortResult,
   SyntheticsBrowserVariable: SyntheticsBrowserVariable,
   SyntheticsCITest: SyntheticsCITest,
   SyntheticsCITestBody: SyntheticsCITestBody,
@@ -931,11 +942,14 @@ const typeMap: { [index: string]: any } = {
   SyntheticsDeleteTestsResponse: SyntheticsDeleteTestsResponse,
   SyntheticsDeletedTest: SyntheticsDeletedTest,
   SyntheticsDevice: SyntheticsDevice,
-  SyntheticsGetAPITestLatestResultsResponse: SyntheticsGetAPITestLatestResultsResponse,
-  SyntheticsGetBrowserTestLatestResultsResponse: SyntheticsGetBrowserTestLatestResultsResponse,
+  SyntheticsGetAPITestLatestResultsResponse:
+    SyntheticsGetAPITestLatestResultsResponse,
+  SyntheticsGetBrowserTestLatestResultsResponse:
+    SyntheticsGetBrowserTestLatestResultsResponse,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
   SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
-  SyntheticsGlobalVariableParseTestOptions: SyntheticsGlobalVariableParseTestOptions,
+  SyntheticsGlobalVariableParseTestOptions:
+    SyntheticsGlobalVariableParseTestOptions,
   SyntheticsGlobalVariableValue: SyntheticsGlobalVariableValue,
   SyntheticsListGlobalVariablesResponse: SyntheticsListGlobalVariablesResponse,
   SyntheticsListTestsResponse: SyntheticsListTestsResponse,
@@ -943,11 +957,15 @@ const typeMap: { [index: string]: any } = {
   SyntheticsLocations: SyntheticsLocations,
   SyntheticsParsingOptions: SyntheticsParsingOptions,
   SyntheticsPrivateLocation: SyntheticsPrivateLocation,
-  SyntheticsPrivateLocationCreationResponse: SyntheticsPrivateLocationCreationResponse,
-  SyntheticsPrivateLocationCreationResponseResultEncryption: SyntheticsPrivateLocationCreationResponseResultEncryption,
+  SyntheticsPrivateLocationCreationResponse:
+    SyntheticsPrivateLocationCreationResponse,
+  SyntheticsPrivateLocationCreationResponseResultEncryption:
+    SyntheticsPrivateLocationCreationResponseResultEncryption,
   SyntheticsPrivateLocationSecrets: SyntheticsPrivateLocationSecrets,
-  SyntheticsPrivateLocationSecretsAuthentication: SyntheticsPrivateLocationSecretsAuthentication,
-  SyntheticsPrivateLocationSecretsConfigDecryption: SyntheticsPrivateLocationSecretsConfigDecryption,
+  SyntheticsPrivateLocationSecretsAuthentication:
+    SyntheticsPrivateLocationSecretsAuthentication,
+  SyntheticsPrivateLocationSecretsConfigDecryption:
+    SyntheticsPrivateLocationSecretsConfigDecryption,
   SyntheticsSSLCertificate: SyntheticsSSLCertificate,
   SyntheticsSSLCertificateIssuer: SyntheticsSSLCertificateIssuer,
   SyntheticsSSLCertificateSubject: SyntheticsSSLCertificateSubject,
@@ -966,7 +984,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTriggerCITestLocation: SyntheticsTriggerCITestLocation,
   SyntheticsTriggerCITestRunResult: SyntheticsTriggerCITestRunResult,
   SyntheticsTriggerCITestsResponse: SyntheticsTriggerCITestsResponse,
-  SyntheticsUpdateTestPauseStatusPayload: SyntheticsUpdateTestPauseStatusPayload,
+  SyntheticsUpdateTestPauseStatusPayload:
+    SyntheticsUpdateTestPauseStatusPayload,
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
@@ -994,8 +1013,10 @@ const typeMap: { [index: string]: any } = {
   UsageBillableSummaryResponse: UsageBillableSummaryResponse,
   UsageCWSHour: UsageCWSHour,
   UsageCWSResponse: UsageCWSResponse,
-  UsageCloudSecurityPostureManagementHour: UsageCloudSecurityPostureManagementHour,
-  UsageCloudSecurityPostureManagementResponse: UsageCloudSecurityPostureManagementResponse,
+  UsageCloudSecurityPostureManagementHour:
+    UsageCloudSecurityPostureManagementHour,
+  UsageCloudSecurityPostureManagementResponse:
+    UsageCloudSecurityPostureManagementResponse,
   UsageCustomReportsAttributes: UsageCustomReportsAttributes,
   UsageCustomReportsData: UsageCustomReportsData,
   UsageCustomReportsMeta: UsageCustomReportsMeta,
@@ -1058,8 +1079,10 @@ const typeMap: { [index: string]: any } = {
   UserResponse: UserResponse,
   WebhooksIntegration: WebhooksIntegration,
   WebhooksIntegrationCustomVariable: WebhooksIntegrationCustomVariable,
-  WebhooksIntegrationCustomVariableResponse: WebhooksIntegrationCustomVariableResponse,
-  WebhooksIntegrationCustomVariableUpdateRequest: WebhooksIntegrationCustomVariableUpdateRequest,
+  WebhooksIntegrationCustomVariableResponse:
+    WebhooksIntegrationCustomVariableResponse,
+  WebhooksIntegrationCustomVariableUpdateRequest:
+    WebhooksIntegrationCustomVariableUpdateRequest,
   WebhooksIntegrationUpdateRequest: WebhooksIntegrationUpdateRequest,
   Widget: Widget,
   WidgetAxis: WidgetAxis,

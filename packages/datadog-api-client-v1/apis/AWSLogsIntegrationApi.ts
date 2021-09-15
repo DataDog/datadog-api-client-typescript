@@ -753,11 +753,12 @@ export class AWSLogsIntegrationApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: Array<AWSLogsListServicesResponse> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<AWSLogsListServicesResponse>",
-        ""
-      ) as Array<AWSLogsListServicesResponse>;
+      const body: Array<AWSLogsListServicesResponse> =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "Array<AWSLogsListServicesResponse>",
+          ""
+        ) as Array<AWSLogsListServicesResponse>;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -771,11 +772,12 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Array<AWSLogsListServicesResponse> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<AWSLogsListServicesResponse>",
-        ""
-      ) as Array<AWSLogsListServicesResponse>;
+      const body: Array<AWSLogsListServicesResponse> =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "Array<AWSLogsListServicesResponse>",
+          ""
+        ) as Array<AWSLogsListServicesResponse>;
       return body;
     }
 

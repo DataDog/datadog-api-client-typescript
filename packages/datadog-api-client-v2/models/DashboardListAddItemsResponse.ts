@@ -53,9 +53,9 @@ export class DashboardListAddItemsResponse {
     return res;
   }
 
-  static serialize(
-    data: DashboardListAddItemsResponse
-  ): { [key: string]: any } {
+  static serialize(data: DashboardListAddItemsResponse): {
+    [key: string]: any;
+  } {
     const attributeTypes = DashboardListAddItemsResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

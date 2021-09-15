@@ -95,10 +95,11 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-      "{" + "service_name" + "}",
-      encodeURIComponent(String(serviceName))
-    );
+    const localVarPath =
+      "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
+        "{" + "service_name" + "}",
+        encodeURIComponent(String(serviceName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -150,10 +151,11 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-      "{" + "service_name" + "}",
-      encodeURIComponent(String(serviceName))
-    );
+    const localVarPath =
+      "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
+        "{" + "service_name" + "}",
+        encodeURIComponent(String(serviceName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -214,10 +216,11 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-      "{" + "service_name" + "}",
-      encodeURIComponent(String(serviceName))
-    );
+    const localVarPath =
+      "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
+        "{" + "service_name" + "}",
+        encodeURIComponent(String(serviceName))
+      );
 
     // Make Request Context
     const requestContext = getServer(

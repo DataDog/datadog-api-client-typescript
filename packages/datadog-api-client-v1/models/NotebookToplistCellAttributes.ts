@@ -92,9 +92,9 @@ export class NotebookToplistCellAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebookToplistCellAttributes
-  ): { [key: string]: any } {
+  static serialize(data: NotebookToplistCellAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = NotebookToplistCellAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

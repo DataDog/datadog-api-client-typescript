@@ -98,10 +98,11 @@ export class SecurityMonitoringRuleCaseCreate {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuleCaseCreate
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringRuleCaseCreate.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringRuleCaseCreate): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringRuleCaseCreate.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

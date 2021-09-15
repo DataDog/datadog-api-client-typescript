@@ -46,10 +46,11 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-      "{" + "service_account_id" + "}",
-      encodeURIComponent(String(serviceAccountId))
-    );
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
+        "{" + "service_account_id" + "}",
+        encodeURIComponent(String(serviceAccountId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -119,12 +120,16 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
-      .replace(
-        "{" + "service_account_id" + "}",
-        encodeURIComponent(String(serviceAccountId))
-      )
-      .replace("{" + "app_key_id" + "}", encodeURIComponent(String(appKeyId)));
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
+        .replace(
+          "{" + "service_account_id" + "}",
+          encodeURIComponent(String(serviceAccountId))
+        )
+        .replace(
+          "{" + "app_key_id" + "}",
+          encodeURIComponent(String(appKeyId))
+        );
 
     // Make Request Context
     const requestContext = getServer(
@@ -185,12 +190,16 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
-      .replace(
-        "{" + "service_account_id" + "}",
-        encodeURIComponent(String(serviceAccountId))
-      )
-      .replace("{" + "app_key_id" + "}", encodeURIComponent(String(appKeyId)));
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
+        .replace(
+          "{" + "service_account_id" + "}",
+          encodeURIComponent(String(serviceAccountId))
+        )
+        .replace(
+          "{" + "app_key_id" + "}",
+          encodeURIComponent(String(appKeyId))
+        );
 
     // Make Request Context
     const requestContext = getServer(
@@ -254,10 +263,11 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-      "{" + "service_account_id" + "}",
-      encodeURIComponent(String(serviceAccountId))
-    );
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
+        "{" + "service_account_id" + "}",
+        encodeURIComponent(String(serviceAccountId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -363,12 +373,16 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
-      .replace(
-        "{" + "service_account_id" + "}",
-        encodeURIComponent(String(serviceAccountId))
-      )
-      .replace("{" + "app_key_id" + "}", encodeURIComponent(String(appKeyId)));
+    const localVarPath =
+      "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
+        .replace(
+          "{" + "service_account_id" + "}",
+          encodeURIComponent(String(serviceAccountId))
+        )
+        .replace(
+          "{" + "app_key_id" + "}",
+          encodeURIComponent(String(appKeyId))
+        );
 
     // Make Request Context
     const requestContext = getServer(

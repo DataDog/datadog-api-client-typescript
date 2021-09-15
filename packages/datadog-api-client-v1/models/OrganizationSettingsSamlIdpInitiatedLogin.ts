@@ -48,10 +48,11 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
     return res;
   }
 
-  static serialize(
-    data: OrganizationSettingsSamlIdpInitiatedLogin
-  ): { [key: string]: any } {
-    const attributeTypes = OrganizationSettingsSamlIdpInitiatedLogin.getAttributeTypeMap();
+  static serialize(data: OrganizationSettingsSamlIdpInitiatedLogin): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      OrganizationSettingsSamlIdpInitiatedLogin.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

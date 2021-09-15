@@ -59,10 +59,11 @@ export class MonitorSearchResultNotification {
     return res;
   }
 
-  static serialize(
-    data: MonitorSearchResultNotification
-  ): { [key: string]: any } {
-    const attributeTypes = MonitorSearchResultNotification.getAttributeTypeMap();
+  static serialize(data: MonitorSearchResultNotification): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      MonitorSearchResultNotification.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -73,10 +73,11 @@ export class SLOHistoryResponseErrorWithType {
     return res;
   }
 
-  static serialize(
-    data: SLOHistoryResponseErrorWithType
-  ): { [key: string]: any } {
-    const attributeTypes = SLOHistoryResponseErrorWithType.getAttributeTypeMap();
+  static serialize(data: SLOHistoryResponseErrorWithType): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SLOHistoryResponseErrorWithType.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

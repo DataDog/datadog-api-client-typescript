@@ -150,9 +150,9 @@ export class NotebookResponseDataAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebookResponseDataAttributes
-  ): { [key: string]: any } {
+  static serialize(data: NotebookResponseDataAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = NotebookResponseDataAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

@@ -50,9 +50,9 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
 
 {{#servers}}
 export const server{{-index}} = new ServerConfiguration<{ {{#variables}}
-	"{{name}}": {{#enumValues}}"{{.}}"{{^-last}} | {{/-last}}{{/enumValues}}{{^enumValues}}string{{/enumValues}}{{^-last}},{{/-last}}
+    "{{name}}": {{#enumValues}}"{{.}}"{{^-last}} | {{/-last}}{{/enumValues}}{{^enumValues}}string{{/enumValues}}{{^-last}},{{/-last}}
 {{/variables}} }>("{{url}}", { {{#variables}}
-	"{{name}}": "{{defaultValue}}" {{^-last}},{{/-last}}{{/variables}}
+    "{{name}}": "{{defaultValue}}" {{^-last}},{{/-last}}{{/variables}}
 })
 {{/servers}}
 
@@ -65,15 +65,15 @@ export const operationServers: { [endpoint: string]: BaseServerConfiguration[] }
 {{#operation}}
 {{#servers}}
 {{#-first}}
-	"{{{classname}}}.{{{nickname}}}": [
+    "{{{classname}}}.{{{nickname}}}": [
 {{/-first}}
-		new ServerConfiguration<{ {{#variables}}
-			"{{name}}": {{#enumValues}}"{{.}}"{{^-last}} | {{/-last}}{{/enumValues}}{{^enumValues}}string{{/enumValues}}{{^-last}},{{/-last}}
-		{{/variables}} }>("{{url}}", { {{#variables}}
-			"{{name}}": "{{defaultValue}}" {{^-last}},{{/-last}}{{/variables}}
-		}),
+        new ServerConfiguration<{ {{#variables}}
+            "{{name}}": {{#enumValues}}"{{.}}"{{^-last}} | {{/-last}}{{/enumValues}}{{^enumValues}}string{{/enumValues}}{{^-last}},{{/-last}}
+        {{/variables}} }>("{{url}}", { {{#variables}}
+            "{{name}}": "{{defaultValue}}" {{^-last}},{{/-last}}{{/variables}}
+        }),
 {{#-last}}
-	],
+    ],
 {{/-last}}
 {{/servers}}
 {{/operation}}

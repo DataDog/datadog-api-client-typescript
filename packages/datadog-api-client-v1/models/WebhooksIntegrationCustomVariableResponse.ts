@@ -80,10 +80,11 @@ export class WebhooksIntegrationCustomVariableResponse {
     return res;
   }
 
-  static serialize(
-    data: WebhooksIntegrationCustomVariableResponse
-  ): { [key: string]: any } {
-    const attributeTypes = WebhooksIntegrationCustomVariableResponse.getAttributeTypeMap();
+  static serialize(data: WebhooksIntegrationCustomVariableResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      WebhooksIntegrationCustomVariableResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

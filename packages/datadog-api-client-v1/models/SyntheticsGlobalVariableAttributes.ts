@@ -52,10 +52,11 @@ export class SyntheticsGlobalVariableAttributes {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsGlobalVariableAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsGlobalVariableAttributes.getAttributeTypeMap();
+  static serialize(data: SyntheticsGlobalVariableAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsGlobalVariableAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

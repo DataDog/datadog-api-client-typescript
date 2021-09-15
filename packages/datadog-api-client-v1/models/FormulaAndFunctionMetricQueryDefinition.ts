@@ -116,10 +116,11 @@ export class FormulaAndFunctionMetricQueryDefinition {
     return res;
   }
 
-  static serialize(
-    data: FormulaAndFunctionMetricQueryDefinition
-  ): { [key: string]: any } {
-    const attributeTypes = FormulaAndFunctionMetricQueryDefinition.getAttributeTypeMap();
+  static serialize(data: FormulaAndFunctionMetricQueryDefinition): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      FormulaAndFunctionMetricQueryDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

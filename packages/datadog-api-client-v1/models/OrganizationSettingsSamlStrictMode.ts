@@ -48,10 +48,11 @@ export class OrganizationSettingsSamlStrictMode {
     return res;
   }
 
-  static serialize(
-    data: OrganizationSettingsSamlStrictMode
-  ): { [key: string]: any } {
-    const attributeTypes = OrganizationSettingsSamlStrictMode.getAttributeTypeMap();
+  static serialize(data: OrganizationSettingsSamlStrictMode): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      OrganizationSettingsSamlStrictMode.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

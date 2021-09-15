@@ -137,10 +137,11 @@ export class SecurityMonitoringRuleQueryCreate {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuleQueryCreate
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringRuleQueryCreate.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringRuleQueryCreate): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringRuleQueryCreate.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -103,9 +103,9 @@ export class SyntheticsSSLCertificateIssuer {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsSSLCertificateIssuer
-  ): { [key: string]: any } {
+  static serialize(data: SyntheticsSSLCertificateIssuer): {
+    [key: string]: any;
+  } {
     const attributeTypes = SyntheticsSSLCertificateIssuer.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

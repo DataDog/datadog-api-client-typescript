@@ -487,9 +487,8 @@ export class ObservableAWSIntegrationApi {
   public listAvailableAWSNamespaces(
     _options?: Configuration
   ): Observable<Array<string>> {
-    const requestContextPromise = this.requestFactory.listAvailableAWSNamespaces(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listAvailableAWSNamespaces(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -810,9 +809,8 @@ export class ObservableAWSLogsIntegrationApi {
   public listAWSLogsIntegrations(
     _options?: Configuration
   ): Observable<Array<AWSLogsListResponse>> {
-    const requestContextPromise = this.requestFactory.listAWSLogsIntegrations(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsIntegrations(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -849,9 +847,8 @@ export class ObservableAWSLogsIntegrationApi {
   public listAWSLogsServices(
     _options?: Configuration
   ): Observable<Array<AWSLogsListServicesResponse>> {
-    const requestContextPromise = this.requestFactory.listAWSLogsServices(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsServices(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1053,9 +1050,8 @@ export class ObservableAzureIntegrationApi {
   public listAzureIntegration(
     _options?: Configuration
   ): Observable<Array<AzureAccount>> {
-    const requestContextPromise = this.requestFactory.listAzureIntegration(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listAzureIntegration(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -1325,9 +1321,8 @@ export class ObservableDashboardListsApi {
   public listDashboardLists(
     _options?: Configuration
   ): Observable<DashboardListListResponse> {
-    const requestContextPromise = this.requestFactory.listDashboardLists(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listDashboardLists(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2324,9 +2319,8 @@ export class ObservableGCPIntegrationApi {
   public listGCPIntegration(
     _options?: Configuration
   ): Observable<Array<GCPAccount>> {
-    const requestContextPromise = this.requestFactory.listGCPIntegration(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listGCPIntegration(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -2979,9 +2973,8 @@ export class ObservableKeyManagementApi {
   public listApplicationKeys(
     _options?: Configuration
   ): Observable<ApplicationKeyListResponse> {
-    const requestContextPromise = this.requestFactory.listApplicationKeys(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listApplicationKeys(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3321,9 +3314,8 @@ export class ObservableLogsIndexesApi {
   public getLogsIndexOrder(
     _options?: Configuration
   ): Observable<LogsIndexesOrder> {
-    const requestContextPromise = this.requestFactory.getLogsIndexOrder(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getLogsIndexOrder(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3633,9 +3625,8 @@ export class ObservableLogsPipelinesApi {
   public getLogsPipelineOrder(
     _options?: Configuration
   ): Observable<LogsPipelinesOrder> {
-    const requestContextPromise = this.requestFactory.getLogsPipelineOrder(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getLogsPipelineOrder(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -3672,9 +3663,8 @@ export class ObservableLogsPipelinesApi {
   public listLogsPipelines(
     _options?: Configuration
   ): Observable<Array<LogsPipeline>> {
-    const requestContextPromise = this.requestFactory.listLogsPipelines(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listLogsPipelines(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5045,10 +5035,8 @@ export class ObservablePagerDutyIntegrationApi {
     body: PagerDutyService,
     _options?: Configuration
   ): Observable<PagerDutyServiceName> {
-    const requestContextPromise = this.requestFactory.createPagerDutyIntegrationService(
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createPagerDutyIntegrationService(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5087,10 +5075,11 @@ export class ObservablePagerDutyIntegrationApi {
     serviceName: string,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.deletePagerDutyIntegrationService(
-      serviceName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.deletePagerDutyIntegrationService(
+        serviceName,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5129,10 +5118,8 @@ export class ObservablePagerDutyIntegrationApi {
     serviceName: string,
     _options?: Configuration
   ): Observable<PagerDutyServiceName> {
-    const requestContextPromise = this.requestFactory.getPagerDutyIntegrationService(
-      serviceName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getPagerDutyIntegrationService(serviceName, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5173,11 +5160,12 @@ export class ObservablePagerDutyIntegrationApi {
     body: PagerDutyServiceKey,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.updatePagerDutyIntegrationService(
-      serviceName,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.updatePagerDutyIntegrationService(
+        serviceName,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5430,9 +5418,8 @@ export class ObservableServiceLevelObjectiveCorrectionsApi {
   public listSLOCorrection(
     _options?: Configuration
   ): Observable<SLOCorrectionListResponse> {
-    const requestContextPromise = this.requestFactory.listSLOCorrection(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listSLOCorrection(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5921,11 +5908,12 @@ export class ObservableSlackIntegrationApi {
     body: SlackIntegrationChannel,
     _options?: Configuration
   ): Observable<SlackIntegrationChannel> {
-    const requestContextPromise = this.requestFactory.createSlackIntegrationChannel(
-      accountName,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createSlackIntegrationChannel(
+        accountName,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -5966,11 +5954,12 @@ export class ObservableSlackIntegrationApi {
     channelName: string,
     _options?: Configuration
   ): Observable<SlackIntegrationChannel> {
-    const requestContextPromise = this.requestFactory.getSlackIntegrationChannel(
-      accountName,
-      channelName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getSlackIntegrationChannel(
+        accountName,
+        channelName,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -6009,10 +5998,8 @@ export class ObservableSlackIntegrationApi {
     accountName: string,
     _options?: Configuration
   ): Observable<Array<SlackIntegrationChannel>> {
-    const requestContextPromise = this.requestFactory.getSlackIntegrationChannels(
-      accountName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getSlackIntegrationChannels(accountName, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -6053,11 +6040,12 @@ export class ObservableSlackIntegrationApi {
     channelName: string,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.removeSlackIntegrationChannel(
-      accountName,
-      channelName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.removeSlackIntegrationChannel(
+        accountName,
+        channelName,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -6100,12 +6088,13 @@ export class ObservableSlackIntegrationApi {
     body: SlackIntegrationChannel,
     _options?: Configuration
   ): Observable<SlackIntegrationChannel> {
-    const requestContextPromise = this.requestFactory.updateSlackIntegrationChannel(
-      accountName,
-      channelName,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.updateSlackIntegrationChannel(
+        accountName,
+        channelName,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -6373,10 +6362,8 @@ export class ObservableSyntheticsApi {
     body: SyntheticsBrowserTest,
     _options?: Configuration
   ): Observable<SyntheticsBrowserTest> {
-    const requestContextPromise = this.requestFactory.createSyntheticsBrowserTest(
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createSyntheticsBrowserTest(body, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -6772,13 +6759,14 @@ export class ObservableSyntheticsApi {
     probeDc?: Array<string>,
     _options?: Configuration
   ): Observable<SyntheticsGetBrowserTestLatestResultsResponse> {
-    const requestContextPromise = this.requestFactory.getBrowserTestLatestResults(
-      publicId,
-      fromTs,
-      toTs,
-      probeDc,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getBrowserTestLatestResults(
+        publicId,
+        fromTs,
+        toTs,
+        probeDc,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -6984,9 +6972,8 @@ export class ObservableSyntheticsApi {
   public listGlobalVariables(
     _options?: Configuration
   ): Observable<SyntheticsListGlobalVariablesResponse> {
-    const requestContextPromise = this.requestFactory.listGlobalVariables(
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.listGlobalVariables(_options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -7785,10 +7772,8 @@ export class ObservableUsageMeteringApi {
     reportId: string,
     _options?: Configuration
   ): Observable<UsageSpecifiedCustomReportsResponse> {
-    const requestContextPromise = this.requestFactory.getSpecifiedDailyCustomReports(
-      reportId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getSpecifiedDailyCustomReports(reportId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -7827,10 +7812,8 @@ export class ObservableUsageMeteringApi {
     reportId: string,
     _options?: Configuration
   ): Observable<UsageSpecifiedCustomReportsResponse> {
-    const requestContextPromise = this.requestFactory.getSpecifiedMonthlyCustomReports(
-      reportId,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getSpecifiedMonthlyCustomReports(reportId, _options);
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -8105,11 +8088,12 @@ export class ObservableUsageMeteringApi {
     endHr?: Date,
     _options?: Configuration
   ): Observable<UsageCloudSecurityPostureManagementResponse> {
-    const requestContextPromise = this.requestFactory.getUsageCloudSecurityPostureManagement(
-      startHr,
-      endHr,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getUsageCloudSecurityPostureManagement(
+        startHr,
+        endHr,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -9356,10 +9340,11 @@ export class ObservableWebhooksIntegrationApi {
     body: WebhooksIntegrationCustomVariable,
     _options?: Configuration
   ): Observable<WebhooksIntegrationCustomVariableResponse> {
-    const requestContextPromise = this.requestFactory.createWebhooksIntegrationCustomVariable(
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.createWebhooksIntegrationCustomVariable(
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -9442,10 +9427,11 @@ export class ObservableWebhooksIntegrationApi {
     customVariableName: string,
     _options?: Configuration
   ): Observable<void> {
-    const requestContextPromise = this.requestFactory.deleteWebhooksIntegrationCustomVariable(
-      customVariableName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteWebhooksIntegrationCustomVariable(
+        customVariableName,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -9528,10 +9514,11 @@ export class ObservableWebhooksIntegrationApi {
     customVariableName: string,
     _options?: Configuration
   ): Observable<WebhooksIntegrationCustomVariableResponse> {
-    const requestContextPromise = this.requestFactory.getWebhooksIntegrationCustomVariable(
-      customVariableName,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.getWebhooksIntegrationCustomVariable(
+        customVariableName,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
@@ -9617,11 +9604,12 @@ export class ObservableWebhooksIntegrationApi {
     body: WebhooksIntegrationCustomVariableUpdateRequest,
     _options?: Configuration
   ): Observable<WebhooksIntegrationCustomVariableResponse> {
-    const requestContextPromise = this.requestFactory.updateWebhooksIntegrationCustomVariable(
-      customVariableName,
-      body,
-      _options
-    );
+    const requestContextPromise =
+      this.requestFactory.updateWebhooksIntegrationCustomVariable(
+        customVariableName,
+        body,
+        _options
+      );
 
     // build promise chain
     let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
