@@ -29,7 +29,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   /**
    * Name of query to use in formulas.
    */
-  "name"?: string;
+  "name": string;
   /**
    * Name of operation on service.
    */
@@ -146,6 +146,11 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
       ""
     );
 
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
+      );
+    }
     res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
     if (data.operation_name === undefined) {
@@ -254,6 +259,11 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
       ""
     );
 
+    if (data.name === undefined) {
+      throw new TypeError(
+        "missing required attribute 'name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
+      );
+    }
     res.name = ObjectSerializer.serialize(data.name, "string", "");
 
     if (data.operationName === undefined) {
