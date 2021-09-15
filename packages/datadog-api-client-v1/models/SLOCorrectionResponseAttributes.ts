@@ -13,7 +13,7 @@ import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * The attribute object associated with the SLO correction
+ * The attribute object associated with the SLO correction.
  */
 
 export class SLOCorrectionResponseAttributes {
@@ -24,19 +24,19 @@ export class SLOCorrectionResponseAttributes {
    */
   "description"?: string;
   /**
-   * Ending time of the correction in epoch seconds
+   * Ending time of the correction in epoch seconds.
    */
   "end"?: number;
   /**
-   * ID of the SLO that this correction will be applied to
+   * ID of the SLO that this correction will be applied to.
    */
   "sloId"?: string;
   /**
-   * Starting time of the correction in epoch seconds
+   * Starting time of the correction in epoch seconds.
    */
   "start"?: number;
   /**
-   * The timezone to display in the UI for the correction times (defaults to \"UTC\")
+   * The timezone to display in the UI for the correction times (defaults to \"UTC\").
    */
   "timezone"?: string;
 

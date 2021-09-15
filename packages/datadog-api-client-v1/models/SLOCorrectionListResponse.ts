@@ -13,12 +13,12 @@ import { SLOCorrection } from "./SLOCorrection";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * A list of  SLO correction objects
+ * A list of  SLO correction objects.
  */
 
 export class SLOCorrectionListResponse {
   /**
-   * The list of of SLO corrections objects
+   * The list of of SLO corrections objects.
    */
   "data"?: Array<SLOCorrection>;
   "meta"?: ResponseMetaAttributes;

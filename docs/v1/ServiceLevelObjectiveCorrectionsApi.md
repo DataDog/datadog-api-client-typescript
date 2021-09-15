@@ -14,7 +14,7 @@ Method | HTTP request | Description
 ## **createSLOCorrection**
 > SLOCorrectionResponse createSLOCorrection(body)
 
-Create an SLO Correction
+Create an SLO Correction.
 
 ### Example
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 ## **deleteSLOCorrection**
 > void deleteSLOCorrection()
 
-Permanently delete the specified SLO correction object
+Permanently delete the specified SLO correction object.
 
 ### Example
 
@@ -96,7 +96,7 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 let params:v1.ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest = {
-  // string | The ID of the SLO correction object
+  // string | The ID of the SLO correction object.
   sloCorrectionId: "slo_correction_id_example",
 };
 
@@ -110,7 +110,7 @@ apiInstance.deleteSLOCorrection(params).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | [**string**] | The ID of the SLO correction object | defaults to undefined
+ **sloCorrectionId** | [**string**] | The ID of the SLO correction object. | defaults to undefined
 
 
 ### Return type
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 ## **getSLOCorrection**
 > SLOCorrectionResponse getSLOCorrection()
 
-Get an SLO correction
+Get an SLO correction.
 
 ### Example
 
@@ -152,7 +152,7 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 let params:v1.ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest = {
-  // string | The ID of the SLO correction object
+  // string | The ID of the SLO correction object.
   sloCorrectionId: "slo_correction_id_example",
 };
 
@@ -166,7 +166,7 @@ apiInstance.getSLOCorrection(params).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | [**string**] | The ID of the SLO correction object | defaults to undefined
+ **sloCorrectionId** | [**string**] | The ID of the SLO correction object. | defaults to undefined
 
 
 ### Return type
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 ## **listSLOCorrection**
 > SLOCorrectionListResponse listSLOCorrection()
 
-Get all Service Level Objective corrections
+Get all Service Level Objective corrections.
 
 ### Example
 
@@ -243,7 +243,7 @@ This endpoint does not need any parameter.
 ## **updateSLOCorrection**
 > SLOCorrectionResponse updateSLOCorrection(body)
 
-Update the specified SLO correction object object
+Update the specified SLO correction object object.
 
 ### Example
 
@@ -256,7 +256,7 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 let params:v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest = {
-  // string | The ID of the SLO correction object
+  // string | The ID of the SLO correction object.
   sloCorrectionId: "slo_correction_id_example",
   // SLOCorrectionUpdateRequest | The edited SLO correction object.
   body: {
@@ -284,7 +284,7 @@ apiInstance.updateSLOCorrection(params).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **SLOCorrectionUpdateRequest**| The edited SLO correction object. |
- **sloCorrectionId** | [**string**] | The ID of the SLO correction object | defaults to undefined
+ **sloCorrectionId** | [**string**] | The ID of the SLO correction object. | defaults to undefined
 
 
 ### Return type

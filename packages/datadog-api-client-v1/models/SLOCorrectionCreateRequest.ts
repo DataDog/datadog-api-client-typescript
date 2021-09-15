@@ -12,7 +12,7 @@ import { SLOCorrectionCreateData } from "./SLOCorrectionCreateData";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * An object that defines a correction to be applied to an SLO
+ * An object that defines a correction to be applied to an SLO.
  */
 
 export class SLOCorrectionCreateRequest {
