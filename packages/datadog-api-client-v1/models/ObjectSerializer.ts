@@ -66,6 +66,7 @@ import { EventResponse } from "./EventResponse";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
+import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
@@ -487,6 +488,8 @@ const enumsMap: Set<string> = new Set<string>([
   "EventTimelineWidgetDefinitionType",
   "FormulaAndFunctionApmDependencyStatName",
   "FormulaAndFunctionApmDependencyStatsDataSource",
+  "FormulaAndFunctionApmResourceStatName",
+  "FormulaAndFunctionApmResourceStatsDataSource",
   "FormulaAndFunctionEventAggregation",
   "FormulaAndFunctionEventsDataSource",
   "FormulaAndFunctionMetricAggregation",
@@ -690,6 +693,8 @@ const typeMap: { [index: string]: any } = {
   EventTimelineWidgetDefinition: EventTimelineWidgetDefinition,
   FormulaAndFunctionApmDependencyStatsQueryDefinition:
     FormulaAndFunctionApmDependencyStatsQueryDefinition,
+  FormulaAndFunctionApmResourceStatsQueryDefinition:
+    FormulaAndFunctionApmResourceStatsQueryDefinition,
   FormulaAndFunctionEventQueryDefinition:
     FormulaAndFunctionEventQueryDefinition,
   FormulaAndFunctionEventQueryDefinitionCompute:
@@ -1102,6 +1107,7 @@ const typeMap: { [index: string]: any } = {
 const oneOfMap: { [index: string]: string[] } = {
   FormulaAndFunctionQueryDefinition: [
     "FormulaAndFunctionApmDependencyStatsQueryDefinition",
+    "FormulaAndFunctionApmResourceStatsQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionProcessQueryDefinition",
