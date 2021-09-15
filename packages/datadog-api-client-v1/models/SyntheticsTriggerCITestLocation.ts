@@ -59,10 +59,11 @@ export class SyntheticsTriggerCITestLocation {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsTriggerCITestLocation
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsTriggerCITestLocation.getAttributeTypeMap();
+  static serialize(data: SyntheticsTriggerCITestLocation): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsTriggerCITestLocation.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

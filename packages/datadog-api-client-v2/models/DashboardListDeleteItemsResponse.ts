@@ -53,10 +53,11 @@ export class DashboardListDeleteItemsResponse {
     return res;
   }
 
-  static serialize(
-    data: DashboardListDeleteItemsResponse
-  ): { [key: string]: any } {
-    const attributeTypes = DashboardListDeleteItemsResponse.getAttributeTypeMap();
+  static serialize(data: DashboardListDeleteItemsResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      DashboardListDeleteItemsResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

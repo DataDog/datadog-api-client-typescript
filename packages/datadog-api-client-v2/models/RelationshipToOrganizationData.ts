@@ -73,9 +73,9 @@ export class RelationshipToOrganizationData {
     return res;
   }
 
-  static serialize(
-    data: RelationshipToOrganizationData
-  ): { [key: string]: any } {
+  static serialize(data: RelationshipToOrganizationData): {
+    [key: string]: any;
+  } {
     const attributeTypes = RelationshipToOrganizationData.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

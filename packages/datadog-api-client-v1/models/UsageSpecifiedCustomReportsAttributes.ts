@@ -107,10 +107,11 @@ export class UsageSpecifiedCustomReportsAttributes {
     return res;
   }
 
-  static serialize(
-    data: UsageSpecifiedCustomReportsAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = UsageSpecifiedCustomReportsAttributes.getAttributeTypeMap();
+  static serialize(data: UsageSpecifiedCustomReportsAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageSpecifiedCustomReportsAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

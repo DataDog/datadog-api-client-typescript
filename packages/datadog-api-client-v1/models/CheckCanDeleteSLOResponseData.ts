@@ -48,9 +48,9 @@ export class CheckCanDeleteSLOResponseData {
     return res;
   }
 
-  static serialize(
-    data: CheckCanDeleteSLOResponseData
-  ): { [key: string]: any } {
+  static serialize(data: CheckCanDeleteSLOResponseData): {
+    [key: string]: any;
+  } {
     const attributeTypes = CheckCanDeleteSLOResponseData.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

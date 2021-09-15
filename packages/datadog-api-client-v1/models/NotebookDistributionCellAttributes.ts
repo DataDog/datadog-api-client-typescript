@@ -92,10 +92,11 @@ export class NotebookDistributionCellAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebookDistributionCellAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = NotebookDistributionCellAttributes.getAttributeTypeMap();
+  static serialize(data: NotebookDistributionCellAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      NotebookDistributionCellAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

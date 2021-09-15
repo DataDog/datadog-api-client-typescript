@@ -92,9 +92,9 @@ export class NotebookHeatMapCellAttributes {
     return res;
   }
 
-  static serialize(
-    data: NotebookHeatMapCellAttributes
-  ): { [key: string]: any } {
+  static serialize(data: NotebookHeatMapCellAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = NotebookHeatMapCellAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

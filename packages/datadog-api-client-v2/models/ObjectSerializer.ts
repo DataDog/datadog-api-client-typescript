@@ -385,7 +385,8 @@ const typeMap: { [index: string]: any } = {
   IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
   IncidentServicesResponse: IncidentServicesResponse,
   IncidentServicesResponseMeta: IncidentServicesResponseMeta,
-  IncidentServicesResponseMetaPagination: IncidentServicesResponseMetaPagination,
+  IncidentServicesResponseMetaPagination:
+    IncidentServicesResponseMetaPagination,
   IncidentTeamCreateAttributes: IncidentTeamCreateAttributes,
   IncidentTeamCreateData: IncidentTeamCreateData,
   IncidentTeamCreateRequest: IncidentTeamCreateRequest,
@@ -397,8 +398,10 @@ const typeMap: { [index: string]: any } = {
   IncidentTeamUpdateData: IncidentTeamUpdateData,
   IncidentTeamUpdateRequest: IncidentTeamUpdateRequest,
   IncidentTeamsResponse: IncidentTeamsResponse,
-  IncidentTimelineCellMarkdownCreateAttributes: IncidentTimelineCellMarkdownCreateAttributes,
-  IncidentTimelineCellMarkdownCreateAttributesContent: IncidentTimelineCellMarkdownCreateAttributesContent,
+  IncidentTimelineCellMarkdownCreateAttributes:
+    IncidentTimelineCellMarkdownCreateAttributes,
+  IncidentTimelineCellMarkdownCreateAttributesContent:
+    IncidentTimelineCellMarkdownCreateAttributesContent,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
   IncidentUpdateData: IncidentUpdateData,
   IncidentUpdateRelationships: IncidentUpdateRelationships,
@@ -408,7 +411,8 @@ const typeMap: { [index: string]: any } = {
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
-  LogsAggregateBucketValueTimeseriesPoint: LogsAggregateBucketValueTimeseriesPoint,
+  LogsAggregateBucketValueTimeseriesPoint:
+    LogsAggregateBucketValueTimeseriesPoint,
   LogsAggregateRequest: LogsAggregateRequest,
   LogsAggregateRequestPage: LogsAggregateRequestPage,
   LogsAggregateResponse: LogsAggregateResponse,
@@ -468,15 +472,18 @@ const typeMap: { [index: string]: any } = {
   MetricIngestedIndexedVolumeAttributes: MetricIngestedIndexedVolumeAttributes,
   MetricTagConfiguration: MetricTagConfiguration,
   MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
-  MetricTagConfigurationCreateAttributes: MetricTagConfigurationCreateAttributes,
+  MetricTagConfigurationCreateAttributes:
+    MetricTagConfigurationCreateAttributes,
   MetricTagConfigurationCreateData: MetricTagConfigurationCreateData,
   MetricTagConfigurationCreateRequest: MetricTagConfigurationCreateRequest,
   MetricTagConfigurationResponse: MetricTagConfigurationResponse,
-  MetricTagConfigurationUpdateAttributes: MetricTagConfigurationUpdateAttributes,
+  MetricTagConfigurationUpdateAttributes:
+    MetricTagConfigurationUpdateAttributes,
   MetricTagConfigurationUpdateData: MetricTagConfigurationUpdateData,
   MetricTagConfigurationUpdateRequest: MetricTagConfigurationUpdateRequest,
   MetricVolumesResponse: MetricVolumesResponse,
-  MetricsAndMetricTagConfigurationsResponse: MetricsAndMetricTagConfigurationsResponse,
+  MetricsAndMetricTagConfigurationsResponse:
+    MetricsAndMetricTagConfigurationsResponse,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   Pagination: Pagination,
@@ -493,8 +500,10 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
-  RelationshipToIncidentIntegrationMetadataData: RelationshipToIncidentIntegrationMetadataData,
-  RelationshipToIncidentIntegrationMetadatas: RelationshipToIncidentIntegrationMetadatas,
+  RelationshipToIncidentIntegrationMetadataData:
+    RelationshipToIncidentIntegrationMetadataData,
+  RelationshipToIncidentIntegrationMetadatas:
+    RelationshipToIncidentIntegrationMetadatas,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
   RelationshipToOrganization: RelationshipToOrganization,
@@ -554,12 +563,17 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,
   SecurityMonitoringSignalListRequest: SecurityMonitoringSignalListRequest,
-  SecurityMonitoringSignalListRequestFilter: SecurityMonitoringSignalListRequestFilter,
-  SecurityMonitoringSignalListRequestPage: SecurityMonitoringSignalListRequestPage,
+  SecurityMonitoringSignalListRequestFilter:
+    SecurityMonitoringSignalListRequestFilter,
+  SecurityMonitoringSignalListRequestPage:
+    SecurityMonitoringSignalListRequestPage,
   SecurityMonitoringSignalsListResponse: SecurityMonitoringSignalsListResponse,
-  SecurityMonitoringSignalsListResponseLinks: SecurityMonitoringSignalsListResponseLinks,
-  SecurityMonitoringSignalsListResponseMeta: SecurityMonitoringSignalsListResponseMeta,
-  SecurityMonitoringSignalsListResponseMetaPage: SecurityMonitoringSignalsListResponseMetaPage,
+  SecurityMonitoringSignalsListResponseLinks:
+    SecurityMonitoringSignalsListResponseLinks,
+  SecurityMonitoringSignalsListResponseMeta:
+    SecurityMonitoringSignalsListResponseMeta,
+  SecurityMonitoringSignalsListResponseMetaPage:
+    SecurityMonitoringSignalsListResponseMetaPage,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,

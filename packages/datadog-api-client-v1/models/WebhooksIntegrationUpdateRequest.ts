@@ -100,10 +100,11 @@ export class WebhooksIntegrationUpdateRequest {
     return res;
   }
 
-  static serialize(
-    data: WebhooksIntegrationUpdateRequest
-  ): { [key: string]: any } {
-    const attributeTypes = WebhooksIntegrationUpdateRequest.getAttributeTypeMap();
+  static serialize(data: WebhooksIntegrationUpdateRequest): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      WebhooksIntegrationUpdateRequest.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -46,10 +46,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-      "{" + "archive_id" + "}",
-      encodeURIComponent(String(archiveId))
-    );
+    const localVarPath =
+      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+        "{" + "archive_id" + "}",
+        encodeURIComponent(String(archiveId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -324,10 +325,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-      "{" + "archive_id" + "}",
-      encodeURIComponent(String(archiveId))
-    );
+    const localVarPath =
+      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+        "{" + "archive_id" + "}",
+        encodeURIComponent(String(archiveId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -431,10 +433,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-      "{" + "archive_id" + "}",
-      encodeURIComponent(String(archiveId))
-    );
+    const localVarPath =
+      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+        "{" + "archive_id" + "}",
+        encodeURIComponent(String(archiveId))
+      );
 
     // Make Request Context
     const requestContext = getServer(

@@ -148,9 +148,9 @@ export class SecurityMonitoringRuleOptions {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuleOptions
-  ): { [key: string]: any } {
+  static serialize(data: SecurityMonitoringRuleOptions): {
+    [key: string]: any;
+  } {
     const attributeTypes = SecurityMonitoringRuleOptions.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

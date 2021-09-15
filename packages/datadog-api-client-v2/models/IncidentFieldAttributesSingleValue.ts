@@ -63,10 +63,11 @@ export class IncidentFieldAttributesSingleValue {
     return res;
   }
 
-  static serialize(
-    data: IncidentFieldAttributesSingleValue
-  ): { [key: string]: any } {
-    const attributeTypes = IncidentFieldAttributesSingleValue.getAttributeTypeMap();
+  static serialize(data: IncidentFieldAttributesSingleValue): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      IncidentFieldAttributesSingleValue.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

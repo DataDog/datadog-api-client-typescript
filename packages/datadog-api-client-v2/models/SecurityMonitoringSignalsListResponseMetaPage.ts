@@ -48,10 +48,11 @@ export class SecurityMonitoringSignalsListResponseMetaPage {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringSignalsListResponseMetaPage
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringSignalsListResponseMetaPage.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringSignalsListResponseMetaPage): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringSignalsListResponseMetaPage.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

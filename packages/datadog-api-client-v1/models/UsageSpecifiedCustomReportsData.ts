@@ -76,10 +76,11 @@ export class UsageSpecifiedCustomReportsData {
     return res;
   }
 
-  static serialize(
-    data: UsageSpecifiedCustomReportsData
-  ): { [key: string]: any } {
-    const attributeTypes = UsageSpecifiedCustomReportsData.getAttributeTypeMap();
+  static serialize(data: UsageSpecifiedCustomReportsData): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageSpecifiedCustomReportsData.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

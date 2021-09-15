@@ -62,7 +62,8 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
   static serialize(
     data: SyntheticsPrivateLocationCreationResponseResultEncryption
   ): { [key: string]: any } {
-    const attributeTypes = SyntheticsPrivateLocationCreationResponseResultEncryption.getAttributeTypeMap();
+    const attributeTypes =
+      SyntheticsPrivateLocationCreationResponseResultEncryption.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -41,10 +41,11 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-      "{" + "account_name" + "}",
-      encodeURIComponent(String(accountName))
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
+        "{" + "account_name" + "}",
+        encodeURIComponent(String(accountName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -114,15 +115,16 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-      .replace(
-        "{" + "account_name" + "}",
-        encodeURIComponent(String(accountName))
-      )
-      .replace(
-        "{" + "channel_name" + "}",
-        encodeURIComponent(String(channelName))
-      );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+        .replace(
+          "{" + "account_name" + "}",
+          encodeURIComponent(String(accountName))
+        )
+        .replace(
+          "{" + "channel_name" + "}",
+          encodeURIComponent(String(channelName))
+        );
 
     // Make Request Context
     const requestContext = getServer(
@@ -174,10 +176,11 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-      "{" + "account_name" + "}",
-      encodeURIComponent(String(accountName))
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
+        "{" + "account_name" + "}",
+        encodeURIComponent(String(accountName))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -238,15 +241,16 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-      .replace(
-        "{" + "account_name" + "}",
-        encodeURIComponent(String(accountName))
-      )
-      .replace(
-        "{" + "channel_name" + "}",
-        encodeURIComponent(String(channelName))
-      );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+        .replace(
+          "{" + "account_name" + "}",
+          encodeURIComponent(String(accountName))
+        )
+        .replace(
+          "{" + "channel_name" + "}",
+          encodeURIComponent(String(channelName))
+        );
 
     // Make Request Context
     const requestContext = getServer(
@@ -316,15 +320,16 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-      .replace(
-        "{" + "account_name" + "}",
-        encodeURIComponent(String(accountName))
-      )
-      .replace(
-        "{" + "channel_name" + "}",
-        encodeURIComponent(String(channelName))
-      );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+        .replace(
+          "{" + "account_name" + "}",
+          encodeURIComponent(String(accountName))
+        )
+        .replace(
+          "{" + "channel_name" + "}",
+          encodeURIComponent(String(channelName))
+        );
 
     // Make Request Context
     const requestContext = getServer(

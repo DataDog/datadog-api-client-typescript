@@ -273,10 +273,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
-      "{" + "app_key_id" + "}",
-      encodeURIComponent(String(appKeyId))
-    );
+    const localVarPath =
+      "/api/v2/current_user/application_keys/{app_key_id}".replace(
+        "{" + "app_key_id" + "}",
+        encodeURIComponent(String(appKeyId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -454,10 +455,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
-      "{" + "app_key_id" + "}",
-      encodeURIComponent(String(appKeyId))
-    );
+    const localVarPath =
+      "/api/v2/current_user/application_keys/{app_key_id}".replace(
+        "{" + "app_key_id" + "}",
+        encodeURIComponent(String(appKeyId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
@@ -961,10 +963,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
-      "{" + "app_key_id" + "}",
-      encodeURIComponent(String(appKeyId))
-    );
+    const localVarPath =
+      "/api/v2/current_user/application_keys/{app_key_id}".replace(
+        "{" + "app_key_id" + "}",
+        encodeURIComponent(String(appKeyId))
+      );
 
     // Make Request Context
     const requestContext = getServer(

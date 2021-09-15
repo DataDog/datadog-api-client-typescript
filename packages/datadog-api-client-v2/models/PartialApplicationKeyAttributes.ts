@@ -70,10 +70,11 @@ export class PartialApplicationKeyAttributes {
     return res;
   }
 
-  static serialize(
-    data: PartialApplicationKeyAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = PartialApplicationKeyAttributes.getAttributeTypeMap();
+  static serialize(data: PartialApplicationKeyAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      PartialApplicationKeyAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

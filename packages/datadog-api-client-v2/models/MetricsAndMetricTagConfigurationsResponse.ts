@@ -53,10 +53,11 @@ export class MetricsAndMetricTagConfigurationsResponse {
     return res;
   }
 
-  static serialize(
-    data: MetricsAndMetricTagConfigurationsResponse
-  ): { [key: string]: any } {
-    const attributeTypes = MetricsAndMetricTagConfigurationsResponse.getAttributeTypeMap();
+  static serialize(data: MetricsAndMetricTagConfigurationsResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      MetricsAndMetricTagConfigurationsResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

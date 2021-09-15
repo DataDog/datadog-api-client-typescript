@@ -67,10 +67,11 @@ export class MetricIngestedIndexedVolumeAttributes {
     return res;
   }
 
-  static serialize(
-    data: MetricIngestedIndexedVolumeAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = MetricIngestedIndexedVolumeAttributes.getAttributeTypeMap();
+  static serialize(data: MetricIngestedIndexedVolumeAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      MetricIngestedIndexedVolumeAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

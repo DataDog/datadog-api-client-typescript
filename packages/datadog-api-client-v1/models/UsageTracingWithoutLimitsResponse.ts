@@ -51,10 +51,11 @@ export class UsageTracingWithoutLimitsResponse {
     return res;
   }
 
-  static serialize(
-    data: UsageTracingWithoutLimitsResponse
-  ): { [key: string]: any } {
-    const attributeTypes = UsageTracingWithoutLimitsResponse.getAttributeTypeMap();
+  static serialize(data: UsageTracingWithoutLimitsResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageTracingWithoutLimitsResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

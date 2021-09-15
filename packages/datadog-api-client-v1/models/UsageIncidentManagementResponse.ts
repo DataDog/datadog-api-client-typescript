@@ -53,10 +53,11 @@ export class UsageIncidentManagementResponse {
     return res;
   }
 
-  static serialize(
-    data: UsageIncidentManagementResponse
-  ): { [key: string]: any } {
-    const attributeTypes = UsageIncidentManagementResponse.getAttributeTypeMap();
+  static serialize(data: UsageIncidentManagementResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageIncidentManagementResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

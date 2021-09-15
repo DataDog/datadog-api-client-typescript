@@ -54,10 +54,11 @@ export class HostMapWidgetDefinitionRequests {
     return res;
   }
 
-  static serialize(
-    data: HostMapWidgetDefinitionRequests
-  ): { [key: string]: any } {
-    const attributeTypes = HostMapWidgetDefinitionRequests.getAttributeTypeMap();
+  static serialize(data: HostMapWidgetDefinitionRequests): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      HostMapWidgetDefinitionRequests.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

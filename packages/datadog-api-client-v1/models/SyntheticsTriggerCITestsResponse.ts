@@ -95,10 +95,11 @@ export class SyntheticsTriggerCITestsResponse {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsTriggerCITestsResponse
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsTriggerCITestsResponse.getAttributeTypeMap();
+  static serialize(data: SyntheticsTriggerCITestsResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsTriggerCITestsResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -53,10 +53,11 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
     return res;
   }
 
-  static serialize(
-    data: FormulaAndFunctionEventQueryDefinitionSearch
-  ): { [key: string]: any } {
-    const attributeTypes = FormulaAndFunctionEventQueryDefinitionSearch.getAttributeTypeMap();
+  static serialize(data: FormulaAndFunctionEventQueryDefinitionSearch): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      FormulaAndFunctionEventQueryDefinitionSearch.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

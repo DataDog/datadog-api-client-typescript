@@ -59,10 +59,11 @@ export class MonitorGroupSearchResponseCounts {
     return res;
   }
 
-  static serialize(
-    data: MonitorGroupSearchResponseCounts
-  ): { [key: string]: any } {
-    const attributeTypes = MonitorGroupSearchResponseCounts.getAttributeTypeMap();
+  static serialize(data: MonitorGroupSearchResponseCounts): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      MonitorGroupSearchResponseCounts.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

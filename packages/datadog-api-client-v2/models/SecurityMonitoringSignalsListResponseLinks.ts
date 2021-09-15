@@ -48,10 +48,11 @@ export class SecurityMonitoringSignalsListResponseLinks {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringSignalsListResponseLinks
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringSignalsListResponseLinks.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringSignalsListResponseLinks): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringSignalsListResponseLinks.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -100,9 +100,9 @@ export class IncidentResponseRelationships {
     return res;
   }
 
-  static serialize(
-    data: IncidentResponseRelationships
-  ): { [key: string]: any } {
+  static serialize(data: IncidentResponseRelationships): {
+    [key: string]: any;
+  } {
     const attributeTypes = IncidentResponseRelationships.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

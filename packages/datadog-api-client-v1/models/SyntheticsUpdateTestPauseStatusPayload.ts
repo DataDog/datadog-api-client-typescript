@@ -47,10 +47,11 @@ export class SyntheticsUpdateTestPauseStatusPayload {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsUpdateTestPauseStatusPayload
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsUpdateTestPauseStatusPayload.getAttributeTypeMap();
+  static serialize(data: SyntheticsUpdateTestPauseStatusPayload): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsUpdateTestPauseStatusPayload.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

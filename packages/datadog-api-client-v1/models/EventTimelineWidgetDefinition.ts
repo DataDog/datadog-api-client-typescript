@@ -134,9 +134,9 @@ export class EventTimelineWidgetDefinition {
     return res;
   }
 
-  static serialize(
-    data: EventTimelineWidgetDefinition
-  ): { [key: string]: any } {
+  static serialize(data: EventTimelineWidgetDefinition): {
+    [key: string]: any;
+  } {
     const attributeTypes = EventTimelineWidgetDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

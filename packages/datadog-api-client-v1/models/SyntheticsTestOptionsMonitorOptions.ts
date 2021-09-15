@@ -52,10 +52,11 @@ export class SyntheticsTestOptionsMonitorOptions {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsTestOptionsMonitorOptions
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsTestOptionsMonitorOptions.getAttributeTypeMap();
+  static serialize(data: SyntheticsTestOptionsMonitorOptions): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsTestOptionsMonitorOptions.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

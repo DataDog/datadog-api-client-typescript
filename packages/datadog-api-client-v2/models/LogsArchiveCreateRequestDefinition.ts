@@ -66,10 +66,11 @@ export class LogsArchiveCreateRequestDefinition {
     return res;
   }
 
-  static serialize(
-    data: LogsArchiveCreateRequestDefinition
-  ): { [key: string]: any } {
-    const attributeTypes = LogsArchiveCreateRequestDefinition.getAttributeTypeMap();
+  static serialize(data: LogsArchiveCreateRequestDefinition): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      LogsArchiveCreateRequestDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

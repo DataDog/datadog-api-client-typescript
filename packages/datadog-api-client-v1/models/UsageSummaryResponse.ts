@@ -667,11 +667,12 @@ export class UsageSummaryResponse {
       "int64"
     );
 
-    res.incidentManagementMonthlyActiveUsersHwmSum = ObjectSerializer.deserialize(
-      data.incident_management_monthly_active_users_hwm_sum,
-      "number",
-      "int64"
-    );
+    res.incidentManagementMonthlyActiveUsersHwmSum =
+      ObjectSerializer.deserialize(
+        data.incident_management_monthly_active_users_hwm_sum,
+        "number",
+        "int64"
+      );
 
     res.indexedEventsCountAggSum = ObjectSerializer.deserialize(
       data.indexed_events_count_agg_sum,
@@ -1005,11 +1006,12 @@ export class UsageSummaryResponse {
       "int64"
     );
 
-    res.incident_management_monthly_active_users_hwm_sum = ObjectSerializer.serialize(
-      data.incidentManagementMonthlyActiveUsersHwmSum,
-      "number",
-      "int64"
-    );
+    res.incident_management_monthly_active_users_hwm_sum =
+      ObjectSerializer.serialize(
+        data.incidentManagementMonthlyActiveUsersHwmSum,
+        "number",
+        "int64"
+      );
 
     res.indexed_events_count_agg_sum = ObjectSerializer.serialize(
       data.indexedEventsCountAggSum,
@@ -1143,11 +1145,12 @@ export class UsageSummaryResponse {
       "date-time"
     );
 
-    res.synthetics_browser_check_calls_count_agg_sum = ObjectSerializer.serialize(
-      data.syntheticsBrowserCheckCallsCountAggSum,
-      "number",
-      "int64"
-    );
+    res.synthetics_browser_check_calls_count_agg_sum =
+      ObjectSerializer.serialize(
+        data.syntheticsBrowserCheckCallsCountAggSum,
+        "number",
+        "int64"
+      );
 
     res.synthetics_check_calls_count_agg_sum = ObjectSerializer.serialize(
       data.syntheticsCheckCallsCountAggSum,

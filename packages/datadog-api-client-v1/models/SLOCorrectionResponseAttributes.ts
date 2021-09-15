@@ -128,10 +128,11 @@ export class SLOCorrectionResponseAttributes {
     return res;
   }
 
-  static serialize(
-    data: SLOCorrectionResponseAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = SLOCorrectionResponseAttributes.getAttributeTypeMap();
+  static serialize(data: SLOCorrectionResponseAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SLOCorrectionResponseAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -61,9 +61,9 @@ export class UsageTracingWithoutLimitsHour {
     return res;
   }
 
-  static serialize(
-    data: UsageTracingWithoutLimitsHour
-  ): { [key: string]: any } {
+  static serialize(data: UsageTracingWithoutLimitsHour): {
+    [key: string]: any;
+  } {
     const attributeTypes = UsageTracingWithoutLimitsHour.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

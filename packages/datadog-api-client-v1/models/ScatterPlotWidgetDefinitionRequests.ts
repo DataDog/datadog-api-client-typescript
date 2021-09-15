@@ -64,10 +64,11 @@ export class ScatterPlotWidgetDefinitionRequests {
     return res;
   }
 
-  static serialize(
-    data: ScatterPlotWidgetDefinitionRequests
-  ): { [key: string]: any } {
-    const attributeTypes = ScatterPlotWidgetDefinitionRequests.getAttributeTypeMap();
+  static serialize(data: ScatterPlotWidgetDefinitionRequests): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      ScatterPlotWidgetDefinitionRequests.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

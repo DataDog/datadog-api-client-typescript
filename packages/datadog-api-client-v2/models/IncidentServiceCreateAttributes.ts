@@ -53,10 +53,11 @@ export class IncidentServiceCreateAttributes {
     return res;
   }
 
-  static serialize(
-    data: IncidentServiceCreateAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = IncidentServiceCreateAttributes.getAttributeTypeMap();
+  static serialize(data: IncidentServiceCreateAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      IncidentServiceCreateAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

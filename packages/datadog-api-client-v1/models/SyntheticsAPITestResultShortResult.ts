@@ -61,10 +61,11 @@ export class SyntheticsAPITestResultShortResult {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsAPITestResultShortResult
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsAPITestResultShortResult.getAttributeTypeMap();
+  static serialize(data: SyntheticsAPITestResultShortResult): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsAPITestResultShortResult.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

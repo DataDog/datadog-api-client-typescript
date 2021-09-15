@@ -55,10 +55,11 @@ export class RelationshipToIncidentPostmortem {
     return res;
   }
 
-  static serialize(
-    data: RelationshipToIncidentPostmortem
-  ): { [key: string]: any } {
-    const attributeTypes = RelationshipToIncidentPostmortem.getAttributeTypeMap();
+  static serialize(data: RelationshipToIncidentPostmortem): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      RelationshipToIncidentPostmortem.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

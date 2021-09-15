@@ -864,11 +864,12 @@ export class UsageSummaryDateOrg {
 
     res.id = ObjectSerializer.serialize(data.id, "string", "");
 
-    res.incident_management_monthly_active_users_hwm = ObjectSerializer.serialize(
-      data.incidentManagementMonthlyActiveUsersHwm,
-      "number",
-      "int64"
-    );
+    res.incident_management_monthly_active_users_hwm =
+      ObjectSerializer.serialize(
+        data.incidentManagementMonthlyActiveUsersHwm,
+        "number",
+        "int64"
+      );
 
     res.indexed_events_count_sum = ObjectSerializer.serialize(
       data.indexedEventsCountSum,

@@ -53,9 +53,9 @@ export class SyntheticsDeleteTestsResponse {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsDeleteTestsResponse
-  ): { [key: string]: any } {
+  static serialize(data: SyntheticsDeleteTestsResponse): {
+    [key: string]: any;
+  } {
     const attributeTypes = SyntheticsDeleteTestsResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

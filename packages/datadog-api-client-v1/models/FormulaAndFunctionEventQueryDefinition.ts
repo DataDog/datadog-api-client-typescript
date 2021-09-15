@@ -147,10 +147,11 @@ export class FormulaAndFunctionEventQueryDefinition {
     return res;
   }
 
-  static serialize(
-    data: FormulaAndFunctionEventQueryDefinition
-  ): { [key: string]: any } {
-    const attributeTypes = FormulaAndFunctionEventQueryDefinition.getAttributeTypeMap();
+  static serialize(data: FormulaAndFunctionEventQueryDefinition): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      FormulaAndFunctionEventQueryDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -64,10 +64,11 @@ export class DashboardTemplateVariablePreset {
     return res;
   }
 
-  static serialize(
-    data: DashboardTemplateVariablePreset
-  ): { [key: string]: any } {
-    const attributeTypes = DashboardTemplateVariablePreset.getAttributeTypeMap();
+  static serialize(data: DashboardTemplateVariablePreset): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      DashboardTemplateVariablePreset.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

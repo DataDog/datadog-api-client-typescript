@@ -70,9 +70,9 @@ export class UsageAttributionAggregatesBody {
     return res;
   }
 
-  static serialize(
-    data: UsageAttributionAggregatesBody
-  ): { [key: string]: any } {
+  static serialize(data: UsageAttributionAggregatesBody): {
+    [key: string]: any;
+  } {
     const attributeTypes = UsageAttributionAggregatesBody.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

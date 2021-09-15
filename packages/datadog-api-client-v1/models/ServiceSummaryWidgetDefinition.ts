@@ -271,9 +271,9 @@ export class ServiceSummaryWidgetDefinition {
     return res;
   }
 
-  static serialize(
-    data: ServiceSummaryWidgetDefinition
-  ): { [key: string]: any } {
+  static serialize(data: ServiceSummaryWidgetDefinition): {
+    [key: string]: any;
+  } {
     const attributeTypes = ServiceSummaryWidgetDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

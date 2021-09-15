@@ -70,10 +70,11 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
     return res;
   }
 
-  static serialize(
-    data: WebhooksIntegrationCustomVariableUpdateRequest
-  ): { [key: string]: any } {
-    const attributeTypes = WebhooksIntegrationCustomVariableUpdateRequest.getAttributeTypeMap();
+  static serialize(data: WebhooksIntegrationCustomVariableUpdateRequest): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      WebhooksIntegrationCustomVariableUpdateRequest.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

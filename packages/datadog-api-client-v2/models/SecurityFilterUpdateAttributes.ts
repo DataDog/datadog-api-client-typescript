@@ -116,9 +116,9 @@ export class SecurityFilterUpdateAttributes {
     return res;
   }
 
-  static serialize(
-    data: SecurityFilterUpdateAttributes
-  ): { [key: string]: any } {
+  static serialize(data: SecurityFilterUpdateAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = SecurityFilterUpdateAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

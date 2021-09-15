@@ -74,10 +74,11 @@ export class SyntheticsPrivateLocationCreationResponse {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsPrivateLocationCreationResponse
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsPrivateLocationCreationResponse.getAttributeTypeMap();
+  static serialize(data: SyntheticsPrivateLocationCreationResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsPrivateLocationCreationResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

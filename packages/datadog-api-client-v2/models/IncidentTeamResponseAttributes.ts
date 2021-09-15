@@ -78,9 +78,9 @@ export class IncidentTeamResponseAttributes {
     return res;
   }
 
-  static serialize(
-    data: IncidentTeamResponseAttributes
-  ): { [key: string]: any } {
+  static serialize(data: IncidentTeamResponseAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = IncidentTeamResponseAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

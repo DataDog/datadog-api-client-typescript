@@ -55,10 +55,11 @@ export class MetricTagConfigurationUpdateRequest {
     return res;
   }
 
-  static serialize(
-    data: MetricTagConfigurationUpdateRequest
-  ): { [key: string]: any } {
-    const attributeTypes = MetricTagConfigurationUpdateRequest.getAttributeTypeMap();
+  static serialize(data: MetricTagConfigurationUpdateRequest): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      MetricTagConfigurationUpdateRequest.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

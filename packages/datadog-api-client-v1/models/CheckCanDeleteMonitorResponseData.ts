@@ -48,10 +48,11 @@ export class CheckCanDeleteMonitorResponseData {
     return res;
   }
 
-  static serialize(
-    data: CheckCanDeleteMonitorResponseData
-  ): { [key: string]: any } {
-    const attributeTypes = CheckCanDeleteMonitorResponseData.getAttributeTypeMap();
+  static serialize(data: CheckCanDeleteMonitorResponseData): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      CheckCanDeleteMonitorResponseData.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

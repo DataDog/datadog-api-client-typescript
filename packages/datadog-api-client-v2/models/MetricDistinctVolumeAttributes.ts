@@ -52,9 +52,9 @@ export class MetricDistinctVolumeAttributes {
     return res;
   }
 
-  static serialize(
-    data: MetricDistinctVolumeAttributes
-  ): { [key: string]: any } {
+  static serialize(data: MetricDistinctVolumeAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = MetricDistinctVolumeAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

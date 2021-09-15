@@ -63,10 +63,11 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
     return res;
   }
 
-  static serialize(
-    data: OrganizationSettingsSamlAutocreateUsersDomains
-  ): { [key: string]: any } {
-    const attributeTypes = OrganizationSettingsSamlAutocreateUsersDomains.getAttributeTypeMap();
+  static serialize(data: OrganizationSettingsSamlAutocreateUsersDomains): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      OrganizationSettingsSamlAutocreateUsersDomains.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

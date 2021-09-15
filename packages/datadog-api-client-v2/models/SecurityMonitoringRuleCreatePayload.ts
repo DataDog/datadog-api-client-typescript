@@ -202,10 +202,11 @@ export class SecurityMonitoringRuleCreatePayload {
     return res;
   }
 
-  static serialize(
-    data: SecurityMonitoringRuleCreatePayload
-  ): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringRuleCreatePayload.getAttributeTypeMap();
+  static serialize(data: SecurityMonitoringRuleCreatePayload): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SecurityMonitoringRuleCreatePayload.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

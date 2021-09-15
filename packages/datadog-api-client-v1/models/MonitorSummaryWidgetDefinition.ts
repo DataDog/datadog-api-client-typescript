@@ -247,9 +247,9 @@ export class MonitorSummaryWidgetDefinition {
     return res;
   }
 
-  static serialize(
-    data: MonitorSummaryWidgetDefinition
-  ): { [key: string]: any } {
+  static serialize(data: MonitorSummaryWidgetDefinition): {
+    [key: string]: any;
+  } {
     const attributeTypes = MonitorSummaryWidgetDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

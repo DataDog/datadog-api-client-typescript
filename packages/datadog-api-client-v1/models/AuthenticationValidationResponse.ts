@@ -48,10 +48,11 @@ export class AuthenticationValidationResponse {
     return res;
   }
 
-  static serialize(
-    data: AuthenticationValidationResponse
-  ): { [key: string]: any } {
-    const attributeTypes = AuthenticationValidationResponse.getAttributeTypeMap();
+  static serialize(data: AuthenticationValidationResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      AuthenticationValidationResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

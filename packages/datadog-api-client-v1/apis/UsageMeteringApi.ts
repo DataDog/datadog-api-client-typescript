@@ -2406,11 +2406,12 @@ export class UsageMeteringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageIncidentManagementResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageIncidentManagementResponse",
-        ""
-      ) as UsageIncidentManagementResponse;
+      const body: UsageIncidentManagementResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageIncidentManagementResponse",
+          ""
+        ) as UsageIncidentManagementResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -2432,11 +2433,12 @@ export class UsageMeteringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageIncidentManagementResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageIncidentManagementResponse",
-        ""
-      ) as UsageIncidentManagementResponse;
+      const body: UsageIncidentManagementResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageIncidentManagementResponse",
+          ""
+        ) as UsageIncidentManagementResponse;
       return body;
     }
 
@@ -2563,11 +2565,12 @@ export class UsageMeteringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSpecifiedCustomReportsResponse",
-        ""
-      ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageSpecifiedCustomReportsResponse",
+          ""
+        ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
@@ -2589,11 +2592,12 @@ export class UsageMeteringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSpecifiedCustomReportsResponse",
-        ""
-      ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageSpecifiedCustomReportsResponse",
+          ""
+        ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
 
@@ -2618,11 +2622,12 @@ export class UsageMeteringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSpecifiedCustomReportsResponse",
-        ""
-      ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageSpecifiedCustomReportsResponse",
+          ""
+        ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -2652,11 +2657,12 @@ export class UsageMeteringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSpecifiedCustomReportsResponse",
-        ""
-      ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageSpecifiedCustomReportsResponse",
+          ""
+        ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
 
@@ -2948,11 +2954,12 @@ export class UsageMeteringApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageCloudSecurityPostureManagementResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCloudSecurityPostureManagementResponse",
-        ""
-      ) as UsageCloudSecurityPostureManagementResponse;
+      const body: UsageCloudSecurityPostureManagementResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageCloudSecurityPostureManagementResponse",
+          ""
+        ) as UsageCloudSecurityPostureManagementResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -2974,11 +2981,12 @@ export class UsageMeteringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageCloudSecurityPostureManagementResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCloudSecurityPostureManagementResponse",
-        ""
-      ) as UsageCloudSecurityPostureManagementResponse;
+      const body: UsageCloudSecurityPostureManagementResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageCloudSecurityPostureManagementResponse",
+          ""
+        ) as UsageCloudSecurityPostureManagementResponse;
       return body;
     }
 

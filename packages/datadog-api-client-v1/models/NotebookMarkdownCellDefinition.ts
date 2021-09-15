@@ -73,9 +73,9 @@ export class NotebookMarkdownCellDefinition {
     return res;
   }
 
-  static serialize(
-    data: NotebookMarkdownCellDefinition
-  ): { [key: string]: any } {
+  static serialize(data: NotebookMarkdownCellDefinition): {
+    [key: string]: any;
+  } {
     const attributeTypes = NotebookMarkdownCellDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

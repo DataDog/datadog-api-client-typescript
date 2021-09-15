@@ -95,9 +95,9 @@ export class ServiceAccountCreateAttributes {
     return res;
   }
 
-  static serialize(
-    data: ServiceAccountCreateAttributes
-  ): { [key: string]: any } {
+  static serialize(data: ServiceAccountCreateAttributes): {
+    [key: string]: any;
+  } {
     const attributeTypes = ServiceAccountCreateAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

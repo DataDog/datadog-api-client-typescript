@@ -74,10 +74,11 @@ export class IncidentServicesResponseMetaPagination {
     return res;
   }
 
-  static serialize(
-    data: IncidentServicesResponseMetaPagination
-  ): { [key: string]: any } {
-    const attributeTypes = IncidentServicesResponseMetaPagination.getAttributeTypeMap();
+  static serialize(data: IncidentServicesResponseMetaPagination): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      IncidentServicesResponseMetaPagination.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

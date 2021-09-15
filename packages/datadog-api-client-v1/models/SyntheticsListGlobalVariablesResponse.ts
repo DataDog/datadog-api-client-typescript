@@ -53,10 +53,11 @@ export class SyntheticsListGlobalVariablesResponse {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsListGlobalVariablesResponse
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsListGlobalVariablesResponse.getAttributeTypeMap();
+  static serialize(data: SyntheticsListGlobalVariablesResponse): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsListGlobalVariablesResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

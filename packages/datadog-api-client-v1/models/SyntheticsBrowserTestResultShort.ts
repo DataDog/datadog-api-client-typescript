@@ -102,10 +102,11 @@ export class SyntheticsBrowserTestResultShort {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsBrowserTestResultShort
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsBrowserTestResultShort.getAttributeTypeMap();
+  static serialize(data: SyntheticsBrowserTestResultShort): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsBrowserTestResultShort.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

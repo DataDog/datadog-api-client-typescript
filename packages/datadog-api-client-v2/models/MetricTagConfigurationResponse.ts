@@ -50,9 +50,9 @@ export class MetricTagConfigurationResponse {
     return res;
   }
 
-  static serialize(
-    data: MetricTagConfigurationResponse
-  ): { [key: string]: any } {
+  static serialize(data: MetricTagConfigurationResponse): {
+    [key: string]: any;
+  } {
     const attributeTypes = MetricTagConfigurationResponse.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {

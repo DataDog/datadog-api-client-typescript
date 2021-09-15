@@ -78,10 +78,11 @@ export class UsageCloudSecurityPostureManagementHour {
     return res;
   }
 
-  static serialize(
-    data: UsageCloudSecurityPostureManagementHour
-  ): { [key: string]: any } {
-    const attributeTypes = UsageCloudSecurityPostureManagementHour.getAttributeTypeMap();
+  static serialize(data: UsageCloudSecurityPostureManagementHour): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      UsageCloudSecurityPostureManagementHour.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -108,10 +108,11 @@ export class SLOCorrectionUpdateRequestAttributes {
     return res;
   }
 
-  static serialize(
-    data: SLOCorrectionUpdateRequestAttributes
-  ): { [key: string]: any } {
-    const attributeTypes = SLOCorrectionUpdateRequestAttributes.getAttributeTypeMap();
+  static serialize(data: SLOCorrectionUpdateRequestAttributes): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SLOCorrectionUpdateRequestAttributes.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

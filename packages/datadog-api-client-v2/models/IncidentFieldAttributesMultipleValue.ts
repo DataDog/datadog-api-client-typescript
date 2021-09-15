@@ -71,10 +71,11 @@ export class IncidentFieldAttributesMultipleValue {
     return res;
   }
 
-  static serialize(
-    data: IncidentFieldAttributesMultipleValue
-  ): { [key: string]: any } {
-    const attributeTypes = IncidentFieldAttributesMultipleValue.getAttributeTypeMap();
+  static serialize(data: IncidentFieldAttributesMultipleValue): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      IncidentFieldAttributesMultipleValue.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

@@ -70,10 +70,11 @@ export class SyntheticsAssertionJSONPathTargetTarget {
     return res;
   }
 
-  static serialize(
-    data: SyntheticsAssertionJSONPathTargetTarget
-  ): { [key: string]: any } {
-    const attributeTypes = SyntheticsAssertionJSONPathTargetTarget.getAttributeTypeMap();
+  static serialize(data: SyntheticsAssertionJSONPathTargetTarget): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsAssertionJSONPathTargetTarget.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {

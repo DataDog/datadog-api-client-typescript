@@ -187,10 +187,11 @@ export class FormulaAndFunctionProcessQueryDefinition {
     return res;
   }
 
-  static serialize(
-    data: FormulaAndFunctionProcessQueryDefinition
-  ): { [key: string]: any } {
-    const attributeTypes = FormulaAndFunctionProcessQueryDefinition.getAttributeTypeMap();
+  static serialize(data: FormulaAndFunctionProcessQueryDefinition): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      FormulaAndFunctionProcessQueryDefinition.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {
