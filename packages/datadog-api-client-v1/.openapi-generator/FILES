@@ -172,6 +172,12 @@ models/FormulaAndFunctionQueryDefinition.ts
 models/FormulaAndFunctionResponseFormat.ts
 models/FreeTextWidgetDefinition.ts
 models/FreeTextWidgetDefinitionType.ts
+models/FunnelQuery.ts
+models/FunnelRequestType.ts
+models/FunnelSource.ts
+models/FunnelWidgetDefinition.ts
+models/FunnelWidgetDefinitionType.ts
+models/FunnelWidgetRequest.ts
 models/GCPAccount.ts
 models/GeomapWidgetDefinition.ts
 models/GeomapWidgetDefinitionStyle.ts
