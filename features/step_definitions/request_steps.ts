@@ -78,6 +78,14 @@ When("the request is sent", async function (this: World) {
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 2;
   }
+  if (process.env.DD_TEST_SITE_URL) {
+    const serverConf = api.servers[1].getConfiguration();
+    api.servers[1].setVariables({
+      name: process.env.DD_TEST_SITE_URL,
+      protocol: "http",
+    } as typeof serverConf);
+    (configurationOpts as any)["serverIndex"] = 1;
+  }
   const configuration = api.createConfiguration(configurationOpts);
   const apiInstance = new api[`${this.apiName}Api`](configuration);
 
@@ -112,6 +120,10 @@ When("the request is sent", async function (this: World) {
     }
   } catch (error) {
     console.log(error);
+    if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
+      console.log(this.requestContext.body.text);
+      throw error;
+    }
   }
 });
 
