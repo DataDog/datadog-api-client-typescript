@@ -16,6 +16,7 @@ import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
+import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
@@ -50,6 +51,7 @@ export type WidgetDefinition =
   | EventStreamWidgetDefinition
   | EventTimelineWidgetDefinition
   | FreeTextWidgetDefinition
+  | FunnelWidgetDefinition
   | GeomapWidgetDefinition
   | GroupWidgetDefinition
   | HeatMapWidgetDefinition

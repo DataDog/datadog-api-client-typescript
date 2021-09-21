@@ -75,6 +75,9 @@ import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEve
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
+import { FunnelQuery } from "./FunnelQuery";
+import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
+import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { GCPAccount } from "./GCPAccount";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
@@ -497,6 +500,9 @@ const enumsMap: Set<string> = new Set<string>([
   "FormulaAndFunctionProcessQueryDataSource",
   "FormulaAndFunctionResponseFormat",
   "FreeTextWidgetDefinitionType",
+  "FunnelRequestType",
+  "FunnelSource",
+  "FunnelWidgetDefinitionType",
   "GeomapWidgetDefinitionType",
   "GroupWidgetDefinitionType",
   "HTTPMethod",
@@ -709,6 +715,9 @@ const typeMap: { [index: string]: any } = {
   FormulaAndFunctionProcessQueryDefinition:
     FormulaAndFunctionProcessQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
+  FunnelQuery: FunnelQuery,
+  FunnelWidgetDefinition: FunnelWidgetDefinition,
+  FunnelWidgetRequest: FunnelWidgetRequest,
   GCPAccount: GCPAccount,
   GeomapWidgetDefinition: GeomapWidgetDefinition,
   GeomapWidgetDefinitionStyle: GeomapWidgetDefinitionStyle,
@@ -1172,6 +1181,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "EventStreamWidgetDefinition",
     "EventTimelineWidgetDefinition",
     "FreeTextWidgetDefinition",
+    "FunnelWidgetDefinition",
     "GeomapWidgetDefinition",
     "GroupWidgetDefinition",
     "HeatMapWidgetDefinition",
