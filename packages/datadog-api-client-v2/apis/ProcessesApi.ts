@@ -159,7 +159,7 @@ export class ProcessesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'

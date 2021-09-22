@@ -456,7 +456,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
@@ -504,7 +504,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
@@ -559,7 +559,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
@@ -606,7 +606,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
@@ -653,7 +653,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
@@ -708,7 +708,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
@@ -771,7 +771,7 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
 
-    const body = response.body || "";
+    const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
