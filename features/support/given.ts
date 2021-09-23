@@ -52,6 +52,14 @@ for (const apiVersion of Versions) {
         } as typeof serverConf);
         (configurationOpts as any)["baseServer"] = server;
       }
+      if (process.env.DD_TEST_SITE_URL) {
+        const serverConf = api.servers[1].getConfiguration();
+        api.servers[1].setVariables({
+          name: process.env.DD_TEST_SITE_URL,
+          protocol: "http",
+        } as typeof serverConf);
+        (configurationOpts as any)["serverIndex"] = 1;
+      }
       const configuration = api.createConfiguration(configurationOpts);
       const apiInstance = new (api as any)[`${apiName}Api`](configuration);
 
