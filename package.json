@@ -54,7 +54,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write --ignore-unknown",
     "prepare": "yarn run build",
-    "test": "node bin/dd-cucumber-js features/",
+    "test": "node bin/dd-cucumber-js features/*/*.feature",
     "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt",
     "jest-test": "jest --no-cache",
     "jest-coverage": "jest --no-cache --coverage"
@@ -70,7 +70,7 @@
     "url-parse": "^1.4.3"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^7.0.0",
+    "@cucumber/cucumber": "^7.3.1",
     "@cucumber/messages": "^13.2.1",
     "@pollyjs/adapter-node-http": "^5.1.0",
     "@pollyjs/core": "^5.1.0",
@@ -87,7 +87,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "chai": "^4.2.0",
-    "dd-trace": "^1.3.0",
+    "dd-trace": "^1.4.0",
     "eslint": "^7.19.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
