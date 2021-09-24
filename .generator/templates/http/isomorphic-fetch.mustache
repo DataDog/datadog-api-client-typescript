@@ -20,10 +20,19 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             compress = true;
         }
 
+        let headers = request.getHeaders();
+        if (typeof body === "string") {
+            if (headers["Content-Encoding"] == "gzip") {
+                body = zlib.gzipSync(body);
+            } else if (headers["Content-Encoding"] == "deflate") {
+                body = zlib.deflateSync(body);
+            }
+        }
+
         const resultPromise = fetch(request.getUrl(), {
             method: method,
             body: body as any,
-            headers: request.getHeaders(),
+            headers: headers,
             compress: compress,
             {{#platforms}}
             {{#browser}}
