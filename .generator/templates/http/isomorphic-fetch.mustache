@@ -8,6 +8,7 @@ import fetch from "node-fetch";
 import "whatwg-fetch";
 {{/browser}}
 {{/platforms}}
+import * as zlib from "zlib";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
 
