@@ -54,7 +54,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write --ignore-unknown",
     "prepare": "yarn run build",
-    "test": "node bin/dd-cucumber-js features/",
+    "test": "node bin/dd-cucumber-js features/*/*.feature",
     "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt",
     "jest-test": "jest --no-cache",
     "jest-coverage": "jest --no-cache --coverage"
