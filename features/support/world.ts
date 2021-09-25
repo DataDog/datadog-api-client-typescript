@@ -1,8 +1,6 @@
 import { setWorldConstructor, setDefaultTimeout } from "@cucumber/cucumber";
-import { messages } from "@cucumber/messages";
 import { Polly } from "@pollyjs/core";
 export class World {
-  public document?: messages.IGherkinDocument;
   public polly?: Polly;
 
   public apiVersion = "";

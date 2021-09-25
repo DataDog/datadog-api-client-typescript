@@ -28,5 +28,4 @@ Before(function (
 ) {
   const parts = gherkinDocument.uri?.split("/") as string[];
   this.apiVersion = parts[parts.length - 2];
-  this.document = gherkinDocument;
 });
