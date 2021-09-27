@@ -146,11 +146,11 @@ export class UsageAttributionValues {
   /**
    * The percentage of profiled containers usage by tag(s).
    */
-  "profiledContainersPercentage"?: number;
+  "profiledContainerPercentage"?: number;
   /**
    * The profiled container usage by tag(s).
    */
-  "profiledContainersUsage"?: number;
+  "profiledContainerUsage"?: number;
   /**
    * The percentage of profiled hosts usage by tag(s).
    */
@@ -335,13 +335,13 @@ export class UsageAttributionValues {
       type: "number",
       format: "double",
     },
-    profiledContainersPercentage: {
-      baseName: "profiled_containers_percentage",
+    profiledContainerPercentage: {
+      baseName: "profiled_container_percentage",
       type: "number",
       format: "double",
     },
-    profiledContainersUsage: {
-      baseName: "profiled_containers_usage",
+    profiledContainerUsage: {
+      baseName: "profiled_container_usage",
       type: "number",
       format: "double",
     },
@@ -566,14 +566,14 @@ export class UsageAttributionValues {
       "double"
     );
 
-    res.profiledContainersPercentage = ObjectSerializer.deserialize(
-      data.profiled_containers_percentage,
+    res.profiledContainerPercentage = ObjectSerializer.deserialize(
+      data.profiled_container_percentage,
       "number",
       "double"
     );
 
-    res.profiledContainersUsage = ObjectSerializer.deserialize(
-      data.profiled_containers_usage,
+    res.profiledContainerUsage = ObjectSerializer.deserialize(
+      data.profiled_container_usage,
       "number",
       "double"
     );
@@ -808,14 +808,14 @@ export class UsageAttributionValues {
       "double"
     );
 
-    res.profiled_containers_percentage = ObjectSerializer.serialize(
-      data.profiledContainersPercentage,
+    res.profiled_container_percentage = ObjectSerializer.serialize(
+      data.profiledContainerPercentage,
       "number",
       "double"
     );
 
-    res.profiled_containers_usage = ObjectSerializer.serialize(
-      data.profiledContainersUsage,
+    res.profiled_container_usage = ObjectSerializer.serialize(
+      data.profiledContainerUsage,
       "number",
       "double"
     );
