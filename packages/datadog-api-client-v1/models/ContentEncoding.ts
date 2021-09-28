@@ -8,6 +8,6 @@
  * Do not edit the class manually.
  */
 
-export type ContentEncoding = typeof gzip | typeof deflate;
-export const gzip = "gzip";
-export const deflate = "deflate";
+export type ContentEncoding = typeof GZIP | typeof DEFLATE;
+export const GZIP = "gzip";
+export const DEFLATE = "deflate";
