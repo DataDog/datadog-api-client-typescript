@@ -469,6 +469,7 @@ const primitives = [
 
 const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/json": Infinity,
+  "text/json": 100,
   "application/octet-stream": 0,
 };
 
@@ -1431,7 +1432,7 @@ export class ObjectSerializer {
    * Convert data to a string according the given media type
    */
   public static stringify(data: any, mediaType: string): string {
-    if (mediaType === "application/json") {
+    if (mediaType === "application/json" || mediaType === "text/json") {
       return JSON.stringify(data);
     }
 
