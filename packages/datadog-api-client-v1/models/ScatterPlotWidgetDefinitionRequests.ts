@@ -9,6 +9,7 @@
  */
 
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
+import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -16,8 +17,9 @@ import { ObjectSerializer } from "./ObjectSerializer";
  */
 
 export class ScatterPlotWidgetDefinitionRequests {
-  "x": ScatterPlotRequest;
-  "y": ScatterPlotRequest;
+  "table"?: ScatterplotTableRequest;
+  "x"?: ScatterPlotRequest;
+  "y"?: ScatterPlotRequest;
 
   "unparsedObject"?: any;
 
@@ -26,6 +28,11 @@ export class ScatterPlotWidgetDefinitionRequests {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
+    table: {
+      baseName: "table",
+      type: "ScatterplotTableRequest",
+      format: "",
+    },
     x: {
       baseName: "x",
       type: "ScatterPlotRequest",
@@ -47,18 +54,14 @@ export class ScatterPlotWidgetDefinitionRequests {
   }): ScatterPlotWidgetDefinitionRequests {
     const res = new ScatterPlotWidgetDefinitionRequests();
 
-    if (data.x === undefined) {
-      throw new TypeError(
-        "missing required attribute 'x' on 'ScatterPlotWidgetDefinitionRequests' object"
-      );
-    }
+    res.table = ObjectSerializer.deserialize(
+      data.table,
+      "ScatterplotTableRequest",
+      ""
+    );
+
     res.x = ObjectSerializer.deserialize(data.x, "ScatterPlotRequest", "");
 
-    if (data.y === undefined) {
-      throw new TypeError(
-        "missing required attribute 'y' on 'ScatterPlotWidgetDefinitionRequests' object"
-      );
-    }
     res.y = ObjectSerializer.deserialize(data.y, "ScatterPlotRequest", "");
 
     return res;
@@ -78,18 +81,14 @@ export class ScatterPlotWidgetDefinitionRequests {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
-    if (data.x === undefined) {
-      throw new TypeError(
-        "missing required attribute 'x' on 'ScatterPlotWidgetDefinitionRequests' object"
-      );
-    }
+    res.table = ObjectSerializer.serialize(
+      data.table,
+      "ScatterplotTableRequest",
+      ""
+    );
+
     res.x = ObjectSerializer.serialize(data.x, "ScatterPlotRequest", "");
 
-    if (data.y === undefined) {
-      throw new TypeError(
-        "missing required attribute 'y' on 'ScatterPlotWidgetDefinitionRequests' object"
-      );
-    }
     res.y = ObjectSerializer.serialize(data.y, "ScatterPlotRequest", "");
 
     return res;
