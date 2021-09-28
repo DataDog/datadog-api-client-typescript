@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { Creator } from "./Creator";
 import { SyntheticsStep } from "./SyntheticsStep";
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
@@ -22,6 +23,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class SyntheticsTestDetails {
   "config"?: SyntheticsTestConfig;
+  "creator"?: Creator;
   /**
    * Array of locations used to run the test.
    */
@@ -65,6 +67,11 @@ export class SyntheticsTestDetails {
     config: {
       baseName: "config",
       type: "SyntheticsTestConfig",
+      format: "",
+    },
+    creator: {
+      baseName: "creator",
+      type: "Creator",
       format: "",
     },
     locations: {
@@ -136,6 +143,8 @@ export class SyntheticsTestDetails {
       "SyntheticsTestConfig",
       ""
     );
+
+    res.creator = ObjectSerializer.deserialize(data.creator, "Creator", "");
 
     res.locations = ObjectSerializer.deserialize(
       data.locations,
@@ -216,6 +225,8 @@ export class SyntheticsTestDetails {
       "SyntheticsTestConfig",
       ""
     );
+
+    res.creator = ObjectSerializer.serialize(data.creator, "Creator", "");
 
     res.locations = ObjectSerializer.serialize(
       data.locations,
