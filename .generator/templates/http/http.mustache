@@ -102,7 +102,7 @@ export class HttpException extends Error {
 /**
  * Represents the body of an outgoing HTTP request.
  */
-export type RequestBody = undefined | string | FormData;
+export type RequestBody = undefined | string | Buffer | FormData;
 
 /**
  * Represents an HTTP transport configuration.
