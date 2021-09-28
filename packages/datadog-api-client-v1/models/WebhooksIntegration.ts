@@ -22,7 +22,7 @@ export class WebhooksIntegration {
   "customHeaders"?: string;
   "encodeAs"?: WebhooksIntegrationEncoding;
   /**
-   * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notifications).
+   * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
    */
   "name": string;
   /**
