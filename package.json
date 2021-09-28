@@ -67,8 +67,10 @@
     "es6-promise": "^4.2.4",
     "form-data": "^3.0.0",
     "node-fetch": "^2.6.0",
-    "url-parse": "^1.4.3",
-    "nock": "^13.1.3"
+    "url-parse": "^1.4.3"
+  },
+  "resolutions": {
+    "@pollyjs/adapter-node-http/nock": "^13.1.3"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.1",
