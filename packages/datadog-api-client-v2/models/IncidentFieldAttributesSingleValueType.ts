@@ -10,8 +10,6 @@
 
 export type IncidentFieldAttributesSingleValueType =
   | typeof DROPDOWN
-  | typeof TEXTBOX
-  | typeof AUTOCOMPLETE;
+  | typeof TEXTBOX;
 export const DROPDOWN = "dropdown";
 export const TEXTBOX = "textbox";
-export const AUTOCOMPLETE = "autocomplete";

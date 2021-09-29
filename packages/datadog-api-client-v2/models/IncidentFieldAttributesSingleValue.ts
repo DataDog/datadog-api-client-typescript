@@ -50,9 +50,7 @@ export class IncidentFieldAttributesSingleValue {
   }): IncidentFieldAttributesSingleValue {
     const res = new IncidentFieldAttributesSingleValue();
 
-    if (
-      ["dropdown", "textbox", "autocomplete", undefined].includes(data.type)
-    ) {
+    if (["dropdown", "textbox", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
       const raw = new IncidentFieldAttributesSingleValue();
@@ -79,9 +77,7 @@ export class IncidentFieldAttributesSingleValue {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
-    if (
-      ["dropdown", "textbox", "autocomplete", undefined].includes(data.type)
-    ) {
+    if (["dropdown", "textbox", undefined].includes(data.type)) {
       res.type = data.type;
     } else {
       throw TypeError(`invalid enum value ${data.type} for type`);
