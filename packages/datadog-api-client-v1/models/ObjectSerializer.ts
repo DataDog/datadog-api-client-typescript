@@ -271,6 +271,8 @@ import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
+import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
+import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -552,6 +554,7 @@ const enumsMap: Set<string> = new Set<string>([
   "SLOTypeNumeric",
   "SLOWidgetDefinitionType",
   "ScatterPlotWidgetDefinitionType",
+  "ScatterplotDimension",
   "ScatterplotWidgetAggregator",
   "ServiceCheckStatus",
   "ServiceMapWidgetDefinitionType",
@@ -914,6 +917,8 @@ const typeMap: { [index: string]: any } = {
   ScatterPlotRequest: ScatterPlotRequest,
   ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
+  ScatterplotTableRequest: ScatterplotTableRequest,
+  ScatterplotWidgetFormula: ScatterplotWidgetFormula,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,
