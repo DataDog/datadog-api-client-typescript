@@ -94,9 +94,9 @@ export class UsageSummaryResponse {
    */
   "dbmHostTop99pSum"?: number;
   /**
-   * Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations.
+   * Shows the average of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations.
    */
-  "dbmQueriesAggSum"?: number;
+  "dbmQueriesAvgSum"?: number;
   /**
    * Shows the last date of usage in the current months for all organizations.
    */
@@ -333,8 +333,8 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
-    dbmQueriesAggSum: {
-      baseName: "dbm_queries_agg_sum",
+    dbmQueriesAvgSum: {
+      baseName: "dbm_queries_avg_sum",
       type: "number",
       format: "int64",
     },
@@ -631,8 +631,8 @@ export class UsageSummaryResponse {
       "int64"
     );
 
-    res.dbmQueriesAggSum = ObjectSerializer.deserialize(
-      data.dbm_queries_agg_sum,
+    res.dbmQueriesAvgSum = ObjectSerializer.deserialize(
+      data.dbm_queries_avg_sum,
       "number",
       "int64"
     );
@@ -970,8 +970,8 @@ export class UsageSummaryResponse {
       "int64"
     );
 
-    res.dbm_queries_agg_sum = ObjectSerializer.serialize(
-      data.dbmQueriesAggSum,
+    res.dbm_queries_avg_sum = ObjectSerializer.serialize(
+      data.dbmQueriesAvgSum,
       "number",
       "int64"
     );
