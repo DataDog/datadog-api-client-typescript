@@ -18,11 +18,11 @@ export class World {
   public fixtures: { [key: string]: any } = {};
   public opts: { [key: string]: any } = {};
 
-  cleanup(): void {
+  async cleanup() {
     const undo = this.undo;
     undo.reverse();
     for (const clean of undo) {
-      clean();
+      await clean();
     }
     this.undo = [];
   }
