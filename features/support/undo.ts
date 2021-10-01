@@ -38,7 +38,7 @@ function buildUndoFor(
   operationOrig: string,
   response: any
 ): { (): void } {
-  return function (): void {
+  return async function () {
     const apiName = operationUndo.tag.replace(/\s/g, "");
     const operationName = operationUndo.undo.operationId.toOperationName();
 
@@ -84,12 +84,11 @@ function buildUndoFor(
       }
     }
 
-    apiInstance[operationName](opts).then(
-      () => {},
-      (error: any) => {
-        console.error(`could not undo operation ${operationOrig}: ${error}`);
-      }
-    );
+    try {
+      await apiInstance[operationName](opts);
+    } catch (error) {
+      console.error(`could not undo operation ${operationOrig}: ${error}`);
+    }
   };
 }
 

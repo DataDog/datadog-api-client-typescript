@@ -124,6 +124,6 @@ After(async function (this: World) {
   }
 });
 
-After(function (this: World) {
-  this.cleanup();
+After(async function (this: World) {
+  await this.cleanup();
 });
