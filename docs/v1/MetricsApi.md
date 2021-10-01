@@ -298,6 +298,8 @@ let params: v1.MetricsApiSubmitMetricsRequest = {
       },
     ],
   },
+  // MetricContentEncoding | HTTP header used to compress the media-type. (optional)
+  contentEncoding: "deflate",
 };
 
 apiInstance
@@ -312,9 +314,10 @@ apiInstance
 
 ### Parameters
 
-| Name     | Type               | Description | Notes |
-| -------- | ------------------ | ----------- | ----- |
-| **body** | **MetricsPayload** |             |
+| Name                | Type                      | Description                                  | Notes                            |
+| ------------------- | ------------------------- | -------------------------------------------- | -------------------------------- |
+| **body**            | **MetricsPayload**        |                                              |
+| **contentEncoding** | **MetricContentEncoding** | HTTP header used to compress the media-type. | (optional) defaults to undefined |
 
 ### Return type
 

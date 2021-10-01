@@ -534,6 +534,7 @@ const enumsMap: Set<string> = new Set<string>([
   "LogsTraceRemapperType",
   "LogsURLParserType",
   "LogsUserAgentParserType",
+  "MetricContentEncoding",
   "MonitorDeviceID",
   "MonitorOverallStates",
   "MonitorSummaryWidgetDefinitionType",
