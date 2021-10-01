@@ -18,7 +18,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
 
         let compress = request.getHttpConfig().compress;
         if (compress === undefined) {
-            compress = true;
+            compress = false;
         }
 
         let headers = request.getHeaders();

@@ -39,6 +39,22 @@ apiInstance.getMonitor(params).then((data:any) => {
 
 ```
 
+### Using compressed payloads
+
+If you want to accept GZIP compressed responses to reduce bandwidth utilization, set the `compress` flag
+on your configuration options:
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+const configurationOpts = {
+  httpConfig: {
+    compress: true
+  },
+};
+
+const configuration = v1.createConfiguration(configurationOpts);
+```
+
 ## Documentation
 
 Documentation for API endpoints can be found under the docs subdirectories, in [v1](/docs/v1/)
