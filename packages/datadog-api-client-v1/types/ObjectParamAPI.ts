@@ -60,6 +60,7 @@ import { LogsListRequest } from "../models/LogsListRequest";
 import { LogsListResponse } from "../models/LogsListResponse";
 import { LogsPipeline } from "../models/LogsPipeline";
 import { LogsPipelinesOrder } from "../models/LogsPipelinesOrder";
+import { MetricContentEncoding } from "../models/MetricContentEncoding";
 import { MetricMetadata } from "../models/MetricMetadata";
 import { MetricSearchResponse } from "../models/MetricSearchResponse";
 import { MetricsListResponse } from "../models/MetricsListResponse";
@@ -2280,6 +2281,12 @@ export interface MetricsApiSubmitMetricsRequest {
    * @memberof MetricsApisubmitMetrics
    */
   body: MetricsPayload;
+  /**
+   * HTTP header used to compress the media-type.
+   * @type MetricContentEncoding
+   * @memberof MetricsApisubmitMetrics
+   */
+  contentEncoding?: MetricContentEncoding;
 }
 
 export interface MetricsApiUpdateMetricMetadataRequest {
@@ -2373,7 +2380,9 @@ export class ObjectMetricsApi {
     param: MetricsApiSubmitMetricsRequest,
     options?: Configuration
   ): Promise<IntakePayloadAccepted> {
-    return this.api.submitMetrics(param.body, options).toPromise();
+    return this.api
+      .submitMetrics(param.body, param.contentEncoding, options)
+      .toPromise();
   }
 
   /**
