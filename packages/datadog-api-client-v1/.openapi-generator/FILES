@@ -292,6 +292,7 @@ models/LogsURLParser.ts
 models/LogsURLParserType.ts
 models/LogsUserAgentParser.ts
 models/LogsUserAgentParserType.ts
+models/MetricContentEncoding.ts
 models/MetricMetadata.ts
 models/MetricSearchResponse.ts
 models/MetricSearchResponseResults.ts
