@@ -66,6 +66,10 @@ export class SyntheticsTestRequest {
    */
   "query"?: any;
   /**
+   * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+   */
+  "servername"?: string;
+  /**
    * Turns on a traceroute probe to discover all gateways along the path to the host destination.
    */
   "shouldTrackHops"?: boolean;
@@ -153,6 +157,11 @@ export class SyntheticsTestRequest {
     query: {
       baseName: "query",
       type: "any",
+      format: "",
+    },
+    servername: {
+      baseName: "servername",
+      type: "string",
       format: "",
     },
     shouldTrackHops: {
@@ -256,6 +265,12 @@ export class SyntheticsTestRequest {
 
     res.query = ObjectSerializer.deserialize(data.query, "any", "");
 
+    res.servername = ObjectSerializer.deserialize(
+      data.servername,
+      "string",
+      ""
+    );
+
     res.shouldTrackHops = ObjectSerializer.deserialize(
       data.shouldTrackHops,
       "boolean",
@@ -358,6 +373,8 @@ export class SyntheticsTestRequest {
     res.port = ObjectSerializer.serialize(data.port, "number", "int64");
 
     res.query = ObjectSerializer.serialize(data.query, "any", "");
+
+    res.servername = ObjectSerializer.serialize(data.servername, "string", "");
 
     res.shouldTrackHops = ObjectSerializer.serialize(
       data.shouldTrackHops,
