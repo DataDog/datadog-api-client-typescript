@@ -309,6 +309,7 @@ models/MonitorGroupSearchResult.ts
 models/MonitorOptions.ts
 models/MonitorOptionsAggregation.ts
 models/MonitorOverallStates.ts
+models/MonitorRenotifyStatusType.ts
 models/MonitorSearchResponse.ts
 models/MonitorSearchResponseCounts.ts
 models/MonitorSearchResponseMetadata.ts
