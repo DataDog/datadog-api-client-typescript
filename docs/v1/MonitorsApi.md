@@ -253,6 +253,8 @@ let params: v1.MonitorsApiCreateMonitorRequest = {
       notifyAudit: false,
       notifyNoData: false,
       renotifyInterval: 1,
+      renotifyOccurrences: 1,
+      renotifyStatuses: ["alert"],
       requireFullWindow: true,
       silenced: {
         key: 1,
@@ -699,6 +701,8 @@ let params: v1.MonitorsApiUpdateMonitorRequest = {
       notifyAudit: false,
       notifyNoData: false,
       renotifyInterval: 1,
+      renotifyOccurrences: 1,
+      renotifyStatuses: ["alert"],
       requireFullWindow: true,
       silenced: {
         key: 1,
@@ -803,6 +807,8 @@ let params: v1.MonitorsApiValidateMonitorRequest = {
       notifyAudit: false,
       notifyNoData: false,
       renotifyInterval: 1,
+      renotifyOccurrences: 1,
+      renotifyStatuses: ["alert"],
       requireFullWindow: true,
       silenced: {
         key: 1,
