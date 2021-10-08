@@ -9,6 +9,7 @@
  */
 
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
+import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { NotebookUpdateCell } from "./NotebookUpdateCell";
 import { ObjectSerializer } from "./ObjectSerializer";
@@ -22,6 +23,7 @@ export class NotebookUpdateDataAttributes {
    * List of cells to display in the notebook.
    */
   "cells": Array<NotebookUpdateCell>;
+  "metadata"?: NotebookMetadata;
   /**
    * The name of the notebook.
    */
@@ -39,6 +41,11 @@ export class NotebookUpdateDataAttributes {
     cells: {
       baseName: "cells",
       type: "Array<NotebookUpdateCell>",
+      format: "",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "NotebookMetadata",
       format: "",
     },
     name: {
@@ -75,6 +82,12 @@ export class NotebookUpdateDataAttributes {
     res.cells = ObjectSerializer.deserialize(
       data.cells,
       "Array<NotebookUpdateCell>",
+      ""
+    );
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "NotebookMetadata",
       ""
     );
 
@@ -126,6 +139,12 @@ export class NotebookUpdateDataAttributes {
     res.cells = ObjectSerializer.serialize(
       data.cells,
       "Array<NotebookUpdateCell>",
+      ""
+    );
+
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "NotebookMetadata",
       ""
     );
 

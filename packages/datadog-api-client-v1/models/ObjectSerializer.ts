@@ -202,6 +202,7 @@ import { NotebookHeatMapCellAttributes } from "./NotebookHeatMapCellAttributes";
 import { NotebookLogStreamCellAttributes } from "./NotebookLogStreamCellAttributes";
 import { NotebookMarkdownCellAttributes } from "./NotebookMarkdownCellAttributes";
 import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
+import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookRelativeTime } from "./NotebookRelativeTime";
 import { NotebookResponse } from "./NotebookResponse";
 import { NotebookResponseData } from "./NotebookResponseData";
@@ -544,6 +545,7 @@ const enumsMap: Set<string> = new Set<string>([
   "NotebookCellResourceType",
   "NotebookGraphSize",
   "NotebookMarkdownCellDefinitionType",
+  "NotebookMetadataType",
   "NotebookResourceType",
   "NotebookStatus",
   "QuerySortOrder",
@@ -848,6 +850,7 @@ const typeMap: { [index: string]: any } = {
   NotebookLogStreamCellAttributes: NotebookLogStreamCellAttributes,
   NotebookMarkdownCellAttributes: NotebookMarkdownCellAttributes,
   NotebookMarkdownCellDefinition: NotebookMarkdownCellDefinition,
+  NotebookMetadata: NotebookMetadata,
   NotebookRelativeTime: NotebookRelativeTime,
   NotebookResponse: NotebookResponse,
   NotebookResponseData: NotebookResponseData,

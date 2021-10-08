@@ -194,10 +194,12 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
    * @param excludeAuthorHandle Return notebooks not created by the given &#x60;author_handle&#x60;.
    * @param start The index of the first notebook you want returned.
    * @param count The number of notebooks to be returned.
-   * @param sortField Sort by field &#x60;modified&#x60; or &#x60;name&#x60;.
+   * @param sortField Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
    * @param sortDir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
    * @param query Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
    * @param includeCells Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+   * @param isTemplate True value returns only template notebooks. Default is false (returns only non-template notebooks).
+   * @param type If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
    */
   public async listNotebooks(
     authorHandle?: string,
@@ -208,6 +210,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     sortDir?: string,
     query?: string,
     includeCells?: boolean,
+    isTemplate?: boolean,
+    type?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -270,6 +274,18 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_cells",
         ObjectSerializer.serialize(includeCells, "boolean", "")
+      );
+    }
+    if (isTemplate !== undefined) {
+      requestContext.setQueryParam(
+        "is_template",
+        ObjectSerializer.serialize(isTemplate, "boolean", "")
+      );
+    }
+    if (type !== undefined) {
+      requestContext.setQueryParam(
+        "type",
+        ObjectSerializer.serialize(type, "string", "")
       );
     }
 
