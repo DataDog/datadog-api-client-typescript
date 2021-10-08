@@ -537,6 +537,7 @@ const enumsMap: Set<string> = new Set<string>([
   "MetricContentEncoding",
   "MonitorDeviceID",
   "MonitorOverallStates",
+  "MonitorRenotifyStatusType",
   "MonitorSummaryWidgetDefinitionType",
   "MonitorType",
   "NoteWidgetDefinitionType",
