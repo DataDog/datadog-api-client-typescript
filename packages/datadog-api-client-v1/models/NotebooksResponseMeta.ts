@@ -12,7 +12,7 @@ import { NotebooksResponsePage } from "./NotebooksResponsePage";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * Metadata returned by the API.
+ * Searches metadata returned by the API.
  */
 
 export class NotebooksResponseMeta {

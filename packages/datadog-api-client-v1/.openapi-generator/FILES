@@ -346,6 +346,8 @@ models/NotebookLogStreamCellAttributes.ts
 models/NotebookMarkdownCellAttributes.ts
 models/NotebookMarkdownCellDefinition.ts
 models/NotebookMarkdownCellDefinitionType.ts
+models/NotebookMetadata.ts
+models/NotebookMetadataType.ts
 models/NotebookRelativeTime.ts
 models/NotebookResourceType.ts
 models/NotebookResponse.ts

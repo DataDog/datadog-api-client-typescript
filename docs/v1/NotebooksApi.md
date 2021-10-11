@@ -52,6 +52,11 @@ example content`,
             type: "notebook_cells",
           },
         ],
+        metadata: {
+          isTemplate: false,
+          takeSnapshots: false,
+          type: "investigation",
+        },
         name: "Example Notebook",
         status: "published",
         time: {
@@ -247,7 +252,7 @@ let params: v1.NotebooksApiListNotebooksRequest = {
   start: 0,
   // number | The number of notebooks to be returned. (optional)
   count: 5,
-  // string | Sort by field `modified` or `name`. (optional)
+  // string | Sort by field `modified`, `name`, or `created`. (optional)
   sortField: "modified",
   // string | Sort by direction `asc` or `desc`. (optional)
   sortDir: "desc",
@@ -255,6 +260,10 @@ let params: v1.NotebooksApiListNotebooksRequest = {
   query: "postmortem",
   // boolean | Value of `false` excludes the `cells` and global `time` for each notebook. (optional)
   includeCells: false,
+  // boolean | True value returns only template notebooks. Default is false (returns only non-template notebooks). (optional)
+  isTemplate: false,
+  // string | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering. (optional)
+  type: "investigation",
 };
 
 apiInstance
@@ -269,16 +278,18 @@ apiInstance
 
 ### Parameters
 
-| Name                    | Type          | Description                                                                                              | Notes                             |
-| ----------------------- | ------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| **authorHandle**        | [**string**]  | Return notebooks created by the given &#x60;author_handle&#x60;.                                         | (optional) defaults to undefined  |
-| **excludeAuthorHandle** | [**string**]  | Return notebooks not created by the given &#x60;author_handle&#x60;.                                     | (optional) defaults to undefined  |
-| **start**               | [**number**]  | The index of the first notebook you want returned.                                                       | (optional) defaults to undefined  |
-| **count**               | [**number**]  | The number of notebooks to be returned.                                                                  | (optional) defaults to undefined  |
-| **sortField**           | [**string**]  | Sort by field &#x60;modified&#x60; or &#x60;name&#x60;.                                                  | (optional) defaults to 'modified' |
-| **sortDir**             | [**string**]  | Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.                                                   | (optional) defaults to 'desc'     |
-| **query**               | [**string**]  | Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.                   | (optional) defaults to undefined  |
-| **includeCells**        | [**boolean**] | Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook. | (optional) defaults to undefined  |
+| Name                    | Type          | Description                                                                                                | Notes                             |
+| ----------------------- | ------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| **authorHandle**        | [**string**]  | Return notebooks created by the given &#x60;author_handle&#x60;.                                           | (optional) defaults to undefined  |
+| **excludeAuthorHandle** | [**string**]  | Return notebooks not created by the given &#x60;author_handle&#x60;.                                       | (optional) defaults to undefined  |
+| **start**               | [**number**]  | The index of the first notebook you want returned.                                                         | (optional) defaults to undefined  |
+| **count**               | [**number**]  | The number of notebooks to be returned.                                                                    | (optional) defaults to undefined  |
+| **sortField**           | [**string**]  | Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.                              | (optional) defaults to 'modified' |
+| **sortDir**             | [**string**]  | Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.                                                     | (optional) defaults to 'desc'     |
+| **query**               | [**string**]  | Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.                     | (optional) defaults to undefined  |
+| **includeCells**        | [**boolean**] | Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.   | (optional) defaults to undefined  |
+| **isTemplate**          | [**boolean**] | True value returns only template notebooks. Default is false (returns only non-template notebooks).        | (optional) defaults to undefined  |
+| **type**                | [**string**]  | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering. | (optional) defaults to undefined  |
 
 ### Return type
 
@@ -347,6 +358,11 @@ example content`,
             type: "notebook_cells",
           },
         ],
+        metadata: {
+          isTemplate: false,
+          takeSnapshots: false,
+          type: "investigation",
+        },
         name: "Example Notebook",
         status: "published",
         time: {
