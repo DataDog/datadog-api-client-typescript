@@ -47,9 +47,9 @@ When talking to a different server, like the `eu` instance, change the server va
 import { v1 } from '@datadog/datadog-api-client';
 
 const serverConf = v1.server1.getConfiguration();
-// server 1 -> allows to specify a Datadog https://{subdomain}.{site}
-// server 2 -> allows to specify {protocol}://{hostname}
-// server 3 -> same as index 0 but allows any https://{subdomain}.{site}
+// server1 -> allows to specify a Datadog https://{subdomain}.{site}
+// server2 -> allows to specify any {protocol}://{hostname}
+// server3 -> allows to specify any https://{subdomain}.{site}
 
 v1.server1.setVariables({
   site: "datadoghq.eu"
