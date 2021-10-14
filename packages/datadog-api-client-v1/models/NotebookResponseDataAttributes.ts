@@ -11,6 +11,7 @@
 import { NotebookAuthor } from "./NotebookAuthor";
 import { NotebookCellResponse } from "./NotebookCellResponse";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
+import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -28,6 +29,7 @@ export class NotebookResponseDataAttributes {
    * UTC time stamp for when the notebook was created.
    */
   "created"?: Date;
+  "metadata"?: NotebookMetadata;
   /**
    * UTC time stamp for when the notebook was last modified.
    */
@@ -60,6 +62,11 @@ export class NotebookResponseDataAttributes {
       baseName: "created",
       type: "Date",
       format: "date-time",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "NotebookMetadata",
+      format: "",
     },
     modified: {
       baseName: "modified",
@@ -113,6 +120,12 @@ export class NotebookResponseDataAttributes {
       data.created,
       "Date",
       "date-time"
+    );
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "NotebookMetadata",
+      ""
     );
 
     res.modified = ObjectSerializer.deserialize(
@@ -177,6 +190,12 @@ export class NotebookResponseDataAttributes {
     );
 
     res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
+
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "NotebookMetadata",
+      ""
+    );
 
     res.modified = ObjectSerializer.serialize(
       data.modified,

@@ -2802,7 +2802,7 @@ export interface NotebooksApiListNotebooksRequest {
    */
   count?: number;
   /**
-   * Sort by field &#x60;modified&#x60; or &#x60;name&#x60;.
+   * Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
    * @type string
    * @memberof NotebooksApilistNotebooks
    */
@@ -2825,6 +2825,18 @@ export interface NotebooksApiListNotebooksRequest {
    * @memberof NotebooksApilistNotebooks
    */
   includeCells?: boolean;
+  /**
+   * True value returns only template notebooks. Default is false (returns only non-template notebooks).
+   * @type boolean
+   * @memberof NotebooksApilistNotebooks
+   */
+  isTemplate?: boolean;
+  /**
+   * If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
+   * @type string
+   * @memberof NotebooksApilistNotebooks
+   */
+  type?: string;
 }
 
 export interface NotebooksApiUpdateNotebookRequest {
@@ -2912,6 +2924,8 @@ export class ObjectNotebooksApi {
         param.sortDir,
         param.query,
         param.includeCells,
+        param.isTemplate,
+        param.type,
         options
       )
       .toPromise();

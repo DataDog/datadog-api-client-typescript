@@ -10,6 +10,7 @@
 
 import { NotebookCellCreateRequest } from "./NotebookCellCreateRequest";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
+import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { ObjectSerializer } from "./ObjectSerializer";
 
@@ -22,6 +23,7 @@ export class NotebookCreateDataAttributes {
    * List of cells to display in the notebook.
    */
   "cells": Array<NotebookCellCreateRequest>;
+  "metadata"?: NotebookMetadata;
   /**
    * The name of the notebook.
    */
@@ -39,6 +41,11 @@ export class NotebookCreateDataAttributes {
     cells: {
       baseName: "cells",
       type: "Array<NotebookCellCreateRequest>",
+      format: "",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "NotebookMetadata",
       format: "",
     },
     name: {
@@ -75,6 +82,12 @@ export class NotebookCreateDataAttributes {
     res.cells = ObjectSerializer.deserialize(
       data.cells,
       "Array<NotebookCellCreateRequest>",
+      ""
+    );
+
+    res.metadata = ObjectSerializer.deserialize(
+      data.metadata,
+      "NotebookMetadata",
       ""
     );
 
@@ -126,6 +139,12 @@ export class NotebookCreateDataAttributes {
     res.cells = ObjectSerializer.serialize(
       data.cells,
       "Array<NotebookCellCreateRequest>",
+      ""
+    );
+
+    res.metadata = ObjectSerializer.serialize(
+      data.metadata,
+      "NotebookMetadata",
       ""
     );
 

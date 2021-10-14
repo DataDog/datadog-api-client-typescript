@@ -10,6 +10,7 @@
 
 import { MonitorDeviceID } from "./MonitorDeviceID";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
 import { ObjectSerializer } from "./ObjectSerializer";
@@ -80,6 +81,14 @@ export class MonitorOptions {
    * The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
    */
   "renotifyInterval"?: number;
+  /**
+   * The number of times re-notification messages should be sent on the current status at the provided re-notification interval.
+   */
+  "renotifyOccurrences"?: number;
+  /**
+   * The types of monitor statuses for which re-notification messages are sent.
+   */
+  "renotifyStatuses"?: Array<MonitorRenotifyStatusType>;
   /**
    * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
    */
@@ -185,6 +194,16 @@ export class MonitorOptions {
       baseName: "renotify_interval",
       type: "number",
       format: "int64",
+    },
+    renotifyOccurrences: {
+      baseName: "renotify_occurrences",
+      type: "number",
+      format: "int64",
+    },
+    renotifyStatuses: {
+      baseName: "renotify_statuses",
+      type: "Array<MonitorRenotifyStatusType>",
+      format: "",
     },
     requireFullWindow: {
       baseName: "require_full_window",
@@ -315,6 +334,18 @@ export class MonitorOptions {
       data.renotify_interval,
       "number",
       "int64"
+    );
+
+    res.renotifyOccurrences = ObjectSerializer.deserialize(
+      data.renotify_occurrences,
+      "number",
+      "int64"
+    );
+
+    res.renotifyStatuses = ObjectSerializer.deserialize(
+      data.renotify_statuses,
+      "Array<MonitorRenotifyStatusType>",
+      ""
     );
 
     res.requireFullWindow = ObjectSerializer.deserialize(
@@ -457,6 +488,18 @@ export class MonitorOptions {
       data.renotifyInterval,
       "number",
       "int64"
+    );
+
+    res.renotify_occurrences = ObjectSerializer.serialize(
+      data.renotifyOccurrences,
+      "number",
+      "int64"
+    );
+
+    res.renotify_statuses = ObjectSerializer.serialize(
+      data.renotifyStatuses,
+      "Array<MonitorRenotifyStatusType>",
+      ""
     );
 
     res.require_full_window = ObjectSerializer.serialize(
