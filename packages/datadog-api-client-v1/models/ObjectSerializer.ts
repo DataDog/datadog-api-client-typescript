@@ -295,6 +295,9 @@ import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPath
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsBatchDetails } from "./SyntheticsBatchDetails";
+import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
+import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
 import { SyntheticsBrowserError } from "./SyntheticsBrowserError";
 import { SyntheticsBrowserTest } from "./SyntheticsBrowserTest";
 import { SyntheticsBrowserTestConfig } from "./SyntheticsBrowserTestConfig";
@@ -304,11 +307,11 @@ import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestRes
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
 import { SyntheticsBrowserTestResultShortResult } from "./SyntheticsBrowserTestResultShortResult";
 import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
+import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
+import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
+import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
 import { SyntheticsCITest } from "./SyntheticsCITest";
 import { SyntheticsCITestBody } from "./SyntheticsCITestBody";
-import { SyntheticsCITestMetadata } from "./SyntheticsCITestMetadata";
-import { SyntheticsCITestMetadataCi } from "./SyntheticsCITestMetadataCi";
-import { SyntheticsCITestMetadataGit } from "./SyntheticsCITestMetadataGit";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
 import { SyntheticsDeleteTestsPayload } from "./SyntheticsDeleteTestsPayload";
@@ -578,9 +581,11 @@ const enumsMap: Set<string> = new Set<string>([
   "SyntheticsGlobalVariableParseTestOptionsType",
   "SyntheticsGlobalVariableParserType",
   "SyntheticsPlayingTab",
+  "SyntheticsStatus",
   "SyntheticsStepType",
   "SyntheticsTestDetailsSubType",
   "SyntheticsTestDetailsType",
+  "SyntheticsTestExecutionRule",
   "SyntheticsTestMonitorStatus",
   "SyntheticsTestPauseStatus",
   "SyntheticsTestProcessStatus",
@@ -946,6 +951,9 @@ const typeMap: { [index: string]: any } = {
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsBasicAuth: SyntheticsBasicAuth,
+  SyntheticsBatchDetails: SyntheticsBatchDetails,
+  SyntheticsBatchDetailsData: SyntheticsBatchDetailsData,
+  SyntheticsBatchResult: SyntheticsBatchResult,
   SyntheticsBrowserError: SyntheticsBrowserError,
   SyntheticsBrowserTest: SyntheticsBrowserTest,
   SyntheticsBrowserTestConfig: SyntheticsBrowserTestConfig,
@@ -956,11 +964,11 @@ const typeMap: { [index: string]: any } = {
   SyntheticsBrowserTestResultShortResult:
     SyntheticsBrowserTestResultShortResult,
   SyntheticsBrowserVariable: SyntheticsBrowserVariable,
+  SyntheticsCIBatchMetadata: SyntheticsCIBatchMetadata,
+  SyntheticsCIBatchMetadataCI: SyntheticsCIBatchMetadataCI,
+  SyntheticsCIBatchMetadataGit: SyntheticsCIBatchMetadataGit,
   SyntheticsCITest: SyntheticsCITest,
   SyntheticsCITestBody: SyntheticsCITestBody,
-  SyntheticsCITestMetadata: SyntheticsCITestMetadata,
-  SyntheticsCITestMetadataCi: SyntheticsCITestMetadataCi,
-  SyntheticsCITestMetadataGit: SyntheticsCITestMetadataGit,
   SyntheticsConfigVariable: SyntheticsConfigVariable,
   SyntheticsCoreWebVitals: SyntheticsCoreWebVitals,
   SyntheticsDeleteTestsPayload: SyntheticsDeleteTestsPayload,
