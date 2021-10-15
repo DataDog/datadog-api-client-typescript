@@ -13,7 +13,7 @@ import { UsageSummaryDate } from "./UsageSummaryDate";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * Response with hourly report of all data billed by Datadog all organizations.
+ * Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.
  */
 
 export class UsageSummaryResponse {
