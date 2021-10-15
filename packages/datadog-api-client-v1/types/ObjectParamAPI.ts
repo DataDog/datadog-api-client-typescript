@@ -98,6 +98,7 @@ import { ServiceLevelObjectiveRequest } from "../models/ServiceLevelObjectiveReq
 import { SlackIntegrationChannel } from "../models/SlackIntegrationChannel";
 import { SyntheticsAPITest } from "../models/SyntheticsAPITest";
 import { SyntheticsAPITestResultFull } from "../models/SyntheticsAPITestResultFull";
+import { SyntheticsBatchDetails } from "../models/SyntheticsBatchDetails";
 import { SyntheticsBrowserTest } from "../models/SyntheticsBrowserTest";
 import { SyntheticsBrowserTestResultFull } from "../models/SyntheticsBrowserTestResultFull";
 import { SyntheticsCITestBody } from "../models/SyntheticsCITestBody";
@@ -4106,6 +4107,15 @@ export interface SyntheticsApiGetPrivateLocationRequest {
   locationId: string;
 }
 
+export interface SyntheticsApiGetSyntheticsCIBatchRequest {
+  /**
+   * The ID of the batch.
+   * @type string
+   * @memberof SyntheticsApigetSyntheticsCIBatch
+   */
+  batchId: string;
+}
+
 export interface SyntheticsApiGetTestRequest {
   /**
    * The public ID of the test to get details from.
@@ -4415,6 +4425,18 @@ export class ObjectSyntheticsApi {
     options?: Configuration
   ): Promise<SyntheticsPrivateLocation> {
     return this.api.getPrivateLocation(param.locationId, options).toPromise();
+  }
+
+  /**
+   * Get a batch's updated details.
+   * Get details of batch
+   * @param param the request object
+   */
+  public getSyntheticsCIBatch(
+    param: SyntheticsApiGetSyntheticsCIBatchRequest,
+    options?: Configuration
+  ): Promise<SyntheticsBatchDetails> {
+    return this.api.getSyntheticsCIBatch(param.batchId, options).toPromise();
   }
 
   /**
