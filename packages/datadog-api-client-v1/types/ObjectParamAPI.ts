@@ -140,6 +140,7 @@ import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
+import { UsageSDSResponse } from "../models/UsageSDSResponse";
 import { UsageSNMPResponse } from "../models/UsageSNMPResponse";
 import { UsageSort } from "../models/UsageSort";
 import { UsageSortDirection } from "../models/UsageSortDirection";
@@ -5145,6 +5146,21 @@ export interface UsageMeteringApiGetUsageRumSessionsRequest {
   type?: string;
 }
 
+export interface UsageMeteringApiGetUsageSDSRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetUsageSDS
+   */
+  startHr: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetUsageSDS
+   */
+  endHr?: Date;
+}
+
 export interface UsageMeteringApiGetUsageSNMPRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -5658,6 +5674,20 @@ export class ObjectUsageMeteringApi {
   ): Promise<UsageRumSessionsResponse> {
     return this.api
       .getUsageRumSessions(param.startHr, param.endHr, param.type, options)
+      .toPromise();
+  }
+
+  /**
+   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   * @param param the request object
+   */
+  public getUsageSDS(
+    param: UsageMeteringApiGetUsageSDSRequest,
+    options?: Configuration
+  ): Promise<UsageSDSResponse> {
+    return this.api
+      .getUsageSDS(param.startHr, param.endHr, options)
       .toPromise();
   }
 

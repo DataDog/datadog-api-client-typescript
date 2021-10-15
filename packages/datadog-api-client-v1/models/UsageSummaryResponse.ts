@@ -203,6 +203,14 @@ export class UsageSummaryResponse {
    */
   "rumTotalSessionCountAggSum"?: number;
   /**
+   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   */
+  "sdsLogsScannedBytesSum"?: number;
+  /**
+   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   */
+  "sdsTotalScannedBytesSum"?: number;
+  /**
    * Shows the first date of usage in the current months for all organizations.
    */
   "startDate"?: Date;
@@ -470,6 +478,16 @@ export class UsageSummaryResponse {
     },
     rumTotalSessionCountAggSum: {
       baseName: "rum_total_session_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsLogsScannedBytesSum: {
+      baseName: "sds_logs_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsTotalScannedBytesSum: {
+      baseName: "sds_total_scanned_bytes_sum",
       type: "number",
       format: "int64",
     },
@@ -796,6 +814,18 @@ export class UsageSummaryResponse {
 
     res.rumTotalSessionCountAggSum = ObjectSerializer.deserialize(
       data.rum_total_session_count_agg_sum,
+      "number",
+      "int64"
+    );
+
+    res.sdsLogsScannedBytesSum = ObjectSerializer.deserialize(
+      data.sds_logs_scanned_bytes_sum,
+      "number",
+      "int64"
+    );
+
+    res.sdsTotalScannedBytesSum = ObjectSerializer.deserialize(
+      data.sds_total_scanned_bytes_sum,
       "number",
       "int64"
     );
@@ -1135,6 +1165,18 @@ export class UsageSummaryResponse {
 
     res.rum_total_session_count_agg_sum = ObjectSerializer.serialize(
       data.rumTotalSessionCountAggSum,
+      "number",
+      "int64"
+    );
+
+    res.sds_logs_scanned_bytes_sum = ObjectSerializer.serialize(
+      data.sdsLogsScannedBytesSum,
+      "number",
+      "int64"
+    );
+
+    res.sds_total_scanned_bytes_sum = ObjectSerializer.serialize(
+      data.sdsTotalScannedBytesSum,
       "number",
       "int64"
     );

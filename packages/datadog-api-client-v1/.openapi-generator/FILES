@@ -623,6 +623,8 @@ models/UsageProfilingResponse.ts
 models/UsageReportsType.ts
 models/UsageRumSessionsHour.ts
 models/UsageRumSessionsResponse.ts
+models/UsageSDSHour.ts
+models/UsageSDSResponse.ts
 models/UsageSNMPHour.ts
 models/UsageSNMPResponse.ts
 models/UsageSort.ts
