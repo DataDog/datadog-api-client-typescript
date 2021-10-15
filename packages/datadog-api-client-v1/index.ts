@@ -159,6 +159,7 @@ export {
   SyntheticsApiGetBrowserTestResultRequest,
   SyntheticsApiGetGlobalVariableRequest,
   SyntheticsApiGetPrivateLocationRequest,
+  SyntheticsApiGetSyntheticsCIBatchRequest,
   SyntheticsApiGetTestRequest,
   SyntheticsApiTriggerCITestsRequest,
   SyntheticsApiUpdateAPITestRequest,

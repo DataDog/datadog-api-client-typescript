@@ -99,6 +99,7 @@ import { ServiceLevelObjectiveRequest } from "../models/ServiceLevelObjectiveReq
 import { SlackIntegrationChannel } from "../models/SlackIntegrationChannel";
 import { SyntheticsAPITest } from "../models/SyntheticsAPITest";
 import { SyntheticsAPITestResultFull } from "../models/SyntheticsAPITestResultFull";
+import { SyntheticsBatchDetails } from "../models/SyntheticsBatchDetails";
 import { SyntheticsBrowserTest } from "../models/SyntheticsBrowserTest";
 import { SyntheticsBrowserTestResultFull } from "../models/SyntheticsBrowserTestResultFull";
 import { SyntheticsCITestBody } from "../models/SyntheticsCITestBody";
@@ -6930,6 +6931,48 @@ export class ObservableSyntheticsApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.getPrivateLocation(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get a batch's updated details.
+   * Get details of batch
+   * @param batchId The ID of the batch.
+   */
+  public getSyntheticsCIBatch(
+    batchId: string,
+    _options?: Configuration
+  ): Observable<SyntheticsBatchDetails> {
+    const requestContextPromise = this.requestFactory.getSyntheticsCIBatch(
+      batchId,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getSyntheticsCIBatch(rsp)
             )
           );
         })
