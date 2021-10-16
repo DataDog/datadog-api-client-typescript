@@ -141,6 +141,7 @@ import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
+import { UsageSDSResponse } from "../models/UsageSDSResponse";
 import { UsageSNMPResponse } from "../models/UsageSNMPResponse";
 import { UsageSort } from "../models/UsageSort";
 import { UsageSortDirection } from "../models/UsageSortDirection";
@@ -8762,6 +8763,51 @@ export class ObservableUsageMeteringApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.getUsageRumSessions(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   */
+  public getUsageSDS(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Observable<UsageSDSResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSDS(
+      startHr,
+      endHr,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getUsageSDS(rsp)
             )
           );
         })
