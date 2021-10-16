@@ -28,6 +28,10 @@ export class AWSAccount {
    */
   "accountSpecificNamespaceRules"?: { [key: string]: boolean };
   /**
+   * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general `resource_collection`.
+   */
+  "cspmResourceCollectionEnabled"?: boolean;
+  /**
    * An array of AWS regions to exclude from metrics collection.
    */
   "excludedRegions"?: Array<string>;
@@ -39,6 +43,14 @@ export class AWSAccount {
    * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
    */
   "hostTags"?: Array<string>;
+  /**
+   * Whether Datadog collects metrics for this AWS account.
+   */
+  "metricsCollectionEnabled"?: boolean;
+  /**
+   * Whether Datadog collects a standard set of resources from your AWS account.
+   */
+  "resourceCollectionEnabled"?: boolean;
   /**
    * Your Datadog role delegation name.
    */
@@ -70,6 +82,11 @@ export class AWSAccount {
       type: "{ [key: string]: boolean; }",
       format: "",
     },
+    cspmResourceCollectionEnabled: {
+      baseName: "cspm_resource_collection_enabled",
+      type: "boolean",
+      format: "",
+    },
     excludedRegions: {
       baseName: "excluded_regions",
       type: "Array<string>",
@@ -83,6 +100,16 @@ export class AWSAccount {
     hostTags: {
       baseName: "host_tags",
       type: "Array<string>",
+      format: "",
+    },
+    metricsCollectionEnabled: {
+      baseName: "metrics_collection_enabled",
+      type: "boolean",
+      format: "",
+    },
+    resourceCollectionEnabled: {
+      baseName: "resource_collection_enabled",
+      type: "boolean",
       format: "",
     },
     roleName: {
@@ -118,6 +145,12 @@ export class AWSAccount {
       ""
     );
 
+    res.cspmResourceCollectionEnabled = ObjectSerializer.deserialize(
+      data.cspm_resource_collection_enabled,
+      "boolean",
+      ""
+    );
+
     res.excludedRegions = ObjectSerializer.deserialize(
       data.excluded_regions,
       "Array<string>",
@@ -133,6 +166,18 @@ export class AWSAccount {
     res.hostTags = ObjectSerializer.deserialize(
       data.host_tags,
       "Array<string>",
+      ""
+    );
+
+    res.metricsCollectionEnabled = ObjectSerializer.deserialize(
+      data.metrics_collection_enabled,
+      "boolean",
+      ""
+    );
+
+    res.resourceCollectionEnabled = ObjectSerializer.deserialize(
+      data.resource_collection_enabled,
+      "boolean",
       ""
     );
 
@@ -172,6 +217,12 @@ export class AWSAccount {
       ""
     );
 
+    res.cspm_resource_collection_enabled = ObjectSerializer.serialize(
+      data.cspmResourceCollectionEnabled,
+      "boolean",
+      ""
+    );
+
     res.excluded_regions = ObjectSerializer.serialize(
       data.excludedRegions,
       "Array<string>",
@@ -187,6 +238,18 @@ export class AWSAccount {
     res.host_tags = ObjectSerializer.serialize(
       data.hostTags,
       "Array<string>",
+      ""
+    );
+
+    res.metrics_collection_enabled = ObjectSerializer.serialize(
+      data.metricsCollectionEnabled,
+      "boolean",
+      ""
+    );
+
+    res.resource_collection_enabled = ObjectSerializer.serialize(
+      data.resourceCollectionEnabled,
+      "boolean",
       ""
     );
 

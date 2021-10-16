@@ -140,6 +140,7 @@ import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
+import { UsageSDSResponse } from "../models/UsageSDSResponse";
 import { UsageSNMPResponse } from "../models/UsageSNMPResponse";
 import { UsageSort } from "../models/UsageSort";
 import { UsageSortDirection } from "../models/UsageSortDirection";
@@ -3540,6 +3541,21 @@ export class PromiseUsageMeteringApi {
     _options?: Configuration
   ): Promise<UsageRumSessionsResponse> {
     const result = this.api.getUsageRumSessions(startHr, endHr, type, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   */
+  public getUsageSDS(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Promise<UsageSDSResponse> {
+    const result = this.api.getUsageSDS(startHr, endHr, _options);
     return result.toPromise();
   }
 
