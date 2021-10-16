@@ -28,7 +28,7 @@ export class UsageTimeseriesHour {
    */
   "numCustomOutputTimeseries"?: number;
   /**
-   * Contains the number of non-aggregation custom metrics.
+   * Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
    */
   "numCustomTimeseries"?: number;
 
