@@ -20,6 +20,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult)               | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result                         |
 | [**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable)                     | **GET** /api/v1/synthetics/variables/{variable_id}                       | Get a global variable                             |
 | [**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation)                   | **GET** /api/v1/synthetics/private-locations/{location_id}               | Get a private location                            |
+| [**getSyntheticsCIBatch**](SyntheticsApi.md#getSyntheticsCIBatch)               | **GET** /api/v1/synthetics/ci/batch/{batch_id}                           | Get details of batch                              |
 | [**getTest**](SyntheticsApi.md#getTest)                                         | **GET** /api/v1/synthetics/tests/{public_id}                             | Get a test configuration                          |
 | [**listGlobalVariables**](SyntheticsApi.md#listGlobalVariables)                 | **GET** /api/v1/synthetics/variables                                     | Get all global variables                          |
 | [**listLocations**](SyntheticsApi.md#listLocations)                             | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
@@ -1274,6 +1275,64 @@ apiInstance
 | ----------- | ---------------------------------------------------------------------------------------------- | ---------------- |
 | **200**     | OK                                                                                             | -                |
 | **404**     | - Synthetic private locations are not activated for the user - Private location does not exist | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **getSyntheticsCIBatch**
+
+> SyntheticsBatchDetails getSyntheticsCIBatch()
+
+Get a batch's updated details.
+
+### Example
+
+```typescript
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.SyntheticsApi(configuration);
+
+let params: v1.SyntheticsApiGetSyntheticsCIBatchRequest = {
+  // string | The ID of the batch.
+  batchId: "batch_id_example",
+};
+
+apiInstance
+  .getSyntheticsCIBatch(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name        | Type         | Description          | Notes                 |
+| ----------- | ------------ | -------------------- | --------------------- |
+| **batchId** | [**string**] | The ID of the batch. | defaults to undefined |
+
+### Return type
+
+**SyntheticsBatchDetails**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **200**     | OK                    | -                |
+| **404**     | Batch does not exist. | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
