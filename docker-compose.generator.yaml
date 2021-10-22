@@ -1,0 +1,58 @@
+version: "3"
+services:
+  datadog-api-client-python-v1:
+    image: datadog/docker-library:openapi-generator-typescript-array-examples-905e6309a85
+    volumes:
+      - .:/src:rw
+    working_dir: /src
+    command:
+      - /usr/local/bin/docker-entrypoint.sh
+      - generate
+      - -g
+      - "typescript"
+      - -c
+      - ".generator/config/v1.json"
+      - -i
+      - "schemas/v1/openapi.yaml"
+      - -o
+      - "packages/datadog-api-client-v1/"
+      - --type-mappings
+      - AnyType=any
+      - --additional-properties
+      - disallowAdditionalPropertiesIfNotPresent=false
+      - --additional-properties
+      - useObjectParameters=true
+      - --additional-properties
+      - platform=node
+      - --global-property
+      - skipFormModel=false
+      - -t
+      - ".generator/templates"
+  datadog-api-client-python-v2:
+    image: datadog/docker-library:openapi-generator-typescript-array-examples-905e6309a85
+    volumes:
+      - .:/src:rw
+    working_dir: /src
+    command:
+      - /usr/local/bin/docker-entrypoint.sh
+      - generate
+      - -g
+      - "typescript"
+      - -c
+      - ".generator/config/v2.json"
+      - -i
+      - "schemas/v2/openapi.yaml"
+      - -o
+      - "packages/datadog-api-client-v2/"
+      - --type-mappings
+      - AnyType=any
+      - --additional-properties
+      - disallowAdditionalPropertiesIfNotPresent=false
+      - --additional-properties
+      - useObjectParameters=true
+      - --additional-properties
+      - platform=node
+      - --global-property
+      - skipFormModel=false
+      - -t
+      - ".generator/templates"
