@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # install dependencies
-yarn install --ignore-scripts
+yarn install
 
 ./extract-code-blocks.sh examples
 
