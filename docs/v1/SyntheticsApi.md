@@ -192,14 +192,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   // SyntheticsAPITest | Details of the test to create.
   body: {
     config: {
-      assertions: [
-        {
-          operator: "contains",
-          property: "property_example",
-          target: null,
-          type: "statusCode",
-        },
-      ],
+      assertions: [],
       configVariables: [
         {
           example: "example_example",
@@ -243,7 +236,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "https://example.com",
+        url: "url_example",
       },
       steps: [
         {
@@ -296,15 +289,15 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             servername: "servername_example",
             shouldTrackHops: true,
             timeout: 3.14,
-            url: "https://example.com",
+            url: "url_example",
           },
           subtype: "http",
         },
       ],
     },
-    locations: ["aws:eu-west-3"],
-    message: "Notification message",
-    name: "Test name",
+    locations: ["locations_example"],
+    message: "message_example",
+    name: "name_example",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -327,7 +320,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     status: "live",
     subtype: "http",
-    tags: ["env:production"],
+    tags: ["tags_example"],
     type: "api",
   },
 };
@@ -435,7 +428,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "https://example.com",
+        url: "url_example",
       },
       setCookie: "setCookie_example",
       variables: [
@@ -1673,14 +1666,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
   // SyntheticsAPITest | New test details to be saved.
   body: {
     config: {
-      assertions: [
-        {
-          operator: "contains",
-          property: "property_example",
-          target: null,
-          type: "statusCode",
-        },
-      ],
+      assertions: [],
       configVariables: [
         {
           example: "example_example",
@@ -1724,7 +1710,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "https://example.com",
+        url: "url_example",
       },
       steps: [
         {
@@ -1777,15 +1763,15 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             servername: "servername_example",
             shouldTrackHops: true,
             timeout: 3.14,
-            url: "https://example.com",
+            url: "url_example",
           },
           subtype: "http",
         },
       ],
     },
-    locations: ["aws:eu-west-3"],
-    message: "Notification message",
-    name: "Test name",
+    locations: ["locations_example"],
+    message: "message_example",
+    name: "name_example",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -1808,7 +1794,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
     },
     status: "live",
     subtype: "http",
-    tags: ["env:production"],
+    tags: ["tags_example"],
     type: "api",
   },
 };
@@ -1919,7 +1905,7 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "https://example.com",
+        url: "url_example",
       },
       setCookie: "setCookie_example",
       variables: [
