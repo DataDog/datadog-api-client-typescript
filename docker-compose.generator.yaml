@@ -1,6 +1,6 @@
 version: "3"
 services:
-  datadog-api-client-python-v1:
+  datadog-api-client-v1:
     image: datadog/docker-library:openapi-generator-typescript-array-examples-905e6309a85
     volumes:
       - .:/src:rw
@@ -13,7 +13,7 @@ services:
       - -c
       - ".generator/config/v1.json"
       - -i
-      - "schemas/v1/openapi.yaml"
+      - ".generator/schemas/v1/openapi.yaml"
       - -o
       - "packages/datadog-api-client-v1/"
       - --type-mappings
@@ -28,7 +28,7 @@ services:
       - skipFormModel=false
       - -t
       - ".generator/templates"
-  datadog-api-client-python-v2:
+  datadog-api-client-v2:
     image: datadog/docker-library:openapi-generator-typescript-array-examples-905e6309a85
     volumes:
       - .:/src:rw
@@ -41,7 +41,7 @@ services:
       - -c
       - ".generator/config/v2.json"
       - -i
-      - "schemas/v2/openapi.yaml"
+      - ".generator/schemas/v2/openapi.yaml"
       - -o
       - "packages/datadog-api-client-v2/"
       - --type-mappings

@@ -17,5 +17,5 @@ repos:
         name: Generate
         language: node
         entry: make
-        files: "^(.generator|schemas)/.*"
+        files: "^.generator/.*"
         pass_filenames: false
