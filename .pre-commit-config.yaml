@@ -19,3 +19,9 @@ repos:
         entry: make
         files: "^.generator/.*"
         pass_filenames: false
+      - id: lint
+        name: Lint
+        language: node
+        entry: yarn run lint:fix
+        stages: [manual]
+        pass_filenames: false
