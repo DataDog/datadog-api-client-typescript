@@ -25,3 +25,4 @@ repos:
         entry: yarn run lint:fix
         stages: [manual]
         pass_filenames: false
+        files: "^(docs|packages)/.*"
