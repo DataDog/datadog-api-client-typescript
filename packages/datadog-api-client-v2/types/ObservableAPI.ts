@@ -2558,7 +2558,7 @@ export class ObservableMetricsApi {
   }
 
   /**
-   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * Create a tag configuration
    * @param metricName The name of the metric.
    * @param body
@@ -2826,7 +2826,7 @@ export class ObservableMetricsApi {
       );
   }
   /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
    * Update a tag configuration
    * @param metricName The name of the metric.
    * @param body
