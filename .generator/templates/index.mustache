@@ -38,20 +38,3 @@ export { {{#apiInfo}}{{#apis}}{{#operations}}AbstractPromise{{classname}} as Abs
 {{/useRxJS}}
 {{/useObjectParameters}}
 {{/useInversify}}
-
-
-/**
- * Sets the server variables.
- * The site attribute only support the following values: "datadoghq.com", "us3.datadoghq.com", "datadoghq.eu", "ddog-gov.com".
- *
- * @param serverVariables key/value object representing the server variables (site, name, protocol, ...)
- */
-export function setServerVariables(serverVariables: { [key: string]: string }) {
-    const serverConf = server1.getConfiguration();
-
-    server1.setVariables(serverVariables as typeof serverConf);
-
-    for (const op in operationServers) {
-        (operationServers[op][0] as any).setVariables(serverVariables);
-    }
-}
