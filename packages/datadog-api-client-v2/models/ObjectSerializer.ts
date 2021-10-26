@@ -131,6 +131,7 @@ import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricAllTagsResponse } from "./MetricAllTagsResponse";
+import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
@@ -299,6 +300,8 @@ const enumsMap: Set<string> = new Set<string>([
   "LogsMetricType",
   "LogsSort",
   "LogsSortOrder",
+  "MetricCustomSpaceAggregation",
+  "MetricCustomTimeAggregation",
   "MetricDistinctVolumeType",
   "MetricIngestedIndexedVolumeType",
   "MetricTagConfigurationMetricTypes",
@@ -467,6 +470,7 @@ const typeMap: { [index: string]: any } = {
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
   MetricAllTagsResponse: MetricAllTagsResponse,
+  MetricCustomAggregation: MetricCustomAggregation,
   MetricDistinctVolume: MetricDistinctVolume,
   MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,
   MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
