@@ -46,20 +46,17 @@ When talking to a different server, like the `eu` instance, change the server va
 ```typescript
 import { v1 } from '@datadog/datadog-api-client';
 
-const serverConf = v1.server1.getConfiguration();
-// server1 -> allows to specify a Datadog https://{subdomain}.{site}
-// server2 -> allows to specify any {protocol}://{hostname}
-// server3 -> allows to specify any https://{subdomain}.{site}
+const configurationOpts = {
+  httpConfig: {
+    compress: false
+  },
+};
 
-v1.server1.setVariables({
+const configuration = v1.createConfiguration(configurationOpts);
+
+v1.setVariables(configuration, {
   site: "datadoghq.eu"
-} as typeof serverConf);
-
-for (const op in v1.operationServers) {
-  (v1.operationServers[op][0] as any).setVariables({
-    site: "datadoghq.eu",
-  });
-}
+});
 ```
 
 ### Disable compressed payloads
