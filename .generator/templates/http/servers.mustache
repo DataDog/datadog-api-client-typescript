@@ -6,14 +6,14 @@ import { RequestContext, HttpMethod } from "./http/http{{extensionForDeno}}";
  *
  */
 export class BaseServerConfiguration {
-    public constructor(private url: string, private variableConfiguration) {}
+    public constructor(private url: string, private variableConfiguration: any) {}
 
     /**
      * Sets the value of the variables of this server.
      *
      * @param variableConfiguration a partial variable configuration for the variables contained in the url
      */
-    public setVariables(variableConfiguration) {
+    public setVariables(variableConfiguration: any) {
         Object.assign(this.variableConfiguration, variableConfiguration);
     }
 
@@ -49,7 +49,7 @@ export class BaseServerConfiguration {
  * url template and variable configuration based on the url.
  *
  */
-export class ServerConfiguration<T extends { [key: string]: string }> {}
+export class ServerConfiguration<T extends { [key: string]: string }> extends BaseServerConfiguration {}
 
 {{#servers}}
 export const server{{-index}} = new ServerConfiguration<{ {{#variables}}
