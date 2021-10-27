@@ -52,7 +52,7 @@
     "build": "tsc",
     "check-licenses": "node bin/check-licenses.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write --ignore-unknown",
+    "lint:fix": "yarn install --ignore-scripts; eslint packages --ext .ts --fix; prettier --write --ignore-unknown docs packages",
     "prepare": "yarn run build",
     "test": "node bin/dd-cucumber-js features/*/*.feature",
     "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt",
