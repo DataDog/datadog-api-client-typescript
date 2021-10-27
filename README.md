@@ -46,15 +46,9 @@ When talking to a different server, like the `eu` instance, change the server va
 ```typescript
 import { v1 } from '@datadog/datadog-api-client';
 
-const configurationOpts = {
-  httpConfig: {
-    compress: false
-  },
-};
+const configuration = v1.createConfiguration();
 
-const configuration = v1.createConfiguration(configurationOpts);
-
-v1.setVariables(configuration, {
+v1.setServerVariables(configuration, {
   site: "datadoghq.eu"
 });
 ```
