@@ -8,11 +8,11 @@ import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorp
 import { JQueryHttpLibrary as DefaultHttpLibrary } from "./http/jquery";
 {{/jquery}}
 {{/frameworks}}
-import { BaseServerConfiguration, server1, servers, operationServers } from "./servers{{extensionForDeno}}";
+import { ServerConfiguration,  server1, servers, operationServers } from "./servers{{extensionForDeno}}";
 import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth{{extensionForDeno}}";
 
 export interface Configuration {
-    readonly baseServer?: BaseServerConfiguration;
+    readonly baseServer?: ServerConfiguration;
     readonly serverIndex: number;
     readonly operationServerIndices: { [ name: string ]: number };
     readonly httpApi: HttpLibrary;
@@ -29,7 +29,7 @@ export interface ConfigurationParameters {
     /**
      * Default server to use (takes preference over serverIndex and operationServerIndices)
      */
-    baseServer?: BaseServerConfiguration;
+    baseServer?: ServerConfiguration;
     /**
      * Default index of a server to use from the predefined server list
      */
@@ -113,7 +113,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     return configuration;
 }
 
-export function getServer(conf: Configuration, endpoint: string): BaseServerConfiguration {
+export function getServer(conf: Configuration, endpoint: string): ServerConfiguration {
     if (conf.baseServer !== undefined) {
         return conf.baseServer;
     }
