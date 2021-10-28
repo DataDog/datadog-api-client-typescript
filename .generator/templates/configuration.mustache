@@ -80,7 +80,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         let serverConf = server1.getConfiguration();
         server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
         for (const op in operationServers) {
-            (operationServers[op][0] as any).setVariables({ site: process.env.DD_SITE });
+            operationServers[op][0].setVariables({ site: process.env.DD_SITE });
         }
     }
 
@@ -136,6 +136,6 @@ export function setServerVariables(conf: Configuration, serverVariables: { [key:
     servers[index].setVariables(serverVariables);
 
     for (const op in operationServers) {
-        (operationServers[op][0] as any).setVariables(serverVariables);
+        operationServers[op][0].setVariables(serverVariables);
     }
 }
