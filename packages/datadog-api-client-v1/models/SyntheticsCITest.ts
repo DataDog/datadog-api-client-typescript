@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
-import { SyntheticsCITestMetadata } from "./SyntheticsCITestMetadata";
+import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { ObjectSerializer } from "./ObjectSerializer";
@@ -52,7 +52,7 @@ export class SyntheticsCITest {
    * Array of locations used to run the test.
    */
   "locations"?: Array<string>;
-  "metadata"?: SyntheticsCITestMetadata;
+  "metadata"?: SyntheticsCIBatchMetadata;
   /**
    * The public ID of the Synthetics test to trigger.
    */
@@ -121,7 +121,7 @@ export class SyntheticsCITest {
     },
     metadata: {
       baseName: "metadata",
-      type: "SyntheticsCITestMetadata",
+      type: "SyntheticsCIBatchMetadata",
       format: "",
     },
     publicId: {
@@ -197,7 +197,7 @@ export class SyntheticsCITest {
 
     res.metadata = ObjectSerializer.deserialize(
       data.metadata,
-      "SyntheticsCITestMetadata",
+      "SyntheticsCIBatchMetadata",
       ""
     );
 
@@ -280,7 +280,7 @@ export class SyntheticsCITest {
 
     res.metadata = ObjectSerializer.serialize(
       data.metadata,
-      "SyntheticsCITestMetadata",
+      "SyntheticsCIBatchMetadata",
       ""
     );
 

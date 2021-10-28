@@ -29,6 +29,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                     | **GET** /api/v1/usage/network_hosts                | Get hourly usage for Network Hosts               |
 | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                           | **GET** /api/v1/usage/profiling                    | Get hourly usage for profiled hosts              |
 | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                       | **GET** /api/v1/usage/rum_sessions                 | Get hourly usage for RUM Sessions                |
+| [**getUsageSDS**](UsageMeteringApi.md#getUsageSDS)                                                       | **GET** /api/v1/usage/sds                          | Get hourly usage for Sensitive Data Scanner      |
 | [**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP)                                                     | **GET** /api/v1/usage/snmp                         | Get hourly usage for SNMP devices                |
 | [**getUsageSummary**](UsageMeteringApi.md#getUsageSummary)                                               | **GET** /api/v1/usage/summary                      | Get usage across your multi-org account          |
 | [**getUsageSynthetics**](UsageMeteringApi.md#getUsageSynthetics)                                         | **GET** /api/v1/usage/synthetics                   | Get hourly usage for Synthetics Checks           |
@@ -1590,6 +1591,68 @@ apiInstance
 ### Authorization
 
 [AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **400**     | Bad Request                        | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **getUsageSDS**
+
+> UsageSDSResponse getUsageSDS()
+
+Get hourly usage for Sensitive Data Scanner.
+
+### Example
+
+```typescript
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.UsageMeteringApi(configuration);
+
+let params: v1.UsageMeteringApiGetUsageSDSRequest = {
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+  startHr: new Date("1970-01-01T00:00:00.00Z"),
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
+  endHr: new Date("1970-01-01T00:00:00.00Z"),
+};
+
+apiInstance
+  .getUsageSDS(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name        | Type       | Description                                                                                                           | Notes                            |
+| ----------- | ---------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **startHr** | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      | defaults to undefined            |
+| **endHr**   | [**Date**] | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | (optional) defaults to undefined |
+
+### Return type
+
+**UsageSDSResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

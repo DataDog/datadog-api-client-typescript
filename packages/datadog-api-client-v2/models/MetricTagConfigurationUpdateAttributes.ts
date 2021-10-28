@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -15,6 +16,10 @@ import { ObjectSerializer } from "./ObjectSerializer";
  */
 
 export class MetricTagConfigurationUpdateAttributes {
+  /**
+   * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time & space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
+   */
+  "aggregations"?: Array<MetricCustomAggregation>;
   /**
    * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
    */
@@ -31,6 +36,11 @@ export class MetricTagConfigurationUpdateAttributes {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
+    aggregations: {
+      baseName: "aggregations",
+      type: "Array<MetricCustomAggregation>",
+      format: "",
+    },
     includePercentiles: {
       baseName: "include_percentiles",
       type: "boolean",
@@ -51,6 +61,12 @@ export class MetricTagConfigurationUpdateAttributes {
     [key: string]: any;
   }): MetricTagConfigurationUpdateAttributes {
     const res = new MetricTagConfigurationUpdateAttributes();
+
+    res.aggregations = ObjectSerializer.deserialize(
+      data.aggregations,
+      "Array<MetricCustomAggregation>",
+      ""
+    );
 
     res.includePercentiles = ObjectSerializer.deserialize(
       data.include_percentiles,
@@ -77,6 +93,12 @@ export class MetricTagConfigurationUpdateAttributes {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
+    res.aggregations = ObjectSerializer.serialize(
+      data.aggregations,
+      "Array<MetricCustomAggregation>",
+      ""
+    );
+
     res.include_percentiles = ObjectSerializer.serialize(
       data.includePercentiles,
       "boolean",

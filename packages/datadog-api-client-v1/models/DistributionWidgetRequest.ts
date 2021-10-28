@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
@@ -19,6 +20,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class DistributionWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
+  "apmStatsQuery"?: ApmStatsQueryDefinition;
   "eventQuery"?: LogQueryDefinition;
   "logQuery"?: LogQueryDefinition;
   "networkQuery"?: LogQueryDefinition;
@@ -42,6 +44,11 @@ export class DistributionWidgetRequest {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
+      format: "",
+    },
+    apmStatsQuery: {
+      baseName: "apm_stats_query",
+      type: "ApmStatsQueryDefinition",
       format: "",
     },
     eventQuery: {
@@ -101,6 +108,12 @@ export class DistributionWidgetRequest {
     res.apmQuery = ObjectSerializer.deserialize(
       data.apm_query,
       "LogQueryDefinition",
+      ""
+    );
+
+    res.apmStatsQuery = ObjectSerializer.deserialize(
+      data.apm_stats_query,
+      "ApmStatsQueryDefinition",
       ""
     );
 
@@ -167,6 +180,12 @@ export class DistributionWidgetRequest {
     res.apm_query = ObjectSerializer.serialize(
       data.apmQuery,
       "LogQueryDefinition",
+      ""
+    );
+
+    res.apm_stats_query = ObjectSerializer.serialize(
+      data.apmStatsQuery,
+      "ApmStatsQueryDefinition",
       ""
     );
 
