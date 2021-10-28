@@ -90,11 +90,11 @@ export class UsageAttributionValues {
   /**
    * The percentage of Database Monitoring host usage by tag(s).
    */
-  "dbmHostPercentage"?: number;
+  "dbmHostsPercentage"?: number;
   /**
    * The Database Monitoring host usage by tag(s).
    */
-  "dbmHostUsage"?: number;
+  "dbmHostsUsage"?: number;
   /**
    * The percentage of Database Monitoring normalized queries usage by tag(s).
    */
@@ -265,13 +265,13 @@ export class UsageAttributionValues {
       type: "number",
       format: "double",
     },
-    dbmHostPercentage: {
-      baseName: "dbm_host_percentage",
+    dbmHostsPercentage: {
+      baseName: "dbm_hosts_percentage",
       type: "number",
       format: "double",
     },
-    dbmHostUsage: {
-      baseName: "dbm_host_usage",
+    dbmHostsUsage: {
+      baseName: "dbm_hosts_usage",
       type: "number",
       format: "double",
     },
@@ -482,14 +482,14 @@ export class UsageAttributionValues {
       "double"
     );
 
-    res.dbmHostPercentage = ObjectSerializer.deserialize(
-      data.dbm_host_percentage,
+    res.dbmHostsPercentage = ObjectSerializer.deserialize(
+      data.dbm_hosts_percentage,
       "number",
       "double"
     );
 
-    res.dbmHostUsage = ObjectSerializer.deserialize(
-      data.dbm_host_usage,
+    res.dbmHostsUsage = ObjectSerializer.deserialize(
+      data.dbm_hosts_usage,
       "number",
       "double"
     );
@@ -724,14 +724,14 @@ export class UsageAttributionValues {
       "double"
     );
 
-    res.dbm_host_percentage = ObjectSerializer.serialize(
-      data.dbmHostPercentage,
+    res.dbm_hosts_percentage = ObjectSerializer.serialize(
+      data.dbmHostsPercentage,
       "number",
       "double"
     );
 
-    res.dbm_host_usage = ObjectSerializer.serialize(
-      data.dbmHostUsage,
+    res.dbm_hosts_usage = ObjectSerializer.serialize(
+      data.dbmHostsUsage,
       "number",
       "double"
     );

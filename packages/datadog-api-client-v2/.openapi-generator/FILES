@@ -209,6 +209,9 @@ models/Metric.ts
 models/MetricAllTags.ts
 models/MetricAllTagsAttributes.ts
 models/MetricAllTagsResponse.ts
+models/MetricCustomAggregation.ts
+models/MetricCustomSpaceAggregation.ts
+models/MetricCustomTimeAggregation.ts
 models/MetricDistinctVolume.ts
 models/MetricDistinctVolumeAttributes.ts
 models/MetricDistinctVolumeType.ts

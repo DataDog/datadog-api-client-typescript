@@ -3,7 +3,7 @@ import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-a
 import { ObjectSerializer as ObjectSerializerV2 } from '../../packages/datadog-api-client-v2/models/ObjectSerializer';
 
 test('TestDeserializationUnknownNestedOneOfInList', () => {
-  let data = `
+  const data = `
   {
       "status": "paused",
       "public_id": "jv7-wfd-kvt",
@@ -68,7 +68,7 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
   `;
 
 
-  let result = ObjectSerializerV1.deserialize(
+  const result = ObjectSerializerV1.deserialize(
     ObjectSerializerV1.parse(data, "application/json"),
     "SyntheticsAPITest",
     "");
@@ -81,7 +81,7 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
 
 
 test('TestDeserializationUnknownNestedEnumInList', () => {
-  let data = `
+  const data = `
   {
       "status": "live",
       "public_id": "2fx-64b-fb8",
@@ -144,7 +144,7 @@ test('TestDeserializationUnknownNestedEnumInList', () => {
   `;
 
 
-  let result = ObjectSerializerV1.deserialize(
+  const result = ObjectSerializerV1.deserialize(
     ObjectSerializerV1.parse(data, "application/json"),
     "SyntheticsBrowserTest",
     "");
@@ -156,7 +156,7 @@ test('TestDeserializationUnknownNestedEnumInList', () => {
 );
 
 test('TestDeserializationUnknownTopLevelEnum', () => {
-  let data = `
+  const data = `
   {
       "status": "live",
       "public_id": "g6d-gcm-pdq",
@@ -193,7 +193,7 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
   `;
 
 
-  let result = ObjectSerializerV1.deserialize(
+  const result = ObjectSerializerV1.deserialize(
     ObjectSerializerV1.parse(data, "application/json"),
     "SyntheticsBrowserTest",
     "");
@@ -205,7 +205,7 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
 );
 
 test('TestDeserializationUnknownNestedEnum', () => {
-  let data = `
+  const data = `
   {
       "status": "live",
       "public_id": "g6d-gcm-pdq",
@@ -242,7 +242,7 @@ test('TestDeserializationUnknownNestedEnum', () => {
   `;
 
 
-  let result = ObjectSerializerV1.deserialize(
+  const result = ObjectSerializerV1.deserialize(
     ObjectSerializerV1.parse(data, "application/json"),
     "SyntheticsAPITest",
     "");
@@ -256,7 +256,7 @@ test('TestDeserializationUnknownNestedEnum', () => {
 );
 
 test('TestDeserializationUnknownNestedOneOf', () => {
-  let data = `
+  const data = `
   {
       "data": {
           "type": "archives",
@@ -283,7 +283,7 @@ test('TestDeserializationUnknownNestedOneOf', () => {
   `;
 
 
-  let result = ObjectSerializerV2.deserialize(
+  const result = ObjectSerializerV2.deserialize(
     ObjectSerializerV2.parse(data, "application/json"),
     "LogsArchive",
     "");

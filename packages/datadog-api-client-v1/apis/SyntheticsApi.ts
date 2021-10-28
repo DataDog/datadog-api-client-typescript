@@ -9,6 +9,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SyntheticsAPITest } from "../models/SyntheticsAPITest";
 import { SyntheticsAPITestResultFull } from "../models/SyntheticsAPITestResultFull";
+import { SyntheticsBatchDetails } from "../models/SyntheticsBatchDetails";
 import { SyntheticsBrowserTest } from "../models/SyntheticsBrowserTest";
 import { SyntheticsBrowserTestResultFull } from "../models/SyntheticsBrowserTestResultFull";
 import { SyntheticsCITestBody } from "../models/SyntheticsCITestBody";
@@ -1055,6 +1056,61 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = getServer(
       _config,
       "SyntheticsApi.getPrivateLocation"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
+   * Get a batch's updated details.
+   * Get details of batch
+   * @param batchId The ID of the batch.
+   */
+  public async getSyntheticsCIBatch(
+    batchId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "Required parameter batchId was null or undefined when calling getSyntheticsCIBatch."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/synthetics/ci/batch/{batch_id}".replace(
+      "{" + "batch_id" + "}",
+      encodeURIComponent(String(batchId))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "SyntheticsApi.getSyntheticsCIBatch"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2534,6 +2590,53 @@ export class SyntheticsApiResponseProcessor {
         "SyntheticsPrivateLocation",
         ""
       ) as SyntheticsPrivateLocation;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSyntheticsCIBatch
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSyntheticsCIBatch(
+    response: ResponseContext
+  ): Promise<SyntheticsBatchDetails> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SyntheticsBatchDetails = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsBatchDetails",
+        ""
+      ) as SyntheticsBatchDetails;
+      return body;
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsBatchDetails = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsBatchDetails",
+        ""
+      ) as SyntheticsBatchDetails;
       return body;
     }
 

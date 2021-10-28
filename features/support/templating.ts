@@ -81,13 +81,16 @@ function pathLookup(data: any, dottedPath: string): any {
 }
 
 String.prototype.templated = function (data: { [key: string]: any }): string {
-  const regexp = /{{ *([^}]+) *}}/g;
+  const regexp = /{{ *([^{}]+|'[^']+'|"[^"]+") *}}/g;
   const function_re = /^(.+)\((.*)\)$/;
   return String(this).replace(regexp, function (...matches) {
     const path = matches[1].trim();
     const m = path.match(function_re);
     if (m) {
       return templateFunctions[m[1]](data, m[2]);
+    }
+    if (path[0] === "'" || path[0] === '"') {
+      return path.slice(1, -1);
     }
     return pathLookup(data, path);
   });

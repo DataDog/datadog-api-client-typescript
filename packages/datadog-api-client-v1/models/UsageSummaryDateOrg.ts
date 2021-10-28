@@ -180,6 +180,14 @@ export class UsageSummaryDateOrg {
    */
   "rumTotalSessionCountSum"?: number;
   /**
+   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   */
+  "sdsLogsScannedBytesSum"?: number;
+  /**
+   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   */
+  "sdsTotalScannedBytesSum"?: number;
+  /**
    * Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
    */
   "syntheticsBrowserCheckCallsCountSum"?: number;
@@ -409,6 +417,16 @@ export class UsageSummaryDateOrg {
     },
     rumTotalSessionCountSum: {
       baseName: "rum_total_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsLogsScannedBytesSum: {
+      baseName: "sds_logs_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsTotalScannedBytesSum: {
+      baseName: "sds_total_scanned_bytes_sum",
       type: "number",
       format: "int64",
     },
@@ -676,6 +694,18 @@ export class UsageSummaryDateOrg {
 
     res.rumTotalSessionCountSum = ObjectSerializer.deserialize(
       data.rum_total_session_count_sum,
+      "number",
+      "int64"
+    );
+
+    res.sdsLogsScannedBytesSum = ObjectSerializer.deserialize(
+      data.sds_logs_scanned_bytes_sum,
+      "number",
+      "int64"
+    );
+
+    res.sdsTotalScannedBytesSum = ObjectSerializer.deserialize(
+      data.sds_total_scanned_bytes_sum,
       "number",
       "int64"
     );
@@ -955,6 +985,18 @@ export class UsageSummaryDateOrg {
 
     res.rum_total_session_count_sum = ObjectSerializer.serialize(
       data.rumTotalSessionCountSum,
+      "number",
+      "int64"
+    );
+
+    res.sds_logs_scanned_bytes_sum = ObjectSerializer.serialize(
+      data.sdsLogsScannedBytesSum,
+      "number",
+      "int64"
+    );
+
+    res.sds_total_scanned_bytes_sum = ObjectSerializer.serialize(
+      data.sdsTotalScannedBytesSum,
       "number",
       "int64"
     );

@@ -20,6 +20,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult)               | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result                         |
 | [**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable)                     | **GET** /api/v1/synthetics/variables/{variable_id}                       | Get a global variable                             |
 | [**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation)                   | **GET** /api/v1/synthetics/private-locations/{location_id}               | Get a private location                            |
+| [**getSyntheticsCIBatch**](SyntheticsApi.md#getSyntheticsCIBatch)               | **GET** /api/v1/synthetics/ci/batch/{batch_id}                           | Get details of batch                              |
 | [**getTest**](SyntheticsApi.md#getTest)                                         | **GET** /api/v1/synthetics/tests/{public_id}                             | Get a test configuration                          |
 | [**listGlobalVariables**](SyntheticsApi.md#listGlobalVariables)                 | **GET** /api/v1/synthetics/variables                                     | Get all global variables                          |
 | [**listLocations**](SyntheticsApi.md#listLocations)                             | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
@@ -191,7 +192,14 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   // SyntheticsAPITest | Details of the test to create.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+        {
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -235,7 +243,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "url_example",
+        url: "https://example.com",
       },
       steps: [
         {
@@ -288,15 +296,15 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             servername: "servername_example",
             shouldTrackHops: true,
             timeout: 3.14,
-            url: "url_example",
+            url: "https://example.com",
           },
           subtype: "http",
         },
       ],
     },
-    locations: ["locations_example"],
-    message: "message_example",
-    name: "name_example",
+    locations: ["aws:eu-west-3"],
+    message: "Notification message",
+    name: "Test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -319,7 +327,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     status: "live",
     subtype: "http",
-    tags: ["tags_example"],
+    tags: ["env:production"],
     type: "api",
   },
 };
@@ -427,7 +435,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "url_example",
+        url: "https://example.com",
       },
       setCookie: "setCookie_example",
       variables: [
@@ -1277,6 +1285,64 @@ apiInstance
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+## **getSyntheticsCIBatch**
+
+> SyntheticsBatchDetails getSyntheticsCIBatch()
+
+Get a batch's updated details.
+
+### Example
+
+```typescript
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.SyntheticsApi(configuration);
+
+let params: v1.SyntheticsApiGetSyntheticsCIBatchRequest = {
+  // string | The ID of the batch.
+  batchId: "batch_id_example",
+};
+
+apiInstance
+  .getSyntheticsCIBatch(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name        | Type         | Description          | Notes                 |
+| ----------- | ------------ | -------------------- | --------------------- |
+| **batchId** | [**string**] | The ID of the batch. | defaults to undefined |
+
+### Return type
+
+**SyntheticsBatchDetails**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **200**     | OK                    | -                |
+| **404**     | Batch does not exist. | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 ## **getTest**
 
 > SyntheticsTestDetails getTest()
@@ -1607,7 +1673,14 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
   // SyntheticsAPITest | New test details to be saved.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+        {
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -1651,7 +1724,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "url_example",
+        url: "https://example.com",
       },
       steps: [
         {
@@ -1704,15 +1777,15 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             servername: "servername_example",
             shouldTrackHops: true,
             timeout: 3.14,
-            url: "url_example",
+            url: "https://example.com",
           },
           subtype: "http",
         },
       ],
     },
-    locations: ["locations_example"],
-    message: "message_example",
-    name: "name_example",
+    locations: ["aws:eu-west-3"],
+    message: "Notification message",
+    name: "Test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -1735,7 +1808,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
     },
     status: "live",
     subtype: "http",
-    tags: ["tags_example"],
+    tags: ["env:production"],
     type: "api",
   },
 };
@@ -1846,7 +1919,7 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         servername: "servername_example",
         shouldTrackHops: true,
         timeout: 3.14,
-        url: "url_example",
+        url: "https://example.com",
       },
       setCookie: "setCookie_example",
       variables: [

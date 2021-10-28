@@ -465,6 +465,9 @@ models/SyntheticsAssertionOperator.ts
 models/SyntheticsAssertionTarget.ts
 models/SyntheticsAssertionType.ts
 models/SyntheticsBasicAuth.ts
+models/SyntheticsBatchDetails.ts
+models/SyntheticsBatchDetailsData.ts
+models/SyntheticsBatchResult.ts
 models/SyntheticsBrowserError.ts
 models/SyntheticsBrowserErrorType.ts
 models/SyntheticsBrowserTest.ts
@@ -477,11 +480,11 @@ models/SyntheticsBrowserTestResultShortResult.ts
 models/SyntheticsBrowserTestType.ts
 models/SyntheticsBrowserVariable.ts
 models/SyntheticsBrowserVariableType.ts
+models/SyntheticsCIBatchMetadata.ts
+models/SyntheticsCIBatchMetadataCI.ts
+models/SyntheticsCIBatchMetadataGit.ts
 models/SyntheticsCITest.ts
 models/SyntheticsCITestBody.ts
-models/SyntheticsCITestMetadata.ts
-models/SyntheticsCITestMetadataCi.ts
-models/SyntheticsCITestMetadataGit.ts
 models/SyntheticsCheckType.ts
 models/SyntheticsConfigVariable.ts
 models/SyntheticsConfigVariableType.ts
@@ -515,6 +518,7 @@ models/SyntheticsPrivateLocationSecretsConfigDecryption.ts
 models/SyntheticsSSLCertificate.ts
 models/SyntheticsSSLCertificateIssuer.ts
 models/SyntheticsSSLCertificateSubject.ts
+models/SyntheticsStatus.ts
 models/SyntheticsStep.ts
 models/SyntheticsStepDetail.ts
 models/SyntheticsStepDetailWarning.ts
@@ -523,6 +527,7 @@ models/SyntheticsTestConfig.ts
 models/SyntheticsTestDetails.ts
 models/SyntheticsTestDetailsSubType.ts
 models/SyntheticsTestDetailsType.ts
+models/SyntheticsTestExecutionRule.ts
 models/SyntheticsTestMonitorStatus.ts
 models/SyntheticsTestOptions.ts
 models/SyntheticsTestOptionsMonitorOptions.ts
@@ -618,6 +623,8 @@ models/UsageProfilingResponse.ts
 models/UsageReportsType.ts
 models/UsageRumSessionsHour.ts
 models/UsageRumSessionsResponse.ts
+models/UsageSDSHour.ts
+models/UsageSDSResponse.ts
 models/UsageSNMPHour.ts
 models/UsageSNMPResponse.ts
 models/UsageSort.ts

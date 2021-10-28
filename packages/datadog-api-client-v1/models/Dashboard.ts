@@ -37,7 +37,7 @@ export class Dashboard {
    */
   "id"?: string;
   /**
-   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
+   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
    */
   "isReadOnly"?: boolean;
   "layoutType": DashboardLayoutType;
@@ -51,7 +51,7 @@ export class Dashboard {
   "notifyList"?: Array<string>;
   "reflowType"?: DashboardReflowType;
   /**
-   * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard. Overrides the `is_read_only` property if both are present. **This feature is currently in beta.**
+   * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
    */
   "restrictedRoles"?: Array<string>;
   /**

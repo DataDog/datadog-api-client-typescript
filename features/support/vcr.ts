@@ -9,7 +9,6 @@ import { After, Before } from "@cucumber/cucumber";
 import { World } from "./world";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 import { MODES } from "@pollyjs/utils";
-import { FetchError } from "node-fetch";
 
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
@@ -70,7 +69,7 @@ Before(function (
       this.polly?.config?.recordIfMissing
     ) {
       fs.mkdirSync(path.dirname(frozen), { recursive: true });
-      fs.writeFileSync(frozen, JSON.stringify(date));
+      fs.writeFileSync(frozen, JSON.stringify(date) + "\n");
     } else if (this.polly?.mode == MODES.REPLAY) {
       throw new Error(`Time file '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``);
     }
