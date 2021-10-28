@@ -17,7 +17,7 @@ export class BaseServerConfiguration {
         Object.assign(this.variableConfiguration, variableConfiguration);
     }
 
-    public getConfiguration() {
+    public getConfiguration(): { [key: string]: string } {
         return this.variableConfiguration
     }
 
