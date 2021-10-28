@@ -36,9 +36,12 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, format: string}} = {
         {{#vars}}
         "{{name}}": {
+            "name": "{{name}}",
             "baseName": "{{baseName}}",
             "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
-            "format": "{{dataFormat}}"
+            {{#dataFormat}}"format": "{{.}}",{{/dataFormat}}
+            "required": {{required}},
+            {{#allowableValues}}"enumValues": [{{#enumVars}}{{{value}}}, {{/enumVars}}undefined],{{/allowableValues}}
         }{{^-last}},
         {{/-last}}
         {{/vars}}

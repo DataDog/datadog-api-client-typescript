@@ -160,7 +160,7 @@ export class ObjectSerializer {
         }
     }
 
-    public static deserialize(data: any, type: string, format: string) {
+    public static deserialize(data: any, type: string, format: string = "") {
         // polymorphism may change the actual type.
         type = ObjectSerializer.findCorrectType(data, type);
         if (data == undefined) {
@@ -214,7 +214,28 @@ export class ObjectSerializer {
             if (!typeMap[type]) { // dont know the type
                 throw new TypeError(`unknown type '${type}'`);
             }
-            return typeMap[type].deserialize(data);
+
+            let instance = new typeMap[type]();
+            let attributeTypes = typeMap[type].getAttributeTypeMap();
+
+            for (let index in attributeTypes) {
+                let attributeType = attributeTypes[index];
+                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
+
+                // check for required properties
+                if (attributeType.required && instance[attributeType.name] == undefined) {
+                    throw new Error(`missing required property ${attributeType.name}`);
+                }
+
+                // check for enum values
+                if (attributeType?.enumValues && !attributeType.enumValues.includes(instance[attributeType.name])) {
+                    let raw = new {{classname}}();
+                    raw[attirbuteType.name] = instance[attributeType.name]
+                    instance.unparsedObject = raw;
+                }
+            }
+
+            return instance;
         }
     }
 
