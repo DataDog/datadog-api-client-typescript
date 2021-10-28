@@ -32,7 +32,9 @@ let params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
       attributes: {
         category: "Scheduled Maintenance",
         description: "description_example",
+        duration: 1600000000,
         end: 1600000000,
+        rrule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
         sloId: "sloId",
         start: 1600000000,
         timezone: "UTC",
@@ -275,7 +277,9 @@ let params: v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest = {
       attributes: {
         category: "Scheduled Maintenance",
         description: "description_example",
+        duration: 3600,
         end: 1600000000,
+        rrule: "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
         start: 1600000000,
         timezone: "UTC",
       },
