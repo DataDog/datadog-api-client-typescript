@@ -1926,7 +1926,6 @@ components:
       items:
         $ref: '#/components/schemas/LogsAggregateBucketValueTimeseriesPoint'
       type: array
-      
     LogsAggregateBucketValueTimeseriesPoint:
       description: A timeseries point
       properties:
