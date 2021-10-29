@@ -33,7 +33,7 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     {{/discriminator}}
 
     {{^isArray}}
-    static readonly attributeTypeMap: {[key: string]: {name: string, baseName: string, type: string, format?: string, required: boolean}}} = {
+    static readonly attributeTypeMap: {[key: string]: {name: string, baseName: string, type: string, format?: string, required: boolean}}} {
         {{#vars}}
         "{{name}}": {
             "name": "{{name}}",
