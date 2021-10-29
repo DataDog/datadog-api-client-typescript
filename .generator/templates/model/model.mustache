@@ -57,66 +57,6 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     }
     {{/isArray}}
 
-    static deserialize(data: {[key: string]: any}): {{classname}} {
-      let res = new {{classname}}();
-
-      {{#vars}}
-        {{#required}}
-      if (data.{{{baseName}}} === undefined) {
-          throw new TypeError("missing required attribute '{{baseName}}' on '{{classname}}' object");
-      }
-        {{/required}}
-        {{#allowableValues}}
-      if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{baseName}}})) {
-          res.{{name}} = data.{{{baseName}}};
-      } else {
-          let raw = new {{classname}}();
-          raw.unparsedObject = data;
-          return raw;
-      }
-
-        {{/allowableValues}}
-        {{^allowableValues}}
-      res.{{{name}}} = ObjectSerializer.deserialize(data.{{{baseName}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
-        {{/allowableValues}}
-
-      {{/vars}}
-
-      return res;
-    }
-
-    static serialize(data: {{classname}}): {[key: string]: any} {
-        let attributeTypes = {{{classname}}}.getAttributeTypeMap();
-        let res: {[index: string]: any} = {};
-        for (let [key, value] of Object.entries(data)) {
-            if (!(key in attributeTypes)) {
-                throw new TypeError(`${key} attribute not in schema`);
-            }
-        }
-        if (data?.unparsedObject !== undefined) {
-            return data.unparsedObject;
-        }
-        {{#vars}}
-          {{#required}}
-        if (data.{{{name}}} === undefined) {
-            throw new TypeError("missing required attribute '{{baseName}}' on '{{classname}}' object");
-        }
-          {{/required}}
-          {{#allowableValues}}
-        if ([{{#enumVars}}{{{value}}}, {{/enumVars}}undefined].includes(data.{{{name}}})) {
-            res.{{baseName}} = data.{{{name}}};
-        } else {
-            throw TypeError(`invalid enum value ${ data.{{{name}}} } for {{name}}`);
-        }
-          {{/allowableValues}}
-          {{^allowableValues}}
-        res.{{{baseName}}} = ObjectSerializer.serialize(data.{{{name}}}, "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}", "{{dataFormat}}")
-          {{/allowableValues}}
-
-        {{/vars}}
-        return res
-    }
-
     public constructor() {
         {{#parent}}
         super();

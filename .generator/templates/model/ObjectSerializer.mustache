@@ -229,9 +229,7 @@ export class ObjectSerializer {
 
                 // check for enum values
                 if (attributeType?.enumValues && !attributeType.enumValues.includes(instance[attributeType.name])) {
-                    let raw = new {{classname}}();
-                    raw[attirbuteType.name] = instance[attributeType.name]
-                    instance.unparsedObject = raw;
+                    instance.unparsedObject = instance[attributeType.name];
                 }
             }
 
