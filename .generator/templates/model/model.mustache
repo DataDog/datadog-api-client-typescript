@@ -41,7 +41,6 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
             "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
             "required": {{required}},
             "format": "{{dataFormat}}",
-            {{#allowableValues}}"enumValues": [{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}}
         }{{^-last}},
         {{/-last}}
         {{/vars}}

@@ -22,18 +22,16 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0
 }
 
-const PI = 3.14;
-
 const enumsMap: {[key: string]: any} = {
     {{#models}}
         {{#model}}
             {{#isEnum}}
-    "{{classname}}{{enumName}}": [{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
+    "{{classname}}{{enumName}}": [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
             {{/isEnum}}
             {{#hasEnums}}
                 {{#vars}}
                     {{#isEnum}}
-    "{{classname}}{{enumName}}": [{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
+    "{{classname}}{{enumName}}": [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
                     {{/isEnum}}
                 {{/vars}}
             {{/hasEnums}}
@@ -67,7 +65,7 @@ export class ObjectSerializer {
         } else if (expectedType === "Date") {
             return expectedType;
         } else {
-            if (enumsMap.has(expectedType)) {
+            if (enumsMap[expectedType]) {
                 return expectedType;
             }
 
@@ -132,14 +130,20 @@ export class ObjectSerializer {
                 return data.toISOString();
             }
         } else {
-            if (enumsMap.has(type)) {
-                return data;
+            if (enumsMap[type]) {
+                if (enumsMap[type].includes(data)) {
+                  return data;
+                }
+                throw new TypeError(`unknown enum value ${data}`)
             }
             if (oneOfMap[type]) {
                 let oneOfs: any[] = [];
                 for(let oneOf of oneOfMap[type]) {
                     try {
-                        oneOfs.push(ObjectSerializer.serialize(data, oneOf, format))
+                        let d = ObjectSerializer.serialize(data, oneOf, format);
+                        if (d?.unparsedObject === undefined) {
+                            oneOfs.push(d);
+                        }
                     } catch (e) {
                         console.debug(`could not serialize ${oneOf} (${e})`)
                     }
@@ -162,12 +166,18 @@ export class ObjectSerializer {
             // get the map for the correct type.
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
+
             for (let index in attributeTypes) {
                 let attributeType = attributeTypes[index];
                 instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type, attributeType.format);
-                // check for enum values
-                if (enumsMap.has(attributeType.name) && !enumsMap[attributeType.name].include(instance[attributeType.name])) {
-                    instance.unparsedObject = instance[attributeType.name];
+
+                // check for required properties
+                if (attributeType.required && instance[attributeType.baseName] === undefined) {
+                    throw new Error(`missing required property ${attributeType.baseName}`);
+                }
+
+                if (enumsMap[attributeType.type] && !enumsMap[attributeType.type].includes(instance[attributeType.baseName])) {
+                    instance.unparsedObject = instance[attributeType.baseName];
                 }
             }
             return instance;
@@ -202,8 +212,8 @@ export class ObjectSerializer {
         } else if (type === "Date") {
             return new Date(data);
         } else {
-            if (enumsMap.has(type)) {// is Enum
-                return data;
+            if (enumsMap[type]) {
+               return data;
             }
 
             if (oneOfMap[type]) {
@@ -242,7 +252,7 @@ export class ObjectSerializer {
                 }
 
                 // check for enum values
-                if (attributeType?.enumValues && !attributeType.enumValues.includes(instance[attributeType.name])) {
+                if (enumsMap[attributeType.type] && !enumsMap[attributeType.type].includes(instance[attributeType.name])) {
                     instance.unparsedObject = instance[attributeType.name];
                 }
             }
