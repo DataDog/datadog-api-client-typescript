@@ -9,11 +9,6 @@
  */
 
 import { LogsArchiveOrderDefinition } from "./LogsArchiveOrderDefinition";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A ordered list of archive IDs.
- */
 
 export class LogsArchiveOrder {
   "data"?: LogsArchiveOrderDefinition;
@@ -23,49 +18,26 @@ export class LogsArchiveOrder {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "LogsArchiveOrderDefinition",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsArchiveOrder.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsArchiveOrder {
-    const res = new LogsArchiveOrder();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "LogsArchiveOrderDefinition",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsArchiveOrder): { [key: string]: any } {
-    const attributeTypes = LogsArchiveOrder.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "LogsArchiveOrderDefinition",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

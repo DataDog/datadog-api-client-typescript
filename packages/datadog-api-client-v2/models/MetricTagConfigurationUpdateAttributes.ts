@@ -9,11 +9,6 @@
  */
 
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing the definition of a metric tag configuration to be updated.
- */
 
 export class MetricTagConfigurationUpdateAttributes {
   /**
@@ -34,80 +29,40 @@ export class MetricTagConfigurationUpdateAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggregations: {
+      name: "aggregations",
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
+      required: false,
       format: "",
     },
     includePercentiles: {
+      name: "includePercentiles",
       baseName: "include_percentiles",
       type: "boolean",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricTagConfigurationUpdateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricTagConfigurationUpdateAttributes {
-    const res = new MetricTagConfigurationUpdateAttributes();
-
-    res.aggregations = ObjectSerializer.deserialize(
-      data.aggregations,
-      "Array<MetricCustomAggregation>",
-      ""
-    );
-
-    res.includePercentiles = ObjectSerializer.deserialize(
-      data.include_percentiles,
-      "boolean",
-      ""
-    );
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    return res;
-  }
-
-  static serialize(data: MetricTagConfigurationUpdateAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MetricTagConfigurationUpdateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.aggregations = ObjectSerializer.serialize(
-      data.aggregations,
-      "Array<MetricCustomAggregation>",
-      ""
-    );
-
-    res.include_percentiles = ObjectSerializer.serialize(
-      data.includePercentiles,
-      "boolean",
-      ""
-    );
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

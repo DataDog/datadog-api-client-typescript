@@ -13,11 +13,6 @@ import { WidgetServiceSummaryDisplayFormat } from "./WidgetServiceSummaryDisplay
 import { WidgetSizeFormat } from "./WidgetSizeFormat";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.
- */
 
 export class ServiceSummaryWidgetDefinition {
   "displayFormat"?: WidgetServiceSummaryDisplayFormat;
@@ -75,310 +70,131 @@ export class ServiceSummaryWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     displayFormat: {
+      name: "displayFormat",
       baseName: "display_format",
       type: "WidgetServiceSummaryDisplayFormat",
+      required: false,
       format: "",
     },
     env: {
+      name: "env",
       baseName: "env",
       type: "string",
+      required: true,
       format: "",
     },
     service: {
+      name: "service",
       baseName: "service",
       type: "string",
+      required: true,
       format: "",
     },
     showBreakdown: {
+      name: "showBreakdown",
       baseName: "show_breakdown",
       type: "boolean",
+      required: false,
       format: "",
     },
     showDistribution: {
+      name: "showDistribution",
       baseName: "show_distribution",
       type: "boolean",
+      required: false,
       format: "",
     },
     showErrors: {
+      name: "showErrors",
       baseName: "show_errors",
       type: "boolean",
+      required: false,
       format: "",
     },
     showHits: {
+      name: "showHits",
       baseName: "show_hits",
       type: "boolean",
+      required: false,
       format: "",
     },
     showLatency: {
+      name: "showLatency",
       baseName: "show_latency",
       type: "boolean",
+      required: false,
       format: "",
     },
     showResourceList: {
+      name: "showResourceList",
       baseName: "show_resource_list",
       type: "boolean",
+      required: false,
       format: "",
     },
     sizeFormat: {
+      name: "sizeFormat",
       baseName: "size_format",
       type: "WidgetSizeFormat",
+      required: false,
       format: "",
     },
     spanName: {
+      name: "spanName",
       baseName: "span_name",
       type: "string",
+      required: true,
       format: "",
     },
     time: {
+      name: "time",
       baseName: "time",
       type: "WidgetTime",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     titleAlign: {
+      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     titleSize: {
+      name: "titleSize",
       baseName: "title_size",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "ServiceSummaryWidgetDefinitionType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ServiceSummaryWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): ServiceSummaryWidgetDefinition {
-    const res = new ServiceSummaryWidgetDefinition();
-
-    if (
-      ["one_column", "two_column", "three_column", undefined].includes(
-        data.display_format
-      )
-    ) {
-      res.displayFormat = data.display_format;
-    } else {
-      const raw = new ServiceSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.env === undefined) {
-      throw new TypeError(
-        "missing required attribute 'env' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    res.env = ObjectSerializer.deserialize(data.env, "string", "");
-
-    if (data.service === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    res.service = ObjectSerializer.deserialize(data.service, "string", "");
-
-    res.showBreakdown = ObjectSerializer.deserialize(
-      data.show_breakdown,
-      "boolean",
-      ""
-    );
-
-    res.showDistribution = ObjectSerializer.deserialize(
-      data.show_distribution,
-      "boolean",
-      ""
-    );
-
-    res.showErrors = ObjectSerializer.deserialize(
-      data.show_errors,
-      "boolean",
-      ""
-    );
-
-    res.showHits = ObjectSerializer.deserialize(data.show_hits, "boolean", "");
-
-    res.showLatency = ObjectSerializer.deserialize(
-      data.show_latency,
-      "boolean",
-      ""
-    );
-
-    res.showResourceList = ObjectSerializer.deserialize(
-      data.show_resource_list,
-      "boolean",
-      ""
-    );
-
-    if (["small", "medium", "large", undefined].includes(data.size_format)) {
-      res.sizeFormat = data.size_format;
-    } else {
-      const raw = new ServiceSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.span_name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'span_name' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    res.spanName = ObjectSerializer.deserialize(data.span_name, "string", "");
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new ServiceSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    if (["trace_service", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ServiceSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ServiceSummaryWidgetDefinition): {
-    [key: string]: any;
-  } {
-    const attributeTypes = ServiceSummaryWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      ["one_column", "two_column", "three_column", undefined].includes(
-        data.displayFormat
-      )
-    ) {
-      res.display_format = data.displayFormat;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.displayFormat} for displayFormat`
-      );
-    }
-
-    if (data.env === undefined) {
-      throw new TypeError(
-        "missing required attribute 'env' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    res.env = ObjectSerializer.serialize(data.env, "string", "");
-
-    if (data.service === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    res.service = ObjectSerializer.serialize(data.service, "string", "");
-
-    res.show_breakdown = ObjectSerializer.serialize(
-      data.showBreakdown,
-      "boolean",
-      ""
-    );
-
-    res.show_distribution = ObjectSerializer.serialize(
-      data.showDistribution,
-      "boolean",
-      ""
-    );
-
-    res.show_errors = ObjectSerializer.serialize(
-      data.showErrors,
-      "boolean",
-      ""
-    );
-
-    res.show_hits = ObjectSerializer.serialize(data.showHits, "boolean", "");
-
-    res.show_latency = ObjectSerializer.serialize(
-      data.showLatency,
-      "boolean",
-      ""
-    );
-
-    res.show_resource_list = ObjectSerializer.serialize(
-      data.showResourceList,
-      "boolean",
-      ""
-    );
-
-    if (["small", "medium", "large", undefined].includes(data.sizeFormat)) {
-      res.size_format = data.sizeFormat;
-    } else {
-      throw TypeError(`invalid enum value ${data.sizeFormat} for sizeFormat`);
-    }
-
-    if (data.spanName === undefined) {
-      throw new TypeError(
-        "missing required attribute 'span_name' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    res.span_name = ObjectSerializer.serialize(data.spanName, "string", "");
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceSummaryWidgetDefinition' object"
-      );
-    }
-    if (["trace_service", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { UsageHostHour } from "./UsageHostHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Host usage response.
- */
 
 export class UsageHostsResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageHostsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageHostHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageHostsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageHostsResponse {
-    const res = new UsageHostsResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageHostHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageHostsResponse): { [key: string]: any } {
-    const attributeTypes = UsageHostsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageHostHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

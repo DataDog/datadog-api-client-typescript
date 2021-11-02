@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of the created user.
- */
-
 export class UserCreateAttributes {
   /**
    * The email of the user.
@@ -33,69 +27,40 @@ export class UserCreateAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     email: {
+      name: "email",
       baseName: "email",
       type: "string",
+      required: true,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UserCreateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserCreateAttributes {
-    const res = new UserCreateAttributes();
-
-    if (data.email === undefined) {
-      throw new TypeError(
-        "missing required attribute 'email' on 'UserCreateAttributes' object"
-      );
-    }
-    res.email = ObjectSerializer.deserialize(data.email, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: UserCreateAttributes): { [key: string]: any } {
-    const attributeTypes = UserCreateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.email === undefined) {
-      throw new TypeError(
-        "missing required attribute 'email' on 'UserCreateAttributes' object"
-      );
-    }
-    res.email = ObjectSerializer.serialize(data.email, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    return res;
   }
 
   public constructor() {}

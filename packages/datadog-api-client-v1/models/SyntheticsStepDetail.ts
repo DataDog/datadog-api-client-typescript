@@ -14,11 +14,6 @@ import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
 import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsStepType } from "./SyntheticsStepType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing a step for a Synthetic test.
- */
 
 export class SyntheticsStepDetail {
   /**
@@ -86,381 +81,138 @@ export class SyntheticsStepDetail {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     browserErrors: {
+      name: "browserErrors",
       baseName: "browserErrors",
       type: "Array<SyntheticsBrowserError>",
+      required: false,
       format: "",
     },
     checkType: {
+      name: "checkType",
       baseName: "checkType",
       type: "SyntheticsCheckType",
+      required: false,
       format: "",
     },
     description: {
+      name: "description",
       baseName: "description",
       type: "string",
+      required: false,
       format: "",
     },
     duration: {
+      name: "duration",
       baseName: "duration",
       type: "number",
+      required: false,
       format: "double",
     },
     error: {
+      name: "error",
       baseName: "error",
       type: "string",
+      required: false,
       format: "",
     },
     playingTab: {
+      name: "playingTab",
       baseName: "playingTab",
       type: "SyntheticsPlayingTab",
+      required: false,
       format: "",
     },
     screenshotBucketKey: {
+      name: "screenshotBucketKey",
       baseName: "screenshotBucketKey",
       type: "boolean",
+      required: false,
       format: "",
     },
     skipped: {
+      name: "skipped",
       baseName: "skipped",
       type: "boolean",
+      required: false,
       format: "",
     },
     snapshotBucketKey: {
+      name: "snapshotBucketKey",
       baseName: "snapshotBucketKey",
       type: "boolean",
+      required: false,
       format: "",
     },
     stepId: {
+      name: "stepId",
       baseName: "stepId",
       type: "number",
+      required: false,
       format: "int64",
     },
     subTestStepDetails: {
+      name: "subTestStepDetails",
       baseName: "subTestStepDetails",
       type: "Array<SyntheticsStepDetail>",
+      required: false,
       format: "",
     },
     timeToInteractive: {
+      name: "timeToInteractive",
       baseName: "timeToInteractive",
       type: "number",
+      required: false,
       format: "double",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SyntheticsStepType",
+      required: false,
       format: "",
     },
     url: {
+      name: "url",
       baseName: "url",
       type: "string",
+      required: false,
       format: "",
     },
     value: {
+      name: "value",
       baseName: "value",
       type: "any",
+      required: false,
       format: "",
     },
     vitalsMetrics: {
+      name: "vitalsMetrics",
       baseName: "vitalsMetrics",
       type: "Array<SyntheticsCoreWebVitals>",
+      required: false,
       format: "",
     },
     warnings: {
+      name: "warnings",
       baseName: "warnings",
       type: "Array<SyntheticsStepDetailWarning>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsStepDetail.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsStepDetail {
-    const res = new SyntheticsStepDetail();
-
-    res.browserErrors = ObjectSerializer.deserialize(
-      data.browserErrors,
-      "Array<SyntheticsBrowserError>",
-      ""
-    );
-
-    if (
-      [
-        "equals",
-        "notEquals",
-        "contains",
-        "notContains",
-        "startsWith",
-        "notStartsWith",
-        "greater",
-        "lower",
-        "greaterEquals",
-        "lowerEquals",
-        "matchRegex",
-        "between",
-        "isEmpty",
-        "notIsEmpty",
-        undefined,
-      ].includes(data.checkType)
-    ) {
-      res.checkType = data.checkType;
-    } else {
-      const raw = new SyntheticsStepDetail();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.duration = ObjectSerializer.deserialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    res.error = ObjectSerializer.deserialize(data.error, "string", "");
-
-    if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
-      res.playingTab = data.playingTab;
-    } else {
-      const raw = new SyntheticsStepDetail();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.screenshotBucketKey = ObjectSerializer.deserialize(
-      data.screenshotBucketKey,
-      "boolean",
-      ""
-    );
-
-    res.skipped = ObjectSerializer.deserialize(data.skipped, "boolean", "");
-
-    res.snapshotBucketKey = ObjectSerializer.deserialize(
-      data.snapshotBucketKey,
-      "boolean",
-      ""
-    );
-
-    res.stepId = ObjectSerializer.deserialize(data.stepId, "number", "int64");
-
-    res.subTestStepDetails = ObjectSerializer.deserialize(
-      data.subTestStepDetails,
-      "Array<SyntheticsStepDetail>",
-      ""
-    );
-
-    res.timeToInteractive = ObjectSerializer.deserialize(
-      data.timeToInteractive,
-      "number",
-      "double"
-    );
-
-    if (
-      [
-        "assertCurrentUrl",
-        "assertElementAttribute",
-        "assertElementContent",
-        "assertElementPresent",
-        "assertEmail",
-        "assertFileDownload",
-        "assertFromJavascript",
-        "assertPageContains",
-        "assertPageLacks",
-        "click",
-        "extractFromJavascript",
-        "extractVariable",
-        "goToEmailLink",
-        "goToUrl",
-        "goToUrlAndMeasureTti",
-        "hover",
-        "playSubTest",
-        "pressKey",
-        "refresh",
-        "runApiTest",
-        "scroll",
-        "selectOption",
-        "typeText",
-        "uploadFiles",
-        "wait",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      const raw = new SyntheticsStepDetail();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.url = ObjectSerializer.deserialize(data.url, "string", "");
-
-    res.value = ObjectSerializer.deserialize(data.value, "any", "");
-
-    res.vitalsMetrics = ObjectSerializer.deserialize(
-      data.vitalsMetrics,
-      "Array<SyntheticsCoreWebVitals>",
-      ""
-    );
-
-    res.warnings = ObjectSerializer.deserialize(
-      data.warnings,
-      "Array<SyntheticsStepDetailWarning>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsStepDetail): { [key: string]: any } {
-    const attributeTypes = SyntheticsStepDetail.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.browserErrors = ObjectSerializer.serialize(
-      data.browserErrors,
-      "Array<SyntheticsBrowserError>",
-      ""
-    );
-
-    if (
-      [
-        "equals",
-        "notEquals",
-        "contains",
-        "notContains",
-        "startsWith",
-        "notStartsWith",
-        "greater",
-        "lower",
-        "greaterEquals",
-        "lowerEquals",
-        "matchRegex",
-        "between",
-        "isEmpty",
-        "notIsEmpty",
-        undefined,
-      ].includes(data.checkType)
-    ) {
-      res.checkType = data.checkType;
-    } else {
-      throw TypeError(`invalid enum value ${data.checkType} for checkType`);
-    }
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.duration = ObjectSerializer.serialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    res.error = ObjectSerializer.serialize(data.error, "string", "");
-
-    if ([-1, 0, 1, 2, 3, undefined].includes(data.playingTab)) {
-      res.playingTab = data.playingTab;
-    } else {
-      throw TypeError(`invalid enum value ${data.playingTab} for playingTab`);
-    }
-
-    res.screenshotBucketKey = ObjectSerializer.serialize(
-      data.screenshotBucketKey,
-      "boolean",
-      ""
-    );
-
-    res.skipped = ObjectSerializer.serialize(data.skipped, "boolean", "");
-
-    res.snapshotBucketKey = ObjectSerializer.serialize(
-      data.snapshotBucketKey,
-      "boolean",
-      ""
-    );
-
-    res.stepId = ObjectSerializer.serialize(data.stepId, "number", "int64");
-
-    res.subTestStepDetails = ObjectSerializer.serialize(
-      data.subTestStepDetails,
-      "Array<SyntheticsStepDetail>",
-      ""
-    );
-
-    res.timeToInteractive = ObjectSerializer.serialize(
-      data.timeToInteractive,
-      "number",
-      "double"
-    );
-
-    if (
-      [
-        "assertCurrentUrl",
-        "assertElementAttribute",
-        "assertElementContent",
-        "assertElementPresent",
-        "assertEmail",
-        "assertFileDownload",
-        "assertFromJavascript",
-        "assertPageContains",
-        "assertPageLacks",
-        "click",
-        "extractFromJavascript",
-        "extractVariable",
-        "goToEmailLink",
-        "goToUrl",
-        "goToUrlAndMeasureTti",
-        "hover",
-        "playSubTest",
-        "pressKey",
-        "refresh",
-        "runApiTest",
-        "scroll",
-        "selectOption",
-        "typeText",
-        "uploadFiles",
-        "wait",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    res.url = ObjectSerializer.serialize(data.url, "string", "");
-
-    res.value = ObjectSerializer.serialize(data.value, "any", "");
-
-    res.vitalsMetrics = ObjectSerializer.serialize(
-      data.vitalsMetrics,
-      "Array<SyntheticsCoreWebVitals>",
-      ""
-    );
-
-    res.warnings = ObjectSerializer.serialize(
-      data.warnings,
-      "Array<SyntheticsStepDetailWarning>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

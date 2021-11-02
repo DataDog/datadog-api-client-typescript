@@ -9,11 +9,6 @@
  */
 
 import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.
- */
 
 export class LogsLookupProcessor {
   /**
@@ -47,165 +42,68 @@ export class LogsLookupProcessor {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     defaultLookup: {
+      name: "defaultLookup",
       baseName: "default_lookup",
       type: "string",
+      required: false,
       format: "",
     },
     isEnabled: {
+      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     lookupTable: {
+      name: "lookupTable",
       baseName: "lookup_table",
       type: "Array<string>",
+      required: true,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     source: {
+      name: "source",
       baseName: "source",
       type: "string",
+      required: true,
       format: "",
     },
     target: {
+      name: "target",
       baseName: "target",
       type: "string",
+      required: true,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsLookupProcessorType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsLookupProcessor.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsLookupProcessor {
-    const res = new LogsLookupProcessor();
-
-    res.defaultLookup = ObjectSerializer.deserialize(
-      data.default_lookup,
-      "string",
-      ""
-    );
-
-    res.isEnabled = ObjectSerializer.deserialize(
-      data.is_enabled,
-      "boolean",
-      ""
-    );
-
-    if (data.lookup_table === undefined) {
-      throw new TypeError(
-        "missing required attribute 'lookup_table' on 'LogsLookupProcessor' object"
-      );
-    }
-    res.lookupTable = ObjectSerializer.deserialize(
-      data.lookup_table,
-      "Array<string>",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.source === undefined) {
-      throw new TypeError(
-        "missing required attribute 'source' on 'LogsLookupProcessor' object"
-      );
-    }
-    res.source = ObjectSerializer.deserialize(data.source, "string", "");
-
-    if (data.target === undefined) {
-      throw new TypeError(
-        "missing required attribute 'target' on 'LogsLookupProcessor' object"
-      );
-    }
-    res.target = ObjectSerializer.deserialize(data.target, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsLookupProcessor' object"
-      );
-    }
-    if (["lookup-processor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsLookupProcessor();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsLookupProcessor): { [key: string]: any } {
-    const attributeTypes = LogsLookupProcessor.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.default_lookup = ObjectSerializer.serialize(
-      data.defaultLookup,
-      "string",
-      ""
-    );
-
-    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    if (data.lookupTable === undefined) {
-      throw new TypeError(
-        "missing required attribute 'lookup_table' on 'LogsLookupProcessor' object"
-      );
-    }
-    res.lookup_table = ObjectSerializer.serialize(
-      data.lookupTable,
-      "Array<string>",
-      ""
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.source === undefined) {
-      throw new TypeError(
-        "missing required attribute 'source' on 'LogsLookupProcessor' object"
-      );
-    }
-    res.source = ObjectSerializer.serialize(data.source, "string", "");
-
-    if (data.target === undefined) {
-      throw new TypeError(
-        "missing required attribute 'target' on 'LogsLookupProcessor' object"
-      );
-    }
-    res.target = ObjectSerializer.serialize(data.target, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsLookupProcessor' object"
-      );
-    }
-    if (["lookup-processor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

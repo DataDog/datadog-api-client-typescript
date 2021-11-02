@@ -10,11 +10,6 @@
 
 import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Notebooks get all response.
- */
 
 export class NotebooksResponse {
   /**
@@ -28,66 +23,33 @@ export class NotebooksResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<NotebooksResponseData>",
+      required: false,
       format: "",
     },
     meta: {
+      name: "meta",
       baseName: "meta",
       type: "NotebooksResponseMeta",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebooksResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebooksResponse {
-    const res = new NotebooksResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<NotebooksResponseData>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "NotebooksResponseMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: NotebooksResponse): { [key: string]: any } {
-    const attributeTypes = NotebooksResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<NotebooksResponseData>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "NotebooksResponseMeta",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

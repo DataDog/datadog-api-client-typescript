@@ -9,11 +9,6 @@
  */
 
 import { UsageSDSHour } from "./UsageSDSHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
- */
 
 export class UsageSDSResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageSDSResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageSDSHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSDSResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSDSResponse {
-    const res = new UsageSDSResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageSDSHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSDSResponse): { [key: string]: any } {
-    const attributeTypes = UsageSDSResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageSDSHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

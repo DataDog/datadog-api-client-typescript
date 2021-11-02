@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Custom variable for Webhook integration.
- */
-
 export class WebhooksIntegrationCustomVariableResponse {
   /**
    * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
@@ -33,84 +27,40 @@ export class WebhooksIntegrationCustomVariableResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     isSecret: {
+      name: "isSecret",
       baseName: "is_secret",
       type: "boolean",
+      required: true,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     value: {
+      name: "value",
       baseName: "value",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WebhooksIntegrationCustomVariableResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): WebhooksIntegrationCustomVariableResponse {
-    const res = new WebhooksIntegrationCustomVariableResponse();
-
-    if (data.is_secret === undefined) {
-      throw new TypeError(
-        "missing required attribute 'is_secret' on 'WebhooksIntegrationCustomVariableResponse' object"
-      );
-    }
-    res.isSecret = ObjectSerializer.deserialize(data.is_secret, "boolean", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'WebhooksIntegrationCustomVariableResponse' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.value = ObjectSerializer.deserialize(data.value, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: WebhooksIntegrationCustomVariableResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      WebhooksIntegrationCustomVariableResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.isSecret === undefined) {
-      throw new TypeError(
-        "missing required attribute 'is_secret' on 'WebhooksIntegrationCustomVariableResponse' object"
-      );
-    }
-    res.is_secret = ObjectSerializer.serialize(data.isSecret, "boolean", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'WebhooksIntegrationCustomVariableResponse' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.value = ObjectSerializer.serialize(data.value, "string", "");
-
-    return res;
   }
 
   public constructor() {}

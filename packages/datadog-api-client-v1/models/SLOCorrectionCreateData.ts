@@ -10,11 +10,6 @@
 
 import { SLOCorrectionCreateRequestAttributes } from "./SLOCorrectionCreateRequestAttributes";
 import { SLOCorrectionType } from "./SLOCorrectionType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The data object associated with the SLO correction to be created.
- */
 
 export class SLOCorrectionCreateData {
   "attributes"?: SLOCorrectionCreateRequestAttributes;
@@ -25,78 +20,33 @@ export class SLOCorrectionCreateData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "SLOCorrectionCreateRequestAttributes",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SLOCorrectionType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOCorrectionCreateData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOCorrectionCreateData {
-    const res = new SLOCorrectionCreateData();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "SLOCorrectionCreateRequestAttributes",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SLOCorrectionCreateData' object"
-      );
-    }
-    if (["correction", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SLOCorrectionCreateData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SLOCorrectionCreateData): { [key: string]: any } {
-    const attributeTypes = SLOCorrectionCreateData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "SLOCorrectionCreateRequestAttributes",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SLOCorrectionCreateData' object"
-      );
-    }
-    if (["correction", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

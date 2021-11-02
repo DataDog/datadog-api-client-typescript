@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
- */
-
 export class OrganizationSettingsSamlAutocreateUsersDomains {
   /**
    * List of domains where the SAML automated user creation is enabled.
@@ -29,59 +23,33 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     domains: {
+      name: "domains",
       baseName: "domains",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     enabled: {
+      name: "enabled",
       baseName: "enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): OrganizationSettingsSamlAutocreateUsersDomains {
-    const res = new OrganizationSettingsSamlAutocreateUsersDomains();
-
-    res.domains = ObjectSerializer.deserialize(
-      data.domains,
-      "Array<string>",
-      ""
-    );
-
-    res.enabled = ObjectSerializer.deserialize(data.enabled, "boolean", "");
-
-    return res;
-  }
-
-  static serialize(data: OrganizationSettingsSamlAutocreateUsersDomains): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      OrganizationSettingsSamlAutocreateUsersDomains.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.domains = ObjectSerializer.serialize(data.domains, "Array<string>", "");
-
-    res.enabled = ObjectSerializer.serialize(data.enabled, "boolean", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Number of active NPM hosts for each hour for a given organization.
- */
-
 export class UsageNetworkHostsHour {
   /**
    * Contains the number of active NPM hosts.
@@ -29,58 +23,33 @@ export class UsageNetworkHostsHour {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     hostCount: {
+      name: "hostCount",
       baseName: "host_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     hour: {
+      name: "hour",
       baseName: "hour",
       type: "Date",
+      required: false,
       format: "date-time",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageNetworkHostsHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageNetworkHostsHour {
-    const res = new UsageNetworkHostsHour();
-
-    res.hostCount = ObjectSerializer.deserialize(
-      data.host_count,
-      "number",
-      "int64"
-    );
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    return res;
-  }
-
-  static serialize(data: UsageNetworkHostsHour): { [key: string]: any } {
-    const attributeTypes = UsageNetworkHostsHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.host_count = ObjectSerializer.serialize(
-      data.hostCount,
-      "number",
-      "int64"
-    );
-
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    return res;
   }
 
   public constructor() {}

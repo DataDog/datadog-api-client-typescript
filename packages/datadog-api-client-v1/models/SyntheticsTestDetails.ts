@@ -15,11 +15,6 @@ import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing details about your Synthetic test.
- */
 
 export class SyntheticsTestDetails {
   "config"?: SyntheticsTestConfig;
@@ -62,227 +57,110 @@ export class SyntheticsTestDetails {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     config: {
+      name: "config",
       baseName: "config",
       type: "SyntheticsTestConfig",
+      required: false,
       format: "",
     },
     creator: {
+      name: "creator",
       baseName: "creator",
       type: "Creator",
+      required: false,
       format: "",
     },
     locations: {
+      name: "locations",
       baseName: "locations",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
     monitorId: {
+      name: "monitorId",
       baseName: "monitor_id",
       type: "number",
+      required: false,
       format: "int64",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     options: {
+      name: "options",
       baseName: "options",
       type: "SyntheticsTestOptions",
+      required: false,
       format: "",
     },
     publicId: {
+      name: "publicId",
       baseName: "public_id",
       type: "string",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
+      required: false,
       format: "",
     },
     steps: {
+      name: "steps",
       baseName: "steps",
       type: "Array<SyntheticsStep>",
+      required: false,
       format: "",
     },
     subtype: {
+      name: "subtype",
       baseName: "subtype",
       type: "SyntheticsTestDetailsSubType",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SyntheticsTestDetailsType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTestDetails.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsTestDetails {
-    const res = new SyntheticsTestDetails();
-
-    res.config = ObjectSerializer.deserialize(
-      data.config,
-      "SyntheticsTestConfig",
-      ""
-    );
-
-    res.creator = ObjectSerializer.deserialize(data.creator, "Creator", "");
-
-    res.locations = ObjectSerializer.deserialize(
-      data.locations,
-      "Array<string>",
-      ""
-    );
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.monitorId = ObjectSerializer.deserialize(
-      data.monitor_id,
-      "number",
-      "int64"
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.options = ObjectSerializer.deserialize(
-      data.options,
-      "SyntheticsTestOptions",
-      ""
-    );
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    if (["live", "paused", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new SyntheticsTestDetails();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.steps = ObjectSerializer.deserialize(
-      data.steps,
-      "Array<SyntheticsStep>",
-      ""
-    );
-
-    if (
-      ["http", "ssl", "tcp", "dns", "multi", "icmp", undefined].includes(
-        data.subtype
-      )
-    ) {
-      res.subtype = data.subtype;
-    } else {
-      const raw = new SyntheticsTestDetails();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    if (["api", "browser", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SyntheticsTestDetails();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTestDetails): { [key: string]: any } {
-    const attributeTypes = SyntheticsTestDetails.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.config = ObjectSerializer.serialize(
-      data.config,
-      "SyntheticsTestConfig",
-      ""
-    );
-
-    res.creator = ObjectSerializer.serialize(data.creator, "Creator", "");
-
-    res.locations = ObjectSerializer.serialize(
-      data.locations,
-      "Array<string>",
-      ""
-    );
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.monitor_id = ObjectSerializer.serialize(
-      data.monitorId,
-      "number",
-      "int64"
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.options = ObjectSerializer.serialize(
-      data.options,
-      "SyntheticsTestOptions",
-      ""
-    );
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    if (["live", "paused", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    res.steps = ObjectSerializer.serialize(
-      data.steps,
-      "Array<SyntheticsStep>",
-      ""
-    );
-
-    if (
-      ["http", "ssl", "tcp", "dns", "multi", "icmp", undefined].includes(
-        data.subtype
-      )
-    ) {
-      res.subtype = data.subtype;
-    } else {
-      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
-    }
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    if (["api", "browser", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

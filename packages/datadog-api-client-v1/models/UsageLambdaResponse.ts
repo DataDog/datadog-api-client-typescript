@@ -9,11 +9,6 @@
  */
 
 import { UsageLambdaHour } from "./UsageLambdaHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
- */
 
 export class UsageLambdaResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageLambdaResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageLambdaHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageLambdaResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageLambdaResponse {
-    const res = new UsageLambdaResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageLambdaHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageLambdaResponse): { [key: string]: any } {
-    const attributeTypes = UsageLambdaResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageLambdaHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

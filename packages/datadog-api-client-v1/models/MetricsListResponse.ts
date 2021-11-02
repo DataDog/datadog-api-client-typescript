@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object listing all metric names stored by Datadog since a given time.
- */
-
 export class MetricsListResponse {
   /**
    * Time when the metrics were active, seconds since the Unix epoch.
@@ -29,54 +23,33 @@ export class MetricsListResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     from: {
+      name: "from",
       baseName: "from",
       type: "string",
+      required: false,
       format: "",
     },
     metrics: {
+      name: "metrics",
       baseName: "metrics",
       type: "Array<string>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricsListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricsListResponse {
-    const res = new MetricsListResponse();
-
-    res.from = ObjectSerializer.deserialize(data.from, "string", "");
-
-    res.metrics = ObjectSerializer.deserialize(
-      data.metrics,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricsListResponse): { [key: string]: any } {
-    const attributeTypes = MetricsListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.from = ObjectSerializer.serialize(data.from, "string", "");
-
-    res.metrics = ObjectSerializer.serialize(data.metrics, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

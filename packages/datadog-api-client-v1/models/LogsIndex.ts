@@ -10,11 +10,6 @@
 
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsFilter } from "./LogsFilter";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing a Datadog Log index.
- */
 
 export class LogsIndex {
   /**
@@ -44,138 +39,61 @@ export class LogsIndex {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     dailyLimit: {
+      name: "dailyLimit",
       baseName: "daily_limit",
       type: "number",
+      required: false,
       format: "int64",
     },
     exclusionFilters: {
+      name: "exclusionFilters",
       baseName: "exclusion_filters",
       type: "Array<LogsExclusion>",
+      required: false,
       format: "",
     },
     filter: {
+      name: "filter",
       baseName: "filter",
       type: "LogsFilter",
+      required: true,
       format: "",
     },
     isRateLimited: {
+      name: "isRateLimited",
       baseName: "is_rate_limited",
       type: "boolean",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     numRetentionDays: {
+      name: "numRetentionDays",
       baseName: "num_retention_days",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsIndex.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsIndex {
-    const res = new LogsIndex();
-
-    res.dailyLimit = ObjectSerializer.deserialize(
-      data.daily_limit,
-      "number",
-      "int64"
-    );
-
-    res.exclusionFilters = ObjectSerializer.deserialize(
-      data.exclusion_filters,
-      "Array<LogsExclusion>",
-      ""
-    );
-
-    if (data.filter === undefined) {
-      throw new TypeError(
-        "missing required attribute 'filter' on 'LogsIndex' object"
-      );
-    }
-    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
-
-    res.isRateLimited = ObjectSerializer.deserialize(
-      data.is_rate_limited,
-      "boolean",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'LogsIndex' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.numRetentionDays = ObjectSerializer.deserialize(
-      data.num_retention_days,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsIndex): { [key: string]: any } {
-    const attributeTypes = LogsIndex.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.daily_limit = ObjectSerializer.serialize(
-      data.dailyLimit,
-      "number",
-      "int64"
-    );
-
-    res.exclusion_filters = ObjectSerializer.serialize(
-      data.exclusionFilters,
-      "Array<LogsExclusion>",
-      ""
-    );
-
-    if (data.filter === undefined) {
-      throw new TypeError(
-        "missing required attribute 'filter' on 'LogsIndex' object"
-      );
-    }
-    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
-
-    res.is_rate_limited = ObjectSerializer.serialize(
-      data.isRateLimited,
-      "boolean",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'LogsIndex' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.num_retention_days = ObjectSerializer.serialize(
-      data.numRetentionDays,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

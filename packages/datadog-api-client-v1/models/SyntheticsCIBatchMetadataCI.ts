@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Description of the CI provider.
- */
-
 export class SyntheticsCIBatchMetadataCI {
   /**
    * Name of the pipeline.
@@ -29,52 +23,33 @@ export class SyntheticsCIBatchMetadataCI {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     pipeline: {
+      name: "pipeline",
       baseName: "pipeline",
       type: "string",
+      required: false,
       format: "",
     },
     provider: {
+      name: "provider",
       baseName: "provider",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsCIBatchMetadataCI.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsCIBatchMetadataCI {
-    const res = new SyntheticsCIBatchMetadataCI();
-
-    res.pipeline = ObjectSerializer.deserialize(data.pipeline, "string", "");
-
-    res.provider = ObjectSerializer.deserialize(data.provider, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsCIBatchMetadataCI): { [key: string]: any } {
-    const attributeTypes = SyntheticsCIBatchMetadataCI.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.pipeline = ObjectSerializer.serialize(data.pipeline, "string", "");
-
-    res.provider = ObjectSerializer.serialize(data.provider, "string", "");
-
-    return res;
   }
 
   public constructor() {}

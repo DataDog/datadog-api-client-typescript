@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of the edited user.
- */
-
 export class UserUpdateAttributes {
   /**
    * If the user is enabled or disabled.
@@ -33,59 +27,40 @@ export class UserUpdateAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     disabled: {
+      name: "disabled",
       baseName: "disabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     email: {
+      name: "email",
       baseName: "email",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UserUpdateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserUpdateAttributes {
-    const res = new UserUpdateAttributes();
-
-    res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "");
-
-    res.email = ObjectSerializer.deserialize(data.email, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: UserUpdateAttributes): { [key: string]: any } {
-    const attributeTypes = UserUpdateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "");
-
-    res.email = ObjectSerializer.serialize(data.email, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

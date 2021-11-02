@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A notification handle that will be notified at incident creation.
- */
-
 export class IncidentNotificationHandle {
   /**
    * The name of the notified handle.
@@ -29,58 +23,33 @@ export class IncidentNotificationHandle {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     displayName: {
+      name: "displayName",
       baseName: "display_name",
       type: "string",
+      required: false,
       format: "",
     },
     handle: {
+      name: "handle",
       baseName: "handle",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentNotificationHandle.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): IncidentNotificationHandle {
-    const res = new IncidentNotificationHandle();
-
-    res.displayName = ObjectSerializer.deserialize(
-      data.display_name,
-      "string",
-      ""
-    );
-
-    res.handle = ObjectSerializer.deserialize(data.handle, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: IncidentNotificationHandle): { [key: string]: any } {
-    const attributeTypes = IncidentNotificationHandle.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.display_name = ObjectSerializer.serialize(
-      data.displayName,
-      "string",
-      ""
-    );
-
-    res.handle = ObjectSerializer.serialize(data.handle, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Optional metadata associated to the response.
- */
-
 export class SecurityFilterMeta {
   /**
    * A warning message.
@@ -25,41 +19,26 @@ export class SecurityFilterMeta {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     warning: {
+      name: "warning",
       baseName: "warning",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityFilterMeta.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SecurityFilterMeta {
-    const res = new SecurityFilterMeta();
-
-    res.warning = ObjectSerializer.deserialize(data.warning, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SecurityFilterMeta): { [key: string]: any } {
-    const attributeTypes = SecurityFilterMeta.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.warning = ObjectSerializer.serialize(data.warning, "string", "");
-
-    return res;
   }
 
   public constructor() {}

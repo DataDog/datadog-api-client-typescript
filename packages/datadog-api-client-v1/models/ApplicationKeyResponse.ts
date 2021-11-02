@@ -9,11 +9,6 @@
  */
 
 import { ApplicationKey } from "./ApplicationKey";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An application key response.
- */
 
 export class ApplicationKeyResponse {
   "applicationKey"?: ApplicationKey;
@@ -23,49 +18,26 @@ export class ApplicationKeyResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     applicationKey: {
+      name: "applicationKey",
       baseName: "application_key",
       type: "ApplicationKey",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApplicationKeyResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ApplicationKeyResponse {
-    const res = new ApplicationKeyResponse();
-
-    res.applicationKey = ObjectSerializer.deserialize(
-      data.application_key,
-      "ApplicationKey",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ApplicationKeyResponse): { [key: string]: any } {
-    const attributeTypes = ApplicationKeyResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.application_key = ObjectSerializer.serialize(
-      data.applicationKey,
-      "ApplicationKey",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

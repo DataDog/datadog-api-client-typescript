@@ -11,11 +11,6 @@
 import { LogsAggregateSortType } from "./LogsAggregateSortType";
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsSortOrder } from "./LogsSortOrder";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A sort rule
- */
 
 export class LogsAggregateSort {
   "aggregation"?: LogsAggregationFunction;
@@ -31,128 +26,47 @@ export class LogsAggregateSort {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggregation: {
+      name: "aggregation",
       baseName: "aggregation",
       type: "LogsAggregationFunction",
+      required: false,
       format: "",
     },
     metric: {
+      name: "metric",
       baseName: "metric",
       type: "string",
+      required: false,
       format: "",
     },
     order: {
+      name: "order",
       baseName: "order",
       type: "LogsSortOrder",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsAggregateSortType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsAggregateSort.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsAggregateSort {
-    const res = new LogsAggregateSort();
-
-    if (
-      [
-        "count",
-        "cardinality",
-        "pc75",
-        "pc90",
-        "pc95",
-        "pc98",
-        "pc99",
-        "sum",
-        "min",
-        "max",
-        "avg",
-        undefined,
-      ].includes(data.aggregation)
-    ) {
-      res.aggregation = data.aggregation;
-    } else {
-      const raw = new LogsAggregateSort();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      const raw = new LogsAggregateSort();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (["alphabetical", "measure", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsAggregateSort();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsAggregateSort): { [key: string]: any } {
-    const attributeTypes = LogsAggregateSort.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      [
-        "count",
-        "cardinality",
-        "pc75",
-        "pc90",
-        "pc95",
-        "pc98",
-        "pc99",
-        "sum",
-        "min",
-        "max",
-        "avg",
-        undefined,
-      ].includes(data.aggregation)
-    ) {
-      res.aggregation = data.aggregation;
-    } else {
-      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
-    }
-
-    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
-    }
-
-    if (["alphabetical", "measure", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Template variable.
- */
-
 export class DashboardTemplateVariable {
   /**
    * The list of values that the template variable drop-down is limited to.
@@ -37,86 +31,47 @@ export class DashboardTemplateVariable {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     availableValues: {
+      name: "availableValues",
       baseName: "available_values",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     _default: {
+      name: "_default",
       baseName: "default",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     prefix: {
+      name: "prefix",
       baseName: "prefix",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardTemplateVariable.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardTemplateVariable {
-    const res = new DashboardTemplateVariable();
-
-    res.availableValues = ObjectSerializer.deserialize(
-      data.available_values,
-      "Array<string>",
-      ""
-    );
-
-    res._default = ObjectSerializer.deserialize(data.default, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'DashboardTemplateVariable' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.prefix = ObjectSerializer.deserialize(data.prefix, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: DashboardTemplateVariable): { [key: string]: any } {
-    const attributeTypes = DashboardTemplateVariable.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.available_values = ObjectSerializer.serialize(
-      data.availableValues,
-      "Array<string>",
-      ""
-    );
-
-    res.default = ObjectSerializer.serialize(data._default, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'DashboardTemplateVariable' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.prefix = ObjectSerializer.serialize(data.prefix, "string", "");
-
-    return res;
   }
 
   public constructor() {}

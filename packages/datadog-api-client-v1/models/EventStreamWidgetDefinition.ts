@@ -12,11 +12,6 @@ import { EventStreamWidgetDefinitionType } from "./EventStreamWidgetDefinitionTy
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
- */
 
 export class EventStreamWidgetDefinition {
   "eventSize"?: WidgetEventSize;
@@ -45,164 +40,75 @@ export class EventStreamWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     eventSize: {
+      name: "eventSize",
       baseName: "event_size",
       type: "WidgetEventSize",
+      required: false,
       format: "",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: true,
       format: "",
     },
     tagsExecution: {
+      name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
+      required: false,
       format: "",
     },
     time: {
+      name: "time",
       baseName: "time",
       type: "WidgetTime",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     titleAlign: {
+      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     titleSize: {
+      name: "titleSize",
       baseName: "title_size",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "EventStreamWidgetDefinitionType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return EventStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): EventStreamWidgetDefinition {
-    const res = new EventStreamWidgetDefinition();
-
-    if (["s", "l", undefined].includes(data.event_size)) {
-      res.eventSize = data.event_size;
-    } else {
-      const raw = new EventStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'EventStreamWidgetDefinition' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    res.tagsExecution = ObjectSerializer.deserialize(
-      data.tags_execution,
-      "string",
-      ""
-    );
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new EventStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'EventStreamWidgetDefinition' object"
-      );
-    }
-    if (["event_stream", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new EventStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: EventStreamWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = EventStreamWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (["s", "l", undefined].includes(data.eventSize)) {
-      res.event_size = data.eventSize;
-    } else {
-      throw TypeError(`invalid enum value ${data.eventSize} for eventSize`);
-    }
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'EventStreamWidgetDefinition' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    res.tags_execution = ObjectSerializer.serialize(
-      data.tagsExecution,
-      "string",
-      ""
-    );
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'EventStreamWidgetDefinition' object"
-      );
-    }
-    if (["event_stream", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

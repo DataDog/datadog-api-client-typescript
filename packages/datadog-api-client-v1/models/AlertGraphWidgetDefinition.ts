@@ -12,11 +12,6 @@ import { AlertGraphWidgetDefinitionType } from "./AlertGraphWidgetDefinitionType
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 import { WidgetVizType } from "./WidgetVizType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
- */
 
 export class AlertGraphWidgetDefinition {
   /**
@@ -41,155 +36,68 @@ export class AlertGraphWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     alertId: {
+      name: "alertId",
       baseName: "alert_id",
       type: "string",
+      required: true,
       format: "",
     },
     time: {
+      name: "time",
       baseName: "time",
       type: "WidgetTime",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     titleAlign: {
+      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     titleSize: {
+      name: "titleSize",
       baseName: "title_size",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "AlertGraphWidgetDefinitionType",
+      required: true,
       format: "",
     },
     vizType: {
+      name: "vizType",
       baseName: "viz_type",
       type: "WidgetVizType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AlertGraphWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AlertGraphWidgetDefinition {
-    const res = new AlertGraphWidgetDefinition();
-
-    if (data.alert_id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'alert_id' on 'AlertGraphWidgetDefinition' object"
-      );
-    }
-    res.alertId = ObjectSerializer.deserialize(data.alert_id, "string", "");
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new AlertGraphWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'AlertGraphWidgetDefinition' object"
-      );
-    }
-    if (["alert_graph", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new AlertGraphWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.viz_type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'viz_type' on 'AlertGraphWidgetDefinition' object"
-      );
-    }
-    if (["timeseries", "toplist", undefined].includes(data.viz_type)) {
-      res.vizType = data.viz_type;
-    } else {
-      const raw = new AlertGraphWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: AlertGraphWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = AlertGraphWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.alertId === undefined) {
-      throw new TypeError(
-        "missing required attribute 'alert_id' on 'AlertGraphWidgetDefinition' object"
-      );
-    }
-    res.alert_id = ObjectSerializer.serialize(data.alertId, "string", "");
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'AlertGraphWidgetDefinition' object"
-      );
-    }
-    if (["alert_graph", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    if (data.vizType === undefined) {
-      throw new TypeError(
-        "missing required attribute 'viz_type' on 'AlertGraphWidgetDefinition' object"
-      );
-    }
-    if (["timeseries", "toplist", undefined].includes(data.vizType)) {
-      res.viz_type = data.vizType;
-    } else {
-      throw TypeError(`invalid enum value ${data.vizType} for vizType`);
-    }
-
-    return res;
   }
 
   public constructor() {}

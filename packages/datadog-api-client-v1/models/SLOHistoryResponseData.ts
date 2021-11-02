@@ -14,11 +14,6 @@ import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An array of service level objective objects.
- */
 
 export class SLOHistoryResponseData {
   /**
@@ -55,190 +50,89 @@ export class SLOHistoryResponseData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     fromTs: {
+      name: "fromTs",
       baseName: "from_ts",
       type: "number",
+      required: false,
       format: "int64",
     },
     groupBy: {
+      name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     groups: {
+      name: "groups",
       baseName: "groups",
       type: "Array<SLOHistoryMonitor>",
+      required: false,
       format: "",
     },
     monitors: {
+      name: "monitors",
       baseName: "monitors",
       type: "Array<SLOHistoryMonitor>",
+      required: false,
       format: "",
     },
     overall: {
+      name: "overall",
       baseName: "overall",
       type: "SLOHistorySLIData",
+      required: false,
       format: "",
     },
     series: {
+      name: "series",
       baseName: "series",
       type: "SLOHistoryMetrics",
+      required: false,
       format: "",
     },
     thresholds: {
+      name: "thresholds",
       baseName: "thresholds",
       type: "{ [key: string]: SLOThreshold; }",
+      required: false,
       format: "",
     },
     toTs: {
+      name: "toTs",
       baseName: "to_ts",
       type: "number",
+      required: false,
       format: "int64",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SLOType",
+      required: false,
       format: "",
     },
     typeId: {
+      name: "typeId",
       baseName: "type_id",
       type: "SLOTypeNumeric",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOHistoryResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOHistoryResponseData {
-    const res = new SLOHistoryResponseData();
-
-    res.fromTs = ObjectSerializer.deserialize(data.from_ts, "number", "int64");
-
-    res.groupBy = ObjectSerializer.deserialize(
-      data.group_by,
-      "Array<string>",
-      ""
-    );
-
-    res.groups = ObjectSerializer.deserialize(
-      data.groups,
-      "Array<SLOHistoryMonitor>",
-      ""
-    );
-
-    res.monitors = ObjectSerializer.deserialize(
-      data.monitors,
-      "Array<SLOHistoryMonitor>",
-      ""
-    );
-
-    res.overall = ObjectSerializer.deserialize(
-      data.overall,
-      "SLOHistorySLIData",
-      ""
-    );
-
-    res.series = ObjectSerializer.deserialize(
-      data.series,
-      "SLOHistoryMetrics",
-      ""
-    );
-
-    res.thresholds = ObjectSerializer.deserialize(
-      data.thresholds,
-      "{ [key: string]: SLOThreshold; }",
-      ""
-    );
-
-    res.toTs = ObjectSerializer.deserialize(data.to_ts, "number", "int64");
-
-    if (["metric", "monitor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SLOHistoryResponseData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if ([0, 1, undefined].includes(data.type_id)) {
-      res.typeId = data.type_id;
-    } else {
-      const raw = new SLOHistoryResponseData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SLOHistoryResponseData): { [key: string]: any } {
-    const attributeTypes = SLOHistoryResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.from_ts = ObjectSerializer.serialize(data.fromTs, "number", "int64");
-
-    res.group_by = ObjectSerializer.serialize(
-      data.groupBy,
-      "Array<string>",
-      ""
-    );
-
-    res.groups = ObjectSerializer.serialize(
-      data.groups,
-      "Array<SLOHistoryMonitor>",
-      ""
-    );
-
-    res.monitors = ObjectSerializer.serialize(
-      data.monitors,
-      "Array<SLOHistoryMonitor>",
-      ""
-    );
-
-    res.overall = ObjectSerializer.serialize(
-      data.overall,
-      "SLOHistorySLIData",
-      ""
-    );
-
-    res.series = ObjectSerializer.serialize(
-      data.series,
-      "SLOHistoryMetrics",
-      ""
-    );
-
-    res.thresholds = ObjectSerializer.serialize(
-      data.thresholds,
-      "{ [key: string]: SLOThreshold; }",
-      ""
-    );
-
-    res.to_ts = ObjectSerializer.serialize(data.toTs, "number", "int64");
-
-    if (["metric", "monitor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    if ([0, 1, undefined].includes(data.typeId)) {
-      res.type_id = data.typeId;
-    } else {
-      throw TypeError(`invalid enum value ${data.typeId} for typeId`);
-    }
-
-    return res;
   }
 
   public constructor() {}

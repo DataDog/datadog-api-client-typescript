@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Error returned by the Logs API
- */
-
 export class LogsAPIError {
   /**
    * Code identifying the error
@@ -33,67 +27,40 @@ export class LogsAPIError {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     code: {
+      name: "code",
       baseName: "code",
       type: "string",
+      required: false,
       format: "",
     },
     details: {
+      name: "details",
       baseName: "details",
       type: "Array<LogsAPIError>",
+      required: false,
       format: "",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsAPIError.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsAPIError {
-    const res = new LogsAPIError();
-
-    res.code = ObjectSerializer.deserialize(data.code, "string", "");
-
-    res.details = ObjectSerializer.deserialize(
-      data.details,
-      "Array<LogsAPIError>",
-      ""
-    );
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsAPIError): { [key: string]: any } {
-    const attributeTypes = LogsAPIError.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.code = ObjectSerializer.serialize(data.code, "string", "");
-
-    res.details = ObjectSerializer.serialize(
-      data.details,
-      "Array<LogsAPIError>",
-      ""
-    );
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    return res;
   }
 
   public constructor() {}

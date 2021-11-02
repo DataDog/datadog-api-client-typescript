@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Pagination properties.
- */
-
 export class IncidentServicesResponseMetaPagination {
   /**
    * The index of the first element in the next page of results. Equal to page size added to the current offset.
@@ -33,72 +27,40 @@ export class IncidentServicesResponseMetaPagination {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     nextOffset: {
+      name: "nextOffset",
       baseName: "next_offset",
       type: "number",
+      required: false,
       format: "int64",
     },
     offset: {
+      name: "offset",
       baseName: "offset",
       type: "number",
+      required: false,
       format: "int64",
     },
     size: {
+      name: "size",
       baseName: "size",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentServicesResponseMetaPagination.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentServicesResponseMetaPagination {
-    const res = new IncidentServicesResponseMetaPagination();
-
-    res.nextOffset = ObjectSerializer.deserialize(
-      data.next_offset,
-      "number",
-      "int64"
-    );
-
-    res.offset = ObjectSerializer.deserialize(data.offset, "number", "int64");
-
-    res.size = ObjectSerializer.deserialize(data.size, "number", "int64");
-
-    return res;
-  }
-
-  static serialize(data: IncidentServicesResponseMetaPagination): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      IncidentServicesResponseMetaPagination.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.next_offset = ObjectSerializer.serialize(
-      data.nextOffset,
-      "number",
-      "int64"
-    );
-
-    res.offset = ObjectSerializer.serialize(data.offset, "number", "int64");
-
-    res.size = ObjectSerializer.serialize(data.size, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

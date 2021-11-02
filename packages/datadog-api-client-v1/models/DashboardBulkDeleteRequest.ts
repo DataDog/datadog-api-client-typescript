@@ -9,11 +9,6 @@
  */
 
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Dashboard bulk delete request body.
- */
 
 export class DashboardBulkDeleteRequest {
   /**
@@ -26,59 +21,26 @@ export class DashboardBulkDeleteRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<DashboardBulkActionData>",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardBulkDeleteRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardBulkDeleteRequest {
-    const res = new DashboardBulkDeleteRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'DashboardBulkDeleteRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<DashboardBulkActionData>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: DashboardBulkDeleteRequest): { [key: string]: any } {
-    const attributeTypes = DashboardBulkDeleteRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'DashboardBulkDeleteRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<DashboardBulkActionData>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

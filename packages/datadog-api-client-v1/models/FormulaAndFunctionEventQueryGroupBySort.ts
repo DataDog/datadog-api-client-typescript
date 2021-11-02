@@ -10,11 +10,6 @@
 
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 import { QuerySortOrder } from "./QuerySortOrder";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Options for sorting group by results.
- */
 
 export class FormulaAndFunctionEventQueryGroupBySort {
   "aggregation": FormulaAndFunctionEventAggregation;
@@ -29,126 +24,40 @@ export class FormulaAndFunctionEventQueryGroupBySort {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggregation: {
+      name: "aggregation",
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
+      required: true,
       format: "",
     },
     metric: {
+      name: "metric",
       baseName: "metric",
       type: "string",
+      required: false,
       format: "",
     },
     order: {
+      name: "order",
       baseName: "order",
       type: "QuerySortOrder",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): FormulaAndFunctionEventQueryGroupBySort {
-    const res = new FormulaAndFunctionEventQueryGroupBySort();
-
-    if (data.aggregation === undefined) {
-      throw new TypeError(
-        "missing required attribute 'aggregation' on 'FormulaAndFunctionEventQueryGroupBySort' object"
-      );
-    }
-    if (
-      [
-        "count",
-        "cardinality",
-        "median",
-        "pc75",
-        "pc90",
-        "pc95",
-        "pc98",
-        "pc99",
-        "sum",
-        "min",
-        "max",
-        "avg",
-        undefined,
-      ].includes(data.aggregation)
-    ) {
-      res.aggregation = data.aggregation;
-    } else {
-      const raw = new FormulaAndFunctionEventQueryGroupBySort();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      const raw = new FormulaAndFunctionEventQueryGroupBySort();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: FormulaAndFunctionEventQueryGroupBySort): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      FormulaAndFunctionEventQueryGroupBySort.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.aggregation === undefined) {
-      throw new TypeError(
-        "missing required attribute 'aggregation' on 'FormulaAndFunctionEventQueryGroupBySort' object"
-      );
-    }
-    if (
-      [
-        "count",
-        "cardinality",
-        "median",
-        "pc75",
-        "pc90",
-        "pc95",
-        "pc98",
-        "pc99",
-        "sum",
-        "min",
-        "max",
-        "avg",
-        undefined,
-      ].includes(data.aggregation)
-    ) {
-      res.aggregation = data.aggregation;
-    } else {
-      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
-    }
-
-    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
-    }
-
-    return res;
   }
 
   public constructor() {}

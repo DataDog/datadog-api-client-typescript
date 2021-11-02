@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Metadata associated with your host.
- */
-
 export class HostMeta {
   /**
    * Array of Unix versions.
@@ -25,41 +19,26 @@ export class HostMeta {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     nixV: {
+      name: "nixV",
       baseName: "nixV",
       type: "Array<string>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HostMeta.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HostMeta {
-    const res = new HostMeta();
-
-    res.nixV = ObjectSerializer.deserialize(data.nixV, "Array<string>", "");
-
-    return res;
-  }
-
-  static serialize(data: HostMeta): { [key: string]: any } {
-    const attributeTypes = HostMeta.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.nixV = ObjectSerializer.serialize(data.nixV, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

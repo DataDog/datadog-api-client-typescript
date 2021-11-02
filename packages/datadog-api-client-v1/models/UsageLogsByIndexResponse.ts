@@ -9,11 +9,6 @@
  */
 
 import { UsageLogsByIndexHour } from "./UsageLogsByIndexHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of indexed logs for each hour and index for a given organization.
- */
 
 export class UsageLogsByIndexResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageLogsByIndexResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageLogsByIndexHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageLogsByIndexResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageLogsByIndexResponse {
-    const res = new UsageLogsByIndexResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageLogsByIndexHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageLogsByIndexResponse): { [key: string]: any } {
-    const attributeTypes = UsageLogsByIndexResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageLogsByIndexHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

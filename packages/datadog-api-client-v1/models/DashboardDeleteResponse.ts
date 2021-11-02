@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response from the delete dashboard call.
- */
-
 export class DashboardDeleteResponse {
   /**
    * ID of the deleted dashboard.
@@ -25,49 +19,26 @@ export class DashboardDeleteResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     deletedDashboardId: {
+      name: "deletedDashboardId",
       baseName: "deleted_dashboard_id",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardDeleteResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardDeleteResponse {
-    const res = new DashboardDeleteResponse();
-
-    res.deletedDashboardId = ObjectSerializer.deserialize(
-      data.deleted_dashboard_id,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: DashboardDeleteResponse): { [key: string]: any } {
-    const attributeTypes = DashboardDeleteResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.deleted_dashboard_id = ObjectSerializer.serialize(
-      data.deletedDashboardId,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

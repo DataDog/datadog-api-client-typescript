@@ -11,11 +11,6 @@
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Formula to be used in a widget query.
- */
 
 export class WidgetFormula {
   /**
@@ -38,115 +33,54 @@ export class WidgetFormula {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     alias: {
+      name: "alias",
       baseName: "alias",
       type: "string",
+      required: false,
       format: "",
     },
     cellDisplayMode: {
+      name: "cellDisplayMode",
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
+      required: false,
       format: "",
     },
     conditionalFormats: {
+      name: "conditionalFormats",
       baseName: "conditional_formats",
       type: "Array<WidgetConditionalFormat>",
+      required: false,
       format: "",
     },
     formula: {
+      name: "formula",
       baseName: "formula",
       type: "string",
+      required: true,
       format: "",
     },
     limit: {
+      name: "limit",
       baseName: "limit",
       type: "WidgetFormulaLimit",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetFormula.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetFormula {
-    const res = new WidgetFormula();
-
-    res.alias = ObjectSerializer.deserialize(data.alias, "string", "");
-
-    if (["number", "bar", undefined].includes(data.cell_display_mode)) {
-      res.cellDisplayMode = data.cell_display_mode;
-    } else {
-      const raw = new WidgetFormula();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.conditionalFormats = ObjectSerializer.deserialize(
-      data.conditional_formats,
-      "Array<WidgetConditionalFormat>",
-      ""
-    );
-
-    if (data.formula === undefined) {
-      throw new TypeError(
-        "missing required attribute 'formula' on 'WidgetFormula' object"
-      );
-    }
-    res.formula = ObjectSerializer.deserialize(data.formula, "string", "");
-
-    res.limit = ObjectSerializer.deserialize(
-      data.limit,
-      "WidgetFormulaLimit",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: WidgetFormula): { [key: string]: any } {
-    const attributeTypes = WidgetFormula.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.alias = ObjectSerializer.serialize(data.alias, "string", "");
-
-    if (["number", "bar", undefined].includes(data.cellDisplayMode)) {
-      res.cell_display_mode = data.cellDisplayMode;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.cellDisplayMode} for cellDisplayMode`
-      );
-    }
-
-    res.conditional_formats = ObjectSerializer.serialize(
-      data.conditionalFormats,
-      "Array<WidgetConditionalFormat>",
-      ""
-    );
-
-    if (data.formula === undefined) {
-      throw new TypeError(
-        "missing required attribute 'formula' on 'WidgetFormula' object"
-      );
-    }
-    res.formula = ObjectSerializer.serialize(data.formula, "string", "");
-
-    res.limit = ObjectSerializer.serialize(
-      data.limit,
-      "WidgetFormulaLimit",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

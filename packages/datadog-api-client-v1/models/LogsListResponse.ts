@@ -9,11 +9,6 @@
  */
 
 import { Log } from "./Log";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object with all logs matching the request and pagination information.
- */
 
 export class LogsListResponse {
   /**
@@ -34,59 +29,40 @@ export class LogsListResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     logs: {
+      name: "logs",
       baseName: "logs",
       type: "Array<Log>",
+      required: false,
       format: "",
     },
     nextLogId: {
+      name: "nextLogId",
       baseName: "nextLogId",
       type: "string",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsListResponse {
-    const res = new LogsListResponse();
-
-    res.logs = ObjectSerializer.deserialize(data.logs, "Array<Log>", "");
-
-    res.nextLogId = ObjectSerializer.deserialize(data.nextLogId, "string", "");
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsListResponse): { [key: string]: any } {
-    const attributeTypes = LogsListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.logs = ObjectSerializer.serialize(data.logs, "Array<Log>", "");
-
-    res.nextLogId = ObjectSerializer.serialize(data.nextLogId, "string", "");
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    return res;
   }
 
   public constructor() {}

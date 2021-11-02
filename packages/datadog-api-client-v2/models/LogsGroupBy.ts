@@ -12,11 +12,6 @@ import { LogsAggregateSort } from "./LogsAggregateSort";
 import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
 import { LogsGroupByMissing } from "./LogsGroupByMissing";
 import { LogsGroupByTotal } from "./LogsGroupByTotal";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A group by rule
- */
 
 export class LogsGroupBy {
   /**
@@ -37,116 +32,61 @@ export class LogsGroupBy {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     facet: {
+      name: "facet",
       baseName: "facet",
       type: "string",
+      required: true,
       format: "",
     },
     histogram: {
+      name: "histogram",
       baseName: "histogram",
       type: "LogsGroupByHistogram",
+      required: false,
       format: "",
     },
     limit: {
+      name: "limit",
       baseName: "limit",
       type: "number",
+      required: false,
       format: "int64",
     },
     missing: {
+      name: "missing",
       baseName: "missing",
       type: "LogsGroupByMissing",
+      required: false,
       format: "",
     },
     sort: {
+      name: "sort",
       baseName: "sort",
       type: "LogsAggregateSort",
+      required: false,
       format: "",
     },
     total: {
+      name: "total",
       baseName: "total",
       type: "LogsGroupByTotal",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsGroupBy.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsGroupBy {
-    const res = new LogsGroupBy();
-
-    if (data.facet === undefined) {
-      throw new TypeError(
-        "missing required attribute 'facet' on 'LogsGroupBy' object"
-      );
-    }
-    res.facet = ObjectSerializer.deserialize(data.facet, "string", "");
-
-    res.histogram = ObjectSerializer.deserialize(
-      data.histogram,
-      "LogsGroupByHistogram",
-      ""
-    );
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
-
-    res.missing = ObjectSerializer.deserialize(
-      data.missing,
-      "LogsGroupByMissing",
-      ""
-    );
-
-    res.sort = ObjectSerializer.deserialize(data.sort, "LogsAggregateSort", "");
-
-    res.total = ObjectSerializer.deserialize(
-      data.total,
-      "LogsGroupByTotal",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsGroupBy): { [key: string]: any } {
-    const attributeTypes = LogsGroupBy.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.facet === undefined) {
-      throw new TypeError(
-        "missing required attribute 'facet' on 'LogsGroupBy' object"
-      );
-    }
-    res.facet = ObjectSerializer.serialize(data.facet, "string", "");
-
-    res.histogram = ObjectSerializer.serialize(
-      data.histogram,
-      "LogsGroupByHistogram",
-      ""
-    );
-
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
-
-    res.missing = ObjectSerializer.serialize(
-      data.missing,
-      "LogsGroupByMissing",
-      ""
-    );
-
-    res.sort = ObjectSerializer.serialize(data.sort, "LogsAggregateSort", "");
-
-    res.total = ObjectSerializer.serialize(data.total, "LogsGroupByTotal", "");
-
-    return res;
   }
 
   public constructor() {}

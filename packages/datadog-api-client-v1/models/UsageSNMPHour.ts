@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The number of SNMP devices for each hour for a given organization.
- */
-
 export class UsageSNMPHour {
   /**
    * The hour for the usage.
@@ -29,58 +23,33 @@ export class UsageSNMPHour {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     hour: {
+      name: "hour",
       baseName: "hour",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     snmpDevices: {
+      name: "snmpDevices",
       baseName: "snmp_devices",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSNMPHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSNMPHour {
-    const res = new UsageSNMPHour();
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    res.snmpDevices = ObjectSerializer.deserialize(
-      data.snmp_devices,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSNMPHour): { [key: string]: any } {
-    const attributeTypes = UsageSNMPHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    res.snmp_devices = ObjectSerializer.serialize(
-      data.snmpDevices,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

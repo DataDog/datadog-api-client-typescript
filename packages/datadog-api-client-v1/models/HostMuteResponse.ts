@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response with the list of muted host for your organization.
- */
-
 export class HostMuteResponse {
   /**
    * Action applied to the hosts.
@@ -37,68 +31,47 @@ export class HostMuteResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     action: {
+      name: "action",
       baseName: "action",
       type: "string",
+      required: false,
       format: "",
     },
     end: {
+      name: "end",
       baseName: "end",
       type: "number",
+      required: false,
       format: "int64",
     },
     hostname: {
+      name: "hostname",
       baseName: "hostname",
       type: "string",
+      required: false,
       format: "",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HostMuteResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HostMuteResponse {
-    const res = new HostMuteResponse();
-
-    res.action = ObjectSerializer.deserialize(data.action, "string", "");
-
-    res.end = ObjectSerializer.deserialize(data.end, "number", "int64");
-
-    res.hostname = ObjectSerializer.deserialize(data.hostname, "string", "");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: HostMuteResponse): { [key: string]: any } {
-    const attributeTypes = HostMuteResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.action = ObjectSerializer.serialize(data.action, "string", "");
-
-    res.end = ObjectSerializer.serialize(data.end, "number", "int64");
-
-    res.hostname = ObjectSerializer.serialize(data.hostname, "string", "");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    return res;
   }
 
   public constructor() {}

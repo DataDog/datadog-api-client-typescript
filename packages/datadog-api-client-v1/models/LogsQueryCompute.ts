@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Define computation for a log query.
- */
-
 export class LogsQueryCompute {
   /**
    * The aggregation method.
@@ -33,81 +27,40 @@ export class LogsQueryCompute {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggregation: {
+      name: "aggregation",
       baseName: "aggregation",
       type: "string",
+      required: true,
       format: "",
     },
     facet: {
+      name: "facet",
       baseName: "facet",
       type: "string",
+      required: false,
       format: "",
     },
     interval: {
+      name: "interval",
       baseName: "interval",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsQueryCompute.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsQueryCompute {
-    const res = new LogsQueryCompute();
-
-    if (data.aggregation === undefined) {
-      throw new TypeError(
-        "missing required attribute 'aggregation' on 'LogsQueryCompute' object"
-      );
-    }
-    res.aggregation = ObjectSerializer.deserialize(
-      data.aggregation,
-      "string",
-      ""
-    );
-
-    res.facet = ObjectSerializer.deserialize(data.facet, "string", "");
-
-    res.interval = ObjectSerializer.deserialize(
-      data.interval,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsQueryCompute): { [key: string]: any } {
-    const attributeTypes = LogsQueryCompute.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.aggregation === undefined) {
-      throw new TypeError(
-        "missing required attribute 'aggregation' on 'LogsQueryCompute' object"
-      );
-    }
-    res.aggregation = ObjectSerializer.serialize(
-      data.aggregation,
-      "string",
-      ""
-    );
-
-    res.facet = ObjectSerializer.serialize(data.facet, "string", "");
-
-    res.interval = ObjectSerializer.serialize(data.interval, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { PartialApplicationKey } from "./PartialApplicationKey";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response for a list of application keys.
- */
 
 export class ListApplicationKeysResponse {
   /**
@@ -31,68 +26,33 @@ export class ListApplicationKeysResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<PartialApplicationKey>",
+      required: false,
       format: "",
     },
     included: {
+      name: "included",
       baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ListApplicationKeysResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): ListApplicationKeysResponse {
-    const res = new ListApplicationKeysResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<PartialApplicationKey>",
-      ""
-    );
-
-    res.included = ObjectSerializer.deserialize(
-      data.included,
-      "Array<ApplicationKeyResponseIncludedItem>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ListApplicationKeysResponse): { [key: string]: any } {
-    const attributeTypes = ListApplicationKeysResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<PartialApplicationKey>",
-      ""
-    );
-
-    res.included = ObjectSerializer.serialize(
-      data.included,
-      "Array<ApplicationKeyResponseIncludedItem>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

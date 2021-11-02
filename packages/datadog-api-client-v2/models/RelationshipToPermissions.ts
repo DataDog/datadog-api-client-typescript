@@ -9,11 +9,6 @@
  */
 
 import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationship to multiple permissions objects.
- */
 
 export class RelationshipToPermissions {
   /**
@@ -26,49 +21,26 @@ export class RelationshipToPermissions {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<RelationshipToPermissionData>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToPermissions.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RelationshipToPermissions {
-    const res = new RelationshipToPermissions();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<RelationshipToPermissionData>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToPermissions): { [key: string]: any } {
-    const attributeTypes = RelationshipToPermissions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<RelationshipToPermissionData>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

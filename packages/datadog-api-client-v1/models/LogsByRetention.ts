@@ -11,11 +11,6 @@
 import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
 import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing logs usage data broken down by retention period.
- */
 
 export class LogsByRetention {
   "orgs"?: LogsByRetentionOrgs;
@@ -30,79 +25,40 @@ export class LogsByRetention {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     orgs: {
+      name: "orgs",
       baseName: "orgs",
       type: "LogsByRetentionOrgs",
+      required: false,
       format: "",
     },
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<LogsRetentionAggSumUsage>",
+      required: false,
       format: "",
     },
     usageByMonth: {
+      name: "usageByMonth",
       baseName: "usage_by_month",
       type: "LogsByRetentionMonthlyUsage",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsByRetention.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsByRetention {
-    const res = new LogsByRetention();
-
-    res.orgs = ObjectSerializer.deserialize(
-      data.orgs,
-      "LogsByRetentionOrgs",
-      ""
-    );
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<LogsRetentionAggSumUsage>",
-      ""
-    );
-
-    res.usageByMonth = ObjectSerializer.deserialize(
-      data.usage_by_month,
-      "LogsByRetentionMonthlyUsage",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsByRetention): { [key: string]: any } {
-    const attributeTypes = LogsByRetention.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.orgs = ObjectSerializer.serialize(data.orgs, "LogsByRetentionOrgs", "");
-
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<LogsRetentionAggSumUsage>",
-      ""
-    );
-
-    res.usage_by_month = ObjectSerializer.serialize(
-      data.usageByMonth,
-      "LogsByRetentionMonthlyUsage",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

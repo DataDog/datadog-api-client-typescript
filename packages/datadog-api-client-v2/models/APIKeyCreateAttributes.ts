@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes used to create an API Key.
- */
-
 export class APIKeyCreateAttributes {
   /**
    * Name of the API key.
@@ -25,51 +19,26 @@ export class APIKeyCreateAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return APIKeyCreateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): APIKeyCreateAttributes {
-    const res = new APIKeyCreateAttributes();
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'APIKeyCreateAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: APIKeyCreateAttributes): { [key: string]: any } {
-    const attributeTypes = APIKeyCreateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'APIKeyCreateAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

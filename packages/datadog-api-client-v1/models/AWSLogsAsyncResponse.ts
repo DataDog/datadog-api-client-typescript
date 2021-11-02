@@ -9,11 +9,6 @@
  */
 
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A list of all Datadog-AWS logs integrations available in your Datadog organization.
- */
 
 export class AWSLogsAsyncResponse {
   /**
@@ -30,58 +25,33 @@ export class AWSLogsAsyncResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     errors: {
+      name: "errors",
       baseName: "errors",
       type: "Array<AWSLogsAsyncError>",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSLogsAsyncResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSLogsAsyncResponse {
-    const res = new AWSLogsAsyncResponse();
-
-    res.errors = ObjectSerializer.deserialize(
-      data.errors,
-      "Array<AWSLogsAsyncError>",
-      ""
-    );
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: AWSLogsAsyncResponse): { [key: string]: any } {
-    const attributeTypes = AWSLogsAsyncResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.errors = ObjectSerializer.serialize(
-      data.errors,
-      "Array<AWSLogsAsyncError>",
-      ""
-    );
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    return res;
   }
 
   public constructor() {}

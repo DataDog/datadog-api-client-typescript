@@ -14,11 +14,6 @@ import { WidgetChangeType } from "./WidgetChangeType";
 import { WidgetCompareTo } from "./WidgetCompareTo";
 import { WidgetOrderBy } from "./WidgetOrderBy";
 import { WidgetSort } from "./WidgetSort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Updated change widget.
- */
 
 export class ChangeWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -51,307 +46,124 @@ export class ChangeWidgetRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     apmQuery: {
+      name: "apmQuery",
       baseName: "apm_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     changeType: {
+      name: "changeType",
       baseName: "change_type",
       type: "WidgetChangeType",
+      required: false,
       format: "",
     },
     compareTo: {
+      name: "compareTo",
       baseName: "compare_to",
       type: "WidgetCompareTo",
+      required: false,
       format: "",
     },
     eventQuery: {
+      name: "eventQuery",
       baseName: "event_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     increaseGood: {
+      name: "increaseGood",
       baseName: "increase_good",
       type: "boolean",
+      required: false,
       format: "",
     },
     logQuery: {
+      name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     networkQuery: {
+      name: "networkQuery",
       baseName: "network_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     orderBy: {
+      name: "orderBy",
       baseName: "order_by",
       type: "WidgetOrderBy",
+      required: false,
       format: "",
     },
     orderDir: {
+      name: "orderDir",
       baseName: "order_dir",
       type: "WidgetSort",
+      required: false,
       format: "",
     },
     processQuery: {
+      name: "processQuery",
       baseName: "process_query",
       type: "ProcessQueryDefinition",
+      required: false,
       format: "",
     },
     profileMetricsQuery: {
+      name: "profileMetricsQuery",
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     q: {
+      name: "q",
       baseName: "q",
       type: "string",
+      required: false,
       format: "",
     },
     rumQuery: {
+      name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     securityQuery: {
+      name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     showPresent: {
+      name: "showPresent",
       baseName: "show_present",
       type: "boolean",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ChangeWidgetRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ChangeWidgetRequest {
-    const res = new ChangeWidgetRequest();
-
-    res.apmQuery = ObjectSerializer.deserialize(
-      data.apm_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    if (["absolute", "relative", undefined].includes(data.change_type)) {
-      res.changeType = data.change_type;
-    } else {
-      const raw = new ChangeWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (
-      [
-        "hour_before",
-        "day_before",
-        "week_before",
-        "month_before",
-        undefined,
-      ].includes(data.compare_to)
-    ) {
-      res.compareTo = data.compare_to;
-    } else {
-      const raw = new ChangeWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.eventQuery = ObjectSerializer.deserialize(
-      data.event_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.increaseGood = ObjectSerializer.deserialize(
-      data.increase_good,
-      "boolean",
-      ""
-    );
-
-    res.logQuery = ObjectSerializer.deserialize(
-      data.log_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.networkQuery = ObjectSerializer.deserialize(
-      data.network_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    if (
-      ["change", "name", "present", "past", undefined].includes(data.order_by)
-    ) {
-      res.orderBy = data.order_by;
-    } else {
-      const raw = new ChangeWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (["asc", "desc", undefined].includes(data.order_dir)) {
-      res.orderDir = data.order_dir;
-    } else {
-      const raw = new ChangeWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.processQuery = ObjectSerializer.deserialize(
-      data.process_query,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profileMetricsQuery = ObjectSerializer.deserialize(
-      data.profile_metrics_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.deserialize(data.q, "string", "");
-
-    res.rumQuery = ObjectSerializer.deserialize(
-      data.rum_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.securityQuery = ObjectSerializer.deserialize(
-      data.security_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.showPresent = ObjectSerializer.deserialize(
-      data.show_present,
-      "boolean",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ChangeWidgetRequest): { [key: string]: any } {
-    const attributeTypes = ChangeWidgetRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.apm_query = ObjectSerializer.serialize(
-      data.apmQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    if (["absolute", "relative", undefined].includes(data.changeType)) {
-      res.change_type = data.changeType;
-    } else {
-      throw TypeError(`invalid enum value ${data.changeType} for changeType`);
-    }
-
-    if (
-      [
-        "hour_before",
-        "day_before",
-        "week_before",
-        "month_before",
-        undefined,
-      ].includes(data.compareTo)
-    ) {
-      res.compare_to = data.compareTo;
-    } else {
-      throw TypeError(`invalid enum value ${data.compareTo} for compareTo`);
-    }
-
-    res.event_query = ObjectSerializer.serialize(
-      data.eventQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.increase_good = ObjectSerializer.serialize(
-      data.increaseGood,
-      "boolean",
-      ""
-    );
-
-    res.log_query = ObjectSerializer.serialize(
-      data.logQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.network_query = ObjectSerializer.serialize(
-      data.networkQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    if (
-      ["change", "name", "present", "past", undefined].includes(data.orderBy)
-    ) {
-      res.order_by = data.orderBy;
-    } else {
-      throw TypeError(`invalid enum value ${data.orderBy} for orderBy`);
-    }
-
-    if (["asc", "desc", undefined].includes(data.orderDir)) {
-      res.order_dir = data.orderDir;
-    } else {
-      throw TypeError(`invalid enum value ${data.orderDir} for orderDir`);
-    }
-
-    res.process_query = ObjectSerializer.serialize(
-      data.processQuery,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profile_metrics_query = ObjectSerializer.serialize(
-      data.profileMetricsQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.serialize(data.q, "string", "");
-
-    res.rum_query = ObjectSerializer.serialize(
-      data.rumQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.security_query = ObjectSerializer.serialize(
-      data.securityQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.show_present = ObjectSerializer.serialize(
-      data.showPresent,
-      "boolean",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

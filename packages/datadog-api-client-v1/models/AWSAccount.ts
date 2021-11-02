@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Returns the AWS account associated with this integration.
- */
-
 export class AWSAccount {
   /**
    * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -65,203 +59,96 @@ export class AWSAccount {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     accessKeyId: {
+      name: "accessKeyId",
       baseName: "access_key_id",
       type: "string",
+      required: false,
       format: "",
     },
     accountId: {
+      name: "accountId",
       baseName: "account_id",
       type: "string",
+      required: false,
       format: "",
     },
     accountSpecificNamespaceRules: {
+      name: "accountSpecificNamespaceRules",
       baseName: "account_specific_namespace_rules",
       type: "{ [key: string]: boolean; }",
+      required: false,
       format: "",
     },
     cspmResourceCollectionEnabled: {
+      name: "cspmResourceCollectionEnabled",
       baseName: "cspm_resource_collection_enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     excludedRegions: {
+      name: "excludedRegions",
       baseName: "excluded_regions",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     filterTags: {
+      name: "filterTags",
       baseName: "filter_tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     hostTags: {
+      name: "hostTags",
       baseName: "host_tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     metricsCollectionEnabled: {
+      name: "metricsCollectionEnabled",
       baseName: "metrics_collection_enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     resourceCollectionEnabled: {
+      name: "resourceCollectionEnabled",
       baseName: "resource_collection_enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     roleName: {
+      name: "roleName",
       baseName: "role_name",
       type: "string",
+      required: false,
       format: "",
     },
     secretAccessKey: {
+      name: "secretAccessKey",
       baseName: "secret_access_key",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSAccount.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSAccount {
-    const res = new AWSAccount();
-
-    res.accessKeyId = ObjectSerializer.deserialize(
-      data.access_key_id,
-      "string",
-      ""
-    );
-
-    res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "");
-
-    res.accountSpecificNamespaceRules = ObjectSerializer.deserialize(
-      data.account_specific_namespace_rules,
-      "{ [key: string]: boolean; }",
-      ""
-    );
-
-    res.cspmResourceCollectionEnabled = ObjectSerializer.deserialize(
-      data.cspm_resource_collection_enabled,
-      "boolean",
-      ""
-    );
-
-    res.excludedRegions = ObjectSerializer.deserialize(
-      data.excluded_regions,
-      "Array<string>",
-      ""
-    );
-
-    res.filterTags = ObjectSerializer.deserialize(
-      data.filter_tags,
-      "Array<string>",
-      ""
-    );
-
-    res.hostTags = ObjectSerializer.deserialize(
-      data.host_tags,
-      "Array<string>",
-      ""
-    );
-
-    res.metricsCollectionEnabled = ObjectSerializer.deserialize(
-      data.metrics_collection_enabled,
-      "boolean",
-      ""
-    );
-
-    res.resourceCollectionEnabled = ObjectSerializer.deserialize(
-      data.resource_collection_enabled,
-      "boolean",
-      ""
-    );
-
-    res.roleName = ObjectSerializer.deserialize(data.role_name, "string", "");
-
-    res.secretAccessKey = ObjectSerializer.deserialize(
-      data.secret_access_key,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: AWSAccount): { [key: string]: any } {
-    const attributeTypes = AWSAccount.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.access_key_id = ObjectSerializer.serialize(
-      data.accessKeyId,
-      "string",
-      ""
-    );
-
-    res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
-
-    res.account_specific_namespace_rules = ObjectSerializer.serialize(
-      data.accountSpecificNamespaceRules,
-      "{ [key: string]: boolean; }",
-      ""
-    );
-
-    res.cspm_resource_collection_enabled = ObjectSerializer.serialize(
-      data.cspmResourceCollectionEnabled,
-      "boolean",
-      ""
-    );
-
-    res.excluded_regions = ObjectSerializer.serialize(
-      data.excludedRegions,
-      "Array<string>",
-      ""
-    );
-
-    res.filter_tags = ObjectSerializer.serialize(
-      data.filterTags,
-      "Array<string>",
-      ""
-    );
-
-    res.host_tags = ObjectSerializer.serialize(
-      data.hostTags,
-      "Array<string>",
-      ""
-    );
-
-    res.metrics_collection_enabled = ObjectSerializer.serialize(
-      data.metricsCollectionEnabled,
-      "boolean",
-      ""
-    );
-
-    res.resource_collection_enabled = ObjectSerializer.serialize(
-      data.resourceCollectionEnabled,
-      "boolean",
-      ""
-    );
-
-    res.role_name = ObjectSerializer.serialize(data.roleName, "string", "");
-
-    res.secret_access_key = ObjectSerializer.serialize(
-      data.secretAccessKey,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

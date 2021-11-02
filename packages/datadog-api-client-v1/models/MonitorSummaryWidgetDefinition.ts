@@ -14,11 +14,6 @@ import { WidgetMonitorSummaryDisplayFormat } from "./WidgetMonitorSummaryDisplay
 import { WidgetMonitorSummarySort } from "./WidgetMonitorSummarySort";
 import { WidgetSummaryType } from "./WidgetSummaryType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
- */
 
 export class MonitorSummaryWidgetDefinition {
   "colorPreference"?: WidgetColorPreference;
@@ -61,303 +56,110 @@ export class MonitorSummaryWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     colorPreference: {
+      name: "colorPreference",
       baseName: "color_preference",
       type: "WidgetColorPreference",
+      required: false,
       format: "",
     },
     count: {
+      name: "count",
       baseName: "count",
       type: "number",
+      required: false,
       format: "int64",
     },
     displayFormat: {
+      name: "displayFormat",
       baseName: "display_format",
       type: "WidgetMonitorSummaryDisplayFormat",
+      required: false,
       format: "",
     },
     hideZeroCounts: {
+      name: "hideZeroCounts",
       baseName: "hide_zero_counts",
       type: "boolean",
+      required: false,
       format: "",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: true,
       format: "",
     },
     showLastTriggered: {
+      name: "showLastTriggered",
       baseName: "show_last_triggered",
       type: "boolean",
+      required: false,
       format: "",
     },
     sort: {
+      name: "sort",
       baseName: "sort",
       type: "WidgetMonitorSummarySort",
+      required: false,
       format: "",
     },
     start: {
+      name: "start",
       baseName: "start",
       type: "number",
+      required: false,
       format: "int64",
     },
     summaryType: {
+      name: "summaryType",
       baseName: "summary_type",
       type: "WidgetSummaryType",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     titleAlign: {
+      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     titleSize: {
+      name: "titleSize",
       baseName: "title_size",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "MonitorSummaryWidgetDefinitionType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorSummaryWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MonitorSummaryWidgetDefinition {
-    const res = new MonitorSummaryWidgetDefinition();
-
-    if (["background", "text", undefined].includes(data.color_preference)) {
-      res.colorPreference = data.color_preference;
-    } else {
-      const raw = new MonitorSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
-
-    if (
-      ["counts", "countsAndList", "list", undefined].includes(
-        data.display_format
-      )
-    ) {
-      res.displayFormat = data.display_format;
-    } else {
-      const raw = new MonitorSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.hideZeroCounts = ObjectSerializer.deserialize(
-      data.hide_zero_counts,
-      "boolean",
-      ""
-    );
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'MonitorSummaryWidgetDefinition' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    res.showLastTriggered = ObjectSerializer.deserialize(
-      data.show_last_triggered,
-      "boolean",
-      ""
-    );
-
-    if (
-      [
-        "name",
-        "group",
-        "status",
-        "tags",
-        "triggered",
-        "group,asc",
-        "group,desc",
-        "name,asc",
-        "name,desc",
-        "status,asc",
-        "status,desc",
-        "tags,asc",
-        "tags,desc",
-        "triggered,asc",
-        "triggered,desc",
-        undefined,
-      ].includes(data.sort)
-    ) {
-      res.sort = data.sort;
-    } else {
-      const raw = new MonitorSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.start = ObjectSerializer.deserialize(data.start, "number", "int64");
-
-    if (
-      ["monitors", "groups", "combined", undefined].includes(data.summary_type)
-    ) {
-      res.summaryType = data.summary_type;
-    } else {
-      const raw = new MonitorSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new MonitorSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'MonitorSummaryWidgetDefinition' object"
-      );
-    }
-    if (["manage_status", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new MonitorSummaryWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: MonitorSummaryWidgetDefinition): {
-    [key: string]: any;
-  } {
-    const attributeTypes = MonitorSummaryWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (["background", "text", undefined].includes(data.colorPreference)) {
-      res.color_preference = data.colorPreference;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.colorPreference} for colorPreference`
-      );
-    }
-
-    res.count = ObjectSerializer.serialize(data.count, "number", "int64");
-
-    if (
-      ["counts", "countsAndList", "list", undefined].includes(
-        data.displayFormat
-      )
-    ) {
-      res.display_format = data.displayFormat;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.displayFormat} for displayFormat`
-      );
-    }
-
-    res.hide_zero_counts = ObjectSerializer.serialize(
-      data.hideZeroCounts,
-      "boolean",
-      ""
-    );
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'MonitorSummaryWidgetDefinition' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    res.show_last_triggered = ObjectSerializer.serialize(
-      data.showLastTriggered,
-      "boolean",
-      ""
-    );
-
-    if (
-      [
-        "name",
-        "group",
-        "status",
-        "tags",
-        "triggered",
-        "group,asc",
-        "group,desc",
-        "name,asc",
-        "name,desc",
-        "status,asc",
-        "status,desc",
-        "tags,asc",
-        "tags,desc",
-        "triggered,asc",
-        "triggered,desc",
-        undefined,
-      ].includes(data.sort)
-    ) {
-      res.sort = data.sort;
-    } else {
-      throw TypeError(`invalid enum value ${data.sort} for sort`);
-    }
-
-    res.start = ObjectSerializer.serialize(data.start, "number", "int64");
-
-    if (
-      ["monitors", "groups", "combined", undefined].includes(data.summaryType)
-    ) {
-      res.summary_type = data.summaryType;
-    } else {
-      throw TypeError(`invalid enum value ${data.summaryType} for summaryType`);
-    }
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'MonitorSummaryWidgetDefinition' object"
-      );
-    }
-    if (["manage_status", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

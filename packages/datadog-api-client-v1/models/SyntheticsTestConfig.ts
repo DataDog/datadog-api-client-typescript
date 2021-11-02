@@ -12,11 +12,6 @@ import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Configuration object for a Synthetic test.
- */
 
 export class SyntheticsTestConfig {
   /**
@@ -38,100 +33,47 @@ export class SyntheticsTestConfig {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     assertions: {
+      name: "assertions",
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
+      required: false,
       format: "",
     },
     configVariables: {
+      name: "configVariables",
       baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
+      required: false,
       format: "",
     },
     request: {
+      name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
+      required: false,
       format: "",
     },
     variables: {
+      name: "variables",
       baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTestConfig.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsTestConfig {
-    const res = new SyntheticsTestConfig();
-
-    res.assertions = ObjectSerializer.deserialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.configVariables = ObjectSerializer.deserialize(
-      data.configVariables,
-      "Array<SyntheticsConfigVariable>",
-      ""
-    );
-
-    res.request = ObjectSerializer.deserialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    res.variables = ObjectSerializer.deserialize(
-      data.variables,
-      "Array<SyntheticsBrowserVariable>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTestConfig): { [key: string]: any } {
-    const attributeTypes = SyntheticsTestConfig.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.assertions = ObjectSerializer.serialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.configVariables = ObjectSerializer.serialize(
-      data.configVariables,
-      "Array<SyntheticsConfigVariable>",
-      ""
-    );
-
-    res.request = ObjectSerializer.serialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    res.variables = ObjectSerializer.serialize(
-      data.variables,
-      "Array<SyntheticsBrowserVariable>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Composed target for `validatesJSONPath` operator.
- */
-
 export class SyntheticsAssertionJSONPathTargetTarget {
   /**
    * The JSON path to assert.
@@ -33,64 +27,40 @@ export class SyntheticsAssertionJSONPathTargetTarget {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     jsonPath: {
+      name: "jsonPath",
       baseName: "jsonPath",
       type: "string",
+      required: false,
       format: "",
     },
     operator: {
+      name: "operator",
       baseName: "operator",
       type: "string",
+      required: false,
       format: "",
     },
     targetValue: {
+      name: "targetValue",
       baseName: "targetValue",
       type: "any",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsAssertionJSONPathTargetTarget {
-    const res = new SyntheticsAssertionJSONPathTargetTarget();
-
-    res.jsonPath = ObjectSerializer.deserialize(data.jsonPath, "string", "");
-
-    res.operator = ObjectSerializer.deserialize(data.operator, "string", "");
-
-    res.targetValue = ObjectSerializer.deserialize(data.targetValue, "any", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsAssertionJSONPathTargetTarget): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsAssertionJSONPathTargetTarget.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.jsonPath = ObjectSerializer.serialize(data.jsonPath, "string", "");
-
-    res.operator = ObjectSerializer.serialize(data.operator, "string", "");
-
-    res.targetValue = ObjectSerializer.serialize(data.targetValue, "any", "");
-
-    return res;
   }
 
   public constructor() {}

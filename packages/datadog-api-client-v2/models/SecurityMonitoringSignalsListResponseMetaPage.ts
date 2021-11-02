@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Paging attributes.
- */
-
 export class SecurityMonitoringSignalsListResponseMetaPage {
   /**
    * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
@@ -25,46 +19,26 @@ export class SecurityMonitoringSignalsListResponseMetaPage {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     after: {
+      name: "after",
       baseName: "after",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringSignalsListResponseMetaPage.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringSignalsListResponseMetaPage {
-    const res = new SecurityMonitoringSignalsListResponseMetaPage();
-
-    res.after = ObjectSerializer.deserialize(data.after, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringSignalsListResponseMetaPage): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringSignalsListResponseMetaPage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.after = ObjectSerializer.serialize(data.after, "string", "");
-
-    return res;
   }
 
   public constructor() {}

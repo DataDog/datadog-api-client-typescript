@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Metadata about the response.
- */
-
 export class MonitorSearchResponseMetadata {
   /**
    * The page to start paginating from.
@@ -37,92 +31,47 @@ export class MonitorSearchResponseMetadata {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     page: {
+      name: "page",
       baseName: "page",
       type: "number",
+      required: false,
       format: "int64",
     },
     pageCount: {
+      name: "pageCount",
       baseName: "page_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     perPage: {
+      name: "perPage",
       baseName: "per_page",
       type: "number",
+      required: false,
       format: "int64",
     },
     totalCount: {
+      name: "totalCount",
       baseName: "total_count",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorSearchResponseMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MonitorSearchResponseMetadata {
-    const res = new MonitorSearchResponseMetadata();
-
-    res.page = ObjectSerializer.deserialize(data.page, "number", "int64");
-
-    res.pageCount = ObjectSerializer.deserialize(
-      data.page_count,
-      "number",
-      "int64"
-    );
-
-    res.perPage = ObjectSerializer.deserialize(
-      data.per_page,
-      "number",
-      "int64"
-    );
-
-    res.totalCount = ObjectSerializer.deserialize(
-      data.total_count,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: MonitorSearchResponseMetadata): {
-    [key: string]: any;
-  } {
-    const attributeTypes = MonitorSearchResponseMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.page = ObjectSerializer.serialize(data.page, "number", "int64");
-
-    res.page_count = ObjectSerializer.serialize(
-      data.pageCount,
-      "number",
-      "int64"
-    );
-
-    res.per_page = ObjectSerializer.serialize(data.perPage, "number", "int64");
-
-    res.total_count = ObjectSerializer.serialize(
-      data.totalCount,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Request used to update an application key.
- */
 
 export class ApplicationKeyUpdateRequest {
   "data": ApplicationKeyUpdateData;
@@ -23,61 +18,26 @@ export class ApplicationKeyUpdateRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "ApplicationKeyUpdateData",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApplicationKeyUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): ApplicationKeyUpdateRequest {
-    const res = new ApplicationKeyUpdateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'ApplicationKeyUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "ApplicationKeyUpdateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ApplicationKeyUpdateRequest): { [key: string]: any } {
-    const attributeTypes = ApplicationKeyUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'ApplicationKeyUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "ApplicationKeyUpdateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

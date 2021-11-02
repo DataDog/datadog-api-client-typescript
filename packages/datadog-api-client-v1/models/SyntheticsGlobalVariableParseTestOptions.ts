@@ -10,11 +10,6 @@
 
 import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
- */
 
 export class SyntheticsGlobalVariableParseTestOptions {
   /**
@@ -29,102 +24,40 @@ export class SyntheticsGlobalVariableParseTestOptions {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     field: {
+      name: "field",
       baseName: "field",
       type: "string",
+      required: false,
       format: "",
     },
     parser: {
+      name: "parser",
       baseName: "parser",
       type: "SyntheticsVariableParser",
+      required: true,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SyntheticsGlobalVariableParseTestOptionsType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsGlobalVariableParseTestOptions.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsGlobalVariableParseTestOptions {
-    const res = new SyntheticsGlobalVariableParseTestOptions();
-
-    res.field = ObjectSerializer.deserialize(data.field, "string", "");
-
-    if (data.parser === undefined) {
-      throw new TypeError(
-        "missing required attribute 'parser' on 'SyntheticsGlobalVariableParseTestOptions' object"
-      );
-    }
-    res.parser = ObjectSerializer.deserialize(
-      data.parser,
-      "SyntheticsVariableParser",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SyntheticsGlobalVariableParseTestOptions' object"
-      );
-    }
-    if (["http_body", "http_header", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SyntheticsGlobalVariableParseTestOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsGlobalVariableParseTestOptions): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsGlobalVariableParseTestOptions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.field = ObjectSerializer.serialize(data.field, "string", "");
-
-    if (data.parser === undefined) {
-      throw new TypeError(
-        "missing required attribute 'parser' on 'SyntheticsGlobalVariableParseTestOptions' object"
-      );
-    }
-    res.parser = ObjectSerializer.serialize(
-      data.parser,
-      "SyntheticsVariableParser",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SyntheticsGlobalVariableParseTestOptions' object"
-      );
-    }
-    if (["http_body", "http_header", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

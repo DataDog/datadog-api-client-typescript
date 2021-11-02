@@ -9,11 +9,6 @@
  */
 
 import { MetricVolumes } from "./MetricVolumes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object which includes a single metric's volume.
- */
 
 export class MetricVolumesResponse {
   "data"?: MetricVolumes;
@@ -23,41 +18,26 @@ export class MetricVolumesResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "MetricVolumes",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricVolumesResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricVolumesResponse {
-    const res = new MetricVolumesResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "MetricVolumes", "");
-
-    return res;
-  }
-
-  static serialize(data: MetricVolumesResponse): { [key: string]: any } {
-    const attributeTypes = MetricVolumesResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "MetricVolumes", "");
-
-    return res;
   }
 
   public constructor() {}

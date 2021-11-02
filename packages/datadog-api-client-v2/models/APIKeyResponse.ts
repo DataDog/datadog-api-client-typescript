@@ -10,11 +10,6 @@
 
 import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
 import { FullAPIKey } from "./FullAPIKey";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response for retrieving an API key.
- */
 
 export class APIKeyResponse {
   "data"?: FullAPIKey;
@@ -28,58 +23,33 @@ export class APIKeyResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "FullAPIKey",
+      required: false,
       format: "",
     },
     included: {
+      name: "included",
       baseName: "included",
       type: "Array<APIKeyResponseIncludedItem>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return APIKeyResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): APIKeyResponse {
-    const res = new APIKeyResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "FullAPIKey", "");
-
-    res.included = ObjectSerializer.deserialize(
-      data.included,
-      "Array<APIKeyResponseIncludedItem>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: APIKeyResponse): { [key: string]: any } {
-    const attributeTypes = APIKeyResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "FullAPIKey", "");
-
-    res.included = ObjectSerializer.serialize(
-      data.included,
-      "Array<APIKeyResponseIncludedItem>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

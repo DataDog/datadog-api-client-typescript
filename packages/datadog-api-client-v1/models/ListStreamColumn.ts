@@ -9,11 +9,6 @@
  */
 
 import { ListStreamColumnWidth } from "./ListStreamColumnWidth";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Widget column.
- */
 
 export class ListStreamColumn {
   /**
@@ -27,80 +22,33 @@ export class ListStreamColumn {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     field: {
+      name: "field",
       baseName: "field",
       type: "string",
+      required: true,
       format: "",
     },
     width: {
+      name: "width",
       baseName: "width",
       type: "ListStreamColumnWidth",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ListStreamColumn.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ListStreamColumn {
-    const res = new ListStreamColumn();
-
-    if (data.field === undefined) {
-      throw new TypeError(
-        "missing required attribute 'field' on 'ListStreamColumn' object"
-      );
-    }
-    res.field = ObjectSerializer.deserialize(data.field, "string", "");
-
-    if (data.width === undefined) {
-      throw new TypeError(
-        "missing required attribute 'width' on 'ListStreamColumn' object"
-      );
-    }
-    if (["auto", "compact", "full", undefined].includes(data.width)) {
-      res.width = data.width;
-    } else {
-      const raw = new ListStreamColumn();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ListStreamColumn): { [key: string]: any } {
-    const attributeTypes = ListStreamColumn.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.field === undefined) {
-      throw new TypeError(
-        "missing required attribute 'field' on 'ListStreamColumn' object"
-      );
-    }
-    res.field = ObjectSerializer.serialize(data.field, "string", "");
-
-    if (data.width === undefined) {
-      throw new TypeError(
-        "missing required attribute 'width' on 'ListStreamColumn' object"
-      );
-    }
-    if (["auto", "compact", "full", undefined].includes(data.width)) {
-      res.width = data.width;
-    } else {
-      throw TypeError(`invalid enum value ${data.width} for width`);
-    }
-
-    return res;
   }
 
   public constructor() {}

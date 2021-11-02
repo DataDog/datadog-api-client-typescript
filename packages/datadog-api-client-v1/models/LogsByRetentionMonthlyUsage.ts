@@ -9,11 +9,6 @@
  */
 
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing a summary of indexed logs usage by retention period for a single month.
- */
 
 export class LogsByRetentionMonthlyUsage {
   /**
@@ -30,60 +25,33 @@ export class LogsByRetentionMonthlyUsage {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     date: {
+      name: "date",
       baseName: "date",
       type: "string",
+      required: false,
       format: "datetime",
     },
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<LogsRetentionSumUsage>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsByRetentionMonthlyUsage.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): LogsByRetentionMonthlyUsage {
-    const res = new LogsByRetentionMonthlyUsage();
-
-    res.date = ObjectSerializer.deserialize(data.date, "string", "datetime");
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<LogsRetentionSumUsage>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsByRetentionMonthlyUsage): { [key: string]: any } {
-    const attributeTypes = LogsByRetentionMonthlyUsage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.date = ObjectSerializer.serialize(data.date, "string", "datetime");
-
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<LogsRetentionSumUsage>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -12,11 +12,6 @@ import { Creator } from "./Creator";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Holds search results.
- */
 
 export class MonitorSearchResult {
   /**
@@ -64,244 +59,103 @@ export class MonitorSearchResult {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     classification: {
+      name: "classification",
       baseName: "classification",
       type: "string",
+      required: false,
       format: "",
     },
     creator: {
+      name: "creator",
       baseName: "creator",
       type: "Creator",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "number",
+      required: false,
       format: "int64",
     },
     lastTriggeredTs: {
+      name: "lastTriggeredTs",
       baseName: "last_triggered_ts",
       type: "number",
+      required: false,
       format: "int64",
     },
     metrics: {
+      name: "metrics",
       baseName: "metrics",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     notifications: {
+      name: "notifications",
       baseName: "notifications",
       type: "Array<MonitorSearchResultNotification>",
+      required: false,
       format: "",
     },
     orgId: {
+      name: "orgId",
       baseName: "org_id",
       type: "number",
+      required: false,
       format: "int64",
     },
     scopes: {
+      name: "scopes",
       baseName: "scopes",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "MonitorType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorSearchResult.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MonitorSearchResult {
-    const res = new MonitorSearchResult();
-
-    res.classification = ObjectSerializer.deserialize(
-      data.classification,
-      "string",
-      ""
-    );
-
-    res.creator = ObjectSerializer.deserialize(data.creator, "Creator", "");
-
-    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
-
-    res.lastTriggeredTs = ObjectSerializer.deserialize(
-      data.last_triggered_ts,
-      "number",
-      "int64"
-    );
-
-    res.metrics = ObjectSerializer.deserialize(
-      data.metrics,
-      "Array<string>",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.notifications = ObjectSerializer.deserialize(
-      data.notifications,
-      "Array<MonitorSearchResultNotification>",
-      ""
-    );
-
-    res.orgId = ObjectSerializer.deserialize(data.org_id, "number", "int64");
-
-    res.scopes = ObjectSerializer.deserialize(data.scopes, "Array<string>", "");
-
-    if (
-      [
-        "Alert",
-        "Ignored",
-        "No Data",
-        "OK",
-        "Skipped",
-        "Unknown",
-        "Warn",
-        undefined,
-      ].includes(data.status)
-    ) {
-      res.status = data.status;
-    } else {
-      const raw = new MonitorSearchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    if (
-      [
-        "composite",
-        "event alert",
-        "log alert",
-        "metric alert",
-        "process alert",
-        "query alert",
-        "rum alert",
-        "service check",
-        "synthetics alert",
-        "trace-analytics alert",
-        "slo alert",
-        "event-v2 alert",
-        "audit alert",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      const raw = new MonitorSearchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: MonitorSearchResult): { [key: string]: any } {
-    const attributeTypes = MonitorSearchResult.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.classification = ObjectSerializer.serialize(
-      data.classification,
-      "string",
-      ""
-    );
-
-    res.creator = ObjectSerializer.serialize(data.creator, "Creator", "");
-
-    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
-
-    res.last_triggered_ts = ObjectSerializer.serialize(
-      data.lastTriggeredTs,
-      "number",
-      "int64"
-    );
-
-    res.metrics = ObjectSerializer.serialize(data.metrics, "Array<string>", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.notifications = ObjectSerializer.serialize(
-      data.notifications,
-      "Array<MonitorSearchResultNotification>",
-      ""
-    );
-
-    res.org_id = ObjectSerializer.serialize(data.orgId, "number", "int64");
-
-    res.scopes = ObjectSerializer.serialize(data.scopes, "Array<string>", "");
-
-    if (
-      [
-        "Alert",
-        "Ignored",
-        "No Data",
-        "OK",
-        "Skipped",
-        "Unknown",
-        "Warn",
-        undefined,
-      ].includes(data.status)
-    ) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    if (
-      [
-        "composite",
-        "event alert",
-        "log alert",
-        "metric alert",
-        "process alert",
-        "query alert",
-        "rum alert",
-        "service check",
-        "synthetics alert",
-        "trace-analytics alert",
-        "slo alert",
-        "event-v2 alert",
-        "audit alert",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

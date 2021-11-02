@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The counts of monitors per different criteria.
- */
-
 export class MonitorSearchResponseCounts {
   /**
    * Search facets.
@@ -37,70 +31,47 @@ export class MonitorSearchResponseCounts {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     muted: {
+      name: "muted",
       baseName: "muted",
       type: "Array<any>",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "Array<any>",
+      required: false,
       format: "",
     },
     tag: {
+      name: "tag",
       baseName: "tag",
       type: "Array<any>",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "Array<any>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorSearchResponseCounts.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MonitorSearchResponseCounts {
-    const res = new MonitorSearchResponseCounts();
-
-    res.muted = ObjectSerializer.deserialize(data.muted, "Array<any>", "");
-
-    res.status = ObjectSerializer.deserialize(data.status, "Array<any>", "");
-
-    res.tag = ObjectSerializer.deserialize(data.tag, "Array<any>", "");
-
-    res.type = ObjectSerializer.deserialize(data.type, "Array<any>", "");
-
-    return res;
-  }
-
-  static serialize(data: MonitorSearchResponseCounts): { [key: string]: any } {
-    const attributeTypes = MonitorSearchResponseCounts.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.muted = ObjectSerializer.serialize(data.muted, "Array<any>", "");
-
-    res.status = ObjectSerializer.serialize(data.status, "Array<any>", "");
-
-    res.tag = ObjectSerializer.serialize(data.tag, "Array<any>", "");
-
-    res.type = ObjectSerializer.serialize(data.type, "Array<any>", "");
-
-    return res;
   }
 
   public constructor() {}

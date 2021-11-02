@@ -10,11 +10,6 @@
 
 import { LogsMetricResponseAttributes } from "./LogsMetricResponseAttributes";
 import { LogsMetricType } from "./LogsMetricType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The log-based metric properties.
- */
 
 export class LogsMetricResponseData {
   "attributes"?: LogsMetricResponseAttributes;
@@ -29,77 +24,40 @@ export class LogsMetricResponseData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "LogsMetricResponseAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsMetricType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsMetricResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsMetricResponseData {
-    const res = new LogsMetricResponseData();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "LogsMetricResponseAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["logs_metrics", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsMetricResponseData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsMetricResponseData): { [key: string]: any } {
-    const attributeTypes = LogsMetricResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "LogsMetricResponseAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["logs_metrics", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

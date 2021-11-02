@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing the device used to perform the Synthetic test.
- */
 
 export class SyntheticsDevice {
   /**
@@ -39,159 +34,54 @@ export class SyntheticsDevice {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     height: {
+      name: "height",
       baseName: "height",
       type: "number",
+      required: true,
       format: "int64",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "SyntheticsDeviceID",
+      required: true,
       format: "",
     },
     isMobile: {
+      name: "isMobile",
       baseName: "isMobile",
       type: "boolean",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     width: {
+      name: "width",
       baseName: "width",
       type: "number",
+      required: true,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsDevice.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsDevice {
-    const res = new SyntheticsDevice();
-
-    if (data.height === undefined) {
-      throw new TypeError(
-        "missing required attribute 'height' on 'SyntheticsDevice' object"
-      );
-    }
-    res.height = ObjectSerializer.deserialize(data.height, "number", "int64");
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'SyntheticsDevice' object"
-      );
-    }
-    if (
-      [
-        "laptop_large",
-        "tablet",
-        "mobile_small",
-        "chrome.laptop_large",
-        "chrome.tablet",
-        "chrome.mobile_small",
-        "firefox.laptop_large",
-        "firefox.tablet",
-        "firefox.mobile_small",
-        "edge.laptop_large",
-        "edge.tablet",
-        "edge.mobile_small",
-        undefined,
-      ].includes(data.id)
-    ) {
-      res.id = data.id;
-    } else {
-      const raw = new SyntheticsDevice();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.isMobile = ObjectSerializer.deserialize(data.isMobile, "boolean", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsDevice' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.width === undefined) {
-      throw new TypeError(
-        "missing required attribute 'width' on 'SyntheticsDevice' object"
-      );
-    }
-    res.width = ObjectSerializer.deserialize(data.width, "number", "int64");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsDevice): { [key: string]: any } {
-    const attributeTypes = SyntheticsDevice.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.height === undefined) {
-      throw new TypeError(
-        "missing required attribute 'height' on 'SyntheticsDevice' object"
-      );
-    }
-    res.height = ObjectSerializer.serialize(data.height, "number", "int64");
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'SyntheticsDevice' object"
-      );
-    }
-    if (
-      [
-        "laptop_large",
-        "tablet",
-        "mobile_small",
-        "chrome.laptop_large",
-        "chrome.tablet",
-        "chrome.mobile_small",
-        "firefox.laptop_large",
-        "firefox.tablet",
-        "firefox.mobile_small",
-        "edge.laptop_large",
-        "edge.tablet",
-        "edge.mobile_small",
-        undefined,
-      ].includes(data.id)
-    ) {
-      res.id = data.id;
-    } else {
-      throw TypeError(`invalid enum value ${data.id} for id`);
-    }
-
-    res.isMobile = ObjectSerializer.serialize(data.isMobile, "boolean", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsDevice' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.width === undefined) {
-      throw new TypeError(
-        "missing required attribute 'width' on 'SyntheticsDevice' object"
-      );
-    }
-    res.width = ObjectSerializer.serialize(data.width, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

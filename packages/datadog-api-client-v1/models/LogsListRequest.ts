@@ -10,11 +10,6 @@
 
 import { LogsListRequestTime } from "./LogsListRequestTime";
 import { LogsSort } from "./LogsSort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object to send with the request to retrieve a list of logs from your Organization.
- */
 
 export class LogsListRequest {
   /**
@@ -41,110 +36,61 @@ export class LogsListRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     index: {
+      name: "index",
       baseName: "index",
       type: "string",
+      required: false,
       format: "",
     },
     limit: {
+      name: "limit",
       baseName: "limit",
       type: "number",
+      required: false,
       format: "int32",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: false,
       format: "",
     },
     sort: {
+      name: "sort",
       baseName: "sort",
       type: "LogsSort",
+      required: false,
       format: "",
     },
     startAt: {
+      name: "startAt",
       baseName: "startAt",
       type: "string",
+      required: false,
       format: "",
     },
     time: {
+      name: "time",
       baseName: "time",
       type: "LogsListRequestTime",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsListRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsListRequest {
-    const res = new LogsListRequest();
-
-    res.index = ObjectSerializer.deserialize(data.index, "string", "");
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int32");
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    if (["asc", "desc", undefined].includes(data.sort)) {
-      res.sort = data.sort;
-    } else {
-      const raw = new LogsListRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.startAt = ObjectSerializer.deserialize(data.startAt, "string", "");
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'LogsListRequest' object"
-      );
-    }
-    res.time = ObjectSerializer.deserialize(
-      data.time,
-      "LogsListRequestTime",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsListRequest): { [key: string]: any } {
-    const attributeTypes = LogsListRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.index = ObjectSerializer.serialize(data.index, "string", "");
-
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int32");
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    if (["asc", "desc", undefined].includes(data.sort)) {
-      res.sort = data.sort;
-    } else {
-      throw TypeError(`invalid enum value ${data.sort} for sort`);
-    }
-
-    res.startAt = ObjectSerializer.serialize(data.startAt, "string", "");
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'LogsListRequest' object"
-      );
-    }
-    res.time = ObjectSerializer.serialize(data.time, "LogsListRequestTime", "");
-
-    return res;
   }
 
   public constructor() {}

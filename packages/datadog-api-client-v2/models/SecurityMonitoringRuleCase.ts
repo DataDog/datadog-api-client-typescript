@@ -9,11 +9,6 @@
  */
 
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Case when signal is generated.
- */
 
 export class SecurityMonitoringRuleCase {
   /**
@@ -35,94 +30,47 @@ export class SecurityMonitoringRuleCase {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     condition: {
+      name: "condition",
       baseName: "condition",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     notifications: {
+      name: "notifications",
       baseName: "notifications",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "SecurityMonitoringRuleSeverity",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleCase.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SecurityMonitoringRuleCase {
-    const res = new SecurityMonitoringRuleCase();
-
-    res.condition = ObjectSerializer.deserialize(data.condition, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.notifications = ObjectSerializer.deserialize(
-      data.notifications,
-      "Array<string>",
-      ""
-    );
-
-    if (
-      ["info", "low", "medium", "high", "critical", undefined].includes(
-        data.status
-      )
-    ) {
-      res.status = data.status;
-    } else {
-      const raw = new SecurityMonitoringRuleCase();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleCase): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringRuleCase.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.condition = ObjectSerializer.serialize(data.condition, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.notifications = ObjectSerializer.serialize(
-      data.notifications,
-      "Array<string>",
-      ""
-    );
-
-    if (
-      ["info", "low", "medium", "high", "critical", undefined].includes(
-        data.status
-      )
-    ) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    return res;
   }
 
   public constructor() {}

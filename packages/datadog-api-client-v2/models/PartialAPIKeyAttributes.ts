@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of a partial API key.
- */
-
 export class PartialAPIKeyAttributes {
   /**
    * Creation date of the API key.
@@ -37,72 +31,47 @@ export class PartialAPIKeyAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     createdAt: {
+      name: "createdAt",
       baseName: "created_at",
       type: "string",
+      required: false,
       format: "",
     },
     last4: {
+      name: "last4",
       baseName: "last4",
       type: "string",
+      required: false,
       format: "",
     },
     modifiedAt: {
+      name: "modifiedAt",
       baseName: "modified_at",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return PartialAPIKeyAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): PartialAPIKeyAttributes {
-    const res = new PartialAPIKeyAttributes();
-
-    res.createdAt = ObjectSerializer.deserialize(data.created_at, "string", "");
-
-    res.last4 = ObjectSerializer.deserialize(data.last4, "string", "");
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "string",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: PartialAPIKeyAttributes): { [key: string]: any } {
-    const attributeTypes = PartialAPIKeyAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_at = ObjectSerializer.serialize(data.createdAt, "string", "");
-
-    res.last4 = ObjectSerializer.serialize(data.last4, "string", "");
-
-    res.modified_at = ObjectSerializer.serialize(data.modifiedAt, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

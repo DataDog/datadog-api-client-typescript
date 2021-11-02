@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Git information.
- */
-
 export class SyntheticsCIBatchMetadataGit {
   /**
    * The branch name.
@@ -29,52 +23,33 @@ export class SyntheticsCIBatchMetadataGit {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     branch: {
+      name: "branch",
       baseName: "branch",
       type: "string",
+      required: false,
       format: "",
     },
     commitSha: {
+      name: "commitSha",
       baseName: "commit_sha",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsCIBatchMetadataGit.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsCIBatchMetadataGit {
-    const res = new SyntheticsCIBatchMetadataGit();
-
-    res.branch = ObjectSerializer.deserialize(data.branch, "string", "");
-
-    res.commitSha = ObjectSerializer.deserialize(data.commit_sha, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsCIBatchMetadataGit): { [key: string]: any } {
-    const attributeTypes = SyntheticsCIBatchMetadataGit.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.branch = ObjectSerializer.serialize(data.branch, "string", "");
-
-    res.commit_sha = ObjectSerializer.serialize(data.commitSha, "string", "");
-
-    return res;
   }
 
   public constructor() {}

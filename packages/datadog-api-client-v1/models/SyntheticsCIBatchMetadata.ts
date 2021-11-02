@@ -10,11 +10,6 @@
 
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Metadata for the Synthetics tests run.
- */
 
 export class SyntheticsCIBatchMetadata {
   "ci"?: SyntheticsCIBatchMetadataCI;
@@ -25,66 +20,33 @@ export class SyntheticsCIBatchMetadata {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     ci: {
+      name: "ci",
       baseName: "ci",
       type: "SyntheticsCIBatchMetadataCI",
+      required: false,
       format: "",
     },
     git: {
+      name: "git",
       baseName: "git",
       type: "SyntheticsCIBatchMetadataGit",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsCIBatchMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsCIBatchMetadata {
-    const res = new SyntheticsCIBatchMetadata();
-
-    res.ci = ObjectSerializer.deserialize(
-      data.ci,
-      "SyntheticsCIBatchMetadataCI",
-      ""
-    );
-
-    res.git = ObjectSerializer.deserialize(
-      data.git,
-      "SyntheticsCIBatchMetadataGit",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsCIBatchMetadata): { [key: string]: any } {
-    const attributeTypes = SyntheticsCIBatchMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.ci = ObjectSerializer.serialize(
-      data.ci,
-      "SyntheticsCIBatchMetadataCI",
-      ""
-    );
-
-    res.git = ObjectSerializer.serialize(
-      data.git,
-      "SyntheticsCIBatchMetadataGit",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

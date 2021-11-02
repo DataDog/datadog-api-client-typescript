@@ -15,11 +15,6 @@ import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * IP ranges.
- */
 
 export class IPRanges {
   "agents"?: IPPrefixesAgents;
@@ -43,145 +38,82 @@ export class IPRanges {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     agents: {
+      name: "agents",
       baseName: "agents",
       type: "IPPrefixesAgents",
+      required: false,
       format: "",
     },
     api: {
+      name: "api",
       baseName: "api",
       type: "IPPrefixesAPI",
+      required: false,
       format: "",
     },
     apm: {
+      name: "apm",
       baseName: "apm",
       type: "IPPrefixesAPM",
+      required: false,
       format: "",
     },
     logs: {
+      name: "logs",
       baseName: "logs",
       type: "IPPrefixesLogs",
+      required: false,
       format: "",
     },
     modified: {
+      name: "modified",
       baseName: "modified",
       type: "string",
+      required: false,
       format: "",
     },
     process: {
+      name: "process",
       baseName: "process",
       type: "IPPrefixesProcess",
+      required: false,
       format: "",
     },
     synthetics: {
+      name: "synthetics",
       baseName: "synthetics",
       type: "IPPrefixesSynthetics",
+      required: false,
       format: "",
     },
     version: {
+      name: "version",
       baseName: "version",
       type: "number",
+      required: false,
       format: "int64",
     },
     webhooks: {
+      name: "webhooks",
       baseName: "webhooks",
       type: "IPPrefixesWebhooks",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IPRanges.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): IPRanges {
-    const res = new IPRanges();
-
-    res.agents = ObjectSerializer.deserialize(
-      data.agents,
-      "IPPrefixesAgents",
-      ""
-    );
-
-    res.api = ObjectSerializer.deserialize(data.api, "IPPrefixesAPI", "");
-
-    res.apm = ObjectSerializer.deserialize(data.apm, "IPPrefixesAPM", "");
-
-    res.logs = ObjectSerializer.deserialize(data.logs, "IPPrefixesLogs", "");
-
-    res.modified = ObjectSerializer.deserialize(data.modified, "string", "");
-
-    res.process = ObjectSerializer.deserialize(
-      data.process,
-      "IPPrefixesProcess",
-      ""
-    );
-
-    res.synthetics = ObjectSerializer.deserialize(
-      data.synthetics,
-      "IPPrefixesSynthetics",
-      ""
-    );
-
-    res.version = ObjectSerializer.deserialize(data.version, "number", "int64");
-
-    res.webhooks = ObjectSerializer.deserialize(
-      data.webhooks,
-      "IPPrefixesWebhooks",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IPRanges): { [key: string]: any } {
-    const attributeTypes = IPRanges.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.agents = ObjectSerializer.serialize(
-      data.agents,
-      "IPPrefixesAgents",
-      ""
-    );
-
-    res.api = ObjectSerializer.serialize(data.api, "IPPrefixesAPI", "");
-
-    res.apm = ObjectSerializer.serialize(data.apm, "IPPrefixesAPM", "");
-
-    res.logs = ObjectSerializer.serialize(data.logs, "IPPrefixesLogs", "");
-
-    res.modified = ObjectSerializer.serialize(data.modified, "string", "");
-
-    res.process = ObjectSerializer.serialize(
-      data.process,
-      "IPPrefixesProcess",
-      ""
-    );
-
-    res.synthetics = ObjectSerializer.serialize(
-      data.synthetics,
-      "IPPrefixesSynthetics",
-      ""
-    );
-
-    res.version = ObjectSerializer.serialize(data.version, "number", "int64");
-
-    res.webhooks = ObjectSerializer.serialize(
-      data.webhooks,
-      "IPPrefixesWebhooks",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

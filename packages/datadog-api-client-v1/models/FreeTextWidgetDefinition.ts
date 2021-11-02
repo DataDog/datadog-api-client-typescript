@@ -10,11 +10,6 @@
 
 import { FreeTextWidgetDefinitionType } from "./FreeTextWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
- */
 
 export class FreeTextWidgetDefinition {
   /**
@@ -37,117 +32,54 @@ export class FreeTextWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     color: {
+      name: "color",
       baseName: "color",
       type: "string",
+      required: false,
       format: "",
     },
     fontSize: {
+      name: "fontSize",
       baseName: "font_size",
       type: "string",
+      required: false,
       format: "",
     },
     text: {
+      name: "text",
       baseName: "text",
       type: "string",
+      required: true,
       format: "",
     },
     textAlign: {
+      name: "textAlign",
       baseName: "text_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "FreeTextWidgetDefinitionType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FreeTextWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): FreeTextWidgetDefinition {
-    const res = new FreeTextWidgetDefinition();
-
-    res.color = ObjectSerializer.deserialize(data.color, "string", "");
-
-    res.fontSize = ObjectSerializer.deserialize(data.font_size, "string", "");
-
-    if (data.text === undefined) {
-      throw new TypeError(
-        "missing required attribute 'text' on 'FreeTextWidgetDefinition' object"
-      );
-    }
-    res.text = ObjectSerializer.deserialize(data.text, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.text_align)) {
-      res.textAlign = data.text_align;
-    } else {
-      const raw = new FreeTextWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'FreeTextWidgetDefinition' object"
-      );
-    }
-    if (["free_text", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new FreeTextWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: FreeTextWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = FreeTextWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.color = ObjectSerializer.serialize(data.color, "string", "");
-
-    res.font_size = ObjectSerializer.serialize(data.fontSize, "string", "");
-
-    if (data.text === undefined) {
-      throw new TypeError(
-        "missing required attribute 'text' on 'FreeTextWidgetDefinition' object"
-      );
-    }
-    res.text = ObjectSerializer.serialize(data.text, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.textAlign)) {
-      res.text_align = data.textAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.textAlign} for textAlign`);
-    }
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'FreeTextWidgetDefinition' object"
-      );
-    }
-    if (["free_text", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

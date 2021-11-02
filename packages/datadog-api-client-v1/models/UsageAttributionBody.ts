@@ -9,11 +9,6 @@
  */
 
 import { UsageAttributionValues } from "./UsageAttributionValues";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Usage Summary by tag for a given organization.
- */
 
 export class UsageAttributionBody {
   /**
@@ -47,119 +42,68 @@ export class UsageAttributionBody {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     month: {
+      name: "month",
       baseName: "month",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     orgName: {
+      name: "orgName",
       baseName: "org_name",
       type: "string",
+      required: false,
       format: "",
     },
     publicId: {
+      name: "publicId",
       baseName: "public_id",
       type: "string",
+      required: false,
       format: "",
     },
     tagConfigSource: {
+      name: "tagConfigSource",
       baseName: "tag_config_source",
       type: "string",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
+      required: false,
       format: "",
     },
     updatedAt: {
+      name: "updatedAt",
       baseName: "updated_at",
       type: "string",
+      required: false,
       format: "",
     },
     values: {
+      name: "values",
       baseName: "values",
       type: "UsageAttributionValues",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageAttributionBody.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageAttributionBody {
-    const res = new UsageAttributionBody();
-
-    res.month = ObjectSerializer.deserialize(data.month, "Date", "date-time");
-
-    res.orgName = ObjectSerializer.deserialize(data.org_name, "string", "");
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    res.tagConfigSource = ObjectSerializer.deserialize(
-      data.tag_config_source,
-      "string",
-      ""
-    );
-
-    res.tags = ObjectSerializer.deserialize(
-      data.tags,
-      "{ [key: string]: Array<string>; }",
-      ""
-    );
-
-    res.updatedAt = ObjectSerializer.deserialize(data.updated_at, "string", "");
-
-    res.values = ObjectSerializer.deserialize(
-      data.values,
-      "UsageAttributionValues",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageAttributionBody): { [key: string]: any } {
-    const attributeTypes = UsageAttributionBody.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.month = ObjectSerializer.serialize(data.month, "Date", "date-time");
-
-    res.org_name = ObjectSerializer.serialize(data.orgName, "string", "");
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    res.tag_config_source = ObjectSerializer.serialize(
-      data.tagConfigSource,
-      "string",
-      ""
-    );
-
-    res.tags = ObjectSerializer.serialize(
-      data.tags,
-      "{ [key: string]: Array<string>; }",
-      ""
-    );
-
-    res.updated_at = ObjectSerializer.serialize(data.updatedAt, "string", "");
-
-    res.values = ObjectSerializer.serialize(
-      data.values,
-      "UsageAttributionValues",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

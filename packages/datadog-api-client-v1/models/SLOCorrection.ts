@@ -10,11 +10,6 @@
 
 import { SLOCorrectionResponseAttributes } from "./SLOCorrectionResponseAttributes";
 import { SLOCorrectionType } from "./SLOCorrectionType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The response object of a list of SLO corrections.
- */
 
 export class SLOCorrection {
   "attributes"?: SLOCorrectionResponseAttributes;
@@ -29,77 +24,40 @@ export class SLOCorrection {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "SLOCorrectionResponseAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SLOCorrectionType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOCorrection.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOCorrection {
-    const res = new SLOCorrection();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "SLOCorrectionResponseAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["correction", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SLOCorrection();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SLOCorrection): { [key: string]: any } {
-    const attributeTypes = SLOCorrection.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "SLOCorrectionResponseAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["correction", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

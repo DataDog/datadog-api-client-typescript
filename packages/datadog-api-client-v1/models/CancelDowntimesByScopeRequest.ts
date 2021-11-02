@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Cancel downtimes according to scope.
- */
-
 export class CancelDowntimesByScopeRequest {
   /**
    * The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
@@ -25,55 +19,26 @@ export class CancelDowntimesByScopeRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     scope: {
+      name: "scope",
       baseName: "scope",
       type: "string",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return CancelDowntimesByScopeRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): CancelDowntimesByScopeRequest {
-    const res = new CancelDowntimesByScopeRequest();
-
-    if (data.scope === undefined) {
-      throw new TypeError(
-        "missing required attribute 'scope' on 'CancelDowntimesByScopeRequest' object"
-      );
-    }
-    res.scope = ObjectSerializer.deserialize(data.scope, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: CancelDowntimesByScopeRequest): {
-    [key: string]: any;
-  } {
-    const attributeTypes = CancelDowntimesByScopeRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.scope === undefined) {
-      throw new TypeError(
-        "missing required attribute 'scope' on 'CancelDowntimesByScopeRequest' object"
-      );
-    }
-    res.scope = ObjectSerializer.serialize(data.scope, "string", "");
-
-    return res;
   }
 
   public constructor() {}

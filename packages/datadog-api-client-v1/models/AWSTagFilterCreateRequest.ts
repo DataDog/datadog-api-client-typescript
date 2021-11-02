@@ -9,11 +9,6 @@
  */
 
 import { AWSNamespace } from "./AWSNamespace";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The objects used to set an AWS tag filter.
- */
 
 export class AWSTagFilterCreateRequest {
   /**
@@ -31,99 +26,40 @@ export class AWSTagFilterCreateRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     accountId: {
+      name: "accountId",
       baseName: "account_id",
       type: "string",
+      required: false,
       format: "",
     },
     namespace: {
+      name: "namespace",
       baseName: "namespace",
       type: "AWSNamespace",
+      required: false,
       format: "",
     },
     tagFilterStr: {
+      name: "tagFilterStr",
       baseName: "tag_filter_str",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSTagFilterCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSTagFilterCreateRequest {
-    const res = new AWSTagFilterCreateRequest();
-
-    res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "");
-
-    if (
-      [
-        "elb",
-        "application_elb",
-        "sqs",
-        "rds",
-        "custom",
-        "network_elb",
-        "lambda",
-        undefined,
-      ].includes(data.namespace)
-    ) {
-      res.namespace = data.namespace;
-    } else {
-      const raw = new AWSTagFilterCreateRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.tagFilterStr = ObjectSerializer.deserialize(
-      data.tag_filter_str,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: AWSTagFilterCreateRequest): { [key: string]: any } {
-    const attributeTypes = AWSTagFilterCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
-
-    if (
-      [
-        "elb",
-        "application_elb",
-        "sqs",
-        "rds",
-        "custom",
-        "network_elb",
-        "lambda",
-        undefined,
-      ].includes(data.namespace)
-    ) {
-      res.namespace = data.namespace;
-    } else {
-      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
-    }
-
-    res.tag_filter_str = ObjectSerializer.serialize(
-      data.tagFilterStr,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

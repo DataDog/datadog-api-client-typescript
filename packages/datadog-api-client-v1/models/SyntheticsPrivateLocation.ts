@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing information about the private location to create.
- */
 
 export class SyntheticsPrivateLocation {
   /**
@@ -39,123 +34,54 @@ export class SyntheticsPrivateLocation {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     description: {
+      name: "description",
       baseName: "description",
       type: "string",
+      required: true,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     secrets: {
+      name: "secrets",
       baseName: "secrets",
       type: "SyntheticsPrivateLocationSecrets",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsPrivateLocation.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsPrivateLocation {
-    const res = new SyntheticsPrivateLocation();
-
-    if (data.description === undefined) {
-      throw new TypeError(
-        "missing required attribute 'description' on 'SyntheticsPrivateLocation' object"
-      );
-    }
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsPrivateLocation' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.secrets = ObjectSerializer.deserialize(
-      data.secrets,
-      "SyntheticsPrivateLocationSecrets",
-      ""
-    );
-
-    if (data.tags === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tags' on 'SyntheticsPrivateLocation' object"
-      );
-    }
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsPrivateLocation): { [key: string]: any } {
-    const attributeTypes = SyntheticsPrivateLocation.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.description === undefined) {
-      throw new TypeError(
-        "missing required attribute 'description' on 'SyntheticsPrivateLocation' object"
-      );
-    }
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsPrivateLocation' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.secrets = ObjectSerializer.serialize(
-      data.secrets,
-      "SyntheticsPrivateLocationSecrets",
-      ""
-    );
-
-    if (data.tags === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tags' on 'SyntheticsPrivateLocation' object"
-      );
-    }
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

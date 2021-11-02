@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of a permission.
- */
-
 export class PermissionAttributes {
   /**
    * Creation time of the permission.
@@ -49,127 +43,68 @@ export class PermissionAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     created: {
+      name: "created",
       baseName: "created",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     description: {
+      name: "description",
       baseName: "description",
       type: "string",
+      required: false,
       format: "",
     },
     displayName: {
+      name: "displayName",
       baseName: "display_name",
       type: "string",
+      required: false,
       format: "",
     },
     displayType: {
+      name: "displayType",
       baseName: "display_type",
       type: "string",
+      required: false,
       format: "",
     },
     groupName: {
+      name: "groupName",
       baseName: "group_name",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     restricted: {
+      name: "restricted",
       baseName: "restricted",
       type: "boolean",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return PermissionAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): PermissionAttributes {
-    const res = new PermissionAttributes();
-
-    res.created = ObjectSerializer.deserialize(
-      data.created,
-      "Date",
-      "date-time"
-    );
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.displayName = ObjectSerializer.deserialize(
-      data.display_name,
-      "string",
-      ""
-    );
-
-    res.displayType = ObjectSerializer.deserialize(
-      data.display_type,
-      "string",
-      ""
-    );
-
-    res.groupName = ObjectSerializer.deserialize(data.group_name, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.restricted = ObjectSerializer.deserialize(
-      data.restricted,
-      "boolean",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: PermissionAttributes): { [key: string]: any } {
-    const attributeTypes = PermissionAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.display_name = ObjectSerializer.serialize(
-      data.displayName,
-      "string",
-      ""
-    );
-
-    res.display_type = ObjectSerializer.serialize(
-      data.displayType,
-      "string",
-      ""
-    );
-
-    res.group_name = ObjectSerializer.serialize(data.groupName, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.restricted = ObjectSerializer.serialize(data.restricted, "boolean", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { UsageCustomReportsAttributes } from "./UsageCustomReportsAttributes";
 import { UsageReportsType } from "./UsageReportsType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The response containing the date and type for custom reports.
- */
 
 export class UsageCustomReportsData {
   "attributes"?: UsageCustomReportsAttributes;
@@ -29,77 +24,40 @@ export class UsageCustomReportsData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "UsageCustomReportsAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "UsageReportsType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageCustomReportsData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageCustomReportsData {
-    const res = new UsageCustomReportsData();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "UsageCustomReportsAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["reports", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new UsageCustomReportsData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: UsageCustomReportsData): { [key: string]: any } {
-    const attributeTypes = UsageCustomReportsData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "UsageCustomReportsAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["reports", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

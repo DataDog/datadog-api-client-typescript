@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Database Monitoring usage for a given organization for a given hour.
- */
-
 export class UsageDBMHour {
   /**
    * The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.
@@ -33,75 +27,40 @@ export class UsageDBMHour {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     dbmHostCount: {
+      name: "dbmHostCount",
       baseName: "dbm_host_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     dbmQueriesCount: {
+      name: "dbmQueriesCount",
       baseName: "dbm_queries_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     hour: {
+      name: "hour",
       baseName: "hour",
       type: "Date",
+      required: false,
       format: "date-time",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageDBMHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageDBMHour {
-    const res = new UsageDBMHour();
-
-    res.dbmHostCount = ObjectSerializer.deserialize(
-      data.dbm_host_count,
-      "number",
-      "int64"
-    );
-
-    res.dbmQueriesCount = ObjectSerializer.deserialize(
-      data.dbm_queries_count,
-      "number",
-      "int64"
-    );
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    return res;
-  }
-
-  static serialize(data: UsageDBMHour): { [key: string]: any } {
-    const attributeTypes = UsageDBMHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.dbm_host_count = ObjectSerializer.serialize(
-      data.dbmHostCount,
-      "number",
-      "int64"
-    );
-
-    res.dbm_queries_count = ObjectSerializer.serialize(
-      data.dbmQueriesCount,
-      "number",
-      "int64"
-    );
-
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    return res;
   }
 
   public constructor() {}

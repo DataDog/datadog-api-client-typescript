@@ -9,11 +9,6 @@
  */
 
 import { ApiKey } from "./ApiKey";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of API and application keys available for a given organization.
- */
 
 export class ApiKeyListResponse {
   /**
@@ -26,49 +21,26 @@ export class ApiKeyListResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     apiKeys: {
+      name: "apiKeys",
       baseName: "api_keys",
       type: "Array<ApiKey>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApiKeyListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ApiKeyListResponse {
-    const res = new ApiKeyListResponse();
-
-    res.apiKeys = ObjectSerializer.deserialize(
-      data.api_keys,
-      "Array<ApiKey>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ApiKeyListResponse): { [key: string]: any } {
-    const attributeTypes = ApiKeyListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.api_keys = ObjectSerializer.serialize(
-      data.apiKeys,
-      "Array<ApiKey>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

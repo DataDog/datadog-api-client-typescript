@@ -9,11 +9,6 @@
  */
 
 import { SLOHistoryMetricsSeriesMetadata } from "./SLOHistoryMetricsSeriesMetadata";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A representation of `metric` based SLO time series for the provided queries. This is the same response type from `batch_query` endpoint.
- */
 
 export class SLOHistoryMetricsSeries {
   /**
@@ -35,114 +30,47 @@ export class SLOHistoryMetricsSeries {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     count: {
+      name: "count",
       baseName: "count",
       type: "number",
+      required: true,
       format: "int64",
     },
     metadata: {
+      name: "metadata",
       baseName: "metadata",
       type: "SLOHistoryMetricsSeriesMetadata",
+      required: false,
       format: "",
     },
     sum: {
+      name: "sum",
       baseName: "sum",
       type: "number",
+      required: true,
       format: "double",
     },
     values: {
+      name: "values",
       baseName: "values",
       type: "Array<number>",
+      required: true,
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOHistoryMetricsSeries.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOHistoryMetricsSeries {
-    const res = new SLOHistoryMetricsSeries();
-
-    if (data.count === undefined) {
-      throw new TypeError(
-        "missing required attribute 'count' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
-    res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
-
-    res.metadata = ObjectSerializer.deserialize(
-      data.metadata,
-      "SLOHistoryMetricsSeriesMetadata",
-      ""
-    );
-
-    if (data.sum === undefined) {
-      throw new TypeError(
-        "missing required attribute 'sum' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
-    res.sum = ObjectSerializer.deserialize(data.sum, "number", "double");
-
-    if (data.values === undefined) {
-      throw new TypeError(
-        "missing required attribute 'values' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
-    res.values = ObjectSerializer.deserialize(
-      data.values,
-      "Array<number>",
-      "double"
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOHistoryMetricsSeries): { [key: string]: any } {
-    const attributeTypes = SLOHistoryMetricsSeries.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.count === undefined) {
-      throw new TypeError(
-        "missing required attribute 'count' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
-    res.count = ObjectSerializer.serialize(data.count, "number", "int64");
-
-    res.metadata = ObjectSerializer.serialize(
-      data.metadata,
-      "SLOHistoryMetricsSeriesMetadata",
-      ""
-    );
-
-    if (data.sum === undefined) {
-      throw new TypeError(
-        "missing required attribute 'sum' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
-    res.sum = ObjectSerializer.serialize(data.sum, "number", "double");
-
-    if (data.values === undefined) {
-      throw new TypeError(
-        "missing required attribute 'values' on 'SLOHistoryMetricsSeries' object"
-      );
-    }
-    res.values = ObjectSerializer.serialize(
-      data.values,
-      "Array<number>",
-      "double"
-    );
-
-    return res;
   }
 
   public constructor() {}

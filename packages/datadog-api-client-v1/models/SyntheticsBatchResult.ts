@@ -12,11 +12,6 @@ import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsStatus } from "./SyntheticsStatus";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object with the results of a Synthetics batch.
- */
 
 export class SyntheticsBatchResult {
   "device"?: SyntheticsDeviceID;
@@ -53,224 +48,89 @@ export class SyntheticsBatchResult {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     device: {
+      name: "device",
       baseName: "device",
       type: "SyntheticsDeviceID",
+      required: false,
       format: "",
     },
     duration: {
+      name: "duration",
       baseName: "duration",
       type: "number",
+      required: false,
       format: "double",
     },
     executionRule: {
+      name: "executionRule",
       baseName: "execution_rule",
       type: "SyntheticsTestExecutionRule",
+      required: false,
       format: "",
     },
     location: {
+      name: "location",
       baseName: "location",
       type: "string",
+      required: false,
       format: "",
     },
     resultId: {
+      name: "resultId",
       baseName: "result_id",
       type: "string",
+      required: false,
       format: "",
     },
     retries: {
+      name: "retries",
       baseName: "retries",
       type: "number",
+      required: false,
       format: "double",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "SyntheticsStatus",
+      required: false,
       format: "",
     },
     testName: {
+      name: "testName",
       baseName: "test_name",
       type: "string",
+      required: false,
       format: "",
     },
     testPublicId: {
+      name: "testPublicId",
       baseName: "test_public_id",
       type: "string",
+      required: false,
       format: "",
     },
     testType: {
+      name: "testType",
       baseName: "test_type",
       type: "SyntheticsTestDetailsType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBatchResult.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsBatchResult {
-    const res = new SyntheticsBatchResult();
-
-    if (
-      [
-        "laptop_large",
-        "tablet",
-        "mobile_small",
-        "chrome.laptop_large",
-        "chrome.tablet",
-        "chrome.mobile_small",
-        "firefox.laptop_large",
-        "firefox.tablet",
-        "firefox.mobile_small",
-        "edge.laptop_large",
-        "edge.tablet",
-        "edge.mobile_small",
-        undefined,
-      ].includes(data.device)
-    ) {
-      res.device = data.device;
-    } else {
-      const raw = new SyntheticsBatchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.duration = ObjectSerializer.deserialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    if (
-      ["blocking", "non_blocking", "skipped", undefined].includes(
-        data.execution_rule
-      )
-    ) {
-      res.executionRule = data.execution_rule;
-    } else {
-      const raw = new SyntheticsBatchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.location = ObjectSerializer.deserialize(data.location, "string", "");
-
-    res.resultId = ObjectSerializer.deserialize(data.result_id, "string", "");
-
-    res.retries = ObjectSerializer.deserialize(
-      data.retries,
-      "number",
-      "double"
-    );
-
-    if (["passed", "skipped", "failed", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new SyntheticsBatchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.testName = ObjectSerializer.deserialize(data.test_name, "string", "");
-
-    res.testPublicId = ObjectSerializer.deserialize(
-      data.test_public_id,
-      "string",
-      ""
-    );
-
-    if (["api", "browser", undefined].includes(data.test_type)) {
-      res.testType = data.test_type;
-    } else {
-      const raw = new SyntheticsBatchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBatchResult): { [key: string]: any } {
-    const attributeTypes = SyntheticsBatchResult.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      [
-        "laptop_large",
-        "tablet",
-        "mobile_small",
-        "chrome.laptop_large",
-        "chrome.tablet",
-        "chrome.mobile_small",
-        "firefox.laptop_large",
-        "firefox.tablet",
-        "firefox.mobile_small",
-        "edge.laptop_large",
-        "edge.tablet",
-        "edge.mobile_small",
-        undefined,
-      ].includes(data.device)
-    ) {
-      res.device = data.device;
-    } else {
-      throw TypeError(`invalid enum value ${data.device} for device`);
-    }
-
-    res.duration = ObjectSerializer.serialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    if (
-      ["blocking", "non_blocking", "skipped", undefined].includes(
-        data.executionRule
-      )
-    ) {
-      res.execution_rule = data.executionRule;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.executionRule} for executionRule`
-      );
-    }
-
-    res.location = ObjectSerializer.serialize(data.location, "string", "");
-
-    res.result_id = ObjectSerializer.serialize(data.resultId, "string", "");
-
-    res.retries = ObjectSerializer.serialize(data.retries, "number", "double");
-
-    if (["passed", "skipped", "failed", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    res.test_name = ObjectSerializer.serialize(data.testName, "string", "");
-
-    res.test_public_id = ObjectSerializer.serialize(
-      data.testPublicId,
-      "string",
-      ""
-    );
-
-    if (["api", "browser", undefined].includes(data.testType)) {
-      res.test_type = data.testType;
-    } else {
-      throw TypeError(`invalid enum value ${data.testType} for testType`);
-    }
-
-    return res;
   }
 
   public constructor() {}

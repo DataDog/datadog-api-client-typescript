@@ -13,11 +13,6 @@ import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRule
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Options on rules.
- */
 
 export class SecurityMonitoringRuleOptions {
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
@@ -31,211 +26,54 @@ export class SecurityMonitoringRuleOptions {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     detectionMethod: {
+      name: "detectionMethod",
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
+      required: false,
       format: "",
     },
     evaluationWindow: {
+      name: "evaluationWindow",
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
+      required: false,
       format: "",
     },
     keepAlive: {
+      name: "keepAlive",
       baseName: "keepAlive",
       type: "SecurityMonitoringRuleKeepAlive",
+      required: false,
       format: "",
     },
     maxSignalDuration: {
+      name: "maxSignalDuration",
       baseName: "maxSignalDuration",
       type: "SecurityMonitoringRuleMaxSignalDuration",
+      required: false,
       format: "",
     },
     newValueOptions: {
+      name: "newValueOptions",
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleOptions.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringRuleOptions {
-    const res = new SecurityMonitoringRuleOptions();
-
-    if (
-      ["threshold", "new_value", "anomaly_detection", undefined].includes(
-        data.detectionMethod
-      )
-    ) {
-      res.detectionMethod = data.detectionMethod;
-    } else {
-      const raw = new SecurityMonitoringRuleOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (
-      [0, 60, 300, 600, 900, 1800, 3600, 7200, undefined].includes(
-        data.evaluationWindow
-      )
-    ) {
-      res.evaluationWindow = data.evaluationWindow;
-    } else {
-      const raw = new SecurityMonitoringRuleOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (
-      [
-        0,
-        60,
-        300,
-        600,
-        900,
-        1800,
-        3600,
-        7200,
-        10800,
-        21600,
-        undefined,
-      ].includes(data.keepAlive)
-    ) {
-      res.keepAlive = data.keepAlive;
-    } else {
-      const raw = new SecurityMonitoringRuleOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (
-      [
-        0,
-        60,
-        300,
-        600,
-        900,
-        1800,
-        3600,
-        7200,
-        10800,
-        21600,
-        43200,
-        86400,
-        undefined,
-      ].includes(data.maxSignalDuration)
-    ) {
-      res.maxSignalDuration = data.maxSignalDuration;
-    } else {
-      const raw = new SecurityMonitoringRuleOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.newValueOptions = ObjectSerializer.deserialize(
-      data.newValueOptions,
-      "SecurityMonitoringRuleNewValueOptions",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleOptions): {
-    [key: string]: any;
-  } {
-    const attributeTypes = SecurityMonitoringRuleOptions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      ["threshold", "new_value", "anomaly_detection", undefined].includes(
-        data.detectionMethod
-      )
-    ) {
-      res.detectionMethod = data.detectionMethod;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.detectionMethod} for detectionMethod`
-      );
-    }
-
-    if (
-      [0, 60, 300, 600, 900, 1800, 3600, 7200, undefined].includes(
-        data.evaluationWindow
-      )
-    ) {
-      res.evaluationWindow = data.evaluationWindow;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.evaluationWindow} for evaluationWindow`
-      );
-    }
-
-    if (
-      [
-        0,
-        60,
-        300,
-        600,
-        900,
-        1800,
-        3600,
-        7200,
-        10800,
-        21600,
-        undefined,
-      ].includes(data.keepAlive)
-    ) {
-      res.keepAlive = data.keepAlive;
-    } else {
-      throw TypeError(`invalid enum value ${data.keepAlive} for keepAlive`);
-    }
-
-    if (
-      [
-        0,
-        60,
-        300,
-        600,
-        900,
-        1800,
-        3600,
-        7200,
-        10800,
-        21600,
-        43200,
-        86400,
-        undefined,
-      ].includes(data.maxSignalDuration)
-    ) {
-      res.maxSignalDuration = data.maxSignalDuration;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.maxSignalDuration} for maxSignalDuration`
-      );
-    }
-
-    res.newValueOptions = ObjectSerializer.serialize(
-      data.newValueOptions,
-      "SecurityMonitoringRuleNewValueOptions",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing indexed logs usage grouped by retention period and summed.
- */
-
 export class LogsRetentionSumUsage {
   /**
    * Total indexed logs for this retention period.
@@ -37,92 +31,47 @@ export class LogsRetentionSumUsage {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     logsIndexedLogsUsageSum: {
+      name: "logsIndexedLogsUsageSum",
       baseName: "logs_indexed_logs_usage_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     logsLiveIndexedLogsUsageSum: {
+      name: "logsLiveIndexedLogsUsageSum",
       baseName: "logs_live_indexed_logs_usage_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     logsRehydratedIndexedLogsUsageSum: {
+      name: "logsRehydratedIndexedLogsUsageSum",
       baseName: "logs_rehydrated_indexed_logs_usage_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     retention: {
+      name: "retention",
       baseName: "retention",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsRetentionSumUsage.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsRetentionSumUsage {
-    const res = new LogsRetentionSumUsage();
-
-    res.logsIndexedLogsUsageSum = ObjectSerializer.deserialize(
-      data.logs_indexed_logs_usage_sum,
-      "number",
-      "int64"
-    );
-
-    res.logsLiveIndexedLogsUsageSum = ObjectSerializer.deserialize(
-      data.logs_live_indexed_logs_usage_sum,
-      "number",
-      "int64"
-    );
-
-    res.logsRehydratedIndexedLogsUsageSum = ObjectSerializer.deserialize(
-      data.logs_rehydrated_indexed_logs_usage_sum,
-      "number",
-      "int64"
-    );
-
-    res.retention = ObjectSerializer.deserialize(data.retention, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsRetentionSumUsage): { [key: string]: any } {
-    const attributeTypes = LogsRetentionSumUsage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.logs_indexed_logs_usage_sum = ObjectSerializer.serialize(
-      data.logsIndexedLogsUsageSum,
-      "number",
-      "int64"
-    );
-
-    res.logs_live_indexed_logs_usage_sum = ObjectSerializer.serialize(
-      data.logsLiveIndexedLogsUsageSum,
-      "number",
-      "int64"
-    );
-
-    res.logs_rehydrated_indexed_logs_usage_sum = ObjectSerializer.serialize(
-      data.logsRehydratedIndexedLogsUsageSum,
-      "number",
-      "int64"
-    );
-
-    res.retention = ObjectSerializer.serialize(data.retention, "string", "");
-
-    return res;
   }
 
   public constructor() {}

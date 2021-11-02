@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Number of RUM Sessions recorded for each hour for a given organization.
- */
-
 export class UsageRumSessionsHour {
   /**
    * The hour for the usage.
@@ -37,92 +31,47 @@ export class UsageRumSessionsHour {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     hour: {
+      name: "hour",
       baseName: "hour",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     sessionCount: {
+      name: "sessionCount",
       baseName: "session_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     sessionCountAndroid: {
+      name: "sessionCountAndroid",
       baseName: "session_count_android",
       type: "number",
+      required: false,
       format: "int64",
     },
     sessionCountIos: {
+      name: "sessionCountIos",
       baseName: "session_count_ios",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageRumSessionsHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageRumSessionsHour {
-    const res = new UsageRumSessionsHour();
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    res.sessionCount = ObjectSerializer.deserialize(
-      data.session_count,
-      "number",
-      "int64"
-    );
-
-    res.sessionCountAndroid = ObjectSerializer.deserialize(
-      data.session_count_android,
-      "number",
-      "int64"
-    );
-
-    res.sessionCountIos = ObjectSerializer.deserialize(
-      data.session_count_ios,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageRumSessionsHour): { [key: string]: any } {
-    const attributeTypes = UsageRumSessionsHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    res.session_count = ObjectSerializer.serialize(
-      data.sessionCount,
-      "number",
-      "int64"
-    );
-
-    res.session_count_android = ObjectSerializer.serialize(
-      data.sessionCountAndroid,
-      "number",
-      "int64"
-    );
-
-    res.session_count_ios = ObjectSerializer.serialize(
-      data.sessionCountIos,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { AWSNamespace } from "./AWSNamespace";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A tag filter.
- */
 
 export class AWSTagFilter {
   "namespace"?: AWSNamespace;
@@ -27,90 +22,33 @@ export class AWSTagFilter {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     namespace: {
+      name: "namespace",
       baseName: "namespace",
       type: "AWSNamespace",
+      required: false,
       format: "",
     },
     tagFilterStr: {
+      name: "tagFilterStr",
       baseName: "tag_filter_str",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSTagFilter.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSTagFilter {
-    const res = new AWSTagFilter();
-
-    if (
-      [
-        "elb",
-        "application_elb",
-        "sqs",
-        "rds",
-        "custom",
-        "network_elb",
-        "lambda",
-        undefined,
-      ].includes(data.namespace)
-    ) {
-      res.namespace = data.namespace;
-    } else {
-      const raw = new AWSTagFilter();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.tagFilterStr = ObjectSerializer.deserialize(
-      data.tag_filter_str,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: AWSTagFilter): { [key: string]: any } {
-    const attributeTypes = AWSTagFilter.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      [
-        "elb",
-        "application_elb",
-        "sqs",
-        "rds",
-        "custom",
-        "network_elb",
-        "lambda",
-        undefined,
-      ].includes(data.namespace)
-    ) {
-      res.namespace = data.namespace;
-    } else {
-      throw TypeError(`invalid enum value ${data.namespace} for namespace`);
-    }
-
-    res.tag_filter_str = ObjectSerializer.serialize(
-      data.tagFilterStr,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

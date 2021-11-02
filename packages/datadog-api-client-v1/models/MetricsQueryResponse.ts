@@ -9,11 +9,6 @@
  */
 
 import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response Object that includes your query and the list of metrics retrieved.
- */
 
 export class MetricsQueryResponse {
   /**
@@ -58,137 +53,82 @@ export class MetricsQueryResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     error: {
+      name: "error",
       baseName: "error",
       type: "string",
+      required: false,
       format: "",
     },
     fromDate: {
+      name: "fromDate",
       baseName: "from_date",
       type: "number",
+      required: false,
       format: "int64",
     },
     groupBy: {
+      name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: false,
       format: "",
     },
     resType: {
+      name: "resType",
       baseName: "res_type",
       type: "string",
+      required: false,
       format: "",
     },
     series: {
+      name: "series",
       baseName: "series",
       type: "Array<MetricsQueryMetadata>",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "string",
+      required: false,
       format: "",
     },
     toDate: {
+      name: "toDate",
       baseName: "to_date",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricsQueryResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricsQueryResponse {
-    const res = new MetricsQueryResponse();
-
-    res.error = ObjectSerializer.deserialize(data.error, "string", "");
-
-    res.fromDate = ObjectSerializer.deserialize(
-      data.from_date,
-      "number",
-      "int64"
-    );
-
-    res.groupBy = ObjectSerializer.deserialize(
-      data.group_by,
-      "Array<string>",
-      ""
-    );
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    res.resType = ObjectSerializer.deserialize(data.res_type, "string", "");
-
-    res.series = ObjectSerializer.deserialize(
-      data.series,
-      "Array<MetricsQueryMetadata>",
-      ""
-    );
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    res.toDate = ObjectSerializer.deserialize(data.to_date, "number", "int64");
-
-    return res;
-  }
-
-  static serialize(data: MetricsQueryResponse): { [key: string]: any } {
-    const attributeTypes = MetricsQueryResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.error = ObjectSerializer.serialize(data.error, "string", "");
-
-    res.from_date = ObjectSerializer.serialize(
-      data.fromDate,
-      "number",
-      "int64"
-    );
-
-    res.group_by = ObjectSerializer.serialize(
-      data.groupBy,
-      "Array<string>",
-      ""
-    );
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    res.res_type = ObjectSerializer.serialize(data.resType, "string", "");
-
-    res.series = ObjectSerializer.serialize(
-      data.series,
-      "Array<MetricsQueryMetadata>",
-      ""
-    );
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    res.to_date = ObjectSerializer.serialize(data.toDate, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

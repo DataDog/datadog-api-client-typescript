@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Value of the global variable.
- */
-
 export class SyntheticsGlobalVariableValue {
   /**
    * Determines if the value of the variable is hidden.
@@ -29,54 +23,33 @@ export class SyntheticsGlobalVariableValue {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     secure: {
+      name: "secure",
       baseName: "secure",
       type: "boolean",
+      required: false,
       format: "",
     },
     value: {
+      name: "value",
       baseName: "value",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsGlobalVariableValue.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsGlobalVariableValue {
-    const res = new SyntheticsGlobalVariableValue();
-
-    res.secure = ObjectSerializer.deserialize(data.secure, "boolean", "");
-
-    res.value = ObjectSerializer.deserialize(data.value, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsGlobalVariableValue): {
-    [key: string]: any;
-  } {
-    const attributeTypes = SyntheticsGlobalVariableValue.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.secure = ObjectSerializer.serialize(data.secure, "boolean", "");
-
-    res.value = ObjectSerializer.serialize(data.value, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Sensitive Data Scanner usage for a given organization for a given hour.
- */
-
 export class UsageSDSHour {
   /**
    * The hour for the usage.
@@ -33,75 +27,40 @@ export class UsageSDSHour {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     hour: {
+      name: "hour",
       baseName: "hour",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     logsScannedBytes: {
+      name: "logsScannedBytes",
       baseName: "logs_scanned_bytes",
       type: "number",
+      required: false,
       format: "int64",
     },
     totalScannedBytes: {
+      name: "totalScannedBytes",
       baseName: "total_scanned_bytes",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSDSHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSDSHour {
-    const res = new UsageSDSHour();
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    res.logsScannedBytes = ObjectSerializer.deserialize(
-      data.logs_scanned_bytes,
-      "number",
-      "int64"
-    );
-
-    res.totalScannedBytes = ObjectSerializer.deserialize(
-      data.total_scanned_bytes,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSDSHour): { [key: string]: any } {
-    const attributeTypes = UsageSDSHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    res.logs_scanned_bytes = ObjectSerializer.serialize(
-      data.logsScannedBytes,
-      "number",
-      "int64"
-    );
-
-    res.total_scanned_bytes = ObjectSerializer.serialize(
-      data.totalScannedBytes,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

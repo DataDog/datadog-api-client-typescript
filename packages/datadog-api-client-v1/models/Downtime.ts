@@ -10,11 +10,6 @@
 
 import { DowntimeChild } from "./DowntimeChild";
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
- */
 
 export class Downtime {
   /**
@@ -85,253 +80,138 @@ export class Downtime {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     active: {
+      name: "active",
       baseName: "active",
       type: "boolean",
+      required: false,
       format: "",
     },
     activeChild: {
+      name: "activeChild",
       baseName: "active_child",
       type: "DowntimeChild",
+      required: false,
       format: "",
     },
     canceled: {
+      name: "canceled",
       baseName: "canceled",
       type: "number",
+      required: false,
       format: "int64",
     },
     creatorId: {
+      name: "creatorId",
       baseName: "creator_id",
       type: "number",
+      required: false,
       format: "int32",
     },
     disabled: {
+      name: "disabled",
       baseName: "disabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     downtimeType: {
+      name: "downtimeType",
       baseName: "downtime_type",
       type: "number",
+      required: false,
       format: "int32",
     },
     end: {
+      name: "end",
       baseName: "end",
       type: "number",
+      required: false,
       format: "int64",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "number",
+      required: false,
       format: "int64",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
     monitorId: {
+      name: "monitorId",
       baseName: "monitor_id",
       type: "number",
+      required: false,
       format: "int64",
     },
     monitorTags: {
+      name: "monitorTags",
       baseName: "monitor_tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     parentId: {
+      name: "parentId",
       baseName: "parent_id",
       type: "number",
+      required: false,
       format: "int64",
     },
     recurrence: {
+      name: "recurrence",
       baseName: "recurrence",
       type: "DowntimeRecurrence",
+      required: false,
       format: "",
     },
     scope: {
+      name: "scope",
       baseName: "scope",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     start: {
+      name: "start",
       baseName: "start",
       type: "number",
+      required: false,
       format: "int64",
     },
     timezone: {
+      name: "timezone",
       baseName: "timezone",
       type: "string",
+      required: false,
       format: "",
     },
     updaterId: {
+      name: "updaterId",
       baseName: "updater_id",
       type: "number",
+      required: false,
       format: "int32",
     },
   };
 
   static getAttributeTypeMap() {
     return Downtime.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): Downtime {
-    const res = new Downtime();
-
-    res.active = ObjectSerializer.deserialize(data.active, "boolean", "");
-
-    res.activeChild = ObjectSerializer.deserialize(
-      data.active_child,
-      "DowntimeChild",
-      ""
-    );
-
-    res.canceled = ObjectSerializer.deserialize(
-      data.canceled,
-      "number",
-      "int64"
-    );
-
-    res.creatorId = ObjectSerializer.deserialize(
-      data.creator_id,
-      "number",
-      "int32"
-    );
-
-    res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "");
-
-    res.downtimeType = ObjectSerializer.deserialize(
-      data.downtime_type,
-      "number",
-      "int32"
-    );
-
-    res.end = ObjectSerializer.deserialize(data.end, "number", "int64");
-
-    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.monitorId = ObjectSerializer.deserialize(
-      data.monitor_id,
-      "number",
-      "int64"
-    );
-
-    res.monitorTags = ObjectSerializer.deserialize(
-      data.monitor_tags,
-      "Array<string>",
-      ""
-    );
-
-    res.parentId = ObjectSerializer.deserialize(
-      data.parent_id,
-      "number",
-      "int64"
-    );
-
-    res.recurrence = ObjectSerializer.deserialize(
-      data.recurrence,
-      "DowntimeRecurrence",
-      ""
-    );
-
-    res.scope = ObjectSerializer.deserialize(data.scope, "Array<string>", "");
-
-    res.start = ObjectSerializer.deserialize(data.start, "number", "int64");
-
-    res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "");
-
-    res.updaterId = ObjectSerializer.deserialize(
-      data.updater_id,
-      "number",
-      "int32"
-    );
-
-    return res;
-  }
-
-  static serialize(data: Downtime): { [key: string]: any } {
-    const attributeTypes = Downtime.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.active = ObjectSerializer.serialize(data.active, "boolean", "");
-
-    res.active_child = ObjectSerializer.serialize(
-      data.activeChild,
-      "DowntimeChild",
-      ""
-    );
-
-    res.canceled = ObjectSerializer.serialize(data.canceled, "number", "int64");
-
-    res.creator_id = ObjectSerializer.serialize(
-      data.creatorId,
-      "number",
-      "int32"
-    );
-
-    res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "");
-
-    res.downtime_type = ObjectSerializer.serialize(
-      data.downtimeType,
-      "number",
-      "int32"
-    );
-
-    res.end = ObjectSerializer.serialize(data.end, "number", "int64");
-
-    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.monitor_id = ObjectSerializer.serialize(
-      data.monitorId,
-      "number",
-      "int64"
-    );
-
-    res.monitor_tags = ObjectSerializer.serialize(
-      data.monitorTags,
-      "Array<string>",
-      ""
-    );
-
-    res.parent_id = ObjectSerializer.serialize(
-      data.parentId,
-      "number",
-      "int64"
-    );
-
-    res.recurrence = ObjectSerializer.serialize(
-      data.recurrence,
-      "DowntimeRecurrence",
-      ""
-    );
-
-    res.scope = ObjectSerializer.serialize(data.scope, "Array<string>", "");
-
-    res.start = ObjectSerializer.serialize(data.start, "number", "int64");
-
-    res.timezone = ObjectSerializer.serialize(data.timezone, "string", "");
-
-    res.updater_id = ObjectSerializer.serialize(
-      data.updaterId,
-      "number",
-      "int32"
-    );
-
-    return res;
   }
 
   public constructor() {}

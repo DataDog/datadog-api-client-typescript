@@ -9,11 +9,6 @@
  */
 
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing information about a created role.
- */
 
 export class RoleCreateResponse {
   "data"?: RoleCreateResponseData;
@@ -23,49 +18,26 @@ export class RoleCreateResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "RoleCreateResponseData",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RoleCreateResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RoleCreateResponse {
-    const res = new RoleCreateResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "RoleCreateResponseData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RoleCreateResponse): { [key: string]: any } {
-    const attributeTypes = RoleCreateResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "RoleCreateResponseData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -13,11 +13,6 @@ import { WidgetHorizontalAlign } from "./WidgetHorizontalAlign";
 import { WidgetImageSizing } from "./WidgetImageSizing";
 import { WidgetMargin } from "./WidgetMargin";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
- */
 
 export class ImageWidgetDefinition {
   /**
@@ -47,233 +42,82 @@ export class ImageWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     hasBackground: {
+      name: "hasBackground",
       baseName: "has_background",
       type: "boolean",
+      required: false,
       format: "",
     },
     hasBorder: {
+      name: "hasBorder",
       baseName: "has_border",
       type: "boolean",
+      required: false,
       format: "",
     },
     horizontalAlign: {
+      name: "horizontalAlign",
       baseName: "horizontal_align",
       type: "WidgetHorizontalAlign",
+      required: false,
       format: "",
     },
     margin: {
+      name: "margin",
       baseName: "margin",
       type: "WidgetMargin",
+      required: false,
       format: "",
     },
     sizing: {
+      name: "sizing",
       baseName: "sizing",
       type: "WidgetImageSizing",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "ImageWidgetDefinitionType",
+      required: true,
       format: "",
     },
     url: {
+      name: "url",
       baseName: "url",
       type: "string",
+      required: true,
       format: "",
     },
     urlDarkTheme: {
+      name: "urlDarkTheme",
       baseName: "url_dark_theme",
       type: "string",
+      required: false,
       format: "",
     },
     verticalAlign: {
+      name: "verticalAlign",
       baseName: "vertical_align",
       type: "WidgetVerticalAlign",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ImageWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ImageWidgetDefinition {
-    const res = new ImageWidgetDefinition();
-
-    res.hasBackground = ObjectSerializer.deserialize(
-      data.has_background,
-      "boolean",
-      ""
-    );
-
-    res.hasBorder = ObjectSerializer.deserialize(
-      data.has_border,
-      "boolean",
-      ""
-    );
-
-    if (
-      ["center", "left", "right", undefined].includes(data.horizontal_align)
-    ) {
-      res.horizontalAlign = data.horizontal_align;
-    } else {
-      const raw = new ImageWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (["sm", "md", "lg", "small", "large", undefined].includes(data.margin)) {
-      res.margin = data.margin;
-    } else {
-      const raw = new ImageWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (
-      [
-        "fill",
-        "contain",
-        "cover",
-        "none",
-        "scale-down",
-        "zoom",
-        "fit",
-        "center",
-        undefined,
-      ].includes(data.sizing)
-    ) {
-      res.sizing = data.sizing;
-    } else {
-      const raw = new ImageWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ImageWidgetDefinition' object"
-      );
-    }
-    if (["image", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ImageWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.url === undefined) {
-      throw new TypeError(
-        "missing required attribute 'url' on 'ImageWidgetDefinition' object"
-      );
-    }
-    res.url = ObjectSerializer.deserialize(data.url, "string", "");
-
-    res.urlDarkTheme = ObjectSerializer.deserialize(
-      data.url_dark_theme,
-      "string",
-      ""
-    );
-
-    if (["center", "top", "bottom", undefined].includes(data.vertical_align)) {
-      res.verticalAlign = data.vertical_align;
-    } else {
-      const raw = new ImageWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ImageWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = ImageWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.has_background = ObjectSerializer.serialize(
-      data.hasBackground,
-      "boolean",
-      ""
-    );
-
-    res.has_border = ObjectSerializer.serialize(data.hasBorder, "boolean", "");
-
-    if (["center", "left", "right", undefined].includes(data.horizontalAlign)) {
-      res.horizontal_align = data.horizontalAlign;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.horizontalAlign} for horizontalAlign`
-      );
-    }
-
-    if (["sm", "md", "lg", "small", "large", undefined].includes(data.margin)) {
-      res.margin = data.margin;
-    } else {
-      throw TypeError(`invalid enum value ${data.margin} for margin`);
-    }
-
-    if (
-      [
-        "fill",
-        "contain",
-        "cover",
-        "none",
-        "scale-down",
-        "zoom",
-        "fit",
-        "center",
-        undefined,
-      ].includes(data.sizing)
-    ) {
-      res.sizing = data.sizing;
-    } else {
-      throw TypeError(`invalid enum value ${data.sizing} for sizing`);
-    }
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ImageWidgetDefinition' object"
-      );
-    }
-    if (["image", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    if (data.url === undefined) {
-      throw new TypeError(
-        "missing required attribute 'url' on 'ImageWidgetDefinition' object"
-      );
-    }
-    res.url = ObjectSerializer.serialize(data.url, "string", "");
-
-    res.url_dark_theme = ObjectSerializer.serialize(
-      data.urlDarkTheme,
-      "string",
-      ""
-    );
-
-    if (["center", "top", "bottom", undefined].includes(data.verticalAlign)) {
-      res.vertical_align = data.verticalAlign;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.verticalAlign} for verticalAlign`
-      );
-    }
-
-    return res;
   }
 
   public constructor() {}

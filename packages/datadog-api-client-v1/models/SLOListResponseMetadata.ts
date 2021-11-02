@@ -9,11 +9,6 @@
  */
 
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The metadata object containing additional information about the list of SLOs.
- */
 
 export class SLOListResponseMetadata {
   "page"?: SLOListResponseMetadataPage;
@@ -23,49 +18,26 @@ export class SLOListResponseMetadata {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     page: {
+      name: "page",
       baseName: "page",
       type: "SLOListResponseMetadataPage",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOListResponseMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOListResponseMetadata {
-    const res = new SLOListResponseMetadata();
-
-    res.page = ObjectSerializer.deserialize(
-      data.page,
-      "SLOListResponseMetadataPage",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOListResponseMetadata): { [key: string]: any } {
-    const attributeTypes = SLOListResponseMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.page = ObjectSerializer.serialize(
-      data.page,
-      "SLOListResponseMetadataPage",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

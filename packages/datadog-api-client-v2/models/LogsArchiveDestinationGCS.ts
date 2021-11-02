@@ -10,11 +10,6 @@
 
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The GCS archive destination.
- */
 
 export class LogsArchiveDestinationGCS {
   /**
@@ -33,116 +28,47 @@ export class LogsArchiveDestinationGCS {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     bucket: {
+      name: "bucket",
       baseName: "bucket",
       type: "string",
+      required: true,
       format: "",
     },
     integration: {
+      name: "integration",
       baseName: "integration",
       type: "LogsArchiveIntegrationGCS",
+      required: true,
       format: "",
     },
     path: {
+      name: "path",
       baseName: "path",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsArchiveDestinationGCSType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsArchiveDestinationGCS.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsArchiveDestinationGCS {
-    const res = new LogsArchiveDestinationGCS();
-
-    if (data.bucket === undefined) {
-      throw new TypeError(
-        "missing required attribute 'bucket' on 'LogsArchiveDestinationGCS' object"
-      );
-    }
-    res.bucket = ObjectSerializer.deserialize(data.bucket, "string", "");
-
-    if (data.integration === undefined) {
-      throw new TypeError(
-        "missing required attribute 'integration' on 'LogsArchiveDestinationGCS' object"
-      );
-    }
-    res.integration = ObjectSerializer.deserialize(
-      data.integration,
-      "LogsArchiveIntegrationGCS",
-      ""
-    );
-
-    res.path = ObjectSerializer.deserialize(data.path, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsArchiveDestinationGCS' object"
-      );
-    }
-    if (["gcs", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsArchiveDestinationGCS();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsArchiveDestinationGCS): { [key: string]: any } {
-    const attributeTypes = LogsArchiveDestinationGCS.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.bucket === undefined) {
-      throw new TypeError(
-        "missing required attribute 'bucket' on 'LogsArchiveDestinationGCS' object"
-      );
-    }
-    res.bucket = ObjectSerializer.serialize(data.bucket, "string", "");
-
-    if (data.integration === undefined) {
-      throw new TypeError(
-        "missing required attribute 'integration' on 'LogsArchiveDestinationGCS' object"
-      );
-    }
-    res.integration = ObjectSerializer.serialize(
-      data.integration,
-      "LogsArchiveIntegrationGCS",
-      ""
-    );
-
-    res.path = ObjectSerializer.serialize(data.path, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsArchiveDestinationGCS' object"
-      );
-    }
-    if (["gcs", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object which includes a single metric's tag configuration.
- */
 
 export class MetricTagConfigurationResponse {
   "data"?: MetricTagConfiguration;
@@ -23,53 +18,26 @@ export class MetricTagConfigurationResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "MetricTagConfiguration",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricTagConfigurationResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricTagConfigurationResponse {
-    const res = new MetricTagConfigurationResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "MetricTagConfiguration",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricTagConfigurationResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes = MetricTagConfigurationResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "MetricTagConfiguration",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

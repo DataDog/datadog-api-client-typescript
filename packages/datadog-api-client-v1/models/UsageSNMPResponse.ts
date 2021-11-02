@@ -9,11 +9,6 @@
  */
 
 import { UsageSNMPHour } from "./UsageSNMPHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of SNMP devices for each hour for a given organization.
- */
 
 export class UsageSNMPResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageSNMPResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageSNMPHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSNMPResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSNMPResponse {
-    const res = new UsageSNMPResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageSNMPHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSNMPResponse): { [key: string]: any } {
-    const attributeTypes = UsageSNMPResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageSNMPHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

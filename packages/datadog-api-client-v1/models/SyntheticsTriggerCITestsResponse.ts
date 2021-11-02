@@ -10,11 +10,6 @@
 
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
 import { SyntheticsTriggerCITestRunResult } from "./SyntheticsTriggerCITestRunResult";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing information about the tests triggered.
- */
 
 export class SyntheticsTriggerCITestsResponse {
   /**
@@ -39,97 +34,47 @@ export class SyntheticsTriggerCITestsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     batchId: {
+      name: "batchId",
       baseName: "batch_id",
       type: "string",
+      required: false,
       format: "",
     },
     locations: {
+      name: "locations",
       baseName: "locations",
       type: "Array<SyntheticsTriggerCITestLocation>",
+      required: false,
       format: "",
     },
     results: {
+      name: "results",
       baseName: "results",
       type: "Array<SyntheticsTriggerCITestRunResult>",
+      required: false,
       format: "",
     },
     triggeredCheckIds: {
+      name: "triggeredCheckIds",
       baseName: "triggered_check_ids",
       type: "Array<string>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTriggerCITestsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsTriggerCITestsResponse {
-    const res = new SyntheticsTriggerCITestsResponse();
-
-    res.batchId = ObjectSerializer.deserialize(data.batch_id, "string", "");
-
-    res.locations = ObjectSerializer.deserialize(
-      data.locations,
-      "Array<SyntheticsTriggerCITestLocation>",
-      ""
-    );
-
-    res.results = ObjectSerializer.deserialize(
-      data.results,
-      "Array<SyntheticsTriggerCITestRunResult>",
-      ""
-    );
-
-    res.triggeredCheckIds = ObjectSerializer.deserialize(
-      data.triggered_check_ids,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTriggerCITestsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsTriggerCITestsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.batch_id = ObjectSerializer.serialize(data.batchId, "string", "");
-
-    res.locations = ObjectSerializer.serialize(
-      data.locations,
-      "Array<SyntheticsTriggerCITestLocation>",
-      ""
-    );
-
-    res.results = ObjectSerializer.serialize(
-      data.results,
-      "Array<SyntheticsTriggerCITestRunResult>",
-      ""
-    );
-
-    res.triggered_check_ids = ObjectSerializer.serialize(
-      data.triggeredCheckIds,
-      "Array<string>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

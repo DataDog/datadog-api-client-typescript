@@ -10,11 +10,6 @@
 
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsCategoryProcessorType } from "./LogsCategoryProcessorType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log matching a provided search query. Use categories to create groups for an analytical view. For example, URL groups, machine groups, environments, and response time buckets.  **Notes**:  - The syntax of the query is the one of Logs Explorer search bar.   The query can be done on any log attribute or tag, whether it is a facet or not.   Wildcards can also be used inside your query. - Once the log has matched one of the Processor queries, it stops.   Make sure they are properly ordered in case a log could match several queries. - The names of the categories must be unique. - Once defined in the Category Processor, you can map categories to log status using the Log Status Remapper.
- */
 
 export class LogsCategoryProcessor {
   /**
@@ -40,129 +35,54 @@ export class LogsCategoryProcessor {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     categories: {
+      name: "categories",
       baseName: "categories",
       type: "Array<LogsCategoryProcessorCategory>",
+      required: true,
       format: "",
     },
     isEnabled: {
+      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     target: {
+      name: "target",
       baseName: "target",
       type: "string",
+      required: true,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsCategoryProcessorType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsCategoryProcessor.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsCategoryProcessor {
-    const res = new LogsCategoryProcessor();
-
-    if (data.categories === undefined) {
-      throw new TypeError(
-        "missing required attribute 'categories' on 'LogsCategoryProcessor' object"
-      );
-    }
-    res.categories = ObjectSerializer.deserialize(
-      data.categories,
-      "Array<LogsCategoryProcessorCategory>",
-      ""
-    );
-
-    res.isEnabled = ObjectSerializer.deserialize(
-      data.is_enabled,
-      "boolean",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.target === undefined) {
-      throw new TypeError(
-        "missing required attribute 'target' on 'LogsCategoryProcessor' object"
-      );
-    }
-    res.target = ObjectSerializer.deserialize(data.target, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsCategoryProcessor' object"
-      );
-    }
-    if (["category-processor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsCategoryProcessor();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsCategoryProcessor): { [key: string]: any } {
-    const attributeTypes = LogsCategoryProcessor.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.categories === undefined) {
-      throw new TypeError(
-        "missing required attribute 'categories' on 'LogsCategoryProcessor' object"
-      );
-    }
-    res.categories = ObjectSerializer.serialize(
-      data.categories,
-      "Array<LogsCategoryProcessorCategory>",
-      ""
-    );
-
-    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.target === undefined) {
-      throw new TypeError(
-        "missing required attribute 'target' on 'LogsCategoryProcessor' object"
-      );
-    }
-    res.target = ObjectSerializer.serialize(data.target, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsCategoryProcessor' object"
-      );
-    }
-    if (["category-processor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

@@ -12,11 +12,6 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An updated geomap widget.
- */
 
 export class GeomapWidgetRequest {
   /**
@@ -41,147 +36,68 @@ export class GeomapWidgetRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     formulas: {
+      name: "formulas",
       baseName: "formulas",
       type: "Array<WidgetFormula>",
+      required: false,
       format: "",
     },
     logQuery: {
+      name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     q: {
+      name: "q",
       baseName: "q",
       type: "string",
+      required: false,
       format: "",
     },
     queries: {
+      name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
+      required: false,
       format: "",
     },
     responseFormat: {
+      name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
+      required: false,
       format: "",
     },
     rumQuery: {
+      name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     securityQuery: {
+      name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return GeomapWidgetRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): GeomapWidgetRequest {
-    const res = new GeomapWidgetRequest();
-
-    res.formulas = ObjectSerializer.deserialize(
-      data.formulas,
-      "Array<WidgetFormula>",
-      ""
-    );
-
-    res.logQuery = ObjectSerializer.deserialize(
-      data.log_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.deserialize(data.q, "string", "");
-
-    res.queries = ObjectSerializer.deserialize(
-      data.queries,
-      "Array<FormulaAndFunctionQueryDefinition>",
-      ""
-    );
-
-    if (["timeseries", "scalar", undefined].includes(data.response_format)) {
-      res.responseFormat = data.response_format;
-    } else {
-      const raw = new GeomapWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.rumQuery = ObjectSerializer.deserialize(
-      data.rum_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.securityQuery = ObjectSerializer.deserialize(
-      data.security_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: GeomapWidgetRequest): { [key: string]: any } {
-    const attributeTypes = GeomapWidgetRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.formulas = ObjectSerializer.serialize(
-      data.formulas,
-      "Array<WidgetFormula>",
-      ""
-    );
-
-    res.log_query = ObjectSerializer.serialize(
-      data.logQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.serialize(data.q, "string", "");
-
-    res.queries = ObjectSerializer.serialize(
-      data.queries,
-      "Array<FormulaAndFunctionQueryDefinition>",
-      ""
-    );
-
-    if (["timeseries", "scalar", undefined].includes(data.responseFormat)) {
-      res.response_format = data.responseFormat;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.responseFormat} for responseFormat`
-      );
-    }
-
-    res.rum_query = ObjectSerializer.serialize(
-      data.rumQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.security_query = ObjectSerializer.serialize(
-      data.securityQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

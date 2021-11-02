@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object with the latest Synthetic browser test run.
- */
 
 export class SyntheticsGetBrowserTestLatestResultsResponse {
   /**
@@ -30,71 +25,33 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     lastTimestampFetched: {
+      name: "lastTimestampFetched",
       baseName: "last_timestamp_fetched",
       type: "number",
+      required: false,
       format: "int64",
     },
     results: {
+      name: "results",
       baseName: "results",
       type: "Array<SyntheticsBrowserTestResultShort>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsGetBrowserTestLatestResultsResponse {
-    const res = new SyntheticsGetBrowserTestLatestResultsResponse();
-
-    res.lastTimestampFetched = ObjectSerializer.deserialize(
-      data.last_timestamp_fetched,
-      "number",
-      "int64"
-    );
-
-    res.results = ObjectSerializer.deserialize(
-      data.results,
-      "Array<SyntheticsBrowserTestResultShort>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsGetBrowserTestLatestResultsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsGetBrowserTestLatestResultsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.last_timestamp_fetched = ObjectSerializer.serialize(
-      data.lastTimestampFetched,
-      "number",
-      "int64"
-    );
-
-    res.results = ObjectSerializer.serialize(
-      data.results,
-      "Array<SyntheticsBrowserTestResultShort>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

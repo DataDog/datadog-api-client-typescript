@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Subscription definition.
- */
-
 export class OrganizationSubscription {
   /**
    * The subscription type. Types available are `trial`, `free`, and `pro`.
@@ -25,41 +19,26 @@ export class OrganizationSubscription {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     type: {
+      name: "type",
       baseName: "type",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return OrganizationSubscription.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): OrganizationSubscription {
-    const res = new OrganizationSubscription();
-
-    res.type = ObjectSerializer.deserialize(data.type, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: OrganizationSubscription): { [key: string]: any } {
-    const attributeTypes = OrganizationSubscription.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.type = ObjectSerializer.serialize(data.type, "string", "");
-
-    return res;
   }
 
   public constructor() {}

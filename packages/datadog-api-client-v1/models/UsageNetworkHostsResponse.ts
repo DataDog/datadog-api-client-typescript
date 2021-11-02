@@ -9,11 +9,6 @@
  */
 
 import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of active NPM hosts for each hour for a given organization.
- */
 
 export class UsageNetworkHostsResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageNetworkHostsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageNetworkHostsHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageNetworkHostsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageNetworkHostsResponse {
-    const res = new UsageNetworkHostsResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageNetworkHostsHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageNetworkHostsResponse): { [key: string]: any } {
-    const attributeTypes = UsageNetworkHostsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageNetworkHostsHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

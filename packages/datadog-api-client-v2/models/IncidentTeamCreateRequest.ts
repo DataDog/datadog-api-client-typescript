@@ -9,11 +9,6 @@
  */
 
 import { IncidentTeamCreateData } from "./IncidentTeamCreateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Create request with an incident team payload.
- */
 
 export class IncidentTeamCreateRequest {
   "data": IncidentTeamCreateData;
@@ -23,59 +18,26 @@ export class IncidentTeamCreateRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "IncidentTeamCreateData",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentTeamCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): IncidentTeamCreateRequest {
-    const res = new IncidentTeamCreateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentTeamCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "IncidentTeamCreateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentTeamCreateRequest): { [key: string]: any } {
-    const attributeTypes = IncidentTeamCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentTeamCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "IncidentTeamCreateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

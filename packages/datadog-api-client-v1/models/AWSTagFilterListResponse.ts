@@ -9,11 +9,6 @@
  */
 
 import { AWSTagFilter } from "./AWSTagFilter";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An array of tag filter rules by `namespace` and tag filter string.
- */
 
 export class AWSTagFilterListResponse {
   /**
@@ -26,49 +21,26 @@ export class AWSTagFilterListResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     filters: {
+      name: "filters",
       baseName: "filters",
       type: "Array<AWSTagFilter>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSTagFilterListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSTagFilterListResponse {
-    const res = new AWSTagFilterListResponse();
-
-    res.filters = ObjectSerializer.deserialize(
-      data.filters,
-      "Array<AWSTagFilter>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: AWSTagFilterListResponse): { [key: string]: any } {
-    const attributeTypes = AWSTagFilterListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.filters = ObjectSerializer.serialize(
-      data.filters,
-      "Array<AWSTagFilter>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

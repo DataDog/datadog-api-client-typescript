@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * PagerDuty service object name.
- */
-
 export class PagerDutyServiceName {
   /**
    * Your service name associated service key in PagerDuty.
@@ -25,59 +19,26 @@ export class PagerDutyServiceName {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     serviceName: {
+      name: "serviceName",
       baseName: "service_name",
       type: "string",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return PagerDutyServiceName.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): PagerDutyServiceName {
-    const res = new PagerDutyServiceName();
-
-    if (data.service_name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service_name' on 'PagerDutyServiceName' object"
-      );
-    }
-    res.serviceName = ObjectSerializer.deserialize(
-      data.service_name,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: PagerDutyServiceName): { [key: string]: any } {
-    const attributeTypes = PagerDutyServiceName.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.serviceName === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service_name' on 'PagerDutyServiceName' object"
-      );
-    }
-    res.service_name = ObjectSerializer.serialize(
-      data.serviceName,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The response containing the Cloud Security Posture Management usage for each hour for a given organization.
- */
 
 export class UsageCloudSecurityPostureManagementResponse {
   /**
@@ -26,54 +21,26 @@ export class UsageCloudSecurityPostureManagementResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageCloudSecurityPostureManagementHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): UsageCloudSecurityPostureManagementResponse {
-    const res = new UsageCloudSecurityPostureManagementResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageCloudSecurityPostureManagementHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageCloudSecurityPostureManagementResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      UsageCloudSecurityPostureManagementResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageCloudSecurityPostureManagementHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

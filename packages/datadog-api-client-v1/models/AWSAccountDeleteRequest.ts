@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of AWS accounts to delete.
- */
-
 export class AWSAccountDeleteRequest {
   /**
    * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -33,67 +27,40 @@ export class AWSAccountDeleteRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     accessKeyId: {
+      name: "accessKeyId",
       baseName: "access_key_id",
       type: "string",
+      required: false,
       format: "",
     },
     accountId: {
+      name: "accountId",
       baseName: "account_id",
       type: "string",
+      required: false,
       format: "",
     },
     roleName: {
+      name: "roleName",
       baseName: "role_name",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSAccountDeleteRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSAccountDeleteRequest {
-    const res = new AWSAccountDeleteRequest();
-
-    res.accessKeyId = ObjectSerializer.deserialize(
-      data.access_key_id,
-      "string",
-      ""
-    );
-
-    res.accountId = ObjectSerializer.deserialize(data.account_id, "string", "");
-
-    res.roleName = ObjectSerializer.deserialize(data.role_name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: AWSAccountDeleteRequest): { [key: string]: any } {
-    const attributeTypes = AWSAccountDeleteRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.access_key_id = ObjectSerializer.serialize(
-      data.accessKeyId,
-      "string",
-      ""
-    );
-
-    res.account_id = ObjectSerializer.serialize(data.accountId, "string", "");
-
-    res.role_name = ObjectSerializer.serialize(data.roleName, "string", "");
-
-    return res;
   }
 
   public constructor() {}

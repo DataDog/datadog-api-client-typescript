@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Details about a batch response.
- */
 
 export class SyntheticsBatchDetails {
   "data"?: SyntheticsBatchDetailsData;
@@ -23,49 +18,26 @@ export class SyntheticsBatchDetails {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "SyntheticsBatchDetailsData",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBatchDetails.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsBatchDetails {
-    const res = new SyntheticsBatchDetails();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "SyntheticsBatchDetailsData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBatchDetails): { [key: string]: any } {
-    const attributeTypes = SyntheticsBatchDetails.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "SyntheticsBatchDetailsData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

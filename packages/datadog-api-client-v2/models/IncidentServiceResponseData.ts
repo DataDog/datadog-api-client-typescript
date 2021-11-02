@@ -11,11 +11,6 @@
 import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceResponseAttributes } from "./IncidentServiceResponseAttributes";
 import { IncidentServiceType } from "./IncidentServiceType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Incident Service data from responses.
- */
 
 export class IncidentServiceResponseData {
   "attributes"?: IncidentServiceResponseAttributes;
@@ -31,116 +26,47 @@ export class IncidentServiceResponseData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "IncidentServiceResponseAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: true,
       format: "",
     },
     relationships: {
+      name: "relationships",
       baseName: "relationships",
       type: "IncidentServiceRelationships",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "IncidentServiceType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentServiceResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentServiceResponseData {
-    const res = new IncidentServiceResponseData();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "IncidentServiceResponseAttributes",
-      ""
-    );
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'IncidentServiceResponseData' object"
-      );
-    }
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.deserialize(
-      data.relationships,
-      "IncidentServiceRelationships",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'IncidentServiceResponseData' object"
-      );
-    }
-    if (["services", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new IncidentServiceResponseData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: IncidentServiceResponseData): { [key: string]: any } {
-    const attributeTypes = IncidentServiceResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "IncidentServiceResponseAttributes",
-      ""
-    );
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'IncidentServiceResponseData' object"
-      );
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.serialize(
-      data.relationships,
-      "IncidentServiceRelationships",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'IncidentServiceResponseData' object"
-      );
-    }
-    if (["services", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

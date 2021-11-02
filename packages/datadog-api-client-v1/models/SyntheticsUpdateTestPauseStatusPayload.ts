@@ -18,56 +18,26 @@ export class SyntheticsUpdateTestPauseStatusPayload {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     newStatus: {
+      name: "newStatus",
       baseName: "new_status",
       type: "SyntheticsTestPauseStatus",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsUpdateTestPauseStatusPayload {
-    const res = new SyntheticsUpdateTestPauseStatusPayload();
-
-    if (["live", "paused", undefined].includes(data.new_status)) {
-      res.newStatus = data.new_status;
-    } else {
-      const raw = new SyntheticsUpdateTestPauseStatusPayload();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsUpdateTestPauseStatusPayload): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsUpdateTestPauseStatusPayload.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (["live", "paused", undefined].includes(data.newStatus)) {
-      res.new_status = data.newStatus;
-    } else {
-      throw TypeError(`invalid enum value ${data.newStatus} for newStatus`);
-    }
-
-    return res;
   }
 
   public constructor() {}

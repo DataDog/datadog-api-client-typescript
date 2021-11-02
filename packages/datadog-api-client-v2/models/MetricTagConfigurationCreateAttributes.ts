@@ -10,11 +10,6 @@
 
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricTagConfigurationMetricTypes } from "./MetricTagConfigurationMetricTypes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing the definition of a metric tag configuration to be created.
- */
 
 export class MetricTagConfigurationCreateAttributes {
   /**
@@ -36,127 +31,47 @@ export class MetricTagConfigurationCreateAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggregations: {
+      name: "aggregations",
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
+      required: false,
       format: "",
     },
     includePercentiles: {
+      name: "includePercentiles",
       baseName: "include_percentiles",
       type: "boolean",
+      required: false,
       format: "",
     },
     metricType: {
+      name: "metricType",
       baseName: "metric_type",
       type: "MetricTagConfigurationMetricTypes",
+      required: true,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricTagConfigurationCreateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricTagConfigurationCreateAttributes {
-    const res = new MetricTagConfigurationCreateAttributes();
-
-    res.aggregations = ObjectSerializer.deserialize(
-      data.aggregations,
-      "Array<MetricCustomAggregation>",
-      ""
-    );
-
-    res.includePercentiles = ObjectSerializer.deserialize(
-      data.include_percentiles,
-      "boolean",
-      ""
-    );
-
-    if (data.metric_type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'metric_type' on 'MetricTagConfigurationCreateAttributes' object"
-      );
-    }
-    if (
-      ["gauge", "count", "rate", "distribution", undefined].includes(
-        data.metric_type
-      )
-    ) {
-      res.metricType = data.metric_type;
-    } else {
-      const raw = new MetricTagConfigurationCreateAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.tags === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tags' on 'MetricTagConfigurationCreateAttributes' object"
-      );
-    }
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    return res;
-  }
-
-  static serialize(data: MetricTagConfigurationCreateAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MetricTagConfigurationCreateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.aggregations = ObjectSerializer.serialize(
-      data.aggregations,
-      "Array<MetricCustomAggregation>",
-      ""
-    );
-
-    res.include_percentiles = ObjectSerializer.serialize(
-      data.includePercentiles,
-      "boolean",
-      ""
-    );
-
-    if (data.metricType === undefined) {
-      throw new TypeError(
-        "missing required attribute 'metric_type' on 'MetricTagConfigurationCreateAttributes' object"
-      );
-    }
-    if (
-      ["gauge", "count", "rate", "distribution", undefined].includes(
-        data.metricType
-      )
-    ) {
-      res.metric_type = data.metricType;
-    } else {
-      throw TypeError(`invalid enum value ${data.metricType} for metricType`);
-    }
-
-    if (data.tags === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tags' on 'MetricTagConfigurationCreateAttributes' object"
-      );
-    }
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalType } from "./SecurityMonitoringSignalType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object description of a security signal.
- */
 
 export class SecurityMonitoringSignal {
   "attributes"?: SecurityMonitoringSignalAttributes;
@@ -29,77 +24,40 @@ export class SecurityMonitoringSignal {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "SecurityMonitoringSignalAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SecurityMonitoringSignalType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringSignal.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SecurityMonitoringSignal {
-    const res = new SecurityMonitoringSignal();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "SecurityMonitoringSignalAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["signal", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SecurityMonitoringSignal();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringSignal): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringSignal.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "SecurityMonitoringSignalAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["signal", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

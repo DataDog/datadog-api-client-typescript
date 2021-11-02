@@ -10,11 +10,6 @@
 
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterMeta } from "./SecurityFilterMeta";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * All the available security filters objects.
- */
 
 export class SecurityFiltersResponse {
   /**
@@ -28,62 +23,33 @@ export class SecurityFiltersResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<SecurityFilter>",
+      required: false,
       format: "",
     },
     meta: {
+      name: "meta",
       baseName: "meta",
       type: "SecurityFilterMeta",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityFiltersResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SecurityFiltersResponse {
-    const res = new SecurityFiltersResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<SecurityFilter>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "SecurityFilterMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SecurityFiltersResponse): { [key: string]: any } {
-    const attributeTypes = SecurityFiltersResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<SecurityFilter>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(data.meta, "SecurityFilterMeta", "");
-
-    return res;
   }
 
   public constructor() {}

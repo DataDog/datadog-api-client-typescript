@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of the role.
- */
-
 export class RoleUpdateAttributes {
   /**
    * Creation time of the role.
@@ -33,75 +27,40 @@ export class RoleUpdateAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     createdAt: {
+      name: "createdAt",
       baseName: "created_at",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     modifiedAt: {
+      name: "modifiedAt",
       baseName: "modified_at",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RoleUpdateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RoleUpdateAttributes {
-    const res = new RoleUpdateAttributes();
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "Date",
-      "date-time"
-    );
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "Date",
-      "date-time"
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: RoleUpdateAttributes): { [key: string]: any } {
-    const attributeTypes = RoleUpdateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "Date",
-      "date-time"
-    );
-
-    res.modified_at = ObjectSerializer.serialize(
-      data.modifiedAt,
-      "Date",
-      "date-time"
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeysType } from "./ApplicationKeysType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object used to update an application key.
- */
 
 export class ApplicationKeyUpdateData {
   "attributes": ApplicationKeyUpdateAttributes;
@@ -29,107 +24,40 @@ export class ApplicationKeyUpdateData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "ApplicationKeyUpdateAttributes",
+      required: true,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: true,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "ApplicationKeysType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApplicationKeyUpdateData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ApplicationKeyUpdateData {
-    const res = new ApplicationKeyUpdateData();
-
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'ApplicationKeyUpdateData' object"
-      );
-    }
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "ApplicationKeyUpdateAttributes",
-      ""
-    );
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'ApplicationKeyUpdateData' object"
-      );
-    }
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ApplicationKeyUpdateData' object"
-      );
-    }
-    if (["application_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ApplicationKeyUpdateData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ApplicationKeyUpdateData): { [key: string]: any } {
-    const attributeTypes = ApplicationKeyUpdateData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'ApplicationKeyUpdateData' object"
-      );
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "ApplicationKeyUpdateAttributes",
-      ""
-    );
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'ApplicationKeyUpdateData' object"
-      );
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ApplicationKeyUpdateData' object"
-      );
-    }
-    if (["application_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

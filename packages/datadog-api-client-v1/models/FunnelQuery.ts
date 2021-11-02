@@ -9,11 +9,6 @@
  */
 
 import { FunnelSource } from "./FunnelSource";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Updated funnel widget.
- */
 
 export class FunnelQuery {
   "dataSource": FunnelSource;
@@ -31,107 +26,40 @@ export class FunnelQuery {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     dataSource: {
+      name: "dataSource",
       baseName: "data_source",
       type: "FunnelSource",
+      required: true,
       format: "",
     },
     queryString: {
+      name: "queryString",
       baseName: "query_string",
       type: "string",
+      required: true,
       format: "",
     },
     steps: {
+      name: "steps",
       baseName: "steps",
       type: "Array<any>",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FunnelQuery.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): FunnelQuery {
-    const res = new FunnelQuery();
-
-    if (data.data_source === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data_source' on 'FunnelQuery' object"
-      );
-    }
-    if (["rum", undefined].includes(data.data_source)) {
-      res.dataSource = data.data_source;
-    } else {
-      const raw = new FunnelQuery();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.query_string === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query_string' on 'FunnelQuery' object"
-      );
-    }
-    res.queryString = ObjectSerializer.deserialize(
-      data.query_string,
-      "string",
-      ""
-    );
-
-    if (data.steps === undefined) {
-      throw new TypeError(
-        "missing required attribute 'steps' on 'FunnelQuery' object"
-      );
-    }
-    res.steps = ObjectSerializer.deserialize(data.steps, "Array<any>", "");
-
-    return res;
-  }
-
-  static serialize(data: FunnelQuery): { [key: string]: any } {
-    const attributeTypes = FunnelQuery.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.dataSource === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data_source' on 'FunnelQuery' object"
-      );
-    }
-    if (["rum", undefined].includes(data.dataSource)) {
-      res.data_source = data.dataSource;
-    } else {
-      throw TypeError(`invalid enum value ${data.dataSource} for dataSource`);
-    }
-
-    if (data.queryString === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query_string' on 'FunnelQuery' object"
-      );
-    }
-    res.query_string = ObjectSerializer.serialize(
-      data.queryString,
-      "string",
-      ""
-    );
-
-    if (data.steps === undefined) {
-      throw new TypeError(
-        "missing required attribute 'steps' on 'FunnelQuery' object"
-      );
-    }
-    res.steps = ObjectSerializer.serialize(data.steps, "Array<any>", "");
-
-    return res;
   }
 
   public constructor() {}

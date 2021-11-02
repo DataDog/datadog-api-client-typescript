@@ -9,11 +9,6 @@
  */
 
 import { ApiKey } from "./ApiKey";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An API key with its associated metadata.
- */
 
 export class ApiKeyResponse {
   "apiKey"?: ApiKey;
@@ -23,41 +18,26 @@ export class ApiKeyResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     apiKey: {
+      name: "apiKey",
       baseName: "api_key",
       type: "ApiKey",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApiKeyResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ApiKeyResponse {
-    const res = new ApiKeyResponse();
-
-    res.apiKey = ObjectSerializer.deserialize(data.api_key, "ApiKey", "");
-
-    return res;
-  }
-
-  static serialize(data: ApiKeyResponse): { [key: string]: any } {
-    const attributeTypes = ApiKeyResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.api_key = ObjectSerializer.serialize(data.apiKey, "ApiKey", "");
-
-    return res;
   }
 
   public constructor() {}

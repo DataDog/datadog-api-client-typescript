@@ -9,11 +9,6 @@
  */
 
 import { Role } from "./Role";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing information about a single role.
- */
 
 export class RoleResponse {
   "data"?: Role;
@@ -23,41 +18,26 @@ export class RoleResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Role",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RoleResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RoleResponse {
-    const res = new RoleResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "Role", "");
-
-    return res;
-  }
-
-  static serialize(data: RoleResponse): { [key: string]: any } {
-    const attributeTypes = RoleResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "Role", "");
-
-    return res;
   }
 
   public constructor() {}

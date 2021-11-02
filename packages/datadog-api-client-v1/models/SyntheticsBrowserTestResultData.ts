@@ -10,11 +10,6 @@
 
 import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing results for your Synthetic browser test.
- */
 
 export class SyntheticsBrowserTestResultData {
   /**
@@ -64,200 +59,96 @@ export class SyntheticsBrowserTestResultData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     browserType: {
+      name: "browserType",
       baseName: "browserType",
       type: "string",
+      required: false,
       format: "",
     },
     browserVersion: {
+      name: "browserVersion",
       baseName: "browserVersion",
       type: "string",
+      required: false,
       format: "",
     },
     device: {
+      name: "device",
       baseName: "device",
       type: "SyntheticsDevice",
+      required: false,
       format: "",
     },
     duration: {
+      name: "duration",
       baseName: "duration",
       type: "number",
+      required: false,
       format: "double",
     },
     error: {
+      name: "error",
       baseName: "error",
       type: "string",
+      required: false,
       format: "",
     },
     passed: {
+      name: "passed",
       baseName: "passed",
       type: "boolean",
+      required: false,
       format: "",
     },
     receivedEmailCount: {
+      name: "receivedEmailCount",
       baseName: "receivedEmailCount",
       type: "number",
+      required: false,
       format: "int64",
     },
     startUrl: {
+      name: "startUrl",
       baseName: "startUrl",
       type: "string",
+      required: false,
       format: "",
     },
     stepDetails: {
+      name: "stepDetails",
       baseName: "stepDetails",
       type: "Array<SyntheticsStepDetail>",
+      required: false,
       format: "",
     },
     thumbnailsBucketKey: {
+      name: "thumbnailsBucketKey",
       baseName: "thumbnailsBucketKey",
       type: "boolean",
+      required: false,
       format: "",
     },
     timeToInteractive: {
+      name: "timeToInteractive",
       baseName: "timeToInteractive",
       type: "number",
+      required: false,
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBrowserTestResultData.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsBrowserTestResultData {
-    const res = new SyntheticsBrowserTestResultData();
-
-    res.browserType = ObjectSerializer.deserialize(
-      data.browserType,
-      "string",
-      ""
-    );
-
-    res.browserVersion = ObjectSerializer.deserialize(
-      data.browserVersion,
-      "string",
-      ""
-    );
-
-    res.device = ObjectSerializer.deserialize(
-      data.device,
-      "SyntheticsDevice",
-      ""
-    );
-
-    res.duration = ObjectSerializer.deserialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    res.error = ObjectSerializer.deserialize(data.error, "string", "");
-
-    res.passed = ObjectSerializer.deserialize(data.passed, "boolean", "");
-
-    res.receivedEmailCount = ObjectSerializer.deserialize(
-      data.receivedEmailCount,
-      "number",
-      "int64"
-    );
-
-    res.startUrl = ObjectSerializer.deserialize(data.startUrl, "string", "");
-
-    res.stepDetails = ObjectSerializer.deserialize(
-      data.stepDetails,
-      "Array<SyntheticsStepDetail>",
-      ""
-    );
-
-    res.thumbnailsBucketKey = ObjectSerializer.deserialize(
-      data.thumbnailsBucketKey,
-      "boolean",
-      ""
-    );
-
-    res.timeToInteractive = ObjectSerializer.deserialize(
-      data.timeToInteractive,
-      "number",
-      "double"
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBrowserTestResultData): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsBrowserTestResultData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.browserType = ObjectSerializer.serialize(
-      data.browserType,
-      "string",
-      ""
-    );
-
-    res.browserVersion = ObjectSerializer.serialize(
-      data.browserVersion,
-      "string",
-      ""
-    );
-
-    res.device = ObjectSerializer.serialize(
-      data.device,
-      "SyntheticsDevice",
-      ""
-    );
-
-    res.duration = ObjectSerializer.serialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    res.error = ObjectSerializer.serialize(data.error, "string", "");
-
-    res.passed = ObjectSerializer.serialize(data.passed, "boolean", "");
-
-    res.receivedEmailCount = ObjectSerializer.serialize(
-      data.receivedEmailCount,
-      "number",
-      "int64"
-    );
-
-    res.startUrl = ObjectSerializer.serialize(data.startUrl, "string", "");
-
-    res.stepDetails = ObjectSerializer.serialize(
-      data.stepDetails,
-      "Array<SyntheticsStepDetail>",
-      ""
-    );
-
-    res.thumbnailsBucketKey = ObjectSerializer.serialize(
-      data.thumbnailsBucketKey,
-      "boolean",
-      ""
-    );
-
-    res.timeToInteractive = ObjectSerializer.serialize(
-      data.timeToInteractive,
-      "number",
-      "double"
-    );
-
-    return res;
   }
 
   public constructor() {}

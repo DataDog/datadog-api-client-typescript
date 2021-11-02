@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the `<EVENTS_SCHEMA>`.
- */
-
 export class WidgetEvent {
   /**
    * Query definition.
@@ -29,68 +23,33 @@ export class WidgetEvent {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     q: {
+      name: "q",
       baseName: "q",
       type: "string",
+      required: true,
       format: "",
     },
     tagsExecution: {
+      name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetEvent.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetEvent {
-    const res = new WidgetEvent();
-
-    if (data.q === undefined) {
-      throw new TypeError(
-        "missing required attribute 'q' on 'WidgetEvent' object"
-      );
-    }
-    res.q = ObjectSerializer.deserialize(data.q, "string", "");
-
-    res.tagsExecution = ObjectSerializer.deserialize(
-      data.tags_execution,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: WidgetEvent): { [key: string]: any } {
-    const attributeTypes = WidgetEvent.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.q === undefined) {
-      throw new TypeError(
-        "missing required attribute 'q' on 'WidgetEvent' object"
-      );
-    }
-    res.q = ObjectSerializer.serialize(data.q, "string", "");
-
-    res.tags_execution = ObjectSerializer.serialize(
-      data.tagsExecution,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

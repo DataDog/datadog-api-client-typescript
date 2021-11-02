@@ -14,11 +14,6 @@ import { TableWidgetRequest } from "./TableWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
- */
 
 export class TableWidgetDefinition {
   /**
@@ -47,172 +42,75 @@ export class TableWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     customLinks: {
+      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
+      required: false,
       format: "",
     },
     hasSearchBar: {
+      name: "hasSearchBar",
       baseName: "has_search_bar",
       type: "TableWidgetHasSearchBar",
+      required: false,
       format: "",
     },
     requests: {
+      name: "requests",
       baseName: "requests",
       type: "Array<TableWidgetRequest>",
+      required: true,
       format: "",
     },
     time: {
+      name: "time",
       baseName: "time",
       type: "WidgetTime",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     titleAlign: {
+      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     titleSize: {
+      name: "titleSize",
       baseName: "title_size",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "TableWidgetDefinitionType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return TableWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): TableWidgetDefinition {
-    const res = new TableWidgetDefinition();
-
-    res.customLinks = ObjectSerializer.deserialize(
-      data.custom_links,
-      "Array<WidgetCustomLink>",
-      ""
-    );
-
-    if (["always", "never", "auto", undefined].includes(data.has_search_bar)) {
-      res.hasSearchBar = data.has_search_bar;
-    } else {
-      const raw = new TableWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'TableWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.deserialize(
-      data.requests,
-      "Array<TableWidgetRequest>",
-      ""
-    );
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new TableWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'TableWidgetDefinition' object"
-      );
-    }
-    if (["query_table", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new TableWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: TableWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = TableWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.custom_links = ObjectSerializer.serialize(
-      data.customLinks,
-      "Array<WidgetCustomLink>",
-      ""
-    );
-
-    if (["always", "never", "auto", undefined].includes(data.hasSearchBar)) {
-      res.has_search_bar = data.hasSearchBar;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.hasSearchBar} for hasSearchBar`
-      );
-    }
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'TableWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.serialize(
-      data.requests,
-      "Array<TableWidgetRequest>",
-      ""
-    );
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'TableWidgetDefinition' object"
-      );
-    }
-    if (["query_table", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

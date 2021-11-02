@@ -10,11 +10,6 @@
 
 import { SyntheticsPrivateLocationSecretsAuthentication } from "./SyntheticsPrivateLocationSecretsAuthentication";
 import { SyntheticsPrivateLocationSecretsConfigDecryption } from "./SyntheticsPrivateLocationSecretsConfigDecryption";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Secrets for the private location. Only present in the response when creating the private location.
- */
 
 export class SyntheticsPrivateLocationSecrets {
   "authentication"?: SyntheticsPrivateLocationSecretsAuthentication;
@@ -25,71 +20,33 @@ export class SyntheticsPrivateLocationSecrets {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     authentication: {
+      name: "authentication",
       baseName: "authentication",
       type: "SyntheticsPrivateLocationSecretsAuthentication",
+      required: false,
       format: "",
     },
     configDecryption: {
+      name: "configDecryption",
       baseName: "config_decryption",
       type: "SyntheticsPrivateLocationSecretsConfigDecryption",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsPrivateLocationSecrets.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsPrivateLocationSecrets {
-    const res = new SyntheticsPrivateLocationSecrets();
-
-    res.authentication = ObjectSerializer.deserialize(
-      data.authentication,
-      "SyntheticsPrivateLocationSecretsAuthentication",
-      ""
-    );
-
-    res.configDecryption = ObjectSerializer.deserialize(
-      data.config_decryption,
-      "SyntheticsPrivateLocationSecretsConfigDecryption",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsPrivateLocationSecrets): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsPrivateLocationSecrets.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.authentication = ObjectSerializer.serialize(
-      data.authentication,
-      "SyntheticsPrivateLocationSecretsAuthentication",
-      ""
-    );
-
-    res.config_decryption = ObjectSerializer.serialize(
-      data.configDecryption,
-      "SyntheticsPrivateLocationSecretsConfigDecryption",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

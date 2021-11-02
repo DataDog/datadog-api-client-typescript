@@ -20,90 +20,33 @@ export class MetricCustomAggregation {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     space: {
+      name: "space",
       baseName: "space",
       type: "MetricCustomSpaceAggregation",
+      required: true,
       format: "",
     },
     time: {
+      name: "time",
       baseName: "time",
       type: "MetricCustomTimeAggregation",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricCustomAggregation.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricCustomAggregation {
-    const res = new MetricCustomAggregation();
-
-    if (data.space === undefined) {
-      throw new TypeError(
-        "missing required attribute 'space' on 'MetricCustomAggregation' object"
-      );
-    }
-    if (["avg", "max", "min", "sum", undefined].includes(data.space)) {
-      res.space = data.space;
-    } else {
-      const raw = new MetricCustomAggregation();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'MetricCustomAggregation' object"
-      );
-    }
-    if (["avg", "count", "max", "min", "sum", undefined].includes(data.time)) {
-      res.time = data.time;
-    } else {
-      const raw = new MetricCustomAggregation();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: MetricCustomAggregation): { [key: string]: any } {
-    const attributeTypes = MetricCustomAggregation.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.space === undefined) {
-      throw new TypeError(
-        "missing required attribute 'space' on 'MetricCustomAggregation' object"
-      );
-    }
-    if (["avg", "max", "min", "sum", undefined].includes(data.space)) {
-      res.space = data.space;
-    } else {
-      throw TypeError(`invalid enum value ${data.space} for space`);
-    }
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'MetricCustomAggregation' object"
-      );
-    }
-    if (["avg", "count", "max", "min", "sum", undefined].includes(data.time)) {
-      res.time = data.time;
-    } else {
-      throw TypeError(`invalid enum value ${data.time} for time`);
-    }
-
-    return res;
   }
 
   public constructor() {}

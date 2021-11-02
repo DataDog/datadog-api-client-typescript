@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The object containing information about the pages of the list of SLOs.
- */
-
 export class SLOListResponseMetadataPage {
   /**
    * The total number of resources that could be retrieved ignoring the parameters and filters in the request.
@@ -29,68 +23,33 @@ export class SLOListResponseMetadataPage {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     totalCount: {
+      name: "totalCount",
       baseName: "total_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     totalFilteredCount: {
+      name: "totalFilteredCount",
       baseName: "total_filtered_count",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOListResponseMetadataPage.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SLOListResponseMetadataPage {
-    const res = new SLOListResponseMetadataPage();
-
-    res.totalCount = ObjectSerializer.deserialize(
-      data.total_count,
-      "number",
-      "int64"
-    );
-
-    res.totalFilteredCount = ObjectSerializer.deserialize(
-      data.total_filtered_count,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOListResponseMetadataPage): { [key: string]: any } {
-    const attributeTypes = SLOListResponseMetadataPage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.total_count = ObjectSerializer.serialize(
-      data.totalCount,
-      "number",
-      "int64"
-    );
-
-    res.total_filtered_count = ObjectSerializer.serialize(
-      data.totalFilteredCount,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

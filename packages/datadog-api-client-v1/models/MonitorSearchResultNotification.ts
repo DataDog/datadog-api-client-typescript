@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A notification triggered by the monitor.
- */
-
 export class MonitorSearchResultNotification {
   /**
    * The email address that received the notification.
@@ -29,55 +23,33 @@ export class MonitorSearchResultNotification {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     handle: {
+      name: "handle",
       baseName: "handle",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorSearchResultNotification.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MonitorSearchResultNotification {
-    const res = new MonitorSearchResultNotification();
-
-    res.handle = ObjectSerializer.deserialize(data.handle, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: MonitorSearchResultNotification): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MonitorSearchResultNotification.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.handle = ObjectSerializer.serialize(data.handle, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

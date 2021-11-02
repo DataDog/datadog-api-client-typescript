@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The search and filter query settings
- */
-
 export class LogsQueryFilter {
   /**
    * The minimum time for the requested logs, supports date math and regular timestamps
@@ -37,72 +31,47 @@ export class LogsQueryFilter {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     from: {
+      name: "from",
       baseName: "from",
       type: "string",
+      required: false,
       format: "",
     },
     indexes: {
+      name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: false,
       format: "",
     },
     to: {
+      name: "to",
       baseName: "to",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsQueryFilter.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsQueryFilter {
-    const res = new LogsQueryFilter();
-
-    res.from = ObjectSerializer.deserialize(data.from, "string", "");
-
-    res.indexes = ObjectSerializer.deserialize(
-      data.indexes,
-      "Array<string>",
-      ""
-    );
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    res.to = ObjectSerializer.deserialize(data.to, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsQueryFilter): { [key: string]: any } {
-    const attributeTypes = LogsQueryFilter.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.from = ObjectSerializer.serialize(data.from, "string", "");
-
-    res.indexes = ObjectSerializer.serialize(data.indexes, "Array<string>", "");
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    res.to = ObjectSerializer.serialize(data.to, "string", "");
-
-    return res;
   }
 
   public constructor() {}

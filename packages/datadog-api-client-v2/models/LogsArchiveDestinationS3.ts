@@ -10,11 +10,6 @@
 
 import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The S3 archive destination.
- */
 
 export class LogsArchiveDestinationS3 {
   /**
@@ -33,116 +28,47 @@ export class LogsArchiveDestinationS3 {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     bucket: {
+      name: "bucket",
       baseName: "bucket",
       type: "string",
+      required: true,
       format: "",
     },
     integration: {
+      name: "integration",
       baseName: "integration",
       type: "LogsArchiveIntegrationS3",
+      required: true,
       format: "",
     },
     path: {
+      name: "path",
       baseName: "path",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsArchiveDestinationS3Type",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsArchiveDestinationS3.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsArchiveDestinationS3 {
-    const res = new LogsArchiveDestinationS3();
-
-    if (data.bucket === undefined) {
-      throw new TypeError(
-        "missing required attribute 'bucket' on 'LogsArchiveDestinationS3' object"
-      );
-    }
-    res.bucket = ObjectSerializer.deserialize(data.bucket, "string", "");
-
-    if (data.integration === undefined) {
-      throw new TypeError(
-        "missing required attribute 'integration' on 'LogsArchiveDestinationS3' object"
-      );
-    }
-    res.integration = ObjectSerializer.deserialize(
-      data.integration,
-      "LogsArchiveIntegrationS3",
-      ""
-    );
-
-    res.path = ObjectSerializer.deserialize(data.path, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsArchiveDestinationS3' object"
-      );
-    }
-    if (["s3", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsArchiveDestinationS3();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsArchiveDestinationS3): { [key: string]: any } {
-    const attributeTypes = LogsArchiveDestinationS3.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.bucket === undefined) {
-      throw new TypeError(
-        "missing required attribute 'bucket' on 'LogsArchiveDestinationS3' object"
-      );
-    }
-    res.bucket = ObjectSerializer.serialize(data.bucket, "string", "");
-
-    if (data.integration === undefined) {
-      throw new TypeError(
-        "missing required attribute 'integration' on 'LogsArchiveDestinationS3' object"
-      );
-    }
-    res.integration = ObjectSerializer.serialize(
-      data.integration,
-      "LogsArchiveIntegrationS3",
-      ""
-    );
-
-    res.path = ObjectSerializer.serialize(data.path, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsArchiveDestinationS3' object"
-      );
-    }
-    if (["s3", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

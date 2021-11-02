@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Client certificate to use when performing the test request.
- */
 
 export class SyntheticsTestRequestCertificate {
   "cert"?: SyntheticsTestRequestCertificateItem;
@@ -24,71 +19,33 @@ export class SyntheticsTestRequestCertificate {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     cert: {
+      name: "cert",
       baseName: "cert",
       type: "SyntheticsTestRequestCertificateItem",
+      required: false,
       format: "",
     },
     key: {
+      name: "key",
       baseName: "key",
       type: "SyntheticsTestRequestCertificateItem",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTestRequestCertificate.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsTestRequestCertificate {
-    const res = new SyntheticsTestRequestCertificate();
-
-    res.cert = ObjectSerializer.deserialize(
-      data.cert,
-      "SyntheticsTestRequestCertificateItem",
-      ""
-    );
-
-    res.key = ObjectSerializer.deserialize(
-      data.key,
-      "SyntheticsTestRequestCertificateItem",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTestRequestCertificate): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsTestRequestCertificate.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.cert = ObjectSerializer.serialize(
-      data.cert,
-      "SyntheticsTestRequestCertificateItem",
-      ""
-    );
-
-    res.key = ObjectSerializer.serialize(
-      data.key,
-      "SyntheticsTestRequestCertificateItem",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

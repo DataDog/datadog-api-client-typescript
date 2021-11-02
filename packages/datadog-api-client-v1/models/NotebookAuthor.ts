@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of user object returned by the API.
- */
-
 export class NotebookAuthor {
   /**
    * Creation time of the user.
@@ -57,121 +51,82 @@ export class NotebookAuthor {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     createdAt: {
+      name: "createdAt",
       baseName: "created_at",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     disabled: {
+      name: "disabled",
       baseName: "disabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     email: {
+      name: "email",
       baseName: "email",
       type: "string",
+      required: false,
       format: "",
     },
     handle: {
+      name: "handle",
       baseName: "handle",
       type: "string",
+      required: false,
       format: "",
     },
     icon: {
+      name: "icon",
       baseName: "icon",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "string",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     verified: {
+      name: "verified",
       baseName: "verified",
       type: "boolean",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookAuthor.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookAuthor {
-    const res = new NotebookAuthor();
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "Date",
-      "date-time"
-    );
-
-    res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "");
-
-    res.email = ObjectSerializer.deserialize(data.email, "string", "");
-
-    res.handle = ObjectSerializer.deserialize(data.handle, "string", "");
-
-    res.icon = ObjectSerializer.deserialize(data.icon, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    res.verified = ObjectSerializer.deserialize(data.verified, "boolean", "");
-
-    return res;
-  }
-
-  static serialize(data: NotebookAuthor): { [key: string]: any } {
-    const attributeTypes = NotebookAuthor.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "Date",
-      "date-time"
-    );
-
-    res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "");
-
-    res.email = ObjectSerializer.serialize(data.email, "string", "");
-
-    res.handle = ObjectSerializer.serialize(data.handle, "string", "");
-
-    res.icon = ObjectSerializer.serialize(data.icon, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    res.verified = ObjectSerializer.serialize(data.verified, "boolean", "");
-
-    return res;
   }
 
   public constructor() {}

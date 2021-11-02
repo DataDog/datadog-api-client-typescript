@@ -11,11 +11,6 @@
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSettings } from "./OrganizationSettings";
 import { OrganizationSubscription } from "./OrganizationSubscription";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Create, edit, and manage organizations.
- */
 
 export class Organization {
   "billing"?: OrganizationBilling;
@@ -43,127 +38,68 @@ export class Organization {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     billing: {
+      name: "billing",
       baseName: "billing",
       type: "OrganizationBilling",
+      required: false,
       format: "",
     },
     created: {
+      name: "created",
       baseName: "created",
       type: "string",
+      required: false,
       format: "",
     },
     description: {
+      name: "description",
       baseName: "description",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     publicId: {
+      name: "publicId",
       baseName: "public_id",
       type: "string",
+      required: false,
       format: "",
     },
     settings: {
+      name: "settings",
       baseName: "settings",
       type: "OrganizationSettings",
+      required: false,
       format: "",
     },
     subscription: {
+      name: "subscription",
       baseName: "subscription",
       type: "OrganizationSubscription",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return Organization.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): Organization {
-    const res = new Organization();
-
-    res.billing = ObjectSerializer.deserialize(
-      data.billing,
-      "OrganizationBilling",
-      ""
-    );
-
-    res.created = ObjectSerializer.deserialize(data.created, "string", "");
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    res.settings = ObjectSerializer.deserialize(
-      data.settings,
-      "OrganizationSettings",
-      ""
-    );
-
-    res.subscription = ObjectSerializer.deserialize(
-      data.subscription,
-      "OrganizationSubscription",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: Organization): { [key: string]: any } {
-    const attributeTypes = Organization.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.billing = ObjectSerializer.serialize(
-      data.billing,
-      "OrganizationBilling",
-      ""
-    );
-
-    res.created = ObjectSerializer.serialize(data.created, "string", "");
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    res.settings = ObjectSerializer.serialize(
-      data.settings,
-      "OrganizationSettings",
-      ""
-    );
-
-    res.subscription = ObjectSerializer.serialize(
-      data.subscription,
-      "OrganizationSubscription",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

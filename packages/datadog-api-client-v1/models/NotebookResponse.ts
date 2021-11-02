@@ -9,11 +9,6 @@
  */
 
 import { NotebookResponseData } from "./NotebookResponseData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The description of a notebook response.
- */
 
 export class NotebookResponse {
   "data"?: NotebookResponseData;
@@ -23,49 +18,26 @@ export class NotebookResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "NotebookResponseData",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookResponse {
-    const res = new NotebookResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "NotebookResponseData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: NotebookResponse): { [key: string]: any } {
-    const attributeTypes = NotebookResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "NotebookResponseData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

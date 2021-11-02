@@ -9,11 +9,6 @@
  */
 
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Defined items in the group.
- */
 
 export class LogQueryDefinitionGroupBy {
   /**
@@ -31,77 +26,40 @@ export class LogQueryDefinitionGroupBy {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     facet: {
+      name: "facet",
       baseName: "facet",
       type: "string",
+      required: true,
       format: "",
     },
     limit: {
+      name: "limit",
       baseName: "limit",
       type: "number",
+      required: false,
       format: "int64",
     },
     sort: {
+      name: "sort",
       baseName: "sort",
       type: "LogQueryDefinitionGroupBySort",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogQueryDefinitionGroupBy.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogQueryDefinitionGroupBy {
-    const res = new LogQueryDefinitionGroupBy();
-
-    if (data.facet === undefined) {
-      throw new TypeError(
-        "missing required attribute 'facet' on 'LogQueryDefinitionGroupBy' object"
-      );
-    }
-    res.facet = ObjectSerializer.deserialize(data.facet, "string", "");
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
-
-    res.sort = ObjectSerializer.deserialize(
-      data.sort,
-      "LogQueryDefinitionGroupBySort",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogQueryDefinitionGroupBy): { [key: string]: any } {
-    const attributeTypes = LogQueryDefinitionGroupBy.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.facet === undefined) {
-      throw new TypeError(
-        "missing required attribute 'facet' on 'LogQueryDefinitionGroupBy' object"
-      );
-    }
-    res.facet = ObjectSerializer.serialize(data.facet, "string", "");
-
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
-
-    res.sort = ObjectSerializer.serialize(
-      data.sort,
-      "LogQueryDefinitionGroupBySort",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

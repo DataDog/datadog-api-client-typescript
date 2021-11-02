@@ -11,11 +11,6 @@
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object to create a service account User.
- */
 
 export class ServiceAccountCreateData {
   "attributes": ServiceAccountCreateAttributes;
@@ -27,105 +22,40 @@ export class ServiceAccountCreateData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "ServiceAccountCreateAttributes",
+      required: true,
       format: "",
     },
     relationships: {
+      name: "relationships",
       baseName: "relationships",
       type: "UserRelationships",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "UsersType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ServiceAccountCreateData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ServiceAccountCreateData {
-    const res = new ServiceAccountCreateData();
-
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'ServiceAccountCreateData' object"
-      );
-    }
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "ServiceAccountCreateAttributes",
-      ""
-    );
-
-    res.relationships = ObjectSerializer.deserialize(
-      data.relationships,
-      "UserRelationships",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceAccountCreateData' object"
-      );
-    }
-    if (["users", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ServiceAccountCreateData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ServiceAccountCreateData): { [key: string]: any } {
-    const attributeTypes = ServiceAccountCreateData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'ServiceAccountCreateData' object"
-      );
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "ServiceAccountCreateAttributes",
-      ""
-    );
-
-    res.relationships = ObjectSerializer.serialize(
-      data.relationships,
-      "UserRelationships",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceAccountCreateData' object"
-      );
-    }
-    if (["users", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

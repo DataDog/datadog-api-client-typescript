@@ -9,11 +9,6 @@
  */
 
 import { RolesType } from "./RolesType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationship to role object.
- */
 
 export class RelationshipToRoleData {
   /**
@@ -27,60 +22,33 @@ export class RelationshipToRoleData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "RolesType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToRoleData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RelationshipToRoleData {
-    const res = new RelationshipToRoleData();
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["roles", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new RelationshipToRoleData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToRoleData): { [key: string]: any } {
-    const attributeTypes = RelationshipToRoleData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["roles", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

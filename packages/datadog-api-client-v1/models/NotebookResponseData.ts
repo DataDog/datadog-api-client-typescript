@@ -10,11 +10,6 @@
 
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebookResponseDataAttributes } from "./NotebookResponseDataAttributes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The data for a notebook.
- */
 
 export class NotebookResponseData {
   "attributes": NotebookResponseDataAttributes;
@@ -29,107 +24,40 @@ export class NotebookResponseData {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "NotebookResponseDataAttributes",
+      required: true,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "number",
+      required: true,
       format: "int64",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "NotebookResourceType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookResponseData {
-    const res = new NotebookResponseData();
-
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'NotebookResponseData' object"
-      );
-    }
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "NotebookResponseDataAttributes",
-      ""
-    );
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'NotebookResponseData' object"
-      );
-    }
-    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'NotebookResponseData' object"
-      );
-    }
-    if (["notebooks", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new NotebookResponseData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: NotebookResponseData): { [key: string]: any } {
-    const attributeTypes = NotebookResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'NotebookResponseData' object"
-      );
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "NotebookResponseDataAttributes",
-      ""
-    );
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'NotebookResponseData' object"
-      );
-    }
-    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'NotebookResponseData' object"
-      );
-    }
-    if (["notebooks", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

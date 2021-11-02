@@ -12,11 +12,6 @@ import { SyntheticsAPIStepSubtype } from "./SyntheticsAPIStepSubtype";
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The steps used in a Synthetics multistep API test.
- */
 
 export class SyntheticsAPIStep {
   /**
@@ -47,141 +42,68 @@ export class SyntheticsAPIStep {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     allowFailure: {
+      name: "allowFailure",
       baseName: "allowFailure",
       type: "boolean",
+      required: false,
       format: "",
     },
     assertions: {
+      name: "assertions",
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
+      required: false,
       format: "",
     },
     extractedValues: {
+      name: "extractedValues",
       baseName: "extractedValues",
       type: "Array<SyntheticsParsingOptions>",
+      required: false,
       format: "",
     },
     isCritical: {
+      name: "isCritical",
       baseName: "isCritical",
       type: "boolean",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     request: {
+      name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
+      required: false,
       format: "",
     },
     subtype: {
+      name: "subtype",
       baseName: "subtype",
       type: "SyntheticsAPIStepSubtype",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsAPIStep.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsAPIStep {
-    const res = new SyntheticsAPIStep();
-
-    res.allowFailure = ObjectSerializer.deserialize(
-      data.allowFailure,
-      "boolean",
-      ""
-    );
-
-    res.assertions = ObjectSerializer.deserialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.extractedValues = ObjectSerializer.deserialize(
-      data.extractedValues,
-      "Array<SyntheticsParsingOptions>",
-      ""
-    );
-
-    res.isCritical = ObjectSerializer.deserialize(
-      data.isCritical,
-      "boolean",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.request = ObjectSerializer.deserialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    if (["http", undefined].includes(data.subtype)) {
-      res.subtype = data.subtype;
-    } else {
-      const raw = new SyntheticsAPIStep();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsAPIStep): { [key: string]: any } {
-    const attributeTypes = SyntheticsAPIStep.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.allowFailure = ObjectSerializer.serialize(
-      data.allowFailure,
-      "boolean",
-      ""
-    );
-
-    res.assertions = ObjectSerializer.serialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.extractedValues = ObjectSerializer.serialize(
-      data.extractedValues,
-      "Array<SyntheticsParsingOptions>",
-      ""
-    );
-
-    res.isCritical = ObjectSerializer.serialize(data.isCritical, "boolean", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.request = ObjectSerializer.serialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    if (["http", undefined].includes(data.subtype)) {
-      res.subtype = data.subtype;
-    } else {
-      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
-    }
-
-    return res;
   }
 
   public constructor() {}

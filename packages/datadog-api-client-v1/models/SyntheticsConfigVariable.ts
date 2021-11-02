@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsConfigVariableType } from "./SyntheticsConfigVariableType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object defining a variable that can be used in your test configuration.
- */
 
 export class SyntheticsConfigVariable {
   /**
@@ -39,107 +34,54 @@ export class SyntheticsConfigVariable {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     example: {
+      name: "example",
       baseName: "example",
       type: "string",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     pattern: {
+      name: "pattern",
       baseName: "pattern",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SyntheticsConfigVariableType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsConfigVariable.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsConfigVariable {
-    const res = new SyntheticsConfigVariable();
-
-    res.example = ObjectSerializer.deserialize(data.example, "string", "");
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsConfigVariable' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.pattern = ObjectSerializer.deserialize(data.pattern, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SyntheticsConfigVariable' object"
-      );
-    }
-    if (["global", "text", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SyntheticsConfigVariable();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsConfigVariable): { [key: string]: any } {
-    const attributeTypes = SyntheticsConfigVariable.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.example = ObjectSerializer.serialize(data.example, "string", "");
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsConfigVariable' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.pattern = ObjectSerializer.serialize(data.pattern, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SyntheticsConfigVariable' object"
-      );
-    }
-    if (["global", "text", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

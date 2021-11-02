@@ -10,11 +10,6 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing information about multiple roles.
- */
 
 export class RolesResponse {
   /**
@@ -28,58 +23,33 @@ export class RolesResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<Role>",
+      required: false,
       format: "",
     },
     meta: {
+      name: "meta",
       baseName: "meta",
       type: "ResponseMetaAttributes",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RolesResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RolesResponse {
-    const res = new RolesResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "Array<Role>", "");
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RolesResponse): { [key: string]: any } {
-    const attributeTypes = RolesResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "Array<Role>", "");
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

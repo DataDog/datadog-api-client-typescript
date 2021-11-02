@@ -9,11 +9,6 @@
  */
 
 import { Series } from "./Series";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The metrics' payload.
- */
 
 export class MetricsPayload {
   /**
@@ -26,51 +21,26 @@ export class MetricsPayload {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     series: {
+      name: "series",
       baseName: "series",
       type: "Array<Series>",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricsPayload.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricsPayload {
-    const res = new MetricsPayload();
-
-    if (data.series === undefined) {
-      throw new TypeError(
-        "missing required attribute 'series' on 'MetricsPayload' object"
-      );
-    }
-    res.series = ObjectSerializer.deserialize(data.series, "Array<Series>", "");
-
-    return res;
-  }
-
-  static serialize(data: MetricsPayload): { [key: string]: any } {
-    const attributeTypes = MetricsPayload.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.series === undefined) {
-      throw new TypeError(
-        "missing required attribute 'series' on 'MetricsPayload' object"
-      );
-    }
-    res.series = ObjectSerializer.serialize(data.series, "Array<Series>", "");
-
-    return res;
   }
 
   public constructor() {}

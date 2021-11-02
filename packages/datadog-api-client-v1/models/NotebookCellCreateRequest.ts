@@ -10,11 +10,6 @@
 
 import { NotebookCellCreateRequestAttributes } from "./NotebookCellCreateRequestAttributes";
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The description of a notebook cell create request.
- */
 
 export class NotebookCellCreateRequest {
   "attributes": NotebookCellCreateRequestAttributes;
@@ -25,88 +20,33 @@ export class NotebookCellCreateRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "NotebookCellCreateRequestAttributes",
+      required: true,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "NotebookCellResourceType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookCellCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookCellCreateRequest {
-    const res = new NotebookCellCreateRequest();
-
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'NotebookCellCreateRequest' object"
-      );
-    }
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "NotebookCellCreateRequestAttributes",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'NotebookCellCreateRequest' object"
-      );
-    }
-    if (["notebook_cells", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new NotebookCellCreateRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: NotebookCellCreateRequest): { [key: string]: any } {
-    const attributeTypes = NotebookCellCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.attributes === undefined) {
-      throw new TypeError(
-        "missing required attribute 'attributes' on 'NotebookCellCreateRequest' object"
-      );
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "NotebookCellCreateRequestAttributes",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'NotebookCellCreateRequest' object"
-      );
-    }
-    if (["notebook_cells", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

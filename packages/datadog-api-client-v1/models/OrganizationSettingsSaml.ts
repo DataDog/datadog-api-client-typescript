@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
- */
-
 export class OrganizationSettingsSaml {
   /**
    * Whether or not SAML is enabled for this organization.
@@ -25,41 +19,26 @@ export class OrganizationSettingsSaml {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     enabled: {
+      name: "enabled",
       baseName: "enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return OrganizationSettingsSaml.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): OrganizationSettingsSaml {
-    const res = new OrganizationSettingsSaml();
-
-    res.enabled = ObjectSerializer.deserialize(data.enabled, "boolean", "");
-
-    return res;
-  }
-
-  static serialize(data: OrganizationSettingsSaml): { [key: string]: any } {
-    const attributeTypes = OrganizationSettingsSaml.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.enabled = ObjectSerializer.serialize(data.enabled, "boolean", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object for a single metric tag configuration.
- */
 
 export class MetricTagConfiguration {
   "attributes"?: MetricTagConfigurationAttributes;
@@ -29,77 +24,40 @@ export class MetricTagConfiguration {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "MetricTagConfigurationAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "MetricTagConfigurationType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricTagConfiguration.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricTagConfiguration {
-    const res = new MetricTagConfiguration();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "MetricTagConfigurationAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["manage_tags", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new MetricTagConfiguration();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: MetricTagConfiguration): { [key: string]: any } {
-    const attributeTypes = MetricTagConfiguration.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "MetricTagConfigurationAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["manage_tags", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

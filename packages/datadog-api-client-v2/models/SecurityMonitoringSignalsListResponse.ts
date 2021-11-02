@@ -11,11 +11,6 @@
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The response object with all security signals matching the request and pagination information.
- */
 
 export class SecurityMonitoringSignalsListResponse {
   /**
@@ -30,88 +25,40 @@ export class SecurityMonitoringSignalsListResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<SecurityMonitoringSignal>",
+      required: false,
       format: "",
     },
     links: {
+      name: "links",
       baseName: "links",
       type: "SecurityMonitoringSignalsListResponseLinks",
+      required: false,
       format: "",
     },
     meta: {
+      name: "meta",
       baseName: "meta",
       type: "SecurityMonitoringSignalsListResponseMeta",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringSignalsListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringSignalsListResponse {
-    const res = new SecurityMonitoringSignalsListResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<SecurityMonitoringSignal>",
-      ""
-    );
-
-    res.links = ObjectSerializer.deserialize(
-      data.links,
-      "SecurityMonitoringSignalsListResponseLinks",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "SecurityMonitoringSignalsListResponseMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringSignalsListResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringSignalsListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<SecurityMonitoringSignal>",
-      ""
-    );
-
-    res.links = ObjectSerializer.serialize(
-      data.links,
-      "SecurityMonitoringSignalsListResponseLinks",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "SecurityMonitoringSignalsListResponseMeta",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

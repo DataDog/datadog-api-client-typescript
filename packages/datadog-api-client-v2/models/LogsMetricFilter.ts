@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
- */
-
 export class LogsMetricFilter {
   /**
    * The search query - following the log search syntax.
@@ -25,41 +19,26 @@ export class LogsMetricFilter {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsMetricFilter.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsMetricFilter {
-    const res = new LogsMetricFilter();
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsMetricFilter): { [key: string]: any } {
-    const attributeTypes = LogsMetricFilter.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

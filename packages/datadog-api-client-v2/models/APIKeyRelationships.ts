@@ -9,11 +9,6 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Resources related to the API key.
- */
 
 export class APIKeyRelationships {
   "createdBy"?: RelationshipToUser;
@@ -24,66 +19,33 @@ export class APIKeyRelationships {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     createdBy: {
+      name: "createdBy",
       baseName: "created_by",
       type: "RelationshipToUser",
+      required: false,
       format: "",
     },
     modifiedBy: {
+      name: "modifiedBy",
       baseName: "modified_by",
       type: "RelationshipToUser",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return APIKeyRelationships.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): APIKeyRelationships {
-    const res = new APIKeyRelationships();
-
-    res.createdBy = ObjectSerializer.deserialize(
-      data.created_by,
-      "RelationshipToUser",
-      ""
-    );
-
-    res.modifiedBy = ObjectSerializer.deserialize(
-      data.modified_by,
-      "RelationshipToUser",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: APIKeyRelationships): { [key: string]: any } {
-    const attributeTypes = APIKeyRelationships.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_by = ObjectSerializer.serialize(
-      data.createdBy,
-      "RelationshipToUser",
-      ""
-    );
-
-    res.modified_by = ObjectSerializer.serialize(
-      data.modifiedBy,
-      "RelationshipToUser",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

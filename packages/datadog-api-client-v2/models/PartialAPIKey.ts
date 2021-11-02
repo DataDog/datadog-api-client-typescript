@@ -11,11 +11,6 @@
 import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Partial Datadog API key.
- */
 
 export class PartialAPIKey {
   "attributes"?: PartialAPIKeyAttributes;
@@ -31,94 +26,47 @@ export class PartialAPIKey {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "PartialAPIKeyAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     relationships: {
+      name: "relationships",
       baseName: "relationships",
       type: "APIKeyRelationships",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "APIKeysType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return PartialAPIKey.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): PartialAPIKey {
-    const res = new PartialAPIKey();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "PartialAPIKeyAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.deserialize(
-      data.relationships,
-      "APIKeyRelationships",
-      ""
-    );
-
-    if (["api_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new PartialAPIKey();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: PartialAPIKey): { [key: string]: any } {
-    const attributeTypes = PartialAPIKey.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "PartialAPIKeyAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.serialize(
-      data.relationships,
-      "APIKeyRelationships",
-      ""
-    );
-
-    if (["api_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

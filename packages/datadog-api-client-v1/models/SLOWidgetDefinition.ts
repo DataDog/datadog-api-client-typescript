@@ -12,11 +12,6 @@ import { SLOWidgetDefinitionType } from "./SLOWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTimeWindows } from "./WidgetTimeWindows";
 import { WidgetViewMode } from "./WidgetViewMode";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
- */
 
 export class SLOWidgetDefinition {
   /**
@@ -56,196 +51,89 @@ export class SLOWidgetDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     globalTimeTarget: {
+      name: "globalTimeTarget",
       baseName: "global_time_target",
       type: "string",
+      required: false,
       format: "",
     },
     showErrorBudget: {
+      name: "showErrorBudget",
       baseName: "show_error_budget",
       type: "boolean",
+      required: false,
       format: "",
     },
     sloId: {
+      name: "sloId",
       baseName: "slo_id",
       type: "string",
+      required: false,
       format: "",
     },
     timeWindows: {
+      name: "timeWindows",
       baseName: "time_windows",
       type: "Array<WidgetTimeWindows>",
+      required: false,
       format: "",
     },
     title: {
+      name: "title",
       baseName: "title",
       type: "string",
+      required: false,
       format: "",
     },
     titleAlign: {
+      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
+      required: false,
       format: "",
     },
     titleSize: {
+      name: "titleSize",
       baseName: "title_size",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SLOWidgetDefinitionType",
+      required: true,
       format: "",
     },
     viewMode: {
+      name: "viewMode",
       baseName: "view_mode",
       type: "WidgetViewMode",
+      required: false,
       format: "",
     },
     viewType: {
+      name: "viewType",
       baseName: "view_type",
       type: "string",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOWidgetDefinition {
-    const res = new SLOWidgetDefinition();
-
-    res.globalTimeTarget = ObjectSerializer.deserialize(
-      data.global_time_target,
-      "string",
-      ""
-    );
-
-    res.showErrorBudget = ObjectSerializer.deserialize(
-      data.show_error_budget,
-      "boolean",
-      ""
-    );
-
-    res.sloId = ObjectSerializer.deserialize(data.slo_id, "string", "");
-
-    res.timeWindows = ObjectSerializer.deserialize(
-      data.time_windows,
-      "Array<WidgetTimeWindows>",
-      ""
-    );
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new SLOWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SLOWidgetDefinition' object"
-      );
-    }
-    if (["slo", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SLOWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (["overall", "component", "both", undefined].includes(data.view_mode)) {
-      res.viewMode = data.view_mode;
-    } else {
-      const raw = new SLOWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.view_type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'view_type' on 'SLOWidgetDefinition' object"
-      );
-    }
-    res.viewType = ObjectSerializer.deserialize(data.view_type, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SLOWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = SLOWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.global_time_target = ObjectSerializer.serialize(
-      data.globalTimeTarget,
-      "string",
-      ""
-    );
-
-    res.show_error_budget = ObjectSerializer.serialize(
-      data.showErrorBudget,
-      "boolean",
-      ""
-    );
-
-    res.slo_id = ObjectSerializer.serialize(data.sloId, "string", "");
-
-    res.time_windows = ObjectSerializer.serialize(
-      data.timeWindows,
-      "Array<WidgetTimeWindows>",
-      ""
-    );
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SLOWidgetDefinition' object"
-      );
-    }
-    if (["slo", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    if (["overall", "component", "both", undefined].includes(data.viewMode)) {
-      res.view_mode = data.viewMode;
-    } else {
-      throw TypeError(`invalid enum value ${data.viewMode} for viewMode`);
-    }
-
-    if (data.viewType === undefined) {
-      throw new TypeError(
-        "missing required attribute 'view_type' on 'SLOWidgetDefinition' object"
-      );
-    }
-    res.view_type = ObjectSerializer.serialize(data.viewType, "string", "");
-
-    return res;
   }
 
   public constructor() {}

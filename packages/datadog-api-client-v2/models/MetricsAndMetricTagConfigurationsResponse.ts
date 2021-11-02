@@ -9,11 +9,6 @@
  */
 
 import { MetricsAndMetricTagConfigurations } from "./MetricsAndMetricTagConfigurations";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object that includes metrics and metric tag configurations.
- */
 
 export class MetricsAndMetricTagConfigurationsResponse {
   /**
@@ -26,54 +21,26 @@ export class MetricsAndMetricTagConfigurationsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<MetricsAndMetricTagConfigurations>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricsAndMetricTagConfigurationsResponse {
-    const res = new MetricsAndMetricTagConfigurationsResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<MetricsAndMetricTagConfigurations>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricsAndMetricTagConfigurationsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MetricsAndMetricTagConfigurationsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<MetricsAndMetricTagConfigurations>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { HostMapRequest } from "./HostMapRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of definitions.
- */
 
 export class HostMapWidgetDefinitionRequests {
   "fill"?: HostMapRequest;
@@ -24,55 +19,33 @@ export class HostMapWidgetDefinitionRequests {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     fill: {
+      name: "fill",
       baseName: "fill",
       type: "HostMapRequest",
+      required: false,
       format: "",
     },
     size: {
+      name: "size",
       baseName: "size",
       type: "HostMapRequest",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HostMapWidgetDefinitionRequests.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): HostMapWidgetDefinitionRequests {
-    const res = new HostMapWidgetDefinitionRequests();
-
-    res.fill = ObjectSerializer.deserialize(data.fill, "HostMapRequest", "");
-
-    res.size = ObjectSerializer.deserialize(data.size, "HostMapRequest", "");
-
-    return res;
-  }
-
-  static serialize(data: HostMapWidgetDefinitionRequests): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      HostMapWidgetDefinitionRequests.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.fill = ObjectSerializer.serialize(data.fill, "HostMapRequest", "");
-
-    res.size = ObjectSerializer.serialize(data.size, "HostMapRequest", "");
-
-    return res;
   }
 
   public constructor() {}

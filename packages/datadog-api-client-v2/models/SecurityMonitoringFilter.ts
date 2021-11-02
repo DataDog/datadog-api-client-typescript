@@ -9,11 +9,6 @@
  */
 
 import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The rule's suppression filter.
- */
 
 export class SecurityMonitoringFilter {
   "action"?: SecurityMonitoringFilterAction;
@@ -27,60 +22,33 @@ export class SecurityMonitoringFilter {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     action: {
+      name: "action",
       baseName: "action",
       type: "SecurityMonitoringFilterAction",
+      required: false,
       format: "",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringFilter.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SecurityMonitoringFilter {
-    const res = new SecurityMonitoringFilter();
-
-    if (["require", "suppress", undefined].includes(data.action)) {
-      res.action = data.action;
-    } else {
-      const raw = new SecurityMonitoringFilter();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringFilter): { [key: string]: any } {
-    const attributeTypes = SecurityMonitoringFilter.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (["require", "suppress", undefined].includes(data.action)) {
-      res.action = data.action;
-    } else {
-      throw TypeError(`invalid enum value ${data.action} for action`);
-    }
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

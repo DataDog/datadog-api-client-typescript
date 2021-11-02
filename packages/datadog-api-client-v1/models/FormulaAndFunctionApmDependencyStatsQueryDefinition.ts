@@ -10,11 +10,6 @@
 
 import { FormulaAndFunctionApmDependencyStatName } from "./FormulaAndFunctionApmDependencyStatName";
 import { FormulaAndFunctionApmDependencyStatsDataSource } from "./FormulaAndFunctionApmDependencyStatsDataSource";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A formula and functions APM dependency stats query.
- */
 
 export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   "dataSource": FormulaAndFunctionApmDependencyStatsDataSource;
@@ -57,279 +52,89 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     dataSource: {
+      name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionApmDependencyStatsDataSource",
+      required: true,
       format: "",
     },
     env: {
+      name: "env",
       baseName: "env",
       type: "string",
+      required: true,
       format: "",
     },
     isUpstream: {
+      name: "isUpstream",
       baseName: "is_upstream",
       type: "boolean",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     operationName: {
+      name: "operationName",
       baseName: "operation_name",
       type: "string",
+      required: true,
       format: "",
     },
     primaryTagName: {
+      name: "primaryTagName",
       baseName: "primary_tag_name",
       type: "string",
+      required: false,
       format: "",
     },
     primaryTagValue: {
+      name: "primaryTagValue",
       baseName: "primary_tag_value",
       type: "string",
+      required: false,
       format: "",
     },
     resourceName: {
+      name: "resourceName",
       baseName: "resource_name",
       type: "string",
+      required: true,
       format: "",
     },
     service: {
+      name: "service",
       baseName: "service",
       type: "string",
+      required: true,
       format: "",
     },
     stat: {
+      name: "stat",
       baseName: "stat",
       type: "FormulaAndFunctionApmDependencyStatName",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FormulaAndFunctionApmDependencyStatsQueryDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): FormulaAndFunctionApmDependencyStatsQueryDefinition {
-    const res = new FormulaAndFunctionApmDependencyStatsQueryDefinition();
-
-    if (data.data_source === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data_source' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    if (["apm_dependency_stats", undefined].includes(data.data_source)) {
-      res.dataSource = data.data_source;
-    } else {
-      const raw = new FormulaAndFunctionApmDependencyStatsQueryDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.env === undefined) {
-      throw new TypeError(
-        "missing required attribute 'env' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.env = ObjectSerializer.deserialize(data.env, "string", "");
-
-    res.isUpstream = ObjectSerializer.deserialize(
-      data.is_upstream,
-      "boolean",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.operation_name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'operation_name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.operationName = ObjectSerializer.deserialize(
-      data.operation_name,
-      "string",
-      ""
-    );
-
-    res.primaryTagName = ObjectSerializer.deserialize(
-      data.primary_tag_name,
-      "string",
-      ""
-    );
-
-    res.primaryTagValue = ObjectSerializer.deserialize(
-      data.primary_tag_value,
-      "string",
-      ""
-    );
-
-    if (data.resource_name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'resource_name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.resourceName = ObjectSerializer.deserialize(
-      data.resource_name,
-      "string",
-      ""
-    );
-
-    if (data.service === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.service = ObjectSerializer.deserialize(data.service, "string", "");
-
-    if (data.stat === undefined) {
-      throw new TypeError(
-        "missing required attribute 'stat' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    if (
-      [
-        "avg_duration",
-        "avg_root_duration",
-        "avg_spans_per_trace",
-        "error_rate",
-        "pct_exec_time",
-        "pct_of_traces",
-        "total_traces_count",
-        undefined,
-      ].includes(data.stat)
-    ) {
-      res.stat = data.stat;
-    } else {
-      const raw = new FormulaAndFunctionApmDependencyStatsQueryDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: FormulaAndFunctionApmDependencyStatsQueryDefinition): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      FormulaAndFunctionApmDependencyStatsQueryDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.dataSource === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data_source' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    if (["apm_dependency_stats", undefined].includes(data.dataSource)) {
-      res.data_source = data.dataSource;
-    } else {
-      throw TypeError(`invalid enum value ${data.dataSource} for dataSource`);
-    }
-
-    if (data.env === undefined) {
-      throw new TypeError(
-        "missing required attribute 'env' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.env = ObjectSerializer.serialize(data.env, "string", "");
-
-    res.is_upstream = ObjectSerializer.serialize(
-      data.isUpstream,
-      "boolean",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.operationName === undefined) {
-      throw new TypeError(
-        "missing required attribute 'operation_name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.operation_name = ObjectSerializer.serialize(
-      data.operationName,
-      "string",
-      ""
-    );
-
-    res.primary_tag_name = ObjectSerializer.serialize(
-      data.primaryTagName,
-      "string",
-      ""
-    );
-
-    res.primary_tag_value = ObjectSerializer.serialize(
-      data.primaryTagValue,
-      "string",
-      ""
-    );
-
-    if (data.resourceName === undefined) {
-      throw new TypeError(
-        "missing required attribute 'resource_name' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.resource_name = ObjectSerializer.serialize(
-      data.resourceName,
-      "string",
-      ""
-    );
-
-    if (data.service === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    res.service = ObjectSerializer.serialize(data.service, "string", "");
-
-    if (data.stat === undefined) {
-      throw new TypeError(
-        "missing required attribute 'stat' on 'FormulaAndFunctionApmDependencyStatsQueryDefinition' object"
-      );
-    }
-    if (
-      [
-        "avg_duration",
-        "avg_root_duration",
-        "avg_spans_per_trace",
-        "error_rate",
-        "pct_exec_time",
-        "pct_of_traces",
-        "total_traces_count",
-        undefined,
-      ].includes(data.stat)
-    ) {
-      res.stat = data.stat;
-    } else {
-      throw TypeError(`invalid enum value ${data.stat} for stat`);
-    }
-
-    return res;
   }
 
   public constructor() {}

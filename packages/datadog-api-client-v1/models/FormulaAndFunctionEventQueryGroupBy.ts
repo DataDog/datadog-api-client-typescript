@@ -9,11 +9,6 @@
  */
 
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of objects used to group by.
- */
 
 export class FormulaAndFunctionEventQueryGroupBy {
   /**
@@ -31,82 +26,40 @@ export class FormulaAndFunctionEventQueryGroupBy {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     facet: {
+      name: "facet",
       baseName: "facet",
       type: "string",
+      required: true,
       format: "",
     },
     limit: {
+      name: "limit",
       baseName: "limit",
       type: "number",
+      required: false,
       format: "int64",
     },
     sort: {
+      name: "sort",
       baseName: "sort",
       type: "FormulaAndFunctionEventQueryGroupBySort",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): FormulaAndFunctionEventQueryGroupBy {
-    const res = new FormulaAndFunctionEventQueryGroupBy();
-
-    if (data.facet === undefined) {
-      throw new TypeError(
-        "missing required attribute 'facet' on 'FormulaAndFunctionEventQueryGroupBy' object"
-      );
-    }
-    res.facet = ObjectSerializer.deserialize(data.facet, "string", "");
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
-
-    res.sort = ObjectSerializer.deserialize(
-      data.sort,
-      "FormulaAndFunctionEventQueryGroupBySort",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: FormulaAndFunctionEventQueryGroupBy): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      FormulaAndFunctionEventQueryGroupBy.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.facet === undefined) {
-      throw new TypeError(
-        "missing required attribute 'facet' on 'FormulaAndFunctionEventQueryGroupBy' object"
-      );
-    }
-    res.facet = ObjectSerializer.serialize(data.facet, "string", "");
-
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
-
-    res.sort = ObjectSerializer.serialize(
-      data.sort,
-      "FormulaAndFunctionEventQueryGroupBySort",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

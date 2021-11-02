@@ -9,11 +9,6 @@
  */
 
 import { IncidentCreateData } from "./IncidentCreateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Create request for an incident.
- */
 
 export class IncidentCreateRequest {
   "data": IncidentCreateData;
@@ -23,55 +18,26 @@ export class IncidentCreateRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "IncidentCreateData",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): IncidentCreateRequest {
-    const res = new IncidentCreateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "IncidentCreateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentCreateRequest): { [key: string]: any } {
-    const attributeTypes = IncidentCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(data.data, "IncidentCreateData", "");
-
-    return res;
   }
 
   public constructor() {}

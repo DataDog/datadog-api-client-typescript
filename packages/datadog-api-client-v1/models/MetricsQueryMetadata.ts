@@ -9,11 +9,6 @@
  */
 
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing all metric names returned and their associated metadata.
- */
 
 export class MetricsQueryMetadata {
   /**
@@ -74,193 +69,110 @@ export class MetricsQueryMetadata {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggr: {
+      name: "aggr",
       baseName: "aggr",
       type: "string",
+      required: false,
       format: "",
     },
     displayName: {
+      name: "displayName",
       baseName: "display_name",
       type: "string",
+      required: false,
       format: "",
     },
     end: {
+      name: "end",
       baseName: "end",
       type: "number",
+      required: false,
       format: "int64",
     },
     expression: {
+      name: "expression",
       baseName: "expression",
       type: "string",
+      required: false,
       format: "",
     },
     interval: {
+      name: "interval",
       baseName: "interval",
       type: "number",
+      required: false,
       format: "int64",
     },
     length: {
+      name: "length",
       baseName: "length",
       type: "number",
+      required: false,
       format: "int64",
     },
     metric: {
+      name: "metric",
       baseName: "metric",
       type: "string",
+      required: false,
       format: "",
     },
     pointlist: {
+      name: "pointlist",
       baseName: "pointlist",
       type: "Array<Array<number>>",
+      required: false,
       format: "double",
     },
     queryIndex: {
+      name: "queryIndex",
       baseName: "query_index",
       type: "number",
+      required: false,
       format: "int64",
     },
     scope: {
+      name: "scope",
       baseName: "scope",
       type: "string",
+      required: false,
       format: "",
     },
     start: {
+      name: "start",
       baseName: "start",
       type: "number",
+      required: false,
       format: "int64",
     },
     tagSet: {
+      name: "tagSet",
       baseName: "tag_set",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     unit: {
+      name: "unit",
       baseName: "unit",
       type: "Array<MetricsQueryUnit>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricsQueryMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricsQueryMetadata {
-    const res = new MetricsQueryMetadata();
-
-    res.aggr = ObjectSerializer.deserialize(data.aggr, "string", "");
-
-    res.displayName = ObjectSerializer.deserialize(
-      data.display_name,
-      "string",
-      ""
-    );
-
-    res.end = ObjectSerializer.deserialize(data.end, "number", "int64");
-
-    res.expression = ObjectSerializer.deserialize(
-      data.expression,
-      "string",
-      ""
-    );
-
-    res.interval = ObjectSerializer.deserialize(
-      data.interval,
-      "number",
-      "int64"
-    );
-
-    res.length = ObjectSerializer.deserialize(data.length, "number", "int64");
-
-    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
-
-    res.pointlist = ObjectSerializer.deserialize(
-      data.pointlist,
-      "Array<Array<number>>",
-      "double"
-    );
-
-    res.queryIndex = ObjectSerializer.deserialize(
-      data.query_index,
-      "number",
-      "int64"
-    );
-
-    res.scope = ObjectSerializer.deserialize(data.scope, "string", "");
-
-    res.start = ObjectSerializer.deserialize(data.start, "number", "int64");
-
-    res.tagSet = ObjectSerializer.deserialize(
-      data.tag_set,
-      "Array<string>",
-      ""
-    );
-
-    res.unit = ObjectSerializer.deserialize(
-      data.unit,
-      "Array<MetricsQueryUnit>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricsQueryMetadata): { [key: string]: any } {
-    const attributeTypes = MetricsQueryMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.aggr = ObjectSerializer.serialize(data.aggr, "string", "");
-
-    res.display_name = ObjectSerializer.serialize(
-      data.displayName,
-      "string",
-      ""
-    );
-
-    res.end = ObjectSerializer.serialize(data.end, "number", "int64");
-
-    res.expression = ObjectSerializer.serialize(data.expression, "string", "");
-
-    res.interval = ObjectSerializer.serialize(data.interval, "number", "int64");
-
-    res.length = ObjectSerializer.serialize(data.length, "number", "int64");
-
-    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
-
-    res.pointlist = ObjectSerializer.serialize(
-      data.pointlist,
-      "Array<Array<number>>",
-      "double"
-    );
-
-    res.query_index = ObjectSerializer.serialize(
-      data.queryIndex,
-      "number",
-      "int64"
-    );
-
-    res.scope = ObjectSerializer.serialize(data.scope, "string", "");
-
-    res.start = ObjectSerializer.serialize(data.start, "number", "int64");
-
-    res.tag_set = ObjectSerializer.serialize(data.tagSet, "Array<string>", "");
-
-    res.unit = ObjectSerializer.serialize(
-      data.unit,
-      "Array<MetricsQueryUnit>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

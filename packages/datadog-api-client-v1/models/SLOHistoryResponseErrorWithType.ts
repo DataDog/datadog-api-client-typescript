@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An object describing the error with error type and error message.
- */
-
 export class SLOHistoryResponseErrorWithType {
   /**
    * A message with more details about the error.
@@ -29,83 +23,33 @@ export class SLOHistoryResponseErrorWithType {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     errorMessage: {
+      name: "errorMessage",
       baseName: "error_message",
       type: "string",
+      required: true,
       format: "",
     },
     errorType: {
+      name: "errorType",
       baseName: "error_type",
       type: "string",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOHistoryResponseErrorWithType.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SLOHistoryResponseErrorWithType {
-    const res = new SLOHistoryResponseErrorWithType();
-
-    if (data.error_message === undefined) {
-      throw new TypeError(
-        "missing required attribute 'error_message' on 'SLOHistoryResponseErrorWithType' object"
-      );
-    }
-    res.errorMessage = ObjectSerializer.deserialize(
-      data.error_message,
-      "string",
-      ""
-    );
-
-    if (data.error_type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'error_type' on 'SLOHistoryResponseErrorWithType' object"
-      );
-    }
-    res.errorType = ObjectSerializer.deserialize(data.error_type, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SLOHistoryResponseErrorWithType): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SLOHistoryResponseErrorWithType.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.errorMessage === undefined) {
-      throw new TypeError(
-        "missing required attribute 'error_message' on 'SLOHistoryResponseErrorWithType' object"
-      );
-    }
-    res.error_message = ObjectSerializer.serialize(
-      data.errorMessage,
-      "string",
-      ""
-    );
-
-    if (data.errorType === undefined) {
-      throw new TypeError(
-        "missing required attribute 'error_type' on 'SLOHistoryResponseErrorWithType' object"
-      );
-    }
-    res.error_type = ObjectSerializer.serialize(data.errorType, "string", "");
-
-    return res;
   }
 
   public constructor() {}

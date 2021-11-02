@@ -11,11 +11,6 @@
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The response of a monitor group search.
- */
 
 export class MonitorGroupSearchResponse {
   "counts"?: MonitorGroupSearchResponseCounts;
@@ -30,83 +25,40 @@ export class MonitorGroupSearchResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     counts: {
+      name: "counts",
       baseName: "counts",
       type: "MonitorGroupSearchResponseCounts",
+      required: false,
       format: "",
     },
     groups: {
+      name: "groups",
       baseName: "groups",
       type: "Array<MonitorGroupSearchResult>",
+      required: false,
       format: "",
     },
     metadata: {
+      name: "metadata",
       baseName: "metadata",
       type: "MonitorSearchResponseMetadata",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorGroupSearchResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MonitorGroupSearchResponse {
-    const res = new MonitorGroupSearchResponse();
-
-    res.counts = ObjectSerializer.deserialize(
-      data.counts,
-      "MonitorGroupSearchResponseCounts",
-      ""
-    );
-
-    res.groups = ObjectSerializer.deserialize(
-      data.groups,
-      "Array<MonitorGroupSearchResult>",
-      ""
-    );
-
-    res.metadata = ObjectSerializer.deserialize(
-      data.metadata,
-      "MonitorSearchResponseMetadata",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MonitorGroupSearchResponse): { [key: string]: any } {
-    const attributeTypes = MonitorGroupSearchResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.counts = ObjectSerializer.serialize(
-      data.counts,
-      "MonitorGroupSearchResponseCounts",
-      ""
-    );
-
-    res.groups = ObjectSerializer.serialize(
-      data.groups,
-      "Array<MonitorGroupSearchResult>",
-      ""
-    );
-
-    res.metadata = ObjectSerializer.serialize(
-      data.metadata,
-      "MonitorSearchResponseMetadata",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

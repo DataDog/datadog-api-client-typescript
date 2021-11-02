@@ -9,11 +9,6 @@
  */
 
 import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Update request with an incident service payload.
- */
 
 export class IncidentServiceUpdateRequest {
   "data": IncidentServiceUpdateData;
@@ -23,61 +18,26 @@ export class IncidentServiceUpdateRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "IncidentServiceUpdateData",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentServiceUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentServiceUpdateRequest {
-    const res = new IncidentServiceUpdateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentServiceUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "IncidentServiceUpdateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentServiceUpdateRequest): { [key: string]: any } {
-    const attributeTypes = IncidentServiceUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentServiceUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "IncidentServiceUpdateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response with hourly report of all data billed by Datadog all organizations.
- */
 
 export class UsageSummaryDate {
   /**
@@ -210,824 +205,348 @@ export class UsageSummaryDate {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     agentHostTop99p: {
+      name: "agentHostTop99p",
       baseName: "agent_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     apmAzureAppServiceHostTop99p: {
+      name: "apmAzureAppServiceHostTop99p",
       baseName: "apm_azure_app_service_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     apmHostTop99p: {
+      name: "apmHostTop99p",
       baseName: "apm_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     auditLogsLinesIndexedSum: {
+      name: "auditLogsLinesIndexedSum",
       baseName: "audit_logs_lines_indexed_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     awsHostTop99p: {
+      name: "awsHostTop99p",
       baseName: "aws_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     awsLambdaFuncCount: {
+      name: "awsLambdaFuncCount",
       baseName: "aws_lambda_func_count",
       type: "number",
+      required: false,
       format: "int64",
     },
     awsLambdaInvocationsSum: {
+      name: "awsLambdaInvocationsSum",
       baseName: "aws_lambda_invocations_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     azureAppServiceTop99p: {
+      name: "azureAppServiceTop99p",
       baseName: "azure_app_service_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     billableIngestedBytesSum: {
+      name: "billableIngestedBytesSum",
       baseName: "billable_ingested_bytes_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     containerAvg: {
+      name: "containerAvg",
       baseName: "container_avg",
       type: "number",
+      required: false,
       format: "int64",
     },
     containerHwm: {
+      name: "containerHwm",
       baseName: "container_hwm",
       type: "number",
+      required: false,
       format: "int64",
     },
     cspmContainerAvg: {
+      name: "cspmContainerAvg",
       baseName: "cspm_container_avg",
       type: "number",
+      required: false,
       format: "int64",
     },
     cspmContainerHwm: {
+      name: "cspmContainerHwm",
       baseName: "cspm_container_hwm",
       type: "number",
+      required: false,
       format: "int64",
     },
     cspmHostTop99p: {
+      name: "cspmHostTop99p",
       baseName: "cspm_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     customTsAvg: {
+      name: "customTsAvg",
       baseName: "custom_ts_avg",
       type: "number",
+      required: false,
       format: "int64",
     },
     cwsContainerCountAvg: {
+      name: "cwsContainerCountAvg",
       baseName: "cws_container_count_avg",
       type: "number",
+      required: false,
       format: "int64",
     },
     cwsHostTop99p: {
+      name: "cwsHostTop99p",
       baseName: "cws_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     date: {
+      name: "date",
       baseName: "date",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     dbmHostTop99p: {
+      name: "dbmHostTop99p",
       baseName: "dbm_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     dbmQueriesCountAvg: {
+      name: "dbmQueriesCountAvg",
       baseName: "dbm_queries_count_avg",
       type: "number",
+      required: false,
       format: "int64",
     },
     fargateTasksCountAvg: {
+      name: "fargateTasksCountAvg",
       baseName: "fargate_tasks_count_avg",
       type: "number",
+      required: false,
       format: "int64",
     },
     fargateTasksCountHwm: {
+      name: "fargateTasksCountHwm",
       baseName: "fargate_tasks_count_hwm",
       type: "number",
+      required: false,
       format: "int64",
     },
     gcpHostTop99p: {
+      name: "gcpHostTop99p",
       baseName: "gcp_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     herokuHostTop99p: {
+      name: "herokuHostTop99p",
       baseName: "heroku_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     incidentManagementMonthlyActiveUsersHwm: {
+      name: "incidentManagementMonthlyActiveUsersHwm",
       baseName: "incident_management_monthly_active_users_hwm",
       type: "number",
+      required: false,
       format: "int64",
     },
     indexedEventsCountSum: {
+      name: "indexedEventsCountSum",
       baseName: "indexed_events_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     infraHostTop99p: {
+      name: "infraHostTop99p",
       baseName: "infra_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     ingestedEventsBytesSum: {
+      name: "ingestedEventsBytesSum",
       baseName: "ingested_events_bytes_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     iotDeviceSum: {
+      name: "iotDeviceSum",
       baseName: "iot_device_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     iotDeviceTop99p: {
+      name: "iotDeviceTop99p",
       baseName: "iot_device_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     mobileRumSessionCountAndroidSum: {
+      name: "mobileRumSessionCountAndroidSum",
       baseName: "mobile_rum_session_count_android_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     mobileRumSessionCountIosSum: {
+      name: "mobileRumSessionCountIosSum",
       baseName: "mobile_rum_session_count_ios_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     mobileRumSessionCountSum: {
+      name: "mobileRumSessionCountSum",
       baseName: "mobile_rum_session_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     netflowIndexedEventsCountSum: {
+      name: "netflowIndexedEventsCountSum",
       baseName: "netflow_indexed_events_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     npmHostTop99p: {
+      name: "npmHostTop99p",
       baseName: "npm_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     opentelemetryHostTop99p: {
+      name: "opentelemetryHostTop99p",
       baseName: "opentelemetry_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     orgs: {
+      name: "orgs",
       baseName: "orgs",
       type: "Array<UsageSummaryDateOrg>",
+      required: false,
       format: "",
     },
     profilingHostTop99p: {
+      name: "profilingHostTop99p",
       baseName: "profiling_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
     rumSessionCountSum: {
+      name: "rumSessionCountSum",
       baseName: "rum_session_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     rumTotalSessionCountSum: {
+      name: "rumTotalSessionCountSum",
       baseName: "rum_total_session_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     sdsLogsScannedBytesSum: {
+      name: "sdsLogsScannedBytesSum",
       baseName: "sds_logs_scanned_bytes_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     sdsTotalScannedBytesSum: {
+      name: "sdsTotalScannedBytesSum",
       baseName: "sds_total_scanned_bytes_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     syntheticsBrowserCheckCallsCountSum: {
+      name: "syntheticsBrowserCheckCallsCountSum",
       baseName: "synthetics_browser_check_calls_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     syntheticsCheckCallsCountSum: {
+      name: "syntheticsCheckCallsCountSum",
       baseName: "synthetics_check_calls_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     traceSearchIndexedEventsCountSum: {
+      name: "traceSearchIndexedEventsCountSum",
       baseName: "trace_search_indexed_events_count_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     twolIngestedEventsBytesSum: {
+      name: "twolIngestedEventsBytesSum",
       baseName: "twol_ingested_events_bytes_sum",
       type: "number",
+      required: false,
       format: "int64",
     },
     vsphereHostTop99p: {
+      name: "vsphereHostTop99p",
       baseName: "vsphere_host_top99p",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSummaryDate.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSummaryDate {
-    const res = new UsageSummaryDate();
-
-    res.agentHostTop99p = ObjectSerializer.deserialize(
-      data.agent_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.apmAzureAppServiceHostTop99p = ObjectSerializer.deserialize(
-      data.apm_azure_app_service_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.apmHostTop99p = ObjectSerializer.deserialize(
-      data.apm_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.auditLogsLinesIndexedSum = ObjectSerializer.deserialize(
-      data.audit_logs_lines_indexed_sum,
-      "number",
-      "int64"
-    );
-
-    res.awsHostTop99p = ObjectSerializer.deserialize(
-      data.aws_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.awsLambdaFuncCount = ObjectSerializer.deserialize(
-      data.aws_lambda_func_count,
-      "number",
-      "int64"
-    );
-
-    res.awsLambdaInvocationsSum = ObjectSerializer.deserialize(
-      data.aws_lambda_invocations_sum,
-      "number",
-      "int64"
-    );
-
-    res.azureAppServiceTop99p = ObjectSerializer.deserialize(
-      data.azure_app_service_top99p,
-      "number",
-      "int64"
-    );
-
-    res.billableIngestedBytesSum = ObjectSerializer.deserialize(
-      data.billable_ingested_bytes_sum,
-      "number",
-      "int64"
-    );
-
-    res.containerAvg = ObjectSerializer.deserialize(
-      data.container_avg,
-      "number",
-      "int64"
-    );
-
-    res.containerHwm = ObjectSerializer.deserialize(
-      data.container_hwm,
-      "number",
-      "int64"
-    );
-
-    res.cspmContainerAvg = ObjectSerializer.deserialize(
-      data.cspm_container_avg,
-      "number",
-      "int64"
-    );
-
-    res.cspmContainerHwm = ObjectSerializer.deserialize(
-      data.cspm_container_hwm,
-      "number",
-      "int64"
-    );
-
-    res.cspmHostTop99p = ObjectSerializer.deserialize(
-      data.cspm_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.customTsAvg = ObjectSerializer.deserialize(
-      data.custom_ts_avg,
-      "number",
-      "int64"
-    );
-
-    res.cwsContainerCountAvg = ObjectSerializer.deserialize(
-      data.cws_container_count_avg,
-      "number",
-      "int64"
-    );
-
-    res.cwsHostTop99p = ObjectSerializer.deserialize(
-      data.cws_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.date = ObjectSerializer.deserialize(data.date, "Date", "date-time");
-
-    res.dbmHostTop99p = ObjectSerializer.deserialize(
-      data.dbm_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.dbmQueriesCountAvg = ObjectSerializer.deserialize(
-      data.dbm_queries_count_avg,
-      "number",
-      "int64"
-    );
-
-    res.fargateTasksCountAvg = ObjectSerializer.deserialize(
-      data.fargate_tasks_count_avg,
-      "number",
-      "int64"
-    );
-
-    res.fargateTasksCountHwm = ObjectSerializer.deserialize(
-      data.fargate_tasks_count_hwm,
-      "number",
-      "int64"
-    );
-
-    res.gcpHostTop99p = ObjectSerializer.deserialize(
-      data.gcp_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.herokuHostTop99p = ObjectSerializer.deserialize(
-      data.heroku_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.incidentManagementMonthlyActiveUsersHwm = ObjectSerializer.deserialize(
-      data.incident_management_monthly_active_users_hwm,
-      "number",
-      "int64"
-    );
-
-    res.indexedEventsCountSum = ObjectSerializer.deserialize(
-      data.indexed_events_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.infraHostTop99p = ObjectSerializer.deserialize(
-      data.infra_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.ingestedEventsBytesSum = ObjectSerializer.deserialize(
-      data.ingested_events_bytes_sum,
-      "number",
-      "int64"
-    );
-
-    res.iotDeviceSum = ObjectSerializer.deserialize(
-      data.iot_device_sum,
-      "number",
-      "int64"
-    );
-
-    res.iotDeviceTop99p = ObjectSerializer.deserialize(
-      data.iot_device_top99p,
-      "number",
-      "int64"
-    );
-
-    res.mobileRumSessionCountAndroidSum = ObjectSerializer.deserialize(
-      data.mobile_rum_session_count_android_sum,
-      "number",
-      "int64"
-    );
-
-    res.mobileRumSessionCountIosSum = ObjectSerializer.deserialize(
-      data.mobile_rum_session_count_ios_sum,
-      "number",
-      "int64"
-    );
-
-    res.mobileRumSessionCountSum = ObjectSerializer.deserialize(
-      data.mobile_rum_session_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.netflowIndexedEventsCountSum = ObjectSerializer.deserialize(
-      data.netflow_indexed_events_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.npmHostTop99p = ObjectSerializer.deserialize(
-      data.npm_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.opentelemetryHostTop99p = ObjectSerializer.deserialize(
-      data.opentelemetry_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.orgs = ObjectSerializer.deserialize(
-      data.orgs,
-      "Array<UsageSummaryDateOrg>",
-      ""
-    );
-
-    res.profilingHostTop99p = ObjectSerializer.deserialize(
-      data.profiling_host_top99p,
-      "number",
-      "int64"
-    );
-
-    res.rumSessionCountSum = ObjectSerializer.deserialize(
-      data.rum_session_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.rumTotalSessionCountSum = ObjectSerializer.deserialize(
-      data.rum_total_session_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.sdsLogsScannedBytesSum = ObjectSerializer.deserialize(
-      data.sds_logs_scanned_bytes_sum,
-      "number",
-      "int64"
-    );
-
-    res.sdsTotalScannedBytesSum = ObjectSerializer.deserialize(
-      data.sds_total_scanned_bytes_sum,
-      "number",
-      "int64"
-    );
-
-    res.syntheticsBrowserCheckCallsCountSum = ObjectSerializer.deserialize(
-      data.synthetics_browser_check_calls_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.syntheticsCheckCallsCountSum = ObjectSerializer.deserialize(
-      data.synthetics_check_calls_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.traceSearchIndexedEventsCountSum = ObjectSerializer.deserialize(
-      data.trace_search_indexed_events_count_sum,
-      "number",
-      "int64"
-    );
-
-    res.twolIngestedEventsBytesSum = ObjectSerializer.deserialize(
-      data.twol_ingested_events_bytes_sum,
-      "number",
-      "int64"
-    );
-
-    res.vsphereHostTop99p = ObjectSerializer.deserialize(
-      data.vsphere_host_top99p,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSummaryDate): { [key: string]: any } {
-    const attributeTypes = UsageSummaryDate.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.agent_host_top99p = ObjectSerializer.serialize(
-      data.agentHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.apm_azure_app_service_host_top99p = ObjectSerializer.serialize(
-      data.apmAzureAppServiceHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.apm_host_top99p = ObjectSerializer.serialize(
-      data.apmHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.audit_logs_lines_indexed_sum = ObjectSerializer.serialize(
-      data.auditLogsLinesIndexedSum,
-      "number",
-      "int64"
-    );
-
-    res.aws_host_top99p = ObjectSerializer.serialize(
-      data.awsHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.aws_lambda_func_count = ObjectSerializer.serialize(
-      data.awsLambdaFuncCount,
-      "number",
-      "int64"
-    );
-
-    res.aws_lambda_invocations_sum = ObjectSerializer.serialize(
-      data.awsLambdaInvocationsSum,
-      "number",
-      "int64"
-    );
-
-    res.azure_app_service_top99p = ObjectSerializer.serialize(
-      data.azureAppServiceTop99p,
-      "number",
-      "int64"
-    );
-
-    res.billable_ingested_bytes_sum = ObjectSerializer.serialize(
-      data.billableIngestedBytesSum,
-      "number",
-      "int64"
-    );
-
-    res.container_avg = ObjectSerializer.serialize(
-      data.containerAvg,
-      "number",
-      "int64"
-    );
-
-    res.container_hwm = ObjectSerializer.serialize(
-      data.containerHwm,
-      "number",
-      "int64"
-    );
-
-    res.cspm_container_avg = ObjectSerializer.serialize(
-      data.cspmContainerAvg,
-      "number",
-      "int64"
-    );
-
-    res.cspm_container_hwm = ObjectSerializer.serialize(
-      data.cspmContainerHwm,
-      "number",
-      "int64"
-    );
-
-    res.cspm_host_top99p = ObjectSerializer.serialize(
-      data.cspmHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.custom_ts_avg = ObjectSerializer.serialize(
-      data.customTsAvg,
-      "number",
-      "int64"
-    );
-
-    res.cws_container_count_avg = ObjectSerializer.serialize(
-      data.cwsContainerCountAvg,
-      "number",
-      "int64"
-    );
-
-    res.cws_host_top99p = ObjectSerializer.serialize(
-      data.cwsHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.date = ObjectSerializer.serialize(data.date, "Date", "date-time");
-
-    res.dbm_host_top99p = ObjectSerializer.serialize(
-      data.dbmHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.dbm_queries_count_avg = ObjectSerializer.serialize(
-      data.dbmQueriesCountAvg,
-      "number",
-      "int64"
-    );
-
-    res.fargate_tasks_count_avg = ObjectSerializer.serialize(
-      data.fargateTasksCountAvg,
-      "number",
-      "int64"
-    );
-
-    res.fargate_tasks_count_hwm = ObjectSerializer.serialize(
-      data.fargateTasksCountHwm,
-      "number",
-      "int64"
-    );
-
-    res.gcp_host_top99p = ObjectSerializer.serialize(
-      data.gcpHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.heroku_host_top99p = ObjectSerializer.serialize(
-      data.herokuHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.incident_management_monthly_active_users_hwm =
-      ObjectSerializer.serialize(
-        data.incidentManagementMonthlyActiveUsersHwm,
-        "number",
-        "int64"
-      );
-
-    res.indexed_events_count_sum = ObjectSerializer.serialize(
-      data.indexedEventsCountSum,
-      "number",
-      "int64"
-    );
-
-    res.infra_host_top99p = ObjectSerializer.serialize(
-      data.infraHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.ingested_events_bytes_sum = ObjectSerializer.serialize(
-      data.ingestedEventsBytesSum,
-      "number",
-      "int64"
-    );
-
-    res.iot_device_sum = ObjectSerializer.serialize(
-      data.iotDeviceSum,
-      "number",
-      "int64"
-    );
-
-    res.iot_device_top99p = ObjectSerializer.serialize(
-      data.iotDeviceTop99p,
-      "number",
-      "int64"
-    );
-
-    res.mobile_rum_session_count_android_sum = ObjectSerializer.serialize(
-      data.mobileRumSessionCountAndroidSum,
-      "number",
-      "int64"
-    );
-
-    res.mobile_rum_session_count_ios_sum = ObjectSerializer.serialize(
-      data.mobileRumSessionCountIosSum,
-      "number",
-      "int64"
-    );
-
-    res.mobile_rum_session_count_sum = ObjectSerializer.serialize(
-      data.mobileRumSessionCountSum,
-      "number",
-      "int64"
-    );
-
-    res.netflow_indexed_events_count_sum = ObjectSerializer.serialize(
-      data.netflowIndexedEventsCountSum,
-      "number",
-      "int64"
-    );
-
-    res.npm_host_top99p = ObjectSerializer.serialize(
-      data.npmHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.opentelemetry_host_top99p = ObjectSerializer.serialize(
-      data.opentelemetryHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.orgs = ObjectSerializer.serialize(
-      data.orgs,
-      "Array<UsageSummaryDateOrg>",
-      ""
-    );
-
-    res.profiling_host_top99p = ObjectSerializer.serialize(
-      data.profilingHostTop99p,
-      "number",
-      "int64"
-    );
-
-    res.rum_session_count_sum = ObjectSerializer.serialize(
-      data.rumSessionCountSum,
-      "number",
-      "int64"
-    );
-
-    res.rum_total_session_count_sum = ObjectSerializer.serialize(
-      data.rumTotalSessionCountSum,
-      "number",
-      "int64"
-    );
-
-    res.sds_logs_scanned_bytes_sum = ObjectSerializer.serialize(
-      data.sdsLogsScannedBytesSum,
-      "number",
-      "int64"
-    );
-
-    res.sds_total_scanned_bytes_sum = ObjectSerializer.serialize(
-      data.sdsTotalScannedBytesSum,
-      "number",
-      "int64"
-    );
-
-    res.synthetics_browser_check_calls_count_sum = ObjectSerializer.serialize(
-      data.syntheticsBrowserCheckCallsCountSum,
-      "number",
-      "int64"
-    );
-
-    res.synthetics_check_calls_count_sum = ObjectSerializer.serialize(
-      data.syntheticsCheckCallsCountSum,
-      "number",
-      "int64"
-    );
-
-    res.trace_search_indexed_events_count_sum = ObjectSerializer.serialize(
-      data.traceSearchIndexedEventsCountSum,
-      "number",
-      "int64"
-    );
-
-    res.twol_ingested_events_bytes_sum = ObjectSerializer.serialize(
-      data.twolIngestedEventsBytesSum,
-      "number",
-      "int64"
-    );
-
-    res.vsphere_host_top99p = ObjectSerializer.serialize(
-      data.vsphereHostTop99p,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

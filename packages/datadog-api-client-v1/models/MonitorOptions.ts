@@ -13,11 +13,6 @@ import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of options associated with your monitor.
- */
 
 export class MonitorOptions {
   "aggregation"?: MonitorOptionsAggregation;
@@ -113,432 +108,187 @@ export class MonitorOptions {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     aggregation: {
+      name: "aggregation",
       baseName: "aggregation",
       type: "MonitorOptionsAggregation",
+      required: false,
       format: "",
     },
     deviceIds: {
+      name: "deviceIds",
       baseName: "device_ids",
       type: "Array<MonitorDeviceID>",
+      required: false,
       format: "",
     },
     enableLogsSample: {
+      name: "enableLogsSample",
       baseName: "enable_logs_sample",
       type: "boolean",
+      required: false,
       format: "",
     },
     escalationMessage: {
+      name: "escalationMessage",
       baseName: "escalation_message",
       type: "string",
+      required: false,
       format: "",
     },
     evaluationDelay: {
+      name: "evaluationDelay",
       baseName: "evaluation_delay",
       type: "number",
+      required: false,
       format: "int64",
     },
     groupbySimpleMonitor: {
+      name: "groupbySimpleMonitor",
       baseName: "groupby_simple_monitor",
       type: "boolean",
+      required: false,
       format: "",
     },
     includeTags: {
+      name: "includeTags",
       baseName: "include_tags",
       type: "boolean",
+      required: false,
       format: "",
     },
     locked: {
+      name: "locked",
       baseName: "locked",
       type: "boolean",
+      required: false,
       format: "",
     },
     minFailureDuration: {
+      name: "minFailureDuration",
       baseName: "min_failure_duration",
       type: "number",
+      required: false,
       format: "int64",
     },
     minLocationFailed: {
+      name: "minLocationFailed",
       baseName: "min_location_failed",
       type: "number",
+      required: false,
       format: "int64",
     },
     newGroupDelay: {
+      name: "newGroupDelay",
       baseName: "new_group_delay",
       type: "number",
+      required: false,
       format: "int64",
     },
     newHostDelay: {
+      name: "newHostDelay",
       baseName: "new_host_delay",
       type: "number",
+      required: false,
       format: "int64",
     },
     noDataTimeframe: {
+      name: "noDataTimeframe",
       baseName: "no_data_timeframe",
       type: "number",
+      required: false,
       format: "int64",
     },
     notifyAudit: {
+      name: "notifyAudit",
       baseName: "notify_audit",
       type: "boolean",
+      required: false,
       format: "",
     },
     notifyNoData: {
+      name: "notifyNoData",
       baseName: "notify_no_data",
       type: "boolean",
+      required: false,
       format: "",
     },
     renotifyInterval: {
+      name: "renotifyInterval",
       baseName: "renotify_interval",
       type: "number",
+      required: false,
       format: "int64",
     },
     renotifyOccurrences: {
+      name: "renotifyOccurrences",
       baseName: "renotify_occurrences",
       type: "number",
+      required: false,
       format: "int64",
     },
     renotifyStatuses: {
+      name: "renotifyStatuses",
       baseName: "renotify_statuses",
       type: "Array<MonitorRenotifyStatusType>",
+      required: false,
       format: "",
     },
     requireFullWindow: {
+      name: "requireFullWindow",
       baseName: "require_full_window",
       type: "boolean",
+      required: false,
       format: "",
     },
     silenced: {
+      name: "silenced",
       baseName: "silenced",
       type: "{ [key: string]: number; }",
+      required: false,
       format: "int64",
     },
     syntheticsCheckId: {
+      name: "syntheticsCheckId",
       baseName: "synthetics_check_id",
       type: "string",
+      required: false,
       format: "",
     },
     thresholdWindows: {
+      name: "thresholdWindows",
       baseName: "threshold_windows",
       type: "MonitorThresholdWindowOptions",
+      required: false,
       format: "",
     },
     thresholds: {
+      name: "thresholds",
       baseName: "thresholds",
       type: "MonitorThresholds",
+      required: false,
       format: "",
     },
     timeoutH: {
+      name: "timeoutH",
       baseName: "timeout_h",
       type: "number",
+      required: false,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorOptions.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MonitorOptions {
-    const res = new MonitorOptions();
-
-    res.aggregation = ObjectSerializer.deserialize(
-      data.aggregation,
-      "MonitorOptionsAggregation",
-      ""
-    );
-
-    res.deviceIds = ObjectSerializer.deserialize(
-      data.device_ids,
-      "Array<MonitorDeviceID>",
-      ""
-    );
-
-    res.enableLogsSample = ObjectSerializer.deserialize(
-      data.enable_logs_sample,
-      "boolean",
-      ""
-    );
-
-    res.escalationMessage = ObjectSerializer.deserialize(
-      data.escalation_message,
-      "string",
-      ""
-    );
-
-    res.evaluationDelay = ObjectSerializer.deserialize(
-      data.evaluation_delay,
-      "number",
-      "int64"
-    );
-
-    res.groupbySimpleMonitor = ObjectSerializer.deserialize(
-      data.groupby_simple_monitor,
-      "boolean",
-      ""
-    );
-
-    res.includeTags = ObjectSerializer.deserialize(
-      data.include_tags,
-      "boolean",
-      ""
-    );
-
-    res.locked = ObjectSerializer.deserialize(data.locked, "boolean", "");
-
-    res.minFailureDuration = ObjectSerializer.deserialize(
-      data.min_failure_duration,
-      "number",
-      "int64"
-    );
-
-    res.minLocationFailed = ObjectSerializer.deserialize(
-      data.min_location_failed,
-      "number",
-      "int64"
-    );
-
-    res.newGroupDelay = ObjectSerializer.deserialize(
-      data.new_group_delay,
-      "number",
-      "int64"
-    );
-
-    res.newHostDelay = ObjectSerializer.deserialize(
-      data.new_host_delay,
-      "number",
-      "int64"
-    );
-
-    res.noDataTimeframe = ObjectSerializer.deserialize(
-      data.no_data_timeframe,
-      "number",
-      "int64"
-    );
-
-    res.notifyAudit = ObjectSerializer.deserialize(
-      data.notify_audit,
-      "boolean",
-      ""
-    );
-
-    res.notifyNoData = ObjectSerializer.deserialize(
-      data.notify_no_data,
-      "boolean",
-      ""
-    );
-
-    res.renotifyInterval = ObjectSerializer.deserialize(
-      data.renotify_interval,
-      "number",
-      "int64"
-    );
-
-    res.renotifyOccurrences = ObjectSerializer.deserialize(
-      data.renotify_occurrences,
-      "number",
-      "int64"
-    );
-
-    res.renotifyStatuses = ObjectSerializer.deserialize(
-      data.renotify_statuses,
-      "Array<MonitorRenotifyStatusType>",
-      ""
-    );
-
-    res.requireFullWindow = ObjectSerializer.deserialize(
-      data.require_full_window,
-      "boolean",
-      ""
-    );
-
-    res.silenced = ObjectSerializer.deserialize(
-      data.silenced,
-      "{ [key: string]: number; }",
-      "int64"
-    );
-
-    res.syntheticsCheckId = ObjectSerializer.deserialize(
-      data.synthetics_check_id,
-      "string",
-      ""
-    );
-
-    res.thresholdWindows = ObjectSerializer.deserialize(
-      data.threshold_windows,
-      "MonitorThresholdWindowOptions",
-      ""
-    );
-
-    res.thresholds = ObjectSerializer.deserialize(
-      data.thresholds,
-      "MonitorThresholds",
-      ""
-    );
-
-    res.timeoutH = ObjectSerializer.deserialize(
-      data.timeout_h,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: MonitorOptions): { [key: string]: any } {
-    const attributeTypes = MonitorOptions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.aggregation = ObjectSerializer.serialize(
-      data.aggregation,
-      "MonitorOptionsAggregation",
-      ""
-    );
-
-    res.device_ids = ObjectSerializer.serialize(
-      data.deviceIds,
-      "Array<MonitorDeviceID>",
-      ""
-    );
-
-    res.enable_logs_sample = ObjectSerializer.serialize(
-      data.enableLogsSample,
-      "boolean",
-      ""
-    );
-
-    res.escalation_message = ObjectSerializer.serialize(
-      data.escalationMessage,
-      "string",
-      ""
-    );
-
-    res.evaluation_delay = ObjectSerializer.serialize(
-      data.evaluationDelay,
-      "number",
-      "int64"
-    );
-
-    res.groupby_simple_monitor = ObjectSerializer.serialize(
-      data.groupbySimpleMonitor,
-      "boolean",
-      ""
-    );
-
-    res.include_tags = ObjectSerializer.serialize(
-      data.includeTags,
-      "boolean",
-      ""
-    );
-
-    res.locked = ObjectSerializer.serialize(data.locked, "boolean", "");
-
-    res.min_failure_duration = ObjectSerializer.serialize(
-      data.minFailureDuration,
-      "number",
-      "int64"
-    );
-
-    res.min_location_failed = ObjectSerializer.serialize(
-      data.minLocationFailed,
-      "number",
-      "int64"
-    );
-
-    res.new_group_delay = ObjectSerializer.serialize(
-      data.newGroupDelay,
-      "number",
-      "int64"
-    );
-
-    res.new_host_delay = ObjectSerializer.serialize(
-      data.newHostDelay,
-      "number",
-      "int64"
-    );
-
-    res.no_data_timeframe = ObjectSerializer.serialize(
-      data.noDataTimeframe,
-      "number",
-      "int64"
-    );
-
-    res.notify_audit = ObjectSerializer.serialize(
-      data.notifyAudit,
-      "boolean",
-      ""
-    );
-
-    res.notify_no_data = ObjectSerializer.serialize(
-      data.notifyNoData,
-      "boolean",
-      ""
-    );
-
-    res.renotify_interval = ObjectSerializer.serialize(
-      data.renotifyInterval,
-      "number",
-      "int64"
-    );
-
-    res.renotify_occurrences = ObjectSerializer.serialize(
-      data.renotifyOccurrences,
-      "number",
-      "int64"
-    );
-
-    res.renotify_statuses = ObjectSerializer.serialize(
-      data.renotifyStatuses,
-      "Array<MonitorRenotifyStatusType>",
-      ""
-    );
-
-    res.require_full_window = ObjectSerializer.serialize(
-      data.requireFullWindow,
-      "boolean",
-      ""
-    );
-
-    res.silenced = ObjectSerializer.serialize(
-      data.silenced,
-      "{ [key: string]: number; }",
-      "int64"
-    );
-
-    res.synthetics_check_id = ObjectSerializer.serialize(
-      data.syntheticsCheckId,
-      "string",
-      ""
-    );
-
-    res.threshold_windows = ObjectSerializer.serialize(
-      data.thresholdWindows,
-      "MonitorThresholdWindowOptions",
-      ""
-    );
-
-    res.thresholds = ObjectSerializer.serialize(
-      data.thresholds,
-      "MonitorThresholds",
-      ""
-    );
-
-    res.timeout_h = ObjectSerializer.serialize(
-      data.timeoutH,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

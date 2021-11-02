@@ -9,11 +9,6 @@
  */
 
 import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The logs archive.
- */
 
 export class LogsArchive {
   "data"?: LogsArchiveDefinition;
@@ -23,49 +18,26 @@ export class LogsArchive {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "LogsArchiveDefinition",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsArchive.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsArchive {
-    const res = new LogsArchive();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "LogsArchiveDefinition",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsArchive): { [key: string]: any } {
-    const attributeTypes = LogsArchive.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "LogsArchiveDefinition",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

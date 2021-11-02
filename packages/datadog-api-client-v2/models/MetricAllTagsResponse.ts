@@ -9,11 +9,6 @@
  */
 
 import { MetricAllTags } from "./MetricAllTags";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object that includes a single metric's indexed tags.
- */
 
 export class MetricAllTagsResponse {
   "data"?: MetricAllTags;
@@ -23,41 +18,26 @@ export class MetricAllTagsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "MetricAllTags",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricAllTagsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricAllTagsResponse {
-    const res = new MetricAllTagsResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "MetricAllTags", "");
-
-    return res;
-  }
-
-  static serialize(data: MetricAllTagsResponse): { [key: string]: any } {
-    const attributeTypes = MetricAllTagsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "MetricAllTags", "");
-
-    return res;
   }
 
   public constructor() {}

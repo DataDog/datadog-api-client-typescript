@@ -18,99 +18,26 @@ export class NotebookRelativeTime {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     liveSpan: {
+      name: "liveSpan",
       baseName: "live_span",
       type: "WidgetLiveSpan",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookRelativeTime.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookRelativeTime {
-    const res = new NotebookRelativeTime();
-
-    if (data.live_span === undefined) {
-      throw new TypeError(
-        "missing required attribute 'live_span' on 'NotebookRelativeTime' object"
-      );
-    }
-    if (
-      [
-        "1m",
-        "5m",
-        "10m",
-        "15m",
-        "30m",
-        "1h",
-        "4h",
-        "1d",
-        "2d",
-        "1w",
-        "1mo",
-        "3mo",
-        "6mo",
-        "1y",
-        "alert",
-        undefined,
-      ].includes(data.live_span)
-    ) {
-      res.liveSpan = data.live_span;
-    } else {
-      const raw = new NotebookRelativeTime();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: NotebookRelativeTime): { [key: string]: any } {
-    const attributeTypes = NotebookRelativeTime.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.liveSpan === undefined) {
-      throw new TypeError(
-        "missing required attribute 'live_span' on 'NotebookRelativeTime' object"
-      );
-    }
-    if (
-      [
-        "1m",
-        "5m",
-        "10m",
-        "15m",
-        "30m",
-        "1h",
-        "4h",
-        "1d",
-        "2d",
-        "1w",
-        "1mo",
-        "3mo",
-        "6mo",
-        "1y",
-        "alert",
-        undefined,
-      ].includes(data.liveSpan)
-    ) {
-      res.live_span = data.liveSpan;
-    } else {
-      throw TypeError(`invalid enum value ${data.liveSpan} for liveSpan`);
-    }
-
-    return res;
   }
 
   public constructor() {}

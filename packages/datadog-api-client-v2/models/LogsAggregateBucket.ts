@@ -9,11 +9,6 @@
  */
 
 import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A bucket values
- */
 
 export class LogsAggregateBucket {
   /**
@@ -30,66 +25,33 @@ export class LogsAggregateBucket {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     by: {
+      name: "by",
       baseName: "by",
       type: "{ [key: string]: string; }",
+      required: false,
       format: "",
     },
     computes: {
+      name: "computes",
       baseName: "computes",
       type: "{ [key: string]: LogsAggregateBucketValue; }",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsAggregateBucket.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsAggregateBucket {
-    const res = new LogsAggregateBucket();
-
-    res.by = ObjectSerializer.deserialize(
-      data.by,
-      "{ [key: string]: string; }",
-      ""
-    );
-
-    res.computes = ObjectSerializer.deserialize(
-      data.computes,
-      "{ [key: string]: LogsAggregateBucketValue; }",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsAggregateBucket): { [key: string]: any } {
-    const attributeTypes = LogsAggregateBucket.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.by = ObjectSerializer.serialize(
-      data.by,
-      "{ [key: string]: string; }",
-      ""
-    );
-
-    res.computes = ObjectSerializer.serialize(
-      data.computes,
-      "{ [key: string]: LogsAggregateBucketValue; }",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

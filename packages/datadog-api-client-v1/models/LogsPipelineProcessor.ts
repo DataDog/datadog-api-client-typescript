@@ -11,11 +11,6 @@
 import { LogsFilter } from "./LogsFilter";
 import { LogsPipelineProcessorType } from "./LogsPipelineProcessorType";
 import { LogsProcessor } from "./LogsProcessor";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps. For example, first use a high-level filtering such as team and then a second level of filtering based on the integration, service, or any other tag or attribute.  A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.
- */
 
 export class LogsPipelineProcessor {
   "filter"?: LogsFilter;
@@ -38,109 +33,54 @@ export class LogsPipelineProcessor {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     filter: {
+      name: "filter",
       baseName: "filter",
       type: "LogsFilter",
+      required: false,
       format: "",
     },
     isEnabled: {
+      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     processors: {
+      name: "processors",
       baseName: "processors",
       type: "Array<LogsProcessor>",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "LogsPipelineProcessorType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsPipelineProcessor.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsPipelineProcessor {
-    const res = new LogsPipelineProcessor();
-
-    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
-
-    res.isEnabled = ObjectSerializer.deserialize(
-      data.is_enabled,
-      "boolean",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.processors = ObjectSerializer.deserialize(
-      data.processors,
-      "Array<LogsProcessor>",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsPipelineProcessor' object"
-      );
-    }
-    if (["pipeline", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsPipelineProcessor();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsPipelineProcessor): { [key: string]: any } {
-    const attributeTypes = LogsPipelineProcessor.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
-
-    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.processors = ObjectSerializer.serialize(
-      data.processors,
-      "Array<LogsProcessor>",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsPipelineProcessor' object"
-      );
-    }
-    if (["pipeline", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

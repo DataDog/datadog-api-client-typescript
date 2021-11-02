@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing the browser test configuration.
- */
 
 export class SyntheticsBrowserTestResultFullCheck {
   "config": SyntheticsTestConfig;
@@ -23,64 +18,26 @@ export class SyntheticsBrowserTestResultFullCheck {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     config: {
+      name: "config",
       baseName: "config",
       type: "SyntheticsTestConfig",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsBrowserTestResultFullCheck {
-    const res = new SyntheticsBrowserTestResultFullCheck();
-
-    if (data.config === undefined) {
-      throw new TypeError(
-        "missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object"
-      );
-    }
-    res.config = ObjectSerializer.deserialize(
-      data.config,
-      "SyntheticsTestConfig",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBrowserTestResultFullCheck): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsBrowserTestResultFullCheck.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.config === undefined) {
-      throw new TypeError(
-        "missing required attribute 'config' on 'SyntheticsBrowserTestResultFullCheck' object"
-      );
-    }
-    res.config = ObjectSerializer.serialize(
-      data.config,
-      "SyntheticsTestConfig",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

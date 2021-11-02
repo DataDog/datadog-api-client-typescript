@@ -10,11 +10,6 @@
 
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
 import { MetricDistinctVolumeType } from "./MetricDistinctVolumeType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object for a single metric's distinct volume.
- */
 
 export class MetricDistinctVolume {
   "attributes"?: MetricDistinctVolumeAttributes;
@@ -29,77 +24,40 @@ export class MetricDistinctVolume {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "MetricDistinctVolumeAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "MetricDistinctVolumeType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricDistinctVolume.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MetricDistinctVolume {
-    const res = new MetricDistinctVolume();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "MetricDistinctVolumeAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (["distinct_metric_volumes", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new MetricDistinctVolume();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: MetricDistinctVolume): { [key: string]: any } {
-    const attributeTypes = MetricDistinctVolume.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "MetricDistinctVolumeAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (["distinct_metric_volumes", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

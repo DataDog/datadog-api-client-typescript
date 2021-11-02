@@ -481,168 +481,511 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0,
 };
 
-const enumsMap: Set<string> = new Set<string>([
-  "AWSNamespace",
-  "AccessRole",
-  "AlertGraphWidgetDefinitionType",
-  "AlertValueWidgetDefinitionType",
-  "ApmStatsQueryRowType",
-  "ChangeWidgetDefinitionType",
-  "CheckStatusWidgetDefinitionType",
-  "ContentEncoding",
-  "DashboardLayoutType",
-  "DashboardReflowType",
-  "DashboardResourceType",
-  "DistributionWidgetDefinitionType",
-  "EventAlertType",
-  "EventPriority",
-  "EventStreamWidgetDefinitionType",
-  "EventTimelineWidgetDefinitionType",
-  "FormulaAndFunctionApmDependencyStatName",
-  "FormulaAndFunctionApmDependencyStatsDataSource",
-  "FormulaAndFunctionApmResourceStatName",
-  "FormulaAndFunctionApmResourceStatsDataSource",
-  "FormulaAndFunctionEventAggregation",
-  "FormulaAndFunctionEventsDataSource",
-  "FormulaAndFunctionMetricAggregation",
-  "FormulaAndFunctionMetricDataSource",
-  "FormulaAndFunctionProcessQueryDataSource",
-  "FormulaAndFunctionResponseFormat",
-  "FreeTextWidgetDefinitionType",
-  "FunnelRequestType",
-  "FunnelSource",
-  "FunnelWidgetDefinitionType",
-  "GeomapWidgetDefinitionType",
-  "GroupWidgetDefinitionType",
-  "HTTPMethod",
-  "HeatMapWidgetDefinitionType",
-  "HostMapWidgetDefinitionType",
-  "IFrameWidgetDefinitionType",
-  "ImageWidgetDefinitionType",
-  "ListStreamColumnWidth",
-  "ListStreamResponseFormat",
-  "ListStreamSource",
-  "ListStreamWidgetDefinitionType",
-  "LogStreamWidgetDefinitionType",
-  "LogsArithmeticProcessorType",
-  "LogsAttributeRemapperType",
-  "LogsCategoryProcessorType",
-  "LogsDateRemapperType",
-  "LogsGeoIPParserType",
-  "LogsGrokParserType",
-  "LogsLookupProcessorType",
-  "LogsMessageRemapperType",
-  "LogsPipelineProcessorType",
-  "LogsServiceRemapperType",
-  "LogsSort",
-  "LogsStatusRemapperType",
-  "LogsStringBuilderProcessorType",
-  "LogsTraceRemapperType",
-  "LogsURLParserType",
-  "LogsUserAgentParserType",
-  "MetricContentEncoding",
-  "MonitorDeviceID",
-  "MonitorOverallStates",
-  "MonitorRenotifyStatusType",
-  "MonitorSummaryWidgetDefinitionType",
-  "MonitorType",
-  "NoteWidgetDefinitionType",
-  "NotebookCellResourceType",
-  "NotebookGraphSize",
-  "NotebookMarkdownCellDefinitionType",
-  "NotebookMetadataType",
-  "NotebookResourceType",
-  "NotebookStatus",
-  "QuerySortOrder",
-  "QueryValueWidgetDefinitionType",
-  "SLOCorrectionCategory",
-  "SLOCorrectionType",
-  "SLOErrorTimeframe",
-  "SLOTimeframe",
-  "SLOType",
-  "SLOTypeNumeric",
-  "SLOWidgetDefinitionType",
-  "ScatterPlotWidgetDefinitionType",
-  "ScatterplotDimension",
-  "ScatterplotWidgetAggregator",
-  "ServiceCheckStatus",
-  "ServiceMapWidgetDefinitionType",
-  "ServiceSummaryWidgetDefinitionType",
-  "SyntheticsAPIStepSubtype",
-  "SyntheticsAPITestType",
-  "SyntheticsAssertionJSONPathOperator",
-  "SyntheticsAssertionOperator",
-  "SyntheticsAssertionType",
-  "SyntheticsBrowserErrorType",
-  "SyntheticsBrowserTestType",
-  "SyntheticsBrowserVariableType",
-  "SyntheticsCheckType",
-  "SyntheticsConfigVariableType",
-  "SyntheticsDeviceID",
-  "SyntheticsErrorCode",
-  "SyntheticsGlobalVariableParseTestOptionsType",
-  "SyntheticsGlobalVariableParserType",
-  "SyntheticsPlayingTab",
-  "SyntheticsStatus",
-  "SyntheticsStepType",
-  "SyntheticsTestDetailsSubType",
-  "SyntheticsTestDetailsType",
-  "SyntheticsTestExecutionRule",
-  "SyntheticsTestMonitorStatus",
-  "SyntheticsTestPauseStatus",
-  "SyntheticsTestProcessStatus",
-  "SyntheticsWarningType",
-  "TableWidgetCellDisplayMode",
-  "TableWidgetDefinitionType",
-  "TableWidgetHasSearchBar",
-  "TargetFormatType",
-  "TimeseriesWidgetDefinitionType",
-  "TimeseriesWidgetLegendColumn",
-  "TimeseriesWidgetLegendLayout",
-  "ToplistWidgetDefinitionType",
-  "TreeMapColorBy",
-  "TreeMapGroupBy",
-  "TreeMapSizeBy",
-  "TreeMapWidgetDefinitionType",
-  "UsageAttributionSort",
-  "UsageAttributionSupportedMetrics",
-  "UsageMetricCategory",
-  "UsageReportsType",
-  "UsageSort",
-  "UsageSortDirection",
-  "WebhooksIntegrationEncoding",
-  "WidgetAggregator",
-  "WidgetChangeType",
-  "WidgetColorPreference",
-  "WidgetComparator",
-  "WidgetCompareTo",
-  "WidgetDisplayType",
-  "WidgetEventSize",
-  "WidgetGrouping",
-  "WidgetHorizontalAlign",
-  "WidgetImageSizing",
-  "WidgetLayoutType",
-  "WidgetLineType",
-  "WidgetLineWidth",
-  "WidgetLiveSpan",
-  "WidgetMargin",
-  "WidgetMessageDisplay",
-  "WidgetMonitorSummaryDisplayFormat",
-  "WidgetMonitorSummarySort",
-  "WidgetNodeType",
-  "WidgetOrderBy",
-  "WidgetPalette",
-  "WidgetServiceSummaryDisplayFormat",
-  "WidgetSizeFormat",
-  "WidgetSort",
-  "WidgetSummaryType",
-  "WidgetTextAlign",
-  "WidgetTickEdge",
-  "WidgetTimeWindows",
-  "WidgetVerticalAlign",
-  "WidgetViewMode",
-  "WidgetVizType",
-]);
+const enumsMap: { [key: string]: any } = {
+  AWSNamespace: [
+    "elb",
+    "application_elb",
+    "sqs",
+    "rds",
+    "custom",
+    "network_elb",
+    "lambda",
+  ],
+  AccessRole: ["st", "adm", "ro", "ERROR"],
+  AlertGraphWidgetDefinitionType: ["alert_graph"],
+  AlertValueWidgetDefinitionType: ["alert_value"],
+  ApmStatsQueryRowType: ["service", "resource", "span"],
+  ChangeWidgetDefinitionType: ["change"],
+  CheckStatusWidgetDefinitionType: ["check_status"],
+  ContentEncoding: ["gzip", "deflate"],
+  DashboardLayoutType: ["ordered", "free"],
+  DashboardReflowType: ["auto", "fixed"],
+  DashboardResourceType: ["dashboard"],
+  DistributionWidgetDefinitionType: ["distribution"],
+  EventAlertType: [
+    "error",
+    "warning",
+    "info",
+    "success",
+    "user_update",
+    "recommendation",
+    "snapshot",
+  ],
+  EventPriority: ["normal", "low"],
+  EventStreamWidgetDefinitionType: ["event_stream"],
+  EventTimelineWidgetDefinitionType: ["event_timeline"],
+  FormulaAndFunctionApmDependencyStatName: [
+    "avg_duration",
+    "avg_root_duration",
+    "avg_spans_per_trace",
+    "error_rate",
+    "pct_exec_time",
+    "pct_of_traces",
+    "total_traces_count",
+  ],
+  FormulaAndFunctionApmDependencyStatsDataSource: ["apm_dependency_stats"],
+  FormulaAndFunctionApmResourceStatName: [
+    "errors",
+    "error_rate",
+    "hits",
+    "latency_avg",
+    "latency_max",
+    "latency_p50",
+    "latency_p75",
+    "latency_p90",
+    "latency_p95",
+    "latency_p99",
+  ],
+  FormulaAndFunctionApmResourceStatsDataSource: ["apm_resource_stats"],
+  FormulaAndFunctionEventAggregation: [
+    "count",
+    "cardinality",
+    "median",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+  ],
+  FormulaAndFunctionEventsDataSource: [
+    "logs",
+    "spans",
+    "network",
+    "rum",
+    "security_signals",
+    "profiles",
+    "audit",
+    "events",
+  ],
+  FormulaAndFunctionMetricAggregation: [
+    "avg",
+    "min",
+    "max",
+    "sum",
+    "last",
+    "area",
+    "l2norm",
+    "percentile",
+  ],
+  FormulaAndFunctionMetricDataSource: ["metrics"],
+  FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
+  FormulaAndFunctionResponseFormat: ["timeseries", "scalar"],
+  FreeTextWidgetDefinitionType: ["free_text"],
+  FunnelRequestType: ["funnel"],
+  FunnelSource: ["rum"],
+  FunnelWidgetDefinitionType: ["funnel"],
+  GeomapWidgetDefinitionType: ["geomap"],
+  GroupWidgetDefinitionType: ["group"],
+  HTTPMethod: ["GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"],
+  HeatMapWidgetDefinitionType: ["heatmap"],
+  HostMapWidgetDefinitionType: ["hostmap"],
+  IFrameWidgetDefinitionType: ["iframe"],
+  ImageWidgetDefinitionType: ["image"],
+  ListStreamColumnWidth: ["auto", "compact", "full"],
+  ListStreamResponseFormat: ["event_list"],
+  ListStreamSource: ["issue_stream", "logs_stream", "audit_stream"],
+  ListStreamWidgetDefinitionType: ["list_stream"],
+  LogStreamWidgetDefinitionType: ["log_stream"],
+  LogsArithmeticProcessorType: ["arithmetic-processor"],
+  LogsAttributeRemapperType: ["attribute-remapper"],
+  LogsCategoryProcessorType: ["category-processor"],
+  LogsDateRemapperType: ["date-remapper"],
+  LogsGeoIPParserType: ["geo-ip-parser"],
+  LogsGrokParserType: ["grok-parser"],
+  LogsLookupProcessorType: ["lookup-processor"],
+  LogsMessageRemapperType: ["message-remapper"],
+  LogsPipelineProcessorType: ["pipeline"],
+  LogsServiceRemapperType: ["service-remapper"],
+  LogsSort: ["asc", "desc"],
+  LogsStatusRemapperType: ["status-remapper"],
+  LogsStringBuilderProcessorType: ["string-builder-processor"],
+  LogsTraceRemapperType: ["trace-id-remapper"],
+  LogsURLParserType: ["url-parser"],
+  LogsUserAgentParserType: ["user-agent-parser"],
+  MetricContentEncoding: ["deflate"],
+  MonitorDeviceID: [
+    "laptop_large",
+    "tablet",
+    "mobile_small",
+    "chrome.laptop_large",
+    "chrome.tablet",
+    "chrome.mobile_small",
+    "firefox.laptop_large",
+    "firefox.tablet",
+    "firefox.mobile_small",
+  ],
+  MonitorOverallStates: [
+    "Alert",
+    "Ignored",
+    "No Data",
+    "OK",
+    "Skipped",
+    "Unknown",
+    "Warn",
+  ],
+  MonitorRenotifyStatusType: ["alert", "warn", "no data"],
+  MonitorSummaryWidgetDefinitionType: ["manage_status"],
+  MonitorType: [
+    "composite",
+    "event alert",
+    "log alert",
+    "metric alert",
+    "process alert",
+    "query alert",
+    "rum alert",
+    "service check",
+    "synthetics alert",
+    "trace-analytics alert",
+    "slo alert",
+    "event-v2 alert",
+    "audit alert",
+  ],
+  NoteWidgetDefinitionType: ["note"],
+  NotebookCellResourceType: ["notebook_cells"],
+  NotebookGraphSize: ["xs", "s", "m", "l", "xl"],
+  NotebookMarkdownCellDefinitionType: ["markdown"],
+  NotebookMetadataType: [
+    "postmortem",
+    "runbook",
+    "investigation",
+    "documentation",
+    "report",
+  ],
+  NotebookResourceType: ["notebooks"],
+  NotebookStatus: ["published"],
+  QuerySortOrder: ["asc", "desc"],
+  QueryValueWidgetDefinitionType: ["query_value"],
+  SLOCorrectionCategory: [
+    "Scheduled Maintenance",
+    "Outside Business Hours",
+    "Deployment",
+    "Other",
+  ],
+  SLOCorrectionType: ["correction"],
+  SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
+  SLOTimeframe: ["7d", "30d", "90d", "custom"],
+  SLOType: ["metric", "monitor"],
+  SLOTypeNumeric: [0, 1],
+  SLOWidgetDefinitionType: ["slo"],
+  ScatterPlotWidgetDefinitionType: ["scatterplot"],
+  ScatterplotDimension: ["x", "y", "radius", "color"],
+  ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
+  ServiceCheckStatus: [0, 1, 2, 3],
+  ServiceMapWidgetDefinitionType: ["servicemap"],
+  ServiceSummaryWidgetDefinitionType: ["trace_service"],
+  SyntheticsAPIStepSubtype: ["http"],
+  SyntheticsAPITestType: ["api"],
+  SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
+  SyntheticsAssertionOperator: [
+    "contains",
+    "doesNotContain",
+    "is",
+    "isNot",
+    "lessThan",
+    "lessThanOrEqual",
+    "moreThan",
+    "moreThanOrEqual",
+    "matches",
+    "doesNotMatch",
+    "validates",
+    "isInMoreThan",
+    "isInLessThan",
+  ],
+  SyntheticsAssertionType: [
+    "body",
+    "header",
+    "statusCode",
+    "certificate",
+    "responseTime",
+    "property",
+    "recordEvery",
+    "recordSome",
+    "tlsVersion",
+    "minTlsVersion",
+    "latency",
+    "packetLossPercentage",
+    "packetsReceived",
+    "networkHop",
+  ],
+  SyntheticsBrowserErrorType: ["network", "js"],
+  SyntheticsBrowserTestType: ["browser"],
+  SyntheticsBrowserVariableType: [
+    "element",
+    "email",
+    "global",
+    "javascript",
+    "text",
+  ],
+  SyntheticsCheckType: [
+    "equals",
+    "notEquals",
+    "contains",
+    "notContains",
+    "startsWith",
+    "notStartsWith",
+    "greater",
+    "lower",
+    "greaterEquals",
+    "lowerEquals",
+    "matchRegex",
+    "between",
+    "isEmpty",
+    "notIsEmpty",
+  ],
+  SyntheticsConfigVariableType: ["global", "text"],
+  SyntheticsDeviceID: [
+    "laptop_large",
+    "tablet",
+    "mobile_small",
+    "chrome.laptop_large",
+    "chrome.tablet",
+    "chrome.mobile_small",
+    "firefox.laptop_large",
+    "firefox.tablet",
+    "firefox.mobile_small",
+    "edge.laptop_large",
+    "edge.tablet",
+    "edge.mobile_small",
+  ],
+  SyntheticsErrorCode: [
+    "NO_ERROR",
+    "UNKNOWN",
+    "DNS",
+    "SSL",
+    "TIMEOUT",
+    "DENIED",
+    "INCORRECT_ASSERTION",
+  ],
+  SyntheticsGlobalVariableParseTestOptionsType: ["http_body", "http_header"],
+  SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
+  SyntheticsPlayingTab: [-1, 0, 1, 2, 3],
+  SyntheticsStatus: ["passed", "skipped", "failed"],
+  SyntheticsStepType: [
+    "assertCurrentUrl",
+    "assertElementAttribute",
+    "assertElementContent",
+    "assertElementPresent",
+    "assertEmail",
+    "assertFileDownload",
+    "assertFromJavascript",
+    "assertPageContains",
+    "assertPageLacks",
+    "click",
+    "extractFromJavascript",
+    "extractVariable",
+    "goToEmailLink",
+    "goToUrl",
+    "goToUrlAndMeasureTti",
+    "hover",
+    "playSubTest",
+    "pressKey",
+    "refresh",
+    "runApiTest",
+    "scroll",
+    "selectOption",
+    "typeText",
+    "uploadFiles",
+    "wait",
+  ],
+  SyntheticsTestDetailsSubType: ["http", "ssl", "tcp", "dns", "multi", "icmp"],
+  SyntheticsTestDetailsType: ["api", "browser"],
+  SyntheticsTestExecutionRule: ["blocking", "non_blocking", "skipped"],
+  SyntheticsTestMonitorStatus: [0, 1, 2],
+  SyntheticsTestPauseStatus: ["live", "paused"],
+  SyntheticsTestProcessStatus: [
+    "not_scheduled",
+    "scheduled",
+    "started",
+    "finished",
+    "finished_with_error",
+  ],
+  SyntheticsWarningType: ["user_locator"],
+  TableWidgetCellDisplayMode: ["number", "bar"],
+  TableWidgetDefinitionType: ["query_table"],
+  TableWidgetHasSearchBar: ["always", "never", "auto"],
+  TargetFormatType: ["auto", "string", "integer", "double"],
+  TimeseriesWidgetDefinitionType: ["timeseries"],
+  TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
+  TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
+  ToplistWidgetDefinitionType: ["toplist"],
+  TreeMapColorBy: ["user"],
+  TreeMapGroupBy: ["user", "family", "process"],
+  TreeMapSizeBy: ["pct_cpu", "pct_mem"],
+  TreeMapWidgetDefinitionType: ["treemap"],
+  UsageAttributionSort: [
+    "api_percentage",
+    "snmp_usage",
+    "apm_host_usage",
+    "api_usage",
+    "container_usage",
+    "custom_timeseries_percentage",
+    "container_percentage",
+    "apm_host_percentage",
+    "npm_host_percentage",
+    "browser_percentage",
+    "browser_usage",
+    "infra_host_percentage",
+    "snmp_percentage",
+    "npm_host_usage",
+    "infra_host_usage",
+    "custom_timeseries_usage",
+    "lambda_functions_usage",
+    "lambda_functions_percentage",
+    "lambda_invocations_usage",
+    "lambda_invocations_percentage",
+    "lambda_usage",
+    "lambda_percentage",
+  ],
+  UsageAttributionSupportedMetrics: [
+    "custom_timeseries_usage",
+    "container_usage",
+    "snmp_percentage",
+    "apm_host_usage",
+    "browser_usage",
+    "npm_host_percentage",
+    "infra_host_usage",
+    "custom_timeseries_percentage",
+    "container_percentage",
+    "lambda_usage",
+    "api_usage",
+    "apm_host_percentage",
+    "infra_host_percentage",
+    "snmp_usage",
+    "browser_percentage",
+    "api_percentage",
+    "lambda_percentage",
+    "npm_host_usage",
+    "lambda_functions_usage",
+    "lambda_functions_percentage",
+    "lambda_invocations_usage",
+    "lambda_invocations_percentage",
+    "fargate_usage",
+    "fargate_percentage",
+    "profiled_host_usage",
+    "profiled_host_percentage",
+    "profiled_container_usage",
+    "profiled_container_percentage",
+    "dbm_hosts_usage",
+    "dbm_hosts_percentage",
+    "dbm_queries_usage",
+    "dbm_queries_percentage",
+    "*",
+  ],
+  UsageMetricCategory: ["standard", "custom"],
+  UsageReportsType: ["reports"],
+  UsageSort: ["computed_on", "size", "start_date", "end_date"],
+  UsageSortDirection: ["desc", "asc"],
+  WebhooksIntegrationEncoding: ["json", "form"],
+  WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
+  WidgetChangeType: ["absolute", "relative"],
+  WidgetColorPreference: ["background", "text"],
+  WidgetComparator: [">", ">=", "<", "<="],
+  WidgetCompareTo: ["hour_before", "day_before", "week_before", "month_before"],
+  WidgetDisplayType: ["area", "bars", "line"],
+  WidgetEventSize: ["s", "l"],
+  WidgetGrouping: ["check", "cluster"],
+  WidgetHorizontalAlign: ["center", "left", "right"],
+  WidgetImageSizing: [
+    "fill",
+    "contain",
+    "cover",
+    "none",
+    "scale-down",
+    "zoom",
+    "fit",
+    "center",
+  ],
+  WidgetLayoutType: ["ordered"],
+  WidgetLineType: ["dashed", "dotted", "solid"],
+  WidgetLineWidth: ["normal", "thick", "thin"],
+  WidgetLiveSpan: [
+    "1m",
+    "5m",
+    "10m",
+    "15m",
+    "30m",
+    "1h",
+    "4h",
+    "1d",
+    "2d",
+    "1w",
+    "1mo",
+    "3mo",
+    "6mo",
+    "1y",
+    "alert",
+  ],
+  WidgetMargin: ["sm", "md", "lg", "small", "large"],
+  WidgetMessageDisplay: ["inline", "expanded-md", "expanded-lg"],
+  WidgetMonitorSummaryDisplayFormat: ["counts", "countsAndList", "list"],
+  WidgetMonitorSummarySort: [
+    "name",
+    "group",
+    "status",
+    "tags",
+    "triggered",
+    "group,asc",
+    "group,desc",
+    "name,asc",
+    "name,desc",
+    "status,asc",
+    "status,desc",
+    "tags,asc",
+    "tags,desc",
+    "triggered,asc",
+    "triggered,desc",
+  ],
+  WidgetNodeType: ["host", "container"],
+  WidgetOrderBy: ["change", "name", "present", "past"],
+  WidgetPalette: [
+    "blue",
+    "custom_bg",
+    "custom_image",
+    "custom_text",
+    "gray_on_white",
+    "grey",
+    "green",
+    "orange",
+    "red",
+    "red_on_white",
+    "white_on_gray",
+    "white_on_green",
+    "green_on_white",
+    "white_on_red",
+    "white_on_yellow",
+    "yellow_on_white",
+    "black_on_light_yellow",
+    "black_on_light_green",
+    "black_on_light_red",
+  ],
+  WidgetServiceSummaryDisplayFormat: [
+    "one_column",
+    "two_column",
+    "three_column",
+  ],
+  WidgetSizeFormat: ["small", "medium", "large"],
+  WidgetSort: ["asc", "desc"],
+  WidgetSummaryType: ["monitors", "groups", "combined"],
+  WidgetTextAlign: ["center", "left", "right"],
+  WidgetTickEdge: ["bottom", "left", "right", "top"],
+  WidgetTimeWindows: [
+    "7d",
+    "30d",
+    "90d",
+    "week_to_date",
+    "previous_week",
+    "month_to_date",
+    "previous_month",
+    "global_time",
+  ],
+  WidgetVerticalAlign: ["center", "top", "bottom"],
+  WidgetViewMode: ["overall", "component", "both"],
+  WidgetVizType: ["timeseries", "toplist"],
+};
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
@@ -1236,7 +1579,7 @@ export class ObjectSerializer {
     } else if (expectedType === "Date") {
       return expectedType;
     } else {
-      if (enumsMap.has(expectedType)) {
+      if (enumsMap[expectedType]) {
         return expectedType;
       }
 
@@ -1303,14 +1646,20 @@ export class ObjectSerializer {
         return data.toISOString();
       }
     } else {
-      if (enumsMap.has(type)) {
-        return data;
+      if (enumsMap[type]) {
+        if (enumsMap[type].includes(data)) {
+          return data;
+        }
+        throw new TypeError(`unknown enum value ${data}`);
       }
       if (oneOfMap[type]) {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
-            oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
+            const d = ObjectSerializer.serialize(data, oneOf, format);
+            if (d?.unparsedObject === undefined) {
+              oneOfs.push(d);
+            }
           } catch (e) {
             console.debug(`could not serialize ${oneOf} (${e})`);
           }
@@ -1329,15 +1678,48 @@ export class ObjectSerializer {
       }
 
       if (!typeMap[type]) {
-        // dont know the type
+        // in case we dont know the type
         throw new TypeError(`unknown type '${type}'`);
       }
 
-      return typeMap[type].serialize(data);
+      // Get the actual type of this object
+      type = this.findCorrectType(data, type);
+      // get the map for the correct type.
+      const attributeTypes = typeMap[type].getAttributeTypeMap();
+      const instance: { [index: string]: any } = {};
+
+      for (const index in attributeTypes) {
+        const attributeType = attributeTypes[index];
+        instance[attributeType.baseName] = ObjectSerializer.serialize(
+          data[attributeType.name],
+          attributeType.type,
+          attributeType.format
+        );
+
+        // check for required properties
+        if (
+          attributeType.required &&
+          instance[attributeType.baseName] === undefined
+        ) {
+          throw new Error(
+            `missing required property ${attributeType.baseName}`
+          );
+        }
+
+        if (
+          enumsMap[attributeType.type] &&
+          !enumsMap[attributeType.type].includes(
+            instance[attributeType.baseName]
+          )
+        ) {
+          instance.unparsedObject = instance[attributeType.baseName];
+        }
+      }
+      return instance;
     }
   }
 
-  public static deserialize(data: any, type: string, format: string) {
+  public static deserialize(data: any, type: string, format = "") {
     // polymorphism may change the actual type.
     type = ObjectSerializer.findCorrectType(data, type);
     if (data == undefined) {
@@ -1373,8 +1755,7 @@ export class ObjectSerializer {
     } else if (type === "Date") {
       return new Date(data);
     } else {
-      if (enumsMap.has(type)) {
-        // is Enum
+      if (enumsMap[type]) {
         return data;
       }
 
@@ -1400,7 +1781,36 @@ export class ObjectSerializer {
         // dont know the type
         throw new TypeError(`unknown type '${type}'`);
       }
-      return typeMap[type].deserialize(data);
+
+      const instance = new typeMap[type]();
+      const attributeTypes = typeMap[type].getAttributeTypeMap();
+
+      for (const index in attributeTypes) {
+        const attributeType = attributeTypes[index];
+        instance[attributeType.name] = ObjectSerializer.deserialize(
+          data[attributeType.baseName],
+          attributeType.type,
+          attributeType.format
+        );
+
+        // check for required properties
+        if (
+          attributeType.required &&
+          instance[attributeType.name] == undefined
+        ) {
+          throw new Error(`missing required property ${attributeType.name}`);
+        }
+
+        // check for enum values
+        if (
+          enumsMap[attributeType.type] &&
+          !enumsMap[attributeType.type].includes(instance[attributeType.name])
+        ) {
+          instance.unparsedObject = instance[attributeType.name];
+        }
+      }
+
+      return instance;
     }
   }
 

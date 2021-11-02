@@ -12,11 +12,6 @@ import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToUsers } from "./RelationshipToUsers";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationships of the user object returned by the API.
- */
 
 export class UserResponseRelationships {
   "org"?: RelationshipToOrganization;
@@ -29,100 +24,47 @@ export class UserResponseRelationships {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     org: {
+      name: "org",
       baseName: "org",
       type: "RelationshipToOrganization",
+      required: false,
       format: "",
     },
     otherOrgs: {
+      name: "otherOrgs",
       baseName: "other_orgs",
       type: "RelationshipToOrganizations",
+      required: false,
       format: "",
     },
     otherUsers: {
+      name: "otherUsers",
       baseName: "other_users",
       type: "RelationshipToUsers",
+      required: false,
       format: "",
     },
     roles: {
+      name: "roles",
       baseName: "roles",
       type: "RelationshipToRoles",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UserResponseRelationships.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserResponseRelationships {
-    const res = new UserResponseRelationships();
-
-    res.org = ObjectSerializer.deserialize(
-      data.org,
-      "RelationshipToOrganization",
-      ""
-    );
-
-    res.otherOrgs = ObjectSerializer.deserialize(
-      data.other_orgs,
-      "RelationshipToOrganizations",
-      ""
-    );
-
-    res.otherUsers = ObjectSerializer.deserialize(
-      data.other_users,
-      "RelationshipToUsers",
-      ""
-    );
-
-    res.roles = ObjectSerializer.deserialize(
-      data.roles,
-      "RelationshipToRoles",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UserResponseRelationships): { [key: string]: any } {
-    const attributeTypes = UserResponseRelationships.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.org = ObjectSerializer.serialize(
-      data.org,
-      "RelationshipToOrganization",
-      ""
-    );
-
-    res.other_orgs = ObjectSerializer.serialize(
-      data.otherOrgs,
-      "RelationshipToOrganizations",
-      ""
-    );
-
-    res.other_users = ObjectSerializer.serialize(
-      data.otherUsers,
-      "RelationshipToUsers",
-      ""
-    );
-
-    res.roles = ObjectSerializer.serialize(
-      data.roles,
-      "RelationshipToRoles",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -11,11 +11,6 @@
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
- */
 
 export class ServiceLevelObjectiveRequest {
   /**
@@ -50,178 +45,75 @@ export class ServiceLevelObjectiveRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     description: {
+      name: "description",
       baseName: "description",
       type: "string",
+      required: false,
       format: "",
     },
     groups: {
+      name: "groups",
       baseName: "groups",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     monitorIds: {
+      name: "monitorIds",
       baseName: "monitor_ids",
       type: "Array<number>",
+      required: false,
       format: "int64",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: true,
       format: "",
     },
     query: {
+      name: "query",
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     thresholds: {
+      name: "thresholds",
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
+      required: true,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SLOType",
+      required: true,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ServiceLevelObjectiveRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): ServiceLevelObjectiveRequest {
-    const res = new ServiceLevelObjectiveRequest();
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.groups = ObjectSerializer.deserialize(data.groups, "Array<string>", "");
-
-    res.monitorIds = ObjectSerializer.deserialize(
-      data.monitor_ids,
-      "Array<number>",
-      "int64"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'ServiceLevelObjectiveRequest' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.query = ObjectSerializer.deserialize(
-      data.query,
-      "ServiceLevelObjectiveQuery",
-      ""
-    );
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    if (data.thresholds === undefined) {
-      throw new TypeError(
-        "missing required attribute 'thresholds' on 'ServiceLevelObjectiveRequest' object"
-      );
-    }
-    res.thresholds = ObjectSerializer.deserialize(
-      data.thresholds,
-      "Array<SLOThreshold>",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceLevelObjectiveRequest' object"
-      );
-    }
-    if (["metric", "monitor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ServiceLevelObjectiveRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ServiceLevelObjectiveRequest): { [key: string]: any } {
-    const attributeTypes = ServiceLevelObjectiveRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.groups = ObjectSerializer.serialize(data.groups, "Array<string>", "");
-
-    res.monitor_ids = ObjectSerializer.serialize(
-      data.monitorIds,
-      "Array<number>",
-      "int64"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'ServiceLevelObjectiveRequest' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.query = ObjectSerializer.serialize(
-      data.query,
-      "ServiceLevelObjectiveQuery",
-      ""
-    );
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    if (data.thresholds === undefined) {
-      throw new TypeError(
-        "missing required attribute 'thresholds' on 'ServiceLevelObjectiveRequest' object"
-      );
-    }
-    res.thresholds = ObjectSerializer.serialize(
-      data.thresholds,
-      "Array<SLOThreshold>",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceLevelObjectiveRequest' object"
-      );
-    }
-    if (["metric", "monitor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

@@ -11,11 +11,6 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing information about multiple users.
- */
 
 export class UsersResponse {
   /**
@@ -33,75 +28,40 @@ export class UsersResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<User>",
+      required: false,
       format: "",
     },
     included: {
+      name: "included",
       baseName: "included",
       type: "Array<UserResponseIncludedItem>",
+      required: false,
       format: "",
     },
     meta: {
+      name: "meta",
       baseName: "meta",
       type: "ResponseMetaAttributes",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsersResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsersResponse {
-    const res = new UsersResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "Array<User>", "");
-
-    res.included = ObjectSerializer.deserialize(
-      data.included,
-      "Array<UserResponseIncludedItem>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsersResponse): { [key: string]: any } {
-    const attributeTypes = UsersResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "Array<User>", "");
-
-    res.included = ObjectSerializer.serialize(
-      data.included,
-      "Array<UserResponseIncludedItem>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

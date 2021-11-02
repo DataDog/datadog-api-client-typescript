@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Core Web Vitals attached to a browser test step.
- */
-
 export class SyntheticsCoreWebVitals {
   /**
    * Cumulative Layout Shift.
@@ -33,59 +27,40 @@ export class SyntheticsCoreWebVitals {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     cls: {
+      name: "cls",
       baseName: "cls",
       type: "number",
+      required: false,
       format: "int64",
     },
     lcp: {
+      name: "lcp",
       baseName: "lcp",
       type: "number",
+      required: false,
       format: "int64",
     },
     url: {
+      name: "url",
       baseName: "url",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsCoreWebVitals.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsCoreWebVitals {
-    const res = new SyntheticsCoreWebVitals();
-
-    res.cls = ObjectSerializer.deserialize(data.cls, "number", "int64");
-
-    res.lcp = ObjectSerializer.deserialize(data.lcp, "number", "int64");
-
-    res.url = ObjectSerializer.deserialize(data.url, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsCoreWebVitals): { [key: string]: any } {
-    const attributeTypes = SyntheticsCoreWebVitals.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.cls = ObjectSerializer.serialize(data.cls, "number", "int64");
-
-    res.lcp = ObjectSerializer.serialize(data.lcp, "number", "int64");
-
-    res.url = ObjectSerializer.serialize(data.url, "string", "");
-
-    return res;
   }
 
   public constructor() {}

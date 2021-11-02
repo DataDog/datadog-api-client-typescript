@@ -12,11 +12,6 @@ import { EventQueryDefinition } from "./EventQueryDefinition";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Updated heat map widget.
- */
 
 export class HeatMapWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -38,186 +33,89 @@ export class HeatMapWidgetRequest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     apmQuery: {
+      name: "apmQuery",
       baseName: "apm_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     eventQuery: {
+      name: "eventQuery",
       baseName: "event_query",
       type: "EventQueryDefinition",
+      required: false,
       format: "",
     },
     logQuery: {
+      name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     networkQuery: {
+      name: "networkQuery",
       baseName: "network_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     processQuery: {
+      name: "processQuery",
       baseName: "process_query",
       type: "ProcessQueryDefinition",
+      required: false,
       format: "",
     },
     profileMetricsQuery: {
+      name: "profileMetricsQuery",
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     q: {
+      name: "q",
       baseName: "q",
       type: "string",
+      required: false,
       format: "",
     },
     rumQuery: {
+      name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     securityQuery: {
+      name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
+      required: false,
       format: "",
     },
     style: {
+      name: "style",
       baseName: "style",
       type: "WidgetStyle",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HeatMapWidgetRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HeatMapWidgetRequest {
-    const res = new HeatMapWidgetRequest();
-
-    res.apmQuery = ObjectSerializer.deserialize(
-      data.apm_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.eventQuery = ObjectSerializer.deserialize(
-      data.event_query,
-      "EventQueryDefinition",
-      ""
-    );
-
-    res.logQuery = ObjectSerializer.deserialize(
-      data.log_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.networkQuery = ObjectSerializer.deserialize(
-      data.network_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.processQuery = ObjectSerializer.deserialize(
-      data.process_query,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profileMetricsQuery = ObjectSerializer.deserialize(
-      data.profile_metrics_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.deserialize(data.q, "string", "");
-
-    res.rumQuery = ObjectSerializer.deserialize(
-      data.rum_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.securityQuery = ObjectSerializer.deserialize(
-      data.security_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.style = ObjectSerializer.deserialize(data.style, "WidgetStyle", "");
-
-    return res;
-  }
-
-  static serialize(data: HeatMapWidgetRequest): { [key: string]: any } {
-    const attributeTypes = HeatMapWidgetRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.apm_query = ObjectSerializer.serialize(
-      data.apmQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.event_query = ObjectSerializer.serialize(
-      data.eventQuery,
-      "EventQueryDefinition",
-      ""
-    );
-
-    res.log_query = ObjectSerializer.serialize(
-      data.logQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.network_query = ObjectSerializer.serialize(
-      data.networkQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.process_query = ObjectSerializer.serialize(
-      data.processQuery,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profile_metrics_query = ObjectSerializer.serialize(
-      data.profileMetricsQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.serialize(data.q, "string", "");
-
-    res.rum_query = ObjectSerializer.serialize(
-      data.rumQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.security_query = ObjectSerializer.serialize(
-      data.securityQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.style = ObjectSerializer.serialize(data.style, "WidgetStyle", "");
-
-    return res;
   }
 
   public constructor() {}

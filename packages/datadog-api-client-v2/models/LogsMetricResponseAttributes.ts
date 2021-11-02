@@ -11,11 +11,6 @@
 import { LogsMetricResponseCompute } from "./LogsMetricResponseCompute";
 import { LogsMetricResponseFilter } from "./LogsMetricResponseFilter";
 import { LogsMetricResponseGroupBy } from "./LogsMetricResponseGroupBy";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The object describing a Datadog log-based metric.
- */
 
 export class LogsMetricResponseAttributes {
   "compute"?: LogsMetricResponseCompute;
@@ -30,85 +25,40 @@ export class LogsMetricResponseAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     compute: {
+      name: "compute",
       baseName: "compute",
       type: "LogsMetricResponseCompute",
+      required: false,
       format: "",
     },
     filter: {
+      name: "filter",
       baseName: "filter",
       type: "LogsMetricResponseFilter",
+      required: false,
       format: "",
     },
     groupBy: {
+      name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricResponseGroupBy>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsMetricResponseAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): LogsMetricResponseAttributes {
-    const res = new LogsMetricResponseAttributes();
-
-    res.compute = ObjectSerializer.deserialize(
-      data.compute,
-      "LogsMetricResponseCompute",
-      ""
-    );
-
-    res.filter = ObjectSerializer.deserialize(
-      data.filter,
-      "LogsMetricResponseFilter",
-      ""
-    );
-
-    res.groupBy = ObjectSerializer.deserialize(
-      data.group_by,
-      "Array<LogsMetricResponseGroupBy>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsMetricResponseAttributes): { [key: string]: any } {
-    const attributeTypes = LogsMetricResponseAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.compute = ObjectSerializer.serialize(
-      data.compute,
-      "LogsMetricResponseCompute",
-      ""
-    );
-
-    res.filter = ObjectSerializer.serialize(
-      data.filter,
-      "LogsMetricResponseFilter",
-      ""
-    );
-
-    res.group_by = ObjectSerializer.serialize(
-      data.groupBy,
-      "Array<LogsMetricResponseGroupBy>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

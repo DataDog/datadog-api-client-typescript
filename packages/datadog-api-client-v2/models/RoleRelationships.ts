@@ -10,11 +10,6 @@
 
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToUsers } from "./RelationshipToUsers";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationships of the role object.
- */
 
 export class RoleRelationships {
   "permissions"?: RelationshipToPermissions;
@@ -25,66 +20,33 @@ export class RoleRelationships {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     permissions: {
+      name: "permissions",
       baseName: "permissions",
       type: "RelationshipToPermissions",
+      required: false,
       format: "",
     },
     users: {
+      name: "users",
       baseName: "users",
       type: "RelationshipToUsers",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RoleRelationships.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RoleRelationships {
-    const res = new RoleRelationships();
-
-    res.permissions = ObjectSerializer.deserialize(
-      data.permissions,
-      "RelationshipToPermissions",
-      ""
-    );
-
-    res.users = ObjectSerializer.deserialize(
-      data.users,
-      "RelationshipToUsers",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RoleRelationships): { [key: string]: any } {
-    const attributeTypes = RoleRelationships.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.permissions = ObjectSerializer.serialize(
-      data.permissions,
-      "RelationshipToPermissions",
-      ""
-    );
-
-    res.users = ObjectSerializer.serialize(
-      data.users,
-      "RelationshipToUsers",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

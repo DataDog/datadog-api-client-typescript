@@ -11,11 +11,6 @@
 import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Datadog application key.
- */
 
 export class FullApplicationKey {
   "attributes"?: FullApplicationKeyAttributes;
@@ -31,94 +26,47 @@ export class FullApplicationKey {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     attributes: {
+      name: "attributes",
       baseName: "attributes",
       type: "FullApplicationKeyAttributes",
+      required: false,
       format: "",
     },
     id: {
+      name: "id",
       baseName: "id",
       type: "string",
+      required: false,
       format: "",
     },
     relationships: {
+      name: "relationships",
       baseName: "relationships",
       type: "ApplicationKeyRelationships",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "ApplicationKeysType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FullApplicationKey.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): FullApplicationKey {
-    const res = new FullApplicationKey();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "FullApplicationKeyAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.deserialize(
-      data.relationships,
-      "ApplicationKeyRelationships",
-      ""
-    );
-
-    if (["application_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new FullApplicationKey();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: FullApplicationKey): { [key: string]: any } {
-    const attributeTypes = FullApplicationKey.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "FullApplicationKeyAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.serialize(
-      data.relationships,
-      "ApplicationKeyRelationships",
-      ""
-    );
-
-    if (["application_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

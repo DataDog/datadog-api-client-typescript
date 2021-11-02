@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The layout for a widget on a `free` or **new dashboard layout** dashboard.
- */
-
 export class WidgetLayout {
   /**
    * The height of the widget. Should be a non-negative integer.
@@ -41,125 +35,54 @@ export class WidgetLayout {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     height: {
+      name: "height",
       baseName: "height",
       type: "number",
+      required: true,
       format: "int64",
     },
     isColumnBreak: {
+      name: "isColumnBreak",
       baseName: "is_column_break",
       type: "boolean",
+      required: false,
       format: "",
     },
     width: {
+      name: "width",
       baseName: "width",
       type: "number",
+      required: true,
       format: "int64",
     },
     x: {
+      name: "x",
       baseName: "x",
       type: "number",
+      required: true,
       format: "int64",
     },
     y: {
+      name: "y",
       baseName: "y",
       type: "number",
+      required: true,
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetLayout.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetLayout {
-    const res = new WidgetLayout();
-
-    if (data.height === undefined) {
-      throw new TypeError(
-        "missing required attribute 'height' on 'WidgetLayout' object"
-      );
-    }
-    res.height = ObjectSerializer.deserialize(data.height, "number", "int64");
-
-    res.isColumnBreak = ObjectSerializer.deserialize(
-      data.is_column_break,
-      "boolean",
-      ""
-    );
-
-    if (data.width === undefined) {
-      throw new TypeError(
-        "missing required attribute 'width' on 'WidgetLayout' object"
-      );
-    }
-    res.width = ObjectSerializer.deserialize(data.width, "number", "int64");
-
-    if (data.x === undefined) {
-      throw new TypeError(
-        "missing required attribute 'x' on 'WidgetLayout' object"
-      );
-    }
-    res.x = ObjectSerializer.deserialize(data.x, "number", "int64");
-
-    if (data.y === undefined) {
-      throw new TypeError(
-        "missing required attribute 'y' on 'WidgetLayout' object"
-      );
-    }
-    res.y = ObjectSerializer.deserialize(data.y, "number", "int64");
-
-    return res;
-  }
-
-  static serialize(data: WidgetLayout): { [key: string]: any } {
-    const attributeTypes = WidgetLayout.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.height === undefined) {
-      throw new TypeError(
-        "missing required attribute 'height' on 'WidgetLayout' object"
-      );
-    }
-    res.height = ObjectSerializer.serialize(data.height, "number", "int64");
-
-    res.is_column_break = ObjectSerializer.serialize(
-      data.isColumnBreak,
-      "boolean",
-      ""
-    );
-
-    if (data.width === undefined) {
-      throw new TypeError(
-        "missing required attribute 'width' on 'WidgetLayout' object"
-      );
-    }
-    res.width = ObjectSerializer.serialize(data.width, "number", "int64");
-
-    if (data.x === undefined) {
-      throw new TypeError(
-        "missing required attribute 'x' on 'WidgetLayout' object"
-      );
-    }
-    res.x = ObjectSerializer.serialize(data.x, "number", "int64");
-
-    if (data.y === undefined) {
-      throw new TypeError(
-        "missing required attribute 'y' on 'WidgetLayout' object"
-      );
-    }
-    res.y = ObjectSerializer.serialize(data.y, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

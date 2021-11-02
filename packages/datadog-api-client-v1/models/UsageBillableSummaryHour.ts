@@ -9,11 +9,6 @@
  */
 
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response with monthly summary of data billed by Datadog.
- */
 
 export class UsageBillableSummaryHour {
   /**
@@ -51,148 +46,75 @@ export class UsageBillableSummaryHour {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     billingPlan: {
+      name: "billingPlan",
       baseName: "billing_plan",
       type: "string",
+      required: false,
       format: "",
     },
     endDate: {
+      name: "endDate",
       baseName: "end_date",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     numOrgs: {
+      name: "numOrgs",
       baseName: "num_orgs",
       type: "number",
+      required: false,
       format: "int64",
     },
     orgName: {
+      name: "orgName",
       baseName: "org_name",
       type: "string",
+      required: false,
       format: "",
     },
     publicId: {
+      name: "publicId",
       baseName: "public_id",
       type: "string",
+      required: false,
       format: "",
     },
     ratioInMonth: {
+      name: "ratioInMonth",
       baseName: "ratio_in_month",
       type: "number",
+      required: false,
       format: "int64",
     },
     startDate: {
+      name: "startDate",
       baseName: "start_date",
       type: "Date",
+      required: false,
       format: "date-time",
     },
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "UsageBillableSummaryKeys",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageBillableSummaryHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageBillableSummaryHour {
-    const res = new UsageBillableSummaryHour();
-
-    res.billingPlan = ObjectSerializer.deserialize(
-      data.billing_plan,
-      "string",
-      ""
-    );
-
-    res.endDate = ObjectSerializer.deserialize(
-      data.end_date,
-      "Date",
-      "date-time"
-    );
-
-    res.numOrgs = ObjectSerializer.deserialize(
-      data.num_orgs,
-      "number",
-      "int64"
-    );
-
-    res.orgName = ObjectSerializer.deserialize(data.org_name, "string", "");
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    res.ratioInMonth = ObjectSerializer.deserialize(
-      data.ratio_in_month,
-      "number",
-      "int64"
-    );
-
-    res.startDate = ObjectSerializer.deserialize(
-      data.start_date,
-      "Date",
-      "date-time"
-    );
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "UsageBillableSummaryKeys",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageBillableSummaryHour): { [key: string]: any } {
-    const attributeTypes = UsageBillableSummaryHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.billing_plan = ObjectSerializer.serialize(
-      data.billingPlan,
-      "string",
-      ""
-    );
-
-    res.end_date = ObjectSerializer.serialize(
-      data.endDate,
-      "Date",
-      "date-time"
-    );
-
-    res.num_orgs = ObjectSerializer.serialize(data.numOrgs, "number", "int64");
-
-    res.org_name = ObjectSerializer.serialize(data.orgName, "string", "");
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    res.ratio_in_month = ObjectSerializer.serialize(
-      data.ratioInMonth,
-      "number",
-      "int64"
-    );
-
-    res.start_date = ObjectSerializer.serialize(
-      data.startDate,
-      "Date",
-      "date-time"
-    );
-
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "UsageBillableSummaryKeys",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

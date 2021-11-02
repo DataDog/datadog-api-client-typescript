@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing the retry strategy to apply to a Synthetic test.
- */
-
 export class SyntheticsTestOptionsRetry {
   /**
    * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
@@ -29,58 +23,33 @@ export class SyntheticsTestOptionsRetry {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     count: {
+      name: "count",
       baseName: "count",
       type: "number",
+      required: false,
       format: "int64",
     },
     interval: {
+      name: "interval",
       baseName: "interval",
       type: "number",
+      required: false,
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTestOptionsRetry.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsTestOptionsRetry {
-    const res = new SyntheticsTestOptionsRetry();
-
-    res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
-
-    res.interval = ObjectSerializer.deserialize(
-      data.interval,
-      "number",
-      "double"
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTestOptionsRetry): { [key: string]: any } {
-    const attributeTypes = SyntheticsTestOptionsRetry.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.count = ObjectSerializer.serialize(data.count, "number", "int64");
-
-    res.interval = ObjectSerializer.serialize(
-      data.interval,
-      "number",
-      "double"
-    );
-
-    return res;
   }
 
   public constructor() {}

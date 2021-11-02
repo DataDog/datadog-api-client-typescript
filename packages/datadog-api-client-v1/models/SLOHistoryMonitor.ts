@@ -9,11 +9,6 @@
  */
 
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
- */
 
 export class SLOHistoryMonitor {
   /**
@@ -70,204 +65,103 @@ export class SLOHistoryMonitor {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     errorBudgetRemaining: {
+      name: "errorBudgetRemaining",
       baseName: "error_budget_remaining",
       type: "{ [key: string]: number; }",
+      required: false,
       format: "double",
     },
     errors: {
+      name: "errors",
       baseName: "errors",
       type: "Array<SLOHistoryResponseErrorWithType>",
+      required: false,
       format: "",
     },
     group: {
+      name: "group",
       baseName: "group",
       type: "string",
+      required: false,
       format: "",
     },
     history: {
+      name: "history",
       baseName: "history",
       type: "Array<Array<number>>",
+      required: false,
       format: "double",
     },
     monitorModified: {
+      name: "monitorModified",
       baseName: "monitor_modified",
       type: "number",
+      required: false,
       format: "int64",
     },
     monitorType: {
+      name: "monitorType",
       baseName: "monitor_type",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     precision: {
+      name: "precision",
       baseName: "precision",
       type: "number",
+      required: false,
       format: "double",
     },
     preview: {
+      name: "preview",
       baseName: "preview",
       type: "boolean",
+      required: false,
       format: "",
     },
     sliValue: {
+      name: "sliValue",
       baseName: "sli_value",
       type: "number",
+      required: false,
       format: "double",
     },
     spanPrecision: {
+      name: "spanPrecision",
       baseName: "span_precision",
       type: "number",
+      required: false,
       format: "double",
     },
     uptime: {
+      name: "uptime",
       baseName: "uptime",
       type: "number",
+      required: false,
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOHistoryMonitor.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOHistoryMonitor {
-    const res = new SLOHistoryMonitor();
-
-    res.errorBudgetRemaining = ObjectSerializer.deserialize(
-      data.error_budget_remaining,
-      "{ [key: string]: number; }",
-      "double"
-    );
-
-    res.errors = ObjectSerializer.deserialize(
-      data.errors,
-      "Array<SLOHistoryResponseErrorWithType>",
-      ""
-    );
-
-    res.group = ObjectSerializer.deserialize(data.group, "string", "");
-
-    res.history = ObjectSerializer.deserialize(
-      data.history,
-      "Array<Array<number>>",
-      "double"
-    );
-
-    res.monitorModified = ObjectSerializer.deserialize(
-      data.monitor_modified,
-      "number",
-      "int64"
-    );
-
-    res.monitorType = ObjectSerializer.deserialize(
-      data.monitor_type,
-      "string",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.precision = ObjectSerializer.deserialize(
-      data.precision,
-      "number",
-      "double"
-    );
-
-    res.preview = ObjectSerializer.deserialize(data.preview, "boolean", "");
-
-    res.sliValue = ObjectSerializer.deserialize(
-      data.sli_value,
-      "number",
-      "double"
-    );
-
-    res.spanPrecision = ObjectSerializer.deserialize(
-      data.span_precision,
-      "number",
-      "double"
-    );
-
-    res.uptime = ObjectSerializer.deserialize(data.uptime, "number", "double");
-
-    return res;
-  }
-
-  static serialize(data: SLOHistoryMonitor): { [key: string]: any } {
-    const attributeTypes = SLOHistoryMonitor.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.error_budget_remaining = ObjectSerializer.serialize(
-      data.errorBudgetRemaining,
-      "{ [key: string]: number; }",
-      "double"
-    );
-
-    res.errors = ObjectSerializer.serialize(
-      data.errors,
-      "Array<SLOHistoryResponseErrorWithType>",
-      ""
-    );
-
-    res.group = ObjectSerializer.serialize(data.group, "string", "");
-
-    res.history = ObjectSerializer.serialize(
-      data.history,
-      "Array<Array<number>>",
-      "double"
-    );
-
-    res.monitor_modified = ObjectSerializer.serialize(
-      data.monitorModified,
-      "number",
-      "int64"
-    );
-
-    res.monitor_type = ObjectSerializer.serialize(
-      data.monitorType,
-      "string",
-      ""
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.precision = ObjectSerializer.serialize(
-      data.precision,
-      "number",
-      "double"
-    );
-
-    res.preview = ObjectSerializer.serialize(data.preview, "boolean", "");
-
-    res.sli_value = ObjectSerializer.serialize(
-      data.sliValue,
-      "number",
-      "double"
-    );
-
-    res.span_precision = ObjectSerializer.serialize(
-      data.spanPrecision,
-      "number",
-      "double"
-    );
-
-    res.uptime = ObjectSerializer.serialize(data.uptime, "number", "double");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object representing a graph snapshot.
- */
-
 export class GraphSnapshot {
   /**
    * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
@@ -33,75 +27,40 @@ export class GraphSnapshot {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     graphDef: {
+      name: "graphDef",
       baseName: "graph_def",
       type: "string",
+      required: false,
       format: "",
     },
     metricQuery: {
+      name: "metricQuery",
       baseName: "metric_query",
       type: "string",
+      required: false,
       format: "",
     },
     snapshotUrl: {
+      name: "snapshotUrl",
       baseName: "snapshot_url",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return GraphSnapshot.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): GraphSnapshot {
-    const res = new GraphSnapshot();
-
-    res.graphDef = ObjectSerializer.deserialize(data.graph_def, "string", "");
-
-    res.metricQuery = ObjectSerializer.deserialize(
-      data.metric_query,
-      "string",
-      ""
-    );
-
-    res.snapshotUrl = ObjectSerializer.deserialize(
-      data.snapshot_url,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: GraphSnapshot): { [key: string]: any } {
-    const attributeTypes = GraphSnapshot.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.graph_def = ObjectSerializer.serialize(data.graphDef, "string", "");
-
-    res.metric_query = ObjectSerializer.serialize(
-      data.metricQuery,
-      "string",
-      ""
-    );
-
-    res.snapshot_url = ObjectSerializer.serialize(
-      data.snapshotUrl,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

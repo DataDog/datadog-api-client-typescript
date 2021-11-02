@@ -9,11 +9,6 @@
  */
 
 import { Permission } from "./Permission";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Payload with API-returned permissions.
- */
 
 export class PermissionsResponse {
   /**
@@ -26,41 +21,26 @@ export class PermissionsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     data: {
+      name: "data",
       baseName: "data",
       type: "Array<Permission>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return PermissionsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): PermissionsResponse {
-    const res = new PermissionsResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "Array<Permission>", "");
-
-    return res;
-  }
-
-  static serialize(data: PermissionsResponse): { [key: string]: any } {
-    const attributeTypes = PermissionsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "Array<Permission>", "");
-
-    return res;
   }
 
   public constructor() {}

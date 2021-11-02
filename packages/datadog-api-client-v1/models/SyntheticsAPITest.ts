@@ -13,11 +13,6 @@ import { SyntheticsAPITestType } from "./SyntheticsAPITestType";
 import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing details about a Synthetic API test.
- */
 
 export class SyntheticsAPITest {
   "config"?: SyntheticsAPITestConfig;
@@ -55,201 +50,96 @@ export class SyntheticsAPITest {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     config: {
+      name: "config",
       baseName: "config",
       type: "SyntheticsAPITestConfig",
+      required: false,
       format: "",
     },
     locations: {
+      name: "locations",
       baseName: "locations",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
     monitorId: {
+      name: "monitorId",
       baseName: "monitor_id",
       type: "number",
+      required: false,
       format: "int64",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     options: {
+      name: "options",
       baseName: "options",
       type: "SyntheticsTestOptions",
+      required: false,
       format: "",
     },
     publicId: {
+      name: "publicId",
       baseName: "public_id",
       type: "string",
+      required: false,
       format: "",
     },
     status: {
+      name: "status",
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
+      required: false,
       format: "",
     },
     subtype: {
+      name: "subtype",
       baseName: "subtype",
       type: "SyntheticsTestDetailsSubType",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "SyntheticsAPITestType",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsAPITest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsAPITest {
-    const res = new SyntheticsAPITest();
-
-    res.config = ObjectSerializer.deserialize(
-      data.config,
-      "SyntheticsAPITestConfig",
-      ""
-    );
-
-    res.locations = ObjectSerializer.deserialize(
-      data.locations,
-      "Array<string>",
-      ""
-    );
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.monitorId = ObjectSerializer.deserialize(
-      data.monitor_id,
-      "number",
-      "int64"
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.options = ObjectSerializer.deserialize(
-      data.options,
-      "SyntheticsTestOptions",
-      ""
-    );
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    if (["live", "paused", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new SyntheticsAPITest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (
-      ["http", "ssl", "tcp", "dns", "multi", "icmp", undefined].includes(
-        data.subtype
-      )
-    ) {
-      res.subtype = data.subtype;
-    } else {
-      const raw = new SyntheticsAPITest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    if (["api", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SyntheticsAPITest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsAPITest): { [key: string]: any } {
-    const attributeTypes = SyntheticsAPITest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.config = ObjectSerializer.serialize(
-      data.config,
-      "SyntheticsAPITestConfig",
-      ""
-    );
-
-    res.locations = ObjectSerializer.serialize(
-      data.locations,
-      "Array<string>",
-      ""
-    );
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.monitor_id = ObjectSerializer.serialize(
-      data.monitorId,
-      "number",
-      "int64"
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.options = ObjectSerializer.serialize(
-      data.options,
-      "SyntheticsTestOptions",
-      ""
-    );
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    if (["live", "paused", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    if (
-      ["http", "ssl", "tcp", "dns", "multi", "icmp", undefined].includes(
-        data.subtype
-      )
-    ) {
-      res.subtype = data.subtype;
-    } else {
-      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
-    }
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    if (["api", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

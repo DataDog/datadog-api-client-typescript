@@ -9,11 +9,6 @@
  */
 
 import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The metadata object containing pagination metadata.
- */
 
 export class IncidentServicesResponseMeta {
   "pagination"?: IncidentServicesResponseMetaPagination;
@@ -23,51 +18,26 @@ export class IncidentServicesResponseMeta {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     pagination: {
+      name: "pagination",
       baseName: "pagination",
       type: "IncidentServicesResponseMetaPagination",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentServicesResponseMeta.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentServicesResponseMeta {
-    const res = new IncidentServicesResponseMeta();
-
-    res.pagination = ObjectSerializer.deserialize(
-      data.pagination,
-      "IncidentServicesResponseMetaPagination",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentServicesResponseMeta): { [key: string]: any } {
-    const attributeTypes = IncidentServicesResponseMeta.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.pagination = ObjectSerializer.serialize(
-      data.pagination,
-      "IncidentServicesResponseMetaPagination",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { Creator } from "./Creator";
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attribute object associated with the SLO correction.
- */
 
 export class SLOCorrectionResponseAttributes {
   "category"?: SLOCorrectionCategory;
@@ -45,134 +40,68 @@ export class SLOCorrectionResponseAttributes {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     category: {
+      name: "category",
       baseName: "category",
       type: "SLOCorrectionCategory",
+      required: false,
       format: "",
     },
     creator: {
+      name: "creator",
       baseName: "creator",
       type: "Creator",
+      required: false,
       format: "",
     },
     description: {
+      name: "description",
       baseName: "description",
       type: "string",
+      required: false,
       format: "",
     },
     end: {
+      name: "end",
       baseName: "end",
       type: "number",
+      required: false,
       format: "int64",
     },
     sloId: {
+      name: "sloId",
       baseName: "slo_id",
       type: "string",
+      required: false,
       format: "",
     },
     start: {
+      name: "start",
       baseName: "start",
       type: "number",
+      required: false,
       format: "int64",
     },
     timezone: {
+      name: "timezone",
       baseName: "timezone",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOCorrectionResponseAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SLOCorrectionResponseAttributes {
-    const res = new SLOCorrectionResponseAttributes();
-
-    if (
-      [
-        "Scheduled Maintenance",
-        "Outside Business Hours",
-        "Deployment",
-        "Other",
-        undefined,
-      ].includes(data.category)
-    ) {
-      res.category = data.category;
-    } else {
-      const raw = new SLOCorrectionResponseAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.creator = ObjectSerializer.deserialize(data.creator, "Creator", "");
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.end = ObjectSerializer.deserialize(data.end, "number", "int64");
-
-    res.sloId = ObjectSerializer.deserialize(data.slo_id, "string", "");
-
-    res.start = ObjectSerializer.deserialize(data.start, "number", "int64");
-
-    res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SLOCorrectionResponseAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SLOCorrectionResponseAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      [
-        "Scheduled Maintenance",
-        "Outside Business Hours",
-        "Deployment",
-        "Other",
-        undefined,
-      ].includes(data.category)
-    ) {
-      res.category = data.category;
-    } else {
-      throw TypeError(`invalid enum value ${data.category} for category`);
-    }
-
-    res.creator = ObjectSerializer.serialize(data.creator, "Creator", "");
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.end = ObjectSerializer.serialize(data.end, "number", "int64");
-
-    res.slo_id = ObjectSerializer.serialize(data.sloId, "string", "");
-
-    res.start = ObjectSerializer.serialize(data.start, "number", "int64");
-
-    res.timezone = ObjectSerializer.serialize(data.timezone, "string", "");
-
-    return res;
   }
 
   public constructor() {}

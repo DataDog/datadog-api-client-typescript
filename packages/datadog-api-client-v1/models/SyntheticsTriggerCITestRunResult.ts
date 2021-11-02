@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Information about a single test run.
- */
 
 export class SyntheticsTriggerCITestRunResult {
   "device"?: SyntheticsDeviceID;
@@ -35,119 +30,47 @@ export class SyntheticsTriggerCITestRunResult {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     device: {
+      name: "device",
       baseName: "device",
       type: "SyntheticsDeviceID",
+      required: false,
       format: "",
     },
     location: {
+      name: "location",
       baseName: "location",
       type: "number",
+      required: false,
       format: "int64",
     },
     publicId: {
+      name: "publicId",
       baseName: "public_id",
       type: "string",
+      required: false,
       format: "",
     },
     resultId: {
+      name: "resultId",
       baseName: "result_id",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTriggerCITestRunResult.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsTriggerCITestRunResult {
-    const res = new SyntheticsTriggerCITestRunResult();
-
-    if (
-      [
-        "laptop_large",
-        "tablet",
-        "mobile_small",
-        "chrome.laptop_large",
-        "chrome.tablet",
-        "chrome.mobile_small",
-        "firefox.laptop_large",
-        "firefox.tablet",
-        "firefox.mobile_small",
-        "edge.laptop_large",
-        "edge.tablet",
-        "edge.mobile_small",
-        undefined,
-      ].includes(data.device)
-    ) {
-      res.device = data.device;
-    } else {
-      const raw = new SyntheticsTriggerCITestRunResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.location = ObjectSerializer.deserialize(
-      data.location,
-      "number",
-      "int64"
-    );
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    res.resultId = ObjectSerializer.deserialize(data.result_id, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTriggerCITestRunResult): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsTriggerCITestRunResult.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      [
-        "laptop_large",
-        "tablet",
-        "mobile_small",
-        "chrome.laptop_large",
-        "chrome.tablet",
-        "chrome.mobile_small",
-        "firefox.laptop_large",
-        "firefox.tablet",
-        "firefox.mobile_small",
-        "edge.laptop_large",
-        "edge.tablet",
-        "edge.mobile_small",
-        undefined,
-      ].includes(data.device)
-    ) {
-      res.device = data.device;
-    } else {
-      throw TypeError(`invalid enum value ${data.device} for device`);
-    }
-
-    res.location = ObjectSerializer.serialize(data.location, "number", "int64");
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    res.result_id = ObjectSerializer.serialize(data.resultId, "string", "");
-
-    return res;
   }
 
   public constructor() {}

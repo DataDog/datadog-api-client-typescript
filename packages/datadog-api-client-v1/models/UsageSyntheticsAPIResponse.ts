@@ -9,11 +9,6 @@
  */
 
 import { UsageSyntheticsAPIHour } from "./UsageSyntheticsAPIHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of Synthetics API tests run for each hour for a given organization.
- */
 
 export class UsageSyntheticsAPIResponse {
   /**
@@ -26,49 +21,26 @@ export class UsageSyntheticsAPIResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     usage: {
+      name: "usage",
       baseName: "usage",
       type: "Array<UsageSyntheticsAPIHour>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSyntheticsAPIResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSyntheticsAPIResponse {
-    const res = new UsageSyntheticsAPIResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageSyntheticsAPIHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSyntheticsAPIResponse): { [key: string]: any } {
-    const attributeTypes = UsageSyntheticsAPIResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageSyntheticsAPIHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

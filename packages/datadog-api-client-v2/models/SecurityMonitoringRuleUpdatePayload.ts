@@ -12,11 +12,6 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Update an existing rule.
- */
 
 export class SecurityMonitoringRuleUpdatePayload {
   /**
@@ -62,167 +57,89 @@ export class SecurityMonitoringRuleUpdatePayload {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     cases: {
+      name: "cases",
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
+      required: false,
       format: "",
     },
     filters: {
+      name: "filters",
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
+      required: false,
       format: "",
     },
     hasExtendedTitle: {
+      name: "hasExtendedTitle",
       baseName: "hasExtendedTitle",
       type: "boolean",
+      required: false,
       format: "",
     },
     isEnabled: {
+      name: "isEnabled",
       baseName: "isEnabled",
       type: "boolean",
+      required: false,
       format: "",
     },
     message: {
+      name: "message",
       baseName: "message",
       type: "string",
+      required: false,
       format: "",
     },
     name: {
+      name: "name",
       baseName: "name",
       type: "string",
+      required: false,
       format: "",
     },
     options: {
+      name: "options",
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
+      required: false,
       format: "",
     },
     queries: {
+      name: "queries",
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQuery>",
+      required: false,
       format: "",
     },
     tags: {
+      name: "tags",
       baseName: "tags",
       type: "Array<string>",
+      required: false,
       format: "",
     },
     version: {
+      name: "version",
       baseName: "version",
       type: "number",
+      required: false,
       format: "int32",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringRuleUpdatePayload {
-    const res = new SecurityMonitoringRuleUpdatePayload();
-
-    res.cases = ObjectSerializer.deserialize(
-      data.cases,
-      "Array<SecurityMonitoringRuleCase>",
-      ""
-    );
-
-    res.filters = ObjectSerializer.deserialize(
-      data.filters,
-      "Array<SecurityMonitoringFilter>",
-      ""
-    );
-
-    res.hasExtendedTitle = ObjectSerializer.deserialize(
-      data.hasExtendedTitle,
-      "boolean",
-      ""
-    );
-
-    res.isEnabled = ObjectSerializer.deserialize(data.isEnabled, "boolean", "");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.options = ObjectSerializer.deserialize(
-      data.options,
-      "SecurityMonitoringRuleOptions",
-      ""
-    );
-
-    res.queries = ObjectSerializer.deserialize(
-      data.queries,
-      "Array<SecurityMonitoringRuleQuery>",
-      ""
-    );
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    res.version = ObjectSerializer.deserialize(data.version, "number", "int32");
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleUpdatePayload): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringRuleUpdatePayload.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.cases = ObjectSerializer.serialize(
-      data.cases,
-      "Array<SecurityMonitoringRuleCase>",
-      ""
-    );
-
-    res.filters = ObjectSerializer.serialize(
-      data.filters,
-      "Array<SecurityMonitoringFilter>",
-      ""
-    );
-
-    res.hasExtendedTitle = ObjectSerializer.serialize(
-      data.hasExtendedTitle,
-      "boolean",
-      ""
-    );
-
-    res.isEnabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.options = ObjectSerializer.serialize(
-      data.options,
-      "SecurityMonitoringRuleOptions",
-      ""
-    );
-
-    res.queries = ObjectSerializer.serialize(
-      data.queries,
-      "Array<SecurityMonitoringRuleQuery>",
-      ""
-    );
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    res.version = ObjectSerializer.serialize(data.version, "number", "int32");
-
-    return res;
   }
 
   public constructor() {}

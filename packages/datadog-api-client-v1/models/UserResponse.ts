@@ -9,11 +9,6 @@
  */
 
 import { User } from "./User";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A Datadog User.
- */
 
 export class UserResponse {
   "user"?: User;
@@ -23,41 +18,26 @@ export class UserResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     user: {
+      name: "user",
       baseName: "user",
       type: "User",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UserResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserResponse {
-    const res = new UserResponse();
-
-    res.user = ObjectSerializer.deserialize(data.user, "User", "");
-
-    return res;
-  }
-
-  static serialize(data: UserResponse): { [key: string]: any } {
-    const attributeTypes = UserResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.user = ObjectSerializer.serialize(data.user, "User", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Paging attributes for listing logs.
- */
-
 export class LogsListRequestPage {
   /**
    * List following results with a cursor provided in the previous query.
@@ -29,50 +23,33 @@ export class LogsListRequestPage {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     cursor: {
+      name: "cursor",
       baseName: "cursor",
       type: "string",
+      required: false,
       format: "",
     },
     limit: {
+      name: "limit",
       baseName: "limit",
       type: "number",
+      required: false,
       format: "int32",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsListRequestPage.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsListRequestPage {
-    const res = new LogsListRequestPage();
-
-    res.cursor = ObjectSerializer.deserialize(data.cursor, "string", "");
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int32");
-
-    return res;
-  }
-
-  static serialize(data: LogsListRequestPage): { [key: string]: any } {
-    const attributeTypes = LogsListRequestPage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.cursor = ObjectSerializer.serialize(data.cursor, "string", "");
-
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int32");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Type of aggregation performed in the monitor query.
- */
-
 export class MonitorOptionsAggregation {
   /**
    * Group to break down the monitor on.
@@ -33,59 +27,40 @@ export class MonitorOptionsAggregation {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     groupBy: {
+      name: "groupBy",
       baseName: "group_by",
       type: "string",
+      required: false,
       format: "",
     },
     metric: {
+      name: "metric",
       baseName: "metric",
       type: "string",
+      required: false,
       format: "",
     },
     type: {
+      name: "type",
       baseName: "type",
       type: "string",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorOptionsAggregation.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MonitorOptionsAggregation {
-    const res = new MonitorOptionsAggregation();
-
-    res.groupBy = ObjectSerializer.deserialize(data.group_by, "string", "");
-
-    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
-
-    res.type = ObjectSerializer.deserialize(data.type, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: MonitorOptionsAggregation): { [key: string]: any } {
-    const attributeTypes = MonitorOptionsAggregation.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.group_by = ObjectSerializer.serialize(data.groupBy, "string", "");
-
-    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
-
-    res.type = ObjectSerializer.serialize(data.type, "string", "");
-
-    return res;
   }
 
   public constructor() {}

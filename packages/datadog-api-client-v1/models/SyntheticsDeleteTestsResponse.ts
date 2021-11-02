@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object for deleting Synthetic tests.
- */
 
 export class SyntheticsDeleteTestsResponse {
   /**
@@ -26,53 +21,26 @@ export class SyntheticsDeleteTestsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     deletedTests: {
+      name: "deletedTests",
       baseName: "deleted_tests",
       type: "Array<SyntheticsDeletedTest>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsDeleteTestsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsDeleteTestsResponse {
-    const res = new SyntheticsDeleteTestsResponse();
-
-    res.deletedTests = ObjectSerializer.deserialize(
-      data.deleted_tests,
-      "Array<SyntheticsDeletedTest>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsDeleteTestsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes = SyntheticsDeleteTestsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.deleted_tests = ObjectSerializer.serialize(
-      data.deletedTests,
-      "Array<SyntheticsDeletedTest>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

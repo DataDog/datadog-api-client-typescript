@@ -9,11 +9,6 @@
  */
 
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing a list of deleted dashboards.
- */
 
 export class DashboardListDeleteItemsResponse {
   /**
@@ -26,54 +21,26 @@ export class DashboardListDeleteItemsResponse {
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      name: string;
+      baseName: string;
+      type: string;
+      required: boolean;
+      format?: string;
+      enumValues?: any;
+    };
   } = {
     deletedDashboardsFromList: {
+      name: "deletedDashboardsFromList",
       baseName: "deleted_dashboards_from_list",
       type: "Array<DashboardListItemResponse>",
+      required: false,
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardListDeleteItemsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): DashboardListDeleteItemsResponse {
-    const res = new DashboardListDeleteItemsResponse();
-
-    res.deletedDashboardsFromList = ObjectSerializer.deserialize(
-      data.deleted_dashboards_from_list,
-      "Array<DashboardListItemResponse>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: DashboardListDeleteItemsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      DashboardListDeleteItemsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.deleted_dashboards_from_list = ObjectSerializer.serialize(
-      data.deletedDashboardsFromList,
-      "Array<DashboardListItemResponse>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}
