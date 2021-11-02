@@ -172,7 +172,7 @@ export class ObjectSerializer {
                 instance[attributeObj.baseName] = ObjectSerializer.serialize(data[attributeName], attributeObj.type, attributeObj.format);
 
                 // check for required properties
-                if (attributeObj.?required && instance[attributeObj.baseName] === undefined) {
+                if (attributeObj?.required && instance[attributeObj.baseName] === undefined) {
                     throw new Error(`missing required property ${attributeObj.baseName}`);
                 }
 
@@ -247,7 +247,7 @@ export class ObjectSerializer {
                 instance[attributeName] = ObjectSerializer.deserialize(data[attributeObj.baseName], attributeObj.type, attributeObj.format);
 
                 // check for required properties
-                if (attributeObj.?required && instance[attributeName] == undefined) {
+                if (attributeObj?.required && instance[attributeName] == undefined) {
                     throw new Error(`missing required property ${attributeName}`);
                 }
 
