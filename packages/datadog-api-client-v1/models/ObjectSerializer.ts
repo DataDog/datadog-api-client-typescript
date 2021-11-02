@@ -1656,10 +1656,7 @@ export class ObjectSerializer {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
-            const d = ObjectSerializer.serialize(data, oneOf, format);
-            if (d?.unparsedObject === undefined) {
-              oneOfs.push(d);
-            }
+            oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
           } catch (e) {
             console.debug(`could not serialize ${oneOf} (${e})`);
           }
