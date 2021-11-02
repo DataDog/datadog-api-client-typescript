@@ -168,16 +168,16 @@ export class ObjectSerializer {
             let instance: {[index: string]: any} = {};
 
             for (let attributeName in attributesMap) {
-                let attributeType = attributesMap[attributeName];
-                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeName], attributeType.type, attributeType.format);
+                let attributeObj = attributesMap[attributeName];
+                instance[attributeObj.baseName] = ObjectSerializer.serialize(data[attributeName], attributeObj.type, attributeObj.format);
 
                 // check for required properties
-                if (attributeType.?required && instance[attributeType.baseName] === undefined) {
-                    throw new Error(`missing required property ${attributeType.baseName}`);
+                if (attributeObj.?required && instance[attributeObj.baseName] === undefined) {
+                    throw new Error(`missing required property ${attributeObj.baseName}`);
                 }
 
-                if (enumsMap[attributeType.type] && !enumsMap[attributeType.type].includes(instance[attributeType.baseName])) {
-                    instance.unparsedObject = instance[attributeType.baseName];
+                if (enumsMap[attributeObj.type] && !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])) {
+                    instance.unparsedObject = instance[attributeObj.baseName];
                 }
             }
             return instance;
@@ -243,17 +243,17 @@ export class ObjectSerializer {
             let attributesMap = typeMap[type].getAttributeTypeMap();
 
             for (let attributeName in attributesMap) {
-                let attributeType = attributesMap[attributeName];
-                instance[attributeName] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
+                let attributeObj = attributesMap[attributeName];
+                instance[attributeName] = ObjectSerializer.deserialize(data[attributeObj.baseName], attributeObj.type, attributeObj.format);
 
                 // check for required properties
-                if (attributeType.?required && instance[attributeType.name] == undefined) {
-                    throw new Error(`missing required property ${attributeType.name}`);
+                if (attributeObj.?required && instance[attributeName] == undefined) {
+                    throw new Error(`missing required property ${attributeName}`);
                 }
 
                 // check for enum values
-                if (enumsMap[attributeType.type] && !enumsMap[attributeType.type].includes(instance[attributeType.name])) {
-                    instance.unparsedObject = instance[attributeType.name];
+                if (enumsMap[attributeObj.type] && !enumsMap[attributeObj.type].includes(instance[attributeName])) {
+                    instance.unparsedObject = instance[attributeName];
                 }
             }
 
