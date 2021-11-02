@@ -23,24 +23,19 @@ export class AWSTagFilter {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     namespace: {
-      name: "namespace",
       baseName: "namespace",
       type: "AWSNamespace",
-      required: false,
     },
     tagFilterStr: {
-      name: "tagFilterStr",
       baseName: "tag_filter_str",
       type: "string",
-      required: false,
     },
   };
 

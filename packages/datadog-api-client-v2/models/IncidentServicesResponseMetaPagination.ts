@@ -28,32 +28,28 @@ export class IncidentServicesResponseMetaPagination {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     nextOffset: {
-      name: "nextOffset",
       baseName: "next_offset",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     offset: {
-      name: "offset",
       baseName: "offset",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     size: {
-      name: "size",
       baseName: "size",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

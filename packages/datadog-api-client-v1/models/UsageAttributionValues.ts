@@ -168,277 +168,238 @@ export class UsageAttributionValues {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     apiPercentage: {
-      name: "apiPercentage",
       baseName: "api_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     apiUsage: {
-      name: "apiUsage",
       baseName: "api_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     apmHostPercentage: {
-      name: "apmHostPercentage",
       baseName: "apm_host_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     apmHostUsage: {
-      name: "apmHostUsage",
       baseName: "apm_host_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     browserPercentage: {
-      name: "browserPercentage",
       baseName: "browser_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     browserUsage: {
-      name: "browserUsage",
       baseName: "browser_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     containerPercentage: {
-      name: "containerPercentage",
       baseName: "container_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     containerUsage: {
-      name: "containerUsage",
       baseName: "container_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cspmContainerPercentage: {
-      name: "cspmContainerPercentage",
       baseName: "cspm_container_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cspmContainerUsage: {
-      name: "cspmContainerUsage",
       baseName: "cspm_container_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cspmHostPercentage: {
-      name: "cspmHostPercentage",
       baseName: "cspm_host_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cspmHostUsage: {
-      name: "cspmHostUsage",
       baseName: "cspm_host_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     customTimeseriesPercentage: {
-      name: "customTimeseriesPercentage",
       baseName: "custom_timeseries_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     customTimeseriesUsage: {
-      name: "customTimeseriesUsage",
       baseName: "custom_timeseries_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cwsContainerPercentage: {
-      name: "cwsContainerPercentage",
       baseName: "cws_container_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cwsContainerUsage: {
-      name: "cwsContainerUsage",
       baseName: "cws_container_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cwsHostPercentage: {
-      name: "cwsHostPercentage",
       baseName: "cws_host_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     cwsHostUsage: {
-      name: "cwsHostUsage",
       baseName: "cws_host_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     dbmHostsPercentage: {
-      name: "dbmHostsPercentage",
       baseName: "dbm_hosts_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     dbmHostsUsage: {
-      name: "dbmHostsUsage",
       baseName: "dbm_hosts_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     dbmQueriesPercentage: {
-      name: "dbmQueriesPercentage",
       baseName: "dbm_queries_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     dbmQueriesUsage: {
-      name: "dbmQueriesUsage",
       baseName: "dbm_queries_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     infraHostPercentage: {
-      name: "infraHostPercentage",
       baseName: "infra_host_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     infraHostUsage: {
-      name: "infraHostUsage",
       baseName: "infra_host_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     lambdaFunctionsPercentage: {
-      name: "lambdaFunctionsPercentage",
       baseName: "lambda_functions_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     lambdaFunctionsUsage: {
-      name: "lambdaFunctionsUsage",
       baseName: "lambda_functions_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     lambdaInvocationsPercentage: {
-      name: "lambdaInvocationsPercentage",
       baseName: "lambda_invocations_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     lambdaInvocationsUsage: {
-      name: "lambdaInvocationsUsage",
       baseName: "lambda_invocations_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     lambdaPercentage: {
-      name: "lambdaPercentage",
       baseName: "lambda_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     lambdaUsage: {
-      name: "lambdaUsage",
       baseName: "lambda_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     npmHostPercentage: {
-      name: "npmHostPercentage",
       baseName: "npm_host_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     npmHostUsage: {
-      name: "npmHostUsage",
       baseName: "npm_host_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     profiledContainerPercentage: {
-      name: "profiledContainerPercentage",
       baseName: "profiled_container_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     profiledContainerUsage: {
-      name: "profiledContainerUsage",
       baseName: "profiled_container_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     profiledHostsPercentage: {
-      name: "profiledHostsPercentage",
       baseName: "profiled_hosts_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     profiledHostsUsage: {
-      name: "profiledHostsUsage",
       baseName: "profiled_hosts_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     snmpPercentage: {
-      name: "snmpPercentage",
       baseName: "snmp_percentage",
       type: "number",
-      required: false,
+
       format: "double",
     },
     snmpUsage: {
-      name: "snmpUsage",
       baseName: "snmp_usage",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

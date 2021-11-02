@@ -35,40 +35,33 @@ export class SyntheticsDevice {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     height: {
-      name: "height",
       baseName: "height",
       type: "number",
       required: true,
       format: "int64",
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "SyntheticsDeviceID",
       required: true,
     },
     isMobile: {
-      name: "isMobile",
       baseName: "isMobile",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     width: {
-      name: "width",
       baseName: "width",
       type: "number",
       required: true,

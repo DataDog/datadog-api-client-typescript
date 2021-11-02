@@ -20,18 +20,15 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     content: {
-      name: "content",
       baseName: "content",
       type: "string",
-      required: false,
     },
   };
 

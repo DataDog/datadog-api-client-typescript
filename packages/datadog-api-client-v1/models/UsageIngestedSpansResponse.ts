@@ -22,18 +22,15 @@ export class UsageIngestedSpansResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     usage: {
-      name: "usage",
       baseName: "usage",
       type: "Array<UsageIngestedSpansHour>",
-      required: false,
     },
   };
 

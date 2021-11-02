@@ -26,30 +26,23 @@ export class SecurityMonitoringSignalsListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<SecurityMonitoringSignal>",
-      required: false,
     },
     links: {
-      name: "links",
       baseName: "links",
       type: "SecurityMonitoringSignalsListResponseLinks",
-      required: false,
     },
     meta: {
-      name: "meta",
       baseName: "meta",
       type: "SecurityMonitoringSignalsListResponseMeta",
-      required: false,
     },
   };
 

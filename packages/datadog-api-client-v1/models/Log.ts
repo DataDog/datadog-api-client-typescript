@@ -23,24 +23,19 @@ export class Log {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     content: {
-      name: "content",
       baseName: "content",
       type: "LogContent",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
   };
 

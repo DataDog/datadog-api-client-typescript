@@ -26,25 +26,21 @@ export class LogsByRetentionMonthlyUsage {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     date: {
-      name: "date",
       baseName: "date",
       type: "string",
-      required: false,
+
       format: "datetime",
     },
     usage: {
-      name: "usage",
       baseName: "usage",
       type: "Array<LogsRetentionSumUsage>",
-      required: false,
     },
   };
 

@@ -27,27 +27,21 @@ export class LogsArchiveDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "LogsArchiveAttributes",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
       required: true,

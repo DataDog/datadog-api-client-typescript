@@ -35,45 +35,38 @@ export class SyntheticsBrowserTestResultShortResult {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     device: {
-      name: "device",
       baseName: "device",
       type: "SyntheticsDevice",
-      required: false,
     },
     duration: {
-      name: "duration",
       baseName: "duration",
       type: "number",
-      required: false,
+
       format: "double",
     },
     errorCount: {
-      name: "errorCount",
       baseName: "errorCount",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     stepCountCompleted: {
-      name: "stepCountCompleted",
       baseName: "stepCountCompleted",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     stepCountTotal: {
-      name: "stepCountTotal",
       baseName: "stepCountTotal",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

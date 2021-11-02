@@ -82,117 +82,85 @@ export class SyntheticsStepDetail {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     browserErrors: {
-      name: "browserErrors",
       baseName: "browserErrors",
       type: "Array<SyntheticsBrowserError>",
-      required: false,
     },
     checkType: {
-      name: "checkType",
       baseName: "checkType",
       type: "SyntheticsCheckType",
-      required: false,
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     duration: {
-      name: "duration",
       baseName: "duration",
       type: "number",
-      required: false,
+
       format: "double",
     },
     error: {
-      name: "error",
       baseName: "error",
       type: "string",
-      required: false,
     },
     playingTab: {
-      name: "playingTab",
       baseName: "playingTab",
       type: "SyntheticsPlayingTab",
-      required: false,
     },
     screenshotBucketKey: {
-      name: "screenshotBucketKey",
       baseName: "screenshotBucketKey",
       type: "boolean",
-      required: false,
     },
     skipped: {
-      name: "skipped",
       baseName: "skipped",
       type: "boolean",
-      required: false,
     },
     snapshotBucketKey: {
-      name: "snapshotBucketKey",
       baseName: "snapshotBucketKey",
       type: "boolean",
-      required: false,
     },
     stepId: {
-      name: "stepId",
       baseName: "stepId",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     subTestStepDetails: {
-      name: "subTestStepDetails",
       baseName: "subTestStepDetails",
       type: "Array<SyntheticsStepDetail>",
-      required: false,
     },
     timeToInteractive: {
-      name: "timeToInteractive",
       baseName: "timeToInteractive",
       type: "number",
-      required: false,
+
       format: "double",
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsStepType",
-      required: false,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "any",
-      required: false,
     },
     vitalsMetrics: {
-      name: "vitalsMetrics",
       baseName: "vitalsMetrics",
       type: "Array<SyntheticsCoreWebVitals>",
-      required: false,
     },
     warnings: {
-      name: "warnings",
       baseName: "warnings",
       type: "Array<SyntheticsStepDetailWarning>",
-      required: false,
     },
   };
 

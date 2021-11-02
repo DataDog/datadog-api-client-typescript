@@ -24,21 +24,18 @@ export class LogsArchiveIntegrationGCS {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     clientEmail: {
-      name: "clientEmail",
       baseName: "client_email",
       type: "string",
       required: true,
     },
     projectId: {
-      name: "projectId",
       baseName: "project_id",
       type: "string",
       required: true,

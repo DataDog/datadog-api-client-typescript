@@ -25,27 +25,22 @@ export class SyntheticsGlobalVariableParseTestOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     field: {
-      name: "field",
       baseName: "field",
       type: "string",
-      required: false,
     },
     parser: {
-      name: "parser",
       baseName: "parser",
       type: "SyntheticsVariableParser",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsGlobalVariableParseTestOptionsType",
       required: true,

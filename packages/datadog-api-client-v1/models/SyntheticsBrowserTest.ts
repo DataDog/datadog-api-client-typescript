@@ -54,79 +54,58 @@ export class SyntheticsBrowserTest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     config: {
-      name: "config",
       baseName: "config",
       type: "SyntheticsBrowserTestConfig",
-      required: false,
     },
     locations: {
-      name: "locations",
       baseName: "locations",
       type: "Array<string>",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
       required: true,
     },
     monitorId: {
-      name: "monitorId",
       baseName: "monitor_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     options: {
-      name: "options",
       baseName: "options",
       type: "SyntheticsTestOptions",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
-      required: false,
     },
     steps: {
-      name: "steps",
       baseName: "steps",
       type: "Array<SyntheticsStep>",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsBrowserTestType",
-      required: false,
     },
   };
 

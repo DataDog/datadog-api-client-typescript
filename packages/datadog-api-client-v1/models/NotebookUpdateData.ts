@@ -21,21 +21,18 @@ export class NotebookUpdateData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "NotebookUpdateDataAttributes",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "NotebookResourceType",
       required: true,

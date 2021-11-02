@@ -20,18 +20,15 @@ export class MetricSearchResponseResults {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     metrics: {
-      name: "metrics",
       baseName: "metrics",
       type: "Array<string>",
-      required: false,
     },
   };
 

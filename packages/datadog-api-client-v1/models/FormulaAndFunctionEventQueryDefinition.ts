@@ -36,48 +36,38 @@ export class FormulaAndFunctionEventQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     compute: {
-      name: "compute",
       baseName: "compute",
       type: "FormulaAndFunctionEventQueryDefinitionCompute",
       required: true,
     },
     dataSource: {
-      name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionEventsDataSource",
       required: true,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<FormulaAndFunctionEventQueryGroupBy>",
-      required: false,
     },
     indexes: {
-      name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     search: {
-      name: "search",
       baseName: "search",
       type: "FormulaAndFunctionEventQueryDefinitionSearch",
-      required: false,
     },
   };
 

@@ -31,35 +31,29 @@ export class SLOHistoryMetricsSeries {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     count: {
-      name: "count",
       baseName: "count",
       type: "number",
       required: true,
       format: "int64",
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "SLOHistoryMetricsSeriesMetadata",
-      required: false,
     },
     sum: {
-      name: "sum",
       baseName: "sum",
       type: "number",
       required: true,
       format: "double",
     },
     values: {
-      name: "values",
       baseName: "values",
       type: "Array<number>",
       required: true,

@@ -20,18 +20,16 @@ export class SyntheticsTestOptionsMonitorOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     renotifyInterval: {
-      name: "renotifyInterval",
       baseName: "renotify_interval",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

@@ -24,21 +24,18 @@ export class AWSLogsServicesRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accountId: {
-      name: "accountId",
       baseName: "account_id",
       type: "string",
       required: true,
     },
     services: {
-      name: "services",
       baseName: "services",
       type: "Array<string>",
       required: true,

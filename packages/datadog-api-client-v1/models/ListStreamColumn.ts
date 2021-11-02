@@ -23,21 +23,18 @@ export class ListStreamColumn {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     field: {
-      name: "field",
       baseName: "field",
       type: "string",
       required: true,
     },
     width: {
-      name: "width",
       baseName: "width",
       type: "ListStreamColumnWidth",
       required: true,

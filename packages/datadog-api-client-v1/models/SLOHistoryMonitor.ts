@@ -66,90 +66,72 @@ export class SLOHistoryMonitor {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     errorBudgetRemaining: {
-      name: "errorBudgetRemaining",
       baseName: "error_budget_remaining",
       type: "{ [key: string]: number; }",
-      required: false,
+
       format: "double",
     },
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "Array<SLOHistoryResponseErrorWithType>",
-      required: false,
     },
     group: {
-      name: "group",
       baseName: "group",
       type: "string",
-      required: false,
     },
     history: {
-      name: "history",
       baseName: "history",
       type: "Array<Array<number>>",
-      required: false,
+
       format: "double",
     },
     monitorModified: {
-      name: "monitorModified",
       baseName: "monitor_modified",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     monitorType: {
-      name: "monitorType",
       baseName: "monitor_type",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     precision: {
-      name: "precision",
       baseName: "precision",
       type: "number",
-      required: false,
+
       format: "double",
     },
     preview: {
-      name: "preview",
       baseName: "preview",
       type: "boolean",
-      required: false,
     },
     sliValue: {
-      name: "sliValue",
       baseName: "sli_value",
       type: "number",
-      required: false,
+
       format: "double",
     },
     spanPrecision: {
-      name: "spanPrecision",
       baseName: "span_precision",
       type: "number",
-      required: false,
+
       format: "double",
     },
     uptime: {
-      name: "uptime",
       baseName: "uptime",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

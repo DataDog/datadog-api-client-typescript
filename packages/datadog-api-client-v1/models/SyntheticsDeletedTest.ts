@@ -24,25 +24,21 @@ export class SyntheticsDeletedTest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     deletedAt: {
-      name: "deletedAt",
       baseName: "deleted_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
   };
 

@@ -33,49 +33,38 @@ export class LogsGroupBy {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     facet: {
-      name: "facet",
       baseName: "facet",
       type: "string",
       required: true,
     },
     histogram: {
-      name: "histogram",
       baseName: "histogram",
       type: "LogsGroupByHistogram",
-      required: false,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     missing: {
-      name: "missing",
       baseName: "missing",
       type: "LogsGroupByMissing",
-      required: false,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "LogsAggregateSort",
-      required: false,
     },
     total: {
-      name: "total",
       baseName: "total",
       type: "LogsGroupByTotal",
-      required: false,
     },
   };
 

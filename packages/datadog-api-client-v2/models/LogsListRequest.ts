@@ -25,36 +25,27 @@ export class LogsListRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsQueryFilter",
-      required: false,
     },
     options: {
-      name: "options",
       baseName: "options",
       type: "LogsQueryOptions",
-      required: false,
     },
     page: {
-      name: "page",
       baseName: "page",
       type: "LogsListRequestPage",
-      required: false,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "LogsSort",
-      required: false,
     },
   };
 

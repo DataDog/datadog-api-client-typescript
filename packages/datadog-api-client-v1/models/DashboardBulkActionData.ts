@@ -23,21 +23,18 @@ export class DashboardBulkActionData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "DashboardResourceType",
       required: true,

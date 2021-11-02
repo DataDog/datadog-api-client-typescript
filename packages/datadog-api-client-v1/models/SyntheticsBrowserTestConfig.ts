@@ -38,42 +38,33 @@ export class SyntheticsBrowserTestConfig {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     assertions: {
-      name: "assertions",
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
       required: true,
     },
     configVariables: {
-      name: "configVariables",
       baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
-      required: false,
     },
     request: {
-      name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
       required: true,
     },
     setCookie: {
-      name: "setCookie",
       baseName: "setCookie",
       type: "string",
-      required: false,
     },
     variables: {
-      name: "variables",
       baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
-      required: false,
     },
   };
 

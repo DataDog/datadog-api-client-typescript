@@ -24,24 +24,19 @@ export class SyntheticsGlobalVariableValue {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     secure: {
-      name: "secure",
       baseName: "secure",
       type: "boolean",
-      required: false,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "string",
-      required: false,
     },
   };
 

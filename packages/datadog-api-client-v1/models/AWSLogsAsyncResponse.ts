@@ -26,24 +26,19 @@ export class AWSLogsAsyncResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "Array<AWSLogsAsyncError>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
   };
 

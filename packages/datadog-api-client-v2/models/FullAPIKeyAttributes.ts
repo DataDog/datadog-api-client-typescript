@@ -36,42 +36,31 @@ export class FullAPIKeyAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "string",
-      required: false,
     },
     key: {
-      name: "key",
       baseName: "key",
       type: "string",
-      required: false,
     },
     last4: {
-      name: "last4",
       baseName: "last4",
       type: "string",
-      required: false,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
   };
 

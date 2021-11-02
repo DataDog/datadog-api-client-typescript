@@ -49,72 +49,53 @@ export class NoteWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     backgroundColor: {
-      name: "backgroundColor",
       baseName: "background_color",
       type: "string",
-      required: false,
     },
     content: {
-      name: "content",
       baseName: "content",
       type: "string",
       required: true,
     },
     fontSize: {
-      name: "fontSize",
       baseName: "font_size",
       type: "string",
-      required: false,
     },
     hasPadding: {
-      name: "hasPadding",
       baseName: "has_padding",
       type: "boolean",
-      required: false,
     },
     showTick: {
-      name: "showTick",
       baseName: "show_tick",
       type: "boolean",
-      required: false,
     },
     textAlign: {
-      name: "textAlign",
       baseName: "text_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     tickEdge: {
-      name: "tickEdge",
       baseName: "tick_edge",
       type: "WidgetTickEdge",
-      required: false,
     },
     tickPos: {
-      name: "tickPos",
       baseName: "tick_pos",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "NoteWidgetDefinitionType",
       required: true,
     },
     verticalAlign: {
-      name: "verticalAlign",
       baseName: "vertical_align",
       type: "WidgetVerticalAlign",
-      required: false,
     },
   };
 

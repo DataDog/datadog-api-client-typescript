@@ -68,96 +68,68 @@ export class SyntheticsCITest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     allowInsecureCertificates: {
-      name: "allowInsecureCertificates",
       baseName: "allowInsecureCertificates",
       type: "boolean",
-      required: false,
     },
     basicAuth: {
-      name: "basicAuth",
       baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
-      required: false,
     },
     body: {
-      name: "body",
       baseName: "body",
       type: "string",
-      required: false,
     },
     bodyType: {
-      name: "bodyType",
       baseName: "bodyType",
       type: "string",
-      required: false,
     },
     cookies: {
-      name: "cookies",
       baseName: "cookies",
       type: "string",
-      required: false,
     },
     deviceIds: {
-      name: "deviceIds",
       baseName: "deviceIds",
       type: "Array<SyntheticsDeviceID>",
-      required: false,
     },
     followRedirects: {
-      name: "followRedirects",
       baseName: "followRedirects",
       type: "boolean",
-      required: false,
     },
     headers: {
-      name: "headers",
       baseName: "headers",
       type: "{ [key: string]: string; }",
-      required: false,
     },
     locations: {
-      name: "locations",
       baseName: "locations",
       type: "Array<string>",
-      required: false,
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
       required: true,
     },
     retry: {
-      name: "retry",
       baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
-      required: false,
     },
     startUrl: {
-      name: "startUrl",
       baseName: "startUrl",
       type: "string",
-      required: false,
     },
     variables: {
-      name: "variables",
       baseName: "variables",
       type: "{ [key: string]: string; }",
-      required: false,
     },
   };
 

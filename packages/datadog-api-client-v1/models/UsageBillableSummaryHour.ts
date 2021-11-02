@@ -47,64 +47,51 @@ export class UsageBillableSummaryHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     billingPlan: {
-      name: "billingPlan",
       baseName: "billing_plan",
       type: "string",
-      required: false,
     },
     endDate: {
-      name: "endDate",
       baseName: "end_date",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     numOrgs: {
-      name: "numOrgs",
       baseName: "num_orgs",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     orgName: {
-      name: "orgName",
       baseName: "org_name",
       type: "string",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     ratioInMonth: {
-      name: "ratioInMonth",
       baseName: "ratio_in_month",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     startDate: {
-      name: "startDate",
       baseName: "start_date",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     usage: {
-      name: "usage",
       baseName: "usage",
       type: "UsageBillableSummaryKeys",
-      required: false,
     },
   };
 

@@ -22,18 +22,15 @@ export class OrganizationListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     orgs: {
-      name: "orgs",
       baseName: "orgs",
       type: "Array<Organization>",
-      required: false,
     },
   };
 

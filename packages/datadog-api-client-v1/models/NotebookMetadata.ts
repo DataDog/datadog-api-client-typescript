@@ -27,30 +27,23 @@ export class NotebookMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     isTemplate: {
-      name: "isTemplate",
       baseName: "is_template",
       type: "boolean",
-      required: false,
     },
     takeSnapshots: {
-      name: "takeSnapshots",
       baseName: "take_snapshots",
       type: "boolean",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "NotebookMetadataType",
-      required: false,
     },
   };
 

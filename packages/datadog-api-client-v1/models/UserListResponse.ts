@@ -22,18 +22,15 @@ export class UserListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     users: {
-      name: "users",
       baseName: "users",
       type: "Array<User>",
-      required: false,
     },
   };
 

@@ -44,55 +44,41 @@ export class PermissionAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     created: {
-      name: "created",
       baseName: "created",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     displayName: {
-      name: "displayName",
       baseName: "display_name",
       type: "string",
-      required: false,
     },
     displayType: {
-      name: "displayType",
       baseName: "display_type",
       type: "string",
-      required: false,
     },
     groupName: {
-      name: "groupName",
       baseName: "group_name",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     restricted: {
-      name: "restricted",
       baseName: "restricted",
       type: "boolean",
-      required: false,
     },
   };
 

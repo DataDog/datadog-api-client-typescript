@@ -59,87 +59,61 @@ export class LogStreamWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     columns: {
-      name: "columns",
       baseName: "columns",
       type: "Array<string>",
-      required: false,
     },
     indexes: {
-      name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
-      required: false,
     },
     logset: {
-      name: "logset",
       baseName: "logset",
       type: "string",
-      required: false,
     },
     messageDisplay: {
-      name: "messageDisplay",
       baseName: "message_display",
       type: "WidgetMessageDisplay",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
     showDateColumn: {
-      name: "showDateColumn",
       baseName: "show_date_column",
       type: "boolean",
-      required: false,
     },
     showMessageColumn: {
-      name: "showMessageColumn",
       baseName: "show_message_column",
       type: "boolean",
-      required: false,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "WidgetFieldSort",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogStreamWidgetDefinitionType",
       required: true,

@@ -28,32 +28,27 @@ export class SyntheticsCoreWebVitals {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cls: {
-      name: "cls",
       baseName: "cls",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     lcp: {
-      name: "lcp",
       baseName: "lcp",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

@@ -23,24 +23,19 @@ export class SlackIntegrationChannel {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     display: {
-      name: "display",
       baseName: "display",
       type: "SlackIntegrationChannelDisplay",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
   };
 

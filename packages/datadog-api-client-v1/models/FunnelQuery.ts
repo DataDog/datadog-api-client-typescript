@@ -27,27 +27,23 @@ export class FunnelQuery {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     dataSource: {
-      name: "dataSource",
       baseName: "data_source",
       type: "FunnelSource",
       required: true,
     },
     queryString: {
-      name: "queryString",
       baseName: "query_string",
       type: "string",
       required: true,
     },
     steps: {
-      name: "steps",
       baseName: "steps",
       type: "Array<any>",
       required: true,

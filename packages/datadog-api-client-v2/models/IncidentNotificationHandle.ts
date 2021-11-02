@@ -24,24 +24,19 @@ export class IncidentNotificationHandle {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     displayName: {
-      name: "displayName",
       baseName: "display_name",
       type: "string",
-      required: false,
     },
     handle: {
-      name: "handle",
       baseName: "handle",
       type: "string",
-      required: false,
     },
   };
 

@@ -20,18 +20,16 @@ export class DeletedMonitor {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     deletedMonitorId: {
-      name: "deletedMonitorId",
       baseName: "deleted_monitor_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

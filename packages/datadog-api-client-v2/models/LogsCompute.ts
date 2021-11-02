@@ -29,36 +29,28 @@ export class LogsCompute {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "LogsAggregationFunction",
       required: true,
     },
     interval: {
-      name: "interval",
       baseName: "interval",
       type: "string",
-      required: false,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsComputeType",
-      required: false,
     },
   };
 

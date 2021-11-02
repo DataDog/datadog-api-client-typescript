@@ -24,24 +24,19 @@ export class SLOBulkDeleteResponseData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     deleted: {
-      name: "deleted",
       baseName: "deleted",
       type: "Array<string>",
-      required: false,
     },
     updated: {
-      name: "updated",
       baseName: "updated",
       type: "Array<string>",
-      required: false,
     },
   };
 

@@ -20,18 +20,15 @@ export class TreeMapWidgetRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     q: {
-      name: "q",
       baseName: "q",
       type: "string",
-      required: false,
     },
   };
 

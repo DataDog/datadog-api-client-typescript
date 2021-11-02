@@ -39,48 +39,40 @@ export class ServiceCheck {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     check: {
-      name: "check",
       baseName: "check",
       type: "string",
       required: true,
     },
     hostName: {
-      name: "hostName",
       baseName: "host_name",
       type: "string",
       required: true,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "ServiceCheckStatus",
       required: true,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,
     },
     timestamp: {
-      name: "timestamp",
       baseName: "timestamp",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

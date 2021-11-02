@@ -28,31 +28,25 @@ export class HostMuteSettings {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     end: {
-      name: "end",
       baseName: "end",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     override: {
-      name: "override",
       baseName: "override",
       type: "boolean",
-      required: false,
     },
   };
 

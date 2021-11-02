@@ -37,54 +37,39 @@ export class GeomapWidgetRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     formulas: {
-      name: "formulas",
       baseName: "formulas",
       type: "Array<WidgetFormula>",
-      required: false,
     },
     logQuery: {
-      name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     q: {
-      name: "q",
       baseName: "q",
       type: "string",
-      required: false,
     },
     queries: {
-      name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
-      required: false,
     },
     responseFormat: {
-      name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
-      required: false,
     },
     rumQuery: {
-      name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     securityQuery: {
-      name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
-      required: false,
     },
   };
 

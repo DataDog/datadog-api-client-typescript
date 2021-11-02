@@ -22,18 +22,15 @@ export class DashboardListDeleteItemsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     deletedDashboardsFromList: {
-      name: "deletedDashboardsFromList",
       baseName: "deleted_dashboards_from_list",
       type: "Array<DashboardListItemResponse>",
-      required: false,
     },
   };
 

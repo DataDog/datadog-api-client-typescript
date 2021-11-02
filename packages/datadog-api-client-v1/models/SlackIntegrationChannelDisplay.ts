@@ -32,36 +32,27 @@ export class SlackIntegrationChannelDisplay {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     message: {
-      name: "message",
       baseName: "message",
       type: "boolean",
-      required: false,
     },
     notified: {
-      name: "notified",
       baseName: "notified",
       type: "boolean",
-      required: false,
     },
     snapshot: {
-      name: "snapshot",
       baseName: "snapshot",
       type: "boolean",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "boolean",
-      required: false,
     },
   };
 

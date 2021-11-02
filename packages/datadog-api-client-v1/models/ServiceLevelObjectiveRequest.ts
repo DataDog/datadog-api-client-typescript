@@ -46,58 +46,45 @@ export class ServiceLevelObjectiveRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     groups: {
-      name: "groups",
       baseName: "groups",
       type: "Array<string>",
-      required: false,
     },
     monitorIds: {
-      name: "monitorIds",
       baseName: "monitor_ids",
       type: "Array<number>",
-      required: false,
+
       format: "int64",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     thresholds: {
-      name: "thresholds",
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SLOType",
       required: true,

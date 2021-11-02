@@ -49,63 +49,47 @@ export class WidgetConditionalFormat {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     comparator: {
-      name: "comparator",
       baseName: "comparator",
       type: "WidgetComparator",
       required: true,
     },
     customBgColor: {
-      name: "customBgColor",
       baseName: "custom_bg_color",
       type: "string",
-      required: false,
     },
     customFgColor: {
-      name: "customFgColor",
       baseName: "custom_fg_color",
       type: "string",
-      required: false,
     },
     hideValue: {
-      name: "hideValue",
       baseName: "hide_value",
       type: "boolean",
-      required: false,
     },
     imageUrl: {
-      name: "imageUrl",
       baseName: "image_url",
       type: "string",
-      required: false,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     palette: {
-      name: "palette",
       baseName: "palette",
       type: "WidgetPalette",
       required: true,
     },
     timeframe: {
-      name: "timeframe",
       baseName: "timeframe",
       type: "string",
-      required: false,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "number",
       required: true,

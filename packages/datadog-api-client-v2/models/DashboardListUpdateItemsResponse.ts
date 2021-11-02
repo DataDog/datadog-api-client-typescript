@@ -22,18 +22,15 @@ export class DashboardListUpdateItemsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     dashboards: {
-      name: "dashboards",
       baseName: "dashboards",
       type: "Array<DashboardListItemResponse>",
-      required: false,
     },
   };
 

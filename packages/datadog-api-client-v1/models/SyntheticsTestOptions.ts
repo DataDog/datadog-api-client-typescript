@@ -66,93 +66,70 @@ export class SyntheticsTestOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     acceptSelfSigned: {
-      name: "acceptSelfSigned",
       baseName: "accept_self_signed",
       type: "boolean",
-      required: false,
     },
     allowInsecure: {
-      name: "allowInsecure",
       baseName: "allow_insecure",
       type: "boolean",
-      required: false,
     },
     deviceIds: {
-      name: "deviceIds",
       baseName: "device_ids",
       type: "Array<SyntheticsDeviceID>",
-      required: false,
     },
     disableCors: {
-      name: "disableCors",
       baseName: "disableCors",
       type: "boolean",
-      required: false,
     },
     followRedirects: {
-      name: "followRedirects",
       baseName: "follow_redirects",
       type: "boolean",
-      required: false,
     },
     minFailureDuration: {
-      name: "minFailureDuration",
       baseName: "min_failure_duration",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     minLocationFailed: {
-      name: "minLocationFailed",
       baseName: "min_location_failed",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     monitorName: {
-      name: "monitorName",
       baseName: "monitor_name",
       type: "string",
-      required: false,
     },
     monitorOptions: {
-      name: "monitorOptions",
       baseName: "monitor_options",
       type: "SyntheticsTestOptionsMonitorOptions",
-      required: false,
     },
     monitorPriority: {
-      name: "monitorPriority",
       baseName: "monitor_priority",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     noScreenshot: {
-      name: "noScreenshot",
       baseName: "noScreenshot",
       type: "boolean",
-      required: false,
     },
     retry: {
-      name: "retry",
       baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
-      required: false,
     },
     tickEvery: {
-      name: "tickEvery",
       baseName: "tick_every",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

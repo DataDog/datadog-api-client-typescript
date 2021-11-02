@@ -51,68 +51,51 @@ export class DashboardSummaryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     authorHandle: {
-      name: "authorHandle",
       baseName: "author_handle",
       type: "string",
-      required: false,
     },
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     isReadOnly: {
-      name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
-      required: false,
     },
     layoutType: {
-      name: "layoutType",
       baseName: "layout_type",
       type: "DashboardLayoutType",
-      required: false,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

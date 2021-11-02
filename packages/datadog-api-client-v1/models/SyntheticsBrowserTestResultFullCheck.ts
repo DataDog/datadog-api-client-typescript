@@ -19,15 +19,13 @@ export class SyntheticsBrowserTestResultFullCheck {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     config: {
-      name: "config",
       baseName: "config",
       type: "SyntheticsTestConfig",
       required: true,

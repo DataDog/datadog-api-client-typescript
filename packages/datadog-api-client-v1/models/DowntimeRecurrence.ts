@@ -40,51 +40,41 @@ export class DowntimeRecurrence {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     period: {
-      name: "period",
       baseName: "period",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     rrule: {
-      name: "rrule",
       baseName: "rrule",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
     untilDate: {
-      name: "untilDate",
       baseName: "until_date",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     untilOccurrences: {
-      name: "untilOccurrences",
       baseName: "until_occurrences",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     weekDays: {
-      name: "weekDays",
       baseName: "week_days",
       type: "Array<string>",
-      required: false,
     },
   };
 

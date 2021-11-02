@@ -32,39 +32,34 @@ export class MonitorSearchResponseMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     page: {
-      name: "page",
       baseName: "page",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     pageCount: {
-      name: "pageCount",
       baseName: "page_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     perPage: {
-      name: "perPage",
       baseName: "per_page",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     totalCount: {
-      name: "totalCount",
       baseName: "total_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

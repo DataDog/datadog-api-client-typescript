@@ -20,15 +20,13 @@ export class APIErrorResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "Array<string>",
       required: true,

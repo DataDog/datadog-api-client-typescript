@@ -36,39 +36,33 @@ export class SecurityFilterCreateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     exclusionFilters: {
-      name: "exclusionFilters",
       baseName: "exclusion_filters",
       type: "Array<SecurityFilterExclusionFilter>",
       required: true,
     },
     filteredDataType: {
-      name: "filteredDataType",
       baseName: "filtered_data_type",
       type: "SecurityFilterFilteredDataType",
       required: true,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,

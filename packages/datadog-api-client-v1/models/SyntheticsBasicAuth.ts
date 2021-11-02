@@ -24,21 +24,18 @@ export class SyntheticsBasicAuth {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     password: {
-      name: "password",
       baseName: "password",
       type: "string",
       required: true,
     },
     username: {
-      name: "username",
       baseName: "username",
       type: "string",
       required: true,

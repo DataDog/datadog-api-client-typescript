@@ -24,21 +24,18 @@ export class AWSAccountAndLambdaRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accountId: {
-      name: "accountId",
       baseName: "account_id",
       type: "string",
       required: true,
     },
     lambdaArn: {
-      name: "lambdaArn",
       baseName: "lambda_arn",
       type: "string",
       required: true,

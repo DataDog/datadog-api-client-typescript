@@ -208,344 +208,292 @@ export class UsageSummaryDateOrg {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     agentHostTop99p: {
-      name: "agentHostTop99p",
       baseName: "agent_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     apmAzureAppServiceHostTop99p: {
-      name: "apmAzureAppServiceHostTop99p",
       baseName: "apm_azure_app_service_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     apmHostTop99p: {
-      name: "apmHostTop99p",
       baseName: "apm_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     auditLogsLinesIndexedSum: {
-      name: "auditLogsLinesIndexedSum",
       baseName: "audit_logs_lines_indexed_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     awsHostTop99p: {
-      name: "awsHostTop99p",
       baseName: "aws_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     awsLambdaFuncCount: {
-      name: "awsLambdaFuncCount",
       baseName: "aws_lambda_func_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     awsLambdaInvocationsSum: {
-      name: "awsLambdaInvocationsSum",
       baseName: "aws_lambda_invocations_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     azureAppServiceTop99p: {
-      name: "azureAppServiceTop99p",
       baseName: "azure_app_service_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     billableIngestedBytesSum: {
-      name: "billableIngestedBytesSum",
       baseName: "billable_ingested_bytes_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     containerAvg: {
-      name: "containerAvg",
       baseName: "container_avg",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     containerHwm: {
-      name: "containerHwm",
       baseName: "container_hwm",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     cspmContainerAvg: {
-      name: "cspmContainerAvg",
       baseName: "cspm_container_avg",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     cspmContainerHwm: {
-      name: "cspmContainerHwm",
       baseName: "cspm_container_hwm",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     cspmHostTop99p: {
-      name: "cspmHostTop99p",
       baseName: "cspm_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     customTsAvg: {
-      name: "customTsAvg",
       baseName: "custom_ts_avg",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     cwsContainerCountAvg: {
-      name: "cwsContainerCountAvg",
       baseName: "cws_container_count_avg",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     cwsHostTop99p: {
-      name: "cwsHostTop99p",
       baseName: "cws_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     dbmHostTop99pSum: {
-      name: "dbmHostTop99pSum",
       baseName: "dbm_host_top99p_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     dbmQueriesAvgSum: {
-      name: "dbmQueriesAvgSum",
       baseName: "dbm_queries_avg_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     fargateTasksCountAvg: {
-      name: "fargateTasksCountAvg",
       baseName: "fargate_tasks_count_avg",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     fargateTasksCountHwm: {
-      name: "fargateTasksCountHwm",
       baseName: "fargate_tasks_count_hwm",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     gcpHostTop99p: {
-      name: "gcpHostTop99p",
       baseName: "gcp_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     herokuHostTop99p: {
-      name: "herokuHostTop99p",
       baseName: "heroku_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     incidentManagementMonthlyActiveUsersHwm: {
-      name: "incidentManagementMonthlyActiveUsersHwm",
       baseName: "incident_management_monthly_active_users_hwm",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     indexedEventsCountSum: {
-      name: "indexedEventsCountSum",
       baseName: "indexed_events_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     infraHostTop99p: {
-      name: "infraHostTop99p",
       baseName: "infra_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     ingestedEventsBytesSum: {
-      name: "ingestedEventsBytesSum",
       baseName: "ingested_events_bytes_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     iotDeviceAggSum: {
-      name: "iotDeviceAggSum",
       baseName: "iot_device_agg_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     iotDeviceTop99pSum: {
-      name: "iotDeviceTop99pSum",
       baseName: "iot_device_top99p_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     mobileRumSessionCountAndroidSum: {
-      name: "mobileRumSessionCountAndroidSum",
       baseName: "mobile_rum_session_count_android_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     mobileRumSessionCountIosSum: {
-      name: "mobileRumSessionCountIosSum",
       baseName: "mobile_rum_session_count_ios_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     mobileRumSessionCountSum: {
-      name: "mobileRumSessionCountSum",
       baseName: "mobile_rum_session_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     netflowIndexedEventsCountSum: {
-      name: "netflowIndexedEventsCountSum",
       baseName: "netflow_indexed_events_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     npmHostTop99p: {
-      name: "npmHostTop99p",
       baseName: "npm_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     opentelemetryHostTop99p: {
-      name: "opentelemetryHostTop99p",
       baseName: "opentelemetry_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     profilingHostTop99p: {
-      name: "profilingHostTop99p",
       baseName: "profiling_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     rumSessionCountSum: {
-      name: "rumSessionCountSum",
       baseName: "rum_session_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     rumTotalSessionCountSum: {
-      name: "rumTotalSessionCountSum",
       baseName: "rum_total_session_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     sdsLogsScannedBytesSum: {
-      name: "sdsLogsScannedBytesSum",
       baseName: "sds_logs_scanned_bytes_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     sdsTotalScannedBytesSum: {
-      name: "sdsTotalScannedBytesSum",
       baseName: "sds_total_scanned_bytes_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     syntheticsBrowserCheckCallsCountSum: {
-      name: "syntheticsBrowserCheckCallsCountSum",
       baseName: "synthetics_browser_check_calls_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     syntheticsCheckCallsCountSum: {
-      name: "syntheticsCheckCallsCountSum",
       baseName: "synthetics_check_calls_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     traceSearchIndexedEventsCountSum: {
-      name: "traceSearchIndexedEventsCountSum",
       baseName: "trace_search_indexed_events_count_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     twolIngestedEventsBytesSum: {
-      name: "twolIngestedEventsBytesSum",
       baseName: "twol_ingested_events_bytes_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     vsphereHostTop99p: {
-      name: "vsphereHostTop99p",
       baseName: "vsphere_host_top99p",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

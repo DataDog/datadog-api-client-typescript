@@ -44,54 +44,39 @@ export class AzureAccount {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     clientId: {
-      name: "clientId",
       baseName: "client_id",
       type: "string",
-      required: false,
     },
     clientSecret: {
-      name: "clientSecret",
       baseName: "client_secret",
       type: "string",
-      required: false,
     },
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "Array<string>",
-      required: false,
     },
     hostFilters: {
-      name: "hostFilters",
       baseName: "host_filters",
       type: "string",
-      required: false,
     },
     newClientId: {
-      name: "newClientId",
       baseName: "new_client_id",
       type: "string",
-      required: false,
     },
     newTenantName: {
-      name: "newTenantName",
       baseName: "new_tenant_name",
       type: "string",
-      required: false,
     },
     tenantName: {
-      name: "tenantName",
       baseName: "tenant_name",
       type: "string",
-      required: false,
     },
   };
 

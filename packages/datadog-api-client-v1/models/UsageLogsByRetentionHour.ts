@@ -32,39 +32,33 @@ export class UsageLogsByRetentionHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     indexedEventsCount: {
-      name: "indexedEventsCount",
       baseName: "indexed_events_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     liveIndexedEventsCount: {
-      name: "liveIndexedEventsCount",
       baseName: "live_indexed_events_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     rehydratedIndexedEventsCount: {
-      name: "rehydratedIndexedEventsCount",
       baseName: "rehydrated_indexed_events_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     retention: {
-      name: "retention",
       baseName: "retention",
       type: "string",
-      required: false,
     },
   };
 

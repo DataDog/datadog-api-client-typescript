@@ -51,74 +51,55 @@ export class SLOHistoryResponseData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     fromTs: {
-      name: "fromTs",
       baseName: "from_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
-      required: false,
     },
     groups: {
-      name: "groups",
       baseName: "groups",
       type: "Array<SLOHistoryMonitor>",
-      required: false,
     },
     monitors: {
-      name: "monitors",
       baseName: "monitors",
       type: "Array<SLOHistoryMonitor>",
-      required: false,
     },
     overall: {
-      name: "overall",
       baseName: "overall",
       type: "SLOHistorySLIData",
-      required: false,
     },
     series: {
-      name: "series",
       baseName: "series",
       type: "SLOHistoryMetrics",
-      required: false,
     },
     thresholds: {
-      name: "thresholds",
       baseName: "thresholds",
       type: "{ [key: string]: SLOThreshold; }",
-      required: false,
     },
     toTs: {
-      name: "toTs",
       baseName: "to_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SLOType",
-      required: false,
     },
     typeId: {
-      name: "typeId",
       baseName: "type_id",
       type: "SLOTypeNumeric",
-      required: false,
     },
   };
 

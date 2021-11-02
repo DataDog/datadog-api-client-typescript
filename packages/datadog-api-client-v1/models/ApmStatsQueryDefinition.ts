@@ -44,51 +44,41 @@ export class ApmStatsQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     columns: {
-      name: "columns",
       baseName: "columns",
       type: "Array<ApmStatsQueryColumnType>",
-      required: false,
     },
     env: {
-      name: "env",
       baseName: "env",
       type: "string",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     primaryTag: {
-      name: "primaryTag",
       baseName: "primary_tag",
       type: "string",
       required: true,
     },
     resource: {
-      name: "resource",
       baseName: "resource",
       type: "string",
-      required: false,
     },
     rowType: {
-      name: "rowType",
       baseName: "row_type",
       type: "ApmStatsQueryRowType",
       required: true,
     },
     service: {
-      name: "service",
       baseName: "service",
       type: "string",
       required: true,

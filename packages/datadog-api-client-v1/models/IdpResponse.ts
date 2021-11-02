@@ -20,15 +20,13 @@ export class IdpResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
       required: true,

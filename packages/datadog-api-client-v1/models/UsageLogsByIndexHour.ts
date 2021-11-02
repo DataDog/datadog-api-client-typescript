@@ -36,44 +36,36 @@ export class UsageLogsByIndexHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     eventCount: {
-      name: "eventCount",
       baseName: "event_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     indexId: {
-      name: "indexId",
       baseName: "index_id",
       type: "string",
-      required: false,
     },
     indexName: {
-      name: "indexName",
       baseName: "index_name",
       type: "string",
-      required: false,
     },
     retention: {
-      name: "retention",
       baseName: "retention",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

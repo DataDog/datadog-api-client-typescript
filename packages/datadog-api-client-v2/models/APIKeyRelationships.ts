@@ -20,24 +20,19 @@ export class APIKeyRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdBy: {
-      name: "createdBy",
       baseName: "created_by",
       type: "RelationshipToUser",
-      required: false,
     },
     modifiedBy: {
-      name: "modifiedBy",
       baseName: "modified_by",
       type: "RelationshipToUser",
-      required: false,
     },
   };
 

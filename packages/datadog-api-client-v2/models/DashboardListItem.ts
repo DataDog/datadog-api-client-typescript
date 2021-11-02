@@ -61,87 +61,67 @@ export class DashboardListItem {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     author: {
-      name: "author",
       baseName: "author",
       type: "Creator",
-      required: false,
     },
     created: {
-      name: "created",
       baseName: "created",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     icon: {
-      name: "icon",
       baseName: "icon",
       type: "string",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
       required: true,
     },
     isFavorite: {
-      name: "isFavorite",
       baseName: "is_favorite",
       type: "boolean",
-      required: false,
     },
     isReadOnly: {
-      name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
-      required: false,
     },
     isShared: {
-      name: "isShared",
       baseName: "is_shared",
       type: "boolean",
-      required: false,
     },
     modified: {
-      name: "modified",
       baseName: "modified",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     popularity: {
-      name: "popularity",
       baseName: "popularity",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "DashboardType",
       required: true,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

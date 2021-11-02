@@ -32,39 +32,34 @@ export class UsageRumSessionsHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     sessionCount: {
-      name: "sessionCount",
       baseName: "session_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     sessionCountAndroid: {
-      name: "sessionCountAndroid",
       baseName: "session_count_android",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     sessionCountIos: {
-      name: "sessionCountIos",
       baseName: "session_count_ios",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

@@ -35,44 +35,35 @@ export class SLOCorrectionUpdateRequestAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     category: {
-      name: "category",
       baseName: "category",
       type: "SLOCorrectionCategory",
-      required: false,
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     end: {
-      name: "end",
       baseName: "end",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     start: {
-      name: "start",
       baseName: "start",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timezone: {
-      name: "timezone",
       baseName: "timezone",
       type: "string",
-      required: false,
     },
   };
 

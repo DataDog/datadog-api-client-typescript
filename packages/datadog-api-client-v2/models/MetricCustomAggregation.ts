@@ -21,21 +21,18 @@ export class MetricCustomAggregation {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     space: {
-      name: "space",
       baseName: "space",
       type: "MetricCustomSpaceAggregation",
       required: true,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "MetricCustomTimeAggregation",
       required: true,

@@ -24,21 +24,18 @@ export class EventQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     search: {
-      name: "search",
       baseName: "search",
       type: "string",
       required: true,
     },
     tagsExecution: {
-      name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
       required: true,

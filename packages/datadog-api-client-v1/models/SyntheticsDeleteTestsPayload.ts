@@ -20,18 +20,15 @@ export class SyntheticsDeleteTestsPayload {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     publicIds: {
-      name: "publicIds",
       baseName: "public_ids",
       type: "Array<string>",
-      required: false,
     },
   };
 

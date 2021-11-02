@@ -44,57 +44,43 @@ export class GroupWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     backgroundColor: {
-      name: "backgroundColor",
       baseName: "background_color",
       type: "string",
-      required: false,
     },
     bannerImg: {
-      name: "bannerImg",
       baseName: "banner_img",
       type: "string",
-      required: false,
     },
     layoutType: {
-      name: "layoutType",
       baseName: "layout_type",
       type: "WidgetLayoutType",
       required: true,
     },
     showTitle: {
-      name: "showTitle",
       baseName: "show_title",
       type: "boolean",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "GroupWidgetDefinitionType",
       required: true,
     },
     widgets: {
-      name: "widgets",
       baseName: "widgets",
       type: "Array<Widget>",
       required: true,

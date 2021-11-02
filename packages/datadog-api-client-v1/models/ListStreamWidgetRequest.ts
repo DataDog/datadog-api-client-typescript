@@ -26,27 +26,23 @@ export class ListStreamWidgetRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     columns: {
-      name: "columns",
       baseName: "columns",
       type: "Array<ListStreamColumn>",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "ListStreamQuery",
       required: true,
     },
     responseFormat: {
-      name: "responseFormat",
       baseName: "response_format",
       type: "ListStreamResponseFormat",
       required: true,

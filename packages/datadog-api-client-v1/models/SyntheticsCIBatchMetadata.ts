@@ -21,24 +21,19 @@ export class SyntheticsCIBatchMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     ci: {
-      name: "ci",
       baseName: "ci",
       type: "SyntheticsCIBatchMetadataCI",
-      required: false,
     },
     git: {
-      name: "git",
       baseName: "git",
       type: "SyntheticsCIBatchMetadataGit",
-      required: false,
     },
   };
 

@@ -43,56 +43,43 @@ export class User {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accessRole: {
-      name: "accessRole",
       baseName: "access_role",
       type: "AccessRole",
-      required: false,
     },
     disabled: {
-      name: "disabled",
       baseName: "disabled",
       type: "boolean",
-      required: false,
     },
     email: {
-      name: "email",
       baseName: "email",
       type: "string",
-      required: false,
+
       format: "email",
     },
     handle: {
-      name: "handle",
       baseName: "handle",
       type: "string",
-      required: false,
+
       format: "email",
     },
     icon: {
-      name: "icon",
       baseName: "icon",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     verified: {
-      name: "verified",
       baseName: "verified",
       type: "boolean",
-      required: false,
     },
   };
 

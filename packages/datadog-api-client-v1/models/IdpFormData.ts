@@ -22,15 +22,13 @@ export class IdpFormData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     idpFile: {
-      name: "idpFile",
       baseName: "idp_file",
       type: "HttpFile",
       required: true,

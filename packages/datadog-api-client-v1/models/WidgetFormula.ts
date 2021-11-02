@@ -34,42 +34,32 @@ export class WidgetFormula {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     alias: {
-      name: "alias",
       baseName: "alias",
       type: "string",
-      required: false,
     },
     cellDisplayMode: {
-      name: "cellDisplayMode",
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
-      required: false,
     },
     conditionalFormats: {
-      name: "conditionalFormats",
       baseName: "conditional_formats",
       type: "Array<WidgetConditionalFormat>",
-      required: false,
     },
     formula: {
-      name: "formula",
       baseName: "formula",
       type: "string",
       required: true,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "WidgetFormulaLimit",
-      required: false,
     },
   };
 

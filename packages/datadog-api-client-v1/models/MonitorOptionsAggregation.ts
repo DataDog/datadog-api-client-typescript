@@ -28,30 +28,23 @@ export class MonitorOptionsAggregation {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "string",
-      required: false,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
   };
 

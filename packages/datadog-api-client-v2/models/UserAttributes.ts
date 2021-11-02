@@ -60,80 +60,59 @@ export class UserAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     disabled: {
-      name: "disabled",
       baseName: "disabled",
       type: "boolean",
-      required: false,
     },
     email: {
-      name: "email",
       baseName: "email",
       type: "string",
-      required: false,
     },
     handle: {
-      name: "handle",
       baseName: "handle",
       type: "string",
-      required: false,
     },
     icon: {
-      name: "icon",
       baseName: "icon",
       type: "string",
-      required: false,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     serviceAccount: {
-      name: "serviceAccount",
       baseName: "service_account",
       type: "boolean",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     verified: {
-      name: "verified",
       baseName: "verified",
       type: "boolean",
-      required: false,
     },
   };
 

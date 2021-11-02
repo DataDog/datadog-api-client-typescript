@@ -37,46 +37,35 @@ export class LogsListRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     index: {
-      name: "index",
       baseName: "index",
       type: "string",
-      required: false,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "LogsSort",
-      required: false,
     },
     startAt: {
-      name: "startAt",
       baseName: "startAt",
       type: "string",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "LogsListRequestTime",
       required: true,

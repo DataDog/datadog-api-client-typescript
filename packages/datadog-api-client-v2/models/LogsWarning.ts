@@ -28,30 +28,23 @@ export class LogsWarning {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     code: {
-      name: "code",
       baseName: "code",
       type: "string",
-      required: false,
     },
     detail: {
-      name: "detail",
       baseName: "detail",
       type: "string",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
   };
 

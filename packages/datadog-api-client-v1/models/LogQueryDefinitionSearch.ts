@@ -20,15 +20,13 @@ export class LogQueryDefinitionSearch {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,

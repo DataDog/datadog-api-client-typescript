@@ -26,30 +26,23 @@ export class LogsMetricResponseAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     compute: {
-      name: "compute",
       baseName: "compute",
       type: "LogsMetricResponseCompute",
-      required: false,
     },
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsMetricResponseFilter",
-      required: false,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricResponseGroupBy>",
-      required: false,
     },
   };
 

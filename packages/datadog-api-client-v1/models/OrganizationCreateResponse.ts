@@ -25,36 +25,27 @@ export class OrganizationCreateResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     apiKey: {
-      name: "apiKey",
       baseName: "api_key",
       type: "ApiKey",
-      required: false,
     },
     applicationKey: {
-      name: "applicationKey",
       baseName: "application_key",
       type: "ApplicationKey",
-      required: false,
     },
     org: {
-      name: "org",
       baseName: "org",
       type: "Organization",
-      required: false,
     },
     user: {
-      name: "user",
       baseName: "user",
       type: "User",
-      required: false,
     },
   };
 

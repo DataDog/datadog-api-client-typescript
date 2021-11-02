@@ -68,90 +68,63 @@ export class GCPAccount {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     authProviderX509CertUrl: {
-      name: "authProviderX509CertUrl",
       baseName: "auth_provider_x509_cert_url",
       type: "string",
-      required: false,
     },
     authUri: {
-      name: "authUri",
       baseName: "auth_uri",
       type: "string",
-      required: false,
     },
     automute: {
-      name: "automute",
       baseName: "automute",
       type: "boolean",
-      required: false,
     },
     clientEmail: {
-      name: "clientEmail",
       baseName: "client_email",
       type: "string",
-      required: false,
     },
     clientId: {
-      name: "clientId",
       baseName: "client_id",
       type: "string",
-      required: false,
     },
     clientX509CertUrl: {
-      name: "clientX509CertUrl",
       baseName: "client_x509_cert_url",
       type: "string",
-      required: false,
     },
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "Array<string>",
-      required: false,
     },
     hostFilters: {
-      name: "hostFilters",
       baseName: "host_filters",
       type: "string",
-      required: false,
     },
     privateKey: {
-      name: "privateKey",
       baseName: "private_key",
       type: "string",
-      required: false,
     },
     privateKeyId: {
-      name: "privateKeyId",
       baseName: "private_key_id",
       type: "string",
-      required: false,
     },
     projectId: {
-      name: "projectId",
       baseName: "project_id",
       type: "string",
-      required: false,
     },
     tokenUri: {
-      name: "tokenUri",
       baseName: "token_uri",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
   };
 

@@ -20,24 +20,19 @@ export class HostMapWidgetDefinitionRequests {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     fill: {
-      name: "fill",
       baseName: "fill",
       type: "HostMapRequest",
-      required: false,
     },
     size: {
-      name: "size",
       baseName: "size",
       type: "HostMapRequest",
-      required: false,
     },
   };
 

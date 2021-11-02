@@ -24,24 +24,19 @@ export class IPPrefixesAPM {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     prefixesIpv4: {
-      name: "prefixesIpv4",
       baseName: "prefixes_ipv4",
       type: "Array<string>",
-      required: false,
     },
     prefixesIpv6: {
-      name: "prefixesIpv6",
       baseName: "prefixes_ipv6",
       type: "Array<string>",
-      required: false,
     },
   };
 

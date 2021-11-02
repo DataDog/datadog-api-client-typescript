@@ -54,67 +54,50 @@ export class MetricsQueryResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     error: {
-      name: "error",
       baseName: "error",
       type: "string",
-      required: false,
     },
     fromDate: {
-      name: "fromDate",
       baseName: "from_date",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
     resType: {
-      name: "resType",
       baseName: "res_type",
       type: "string",
-      required: false,
     },
     series: {
-      name: "series",
       baseName: "series",
       type: "Array<MetricsQueryMetadata>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
     toDate: {
-      name: "toDate",
       baseName: "to_date",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

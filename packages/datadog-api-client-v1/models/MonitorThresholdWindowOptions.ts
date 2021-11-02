@@ -24,24 +24,19 @@ export class MonitorThresholdWindowOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     recoveryWindow: {
-      name: "recoveryWindow",
       baseName: "recovery_window",
       type: "string",
-      required: false,
     },
     triggerWindow: {
-      name: "triggerWindow",
       baseName: "trigger_window",
       type: "string",
-      required: false,
     },
   };
 

@@ -22,15 +22,13 @@ export class DashboardRestoreRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<DashboardBulkActionData>",
       required: true,

@@ -26,30 +26,23 @@ export class MonitorSearchResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     counts: {
-      name: "counts",
       baseName: "counts",
       type: "MonitorSearchResponseCounts",
-      required: false,
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "MonitorSearchResponseMetadata",
-      required: false,
     },
     monitors: {
-      name: "monitors",
       baseName: "monitors",
       type: "Array<MonitorSearchResult>",
-      required: false,
     },
   };
 

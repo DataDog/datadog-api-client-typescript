@@ -24,24 +24,19 @@ export class SecurityMonitoringRuntimeAgentRule {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     agentRuleId: {
-      name: "agentRuleId",
       baseName: "agentRuleId",
       type: "string",
-      required: false,
     },
     expression: {
-      name: "expression",
       baseName: "expression",
       type: "string",
-      required: false,
     },
   };
 

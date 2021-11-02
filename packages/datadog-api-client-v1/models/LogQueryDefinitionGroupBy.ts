@@ -27,31 +27,26 @@ export class LogQueryDefinitionGroupBy {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     facet: {
-      name: "facet",
       baseName: "facet",
       type: "string",
       required: true,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "LogQueryDefinitionGroupBySort",
-      required: false,
     },
   };
 

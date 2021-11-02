@@ -20,18 +20,15 @@ export class AuthenticationValidationResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     valid: {
-      name: "valid",
       baseName: "valid",
       type: "boolean",
-      required: false,
     },
   };
 

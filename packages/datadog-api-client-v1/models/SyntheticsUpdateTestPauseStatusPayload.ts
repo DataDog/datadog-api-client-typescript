@@ -19,18 +19,15 @@ export class SyntheticsUpdateTestPauseStatusPayload {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     newStatus: {
-      name: "newStatus",
       baseName: "new_status",
       type: "SyntheticsTestPauseStatus",
-      required: false,
     },
   };
 

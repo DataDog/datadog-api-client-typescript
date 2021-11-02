@@ -23,24 +23,19 @@ export class CheckCanDeleteSLOResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "CheckCanDeleteSLOResponseData",
-      required: false,
     },
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "{ [key: string]: string; }",
-      required: false,
     },
   };
 

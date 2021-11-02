@@ -22,18 +22,15 @@ export class SyntheticsListGlobalVariablesResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     variables: {
-      name: "variables",
       baseName: "variables",
       type: "Array<SyntheticsGlobalVariable>",
-      required: false,
     },
   };
 

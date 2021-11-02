@@ -35,44 +35,36 @@ export class SLOThreshold {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     target: {
-      name: "target",
       baseName: "target",
       type: "number",
       required: true,
       format: "double",
     },
     targetDisplay: {
-      name: "targetDisplay",
       baseName: "target_display",
       type: "string",
-      required: false,
     },
     timeframe: {
-      name: "timeframe",
       baseName: "timeframe",
       type: "SLOTimeframe",
       required: true,
     },
     warning: {
-      name: "warning",
       baseName: "warning",
       type: "number",
-      required: false,
+
       format: "double",
     },
     warningDisplay: {
-      name: "warningDisplay",
       baseName: "warning_display",
       type: "string",
-      required: false,
     },
   };
 

@@ -31,37 +31,29 @@ export class SyntheticsTriggerCITestRunResult {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     device: {
-      name: "device",
       baseName: "device",
       type: "SyntheticsDeviceID",
-      required: false,
     },
     location: {
-      name: "location",
       baseName: "location",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     resultId: {
-      name: "resultId",
       baseName: "result_id",
       type: "string",
-      required: false,
     },
   };
 

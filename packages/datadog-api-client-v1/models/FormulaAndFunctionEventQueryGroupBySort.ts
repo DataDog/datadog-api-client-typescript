@@ -25,30 +25,24 @@ export class FormulaAndFunctionEventQueryGroupBySort {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
       required: true,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     order: {
-      name: "order",
       baseName: "order",
       type: "QuerySortOrder",
-      required: false,
     },
   };
 

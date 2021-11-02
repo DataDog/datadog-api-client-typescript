@@ -27,42 +27,31 @@ export class SecurityMonitoringRuleOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     detectionMethod: {
-      name: "detectionMethod",
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
-      required: false,
     },
     evaluationWindow: {
-      name: "evaluationWindow",
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
-      required: false,
     },
     keepAlive: {
-      name: "keepAlive",
       baseName: "keepAlive",
       type: "SecurityMonitoringRuleKeepAlive",
-      required: false,
     },
     maxSignalDuration: {
-      name: "maxSignalDuration",
       baseName: "maxSignalDuration",
       type: "SecurityMonitoringRuleMaxSignalDuration",
-      required: false,
     },
     newValueOptions: {
-      name: "newValueOptions",
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
-      required: false,
     },
   };
 

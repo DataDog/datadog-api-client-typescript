@@ -42,59 +42,47 @@ export class NotebookResponseDataAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     author: {
-      name: "author",
       baseName: "author",
       type: "NotebookAuthor",
-      required: false,
     },
     cells: {
-      name: "cells",
       baseName: "cells",
       type: "Array<NotebookCellResponse>",
       required: true,
     },
     created: {
-      name: "created",
       baseName: "created",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "NotebookMetadata",
-      required: false,
     },
     modified: {
-      name: "modified",
       baseName: "modified",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "NotebookStatus",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "NotebookGlobalTime",
       required: true,

@@ -24,24 +24,19 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     key: {
-      name: "key",
       baseName: "key",
       type: "string",
-      required: false,
     },
   };
 

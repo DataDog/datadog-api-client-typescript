@@ -24,21 +24,18 @@ export class ServiceLevelObjectiveQuery {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     denominator: {
-      name: "denominator",
       baseName: "denominator",
       type: "string",
       required: true,
     },
     numerator: {
-      name: "numerator",
       baseName: "numerator",
       type: "string",
       required: true,

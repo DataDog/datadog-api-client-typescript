@@ -28,32 +28,28 @@ export class UsageCloudSecurityPostureManagementHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     containerCount: {
-      name: "containerCount",
       baseName: "container_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hostCount: {
-      name: "hostCount",
       baseName: "host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
   };

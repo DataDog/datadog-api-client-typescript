@@ -109,165 +109,126 @@ export class MonitorOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "MonitorOptionsAggregation",
-      required: false,
     },
     deviceIds: {
-      name: "deviceIds",
       baseName: "device_ids",
       type: "Array<MonitorDeviceID>",
-      required: false,
     },
     enableLogsSample: {
-      name: "enableLogsSample",
       baseName: "enable_logs_sample",
       type: "boolean",
-      required: false,
     },
     escalationMessage: {
-      name: "escalationMessage",
       baseName: "escalation_message",
       type: "string",
-      required: false,
     },
     evaluationDelay: {
-      name: "evaluationDelay",
       baseName: "evaluation_delay",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     groupbySimpleMonitor: {
-      name: "groupbySimpleMonitor",
       baseName: "groupby_simple_monitor",
       type: "boolean",
-      required: false,
     },
     includeTags: {
-      name: "includeTags",
       baseName: "include_tags",
       type: "boolean",
-      required: false,
     },
     locked: {
-      name: "locked",
       baseName: "locked",
       type: "boolean",
-      required: false,
     },
     minFailureDuration: {
-      name: "minFailureDuration",
       baseName: "min_failure_duration",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     minLocationFailed: {
-      name: "minLocationFailed",
       baseName: "min_location_failed",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     newGroupDelay: {
-      name: "newGroupDelay",
       baseName: "new_group_delay",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     newHostDelay: {
-      name: "newHostDelay",
       baseName: "new_host_delay",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     noDataTimeframe: {
-      name: "noDataTimeframe",
       baseName: "no_data_timeframe",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     notifyAudit: {
-      name: "notifyAudit",
       baseName: "notify_audit",
       type: "boolean",
-      required: false,
     },
     notifyNoData: {
-      name: "notifyNoData",
       baseName: "notify_no_data",
       type: "boolean",
-      required: false,
     },
     renotifyInterval: {
-      name: "renotifyInterval",
       baseName: "renotify_interval",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     renotifyOccurrences: {
-      name: "renotifyOccurrences",
       baseName: "renotify_occurrences",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     renotifyStatuses: {
-      name: "renotifyStatuses",
       baseName: "renotify_statuses",
       type: "Array<MonitorRenotifyStatusType>",
-      required: false,
     },
     requireFullWindow: {
-      name: "requireFullWindow",
       baseName: "require_full_window",
       type: "boolean",
-      required: false,
     },
     silenced: {
-      name: "silenced",
       baseName: "silenced",
       type: "{ [key: string]: number; }",
-      required: false,
+
       format: "int64",
     },
     syntheticsCheckId: {
-      name: "syntheticsCheckId",
       baseName: "synthetics_check_id",
       type: "string",
-      required: false,
     },
     thresholdWindows: {
-      name: "thresholdWindows",
       baseName: "threshold_windows",
       type: "MonitorThresholdWindowOptions",
-      required: false,
     },
     thresholds: {
-      name: "thresholds",
       baseName: "thresholds",
       type: "MonitorThresholds",
-      required: false,
     },
     timeoutH: {
-      name: "timeoutH",
       baseName: "timeout_h",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

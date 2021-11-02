@@ -24,24 +24,19 @@ export class UsageAttributionMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregates: {
-      name: "aggregates",
       baseName: "aggregates",
       type: "Array<UsageAttributionAggregatesBody>",
-      required: false,
     },
     pagination: {
-      name: "pagination",
       baseName: "pagination",
       type: "UsageAttributionPagination",
-      required: false,
     },
   };
 

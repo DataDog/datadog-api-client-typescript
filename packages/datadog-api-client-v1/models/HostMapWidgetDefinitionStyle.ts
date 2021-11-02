@@ -32,36 +32,27 @@ export class HostMapWidgetDefinitionStyle {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     fillMax: {
-      name: "fillMax",
       baseName: "fill_max",
       type: "string",
-      required: false,
     },
     fillMin: {
-      name: "fillMin",
       baseName: "fill_min",
       type: "string",
-      required: false,
     },
     palette: {
-      name: "palette",
       baseName: "palette",
       type: "string",
-      required: false,
     },
     paletteFlip: {
-      name: "paletteFlip",
       baseName: "palette_flip",
       type: "boolean",
-      required: false,
     },
   };
 

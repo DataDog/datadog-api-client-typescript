@@ -23,24 +23,20 @@ export class LogsMetricCompute {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregationType: {
-      name: "aggregationType",
       baseName: "aggregation_type",
       type: "LogsMetricComputeAggregationType",
       required: true,
     },
     path: {
-      name: "path",
       baseName: "path",
       type: "string",
-      required: false,
     },
   };
 

@@ -52,69 +52,50 @@ export class SLOWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     globalTimeTarget: {
-      name: "globalTimeTarget",
       baseName: "global_time_target",
       type: "string",
-      required: false,
     },
     showErrorBudget: {
-      name: "showErrorBudget",
       baseName: "show_error_budget",
       type: "boolean",
-      required: false,
     },
     sloId: {
-      name: "sloId",
       baseName: "slo_id",
       type: "string",
-      required: false,
     },
     timeWindows: {
-      name: "timeWindows",
       baseName: "time_windows",
       type: "Array<WidgetTimeWindows>",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SLOWidgetDefinitionType",
       required: true,
     },
     viewMode: {
-      name: "viewMode",
       baseName: "view_mode",
       type: "WidgetViewMode",
-      required: false,
     },
     viewType: {
-      name: "viewType",
       baseName: "view_type",
       type: "string",
       required: true,

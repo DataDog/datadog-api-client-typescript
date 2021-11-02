@@ -23,24 +23,19 @@ export class SyntheticsAPITestResultShortResult {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     passed: {
-      name: "passed",
       baseName: "passed",
       type: "boolean",
-      required: false,
     },
     timings: {
-      name: "timings",
       baseName: "timings",
       type: "SyntheticsTiming",
-      required: false,
     },
   };
 

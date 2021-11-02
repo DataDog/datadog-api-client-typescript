@@ -48,62 +48,47 @@ export class OrganizationAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     disabled: {
-      name: "disabled",
       baseName: "disabled",
       type: "boolean",
-      required: false,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     sharing: {
-      name: "sharing",
       baseName: "sharing",
       type: "string",
-      required: false,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

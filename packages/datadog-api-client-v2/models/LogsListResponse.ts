@@ -26,30 +26,23 @@ export class LogsListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<Log>",
-      required: false,
     },
     links: {
-      name: "links",
       baseName: "links",
       type: "LogsListResponseLinks",
-      required: false,
     },
     meta: {
-      name: "meta",
       baseName: "meta",
       type: "LogsResponseMetadata",
-      required: false,
     },
   };
 

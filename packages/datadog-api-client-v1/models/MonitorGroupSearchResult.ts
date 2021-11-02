@@ -43,57 +43,45 @@ export class MonitorGroupSearchResult {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     group: {
-      name: "group",
       baseName: "group",
       type: "string",
-      required: false,
     },
     groupTags: {
-      name: "groupTags",
       baseName: "group_tags",
       type: "Array<string>",
-      required: false,
     },
     lastNodataTs: {
-      name: "lastNodataTs",
       baseName: "last_nodata_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     lastTriggeredTs: {
-      name: "lastTriggeredTs",
       baseName: "last_triggered_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     monitorId: {
-      name: "monitorId",
       baseName: "monitor_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     monitorName: {
-      name: "monitorName",
       baseName: "monitor_name",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
-      required: false,
     },
   };
 

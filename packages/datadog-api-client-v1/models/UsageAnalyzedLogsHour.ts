@@ -24,25 +24,22 @@ export class UsageAnalyzedLogsHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     analyzedLogs: {
-      name: "analyzedLogs",
       baseName: "analyzed_logs",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
   };

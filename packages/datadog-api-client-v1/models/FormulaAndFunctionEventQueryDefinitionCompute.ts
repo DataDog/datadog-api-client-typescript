@@ -27,31 +27,26 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
       required: true,
     },
     interval: {
-      name: "interval",
       baseName: "interval",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
   };
 

@@ -28,31 +28,26 @@ export class SecurityMonitoringSignalListRequestFilter {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     from: {
-      name: "from",
       baseName: "from",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
     to: {
-      name: "to",
       baseName: "to",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
   };

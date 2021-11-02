@@ -24,21 +24,17 @@ export class TimeseriesWidgetExpressionAlias {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aliasName: {
-      name: "aliasName",
       baseName: "alias_name",
       type: "string",
-      required: false,
     },
     expression: {
-      name: "expression",
       baseName: "expression",
       type: "string",
       required: true,

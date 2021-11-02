@@ -19,18 +19,15 @@ export class LogsAPIErrorResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     error: {
-      name: "error",
       baseName: "error",
       type: "LogsAPIError",
-      required: false,
     },
   };
 

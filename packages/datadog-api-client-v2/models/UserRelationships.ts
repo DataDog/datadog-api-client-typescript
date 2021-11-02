@@ -19,18 +19,15 @@ export class UserRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     roles: {
-      name: "roles",
       baseName: "roles",
       type: "RelationshipToRoles",
-      required: false,
     },
   };
 

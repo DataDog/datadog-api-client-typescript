@@ -23,24 +23,20 @@ export class SyntheticsVariableParser {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsGlobalVariableParserType",
       required: true,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "string",
-      required: false,
     },
   };
 

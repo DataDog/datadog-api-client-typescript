@@ -34,43 +34,33 @@ export class LogsResponseMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     elapsed: {
-      name: "elapsed",
       baseName: "elapsed",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     page: {
-      name: "page",
       baseName: "page",
       type: "LogsResponseMetadataPage",
-      required: false,
     },
     requestId: {
-      name: "requestId",
       baseName: "request_id",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "LogsAggregateResponseStatus",
-      required: false,
     },
     warnings: {
-      name: "warnings",
       baseName: "warnings",
       type: "Array<LogsWarning>",
-      required: false,
     },
   };
 

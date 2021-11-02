@@ -28,30 +28,23 @@ export class LogsAPIError {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     code: {
-      name: "code",
       baseName: "code",
       type: "string",
-      required: false,
     },
     details: {
-      name: "details",
       baseName: "details",
       type: "Array<LogsAPIError>",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
   };
 

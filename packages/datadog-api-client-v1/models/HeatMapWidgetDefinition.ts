@@ -56,78 +56,57 @@ export class HeatMapWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customLinks: {
-      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      required: false,
     },
     events: {
-      name: "events",
       baseName: "events",
       type: "Array<WidgetEvent>",
-      required: false,
     },
     legendSize: {
-      name: "legendSize",
       baseName: "legend_size",
       type: "string",
-      required: false,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "Array<HeatMapWidgetRequest>",
       required: true,
     },
     showLegend: {
-      name: "showLegend",
       baseName: "show_legend",
       type: "boolean",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "HeatMapWidgetDefinitionType",
       required: true,
     },
     yaxis: {
-      name: "yaxis",
       baseName: "yaxis",
       type: "WidgetAxis",
-      required: false,
     },
   };
 

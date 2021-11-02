@@ -40,50 +40,39 @@ export class MetricTagConfigurationAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregations: {
-      name: "aggregations",
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
-      required: false,
     },
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     includePercentiles: {
-      name: "includePercentiles",
       baseName: "include_percentiles",
       type: "boolean",
-      required: false,
     },
     metricType: {
-      name: "metricType",
       baseName: "metric_type",
       type: "MetricTagConfigurationMetricTypes",
-      required: false,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
   };
 

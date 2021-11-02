@@ -30,30 +30,23 @@ export class LogsListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     logs: {
-      name: "logs",
       baseName: "logs",
       type: "Array<Log>",
-      required: false,
     },
     nextLogId: {
-      name: "nextLogId",
       baseName: "nextLogId",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
   };
 

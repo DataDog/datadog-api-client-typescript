@@ -26,25 +26,21 @@ export class SyntheticsGetAPITestLatestResultsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     lastTimestampFetched: {
-      name: "lastTimestampFetched",
       baseName: "last_timestamp_fetched",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     results: {
-      name: "results",
       baseName: "results",
       type: "Array<SyntheticsAPITestResultShort>",
-      required: false,
     },
   };
 

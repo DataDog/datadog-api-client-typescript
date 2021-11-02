@@ -21,24 +21,19 @@ export class UsageSpecifiedCustomReportsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "UsageSpecifiedCustomReportsData",
-      required: false,
     },
     meta: {
-      name: "meta",
       baseName: "meta",
       type: "UsageSpecifiedCustomReportsMeta",
-      required: false,
     },
   };
 

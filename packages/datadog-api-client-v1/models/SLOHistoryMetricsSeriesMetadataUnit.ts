@@ -40,50 +40,39 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     family: {
-      name: "family",
       baseName: "family",
       type: "string",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     plural: {
-      name: "plural",
       baseName: "plural",
       type: "string",
-      required: false,
     },
     scaleFactor: {
-      name: "scaleFactor",
       baseName: "scale_factor",
       type: "number",
-      required: false,
+
       format: "double",
     },
     shortName: {
-      name: "shortName",
       baseName: "short_name",
       type: "string",
-      required: false,
     },
   };
 

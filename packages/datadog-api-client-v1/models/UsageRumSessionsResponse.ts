@@ -22,18 +22,15 @@ export class UsageRumSessionsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     usage: {
-      name: "usage",
       baseName: "usage",
       type: "Array<UsageRumSessionsHour>",
-      required: false,
     },
   };
 

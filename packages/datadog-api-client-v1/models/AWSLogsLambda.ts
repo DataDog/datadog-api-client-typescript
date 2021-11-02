@@ -20,18 +20,15 @@ export class AWSLogsLambda {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     arn: {
-      name: "arn",
       baseName: "arn",
       type: "string",
-      required: false,
     },
   };
 

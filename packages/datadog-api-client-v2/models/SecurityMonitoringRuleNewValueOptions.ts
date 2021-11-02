@@ -21,24 +21,19 @@ export class SecurityMonitoringRuleNewValueOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     forgetAfter: {
-      name: "forgetAfter",
       baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-      required: false,
     },
     learningDuration: {
-      name: "learningDuration",
       baseName: "learningDuration",
       type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
-      required: false,
     },
   };
 

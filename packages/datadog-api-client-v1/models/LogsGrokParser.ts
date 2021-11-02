@@ -37,45 +37,35 @@ export class LogsGrokParser {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     grok: {
-      name: "grok",
       baseName: "grok",
       type: "LogsGrokParserRules",
       required: true,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     samples: {
-      name: "samples",
       baseName: "samples",
       type: "Array<string>",
-      required: false,
     },
     source: {
-      name: "source",
       baseName: "source",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsGrokParserType",
       required: true,

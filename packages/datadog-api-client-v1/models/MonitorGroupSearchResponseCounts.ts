@@ -24,24 +24,19 @@ export class MonitorGroupSearchResponseCounts {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     status: {
-      name: "status",
       baseName: "status",
       type: "Array<any>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "Array<any>",
-      required: false,
     },
   };
 

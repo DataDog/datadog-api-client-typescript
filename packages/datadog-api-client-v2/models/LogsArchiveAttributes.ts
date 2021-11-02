@@ -37,48 +37,38 @@ export class LogsArchiveAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     destination: {
-      name: "destination",
       baseName: "destination",
       type: "LogsArchiveDestination",
       required: true,
     },
     includeTags: {
-      name: "includeTags",
       baseName: "include_tags",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,
     },
     rehydrationTags: {
-      name: "rehydrationTags",
       baseName: "rehydration_tags",
       type: "Array<string>",
-      required: false,
     },
     state: {
-      name: "state",
       baseName: "state",
       type: "LogsArchiveState",
-      required: false,
     },
   };
 

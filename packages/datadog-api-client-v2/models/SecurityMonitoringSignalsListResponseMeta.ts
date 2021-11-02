@@ -19,18 +19,15 @@ export class SecurityMonitoringSignalsListResponseMeta {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     page: {
-      name: "page",
       baseName: "page",
       type: "SecurityMonitoringSignalsListResponseMetaPage",
-      required: false,
     },
   };
 

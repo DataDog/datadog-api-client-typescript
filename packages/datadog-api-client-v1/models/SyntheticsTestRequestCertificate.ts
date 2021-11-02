@@ -20,24 +20,19 @@ export class SyntheticsTestRequestCertificate {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cert: {
-      name: "cert",
       baseName: "cert",
       type: "SyntheticsTestRequestCertificateItem",
-      required: false,
     },
     key: {
-      name: "key",
       baseName: "key",
       type: "SyntheticsTestRequestCertificateItem",
-      required: false,
     },
   };
 

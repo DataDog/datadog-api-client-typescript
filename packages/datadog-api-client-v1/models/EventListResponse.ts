@@ -26,24 +26,19 @@ export class EventListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     events: {
-      name: "events",
       baseName: "events",
       type: "Array<Event>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
   };
 

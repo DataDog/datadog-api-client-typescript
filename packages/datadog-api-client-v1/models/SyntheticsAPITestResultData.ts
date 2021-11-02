@@ -49,74 +49,55 @@ export class SyntheticsAPITestResultData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cert: {
-      name: "cert",
       baseName: "cert",
       type: "SyntheticsSSLCertificate",
-      required: false,
     },
     errorCode: {
-      name: "errorCode",
       baseName: "errorCode",
       type: "SyntheticsErrorCode",
-      required: false,
     },
     errorMessage: {
-      name: "errorMessage",
       baseName: "errorMessage",
       type: "string",
-      required: false,
     },
     eventType: {
-      name: "eventType",
       baseName: "eventType",
       type: "SyntheticsTestProcessStatus",
-      required: false,
     },
     httpStatusCode: {
-      name: "httpStatusCode",
       baseName: "httpStatusCode",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     requestHeaders: {
-      name: "requestHeaders",
       baseName: "requestHeaders",
       type: "{ [key: string]: any; }",
-      required: false,
     },
     responseBody: {
-      name: "responseBody",
       baseName: "responseBody",
       type: "string",
-      required: false,
     },
     responseHeaders: {
-      name: "responseHeaders",
       baseName: "responseHeaders",
       type: "{ [key: string]: any; }",
-      required: false,
     },
     responseSize: {
-      name: "responseSize",
       baseName: "responseSize",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timings: {
-      name: "timings",
       baseName: "timings",
       type: "SyntheticsTiming",
-      required: false,
     },
   };
 

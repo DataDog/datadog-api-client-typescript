@@ -40,50 +40,40 @@ export class Series {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     host: {
-      name: "host",
       baseName: "host",
       type: "string",
-      required: false,
     },
     interval: {
-      name: "interval",
       baseName: "interval",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
       required: true,
     },
     points: {
-      name: "points",
       baseName: "points",
       type: "Array<Array<number>>",
       required: true,
       format: "double",
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
   };
 

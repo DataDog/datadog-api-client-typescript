@@ -28,28 +28,23 @@ export class LogsListRequestTime {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     from: {
-      name: "from",
       baseName: "from",
       type: "Date",
       required: true,
       format: "date-time",
     },
     timezone: {
-      name: "timezone",
       baseName: "timezone",
       type: "string",
-      required: false,
     },
     to: {
-      name: "to",
       baseName: "to",
       type: "Date",
       required: true,

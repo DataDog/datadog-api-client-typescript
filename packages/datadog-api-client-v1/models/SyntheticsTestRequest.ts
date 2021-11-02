@@ -83,124 +83,91 @@ export class SyntheticsTestRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     allowInsecure: {
-      name: "allowInsecure",
       baseName: "allow_insecure",
       type: "boolean",
-      required: false,
     },
     basicAuth: {
-      name: "basicAuth",
       baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
-      required: false,
     },
     body: {
-      name: "body",
       baseName: "body",
       type: "string",
-      required: false,
     },
     certificate: {
-      name: "certificate",
       baseName: "certificate",
       type: "SyntheticsTestRequestCertificate",
-      required: false,
     },
     dnsServer: {
-      name: "dnsServer",
       baseName: "dnsServer",
       type: "string",
-      required: false,
     },
     dnsServerPort: {
-      name: "dnsServerPort",
       baseName: "dnsServerPort",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     followRedirects: {
-      name: "followRedirects",
       baseName: "follow_redirects",
       type: "boolean",
-      required: false,
     },
     headers: {
-      name: "headers",
       baseName: "headers",
       type: "{ [key: string]: string; }",
-      required: false,
     },
     host: {
-      name: "host",
       baseName: "host",
       type: "string",
-      required: false,
     },
     method: {
-      name: "method",
       baseName: "method",
       type: "HTTPMethod",
-      required: false,
     },
     noSavingResponseBody: {
-      name: "noSavingResponseBody",
       baseName: "noSavingResponseBody",
       type: "boolean",
-      required: false,
     },
     numberOfPackets: {
-      name: "numberOfPackets",
       baseName: "numberOfPackets",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     port: {
-      name: "port",
       baseName: "port",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "any",
-      required: false,
     },
     servername: {
-      name: "servername",
       baseName: "servername",
       type: "string",
-      required: false,
     },
     shouldTrackHops: {
-      name: "shouldTrackHops",
       baseName: "shouldTrackHops",
       type: "boolean",
-      required: false,
     },
     timeout: {
-      name: "timeout",
       baseName: "timeout",
       type: "number",
-      required: false,
+
       format: "double",
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

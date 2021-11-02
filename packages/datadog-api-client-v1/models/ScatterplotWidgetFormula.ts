@@ -27,27 +27,22 @@ export class ScatterplotWidgetFormula {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     alias: {
-      name: "alias",
       baseName: "alias",
       type: "string",
-      required: false,
     },
     dimension: {
-      name: "dimension",
       baseName: "dimension",
       type: "ScatterplotDimension",
       required: true,
     },
     formula: {
-      name: "formula",
       baseName: "formula",
       type: "string",
       required: true,

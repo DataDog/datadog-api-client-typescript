@@ -58,72 +58,52 @@ export class SecurityMonitoringRuleUpdatePayload {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cases: {
-      name: "cases",
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
-      required: false,
     },
     filters: {
-      name: "filters",
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
-      required: false,
     },
     hasExtendedTitle: {
-      name: "hasExtendedTitle",
       baseName: "hasExtendedTitle",
       type: "boolean",
-      required: false,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "isEnabled",
       type: "boolean",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     options: {
-      name: "options",
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
-      required: false,
     },
     queries: {
-      name: "queries",
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQuery>",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     version: {
-      name: "version",
       baseName: "version",
       type: "number",
-      required: false,
+
       format: "int32",
     },
   };

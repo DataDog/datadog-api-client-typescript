@@ -20,18 +20,16 @@ export class MetricDistinctVolumeAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     distinctVolume: {
-      name: "distinctVolume",
       baseName: "distinct_volume",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

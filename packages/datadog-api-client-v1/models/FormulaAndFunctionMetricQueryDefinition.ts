@@ -29,33 +29,27 @@ export class FormulaAndFunctionMetricQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregator: {
-      name: "aggregator",
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
-      required: false,
     },
     dataSource: {
-      name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionMetricDataSource",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,

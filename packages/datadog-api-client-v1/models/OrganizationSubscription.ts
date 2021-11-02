@@ -20,18 +20,15 @@ export class OrganizationSubscription {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
   };
 

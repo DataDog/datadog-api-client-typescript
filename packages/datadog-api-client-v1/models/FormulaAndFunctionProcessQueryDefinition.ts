@@ -47,67 +47,52 @@ export class FormulaAndFunctionProcessQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregator: {
-      name: "aggregator",
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
-      required: false,
     },
     dataSource: {
-      name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionProcessQueryDataSource",
       required: true,
     },
     isNormalizedCpu: {
-      name: "isNormalizedCpu",
       baseName: "is_normalized_cpu",
       type: "boolean",
-      required: false,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "QuerySortOrder",
-      required: false,
     },
     tagFilters: {
-      name: "tagFilters",
       baseName: "tag_filters",
       type: "Array<string>",
-      required: false,
     },
     textFilter: {
-      name: "textFilter",
       baseName: "text_filter",
       type: "string",
-      required: false,
     },
   };
 

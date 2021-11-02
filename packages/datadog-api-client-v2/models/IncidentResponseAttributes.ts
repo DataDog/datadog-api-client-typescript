@@ -91,129 +91,105 @@ export class IncidentResponseAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     created: {
-      name: "created",
       baseName: "created",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     customerImpactDuration: {
-      name: "customerImpactDuration",
       baseName: "customer_impact_duration",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     customerImpactEnd: {
-      name: "customerImpactEnd",
       baseName: "customer_impact_end",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     customerImpactScope: {
-      name: "customerImpactScope",
       baseName: "customer_impact_scope",
       type: "string",
-      required: false,
     },
     customerImpactStart: {
-      name: "customerImpactStart",
       baseName: "customer_impact_start",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     customerImpacted: {
-      name: "customerImpacted",
       baseName: "customer_impacted",
       type: "boolean",
-      required: false,
     },
     detected: {
-      name: "detected",
       baseName: "detected",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     fields: {
-      name: "fields",
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
-      required: false,
     },
     modified: {
-      name: "modified",
       baseName: "modified",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     notificationHandles: {
-      name: "notificationHandles",
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
-      required: false,
     },
     postmortemId: {
-      name: "postmortemId",
       baseName: "postmortem_id",
       type: "string",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     resolved: {
-      name: "resolved",
       baseName: "resolved",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     timeToDetect: {
-      name: "timeToDetect",
       baseName: "time_to_detect",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timeToInternalResponse: {
-      name: "timeToInternalResponse",
       baseName: "time_to_internal_response",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timeToRepair: {
-      name: "timeToRepair",
       baseName: "time_to_repair",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timeToResolve: {
-      name: "timeToResolve",
       baseName: "time_to_resolve",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
       required: true,

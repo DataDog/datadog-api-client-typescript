@@ -29,30 +29,23 @@ export class ScatterplotTableRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     formulas: {
-      name: "formulas",
       baseName: "formulas",
       type: "Array<ScatterplotWidgetFormula>",
-      required: false,
     },
     queries: {
-      name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
-      required: false,
     },
     responseFormat: {
-      name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
-      required: false,
     },
   };
 

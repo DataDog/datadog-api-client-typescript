@@ -27,24 +27,19 @@ export class ListApplicationKeysResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<PartialApplicationKey>",
-      required: false,
     },
     included: {
-      name: "included",
       baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
-      required: false,
     },
   };
 

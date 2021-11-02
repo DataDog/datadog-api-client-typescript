@@ -23,24 +23,19 @@ export class LogsCategoryProcessorCategory {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsFilter",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
   };
 

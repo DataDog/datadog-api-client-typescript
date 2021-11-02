@@ -32,38 +32,31 @@ export class UserInvitationDataAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     expiresAt: {
-      name: "expiresAt",
       baseName: "expires_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     inviteType: {
-      name: "inviteType",
       baseName: "invite_type",
       type: "string",
-      required: false,
     },
     uuid: {
-      name: "uuid",
       baseName: "uuid",
       type: "string",
-      required: false,
     },
   };
 

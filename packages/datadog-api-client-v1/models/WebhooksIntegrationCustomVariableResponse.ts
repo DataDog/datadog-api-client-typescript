@@ -28,30 +28,25 @@ export class WebhooksIntegrationCustomVariableResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     isSecret: {
-      name: "isSecret",
       baseName: "is_secret",
       type: "boolean",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "string",
-      required: false,
     },
   };
 

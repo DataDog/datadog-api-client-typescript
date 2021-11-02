@@ -23,30 +23,24 @@ export class RoleCreateData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "RoleCreateAttributes",
       required: true,
     },
     relationships: {
-      name: "relationships",
       baseName: "relationships",
       type: "RoleRelationships",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "RolesType",
-      required: false,
     },
   };
 

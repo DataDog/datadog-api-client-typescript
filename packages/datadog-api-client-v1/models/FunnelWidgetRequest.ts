@@ -21,21 +21,18 @@ export class FunnelWidgetRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     query: {
-      name: "query",
       baseName: "query",
       type: "FunnelQuery",
       required: true,
     },
     requestType: {
-      name: "requestType",
       baseName: "request_type",
       type: "FunnelRequestType",
       required: true,

@@ -32,36 +32,27 @@ export class ApiKey {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     created: {
-      name: "created",
       baseName: "created",
       type: "string",
-      required: false,
     },
     createdBy: {
-      name: "createdBy",
       baseName: "created_by",
       type: "string",
-      required: false,
     },
     key: {
-      name: "key",
       baseName: "key",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
   };
 

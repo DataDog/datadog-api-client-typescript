@@ -28,30 +28,23 @@ export class SyntheticsAssertionJSONPathTargetTarget {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     jsonPath: {
-      name: "jsonPath",
       baseName: "jsonPath",
       type: "string",
-      required: false,
     },
     operator: {
-      name: "operator",
       baseName: "operator",
       type: "string",
-      required: false,
     },
     targetValue: {
-      name: "targetValue",
       baseName: "targetValue",
       type: "any",
-      required: false,
     },
   };
 

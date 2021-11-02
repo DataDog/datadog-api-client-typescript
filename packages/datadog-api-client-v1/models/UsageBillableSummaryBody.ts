@@ -44,60 +44,51 @@ export class UsageBillableSummaryBody {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accountBillableUsage: {
-      name: "accountBillableUsage",
       baseName: "account_billable_usage",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     elapsedUsageHours: {
-      name: "elapsedUsageHours",
       baseName: "elapsed_usage_hours",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     firstBillableUsageHour: {
-      name: "firstBillableUsageHour",
       baseName: "first_billable_usage_hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     lastBillableUsageHour: {
-      name: "lastBillableUsageHour",
       baseName: "last_billable_usage_hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     orgBillableUsage: {
-      name: "orgBillableUsage",
       baseName: "org_billable_usage",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     percentageInAccount: {
-      name: "percentageInAccount",
       baseName: "percentage_in_account",
       type: "number",
-      required: false,
+
       format: "double",
     },
     usageUnit: {
-      name: "usageUnit",
       baseName: "usage_unit",
       type: "string",
-      required: false,
     },
   };
 

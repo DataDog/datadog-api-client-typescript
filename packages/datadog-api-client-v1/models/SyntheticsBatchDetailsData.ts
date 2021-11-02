@@ -26,30 +26,23 @@ export class SyntheticsBatchDetailsData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
-      required: false,
     },
     results: {
-      name: "results",
       baseName: "results",
       type: "Array<SyntheticsBatchResult>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "SyntheticsStatus",
-      required: false,
     },
   };
 

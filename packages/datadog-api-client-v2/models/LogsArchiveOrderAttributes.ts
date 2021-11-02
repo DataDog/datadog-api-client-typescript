@@ -20,15 +20,13 @@ export class LogsArchiveOrderAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     archiveIds: {
-      name: "archiveIds",
       baseName: "archive_ids",
       type: "Array<string>",
       required: true,

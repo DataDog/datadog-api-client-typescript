@@ -32,37 +32,30 @@ export class ProcessQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filterBy: {
-      name: "filterBy",
       baseName: "filter_by",
       type: "Array<string>",
-      required: false,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
       required: true,
     },
     searchBy: {
-      name: "searchBy",
       baseName: "search_by",
       type: "string",
-      required: false,
     },
   };
 

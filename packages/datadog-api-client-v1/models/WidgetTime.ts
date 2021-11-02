@@ -19,18 +19,15 @@ export class WidgetTime {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     liveSpan: {
-      name: "liveSpan",
       baseName: "live_span",
       type: "WidgetLiveSpan",
-      required: false,
     },
   };
 

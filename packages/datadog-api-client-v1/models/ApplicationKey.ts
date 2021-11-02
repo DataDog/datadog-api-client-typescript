@@ -28,30 +28,23 @@ export class ApplicationKey {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hash: {
-      name: "hash",
       baseName: "hash",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     owner: {
-      name: "owner",
       baseName: "owner",
       type: "string",
-      required: false,
     },
   };
 

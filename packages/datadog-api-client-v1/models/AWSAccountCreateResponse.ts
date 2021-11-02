@@ -20,18 +20,15 @@ export class AWSAccountCreateResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     externalId: {
-      name: "externalId",
       baseName: "external_id",
       type: "string",
-      required: false,
     },
   };
 

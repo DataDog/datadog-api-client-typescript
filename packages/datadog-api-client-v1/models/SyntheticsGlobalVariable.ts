@@ -43,57 +43,44 @@ export class SyntheticsGlobalVariable {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "SyntheticsGlobalVariableAttributes",
-      required: false,
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
       required: true,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     parseTestOptions: {
-      name: "parseTestOptions",
       baseName: "parse_test_options",
       type: "SyntheticsGlobalVariableParseTestOptions",
-      required: false,
     },
     parseTestPublicId: {
-      name: "parseTestPublicId",
       baseName: "parse_test_public_id",
       type: "string",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "SyntheticsGlobalVariableValue",
       required: true,

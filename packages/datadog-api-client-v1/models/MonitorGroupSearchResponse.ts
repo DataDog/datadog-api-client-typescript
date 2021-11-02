@@ -26,30 +26,23 @@ export class MonitorGroupSearchResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     counts: {
-      name: "counts",
       baseName: "counts",
       type: "MonitorGroupSearchResponseCounts",
-      required: false,
     },
     groups: {
-      name: "groups",
       baseName: "groups",
       type: "Array<MonitorGroupSearchResult>",
-      required: false,
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "MonitorSearchResponseMetadata",
-      required: false,
     },
   };
 

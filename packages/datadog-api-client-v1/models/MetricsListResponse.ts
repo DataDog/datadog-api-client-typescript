@@ -24,24 +24,19 @@ export class MetricsListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     from: {
-      name: "from",
       baseName: "from",
       type: "string",
-      required: false,
     },
     metrics: {
-      name: "metrics",
       baseName: "metrics",
       type: "Array<string>",
-      required: false,
     },
   };
 

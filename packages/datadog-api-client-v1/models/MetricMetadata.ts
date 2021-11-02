@@ -44,55 +44,41 @@ export class MetricMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     integration: {
-      name: "integration",
       baseName: "integration",
       type: "string",
-      required: false,
     },
     perUnit: {
-      name: "perUnit",
       baseName: "per_unit",
       type: "string",
-      required: false,
     },
     shortName: {
-      name: "shortName",
       baseName: "short_name",
       type: "string",
-      required: false,
     },
     statsdInterval: {
-      name: "statsdInterval",
       baseName: "statsd_interval",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
     unit: {
-      name: "unit",
       baseName: "unit",
       type: "string",
-      required: false,
     },
   };
 

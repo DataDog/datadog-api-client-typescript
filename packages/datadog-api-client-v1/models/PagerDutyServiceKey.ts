@@ -20,15 +20,13 @@ export class PagerDutyServiceKey {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     serviceKey: {
-      name: "serviceKey",
       baseName: "service_key",
       type: "string",
       required: true,

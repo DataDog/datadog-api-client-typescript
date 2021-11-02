@@ -42,51 +42,39 @@ export class ServiceMapWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customLinks: {
-      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      required: false,
     },
     filters: {
-      name: "filters",
       baseName: "filters",
       type: "Array<string>",
       required: true,
     },
     service: {
-      name: "service",
       baseName: "service",
       type: "string",
       required: true,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "ServiceMapWidgetDefinitionType",
       required: true,

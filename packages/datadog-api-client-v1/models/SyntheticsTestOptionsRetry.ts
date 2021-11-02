@@ -24,25 +24,22 @@ export class SyntheticsTestOptionsRetry {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     count: {
-      name: "count",
       baseName: "count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     interval: {
-      name: "interval",
       baseName: "interval",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

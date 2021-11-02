@@ -43,66 +43,49 @@ export class ImageWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hasBackground: {
-      name: "hasBackground",
       baseName: "has_background",
       type: "boolean",
-      required: false,
     },
     hasBorder: {
-      name: "hasBorder",
       baseName: "has_border",
       type: "boolean",
-      required: false,
     },
     horizontalAlign: {
-      name: "horizontalAlign",
       baseName: "horizontal_align",
       type: "WidgetHorizontalAlign",
-      required: false,
     },
     margin: {
-      name: "margin",
       baseName: "margin",
       type: "WidgetMargin",
-      required: false,
     },
     sizing: {
-      name: "sizing",
       baseName: "sizing",
       type: "WidgetImageSizing",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "ImageWidgetDefinitionType",
       required: true,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
       required: true,
     },
     urlDarkTheme: {
-      name: "urlDarkTheme",
       baseName: "url_dark_theme",
       type: "string",
-      required: false,
     },
     verticalAlign: {
-      name: "verticalAlign",
       baseName: "vertical_align",
       type: "WidgetVerticalAlign",
-      required: false,
     },
   };
 

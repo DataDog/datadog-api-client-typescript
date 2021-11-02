@@ -53,69 +53,51 @@ export class LogsAttributeRemapper {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     overrideOnConflict: {
-      name: "overrideOnConflict",
       baseName: "override_on_conflict",
       type: "boolean",
-      required: false,
     },
     preserveSource: {
-      name: "preserveSource",
       baseName: "preserve_source",
       type: "boolean",
-      required: false,
     },
     sourceType: {
-      name: "sourceType",
       baseName: "source_type",
       type: "string",
-      required: false,
     },
     sources: {
-      name: "sources",
       baseName: "sources",
       type: "Array<string>",
       required: true,
     },
     target: {
-      name: "target",
       baseName: "target",
       type: "string",
       required: true,
     },
     targetFormat: {
-      name: "targetFormat",
       baseName: "target_format",
       type: "TargetFormatType",
-      required: false,
     },
     targetType: {
-      name: "targetType",
       baseName: "target_type",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsAttributeRemapperType",
       required: true,

@@ -21,21 +21,18 @@ export class UserInvitationData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     relationships: {
-      name: "relationships",
       baseName: "relationships",
       type: "UserInvitationRelationships",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "UserInvitationsType",
       required: true,

@@ -28,28 +28,23 @@ export class NotebookAbsoluteTime {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     end: {
-      name: "end",
       baseName: "end",
       type: "Date",
       required: true,
       format: "date-time",
     },
     live: {
-      name: "live",
       baseName: "live",
       type: "boolean",
-      required: false,
     },
     start: {
-      name: "start",
       baseName: "start",
       type: "Date",
       required: true,

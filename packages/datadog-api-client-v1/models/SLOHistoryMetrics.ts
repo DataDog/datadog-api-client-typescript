@@ -44,59 +44,49 @@ export class SLOHistoryMetrics {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     denominator: {
-      name: "denominator",
       baseName: "denominator",
       type: "SLOHistoryMetricsSeries",
       required: true,
     },
     interval: {
-      name: "interval",
       baseName: "interval",
       type: "number",
       required: true,
       format: "int64",
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     numerator: {
-      name: "numerator",
       baseName: "numerator",
       type: "SLOHistoryMetricsSeries",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,
     },
     resType: {
-      name: "resType",
       baseName: "res_type",
       type: "string",
       required: true,
     },
     respVersion: {
-      name: "respVersion",
       baseName: "resp_version",
       type: "number",
       required: true,
       format: "int64",
     },
     times: {
-      name: "times",
       baseName: "times",
       type: "Array<number>",
       required: true,

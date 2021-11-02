@@ -20,18 +20,15 @@ export class SecurityFilterMeta {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     warning: {
-      name: "warning",
       baseName: "warning",
       type: "string",
-      required: false,
     },
   };
 

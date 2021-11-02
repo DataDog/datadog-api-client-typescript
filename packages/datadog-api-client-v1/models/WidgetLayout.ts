@@ -36,42 +36,35 @@ export class WidgetLayout {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     height: {
-      name: "height",
       baseName: "height",
       type: "number",
       required: true,
       format: "int64",
     },
     isColumnBreak: {
-      name: "isColumnBreak",
       baseName: "is_column_break",
       type: "boolean",
-      required: false,
     },
     width: {
-      name: "width",
       baseName: "width",
       type: "number",
       required: true,
       format: "int64",
     },
     x: {
-      name: "x",
       baseName: "x",
       type: "number",
       required: true,
       format: "int64",
     },
     y: {
-      name: "y",
       baseName: "y",
       type: "number",
       required: true,

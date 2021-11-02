@@ -43,55 +43,41 @@ export class UsageAttributionBody {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     month: {
-      name: "month",
       baseName: "month",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     orgName: {
-      name: "orgName",
       baseName: "org_name",
       type: "string",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     tagConfigSource: {
-      name: "tagConfigSource",
       baseName: "tag_config_source",
       type: "string",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
-      required: false,
     },
     updatedAt: {
-      name: "updatedAt",
       baseName: "updated_at",
       type: "string",
-      required: false,
     },
     values: {
-      name: "values",
       baseName: "values",
       type: "UsageAttributionValues",
-      required: false,
     },
   };
 

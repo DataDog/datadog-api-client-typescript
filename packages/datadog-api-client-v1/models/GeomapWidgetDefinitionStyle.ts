@@ -24,21 +24,18 @@ export class GeomapWidgetDefinitionStyle {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     palette: {
-      name: "palette",
       baseName: "palette",
       type: "string",
       required: true,
     },
     paletteFlip: {
-      name: "paletteFlip",
       baseName: "palette_flip",
       type: "boolean",
       required: true,

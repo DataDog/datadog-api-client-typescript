@@ -20,15 +20,13 @@ export class GeomapWidgetDefinitionView {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     focus: {
-      name: "focus",
       baseName: "focus",
       type: "string",
       required: true,

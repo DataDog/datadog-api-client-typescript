@@ -24,25 +24,22 @@ export class MetricIngestedIndexedVolumeAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     indexedVolume: {
-      name: "indexedVolume",
       baseName: "indexed_volume",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     ingestedVolume: {
-      name: "ingestedVolume",
       baseName: "ingested_volume",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

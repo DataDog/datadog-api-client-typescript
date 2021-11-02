@@ -84,117 +84,86 @@ export class SecurityMonitoringRuleResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cases: {
-      name: "cases",
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
-      required: false,
     },
     createdAt: {
-      name: "createdAt",
       baseName: "createdAt",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     creationAuthorId: {
-      name: "creationAuthorId",
       baseName: "creationAuthorId",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     filters: {
-      name: "filters",
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
-      required: false,
     },
     hasExtendedTitle: {
-      name: "hasExtendedTitle",
       baseName: "hasExtendedTitle",
       type: "boolean",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     isDefault: {
-      name: "isDefault",
       baseName: "isDefault",
       type: "boolean",
-      required: false,
     },
     isDeleted: {
-      name: "isDeleted",
       baseName: "isDeleted",
       type: "boolean",
-      required: false,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "isEnabled",
       type: "boolean",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     options: {
-      name: "options",
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
-      required: false,
     },
     queries: {
-      name: "queries",
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQuery>",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SecurityMonitoringRuleTypeRead",
-      required: false,
     },
     updateAuthorId: {
-      name: "updateAuthorId",
       baseName: "updateAuthorId",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     version: {
-      name: "version",
       baseName: "version",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

@@ -22,30 +22,23 @@ export class ScatterPlotWidgetDefinitionRequests {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     table: {
-      name: "table",
       baseName: "table",
       type: "ScatterplotTableRequest",
-      required: false,
     },
     x: {
-      name: "x",
       baseName: "x",
       type: "ScatterPlotRequest",
-      required: false,
     },
     y: {
-      name: "y",
       baseName: "y",
       type: "ScatterPlotRequest",
-      required: false,
     },
   };
 

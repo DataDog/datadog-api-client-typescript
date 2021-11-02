@@ -24,24 +24,19 @@ export class UsageTopAvgMetricsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "UsageTopAvgMetricsMetadata",
-      required: false,
     },
     usage: {
-      name: "usage",
       baseName: "usage",
       type: "Array<UsageTopAvgMetricsHour>",
-      required: false,
     },
   };
 

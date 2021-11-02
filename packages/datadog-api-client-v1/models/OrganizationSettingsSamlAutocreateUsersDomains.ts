@@ -24,24 +24,19 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     domains: {
-      name: "domains",
       baseName: "domains",
       type: "Array<string>",
-      required: false,
     },
     enabled: {
-      name: "enabled",
       baseName: "enabled",
       type: "boolean",
-      required: false,
     },
   };
 

@@ -22,18 +22,15 @@ export class LogsAggregateResponseData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     buckets: {
-      name: "buckets",
       baseName: "buckets",
       type: "Array<LogsAggregateBucket>",
-      required: false,
     },
   };
 

@@ -23,21 +23,18 @@ export class WidgetFieldSort {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     column: {
-      name: "column",
       baseName: "column",
       type: "string",
       required: true,
     },
     order: {
-      name: "order",
       baseName: "order",
       type: "WidgetSort",
       required: true,

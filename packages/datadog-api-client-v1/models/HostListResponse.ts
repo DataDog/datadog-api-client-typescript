@@ -30,31 +30,26 @@ export class HostListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hostList: {
-      name: "hostList",
       baseName: "host_list",
       type: "Array<Host>",
-      required: false,
     },
     totalMatching: {
-      name: "totalMatching",
       baseName: "total_matching",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     totalReturned: {
-      name: "totalReturned",
       baseName: "total_returned",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

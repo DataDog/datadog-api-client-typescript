@@ -21,24 +21,19 @@ export class RoleRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     permissions: {
-      name: "permissions",
       baseName: "permissions",
       type: "RelationshipToPermissions",
-      required: false,
     },
     users: {
-      name: "users",
       baseName: "users",
       type: "RelationshipToUsers",
-      required: false,
     },
   };
 

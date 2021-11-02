@@ -48,67 +48,58 @@ export class UsageLogsHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     billableIngestedBytes: {
-      name: "billableIngestedBytes",
       baseName: "billable_ingested_bytes",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     indexedEventsCount: {
-      name: "indexedEventsCount",
       baseName: "indexed_events_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     ingestedEventsBytes: {
-      name: "ingestedEventsBytes",
       baseName: "ingested_events_bytes",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     logsLiveIndexedCount: {
-      name: "logsLiveIndexedCount",
       baseName: "logs_live_indexed_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     logsLiveIngestedBytes: {
-      name: "logsLiveIngestedBytes",
       baseName: "logs_live_ingested_bytes",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     logsRehydratedIndexedCount: {
-      name: "logsRehydratedIndexedCount",
       baseName: "logs_rehydrated_indexed_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     logsRehydratedIngestedBytes: {
-      name: "logsRehydratedIngestedBytes",
       baseName: "logs_rehydrated_ingested_bytes",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

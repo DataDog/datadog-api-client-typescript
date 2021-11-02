@@ -32,36 +32,27 @@ export class WidgetCustomLink {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     isHidden: {
-      name: "isHidden",
       baseName: "is_hidden",
       type: "boolean",
-      required: false,
     },
     label: {
-      name: "label",
       baseName: "label",
       type: "string",
-      required: false,
     },
     link: {
-      name: "link",
       baseName: "link",
       type: "string",
-      required: false,
     },
     overrideLabel: {
-      name: "overrideLabel",
       baseName: "override_label",
       type: "string",
-      required: false,
     },
   };
 

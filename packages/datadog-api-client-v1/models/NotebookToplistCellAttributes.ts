@@ -25,36 +25,28 @@ export class NotebookToplistCellAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     definition: {
-      name: "definition",
       baseName: "definition",
       type: "ToplistWidgetDefinition",
       required: true,
     },
     graphSize: {
-      name: "graphSize",
       baseName: "graph_size",
       type: "NotebookGraphSize",
-      required: false,
     },
     splitBy: {
-      name: "splitBy",
       baseName: "split_by",
       type: "NotebookSplitBy",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "NotebookCellTime",
-      required: false,
     },
   };
 

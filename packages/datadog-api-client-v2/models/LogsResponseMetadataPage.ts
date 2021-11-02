@@ -20,18 +20,15 @@ export class LogsResponseMetadataPage {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     after: {
-      name: "after",
       baseName: "after",
       type: "string",
-      required: false,
     },
   };
 

@@ -26,24 +26,19 @@ export class LogsAggregateBucket {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     by: {
-      name: "by",
       baseName: "by",
       type: "{ [key: string]: string; }",
-      required: false,
     },
     computes: {
-      name: "computes",
       baseName: "computes",
       type: "{ [key: string]: LogsAggregateBucketValue; }",
-      required: false,
     },
   };
 

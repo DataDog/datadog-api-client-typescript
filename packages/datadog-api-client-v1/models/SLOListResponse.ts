@@ -28,30 +28,23 @@ export class SLOListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<ServiceLevelObjective>",
-      required: false,
     },
     errors: {
-      name: "errors",
       baseName: "errors",
       type: "Array<string>",
-      required: false,
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "SLOListResponseMetadata",
-      required: false,
     },
   };
 

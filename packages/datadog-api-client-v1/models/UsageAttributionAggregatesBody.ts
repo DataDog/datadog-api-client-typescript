@@ -28,30 +28,24 @@ export class UsageAttributionAggregatesBody {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggType: {
-      name: "aggType",
       baseName: "agg_type",
       type: "string",
-      required: false,
     },
     field: {
-      name: "field",
       baseName: "field",
       type: "string",
-      required: false,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

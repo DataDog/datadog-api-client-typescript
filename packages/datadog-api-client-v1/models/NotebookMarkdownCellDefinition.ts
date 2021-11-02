@@ -23,21 +23,18 @@ export class NotebookMarkdownCellDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     text: {
-      name: "text",
       baseName: "text",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "NotebookMarkdownCellDefinitionType",
       required: true,

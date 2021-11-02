@@ -20,18 +20,15 @@ export class TagToHosts {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
-      required: false,
     },
   };
 

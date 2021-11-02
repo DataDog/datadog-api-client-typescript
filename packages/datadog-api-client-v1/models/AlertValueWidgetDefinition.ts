@@ -42,61 +42,47 @@ export class AlertValueWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     alertId: {
-      name: "alertId",
       baseName: "alert_id",
       type: "string",
       required: true,
     },
     precision: {
-      name: "precision",
       baseName: "precision",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     textAlign: {
-      name: "textAlign",
       baseName: "text_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "AlertValueWidgetDefinitionType",
       required: true,
     },
     unit: {
-      name: "unit",
       baseName: "unit",
       type: "string",
-      required: false,
     },
   };
 

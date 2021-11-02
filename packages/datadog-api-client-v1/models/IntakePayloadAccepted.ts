@@ -20,18 +20,15 @@ export class IntakePayloadAccepted {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
   };
 

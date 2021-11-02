@@ -40,39 +40,30 @@ export class IncidentCreateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customerImpacted: {
-      name: "customerImpacted",
       baseName: "customer_impacted",
       type: "boolean",
       required: true,
     },
     fields: {
-      name: "fields",
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
-      required: false,
     },
     initialCells: {
-      name: "initialCells",
       baseName: "initial_cells",
       type: "Array<IncidentTimelineCellCreateAttributes>",
-      required: false,
     },
     notificationHandles: {
-      name: "notificationHandles",
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
       required: true,

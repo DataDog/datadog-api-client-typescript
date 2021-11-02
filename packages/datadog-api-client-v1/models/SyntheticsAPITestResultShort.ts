@@ -33,43 +33,33 @@ export class SyntheticsAPITestResultShort {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     checkTime: {
-      name: "checkTime",
       baseName: "check_time",
       type: "number",
-      required: false,
+
       format: "double",
     },
     probeDc: {
-      name: "probeDc",
       baseName: "probe_dc",
       type: "string",
-      required: false,
     },
     result: {
-      name: "result",
       baseName: "result",
       type: "SyntheticsAPITestResultShortResult",
-      required: false,
     },
     resultId: {
-      name: "resultId",
       baseName: "result_id",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "SyntheticsTestMonitorStatus",
-      required: false,
     },
   };
 

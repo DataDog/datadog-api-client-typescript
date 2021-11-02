@@ -24,22 +24,19 @@ export class HTTPLogError {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     code: {
-      name: "code",
       baseName: "code",
       type: "number",
       required: true,
       format: "int32",
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
       required: true,

@@ -33,39 +33,30 @@ export class FreeTextWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     color: {
-      name: "color",
       baseName: "color",
       type: "string",
-      required: false,
     },
     fontSize: {
-      name: "fontSize",
       baseName: "font_size",
       type: "string",
-      required: false,
     },
     text: {
-      name: "text",
       baseName: "text",
       type: "string",
       required: true,
     },
     textAlign: {
-      name: "textAlign",
       baseName: "text_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "FreeTextWidgetDefinitionType",
       required: true,

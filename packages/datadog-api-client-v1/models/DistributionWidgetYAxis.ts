@@ -36,42 +36,31 @@ export class DistributionWidgetYAxis {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     includeZero: {
-      name: "includeZero",
       baseName: "include_zero",
       type: "boolean",
-      required: false,
     },
     label: {
-      name: "label",
       baseName: "label",
       type: "string",
-      required: false,
     },
     max: {
-      name: "max",
       baseName: "max",
       type: "string",
-      required: false,
     },
     min: {
-      name: "min",
       baseName: "min",
       type: "string",
-      required: false,
     },
     scale: {
-      name: "scale",
       baseName: "scale",
       type: "string",
-      required: false,
     },
   };
 

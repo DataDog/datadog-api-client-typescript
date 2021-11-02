@@ -24,24 +24,20 @@ export class LogsGrokParserRules {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     matchRules: {
-      name: "matchRules",
       baseName: "match_rules",
       type: "string",
       required: true,
     },
     supportRules: {
-      name: "supportRules",
       baseName: "support_rules",
       type: "string",
-      required: false,
     },
   };
 

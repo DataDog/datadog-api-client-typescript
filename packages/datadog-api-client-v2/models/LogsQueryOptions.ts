@@ -24,25 +24,21 @@ export class LogsQueryOptions {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     timeOffset: {
-      name: "timeOffset",
       baseName: "timeOffset",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timezone: {
-      name: "timezone",
       baseName: "timezone",
       type: "string",
-      required: false,
     },
   };
 

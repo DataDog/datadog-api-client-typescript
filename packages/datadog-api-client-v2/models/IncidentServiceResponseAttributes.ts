@@ -28,32 +28,27 @@ export class IncidentServiceResponseAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     created: {
-      name: "created",
       baseName: "created",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     modified: {
-      name: "modified",
       baseName: "modified",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
   };
 

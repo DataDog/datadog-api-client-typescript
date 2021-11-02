@@ -32,33 +32,25 @@ export class WidgetMarker {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     displayType: {
-      name: "displayType",
       baseName: "display_type",
       type: "string",
-      required: false,
     },
     label: {
-      name: "label",
       baseName: "label",
       type: "string",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "string",
-      required: false,
     },
     value: {
-      name: "value",
       baseName: "value",
       type: "string",
       required: true,

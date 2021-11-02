@@ -60,78 +60,55 @@ export class AWSAccount {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accessKeyId: {
-      name: "accessKeyId",
       baseName: "access_key_id",
       type: "string",
-      required: false,
     },
     accountId: {
-      name: "accountId",
       baseName: "account_id",
       type: "string",
-      required: false,
     },
     accountSpecificNamespaceRules: {
-      name: "accountSpecificNamespaceRules",
       baseName: "account_specific_namespace_rules",
       type: "{ [key: string]: boolean; }",
-      required: false,
     },
     cspmResourceCollectionEnabled: {
-      name: "cspmResourceCollectionEnabled",
       baseName: "cspm_resource_collection_enabled",
       type: "boolean",
-      required: false,
     },
     excludedRegions: {
-      name: "excludedRegions",
       baseName: "excluded_regions",
       type: "Array<string>",
-      required: false,
     },
     filterTags: {
-      name: "filterTags",
       baseName: "filter_tags",
       type: "Array<string>",
-      required: false,
     },
     hostTags: {
-      name: "hostTags",
       baseName: "host_tags",
       type: "Array<string>",
-      required: false,
     },
     metricsCollectionEnabled: {
-      name: "metricsCollectionEnabled",
       baseName: "metrics_collection_enabled",
       type: "boolean",
-      required: false,
     },
     resourceCollectionEnabled: {
-      name: "resourceCollectionEnabled",
       baseName: "resource_collection_enabled",
       type: "boolean",
-      required: false,
     },
     roleName: {
-      name: "roleName",
       baseName: "role_name",
       type: "string",
-      required: false,
     },
     secretAccessKey: {
-      name: "secretAccessKey",
       baseName: "secret_access_key",
       type: "string",
-      required: false,
     },
   };
 

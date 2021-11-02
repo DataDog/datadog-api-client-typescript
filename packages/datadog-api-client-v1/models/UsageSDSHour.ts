@@ -28,32 +28,28 @@ export class UsageSDSHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     logsScannedBytes: {
-      name: "logsScannedBytes",
       baseName: "logs_scanned_bytes",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     totalScannedBytes: {
-      name: "totalScannedBytes",
       baseName: "total_scanned_bytes",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

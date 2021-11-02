@@ -28,32 +28,28 @@ export class UsageDBMHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     dbmHostCount: {
-      name: "dbmHostCount",
       baseName: "dbm_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     dbmQueriesCount: {
-      name: "dbmQueriesCount",
       baseName: "dbm_queries_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
   };

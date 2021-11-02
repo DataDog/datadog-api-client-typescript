@@ -32,37 +32,29 @@ export class HostMuteResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     action: {
-      name: "action",
       baseName: "action",
       type: "string",
-      required: false,
     },
     end: {
-      name: "end",
       baseName: "end",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hostname: {
-      name: "hostname",
       baseName: "hostname",
       type: "string",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
   };
 

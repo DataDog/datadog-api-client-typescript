@@ -40,48 +40,36 @@ export class SecurityFilterUpdateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     exclusionFilters: {
-      name: "exclusionFilters",
       baseName: "exclusion_filters",
       type: "Array<SecurityFilterExclusionFilter>",
-      required: false,
     },
     filteredDataType: {
-      name: "filteredDataType",
       baseName: "filtered_data_type",
       type: "SecurityFilterFilteredDataType",
-      required: false,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
     version: {
-      name: "version",
       baseName: "version",
       type: "number",
-      required: false,
+
       format: "int32",
     },
   };

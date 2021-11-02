@@ -23,30 +23,24 @@ export class NotebookLogStreamCellAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     definition: {
-      name: "definition",
       baseName: "definition",
       type: "LogStreamWidgetDefinition",
       required: true,
     },
     graphSize: {
-      name: "graphSize",
       baseName: "graph_size",
       type: "NotebookGraphSize",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "NotebookCellTime",
-      required: false,
     },
   };
 

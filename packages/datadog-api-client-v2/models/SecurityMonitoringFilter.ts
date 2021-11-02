@@ -23,24 +23,19 @@ export class SecurityMonitoringFilter {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     action: {
-      name: "action",
       baseName: "action",
       type: "SecurityMonitoringFilterAction",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
   };
 

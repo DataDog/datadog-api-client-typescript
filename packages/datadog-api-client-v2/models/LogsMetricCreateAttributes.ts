@@ -26,30 +26,24 @@ export class LogsMetricCreateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     compute: {
-      name: "compute",
       baseName: "compute",
       type: "LogsMetricCompute",
       required: true,
     },
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsMetricFilter",
-      required: false,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricGroupBy>",
-      required: false,
     },
   };
 

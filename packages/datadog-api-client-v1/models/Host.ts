@@ -69,99 +69,73 @@ export class Host {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aliases: {
-      name: "aliases",
       baseName: "aliases",
       type: "Array<string>",
-      required: false,
     },
     apps: {
-      name: "apps",
       baseName: "apps",
       type: "Array<string>",
-      required: false,
     },
     awsName: {
-      name: "awsName",
       baseName: "aws_name",
       type: "string",
-      required: false,
     },
     hostName: {
-      name: "hostName",
       baseName: "host_name",
       type: "string",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     isMuted: {
-      name: "isMuted",
       baseName: "is_muted",
       type: "boolean",
-      required: false,
     },
     lastReportedTime: {
-      name: "lastReportedTime",
       baseName: "last_reported_time",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     meta: {
-      name: "meta",
       baseName: "meta",
       type: "HostMeta",
-      required: false,
     },
     metrics: {
-      name: "metrics",
       baseName: "metrics",
       type: "HostMetrics",
-      required: false,
     },
     muteTimeout: {
-      name: "muteTimeout",
       baseName: "mute_timeout",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     sources: {
-      name: "sources",
       baseName: "sources",
       type: "Array<string>",
-      required: false,
     },
     tagsBySource: {
-      name: "tagsBySource",
       baseName: "tags_by_source",
       type: "{ [key: string]: Array<string>; }",
-      required: false,
     },
     up: {
-      name: "up",
       baseName: "up",
       type: "boolean",
-      required: false,
     },
   };
 

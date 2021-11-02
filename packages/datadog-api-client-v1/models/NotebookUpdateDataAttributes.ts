@@ -32,39 +32,31 @@ export class NotebookUpdateDataAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cells: {
-      name: "cells",
       baseName: "cells",
       type: "Array<NotebookUpdateCell>",
       required: true,
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "NotebookMetadata",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "NotebookStatus",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "NotebookGlobalTime",
       required: true,

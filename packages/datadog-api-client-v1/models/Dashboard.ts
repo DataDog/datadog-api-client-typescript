@@ -76,101 +76,75 @@ export class Dashboard {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     authorHandle: {
-      name: "authorHandle",
       baseName: "author_handle",
       type: "string",
-      required: false,
     },
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     isReadOnly: {
-      name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
-      required: false,
     },
     layoutType: {
-      name: "layoutType",
       baseName: "layout_type",
       type: "DashboardLayoutType",
       required: true,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     notifyList: {
-      name: "notifyList",
       baseName: "notify_list",
       type: "Array<string>",
-      required: false,
     },
     reflowType: {
-      name: "reflowType",
       baseName: "reflow_type",
       type: "DashboardReflowType",
-      required: false,
     },
     restrictedRoles: {
-      name: "restrictedRoles",
       baseName: "restricted_roles",
       type: "Array<string>",
-      required: false,
     },
     templateVariablePresets: {
-      name: "templateVariablePresets",
       baseName: "template_variable_presets",
       type: "Array<DashboardTemplateVariablePreset>",
-      required: false,
     },
     templateVariables: {
-      name: "templateVariables",
       baseName: "template_variables",
       type: "Array<DashboardTemplateVariable>",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
       required: true,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
     widgets: {
-      name: "widgets",
       baseName: "widgets",
       type: "Array<Widget>",
       required: true,

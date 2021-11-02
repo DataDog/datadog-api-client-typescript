@@ -29,33 +29,27 @@ export class LogsArchiveDestinationGCS {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     bucket: {
-      name: "bucket",
       baseName: "bucket",
       type: "string",
       required: true,
     },
     integration: {
-      name: "integration",
       baseName: "integration",
       type: "LogsArchiveIntegrationGCS",
       required: true,
     },
     path: {
-      name: "path",
       baseName: "path",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsArchiveDestinationGCSType",
       required: true,

@@ -65,92 +65,67 @@ export class Event {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     alertType: {
-      name: "alertType",
       baseName: "alert_type",
       type: "EventAlertType",
-      required: false,
     },
     dateHappened: {
-      name: "dateHappened",
       baseName: "date_happened",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     deviceName: {
-      name: "deviceName",
       baseName: "device_name",
       type: "string",
-      required: false,
     },
     host: {
-      name: "host",
       baseName: "host",
       type: "string",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     idStr: {
-      name: "idStr",
       baseName: "id_str",
       type: "string",
-      required: false,
     },
     payload: {
-      name: "payload",
       baseName: "payload",
       type: "string",
-      required: false,
     },
     priority: {
-      name: "priority",
       baseName: "priority",
       type: "EventPriority",
-      required: false,
     },
     sourceTypeName: {
-      name: "sourceTypeName",
       baseName: "source_type_name",
       type: "string",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     text: {
-      name: "text",
       baseName: "text",
       type: "string",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

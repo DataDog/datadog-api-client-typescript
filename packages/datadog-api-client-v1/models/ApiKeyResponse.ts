@@ -19,18 +19,15 @@ export class ApiKeyResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     apiKey: {
-      name: "apiKey",
       baseName: "api_key",
       type: "ApiKey",
-      required: false,
     },
   };
 

@@ -44,54 +44,40 @@ export class LogsPipeline {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsFilter",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     isReadOnly: {
-      name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     processors: {
-      name: "processors",
       baseName: "processors",
       type: "Array<LogsProcessor>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "string",
-      required: false,
     },
   };
 

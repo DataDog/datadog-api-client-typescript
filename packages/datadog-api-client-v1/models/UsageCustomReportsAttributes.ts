@@ -36,43 +36,33 @@ export class UsageCustomReportsAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     computedOn: {
-      name: "computedOn",
       baseName: "computed_on",
       type: "string",
-      required: false,
     },
     endDate: {
-      name: "endDate",
       baseName: "end_date",
       type: "string",
-      required: false,
     },
     size: {
-      name: "size",
       baseName: "size",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     startDate: {
-      name: "startDate",
       baseName: "start_date",
       type: "string",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
   };
 

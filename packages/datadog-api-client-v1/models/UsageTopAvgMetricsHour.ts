@@ -31,38 +31,31 @@ export class UsageTopAvgMetricsHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     avgMetricHour: {
-      name: "avgMetricHour",
       baseName: "avg_metric_hour",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     maxMetricHour: {
-      name: "maxMetricHour",
       baseName: "max_metric_hour",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     metricCategory: {
-      name: "metricCategory",
       baseName: "metric_category",
       type: "UsageMetricCategory",
-      required: false,
     },
     metricName: {
-      name: "metricName",
       baseName: "metric_name",
       type: "string",
-      required: false,
     },
   };
 

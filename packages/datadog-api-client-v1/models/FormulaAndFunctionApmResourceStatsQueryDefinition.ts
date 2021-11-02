@@ -53,69 +53,53 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     dataSource: {
-      name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionApmResourceStatsDataSource",
       required: true,
     },
     env: {
-      name: "env",
       baseName: "env",
       type: "string",
       required: true,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     operationName: {
-      name: "operationName",
       baseName: "operation_name",
       type: "string",
-      required: false,
     },
     primaryTagName: {
-      name: "primaryTagName",
       baseName: "primary_tag_name",
       type: "string",
-      required: false,
     },
     primaryTagValue: {
-      name: "primaryTagValue",
       baseName: "primary_tag_value",
       type: "string",
-      required: false,
     },
     resourceName: {
-      name: "resourceName",
       baseName: "resource_name",
       type: "string",
-      required: false,
     },
     service: {
-      name: "service",
       baseName: "service",
       type: "string",
       required: true,
     },
     stat: {
-      name: "stat",
       baseName: "stat",
       type: "FormulaAndFunctionApmResourceStatName",
       required: true,

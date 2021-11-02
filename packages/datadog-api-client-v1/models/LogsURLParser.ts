@@ -39,45 +39,35 @@ export class LogsURLParser {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     normalizeEndingSlashes: {
-      name: "normalizeEndingSlashes",
       baseName: "normalize_ending_slashes",
       type: "boolean",
-      required: false,
     },
     sources: {
-      name: "sources",
       baseName: "sources",
       type: "Array<string>",
       required: true,
     },
     target: {
-      name: "target",
       baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsURLParserType",
       required: true,

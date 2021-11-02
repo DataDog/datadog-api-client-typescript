@@ -36,42 +36,31 @@ export class HTTPLogItem {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     ddsource: {
-      name: "ddsource",
       baseName: "ddsource",
       type: "string",
-      required: false,
     },
     ddtags: {
-      name: "ddtags",
       baseName: "ddtags",
       type: "string",
-      required: false,
     },
     hostname: {
-      name: "hostname",
       baseName: "hostname",
       type: "string",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     service: {
-      name: "service",
       baseName: "service",
       type: "string",
-      required: false,
     },
   };
 

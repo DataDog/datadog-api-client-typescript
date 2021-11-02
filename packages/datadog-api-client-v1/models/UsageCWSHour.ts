@@ -28,32 +28,28 @@ export class UsageCWSHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cwsContainerCount: {
-      name: "cwsContainerCount",
       baseName: "cws_container_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     cwsHostCount: {
-      name: "cwsHostCount",
       baseName: "cws_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
   };

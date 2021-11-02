@@ -41,51 +41,37 @@ export class SecurityMonitoringRuleQueryCreate {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     agentRule: {
-      name: "agentRule",
       baseName: "agentRule",
       type: "SecurityMonitoringRuntimeAgentRule",
-      required: false,
     },
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
-      required: false,
     },
     distinctFields: {
-      name: "distinctFields",
       baseName: "distinctFields",
       type: "Array<string>",
-      required: false,
     },
     groupByFields: {
-      name: "groupByFields",
       baseName: "groupByFields",
       type: "Array<string>",
-      required: false,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,

@@ -25,30 +25,23 @@ export class SyntheticsPrivateLocationCreationResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     config: {
-      name: "config",
       baseName: "config",
       type: "any",
-      required: false,
     },
     privateLocation: {
-      name: "privateLocation",
       baseName: "private_location",
       type: "SyntheticsPrivateLocation",
-      required: false,
     },
     resultEncryption: {
-      name: "resultEncryption",
       baseName: "result_encryption",
       type: "SyntheticsPrivateLocationCreationResponseResultEncryption",
-      required: false,
     },
   };
 

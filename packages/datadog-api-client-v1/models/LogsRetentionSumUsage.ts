@@ -32,39 +32,33 @@ export class LogsRetentionSumUsage {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     logsIndexedLogsUsageSum: {
-      name: "logsIndexedLogsUsageSum",
       baseName: "logs_indexed_logs_usage_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     logsLiveIndexedLogsUsageSum: {
-      name: "logsLiveIndexedLogsUsageSum",
       baseName: "logs_live_indexed_logs_usage_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     logsRehydratedIndexedLogsUsageSum: {
-      name: "logsRehydratedIndexedLogsUsageSum",
       baseName: "logs_rehydrated_indexed_logs_usage_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     retention: {
-      name: "retention",
       baseName: "retention",
       type: "string",
-      required: false,
     },
   };
 

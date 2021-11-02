@@ -43,51 +43,40 @@ export class LogsLookupProcessor {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     defaultLookup: {
-      name: "defaultLookup",
       baseName: "default_lookup",
       type: "string",
-      required: false,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     lookupTable: {
-      name: "lookupTable",
       baseName: "lookup_table",
       type: "Array<string>",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     source: {
-      name: "source",
       baseName: "source",
       type: "string",
       required: true,
     },
     target: {
-      name: "target",
       baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsLookupProcessorType",
       required: true,

@@ -47,72 +47,51 @@ export class OrganizationSettings {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     privateWidgetShare: {
-      name: "privateWidgetShare",
       baseName: "private_widget_share",
       type: "boolean",
-      required: false,
     },
     saml: {
-      name: "saml",
       baseName: "saml",
       type: "OrganizationSettingsSaml",
-      required: false,
     },
     samlAutocreateAccessRole: {
-      name: "samlAutocreateAccessRole",
       baseName: "saml_autocreate_access_role",
       type: "AccessRole",
-      required: false,
     },
     samlAutocreateUsersDomains: {
-      name: "samlAutocreateUsersDomains",
       baseName: "saml_autocreate_users_domains",
       type: "OrganizationSettingsSamlAutocreateUsersDomains",
-      required: false,
     },
     samlCanBeEnabled: {
-      name: "samlCanBeEnabled",
       baseName: "saml_can_be_enabled",
       type: "boolean",
-      required: false,
     },
     samlIdpEndpoint: {
-      name: "samlIdpEndpoint",
       baseName: "saml_idp_endpoint",
       type: "string",
-      required: false,
     },
     samlIdpInitiatedLogin: {
-      name: "samlIdpInitiatedLogin",
       baseName: "saml_idp_initiated_login",
       type: "OrganizationSettingsSamlIdpInitiatedLogin",
-      required: false,
     },
     samlIdpMetadataUploaded: {
-      name: "samlIdpMetadataUploaded",
       baseName: "saml_idp_metadata_uploaded",
       type: "boolean",
-      required: false,
     },
     samlLoginUrl: {
-      name: "samlLoginUrl",
       baseName: "saml_login_url",
       type: "string",
-      required: false,
     },
     samlStrictMode: {
-      name: "samlStrictMode",
       baseName: "saml_strict_mode",
       type: "OrganizationSettingsSamlStrictMode",
-      required: false,
     },
   };
 

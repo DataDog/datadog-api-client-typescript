@@ -48,62 +48,47 @@ export class ProcessSummaryAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cmdline: {
-      name: "cmdline",
       baseName: "cmdline",
       type: "string",
-      required: false,
     },
     host: {
-      name: "host",
       baseName: "host",
       type: "string",
-      required: false,
     },
     pid: {
-      name: "pid",
       baseName: "pid",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     ppid: {
-      name: "ppid",
       baseName: "ppid",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     start: {
-      name: "start",
       baseName: "start",
       type: "string",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     timestamp: {
-      name: "timestamp",
       baseName: "timestamp",
       type: "string",
-      required: false,
     },
     user: {
-      name: "user",
       baseName: "user",
       type: "string",
-      required: false,
     },
   };
 

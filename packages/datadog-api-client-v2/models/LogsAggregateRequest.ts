@@ -33,42 +33,31 @@ export class LogsAggregateRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     compute: {
-      name: "compute",
       baseName: "compute",
       type: "Array<LogsCompute>",
-      required: false,
     },
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsQueryFilter",
-      required: false,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsGroupBy>",
-      required: false,
     },
     options: {
-      name: "options",
       baseName: "options",
       type: "LogsQueryOptions",
-      required: false,
     },
     page: {
-      name: "page",
       baseName: "page",
       type: "LogsAggregateRequestPage",
-      required: false,
     },
   };
 

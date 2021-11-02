@@ -27,32 +27,27 @@ export class UsageTopAvgMetricsMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     day: {
-      name: "day",
       baseName: "day",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     month: {
-      name: "month",
       baseName: "month",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     pagination: {
-      name: "pagination",
       baseName: "pagination",
       type: "UsageAttributionPagination",
-      required: false,
     },
   };
 

@@ -35,36 +35,27 @@ export class SyntheticsTriggerCITestsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     batchId: {
-      name: "batchId",
       baseName: "batch_id",
       type: "string",
-      required: false,
     },
     locations: {
-      name: "locations",
       baseName: "locations",
       type: "Array<SyntheticsTriggerCITestLocation>",
-      required: false,
     },
     results: {
-      name: "results",
       baseName: "results",
       type: "Array<SyntheticsTriggerCITestRunResult>",
-      required: false,
     },
     triggeredCheckIds: {
-      name: "triggeredCheckIds",
       baseName: "triggered_check_ids",
       type: "Array<string>",
-      required: false,
     },
   };
 

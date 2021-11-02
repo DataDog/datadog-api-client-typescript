@@ -20,18 +20,15 @@ export class HostMeta {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     nixV: {
-      name: "nixV",
       baseName: "nixV",
       type: "Array<string>",
-      required: false,
     },
   };
 

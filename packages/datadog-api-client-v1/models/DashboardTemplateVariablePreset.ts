@@ -26,24 +26,19 @@ export class DashboardTemplateVariablePreset {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     templateVariables: {
-      name: "templateVariables",
       baseName: "template_variables",
       type: "Array<DashboardTemplateVariablePresetValue>",
-      required: false,
     },
   };
 

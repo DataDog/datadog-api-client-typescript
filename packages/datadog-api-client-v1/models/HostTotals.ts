@@ -24,25 +24,22 @@ export class HostTotals {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     totalActive: {
-      name: "totalActive",
       baseName: "total_active",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     totalUp: {
-      name: "totalUp",
       baseName: "total_up",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

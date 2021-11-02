@@ -23,24 +23,19 @@ export class RelationshipToRoleData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "RolesType",
-      required: false,
     },
   };
 

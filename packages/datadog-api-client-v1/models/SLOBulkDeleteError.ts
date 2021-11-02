@@ -27,27 +27,23 @@ export class SLOBulkDeleteError {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
       required: true,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
       required: true,
     },
     timeframe: {
-      name: "timeframe",
       baseName: "timeframe",
       type: "SLOErrorTimeframe",
       required: true,

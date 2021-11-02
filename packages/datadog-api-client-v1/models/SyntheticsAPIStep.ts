@@ -43,54 +43,39 @@ export class SyntheticsAPIStep {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     allowFailure: {
-      name: "allowFailure",
       baseName: "allowFailure",
       type: "boolean",
-      required: false,
     },
     assertions: {
-      name: "assertions",
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
-      required: false,
     },
     extractedValues: {
-      name: "extractedValues",
       baseName: "extractedValues",
       type: "Array<SyntheticsParsingOptions>",
-      required: false,
     },
     isCritical: {
-      name: "isCritical",
       baseName: "isCritical",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     request: {
-      name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
-      required: false,
     },
     subtype: {
-      name: "subtype",
       baseName: "subtype",
       type: "SyntheticsAPIStepSubtype",
-      required: false,
     },
   };
 

@@ -25,42 +25,31 @@ export class IncidentUpdateRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     commanderUser: {
-      name: "commanderUser",
       baseName: "commander_user",
       type: "RelationshipToUser",
-      required: false,
     },
     createdByUser: {
-      name: "createdByUser",
       baseName: "created_by_user",
       type: "RelationshipToUser",
-      required: false,
     },
     integrations: {
-      name: "integrations",
       baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
-      required: false,
     },
     lastModifiedByUser: {
-      name: "lastModifiedByUser",
       baseName: "last_modified_by_user",
       type: "RelationshipToUser",
-      required: false,
     },
     postmortem: {
-      name: "postmortem",
       baseName: "postmortem",
       type: "RelationshipToIncidentPostmortem",
-      required: false,
     },
   };
 

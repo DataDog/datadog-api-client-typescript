@@ -24,25 +24,22 @@ export class UsageNetworkFlowsHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     indexedEventCount: {
-      name: "indexedEventCount",
       baseName: "indexed_event_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

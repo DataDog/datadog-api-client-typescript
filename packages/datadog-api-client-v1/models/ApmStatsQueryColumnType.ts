@@ -29,36 +29,28 @@ export class ApmStatsQueryColumnType {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     alias: {
-      name: "alias",
       baseName: "alias",
       type: "string",
-      required: false,
     },
     cellDisplayMode: {
-      name: "cellDisplayMode",
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     order: {
-      name: "order",
       baseName: "order",
       type: "WidgetSort",
-      required: false,
     },
   };
 

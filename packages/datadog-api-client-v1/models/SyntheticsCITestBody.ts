@@ -22,18 +22,15 @@ export class SyntheticsCITestBody {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     tests: {
-      name: "tests",
       baseName: "tests",
       type: "Array<SyntheticsCITest>",
-      required: false,
     },
   };
 

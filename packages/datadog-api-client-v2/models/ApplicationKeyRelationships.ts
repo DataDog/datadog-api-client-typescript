@@ -19,18 +19,15 @@ export class ApplicationKeyRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     ownedBy: {
-      name: "ownedBy",
       baseName: "owned_by",
       type: "RelationshipToUser",
-      required: false,
     },
   };
 

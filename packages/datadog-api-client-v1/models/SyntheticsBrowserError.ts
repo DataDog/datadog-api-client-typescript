@@ -31,34 +31,29 @@ export class SyntheticsBrowserError {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
       required: true,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsBrowserErrorType",
       required: true,

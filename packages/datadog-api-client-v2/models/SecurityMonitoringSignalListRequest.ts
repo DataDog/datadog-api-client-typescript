@@ -23,30 +23,23 @@ export class SecurityMonitoringSignalListRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "SecurityMonitoringSignalListRequestFilter",
-      required: false,
     },
     page: {
-      name: "page",
       baseName: "page",
       type: "SecurityMonitoringSignalListRequestPage",
-      required: false,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "SecurityMonitoringSignalsSort",
-      required: false,
     },
   };
 

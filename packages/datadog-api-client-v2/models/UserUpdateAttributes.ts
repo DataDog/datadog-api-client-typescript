@@ -28,30 +28,23 @@ export class UserUpdateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     disabled: {
-      name: "disabled",
       baseName: "disabled",
       type: "boolean",
-      required: false,
     },
     email: {
-      name: "email",
       baseName: "email",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
   };
 

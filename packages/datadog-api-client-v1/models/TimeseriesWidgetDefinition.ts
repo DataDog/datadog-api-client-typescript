@@ -69,102 +69,73 @@ export class TimeseriesWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customLinks: {
-      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      required: false,
     },
     events: {
-      name: "events",
       baseName: "events",
       type: "Array<WidgetEvent>",
-      required: false,
     },
     legendColumns: {
-      name: "legendColumns",
       baseName: "legend_columns",
       type: "Array<TimeseriesWidgetLegendColumn>",
-      required: false,
     },
     legendLayout: {
-      name: "legendLayout",
       baseName: "legend_layout",
       type: "TimeseriesWidgetLegendLayout",
-      required: false,
     },
     legendSize: {
-      name: "legendSize",
       baseName: "legend_size",
       type: "string",
-      required: false,
     },
     markers: {
-      name: "markers",
       baseName: "markers",
       type: "Array<WidgetMarker>",
-      required: false,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "Array<TimeseriesWidgetRequest>",
       required: true,
     },
     rightYaxis: {
-      name: "rightYaxis",
       baseName: "right_yaxis",
       type: "WidgetAxis",
-      required: false,
     },
     showLegend: {
-      name: "showLegend",
       baseName: "show_legend",
       type: "boolean",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "TimeseriesWidgetDefinitionType",
       required: true,
     },
     yaxis: {
-      name: "yaxis",
       baseName: "yaxis",
       type: "WidgetAxis",
-      required: false,
     },
   };
 

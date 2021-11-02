@@ -44,54 +44,40 @@ export class LogAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "{ [key: string]: any; }",
-      required: false,
     },
     host: {
-      name: "host",
       baseName: "host",
       type: "string",
-      required: false,
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     service: {
-      name: "service",
       baseName: "service",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "string",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     timestamp: {
-      name: "timestamp",
       baseName: "timestamp",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
   };

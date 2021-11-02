@@ -20,18 +20,15 @@ export class SyntheticsGlobalVariableAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     restrictedRoles: {
-      name: "restrictedRoles",
       baseName: "restricted_roles",
       type: "Array<string>",
-      required: false,
     },
   };
 

@@ -64,90 +64,69 @@ export class ServiceLevelObjective {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdAt: {
-      name: "createdAt",
       baseName: "created_at",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     creator: {
-      name: "creator",
       baseName: "creator",
       type: "Creator",
-      required: false,
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     groups: {
-      name: "groups",
       baseName: "groups",
       type: "Array<string>",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     modifiedAt: {
-      name: "modifiedAt",
       baseName: "modified_at",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     monitorIds: {
-      name: "monitorIds",
       baseName: "monitor_ids",
       type: "Array<number>",
-      required: false,
+
       format: "int64",
     },
     monitorTags: {
-      name: "monitorTags",
       baseName: "monitor_tags",
       type: "Array<string>",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     thresholds: {
-      name: "thresholds",
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SLOType",
       required: true,

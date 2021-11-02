@@ -28,30 +28,23 @@ export class GraphSnapshot {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     graphDef: {
-      name: "graphDef",
       baseName: "graph_def",
       type: "string",
-      required: false,
     },
     metricQuery: {
-      name: "metricQuery",
       baseName: "metric_query",
       type: "string",
-      required: false,
     },
     snapshotUrl: {
-      name: "snapshotUrl",
       baseName: "snapshot_url",
       type: "string",
-      required: false,
     },
   };
 

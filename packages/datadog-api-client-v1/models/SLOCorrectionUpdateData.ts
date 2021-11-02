@@ -21,24 +21,19 @@ export class SLOCorrectionUpdateData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "SLOCorrectionUpdateRequestAttributes",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SLOCorrectionType",
-      required: false,
     },
   };
 

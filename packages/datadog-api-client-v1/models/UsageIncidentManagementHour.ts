@@ -24,25 +24,22 @@ export class UsageIncidentManagementHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     monthlyActiveUsers: {
-      name: "monthlyActiveUsers",
       baseName: "monthly_active_users",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

@@ -25,30 +25,23 @@ export class WidgetRequestStyle {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     lineType: {
-      name: "lineType",
       baseName: "line_type",
       type: "WidgetLineType",
-      required: false,
     },
     lineWidth: {
-      name: "lineWidth",
       baseName: "line_width",
       type: "WidgetLineWidth",
-      required: false,
     },
     palette: {
-      name: "palette",
       baseName: "palette",
       type: "string",
-      required: false,
     },
   };
 

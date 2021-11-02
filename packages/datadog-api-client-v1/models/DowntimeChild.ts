@@ -79,116 +79,92 @@ export class DowntimeChild {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     active: {
-      name: "active",
       baseName: "active",
       type: "boolean",
-      required: false,
     },
     canceled: {
-      name: "canceled",
       baseName: "canceled",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     creatorId: {
-      name: "creatorId",
       baseName: "creator_id",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     disabled: {
-      name: "disabled",
       baseName: "disabled",
       type: "boolean",
-      required: false,
     },
     downtimeType: {
-      name: "downtimeType",
       baseName: "downtime_type",
       type: "number",
-      required: false,
+
       format: "int32",
     },
     end: {
-      name: "end",
       baseName: "end",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     monitorId: {
-      name: "monitorId",
       baseName: "monitor_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     monitorTags: {
-      name: "monitorTags",
       baseName: "monitor_tags",
       type: "Array<string>",
-      required: false,
     },
     parentId: {
-      name: "parentId",
       baseName: "parent_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     recurrence: {
-      name: "recurrence",
       baseName: "recurrence",
       type: "DowntimeRecurrence",
-      required: false,
     },
     scope: {
-      name: "scope",
       baseName: "scope",
       type: "Array<string>",
-      required: false,
     },
     start: {
-      name: "start",
       baseName: "start",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     timezone: {
-      name: "timezone",
       baseName: "timezone",
       type: "string",
-      required: false,
     },
     updaterId: {
-      name: "updaterId",
       baseName: "updater_id",
       type: "number",
-      required: false,
+
       format: "int32",
     },
   };

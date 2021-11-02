@@ -32,39 +32,34 @@ export class UsageTimeseriesHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     numCustomInputTimeseries: {
-      name: "numCustomInputTimeseries",
       baseName: "num_custom_input_timeseries",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     numCustomOutputTimeseries: {
-      name: "numCustomOutputTimeseries",
       baseName: "num_custom_output_timeseries",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     numCustomTimeseries: {
-      name: "numCustomTimeseries",
       baseName: "num_custom_timeseries",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

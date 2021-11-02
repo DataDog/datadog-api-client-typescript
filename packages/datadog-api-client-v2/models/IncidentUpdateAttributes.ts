@@ -55,70 +55,55 @@ export class IncidentUpdateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customerImpactEnd: {
-      name: "customerImpactEnd",
       baseName: "customer_impact_end",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     customerImpactScope: {
-      name: "customerImpactScope",
       baseName: "customer_impact_scope",
       type: "string",
-      required: false,
     },
     customerImpactStart: {
-      name: "customerImpactStart",
       baseName: "customer_impact_start",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     customerImpacted: {
-      name: "customerImpacted",
       baseName: "customer_impacted",
       type: "boolean",
-      required: false,
     },
     detected: {
-      name: "detected",
       baseName: "detected",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     fields: {
-      name: "fields",
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
-      required: false,
     },
     notificationHandles: {
-      name: "notificationHandles",
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
-      required: false,
     },
     resolved: {
-      name: "resolved",
       baseName: "resolved",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
   };
 

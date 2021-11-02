@@ -22,18 +22,15 @@ export class SyntheticsLocations {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     locations: {
-      name: "locations",
       baseName: "locations",
       type: "Array<SyntheticsLocation>",
-      required: false,
     },
   };
 

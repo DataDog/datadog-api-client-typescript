@@ -29,33 +29,26 @@ export class SyntheticsAssertionTarget {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     operator: {
-      name: "operator",
       baseName: "operator",
       type: "SyntheticsAssertionOperator",
       required: true,
     },
     property: {
-      name: "property",
       baseName: "property",
       type: "string",
-      required: false,
     },
     target: {
-      name: "target",
       baseName: "target",
       type: "any",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsAssertionType",
       required: true,

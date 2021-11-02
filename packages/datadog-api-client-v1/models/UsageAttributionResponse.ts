@@ -24,24 +24,19 @@ export class UsageAttributionResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "UsageAttributionMetadata",
-      required: false,
     },
     usage: {
-      name: "usage",
       baseName: "usage",
       type: "Array<UsageAttributionBody>",
-      required: false,
     },
   };
 

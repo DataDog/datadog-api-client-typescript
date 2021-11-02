@@ -20,15 +20,13 @@ export class IncidentTeamCreateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,

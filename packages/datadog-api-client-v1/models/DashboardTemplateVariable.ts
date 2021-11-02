@@ -32,36 +32,28 @@ export class DashboardTemplateVariable {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     availableValues: {
-      name: "availableValues",
       baseName: "available_values",
       type: "Array<string>",
-      required: false,
     },
     _default: {
-      name: "_default",
       baseName: "default",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     prefix: {
-      name: "prefix",
       baseName: "prefix",
       type: "string",
-      required: false,
     },
   };
 

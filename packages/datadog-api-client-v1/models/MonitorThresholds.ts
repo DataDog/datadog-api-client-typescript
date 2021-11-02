@@ -40,53 +40,46 @@ export class MonitorThresholds {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     critical: {
-      name: "critical",
       baseName: "critical",
       type: "number",
-      required: false,
+
       format: "double",
     },
     criticalRecovery: {
-      name: "criticalRecovery",
       baseName: "critical_recovery",
       type: "number",
-      required: false,
+
       format: "double",
     },
     ok: {
-      name: "ok",
       baseName: "ok",
       type: "number",
-      required: false,
+
       format: "double",
     },
     unknown: {
-      name: "unknown",
       baseName: "unknown",
       type: "number",
-      required: false,
+
       format: "double",
     },
     warning: {
-      name: "warning",
       baseName: "warning",
       type: "number",
-      required: false,
+
       format: "double",
     },
     warningRecovery: {
-      name: "warningRecovery",
       baseName: "warning_recovery",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

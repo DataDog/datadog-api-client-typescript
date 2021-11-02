@@ -50,204 +50,139 @@ export class UsageBillableSummaryKeys {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     apmHostSum: {
-      name: "apmHostSum",
       baseName: "apm_host_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     apmHostTop99p: {
-      name: "apmHostTop99p",
       baseName: "apm_host_top99p",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     apmTraceSearchSum: {
-      name: "apmTraceSearchSum",
       baseName: "apm_trace_search_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     fargateContainerAverage: {
-      name: "fargateContainerAverage",
       baseName: "fargate_container_average",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     infraContainerSum: {
-      name: "infraContainerSum",
       baseName: "infra_container_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     infraHostSum: {
-      name: "infraHostSum",
       baseName: "infra_host_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     infraHostTop99p: {
-      name: "infraHostTop99p",
       baseName: "infra_host_top99p",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     iotTop99p: {
-      name: "iotTop99p",
       baseName: "iot_top99p",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     lambdaFunctionAverage: {
-      name: "lambdaFunctionAverage",
       baseName: "lambda_function_average",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed15daySum: {
-      name: "logsIndexed15daySum",
       baseName: "logs_indexed_15day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed180daySum: {
-      name: "logsIndexed180daySum",
       baseName: "logs_indexed_180day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed30daySum: {
-      name: "logsIndexed30daySum",
       baseName: "logs_indexed_30day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed3daySum: {
-      name: "logsIndexed3daySum",
       baseName: "logs_indexed_3day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed45daySum: {
-      name: "logsIndexed45daySum",
       baseName: "logs_indexed_45day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed60daySum: {
-      name: "logsIndexed60daySum",
       baseName: "logs_indexed_60day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed7daySum: {
-      name: "logsIndexed7daySum",
       baseName: "logs_indexed_7day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexed90daySum: {
-      name: "logsIndexed90daySum",
       baseName: "logs_indexed_90day_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexedCustomRetentionSum: {
-      name: "logsIndexedCustomRetentionSum",
       baseName: "logs_indexed_custom_retention_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIndexedSum: {
-      name: "logsIndexedSum",
       baseName: "logs_indexed_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     logsIngestedSum: {
-      name: "logsIngestedSum",
       baseName: "logs_ingested_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     networkDeviceTop99p: {
-      name: "networkDeviceTop99p",
       baseName: "network_device_top99p",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     npmFlowSum: {
-      name: "npmFlowSum",
       baseName: "npm_flow_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     npmHostSum: {
-      name: "npmHostSum",
       baseName: "npm_host_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     npmHostTop99p: {
-      name: "npmHostTop99p",
       baseName: "npm_host_top99p",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     profContainerSum: {
-      name: "profContainerSum",
       baseName: "prof_container_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     profHostTop99p: {
-      name: "profHostTop99p",
       baseName: "prof_host_top99p",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     rumSum: {
-      name: "rumSum",
       baseName: "rum_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     serverlessInvocationSum: {
-      name: "serverlessInvocationSum",
       baseName: "serverless_invocation_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     siemSum: {
-      name: "siemSum",
       baseName: "siem_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     syntheticsApiTestsSum: {
-      name: "syntheticsApiTestsSum",
       baseName: "synthetics_api_tests_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     syntheticsBrowserChecksSum: {
-      name: "syntheticsBrowserChecksSum",
       baseName: "synthetics_browser_checks_sum",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
     timeseriesAverage: {
-      name: "timeseriesAverage",
       baseName: "timeseries_average",
       type: "UsageBillableSummaryBody",
-      required: false,
     },
   };
 

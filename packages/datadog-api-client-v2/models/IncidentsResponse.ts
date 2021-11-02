@@ -29,30 +29,24 @@ export class IncidentsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<IncidentResponseData>",
       required: true,
     },
     included: {
-      name: "included",
       baseName: "included",
       type: "Array<IncidentResponseIncludedItem>",
-      required: false,
     },
     meta: {
-      name: "meta",
       baseName: "meta",
       type: "IncidentServicesResponseMeta",
-      required: false,
     },
   };
 

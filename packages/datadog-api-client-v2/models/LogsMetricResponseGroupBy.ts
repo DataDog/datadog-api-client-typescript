@@ -24,24 +24,19 @@ export class LogsMetricResponseGroupBy {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     path: {
-      name: "path",
       baseName: "path",
       type: "string",
-      required: false,
     },
     tagName: {
-      name: "tagName",
       baseName: "tag_name",
       type: "string",
-      required: false,
     },
   };
 

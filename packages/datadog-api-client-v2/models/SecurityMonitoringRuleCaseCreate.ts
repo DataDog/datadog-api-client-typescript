@@ -31,33 +31,25 @@ export class SecurityMonitoringRuleCaseCreate {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     condition: {
-      name: "condition",
       baseName: "condition",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     notifications: {
-      name: "notifications",
       baseName: "notifications",
       type: "Array<string>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "SecurityMonitoringRuleSeverity",
       required: true,

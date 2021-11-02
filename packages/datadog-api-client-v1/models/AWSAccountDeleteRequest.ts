@@ -28,30 +28,23 @@ export class AWSAccountDeleteRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accessKeyId: {
-      name: "accessKeyId",
       baseName: "access_key_id",
       type: "string",
-      required: false,
     },
     accountId: {
-      name: "accountId",
       baseName: "account_id",
       type: "string",
-      required: false,
     },
     roleName: {
-      name: "roleName",
       baseName: "role_name",
       type: "string",
-      required: false,
     },
   };
 

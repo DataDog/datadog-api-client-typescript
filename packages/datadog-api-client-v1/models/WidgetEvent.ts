@@ -24,24 +24,20 @@ export class WidgetEvent {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     q: {
-      name: "q",
       baseName: "q",
       type: "string",
       required: true,
     },
     tagsExecution: {
-      name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
-      required: false,
     },
   };
 

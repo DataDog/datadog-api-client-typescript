@@ -49,74 +49,55 @@ export class SyntheticsBatchResult {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     device: {
-      name: "device",
       baseName: "device",
       type: "SyntheticsDeviceID",
-      required: false,
     },
     duration: {
-      name: "duration",
       baseName: "duration",
       type: "number",
-      required: false,
+
       format: "double",
     },
     executionRule: {
-      name: "executionRule",
       baseName: "execution_rule",
       type: "SyntheticsTestExecutionRule",
-      required: false,
     },
     location: {
-      name: "location",
       baseName: "location",
       type: "string",
-      required: false,
     },
     resultId: {
-      name: "resultId",
       baseName: "result_id",
       type: "string",
-      required: false,
     },
     retries: {
-      name: "retries",
       baseName: "retries",
       type: "number",
-      required: false,
+
       format: "double",
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "SyntheticsStatus",
-      required: false,
     },
     testName: {
-      name: "testName",
       baseName: "test_name",
       type: "string",
-      required: false,
     },
     testPublicId: {
-      name: "testPublicId",
       baseName: "test_public_id",
       type: "string",
-      required: false,
     },
     testType: {
-      name: "testType",
       baseName: "test_type",
       type: "SyntheticsTestDetailsType",
-      required: false,
     },
   };
 

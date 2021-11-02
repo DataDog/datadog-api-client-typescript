@@ -45,72 +45,53 @@ export class ScatterPlotWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     colorByGroups: {
-      name: "colorByGroups",
       baseName: "color_by_groups",
       type: "Array<string>",
-      required: false,
     },
     customLinks: {
-      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      required: false,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "ScatterPlotWidgetDefinitionRequests",
       required: true,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "ScatterPlotWidgetDefinitionType",
       required: true,
     },
     xaxis: {
-      name: "xaxis",
       baseName: "xaxis",
       type: "WidgetAxis",
-      required: false,
     },
     yaxis: {
-      name: "yaxis",
       baseName: "yaxis",
       type: "WidgetAxis",
-      required: false,
     },
   };
 

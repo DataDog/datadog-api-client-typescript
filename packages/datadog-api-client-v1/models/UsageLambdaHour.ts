@@ -28,32 +28,28 @@ export class UsageLambdaHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     funcCount: {
-      name: "funcCount",
       baseName: "func_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     invocationsSum: {
-      name: "invocationsSum",
       baseName: "invocations_sum",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

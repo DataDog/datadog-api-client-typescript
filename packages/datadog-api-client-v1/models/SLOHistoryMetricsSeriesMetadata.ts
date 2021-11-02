@@ -42,49 +42,37 @@ export class SLOHistoryMetricsSeriesMetadata {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggr: {
-      name: "aggr",
       baseName: "aggr",
       type: "string",
-      required: false,
     },
     expression: {
-      name: "expression",
       baseName: "expression",
       type: "string",
-      required: false,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     queryIndex: {
-      name: "queryIndex",
       baseName: "query_index",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     scope: {
-      name: "scope",
       baseName: "scope",
       type: "string",
-      required: false,
     },
     unit: {
-      name: "unit",
       baseName: "unit",
       type: "Array<SLOHistoryMetricsSeriesMetadataUnit>",
-      required: false,
     },
   };
 

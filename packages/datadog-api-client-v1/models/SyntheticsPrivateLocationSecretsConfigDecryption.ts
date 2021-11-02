@@ -20,18 +20,15 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     key: {
-      name: "key",
       baseName: "key",
       type: "string",
-      required: false,
     },
   };
 

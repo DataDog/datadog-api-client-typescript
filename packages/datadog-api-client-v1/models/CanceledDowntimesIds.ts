@@ -20,18 +20,16 @@ export class CanceledDowntimesIds {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cancelledIds: {
-      name: "cancelledIds",
       baseName: "cancelled_ids",
       type: "Array<number>",
-      required: false,
+
       format: "int64",
     },
   };

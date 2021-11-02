@@ -53,78 +53,57 @@ export class DistributionWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     legendSize: {
-      name: "legendSize",
       baseName: "legend_size",
       type: "string",
-      required: false,
     },
     markers: {
-      name: "markers",
       baseName: "markers",
       type: "Array<WidgetMarker>",
-      required: false,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "Array<DistributionWidgetRequest>",
       required: true,
     },
     showLegend: {
-      name: "showLegend",
       baseName: "show_legend",
       type: "boolean",
-      required: false,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "DistributionWidgetDefinitionType",
       required: true,
     },
     xaxis: {
-      name: "xaxis",
       baseName: "xaxis",
       type: "DistributionWidgetXAxis",
-      required: false,
     },
     yaxis: {
-      name: "yaxis",
       baseName: "yaxis",
       type: "DistributionWidgetYAxis",
-      required: false,
     },
   };
 

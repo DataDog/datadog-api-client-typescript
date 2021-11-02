@@ -60,87 +60,65 @@ export class MonitorSearchResult {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     classification: {
-      name: "classification",
       baseName: "classification",
       type: "string",
-      required: false,
     },
     creator: {
-      name: "creator",
       baseName: "creator",
       type: "Creator",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     lastTriggeredTs: {
-      name: "lastTriggeredTs",
       baseName: "last_triggered_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     metrics: {
-      name: "metrics",
       baseName: "metrics",
       type: "Array<string>",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     notifications: {
-      name: "notifications",
       baseName: "notifications",
       type: "Array<MonitorSearchResultNotification>",
-      required: false,
     },
     orgId: {
-      name: "orgId",
       baseName: "org_id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     scopes: {
-      name: "scopes",
       baseName: "scopes",
       type: "Array<string>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "MonitorType",
-      required: false,
     },
   };
 

@@ -24,24 +24,19 @@ export class LogsMetricUpdateAttributes {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsMetricFilter",
-      required: false,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricGroupBy>",
-      required: false,
     },
   };
 

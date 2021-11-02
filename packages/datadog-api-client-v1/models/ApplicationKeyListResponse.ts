@@ -22,18 +22,15 @@ export class ApplicationKeyListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     applicationKeys: {
-      name: "applicationKeys",
       baseName: "application_keys",
       type: "Array<ApplicationKey>",
-      required: false,
     },
   };
 

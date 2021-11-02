@@ -20,18 +20,15 @@ export class LogsListResponseLinks {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     next: {
-      name: "next",
       baseName: "next",
       type: "string",
-      required: false,
     },
   };
 

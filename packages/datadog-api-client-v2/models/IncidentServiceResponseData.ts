@@ -27,33 +27,26 @@ export class IncidentServiceResponseData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "IncidentServiceResponseAttributes",
-      required: false,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
       required: true,
     },
     relationships: {
-      name: "relationships",
       baseName: "relationships",
       type: "IncidentServiceRelationships",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "IncidentServiceType",
       required: true,

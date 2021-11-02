@@ -57,114 +57,79 @@ export class TimeseriesWidgetRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     apmQuery: {
-      name: "apmQuery",
       baseName: "apm_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     auditQuery: {
-      name: "auditQuery",
       baseName: "audit_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     displayType: {
-      name: "displayType",
       baseName: "display_type",
       type: "WidgetDisplayType",
-      required: false,
     },
     eventQuery: {
-      name: "eventQuery",
       baseName: "event_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     formulas: {
-      name: "formulas",
       baseName: "formulas",
       type: "Array<WidgetFormula>",
-      required: false,
     },
     logQuery: {
-      name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     metadata: {
-      name: "metadata",
       baseName: "metadata",
       type: "Array<TimeseriesWidgetExpressionAlias>",
-      required: false,
     },
     networkQuery: {
-      name: "networkQuery",
       baseName: "network_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     onRightYaxis: {
-      name: "onRightYaxis",
       baseName: "on_right_yaxis",
       type: "boolean",
-      required: false,
     },
     processQuery: {
-      name: "processQuery",
       baseName: "process_query",
       type: "ProcessQueryDefinition",
-      required: false,
     },
     profileMetricsQuery: {
-      name: "profileMetricsQuery",
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     q: {
-      name: "q",
       baseName: "q",
       type: "string",
-      required: false,
     },
     queries: {
-      name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
-      required: false,
     },
     responseFormat: {
-      name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
-      required: false,
     },
     rumQuery: {
-      name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     securityQuery: {
-      name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
-      required: false,
     },
     style: {
-      name: "style",
       baseName: "style",
       type: "WidgetRequestStyle",
-      required: false,
     },
   };
 

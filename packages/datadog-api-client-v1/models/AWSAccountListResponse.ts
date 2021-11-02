@@ -22,18 +22,15 @@ export class AWSAccountListResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accounts: {
-      name: "accounts",
       baseName: "accounts",
       type: "Array<AWSAccount>",
-      required: false,
     },
   };
 

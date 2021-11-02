@@ -57,89 +57,66 @@ export class MonitorSummaryWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     colorPreference: {
-      name: "colorPreference",
       baseName: "color_preference",
       type: "WidgetColorPreference",
-      required: false,
     },
     count: {
-      name: "count",
       baseName: "count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     displayFormat: {
-      name: "displayFormat",
       baseName: "display_format",
       type: "WidgetMonitorSummaryDisplayFormat",
-      required: false,
     },
     hideZeroCounts: {
-      name: "hideZeroCounts",
       baseName: "hide_zero_counts",
       type: "boolean",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
       required: true,
     },
     showLastTriggered: {
-      name: "showLastTriggered",
       baseName: "show_last_triggered",
       type: "boolean",
-      required: false,
     },
     sort: {
-      name: "sort",
       baseName: "sort",
       type: "WidgetMonitorSummarySort",
-      required: false,
     },
     start: {
-      name: "start",
       baseName: "start",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     summaryType: {
-      name: "summaryType",
       baseName: "summary_type",
       type: "WidgetSummaryType",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "MonitorSummaryWidgetDefinitionType",
       required: true,

@@ -25,31 +25,26 @@ export class Widget {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     definition: {
-      name: "definition",
       baseName: "definition",
       type: "WidgetDefinition",
       required: true,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     layout: {
-      name: "layout",
       baseName: "layout",
       type: "WidgetLayout",
-      required: false,
     },
   };
 

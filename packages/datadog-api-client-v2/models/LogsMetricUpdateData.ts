@@ -21,21 +21,18 @@ export class LogsMetricUpdateData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "LogsMetricUpdateAttributes",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsMetricType",
       required: true,

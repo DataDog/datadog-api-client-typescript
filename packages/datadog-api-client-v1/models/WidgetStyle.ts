@@ -20,18 +20,15 @@ export class WidgetStyle {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     palette: {
-      name: "palette",
       baseName: "palette",
       type: "string",
-      required: false,
     },
   };
 

@@ -71,105 +71,76 @@ export class ServiceSummaryWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     displayFormat: {
-      name: "displayFormat",
       baseName: "display_format",
       type: "WidgetServiceSummaryDisplayFormat",
-      required: false,
     },
     env: {
-      name: "env",
       baseName: "env",
       type: "string",
       required: true,
     },
     service: {
-      name: "service",
       baseName: "service",
       type: "string",
       required: true,
     },
     showBreakdown: {
-      name: "showBreakdown",
       baseName: "show_breakdown",
       type: "boolean",
-      required: false,
     },
     showDistribution: {
-      name: "showDistribution",
       baseName: "show_distribution",
       type: "boolean",
-      required: false,
     },
     showErrors: {
-      name: "showErrors",
       baseName: "show_errors",
       type: "boolean",
-      required: false,
     },
     showHits: {
-      name: "showHits",
       baseName: "show_hits",
       type: "boolean",
-      required: false,
     },
     showLatency: {
-      name: "showLatency",
       baseName: "show_latency",
       type: "boolean",
-      required: false,
     },
     showResourceList: {
-      name: "showResourceList",
       baseName: "show_resource_list",
       type: "boolean",
-      required: false,
     },
     sizeFormat: {
-      name: "sizeFormat",
       baseName: "size_format",
       type: "WidgetSizeFormat",
-      required: false,
     },
     spanName: {
-      name: "spanName",
       baseName: "span_name",
       type: "string",
       required: true,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "ServiceSummaryWidgetDefinitionType",
       required: true,

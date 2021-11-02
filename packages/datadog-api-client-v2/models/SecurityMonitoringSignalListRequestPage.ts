@@ -24,24 +24,20 @@ export class SecurityMonitoringSignalListRequestPage {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cursor: {
-      name: "cursor",
       baseName: "cursor",
       type: "string",
-      required: false,
     },
     limit: {
-      name: "limit",
       baseName: "limit",
       type: "number",
-      required: false,
+
       format: "int32",
     },
   };

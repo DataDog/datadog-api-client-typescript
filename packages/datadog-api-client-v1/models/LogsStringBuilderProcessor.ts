@@ -39,45 +39,35 @@ export class LogsStringBuilderProcessor {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     isReplaceMissing: {
-      name: "isReplaceMissing",
       baseName: "is_replace_missing",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     target: {
-      name: "target",
       baseName: "target",
       type: "string",
       required: true,
     },
     template: {
-      name: "template",
       baseName: "template",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsStringBuilderProcessorType",
       required: true,

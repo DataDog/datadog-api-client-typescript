@@ -37,45 +37,36 @@ export class LogsArchiveDestinationAzure {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     container: {
-      name: "container",
       baseName: "container",
       type: "string",
       required: true,
     },
     integration: {
-      name: "integration",
       baseName: "integration",
       type: "LogsArchiveIntegrationAzure",
       required: true,
     },
     path: {
-      name: "path",
       baseName: "path",
       type: "string",
-      required: false,
     },
     region: {
-      name: "region",
       baseName: "region",
       type: "string",
-      required: false,
     },
     storageAccount: {
-      name: "storageAccount",
       baseName: "storage_account",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsArchiveDestinationAzureType",
       required: true,

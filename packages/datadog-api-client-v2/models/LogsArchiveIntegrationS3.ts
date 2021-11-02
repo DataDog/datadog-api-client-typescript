@@ -24,21 +24,18 @@ export class LogsArchiveIntegrationS3 {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     accountId: {
-      name: "accountId",
       baseName: "account_id",
       type: "string",
       required: true,
     },
     roleName: {
-      name: "roleName",
       baseName: "role_name",
       type: "string",
       required: true,

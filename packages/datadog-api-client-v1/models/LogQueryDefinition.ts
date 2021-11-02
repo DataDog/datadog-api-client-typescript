@@ -34,42 +34,31 @@ export class LogQueryDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     compute: {
-      name: "compute",
       baseName: "compute",
       type: "LogsQueryCompute",
-      required: false,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "Array<LogQueryDefinitionGroupBy>",
-      required: false,
     },
     index: {
-      name: "index",
       baseName: "index",
       type: "string",
-      required: false,
     },
     multiCompute: {
-      name: "multiCompute",
       baseName: "multi_compute",
       type: "Array<LogsQueryCompute>",
-      required: false,
     },
     search: {
-      name: "search",
       baseName: "search",
       type: "LogQueryDefinitionSearch",
-      required: false,
     },
   };
 

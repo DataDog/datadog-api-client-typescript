@@ -27,36 +27,27 @@ export class LogsAggregateSort {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "LogsAggregationFunction",
-      required: false,
     },
     metric: {
-      name: "metric",
       baseName: "metric",
       type: "string",
-      required: false,
     },
     order: {
-      name: "order",
       baseName: "order",
       type: "LogsSortOrder",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsAggregateSortType",
-      required: false,
     },
   };
 

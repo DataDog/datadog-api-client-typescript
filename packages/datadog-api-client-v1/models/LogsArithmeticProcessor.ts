@@ -39,45 +39,35 @@ export class LogsArithmeticProcessor {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     expression: {
-      name: "expression",
       baseName: "expression",
       type: "string",
       required: true,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     isReplaceMissing: {
-      name: "isReplaceMissing",
       baseName: "is_replace_missing",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     target: {
-      name: "target",
       baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsArithmeticProcessorType",
       required: true,

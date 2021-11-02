@@ -23,21 +23,18 @@ export class IFrameWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     type: {
-      name: "type",
       baseName: "type",
       type: "IFrameWidgetDefinitionType",
       required: true,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
       required: true,

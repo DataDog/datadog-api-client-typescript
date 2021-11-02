@@ -24,24 +24,19 @@ export class SecurityFiltersResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     data: {
-      name: "data",
       baseName: "data",
       type: "Array<SecurityFilter>",
-      required: false,
     },
     meta: {
-      name: "meta",
       baseName: "meta",
       type: "SecurityFilterMeta",
-      required: false,
     },
   };
 

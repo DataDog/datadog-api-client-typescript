@@ -24,24 +24,19 @@ export class SecurityFilterExclusionFilterResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
   };
 

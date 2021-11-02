@@ -19,18 +19,15 @@ export class UserResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     user: {
-      name: "user",
       baseName: "user",
       type: "User",
-      required: false,
     },
   };
 

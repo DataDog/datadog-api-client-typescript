@@ -28,32 +28,28 @@ export class HostMetrics {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     cpu: {
-      name: "cpu",
       baseName: "cpu",
       type: "number",
-      required: false,
+
       format: "double",
     },
     iowait: {
-      name: "iowait",
       baseName: "iowait",
       type: "number",
-      required: false,
+
       format: "double",
     },
     load: {
-      name: "load",
       baseName: "load",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

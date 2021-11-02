@@ -27,27 +27,22 @@ export class ListStreamQuery {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     dataSource: {
-      name: "dataSource",
       baseName: "data_source",
       type: "ListStreamSource",
       required: true,
     },
     indexes: {
-      name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
-      required: false,
     },
     queryString: {
-      name: "queryString",
       baseName: "query_string",
       type: "string",
       required: true,

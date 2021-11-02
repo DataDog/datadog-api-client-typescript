@@ -28,30 +28,25 @@ export class LogsQueryCompute {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     aggregation: {
-      name: "aggregation",
       baseName: "aggregation",
       type: "string",
       required: true,
     },
     facet: {
-      name: "facet",
       baseName: "facet",
       type: "string",
-      required: false,
     },
     interval: {
-      name: "interval",
       baseName: "interval",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

@@ -20,18 +20,15 @@ export class SLOHistoryResponseError {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     error: {
-      name: "error",
       baseName: "error",
       type: "string",
-      required: false,
     },
   };
 

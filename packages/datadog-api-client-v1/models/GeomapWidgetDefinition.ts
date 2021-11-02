@@ -45,63 +45,48 @@ export class GeomapWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customLinks: {
-      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      required: false,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "Array<GeomapWidgetRequest>",
       required: true,
     },
     style: {
-      name: "style",
       baseName: "style",
       type: "GeomapWidgetDefinitionStyle",
       required: true,
     },
     time: {
-      name: "time",
       baseName: "time",
       type: "WidgetTime",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "GeomapWidgetDefinitionType",
       required: true,
     },
     view: {
-      name: "view",
       baseName: "view",
       type: "GeomapWidgetDefinitionView",
       required: true,

@@ -22,15 +22,13 @@ export class MetricsPayload {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     series: {
-      name: "series",
       baseName: "series",
       type: "Array<Series>",
       required: true,

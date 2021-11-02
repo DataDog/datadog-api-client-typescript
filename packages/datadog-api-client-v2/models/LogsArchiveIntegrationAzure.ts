@@ -24,21 +24,18 @@ export class LogsArchiveIntegrationAzure {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     clientId: {
-      name: "clientId",
       baseName: "client_id",
       type: "string",
       required: true,
     },
     tenantId: {
-      name: "tenantId",
       baseName: "tenant_id",
       type: "string",
       required: true,

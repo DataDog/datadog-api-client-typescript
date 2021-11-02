@@ -24,21 +24,18 @@ export class SLOHistoryResponseErrorWithType {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     errorMessage: {
-      name: "errorMessage",
       baseName: "error_message",
       type: "string",
       required: true,
     },
     errorType: {
-      name: "errorType",
       baseName: "error_type",
       type: "string",
       required: true,

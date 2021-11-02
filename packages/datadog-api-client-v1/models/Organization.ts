@@ -39,54 +39,39 @@ export class Organization {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     billing: {
-      name: "billing",
       baseName: "billing",
       type: "OrganizationBilling",
-      required: false,
     },
     created: {
-      name: "created",
       baseName: "created",
       type: "string",
-      required: false,
     },
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     publicId: {
-      name: "publicId",
       baseName: "public_id",
       type: "string",
-      required: false,
     },
     settings: {
-      name: "settings",
       baseName: "settings",
       type: "OrganizationSettings",
-      required: false,
     },
     subscription: {
-      name: "subscription",
       baseName: "subscription",
       type: "OrganizationSubscription",
-      required: false,
     },
   };
 

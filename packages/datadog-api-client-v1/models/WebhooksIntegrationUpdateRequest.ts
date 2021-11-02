@@ -35,42 +35,31 @@ export class WebhooksIntegrationUpdateRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customHeaders: {
-      name: "customHeaders",
       baseName: "custom_headers",
       type: "string",
-      required: false,
     },
     encodeAs: {
-      name: "encodeAs",
       baseName: "encode_as",
       type: "WebhooksIntegrationEncoding",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     payload: {
-      name: "payload",
       baseName: "payload",
       type: "string",
-      required: false,
     },
     url: {
-      name: "url",
       baseName: "url",
       type: "string",
-      required: false,
     },
   };
 

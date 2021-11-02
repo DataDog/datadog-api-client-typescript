@@ -20,18 +20,16 @@ export class CheckCanDeleteMonitorResponseData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     ok: {
-      name: "ok",
       baseName: "ok",
       type: "Array<number>",
-      required: false,
+
       format: "int64",
     },
   };

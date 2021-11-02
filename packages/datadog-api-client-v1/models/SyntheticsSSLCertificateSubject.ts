@@ -44,54 +44,39 @@ export class SyntheticsSSLCertificateSubject {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     C: {
-      name: "C",
       baseName: "C",
       type: "string",
-      required: false,
     },
     CN: {
-      name: "CN",
       baseName: "CN",
       type: "string",
-      required: false,
     },
     L: {
-      name: "L",
       baseName: "L",
       type: "string",
-      required: false,
     },
     O: {
-      name: "O",
       baseName: "O",
       type: "string",
-      required: false,
     },
     OU: {
-      name: "OU",
       baseName: "OU",
       type: "string",
-      required: false,
     },
     ST: {
-      name: "ST",
       baseName: "ST",
       type: "string",
-      required: false,
     },
     altName: {
-      name: "altName",
       baseName: "altName",
       type: "string",
-      required: false,
     },
   };
 

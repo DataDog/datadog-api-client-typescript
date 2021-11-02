@@ -24,24 +24,19 @@ export class SyntheticsCIBatchMetadataCI {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     pipeline: {
-      name: "pipeline",
       baseName: "pipeline",
       type: "string",
-      required: false,
     },
     provider: {
-      name: "provider",
       baseName: "provider",
       type: "string",
-      required: false,
     },
   };
 

@@ -32,36 +32,27 @@ export class MonitorSearchResponseCounts {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     muted: {
-      name: "muted",
       baseName: "muted",
       type: "Array<any>",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "Array<any>",
-      required: false,
     },
     tag: {
-      name: "tag",
       baseName: "tag",
       type: "Array<any>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "Array<any>",
-      required: false,
     },
   };
 

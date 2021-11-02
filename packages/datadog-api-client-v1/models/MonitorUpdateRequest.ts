@@ -71,113 +71,85 @@ export class MonitorUpdateRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     created: {
-      name: "created",
       baseName: "created",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     creator: {
-      name: "creator",
       baseName: "creator",
       type: "Creator",
-      required: false,
     },
     deleted: {
-      name: "deleted",
       baseName: "deleted",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     message: {
-      name: "message",
       baseName: "message",
       type: "string",
-      required: false,
     },
     modified: {
-      name: "modified",
       baseName: "modified",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     multi: {
-      name: "multi",
       baseName: "multi",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     options: {
-      name: "options",
       baseName: "options",
       type: "MonitorOptions",
-      required: false,
     },
     overallState: {
-      name: "overallState",
       baseName: "overall_state",
       type: "MonitorOverallStates",
-      required: false,
     },
     priority: {
-      name: "priority",
       baseName: "priority",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     query: {
-      name: "query",
       baseName: "query",
       type: "string",
-      required: false,
     },
     restrictedRoles: {
-      name: "restrictedRoles",
       baseName: "restricted_roles",
       type: "Array<string>",
-      required: false,
     },
     state: {
-      name: "state",
       baseName: "state",
       type: "MonitorState",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "MonitorType",
-      required: false,
     },
   };
 

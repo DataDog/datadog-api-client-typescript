@@ -20,15 +20,13 @@ export class LogsPipelinesOrder {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     pipelineIds: {
-      name: "pipelineIds",
       baseName: "pipeline_ids",
       type: "Array<string>",
       required: true,

@@ -39,52 +39,43 @@ export class MonitorStateGroup {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     lastNodataTs: {
-      name: "lastNodataTs",
       baseName: "last_nodata_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     lastNotifiedTs: {
-      name: "lastNotifiedTs",
       baseName: "last_notified_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     lastResolvedTs: {
-      name: "lastResolvedTs",
       baseName: "last_resolved_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     lastTriggeredTs: {
-      name: "lastTriggeredTs",
       baseName: "last_triggered_ts",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
-      required: false,
     },
   };
 

@@ -25,36 +25,27 @@ export class UserResponseRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     org: {
-      name: "org",
       baseName: "org",
       type: "RelationshipToOrganization",
-      required: false,
     },
     otherOrgs: {
-      name: "otherOrgs",
       baseName: "other_orgs",
       type: "RelationshipToOrganizations",
-      required: false,
     },
     otherUsers: {
-      name: "otherUsers",
       baseName: "other_users",
       type: "RelationshipToUsers",
-      required: false,
     },
     roles: {
-      name: "roles",
       baseName: "roles",
       type: "RelationshipToRoles",
-      required: false,
     },
   };
 

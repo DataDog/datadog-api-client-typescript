@@ -35,43 +35,33 @@ export class SyntheticsStep {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     allowFailure: {
-      name: "allowFailure",
       baseName: "allowFailure",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     params: {
-      name: "params",
       baseName: "params",
       type: "any",
-      required: false,
     },
     timeout: {
-      name: "timeout",
       baseName: "timeout",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "SyntheticsStepType",
-      required: false,
     },
   };
 

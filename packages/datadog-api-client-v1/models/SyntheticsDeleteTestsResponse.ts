@@ -22,18 +22,15 @@ export class SyntheticsDeleteTestsResponse {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     deletedTests: {
-      name: "deletedTests",
       baseName: "deleted_tests",
       type: "Array<SyntheticsDeletedTest>",
-      required: false,
     },
   };
 

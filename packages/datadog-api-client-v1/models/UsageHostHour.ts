@@ -72,109 +72,94 @@ export class UsageHostHour {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     agentHostCount: {
-      name: "agentHostCount",
       baseName: "agent_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     alibabaHostCount: {
-      name: "alibabaHostCount",
       baseName: "alibaba_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     apmAzureAppServiceHostCount: {
-      name: "apmAzureAppServiceHostCount",
       baseName: "apm_azure_app_service_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     apmHostCount: {
-      name: "apmHostCount",
       baseName: "apm_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     awsHostCount: {
-      name: "awsHostCount",
       baseName: "aws_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     azureHostCount: {
-      name: "azureHostCount",
       baseName: "azure_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     containerCount: {
-      name: "containerCount",
       baseName: "container_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     gcpHostCount: {
-      name: "gcpHostCount",
       baseName: "gcp_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     herokuHostCount: {
-      name: "herokuHostCount",
       baseName: "heroku_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hostCount: {
-      name: "hostCount",
       baseName: "host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     hour: {
-      name: "hour",
       baseName: "hour",
       type: "Date",
-      required: false,
+
       format: "date-time",
     },
     infraAzureAppService: {
-      name: "infraAzureAppService",
       baseName: "infra_azure_app_service",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     opentelemetryHostCount: {
-      name: "opentelemetryHostCount",
       baseName: "opentelemetry_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     vsphereHostCount: {
-      name: "vsphereHostCount",
       baseName: "vsphere_host_count",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

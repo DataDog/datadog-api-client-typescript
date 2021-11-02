@@ -34,45 +34,37 @@ export class TreeMapWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     colorBy: {
-      name: "colorBy",
       baseName: "color_by",
       type: "TreeMapColorBy",
       required: true,
     },
     groupBy: {
-      name: "groupBy",
       baseName: "group_by",
       type: "TreeMapGroupBy",
       required: true,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "Array<TreeMapWidgetRequest>",
       required: true,
     },
     sizeBy: {
-      name: "sizeBy",
       baseName: "size_by",
       type: "TreeMapSizeBy",
       required: true,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "TreeMapWidgetDefinitionType",
       required: true,

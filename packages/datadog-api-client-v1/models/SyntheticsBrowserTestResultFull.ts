@@ -39,56 +39,43 @@ export class SyntheticsBrowserTestResultFull {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     check: {
-      name: "check",
       baseName: "check",
       type: "SyntheticsBrowserTestResultFullCheck",
-      required: false,
     },
     checkTime: {
-      name: "checkTime",
       baseName: "check_time",
       type: "number",
-      required: false,
+
       format: "double",
     },
     checkVersion: {
-      name: "checkVersion",
       baseName: "check_version",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     probeDc: {
-      name: "probeDc",
       baseName: "probe_dc",
       type: "string",
-      required: false,
     },
     result: {
-      name: "result",
       baseName: "result",
       type: "SyntheticsBrowserTestResultData",
-      required: false,
     },
     resultId: {
-      name: "resultId",
       baseName: "result_id",
       type: "string",
-      required: false,
     },
     status: {
-      name: "status",
       baseName: "status",
       type: "SyntheticsTestMonitorStatus",
-      required: false,
     },
   };
 

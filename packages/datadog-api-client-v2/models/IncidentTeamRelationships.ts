@@ -20,24 +20,19 @@ export class IncidentTeamRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     createdBy: {
-      name: "createdBy",
       baseName: "created_by",
       type: "RelationshipToUser",
-      required: false,
     },
     lastModifiedBy: {
-      name: "lastModifiedBy",
       baseName: "last_modified_by",
       type: "RelationshipToUser",
-      required: false,
     },
   };
 

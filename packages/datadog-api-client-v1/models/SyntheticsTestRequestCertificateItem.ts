@@ -28,30 +28,23 @@ export class SyntheticsTestRequestCertificateItem {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     content: {
-      name: "content",
       baseName: "content",
       type: "string",
-      required: false,
     },
     filename: {
-      name: "filename",
       baseName: "filename",
       type: "string",
-      required: false,
     },
     updatedAt: {
-      name: "updatedAt",
       baseName: "updatedAt",
       type: "string",
-      required: false,
     },
   };
 

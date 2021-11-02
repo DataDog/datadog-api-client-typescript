@@ -34,39 +34,29 @@ export class LogsPipelineProcessor {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsFilter",
-      required: false,
     },
     isEnabled: {
-      name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
-      required: false,
     },
     processors: {
-      name: "processors",
       baseName: "processors",
       type: "Array<LogsProcessor>",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "LogsPipelineProcessorType",
       required: true,

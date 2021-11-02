@@ -60,87 +60,62 @@ export class HostMapWidgetDefinition {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     customLinks: {
-      name: "customLinks",
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      required: false,
     },
     group: {
-      name: "group",
       baseName: "group",
       type: "Array<string>",
-      required: false,
     },
     noGroupHosts: {
-      name: "noGroupHosts",
       baseName: "no_group_hosts",
       type: "boolean",
-      required: false,
     },
     noMetricHosts: {
-      name: "noMetricHosts",
       baseName: "no_metric_hosts",
       type: "boolean",
-      required: false,
     },
     nodeType: {
-      name: "nodeType",
       baseName: "node_type",
       type: "WidgetNodeType",
-      required: false,
     },
     notes: {
-      name: "notes",
       baseName: "notes",
       type: "string",
-      required: false,
     },
     requests: {
-      name: "requests",
       baseName: "requests",
       type: "HostMapWidgetDefinitionRequests",
       required: true,
     },
     scope: {
-      name: "scope",
       baseName: "scope",
       type: "Array<string>",
-      required: false,
     },
     style: {
-      name: "style",
       baseName: "style",
       type: "HostMapWidgetDefinitionStyle",
-      required: false,
     },
     title: {
-      name: "title",
       baseName: "title",
       type: "string",
-      required: false,
     },
     titleAlign: {
-      name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
-      required: false,
     },
     titleSize: {
-      name: "titleSize",
       baseName: "title_size",
       type: "string",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "HostMapWidgetDefinitionType",
       required: true,

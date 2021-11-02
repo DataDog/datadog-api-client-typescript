@@ -36,43 +36,35 @@ export class LogsIndexUpdateRequest {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     dailyLimit: {
-      name: "dailyLimit",
       baseName: "daily_limit",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     disableDailyLimit: {
-      name: "disableDailyLimit",
       baseName: "disable_daily_limit",
       type: "boolean",
-      required: false,
     },
     exclusionFilters: {
-      name: "exclusionFilters",
       baseName: "exclusion_filters",
       type: "Array<LogsExclusion>",
-      required: false,
     },
     filter: {
-      name: "filter",
       baseName: "filter",
       type: "LogsFilter",
       required: true,
     },
     numRetentionDays: {
-      name: "numRetentionDays",
       baseName: "num_retention_days",
       type: "number",
-      required: false,
+
       format: "int64",
     },
   };

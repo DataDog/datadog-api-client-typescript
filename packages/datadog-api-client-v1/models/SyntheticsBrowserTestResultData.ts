@@ -60,80 +60,60 @@ export class SyntheticsBrowserTestResultData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     browserType: {
-      name: "browserType",
       baseName: "browserType",
       type: "string",
-      required: false,
     },
     browserVersion: {
-      name: "browserVersion",
       baseName: "browserVersion",
       type: "string",
-      required: false,
     },
     device: {
-      name: "device",
       baseName: "device",
       type: "SyntheticsDevice",
-      required: false,
     },
     duration: {
-      name: "duration",
       baseName: "duration",
       type: "number",
-      required: false,
+
       format: "double",
     },
     error: {
-      name: "error",
       baseName: "error",
       type: "string",
-      required: false,
     },
     passed: {
-      name: "passed",
       baseName: "passed",
       type: "boolean",
-      required: false,
     },
     receivedEmailCount: {
-      name: "receivedEmailCount",
       baseName: "receivedEmailCount",
       type: "number",
-      required: false,
+
       format: "int64",
     },
     startUrl: {
-      name: "startUrl",
       baseName: "startUrl",
       type: "string",
-      required: false,
     },
     stepDetails: {
-      name: "stepDetails",
       baseName: "stepDetails",
       type: "Array<SyntheticsStepDetail>",
-      required: false,
     },
     thumbnailsBucketKey: {
-      name: "thumbnailsBucketKey",
       baseName: "thumbnailsBucketKey",
       type: "boolean",
-      required: false,
     },
     timeToInteractive: {
-      name: "timeToInteractive",
       baseName: "timeToInteractive",
       type: "number",
-      required: false,
+
       format: "double",
     },
   };

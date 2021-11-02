@@ -35,39 +35,31 @@ export class SyntheticsPrivateLocation {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     description: {
-      name: "description",
       baseName: "description",
       type: "string",
       required: true,
     },
     id: {
-      name: "id",
       baseName: "id",
       type: "string",
-      required: false,
     },
     name: {
-      name: "name",
       baseName: "name",
       type: "string",
       required: true,
     },
     secrets: {
-      name: "secrets",
       baseName: "secrets",
       type: "SyntheticsPrivateLocationSecrets",
-      required: false,
     },
     tags: {
-      name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,

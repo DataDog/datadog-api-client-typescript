@@ -23,27 +23,21 @@ export class IncidentTeamCreateData {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     attributes: {
-      name: "attributes",
       baseName: "attributes",
       type: "IncidentTeamCreateAttributes",
-      required: false,
     },
     relationships: {
-      name: "relationships",
       baseName: "relationships",
       type: "IncidentTeamRelationships",
-      required: false,
     },
     type: {
-      name: "type",
       baseName: "type",
       type: "IncidentTeamType",
       required: true,

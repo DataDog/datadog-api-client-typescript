@@ -19,15 +19,13 @@ export class IncidentCreateRelationships {
 
   static readonly attributeTypeMap: {
     [key: string]: {
-      name: string;
       baseName: string;
       type: string;
-      required: boolean;
+      required?: boolean;
       format?: string;
     };
   } = {
     commander: {
-      name: "commander",
       baseName: "commander",
       type: "RelationshipToUser",
       required: true,
