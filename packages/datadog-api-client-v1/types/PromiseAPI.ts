@@ -2180,7 +2180,7 @@ export class PromiseServiceChecksApi {
   }
 
   /**
-   * Submit a list of Service Checks.  **Note**: A valid API key is required.
+   * Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
    * Submit a Service Check
    * @param body Service Check request body.
    */
