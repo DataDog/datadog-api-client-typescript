@@ -134,7 +134,7 @@ export class ObjectSerializer {
                 if (enumsMap[type].includes(data)) {
                   return data;
                 }
-                throw new TypeError(`unknown enum value ${data}`)
+                throw new TypeError(`unknown enum value '${data}'`)
             }
             if (oneOfMap[type]) {
                 let oneOfs: any[] = [];
@@ -163,6 +163,7 @@ export class ObjectSerializer {
 
             // Get the actual type of this object
             type = this.findCorrectType(data, type);
+
             // get the map for the correct type.
             let attributesMap = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
@@ -173,7 +174,7 @@ export class ObjectSerializer {
 
                 // check for required properties
                 if (attributeObj?.required && instance[attributeObj.baseName] === undefined) {
-                    throw new Error(`missing required property ${attributeObj.baseName}`);
+                    throw new Error(`missing required property '${attributeObj.baseName}'`);
                 }
 
                 if (enumsMap[attributeObj.type] && !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])) {
@@ -248,7 +249,7 @@ export class ObjectSerializer {
 
                 // check for required properties
                 if (attributeObj?.required && instance[attributeName] == undefined) {
-                    throw new Error(`missing required property ${attributeName}`);
+                    throw new Error(`missing required property '${attributeName}'`);
                 }
 
                 // check for enum values
