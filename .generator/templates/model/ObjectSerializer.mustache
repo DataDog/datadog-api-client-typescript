@@ -22,23 +22,24 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0
 }
 
+const PI = 3.14;
 
-let enumsMap: Set<string> = new Set<string>([
+const enumsMap: {[key: string]: any} = {
     {{#models}}
         {{#model}}
             {{#isEnum}}
-    "{{classname}}{{enumName}}",
+    "{{classname}}{{enumName}}": [{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
             {{/isEnum}}
             {{#hasEnums}}
                 {{#vars}}
                     {{#isEnum}}
-    "{{classname}}{{enumName}}",
+    "{{classname}}{{enumName}}": [{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
                     {{/isEnum}}
                 {{/vars}}
             {{/hasEnums}}
         {{/model}}
     {{/models}}
-]);
+};
 
 let typeMap: {[index: string]: any} = {
     {{#models}}
@@ -152,11 +153,24 @@ export class ObjectSerializer {
                 return oneOfs[0];
             }
 
-            if (!typeMap[type]) { // dont know the type
+            if (!typeMap[type]) { // in case we dont know the type
                 throw new TypeError(`unknown type '${type}'`);
             }
 
-            return typeMap[type].serialize(data);
+            // Get the actual type of this object
+            type = this.findCorrectType(data, type);
+            // get the map for the correct type.
+            let attributeTypes = typeMap[type].getAttributeTypeMap();
+            let instance: {[index: string]: any} = {};
+            for (let index in attributeTypes) {
+                let attributeType = attributeTypes[index];
+                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type, attributeType.format);
+                // check for enum values
+                if (enumsMap.has(attributeType.name) && !enumsMap[attributeType.name].include(instance[attributeType.name])) {
+                    instance.unparsedObject = instance[attributeType.name];
+                }
+            }
+            return instance;
         }
     }
 
