@@ -33,15 +33,15 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     {{/discriminator}}
 
     {{^isArray}}
-    static readonly attributeTypeMap: {[key: string]: {name: string, baseName: string, type: string, required: boolean, format?: string, enumValues?:string[]}} = {
+    static readonly attributeTypeMap: {[key: string]: {name: string, baseName: string, type: string, required: boolean, format?: string, enumValues?:any}} = {
         {{#vars}}
         "{{name}}": {
             "name": "{{name}}",
             "baseName": "{{baseName}}",
             "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
-            "format": "{{dataFormat}}",
             "required": {{required}},
-            {{#allowableValues}}"enumValues": [{{#enumVars}}{{{value}}}, {{/enumVars}}undefined]{{/allowableValues}}
+            "format": "{{dataFormat}}",
+            {{#allowableValues}}"enumValues": [{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}}
         }{{^-last}},
         {{/-last}}
         {{/vars}}
