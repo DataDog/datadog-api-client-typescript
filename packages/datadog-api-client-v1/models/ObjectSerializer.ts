@@ -1698,7 +1698,7 @@ export class ObjectSerializer {
 
         // check for required properties
         if (
-          attributeType.required &&
+          attributeType.?required &&
           instance[attributeType.baseName] === undefined
         ) {
           throw new Error(
@@ -1795,7 +1795,7 @@ export class ObjectSerializer {
 
         // check for required properties
         if (
-          attributeType.required &&
+          attributeType.?required &&
           instance[attributeType.name] == undefined
         ) {
           throw new Error(`missing required property ${attributeType.name}`);

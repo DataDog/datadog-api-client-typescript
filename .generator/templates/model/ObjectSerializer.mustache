@@ -164,15 +164,15 @@ export class ObjectSerializer {
             // Get the actual type of this object
             type = this.findCorrectType(data, type);
             // get the map for the correct type.
-            let attributeTypes = typeMap[type].getAttributeTypeMap();
+            let attributesMap = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
 
-            for (let index in attributeTypes) {
-                let attributeType = attributeTypes[index];
-                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type, attributeType.format);
+            for (let attributeName in attributesMap) {
+                let attributeType = attributesMap[attributeName];
+                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeName], attributeType.type, attributeType.format);
 
                 // check for required properties
-                if (attributeType.required && instance[attributeType.baseName] === undefined) {
+                if (attributeType.?required && instance[attributeType.baseName] === undefined) {
                     throw new Error(`missing required property ${attributeType.baseName}`);
                 }
 
@@ -240,14 +240,14 @@ export class ObjectSerializer {
             }
 
             let instance = new typeMap[type]();
-            let attributeTypes = typeMap[type].getAttributeTypeMap();
+            let attributesMap = typeMap[type].getAttributeTypeMap();
 
-            for (let index in attributeTypes) {
-                let attributeType = attributeTypes[index];
-                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
+            for (let attributeName in attributesMap) {
+                let attributeType = attributesMap[attributeName];
+                instance[attributeName] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
 
                 // check for required properties
-                if (attributeType.required && instance[attributeType.name] == undefined) {
+                if (attributeType.?required && instance[attributeType.name] == undefined) {
                     throw new Error(`missing required property ${attributeType.name}`);
                 }
 

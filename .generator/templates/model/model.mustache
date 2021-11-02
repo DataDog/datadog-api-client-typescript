@@ -36,10 +36,9 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     static readonly attributeTypeMap: {[key: string]: {name: string, baseName: string, type: string, required: boolean, format?: string}} = {
         {{#vars}}
         "{{name}}": {
-            "name": "{{name}}",
             "baseName": "{{baseName}}",
             "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
-            "required": {{required}},
+            {{#required}}"required": {{.}},{{/required}}
             {{#dataFormat}}"format": "{{.}}",{{/dataFormat}}
         }{{^-last}},
         {{/-last}}
