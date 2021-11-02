@@ -60,6 +60,7 @@ export class SLOCorrectionUpdateRequestAttributes {
     duration: {
       baseName: "duration",
       type: "number",
+
       format: "int64",
     },
     end: {
@@ -71,7 +72,6 @@ export class SLOCorrectionUpdateRequestAttributes {
     rrule: {
       baseName: "rrule",
       type: "string",
-      format: "",
     },
     start: {
       baseName: "start",

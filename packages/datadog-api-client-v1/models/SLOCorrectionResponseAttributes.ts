@@ -70,6 +70,7 @@ export class SLOCorrectionResponseAttributes {
     duration: {
       baseName: "duration",
       type: "number",
+
       format: "int64",
     },
     end: {
@@ -81,7 +82,6 @@ export class SLOCorrectionResponseAttributes {
     rrule: {
       baseName: "rrule",
       type: "string",
-      format: "",
     },
     sloId: {
       baseName: "slo_id",
