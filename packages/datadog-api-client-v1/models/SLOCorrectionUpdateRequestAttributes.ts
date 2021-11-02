@@ -17,9 +17,17 @@ export class SLOCorrectionUpdateRequestAttributes {
    */
   "description"?: string;
   /**
+   * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
+   */
+  "duration"?: number;
+  /**
    * Ending time of the correction in epoch seconds.
    */
   "end"?: number;
+  /**
+   * Recurrence rules as defined in the iCalendar RFC 5545.
+   */
+  "rrule"?: string;
   /**
    * Starting time of the correction in epoch seconds.
    */
@@ -49,11 +57,21 @@ export class SLOCorrectionUpdateRequestAttributes {
       baseName: "description",
       type: "string",
     },
+    duration: {
+      baseName: "duration",
+      type: "number",
+      format: "int64",
+    },
     end: {
       baseName: "end",
       type: "number",
 
       format: "int64",
+    },
+    rrule: {
+      baseName: "rrule",
+      type: "string",
+      format: "",
     },
     start: {
       baseName: "start",
