@@ -37,7 +37,6 @@ export class HostMuteResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     action: {
@@ -45,7 +44,6 @@ export class HostMuteResponse {
       baseName: "action",
       type: "string",
       required: false,
-      format: "",
     },
     end: {
       name: "end",
@@ -59,14 +57,12 @@ export class HostMuteResponse {
       baseName: "hostname",
       type: "string",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

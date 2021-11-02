@@ -53,7 +53,6 @@ export class OrganizationAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -68,14 +67,12 @@ export class OrganizationAttributes {
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     disabled: {
       name: "disabled",
       baseName: "disabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -89,28 +86,24 @@ export class OrganizationAttributes {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     sharing: {
       name: "sharing",
       baseName: "sharing",
       type: "string",
       required: false,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

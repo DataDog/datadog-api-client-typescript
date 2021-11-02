@@ -29,7 +29,6 @@ export class SecurityMonitoringRuntimeAgentRule {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agentRuleId: {
@@ -37,14 +36,12 @@ export class SecurityMonitoringRuntimeAgentRule {
       baseName: "agentRuleId",
       type: "string",
       required: false,
-      format: "",
     },
     expression: {
       name: "expression",
       baseName: "expression",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

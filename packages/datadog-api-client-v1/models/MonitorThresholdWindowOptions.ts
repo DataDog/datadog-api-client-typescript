@@ -29,7 +29,6 @@ export class MonitorThresholdWindowOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     recoveryWindow: {
@@ -37,14 +36,12 @@ export class MonitorThresholdWindowOptions {
       baseName: "recovery_window",
       type: "string",
       required: false,
-      format: "",
     },
     triggerWindow: {
       name: "triggerWindow",
       baseName: "trigger_window",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

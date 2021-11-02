@@ -54,7 +54,6 @@ export class SyntheticsBatchResult {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     device: {
@@ -62,7 +61,6 @@ export class SyntheticsBatchResult {
       baseName: "device",
       type: "SyntheticsDeviceID",
       required: false,
-      format: "",
     },
     duration: {
       name: "duration",
@@ -76,21 +74,18 @@ export class SyntheticsBatchResult {
       baseName: "execution_rule",
       type: "SyntheticsTestExecutionRule",
       required: false,
-      format: "",
     },
     location: {
       name: "location",
       baseName: "location",
       type: "string",
       required: false,
-      format: "",
     },
     resultId: {
       name: "resultId",
       baseName: "result_id",
       type: "string",
       required: false,
-      format: "",
     },
     retries: {
       name: "retries",
@@ -104,28 +99,24 @@ export class SyntheticsBatchResult {
       baseName: "status",
       type: "SyntheticsStatus",
       required: false,
-      format: "",
     },
     testName: {
       name: "testName",
       baseName: "test_name",
       type: "string",
       required: false,
-      format: "",
     },
     testPublicId: {
       name: "testPublicId",
       baseName: "test_public_id",
       type: "string",
       required: false,
-      format: "",
     },
     testType: {
       name: "testType",
       baseName: "test_type",
       type: "SyntheticsTestDetailsType",
       required: false,
-      format: "",
     },
   };
 

@@ -44,7 +44,6 @@ export class LogsStringBuilderProcessor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     isEnabled: {
@@ -52,42 +51,36 @@ export class LogsStringBuilderProcessor {
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     isReplaceMissing: {
       name: "isReplaceMissing",
       baseName: "is_replace_missing",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     target: {
       name: "target",
       baseName: "target",
       type: "string",
       required: true,
-      format: "",
     },
     template: {
       name: "template",
       baseName: "template",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsStringBuilderProcessorType",
       required: true,
-      format: "",
     },
   };
 

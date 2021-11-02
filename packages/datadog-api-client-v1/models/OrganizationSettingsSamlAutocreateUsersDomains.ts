@@ -29,7 +29,6 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     domains: {
@@ -37,14 +36,12 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
       baseName: "domains",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     enabled: {
       name: "enabled",
       baseName: "enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

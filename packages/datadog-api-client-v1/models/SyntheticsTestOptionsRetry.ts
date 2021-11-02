@@ -29,7 +29,6 @@ export class SyntheticsTestOptionsRetry {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     count: {

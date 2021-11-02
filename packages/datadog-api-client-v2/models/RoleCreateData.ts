@@ -28,7 +28,6 @@ export class RoleCreateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -36,21 +35,18 @@ export class RoleCreateData {
       baseName: "attributes",
       type: "RoleCreateAttributes",
       required: true,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "RoleRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "RolesType",
       required: false,
-      format: "",
     },
   };
 

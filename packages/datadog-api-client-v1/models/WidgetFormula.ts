@@ -39,7 +39,6 @@ export class WidgetFormula {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     alias: {
@@ -47,35 +46,30 @@ export class WidgetFormula {
       baseName: "alias",
       type: "string",
       required: false,
-      format: "",
     },
     cellDisplayMode: {
       name: "cellDisplayMode",
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
       required: false,
-      format: "",
     },
     conditionalFormats: {
       name: "conditionalFormats",
       baseName: "conditional_formats",
       type: "Array<WidgetConditionalFormat>",
       required: false,
-      format: "",
     },
     formula: {
       name: "formula",
       baseName: "formula",
       type: "string",
       required: true,
-      format: "",
     },
     limit: {
       name: "limit",
       baseName: "limit",
       type: "WidgetFormulaLimit",
       required: false,
-      format: "",
     },
   };
 

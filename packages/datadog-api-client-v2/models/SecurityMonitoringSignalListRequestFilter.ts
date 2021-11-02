@@ -33,7 +33,6 @@ export class SecurityMonitoringSignalListRequestFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     from: {
@@ -48,7 +47,6 @@ export class SecurityMonitoringSignalListRequestFilter {
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     to: {
       name: "to",

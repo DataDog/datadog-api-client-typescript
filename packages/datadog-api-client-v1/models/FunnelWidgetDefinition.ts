@@ -41,7 +41,6 @@ export class FunnelWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     requests: {
@@ -49,42 +48,36 @@ export class FunnelWidgetDefinition {
       baseName: "requests",
       type: "Array<FunnelWidgetRequest>",
       required: true,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "FunnelWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

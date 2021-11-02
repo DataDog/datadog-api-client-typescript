@@ -24,7 +24,6 @@ export class LogsAPIErrorResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     error: {
@@ -32,7 +31,6 @@ export class LogsAPIErrorResponse {
       baseName: "error",
       type: "LogsAPIError",
       required: false,
-      format: "",
     },
   };
 

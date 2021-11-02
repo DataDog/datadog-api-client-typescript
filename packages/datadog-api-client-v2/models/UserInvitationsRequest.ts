@@ -27,7 +27,6 @@ export class UserInvitationsRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -35,7 +34,6 @@ export class UserInvitationsRequest {
       baseName: "data",
       type: "Array<UserInvitationData>",
       required: true,
-      format: "",
     },
   };
 

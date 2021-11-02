@@ -29,7 +29,6 @@ export class UsageAttributionMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregates: {
@@ -37,14 +36,12 @@ export class UsageAttributionMetadata {
       baseName: "aggregates",
       type: "Array<UsageAttributionAggregatesBody>",
       required: false,
-      format: "",
     },
     pagination: {
       name: "pagination",
       baseName: "pagination",
       type: "UsageAttributionPagination",
       required: false,
-      format: "",
     },
   };
 

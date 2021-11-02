@@ -39,7 +39,6 @@ export class TreeMapWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     colorBy: {
@@ -47,42 +46,36 @@ export class TreeMapWidgetDefinition {
       baseName: "color_by",
       type: "TreeMapColorBy",
       required: true,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "TreeMapGroupBy",
       required: true,
-      format: "",
     },
     requests: {
       name: "requests",
       baseName: "requests",
       type: "Array<TreeMapWidgetRequest>",
       required: true,
-      format: "",
     },
     sizeBy: {
       name: "sizeBy",
       baseName: "size_by",
       type: "TreeMapSizeBy",
       required: true,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "TreeMapWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

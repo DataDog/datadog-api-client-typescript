@@ -29,7 +29,6 @@ export class SyntheticsDeletedTest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     deletedAt: {
@@ -44,7 +43,6 @@ export class SyntheticsDeletedTest {
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

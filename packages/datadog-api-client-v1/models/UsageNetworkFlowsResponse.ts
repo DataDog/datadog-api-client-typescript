@@ -27,7 +27,6 @@ export class UsageNetworkFlowsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageNetworkFlowsResponse {
       baseName: "usage",
       type: "Array<UsageNetworkFlowsHour>",
       required: false,
-      format: "",
     },
   };
 

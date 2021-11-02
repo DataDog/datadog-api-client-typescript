@@ -28,7 +28,6 @@ export class ListStreamColumn {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     field: {
@@ -36,14 +35,12 @@ export class ListStreamColumn {
       baseName: "field",
       type: "string",
       required: true,
-      format: "",
     },
     width: {
       name: "width",
       baseName: "width",
       type: "ListStreamColumnWidth",
       required: true,
-      format: "",
     },
   };
 

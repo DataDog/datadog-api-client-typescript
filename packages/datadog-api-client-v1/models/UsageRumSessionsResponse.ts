@@ -27,7 +27,6 @@ export class UsageRumSessionsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageRumSessionsResponse {
       baseName: "usage",
       type: "Array<UsageRumSessionsHour>",
       required: false,
-      format: "",
     },
   };
 

@@ -25,7 +25,6 @@ export class APIErrorResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     errors: {
@@ -33,7 +32,6 @@ export class APIErrorResponse {
       baseName: "errors",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

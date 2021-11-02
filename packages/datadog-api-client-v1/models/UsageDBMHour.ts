@@ -33,7 +33,6 @@ export class UsageDBMHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dbmHostCount: {

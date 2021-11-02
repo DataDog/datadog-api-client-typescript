@@ -33,7 +33,6 @@ export class SLOListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -41,21 +40,18 @@ export class SLOListResponse {
       baseName: "data",
       type: "Array<ServiceLevelObjective>",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     metadata: {
       name: "metadata",
       baseName: "metadata",
       type: "SLOListResponseMetadata",
       required: false,
-      format: "",
     },
   };
 

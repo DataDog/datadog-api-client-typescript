@@ -61,7 +61,6 @@ export class SecurityMonitoringRuleCreatePayload {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cases: {
@@ -69,70 +68,60 @@ export class SecurityMonitoringRuleCreatePayload {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
       required: true,
-      format: "",
     },
     filters: {
       name: "filters",
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
       required: false,
-      format: "",
     },
     hasExtendedTitle: {
       name: "hasExtendedTitle",
       baseName: "hasExtendedTitle",
       type: "boolean",
       required: false,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "isEnabled",
       type: "boolean",
       required: true,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
       required: true,
-      format: "",
     },
     queries: {
       name: "queries",
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQueryCreate>",
       required: true,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SecurityMonitoringRuleTypeCreate",
       required: false,
-      format: "",
     },
   };
 

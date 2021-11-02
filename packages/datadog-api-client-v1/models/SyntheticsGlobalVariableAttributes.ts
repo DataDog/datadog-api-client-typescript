@@ -25,7 +25,6 @@ export class SyntheticsGlobalVariableAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     restrictedRoles: {
@@ -33,7 +32,6 @@ export class SyntheticsGlobalVariableAttributes {
       baseName: "restricted_roles",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

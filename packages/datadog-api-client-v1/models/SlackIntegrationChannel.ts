@@ -28,7 +28,6 @@ export class SlackIntegrationChannel {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     display: {
@@ -36,14 +35,12 @@ export class SlackIntegrationChannel {
       baseName: "display",
       type: "SlackIntegrationChannelDisplay",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

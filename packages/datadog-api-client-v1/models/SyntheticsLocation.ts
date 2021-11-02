@@ -29,7 +29,6 @@ export class SyntheticsLocation {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -37,14 +36,12 @@ export class SyntheticsLocation {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

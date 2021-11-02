@@ -36,7 +36,6 @@ export class SyntheticsTriggerCITestRunResult {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     device: {
@@ -44,7 +43,6 @@ export class SyntheticsTriggerCITestRunResult {
       baseName: "device",
       type: "SyntheticsDeviceID",
       required: false,
-      format: "",
     },
     location: {
       name: "location",
@@ -58,14 +56,12 @@ export class SyntheticsTriggerCITestRunResult {
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     resultId: {
       name: "resultId",
       baseName: "result_id",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

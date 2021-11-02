@@ -25,7 +25,6 @@ export class PagerDutyServiceName {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     serviceName: {
@@ -33,7 +32,6 @@ export class PagerDutyServiceName {
       baseName: "service_name",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

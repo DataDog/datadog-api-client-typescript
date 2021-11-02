@@ -25,7 +25,6 @@ export class TagToHosts {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     tags: {
@@ -33,7 +32,6 @@ export class TagToHosts {
       baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
       required: false,
-      format: "",
     },
   };
 

@@ -87,7 +87,6 @@ export class SyntheticsStepDetail {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     browserErrors: {
@@ -95,21 +94,18 @@ export class SyntheticsStepDetail {
       baseName: "browserErrors",
       type: "Array<SyntheticsBrowserError>",
       required: false,
-      format: "",
     },
     checkType: {
       name: "checkType",
       baseName: "checkType",
       type: "SyntheticsCheckType",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     duration: {
       name: "duration",
@@ -123,35 +119,30 @@ export class SyntheticsStepDetail {
       baseName: "error",
       type: "string",
       required: false,
-      format: "",
     },
     playingTab: {
       name: "playingTab",
       baseName: "playingTab",
       type: "SyntheticsPlayingTab",
       required: false,
-      format: "",
     },
     screenshotBucketKey: {
       name: "screenshotBucketKey",
       baseName: "screenshotBucketKey",
       type: "boolean",
       required: false,
-      format: "",
     },
     skipped: {
       name: "skipped",
       baseName: "skipped",
       type: "boolean",
       required: false,
-      format: "",
     },
     snapshotBucketKey: {
       name: "snapshotBucketKey",
       baseName: "snapshotBucketKey",
       type: "boolean",
       required: false,
-      format: "",
     },
     stepId: {
       name: "stepId",
@@ -165,7 +156,6 @@ export class SyntheticsStepDetail {
       baseName: "subTestStepDetails",
       type: "Array<SyntheticsStepDetail>",
       required: false,
-      format: "",
     },
     timeToInteractive: {
       name: "timeToInteractive",
@@ -179,35 +169,30 @@ export class SyntheticsStepDetail {
       baseName: "type",
       type: "SyntheticsStepType",
       required: false,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "any",
       required: false,
-      format: "",
     },
     vitalsMetrics: {
       name: "vitalsMetrics",
       baseName: "vitalsMetrics",
       type: "Array<SyntheticsCoreWebVitals>",
       required: false,
-      format: "",
     },
     warnings: {
       name: "warnings",
       baseName: "warnings",
       type: "Array<SyntheticsStepDetailWarning>",
       required: false,
-      format: "",
     },
   };
 

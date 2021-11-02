@@ -66,7 +66,6 @@ export class SyntheticsSSLCertificate {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cipher: {
@@ -74,7 +73,6 @@ export class SyntheticsSSLCertificate {
       baseName: "cipher",
       type: "string",
       required: false,
-      format: "",
     },
     exponent: {
       name: "exponent",
@@ -88,56 +86,48 @@ export class SyntheticsSSLCertificate {
       baseName: "extKeyUsage",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     fingerprint: {
       name: "fingerprint",
       baseName: "fingerprint",
       type: "string",
       required: false,
-      format: "",
     },
     fingerprint256: {
       name: "fingerprint256",
       baseName: "fingerprint256",
       type: "string",
       required: false,
-      format: "",
     },
     issuer: {
       name: "issuer",
       baseName: "issuer",
       type: "SyntheticsSSLCertificateIssuer",
       required: false,
-      format: "",
     },
     modulus: {
       name: "modulus",
       baseName: "modulus",
       type: "string",
       required: false,
-      format: "",
     },
     protocol: {
       name: "protocol",
       baseName: "protocol",
       type: "string",
       required: false,
-      format: "",
     },
     serialNumber: {
       name: "serialNumber",
       baseName: "serialNumber",
       type: "string",
       required: false,
-      format: "",
     },
     subject: {
       name: "subject",
       baseName: "subject",
       type: "SyntheticsSSLCertificateSubject",
       required: false,
-      format: "",
     },
     validFrom: {
       name: "validFrom",

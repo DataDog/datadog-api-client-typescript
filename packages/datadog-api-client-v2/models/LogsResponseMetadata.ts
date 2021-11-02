@@ -39,7 +39,6 @@ export class LogsResponseMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     elapsed: {
@@ -54,28 +53,24 @@ export class LogsResponseMetadata {
       baseName: "page",
       type: "LogsResponseMetadataPage",
       required: false,
-      format: "",
     },
     requestId: {
       name: "requestId",
       baseName: "request_id",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "LogsAggregateResponseStatus",
       required: false,
-      format: "",
     },
     warnings: {
       name: "warnings",
       baseName: "warnings",
       type: "Array<LogsWarning>",
       required: false,
-      format: "",
     },
   };
 

@@ -32,7 +32,6 @@ export class ListStreamQuery {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dataSource: {
@@ -40,21 +39,18 @@ export class ListStreamQuery {
       baseName: "data_source",
       type: "ListStreamSource",
       required: true,
-      format: "",
     },
     indexes: {
       name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     queryString: {
       name: "queryString",
       baseName: "query_string",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

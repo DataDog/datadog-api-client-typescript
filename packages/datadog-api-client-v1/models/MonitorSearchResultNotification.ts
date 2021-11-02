@@ -29,7 +29,6 @@ export class MonitorSearchResultNotification {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     handle: {
@@ -37,14 +36,12 @@ export class MonitorSearchResultNotification {
       baseName: "handle",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

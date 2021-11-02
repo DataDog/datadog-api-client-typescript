@@ -28,7 +28,6 @@ export class SyntheticsVariableParser {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     type: {
@@ -36,14 +35,12 @@ export class SyntheticsVariableParser {
       baseName: "type",
       type: "SyntheticsGlobalVariableParserType",
       required: true,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

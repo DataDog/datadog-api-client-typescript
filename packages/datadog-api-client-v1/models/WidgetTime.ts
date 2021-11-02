@@ -24,7 +24,6 @@ export class WidgetTime {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     liveSpan: {
@@ -32,7 +31,6 @@ export class WidgetTime {
       baseName: "live_span",
       type: "WidgetLiveSpan",
       required: false,
-      format: "",
     },
   };
 

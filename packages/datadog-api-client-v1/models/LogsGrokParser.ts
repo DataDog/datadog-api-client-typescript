@@ -42,7 +42,6 @@ export class LogsGrokParser {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     grok: {
@@ -50,42 +49,36 @@ export class LogsGrokParser {
       baseName: "grok",
       type: "LogsGrokParserRules",
       required: true,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     samples: {
       name: "samples",
       baseName: "samples",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     source: {
       name: "source",
       baseName: "source",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsGrokParserType",
       required: true,
-      format: "",
     },
   };
 

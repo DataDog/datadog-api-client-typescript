@@ -37,7 +37,6 @@ export class MonitorSearchResponseCounts {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     muted: {
@@ -45,28 +44,24 @@ export class MonitorSearchResponseCounts {
       baseName: "muted",
       type: "Array<any>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "Array<any>",
       required: false,
-      format: "",
     },
     tag: {
       name: "tag",
       baseName: "tag",
       type: "Array<any>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "Array<any>",
       required: false,
-      format: "",
     },
   };
 

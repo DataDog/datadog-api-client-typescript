@@ -32,7 +32,6 @@ export class FormulaAndFunctionEventQueryGroupBy {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     facet: {
@@ -40,7 +39,6 @@ export class FormulaAndFunctionEventQueryGroupBy {
       baseName: "facet",
       type: "string",
       required: true,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -54,7 +52,6 @@ export class FormulaAndFunctionEventQueryGroupBy {
       baseName: "sort",
       type: "FormulaAndFunctionEventQueryGroupBySort",
       required: false,
-      format: "",
     },
   };
 

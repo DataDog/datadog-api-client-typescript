@@ -41,7 +41,6 @@ export class FormulaAndFunctionEventQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     compute: {
@@ -49,42 +48,36 @@ export class FormulaAndFunctionEventQueryDefinition {
       baseName: "compute",
       type: "FormulaAndFunctionEventQueryDefinitionCompute",
       required: true,
-      format: "",
     },
     dataSource: {
       name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionEventsDataSource",
       required: true,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<FormulaAndFunctionEventQueryGroupBy>",
       required: false,
-      format: "",
     },
     indexes: {
       name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     search: {
       name: "search",
       baseName: "search",
       type: "FormulaAndFunctionEventQueryDefinitionSearch",
       required: false,
-      format: "",
     },
   };
 

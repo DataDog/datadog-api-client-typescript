@@ -60,7 +60,6 @@ export class IncidentUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customerImpactEnd: {
@@ -75,7 +74,6 @@ export class IncidentUpdateAttributes {
       baseName: "customer_impact_scope",
       type: "string",
       required: false,
-      format: "",
     },
     customerImpactStart: {
       name: "customerImpactStart",
@@ -89,7 +87,6 @@ export class IncidentUpdateAttributes {
       baseName: "customer_impacted",
       type: "boolean",
       required: false,
-      format: "",
     },
     detected: {
       name: "detected",
@@ -103,14 +100,12 @@ export class IncidentUpdateAttributes {
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
       required: false,
-      format: "",
     },
     notificationHandles: {
       name: "notificationHandles",
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
       required: false,
-      format: "",
     },
     resolved: {
       name: "resolved",
@@ -124,7 +119,6 @@ export class IncidentUpdateAttributes {
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

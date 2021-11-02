@@ -28,7 +28,6 @@ export class Log {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     content: {
@@ -36,14 +35,12 @@ export class Log {
       baseName: "content",
       type: "LogContent",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

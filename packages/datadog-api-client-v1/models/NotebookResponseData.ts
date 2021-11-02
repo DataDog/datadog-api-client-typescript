@@ -30,7 +30,6 @@ export class NotebookResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,7 +37,6 @@ export class NotebookResponseData {
       baseName: "attributes",
       type: "NotebookResponseDataAttributes",
       required: true,
-      format: "",
     },
     id: {
       name: "id",
@@ -52,7 +50,6 @@ export class NotebookResponseData {
       baseName: "type",
       type: "NotebookResourceType",
       required: true,
-      format: "",
     },
   };
 

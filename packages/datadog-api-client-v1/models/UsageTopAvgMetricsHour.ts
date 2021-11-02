@@ -36,7 +36,6 @@ export class UsageTopAvgMetricsHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     avgMetricHour: {
@@ -58,14 +57,12 @@ export class UsageTopAvgMetricsHour {
       baseName: "metric_category",
       type: "UsageMetricCategory",
       required: false,
-      format: "",
     },
     metricName: {
       name: "metricName",
       baseName: "metric_name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

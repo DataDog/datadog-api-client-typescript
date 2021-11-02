@@ -45,7 +45,6 @@ export class DowntimeRecurrence {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     period: {
@@ -60,14 +59,12 @@ export class DowntimeRecurrence {
       baseName: "rrule",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
     untilDate: {
       name: "untilDate",
@@ -88,7 +85,6 @@ export class DowntimeRecurrence {
       baseName: "week_days",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

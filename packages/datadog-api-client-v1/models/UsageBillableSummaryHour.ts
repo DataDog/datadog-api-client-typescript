@@ -52,7 +52,6 @@ export class UsageBillableSummaryHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     billingPlan: {
@@ -60,7 +59,6 @@ export class UsageBillableSummaryHour {
       baseName: "billing_plan",
       type: "string",
       required: false,
-      format: "",
     },
     endDate: {
       name: "endDate",
@@ -81,14 +79,12 @@ export class UsageBillableSummaryHour {
       baseName: "org_name",
       type: "string",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     ratioInMonth: {
       name: "ratioInMonth",
@@ -109,7 +105,6 @@ export class UsageBillableSummaryHour {
       baseName: "usage",
       type: "UsageBillableSummaryKeys",
       required: false,
-      format: "",
     },
   };
 

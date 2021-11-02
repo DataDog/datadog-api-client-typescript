@@ -25,7 +25,6 @@ export class UsageCustomReportsPage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     totalCount: {

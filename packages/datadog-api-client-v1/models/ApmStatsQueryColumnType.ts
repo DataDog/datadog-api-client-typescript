@@ -34,7 +34,6 @@ export class ApmStatsQueryColumnType {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     alias: {
@@ -42,28 +41,24 @@ export class ApmStatsQueryColumnType {
       baseName: "alias",
       type: "string",
       required: false,
-      format: "",
     },
     cellDisplayMode: {
       name: "cellDisplayMode",
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     order: {
       name: "order",
       baseName: "order",
       type: "WidgetSort",
       required: false,
-      format: "",
     },
   };
 

@@ -26,7 +26,6 @@ export class SecurityMonitoringRuleNewValueOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     forgetAfter: {
@@ -34,14 +33,12 @@ export class SecurityMonitoringRuleNewValueOptions {
       baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
       required: false,
-      format: "",
     },
     learningDuration: {
       name: "learningDuration",
       baseName: "learningDuration",
       type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
       required: false,
-      format: "",
     },
   };
 

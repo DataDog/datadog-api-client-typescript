@@ -30,7 +30,6 @@ export class SyntheticsPrivateLocationCreationResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     config: {
@@ -38,21 +37,18 @@ export class SyntheticsPrivateLocationCreationResponse {
       baseName: "config",
       type: "any",
       required: false,
-      format: "",
     },
     privateLocation: {
       name: "privateLocation",
       baseName: "private_location",
       type: "SyntheticsPrivateLocation",
       required: false,
-      format: "",
     },
     resultEncryption: {
       name: "resultEncryption",
       baseName: "result_encryption",
       type: "SyntheticsPrivateLocationCreationResponseResultEncryption",
       required: false,
-      format: "",
     },
   };
 

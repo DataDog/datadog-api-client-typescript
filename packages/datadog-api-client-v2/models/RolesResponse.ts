@@ -29,7 +29,6 @@ export class RolesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class RolesResponse {
       baseName: "data",
       type: "Array<Role>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "ResponseMetaAttributes",
       required: false,
-      format: "",
     },
   };
 

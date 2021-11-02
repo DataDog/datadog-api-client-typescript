@@ -40,7 +40,6 @@ export class LogsArchiveCreateRequestAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     destination: {
@@ -48,35 +47,30 @@ export class LogsArchiveCreateRequestAttributes {
       baseName: "destination",
       type: "LogsArchiveCreateRequestDestination",
       required: true,
-      format: "",
     },
     includeTags: {
       name: "includeTags",
       baseName: "include_tags",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
     rehydrationTags: {
       name: "rehydrationTags",
       baseName: "rehydration_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

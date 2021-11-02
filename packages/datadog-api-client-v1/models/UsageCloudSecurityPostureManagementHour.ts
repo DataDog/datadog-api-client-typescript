@@ -33,7 +33,6 @@ export class UsageCloudSecurityPostureManagementHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     containerCount: {

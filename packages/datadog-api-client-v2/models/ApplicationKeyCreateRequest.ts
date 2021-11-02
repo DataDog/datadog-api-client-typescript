@@ -24,7 +24,6 @@ export class ApplicationKeyCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class ApplicationKeyCreateRequest {
       baseName: "data",
       type: "ApplicationKeyCreateData",
       required: true,
-      format: "",
     },
   };
 

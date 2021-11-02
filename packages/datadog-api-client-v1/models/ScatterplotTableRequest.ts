@@ -34,7 +34,6 @@ export class ScatterplotTableRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     formulas: {
@@ -42,21 +41,18 @@ export class ScatterplotTableRequest {
       baseName: "formulas",
       type: "Array<ScatterplotWidgetFormula>",
       required: false,
-      format: "",
     },
     queries: {
       name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
       required: false,
-      format: "",
     },
     responseFormat: {
       name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
       required: false,
-      format: "",
     },
   };
 

@@ -29,7 +29,6 @@ export class SyntheticsTriggerCITestLocation {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -44,7 +43,6 @@ export class SyntheticsTriggerCITestLocation {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

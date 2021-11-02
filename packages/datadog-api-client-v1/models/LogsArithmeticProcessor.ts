@@ -44,7 +44,6 @@ export class LogsArithmeticProcessor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     expression: {
@@ -52,42 +51,36 @@ export class LogsArithmeticProcessor {
       baseName: "expression",
       type: "string",
       required: true,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     isReplaceMissing: {
       name: "isReplaceMissing",
       baseName: "is_replace_missing",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     target: {
       name: "target",
       baseName: "target",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsArithmeticProcessorType",
       required: true,
-      format: "",
     },
   };
 

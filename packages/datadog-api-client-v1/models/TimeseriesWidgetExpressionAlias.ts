@@ -29,7 +29,6 @@ export class TimeseriesWidgetExpressionAlias {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aliasName: {
@@ -37,14 +36,12 @@ export class TimeseriesWidgetExpressionAlias {
       baseName: "alias_name",
       type: "string",
       required: false,
-      format: "",
     },
     expression: {
       name: "expression",
       baseName: "expression",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

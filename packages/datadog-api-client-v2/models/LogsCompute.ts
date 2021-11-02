@@ -34,7 +34,6 @@ export class LogsCompute {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -42,28 +41,24 @@ export class LogsCompute {
       baseName: "aggregation",
       type: "LogsAggregationFunction",
       required: true,
-      format: "",
     },
     interval: {
       name: "interval",
       baseName: "interval",
       type: "string",
       required: false,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsComputeType",
       required: false,
-      format: "",
     },
   };
 

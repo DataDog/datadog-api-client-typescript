@@ -25,7 +25,6 @@ export class IntakePayloadAccepted {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     status: {
@@ -33,7 +32,6 @@ export class IntakePayloadAccepted {
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

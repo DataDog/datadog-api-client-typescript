@@ -27,7 +27,6 @@ export class UsageProfilingResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageProfilingResponse {
       baseName: "usage",
       type: "Array<UsageProfilingHour>",
       required: false,
-      format: "",
     },
   };
 

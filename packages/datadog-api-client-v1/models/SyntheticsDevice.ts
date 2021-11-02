@@ -40,7 +40,6 @@ export class SyntheticsDevice {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     height: {
@@ -55,21 +54,18 @@ export class SyntheticsDevice {
       baseName: "id",
       type: "SyntheticsDeviceID",
       required: true,
-      format: "",
     },
     isMobile: {
       name: "isMobile",
       baseName: "isMobile",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     width: {
       name: "width",

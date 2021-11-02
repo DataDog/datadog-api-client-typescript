@@ -27,7 +27,6 @@ export class DashboardListDeleteItemsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     deletedDashboardsFromList: {
@@ -35,7 +34,6 @@ export class DashboardListDeleteItemsResponse {
       baseName: "deleted_dashboards_from_list",
       type: "Array<DashboardListItemResponse>",
       required: false,
-      format: "",
     },
   };
 

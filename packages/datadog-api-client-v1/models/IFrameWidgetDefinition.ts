@@ -28,7 +28,6 @@ export class IFrameWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     type: {
@@ -36,14 +35,12 @@ export class IFrameWidgetDefinition {
       baseName: "type",
       type: "IFrameWidgetDefinitionType",
       required: true,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

@@ -33,7 +33,6 @@ export class LogsWarning {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     code: {
@@ -41,21 +40,18 @@ export class LogsWarning {
       baseName: "code",
       type: "string",
       required: false,
-      format: "",
     },
     detail: {
       name: "detail",
       baseName: "detail",
       type: "string",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

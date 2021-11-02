@@ -48,7 +48,6 @@ export class LogsLookupProcessor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     defaultLookup: {
@@ -56,49 +55,42 @@ export class LogsLookupProcessor {
       baseName: "default_lookup",
       type: "string",
       required: false,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     lookupTable: {
       name: "lookupTable",
       baseName: "lookup_table",
       type: "Array<string>",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     source: {
       name: "source",
       baseName: "source",
       type: "string",
       required: true,
-      format: "",
     },
     target: {
       name: "target",
       baseName: "target",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsLookupProcessorType",
       required: true,
-      format: "",
     },
   };
 

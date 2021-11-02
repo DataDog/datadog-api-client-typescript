@@ -29,7 +29,6 @@ export class AWSLogsServicesRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountId: {
@@ -37,14 +36,12 @@ export class AWSLogsServicesRequest {
       baseName: "account_id",
       type: "string",
       required: true,
-      format: "",
     },
     services: {
       name: "services",
       baseName: "services",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

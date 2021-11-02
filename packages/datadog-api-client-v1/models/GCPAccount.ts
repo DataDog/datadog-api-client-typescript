@@ -73,7 +73,6 @@ export class GCPAccount {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     authProviderX509CertUrl: {
@@ -81,91 +80,78 @@ export class GCPAccount {
       baseName: "auth_provider_x509_cert_url",
       type: "string",
       required: false,
-      format: "",
     },
     authUri: {
       name: "authUri",
       baseName: "auth_uri",
       type: "string",
       required: false,
-      format: "",
     },
     automute: {
       name: "automute",
       baseName: "automute",
       type: "boolean",
       required: false,
-      format: "",
     },
     clientEmail: {
       name: "clientEmail",
       baseName: "client_email",
       type: "string",
       required: false,
-      format: "",
     },
     clientId: {
       name: "clientId",
       baseName: "client_id",
       type: "string",
       required: false,
-      format: "",
     },
     clientX509CertUrl: {
       name: "clientX509CertUrl",
       baseName: "client_x509_cert_url",
       type: "string",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     hostFilters: {
       name: "hostFilters",
       baseName: "host_filters",
       type: "string",
       required: false,
-      format: "",
     },
     privateKey: {
       name: "privateKey",
       baseName: "private_key",
       type: "string",
       required: false,
-      format: "",
     },
     privateKeyId: {
       name: "privateKeyId",
       baseName: "private_key_id",
       type: "string",
       required: false,
-      format: "",
     },
     projectId: {
       name: "projectId",
       baseName: "project_id",
       type: "string",
       required: false,
-      format: "",
     },
     tokenUri: {
       name: "tokenUri",
       baseName: "token_uri",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

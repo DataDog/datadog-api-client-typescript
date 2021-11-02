@@ -34,7 +34,6 @@ export class LogsArchiveDestinationS3 {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     bucket: {
@@ -42,28 +41,24 @@ export class LogsArchiveDestinationS3 {
       baseName: "bucket",
       type: "string",
       required: true,
-      format: "",
     },
     integration: {
       name: "integration",
       baseName: "integration",
       type: "LogsArchiveIntegrationS3",
       required: true,
-      format: "",
     },
     path: {
       name: "path",
       baseName: "path",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsArchiveDestinationS3Type",
       required: true,
-      format: "",
     },
   };
 

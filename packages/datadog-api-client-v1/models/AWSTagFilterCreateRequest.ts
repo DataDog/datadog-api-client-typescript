@@ -32,7 +32,6 @@ export class AWSTagFilterCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountId: {
@@ -40,21 +39,18 @@ export class AWSTagFilterCreateRequest {
       baseName: "account_id",
       type: "string",
       required: false,
-      format: "",
     },
     namespace: {
       name: "namespace",
       baseName: "namespace",
       type: "AWSNamespace",
       required: false,
-      format: "",
     },
     tagFilterStr: {
       name: "tagFilterStr",
       baseName: "tag_filter_str",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class DashboardListAddItemsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     addedDashboardsToList: {
@@ -35,7 +34,6 @@ export class DashboardListAddItemsResponse {
       baseName: "added_dashboards_to_list",
       type: "Array<DashboardListItemResponse>",
       required: false,
-      format: "",
     },
   };
 

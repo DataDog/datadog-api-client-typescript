@@ -31,7 +31,6 @@ export class SecurityMonitoringSignalsListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -39,21 +38,18 @@ export class SecurityMonitoringSignalsListResponse {
       baseName: "data",
       type: "Array<SecurityMonitoringSignal>",
       required: false,
-      format: "",
     },
     links: {
       name: "links",
       baseName: "links",
       type: "SecurityMonitoringSignalsListResponseLinks",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "SecurityMonitoringSignalsListResponseMeta",
       required: false,
-      format: "",
     },
   };
 

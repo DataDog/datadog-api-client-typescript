@@ -29,7 +29,6 @@ export class ProcessSummariesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class ProcessSummariesResponse {
       baseName: "data",
       type: "Array<ProcessSummary>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "ProcessSummariesMeta",
       required: false,
-      format: "",
     },
   };
 

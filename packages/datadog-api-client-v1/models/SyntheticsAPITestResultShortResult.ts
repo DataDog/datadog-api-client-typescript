@@ -28,7 +28,6 @@ export class SyntheticsAPITestResultShortResult {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     passed: {
@@ -36,14 +35,12 @@ export class SyntheticsAPITestResultShortResult {
       baseName: "passed",
       type: "boolean",
       required: false,
-      format: "",
     },
     timings: {
       name: "timings",
       baseName: "timings",
       type: "SyntheticsTiming",
       required: false,
-      format: "",
     },
   };
 

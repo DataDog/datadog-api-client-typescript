@@ -27,7 +27,6 @@ export class SyntheticsListTestsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     tests: {
@@ -35,7 +34,6 @@ export class SyntheticsListTestsResponse {
       baseName: "tests",
       type: "Array<SyntheticsTestDetails>",
       required: false,
-      format: "",
     },
   };
 

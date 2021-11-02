@@ -26,7 +26,6 @@ export class FunnelWidgetRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     query: {
@@ -34,14 +33,12 @@ export class FunnelWidgetRequest {
       baseName: "query",
       type: "FunnelQuery",
       required: true,
-      format: "",
     },
     requestType: {
       name: "requestType",
       baseName: "request_type",
       type: "FunnelRequestType",
       required: true,
-      format: "",
     },
   };
 

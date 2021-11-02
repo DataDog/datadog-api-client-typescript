@@ -46,7 +46,6 @@ export class SecurityMonitoringRuleQueryCreate {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agentRule: {
@@ -54,49 +53,42 @@ export class SecurityMonitoringRuleQueryCreate {
       baseName: "agentRule",
       type: "SecurityMonitoringRuntimeAgentRule",
       required: false,
-      format: "",
     },
     aggregation: {
       name: "aggregation",
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
       required: false,
-      format: "",
     },
     distinctFields: {
       name: "distinctFields",
       baseName: "distinctFields",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     groupByFields: {
       name: "groupByFields",
       baseName: "groupByFields",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

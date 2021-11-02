@@ -26,7 +26,6 @@ export class SyntheticsCIBatchMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     ci: {
@@ -34,14 +33,12 @@ export class SyntheticsCIBatchMetadata {
       baseName: "ci",
       type: "SyntheticsCIBatchMetadataCI",
       required: false,
-      format: "",
     },
     git: {
       name: "git",
       baseName: "git",
       type: "SyntheticsCIBatchMetadataGit",
       required: false,
-      format: "",
     },
   };
 

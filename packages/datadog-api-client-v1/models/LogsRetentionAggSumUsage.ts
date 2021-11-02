@@ -37,7 +37,6 @@ export class LogsRetentionAggSumUsage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     logsIndexedLogsUsageAggSum: {
@@ -66,7 +65,6 @@ export class LogsRetentionAggSumUsage {
       baseName: "retention",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -49,7 +49,6 @@ export class LogsPipeline {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filter: {
@@ -57,49 +56,42 @@ export class LogsPipeline {
       baseName: "filter",
       type: "LogsFilter",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     isReadOnly: {
       name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     processors: {
       name: "processors",
       baseName: "processors",
       type: "Array<LogsProcessor>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

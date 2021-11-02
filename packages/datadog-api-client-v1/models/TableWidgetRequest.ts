@@ -72,7 +72,6 @@ export class TableWidgetRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregator: {
@@ -80,56 +79,48 @@ export class TableWidgetRequest {
       baseName: "aggregator",
       type: "WidgetAggregator",
       required: false,
-      format: "",
     },
     alias: {
       name: "alias",
       baseName: "alias",
       type: "string",
       required: false,
-      format: "",
     },
     apmQuery: {
       name: "apmQuery",
       baseName: "apm_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     apmStatsQuery: {
       name: "apmStatsQuery",
       baseName: "apm_stats_query",
       type: "ApmStatsQueryDefinition",
       required: false,
-      format: "",
     },
     cellDisplayMode: {
       name: "cellDisplayMode",
       baseName: "cell_display_mode",
       type: "Array<TableWidgetCellDisplayMode>",
       required: false,
-      format: "",
     },
     conditionalFormats: {
       name: "conditionalFormats",
       baseName: "conditional_formats",
       type: "Array<WidgetConditionalFormat>",
       required: false,
-      format: "",
     },
     eventQuery: {
       name: "eventQuery",
       baseName: "event_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     formulas: {
       name: "formulas",
       baseName: "formulas",
       type: "Array<WidgetFormula>",
       required: false,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -143,70 +134,60 @@ export class TableWidgetRequest {
       baseName: "log_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     networkQuery: {
       name: "networkQuery",
       baseName: "network_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     order: {
       name: "order",
       baseName: "order",
       type: "WidgetSort",
       required: false,
-      format: "",
     },
     processQuery: {
       name: "processQuery",
       baseName: "process_query",
       type: "ProcessQueryDefinition",
       required: false,
-      format: "",
     },
     profileMetricsQuery: {
       name: "profileMetricsQuery",
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     q: {
       name: "q",
       baseName: "q",
       type: "string",
       required: false,
-      format: "",
     },
     queries: {
       name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
       required: false,
-      format: "",
     },
     responseFormat: {
       name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
       required: false,
-      format: "",
     },
     rumQuery: {
       name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     securityQuery: {
       name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
   };
 

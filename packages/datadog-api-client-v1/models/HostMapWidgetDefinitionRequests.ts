@@ -25,7 +25,6 @@ export class HostMapWidgetDefinitionRequests {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     fill: {
@@ -33,14 +32,12 @@ export class HostMapWidgetDefinitionRequests {
       baseName: "fill",
       type: "HostMapRequest",
       required: false,
-      format: "",
     },
     size: {
       name: "size",
       baseName: "size",
       type: "HostMapRequest",
       required: false,
-      format: "",
     },
   };
 

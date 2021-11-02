@@ -29,7 +29,6 @@ export class MonitorGroupSearchResponseCounts {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     status: {
@@ -37,14 +36,12 @@ export class MonitorGroupSearchResponseCounts {
       baseName: "status",
       type: "Array<any>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "Array<any>",
       required: false,
-      format: "",
     },
   };
 

@@ -29,7 +29,6 @@ export class UsageNetworkFlowsHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hour: {

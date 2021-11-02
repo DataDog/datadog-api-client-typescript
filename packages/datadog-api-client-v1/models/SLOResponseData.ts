@@ -73,7 +73,6 @@ export class SLOResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     configuredAlertIds: {
@@ -95,28 +94,24 @@ export class SLOResponseData {
       baseName: "creator",
       type: "Creator",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     groups: {
       name: "groups",
       baseName: "groups",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -137,42 +132,36 @@ export class SLOResponseData {
       baseName: "monitor_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     thresholds: {
       name: "thresholds",
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SLOType",
       required: false,
-      format: "",
     },
   };
 

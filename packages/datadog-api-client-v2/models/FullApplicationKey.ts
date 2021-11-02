@@ -32,7 +32,6 @@ export class FullApplicationKey {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -40,28 +39,24 @@ export class FullApplicationKey {
       baseName: "attributes",
       type: "FullApplicationKeyAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "ApplicationKeyRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "ApplicationKeysType",
       required: false,
-      format: "",
     },
   };
 

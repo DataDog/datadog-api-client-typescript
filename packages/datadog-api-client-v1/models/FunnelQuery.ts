@@ -32,7 +32,6 @@ export class FunnelQuery {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dataSource: {
@@ -40,21 +39,18 @@ export class FunnelQuery {
       baseName: "data_source",
       type: "FunnelSource",
       required: true,
-      format: "",
     },
     queryString: {
       name: "queryString",
       baseName: "query_string",
       type: "string",
       required: true,
-      format: "",
     },
     steps: {
       name: "steps",
       baseName: "steps",
       type: "Array<any>",
       required: true,
-      format: "",
     },
   };
 

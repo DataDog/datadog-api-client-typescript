@@ -29,7 +29,6 @@ export class UsageIndexedSpansHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hour: {

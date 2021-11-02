@@ -24,7 +24,6 @@ export class ServiceAccountCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class ServiceAccountCreateRequest {
       baseName: "data",
       type: "ServiceAccountCreateData",
       required: true,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class SyntheticsLocations {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     locations: {
@@ -35,7 +34,6 @@ export class SyntheticsLocations {
       baseName: "locations",
       type: "Array<SyntheticsLocation>",
       required: false,
-      format: "",
     },
   };
 

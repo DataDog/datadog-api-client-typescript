@@ -32,7 +32,6 @@ export class LogsArchiveDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -40,21 +39,18 @@ export class LogsArchiveDefinition {
       baseName: "attributes",
       type: "LogsArchiveAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

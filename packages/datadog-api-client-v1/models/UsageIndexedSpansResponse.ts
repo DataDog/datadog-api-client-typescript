@@ -27,7 +27,6 @@ export class UsageIndexedSpansResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageIndexedSpansResponse {
       baseName: "usage",
       type: "Array<UsageIndexedSpansHour>",
       required: false,
-      format: "",
     },
   };
 

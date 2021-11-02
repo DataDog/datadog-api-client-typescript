@@ -30,7 +30,6 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cellType: {
@@ -38,21 +37,18 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
       baseName: "cell_type",
       type: "IncidentTimelineCellMarkdownContentType",
       required: true,
-      format: "",
     },
     content: {
       name: "content",
       baseName: "content",
       type: "IncidentTimelineCellMarkdownCreateAttributesContent",
       required: true,
-      format: "",
     },
     important: {
       name: "important",
       baseName: "important",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

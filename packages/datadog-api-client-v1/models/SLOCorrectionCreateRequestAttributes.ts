@@ -44,7 +44,6 @@ export class SLOCorrectionCreateRequestAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     category: {
@@ -52,14 +51,12 @@ export class SLOCorrectionCreateRequestAttributes {
       baseName: "category",
       type: "SLOCorrectionCategory",
       required: true,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     end: {
       name: "end",
@@ -73,7 +70,6 @@ export class SLOCorrectionCreateRequestAttributes {
       baseName: "slo_id",
       type: "string",
       required: true,
-      format: "",
     },
     start: {
       name: "start",
@@ -87,7 +83,6 @@ export class SLOCorrectionCreateRequestAttributes {
       baseName: "timezone",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

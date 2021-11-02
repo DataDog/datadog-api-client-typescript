@@ -25,7 +25,6 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     content: {
@@ -33,7 +32,6 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
       baseName: "content",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

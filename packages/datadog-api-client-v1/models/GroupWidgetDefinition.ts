@@ -49,7 +49,6 @@ export class GroupWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     backgroundColor: {
@@ -57,56 +56,48 @@ export class GroupWidgetDefinition {
       baseName: "background_color",
       type: "string",
       required: false,
-      format: "",
     },
     bannerImg: {
       name: "bannerImg",
       baseName: "banner_img",
       type: "string",
       required: false,
-      format: "",
     },
     layoutType: {
       name: "layoutType",
       baseName: "layout_type",
       type: "WidgetLayoutType",
       required: true,
-      format: "",
     },
     showTitle: {
       name: "showTitle",
       baseName: "show_title",
       type: "boolean",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "GroupWidgetDefinitionType",
       required: true,
-      format: "",
     },
     widgets: {
       name: "widgets",
       baseName: "widgets",
       type: "Array<Widget>",
       required: true,
-      format: "",
     },
   };
 

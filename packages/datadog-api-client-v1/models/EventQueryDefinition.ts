@@ -29,7 +29,6 @@ export class EventQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     search: {
@@ -37,14 +36,12 @@ export class EventQueryDefinition {
       baseName: "search",
       type: "string",
       required: true,
-      format: "",
     },
     tagsExecution: {
       name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

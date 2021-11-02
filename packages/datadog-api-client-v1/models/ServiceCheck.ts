@@ -44,7 +44,6 @@ export class ServiceCheck {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     check: {
@@ -52,35 +51,30 @@ export class ServiceCheck {
       baseName: "check",
       type: "string",
       required: true,
-      format: "",
     },
     hostName: {
       name: "hostName",
       baseName: "host_name",
       type: "string",
       required: true,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "ServiceCheckStatus",
       required: true,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,
-      format: "",
     },
     timestamp: {
       name: "timestamp",

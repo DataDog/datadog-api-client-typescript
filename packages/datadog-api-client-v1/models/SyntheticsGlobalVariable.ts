@@ -48,7 +48,6 @@ export class SyntheticsGlobalVariable {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -56,56 +55,48 @@ export class SyntheticsGlobalVariable {
       baseName: "attributes",
       type: "SyntheticsGlobalVariableAttributes",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: true,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     parseTestOptions: {
       name: "parseTestOptions",
       baseName: "parse_test_options",
       type: "SyntheticsGlobalVariableParseTestOptions",
       required: false,
-      format: "",
     },
     parseTestPublicId: {
       name: "parseTestPublicId",
       baseName: "parse_test_public_id",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "SyntheticsGlobalVariableValue",
       required: true,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class MonitorState {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     groups: {
@@ -35,7 +34,6 @@ export class MonitorState {
       baseName: "groups",
       type: "{ [key: string]: MonitorStateGroup; }",
       required: false,
-      format: "",
     },
   };
 

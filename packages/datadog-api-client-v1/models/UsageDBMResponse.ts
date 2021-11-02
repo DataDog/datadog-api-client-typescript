@@ -27,7 +27,6 @@ export class UsageDBMResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageDBMResponse {
       baseName: "usage",
       type: "Array<UsageDBMHour>",
       required: false,
-      format: "",
     },
   };
 

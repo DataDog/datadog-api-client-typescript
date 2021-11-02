@@ -24,7 +24,6 @@ export class MetricVolumesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class MetricVolumesResponse {
       baseName: "data",
       type: "MetricVolumes",
       required: false,
-      format: "",
     },
   };
 

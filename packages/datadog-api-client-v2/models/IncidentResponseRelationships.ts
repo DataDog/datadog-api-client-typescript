@@ -30,7 +30,6 @@ export class IncidentResponseRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     commanderUser: {
@@ -38,35 +37,30 @@ export class IncidentResponseRelationships {
       baseName: "commander_user",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
     createdByUser: {
       name: "createdByUser",
       baseName: "created_by_user",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
     integrations: {
       name: "integrations",
       baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
       required: false,
-      format: "",
     },
     lastModifiedByUser: {
       name: "lastModifiedByUser",
       baseName: "last_modified_by_user",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
     postmortem: {
       name: "postmortem",
       baseName: "postmortem",
       type: "RelationshipToIncidentPostmortem",
       required: false,
-      format: "",
     },
   };
 

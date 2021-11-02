@@ -49,7 +49,6 @@ export class SLOHistoryMetrics {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     denominator: {
@@ -57,7 +56,6 @@ export class SLOHistoryMetrics {
       baseName: "denominator",
       type: "SLOHistoryMetricsSeries",
       required: true,
-      format: "",
     },
     interval: {
       name: "interval",
@@ -71,28 +69,24 @@ export class SLOHistoryMetrics {
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     numerator: {
       name: "numerator",
       baseName: "numerator",
       type: "SLOHistoryMetricsSeries",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
     resType: {
       name: "resType",
       baseName: "res_type",
       type: "string",
       required: true,
-      format: "",
     },
     respVersion: {
       name: "respVersion",

@@ -27,7 +27,6 @@ export class MetricsPayload {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     series: {
@@ -35,7 +34,6 @@ export class MetricsPayload {
       baseName: "series",
       type: "Array<Series>",
       required: true,
-      format: "",
     },
   };
 

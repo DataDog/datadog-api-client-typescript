@@ -30,7 +30,6 @@ export class UsageCustomReportsData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class UsageCustomReportsData {
       baseName: "attributes",
       type: "UsageCustomReportsAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "UsageReportsType",
       required: false,
-      format: "",
     },
   };
 

@@ -24,7 +24,6 @@ export class RoleUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class RoleUpdateRequest {
       baseName: "data",
       type: "RoleUpdateData",
       required: true,
-      format: "",
     },
   };
 

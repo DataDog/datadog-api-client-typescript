@@ -27,7 +27,6 @@ export class SyntheticsDeleteTestsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     deletedTests: {
@@ -35,7 +34,6 @@ export class SyntheticsDeleteTestsResponse {
       baseName: "deleted_tests",
       type: "Array<SyntheticsDeletedTest>",
       required: false,
-      format: "",
     },
   };
 

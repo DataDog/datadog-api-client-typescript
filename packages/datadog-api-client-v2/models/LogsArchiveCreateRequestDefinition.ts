@@ -28,7 +28,6 @@ export class LogsArchiveCreateRequestDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -36,14 +35,12 @@ export class LogsArchiveCreateRequestDefinition {
       baseName: "attributes",
       type: "LogsArchiveCreateRequestAttributes",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

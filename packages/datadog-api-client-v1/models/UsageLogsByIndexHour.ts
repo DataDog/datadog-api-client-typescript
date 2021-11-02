@@ -41,7 +41,6 @@ export class UsageLogsByIndexHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     eventCount: {
@@ -63,14 +62,12 @@ export class UsageLogsByIndexHour {
       baseName: "index_id",
       type: "string",
       required: false,
-      format: "",
     },
     indexName: {
       name: "indexName",
       baseName: "index_name",
       type: "string",
       required: false,
-      format: "",
     },
     retention: {
       name: "retention",

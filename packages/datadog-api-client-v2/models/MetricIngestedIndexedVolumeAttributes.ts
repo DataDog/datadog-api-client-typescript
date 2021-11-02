@@ -29,7 +29,6 @@ export class MetricIngestedIndexedVolumeAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     indexedVolume: {

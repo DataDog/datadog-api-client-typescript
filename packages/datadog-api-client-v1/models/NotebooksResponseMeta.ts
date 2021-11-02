@@ -24,7 +24,6 @@ export class NotebooksResponseMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {
@@ -32,7 +31,6 @@ export class NotebooksResponseMeta {
       baseName: "page",
       type: "NotebooksResponsePage",
       required: false,
-      format: "",
     },
   };
 

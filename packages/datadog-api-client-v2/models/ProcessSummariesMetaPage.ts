@@ -29,7 +29,6 @@ export class ProcessSummariesMetaPage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     after: {
@@ -37,7 +36,6 @@ export class ProcessSummariesMetaPage {
       baseName: "after",
       type: "string",
       required: false,
-      format: "",
     },
     size: {
       name: "size",

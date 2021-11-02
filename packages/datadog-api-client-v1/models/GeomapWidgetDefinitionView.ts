@@ -25,7 +25,6 @@ export class GeomapWidgetDefinitionView {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     focus: {
@@ -33,7 +32,6 @@ export class GeomapWidgetDefinitionView {
       baseName: "focus",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

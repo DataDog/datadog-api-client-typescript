@@ -47,7 +47,6 @@ export class SLOHistoryMetricsSeriesMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggr: {
@@ -55,21 +54,18 @@ export class SLOHistoryMetricsSeriesMetadata {
       baseName: "aggr",
       type: "string",
       required: false,
-      format: "",
     },
     expression: {
       name: "expression",
       baseName: "expression",
       type: "string",
       required: false,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     queryIndex: {
       name: "queryIndex",
@@ -83,14 +79,12 @@ export class SLOHistoryMetricsSeriesMetadata {
       baseName: "scope",
       type: "string",
       required: false,
-      format: "",
     },
     unit: {
       name: "unit",
       baseName: "unit",
       type: "Array<SLOHistoryMetricsSeriesMetadataUnit>",
       required: false,
-      format: "",
     },
   };
 

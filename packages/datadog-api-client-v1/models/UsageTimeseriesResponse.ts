@@ -27,7 +27,6 @@ export class UsageTimeseriesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageTimeseriesResponse {
       baseName: "usage",
       type: "Array<UsageTimeseriesHour>",
       required: false,
-      format: "",
     },
   };
 

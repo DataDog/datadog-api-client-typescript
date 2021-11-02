@@ -28,7 +28,6 @@ export class LogsMetricCompute {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregationType: {
@@ -36,14 +35,12 @@ export class LogsMetricCompute {
       baseName: "aggregation_type",
       type: "LogsMetricComputeAggregationType",
       required: true,
-      format: "",
     },
     path: {
       name: "path",
       baseName: "path",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

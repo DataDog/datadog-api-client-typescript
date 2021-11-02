@@ -39,7 +39,6 @@ export class LogQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     compute: {
@@ -47,35 +46,30 @@ export class LogQueryDefinition {
       baseName: "compute",
       type: "LogsQueryCompute",
       required: false,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<LogQueryDefinitionGroupBy>",
       required: false,
-      format: "",
     },
     index: {
       name: "index",
       baseName: "index",
       type: "string",
       required: false,
-      format: "",
     },
     multiCompute: {
       name: "multiCompute",
       baseName: "multi_compute",
       type: "Array<LogsQueryCompute>",
       required: false,
-      format: "",
     },
     search: {
       name: "search",
       baseName: "search",
       type: "LogQueryDefinitionSearch",
       required: false,
-      format: "",
     },
   };
 

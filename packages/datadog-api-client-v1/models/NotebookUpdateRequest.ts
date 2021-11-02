@@ -24,7 +24,6 @@ export class NotebookUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class NotebookUpdateRequest {
       baseName: "data",
       type: "NotebookUpdateData",
       required: true,
-      format: "",
     },
   };
 

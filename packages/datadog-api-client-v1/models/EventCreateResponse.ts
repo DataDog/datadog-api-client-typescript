@@ -74,7 +74,6 @@ export class EventCreateResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     alertType: {
@@ -82,7 +81,6 @@ export class EventCreateResponse {
       baseName: "alert_type",
       type: "EventAlertType",
       required: false,
-      format: "",
     },
     dateHappened: {
       name: "dateHappened",
@@ -96,14 +94,12 @@ export class EventCreateResponse {
       baseName: "device_name",
       type: "string",
       required: false,
-      format: "",
     },
     host: {
       name: "host",
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
@@ -117,14 +113,12 @@ export class EventCreateResponse {
       baseName: "payload",
       type: "string",
       required: false,
-      format: "",
     },
     priority: {
       name: "priority",
       baseName: "priority",
       type: "EventPriority",
       required: false,
-      format: "",
     },
     relatedEventId: {
       name: "relatedEventId",
@@ -138,42 +132,36 @@ export class EventCreateResponse {
       baseName: "source_type_name",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     text: {
       name: "text",
       baseName: "text",
       type: "string",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

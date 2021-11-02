@@ -25,7 +25,6 @@ export class APIKeyRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdBy: {
@@ -33,14 +32,12 @@ export class APIKeyRelationships {
       baseName: "created_by",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
     modifiedBy: {
       name: "modifiedBy",
       baseName: "modified_by",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
   };
 

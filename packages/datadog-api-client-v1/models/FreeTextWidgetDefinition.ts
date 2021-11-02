@@ -38,7 +38,6 @@ export class FreeTextWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     color: {
@@ -46,35 +45,30 @@ export class FreeTextWidgetDefinition {
       baseName: "color",
       type: "string",
       required: false,
-      format: "",
     },
     fontSize: {
       name: "fontSize",
       baseName: "font_size",
       type: "string",
       required: false,
-      format: "",
     },
     text: {
       name: "text",
       baseName: "text",
       type: "string",
       required: true,
-      format: "",
     },
     textAlign: {
       name: "textAlign",
       baseName: "text_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "FreeTextWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

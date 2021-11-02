@@ -24,7 +24,6 @@ export class UserCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class UserCreateRequest {
       baseName: "data",
       type: "UserCreateData",
       required: true,
-      format: "",
     },
   };
 

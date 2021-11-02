@@ -24,7 +24,6 @@ export class MetricSearchResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     results: {
@@ -32,7 +31,6 @@ export class MetricSearchResponse {
       baseName: "results",
       type: "MetricSearchResponseResults",
       required: false,
-      format: "",
     },
   };
 

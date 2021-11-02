@@ -41,7 +41,6 @@ export class LogsCategoryProcessor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     categories: {
@@ -49,35 +48,30 @@ export class LogsCategoryProcessor {
       baseName: "categories",
       type: "Array<LogsCategoryProcessorCategory>",
       required: true,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     target: {
       name: "target",
       baseName: "target",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsCategoryProcessorType",
       required: true,
-      format: "",
     },
   };
 

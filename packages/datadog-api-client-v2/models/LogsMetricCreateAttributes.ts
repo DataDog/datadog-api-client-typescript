@@ -31,7 +31,6 @@ export class LogsMetricCreateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     compute: {
@@ -39,21 +38,18 @@ export class LogsMetricCreateAttributes {
       baseName: "compute",
       type: "LogsMetricCompute",
       required: true,
-      format: "",
     },
     filter: {
       name: "filter",
       baseName: "filter",
       type: "LogsMetricFilter",
       required: false,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricGroupBy>",
       required: false,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class MetricsAndMetricTagConfigurationsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -35,7 +34,6 @@ export class MetricsAndMetricTagConfigurationsResponse {
       baseName: "data",
       type: "Array<MetricsAndMetricTagConfigurations>",
       required: false,
-      format: "",
     },
   };
 

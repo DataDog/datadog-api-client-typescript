@@ -25,7 +25,6 @@ export class SyntheticsTestRequestCertificate {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cert: {
@@ -33,14 +32,12 @@ export class SyntheticsTestRequestCertificate {
       baseName: "cert",
       type: "SyntheticsTestRequestCertificateItem",
       required: false,
-      format: "",
     },
     key: {
       name: "key",
       baseName: "key",
       type: "SyntheticsTestRequestCertificateItem",
       required: false,
-      format: "",
     },
   };
 

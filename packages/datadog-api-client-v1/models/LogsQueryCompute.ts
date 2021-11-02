@@ -33,7 +33,6 @@ export class LogsQueryCompute {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -41,14 +40,12 @@ export class LogsQueryCompute {
       baseName: "aggregation",
       type: "string",
       required: true,
-      format: "",
     },
     facet: {
       name: "facet",
       baseName: "facet",
       type: "string",
       required: false,
-      format: "",
     },
     interval: {
       name: "interval",

@@ -173,7 +173,6 @@ export class UsageAttributionValues {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     apiPercentage: {

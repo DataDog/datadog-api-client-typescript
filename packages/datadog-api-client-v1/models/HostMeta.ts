@@ -25,7 +25,6 @@ export class HostMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     nixV: {
@@ -33,7 +32,6 @@ export class HostMeta {
       baseName: "nixV",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

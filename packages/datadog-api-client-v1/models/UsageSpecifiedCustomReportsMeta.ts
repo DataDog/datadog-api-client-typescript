@@ -24,7 +24,6 @@ export class UsageSpecifiedCustomReportsMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {
@@ -32,7 +31,6 @@ export class UsageSpecifiedCustomReportsMeta {
       baseName: "page",
       type: "UsageSpecifiedCustomReportsPage",
       required: false,
-      format: "",
     },
   };
 

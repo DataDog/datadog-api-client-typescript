@@ -29,7 +29,6 @@ export class Pagination {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     totalCount: {

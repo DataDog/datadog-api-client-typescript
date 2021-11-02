@@ -49,7 +49,6 @@ export class AzureAccount {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     clientId: {
@@ -57,49 +56,42 @@ export class AzureAccount {
       baseName: "client_id",
       type: "string",
       required: false,
-      format: "",
     },
     clientSecret: {
       name: "clientSecret",
       baseName: "client_secret",
       type: "string",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     hostFilters: {
       name: "hostFilters",
       baseName: "host_filters",
       type: "string",
       required: false,
-      format: "",
     },
     newClientId: {
       name: "newClientId",
       baseName: "new_client_id",
       type: "string",
       required: false,
-      format: "",
     },
     newTenantName: {
       name: "newTenantName",
       baseName: "new_tenant_name",
       type: "string",
       required: false,
-      format: "",
     },
     tenantName: {
       name: "tenantName",
       baseName: "tenant_name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

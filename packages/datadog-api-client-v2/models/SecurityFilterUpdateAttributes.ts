@@ -45,7 +45,6 @@ export class SecurityFilterUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     exclusionFilters: {
@@ -53,35 +52,30 @@ export class SecurityFilterUpdateAttributes {
       baseName: "exclusion_filters",
       type: "Array<SecurityFilterExclusionFilter>",
       required: false,
-      format: "",
     },
     filteredDataType: {
       name: "filteredDataType",
       baseName: "filtered_data_type",
       type: "SecurityFilterFilteredDataType",
       required: false,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     version: {
       name: "version",

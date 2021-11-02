@@ -29,7 +29,6 @@ export class SyntheticsCIBatchMetadataCI {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     pipeline: {
@@ -37,14 +36,12 @@ export class SyntheticsCIBatchMetadataCI {
       baseName: "pipeline",
       type: "string",
       required: false,
-      format: "",
     },
     provider: {
       name: "provider",
       baseName: "provider",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -37,7 +37,6 @@ export class RoleAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -59,7 +58,6 @@ export class RoleAttributes {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     userCount: {
       name: "userCount",

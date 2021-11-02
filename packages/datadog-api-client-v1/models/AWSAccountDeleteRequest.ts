@@ -33,7 +33,6 @@ export class AWSAccountDeleteRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accessKeyId: {
@@ -41,21 +40,18 @@ export class AWSAccountDeleteRequest {
       baseName: "access_key_id",
       type: "string",
       required: false,
-      format: "",
     },
     accountId: {
       name: "accountId",
       baseName: "account_id",
       type: "string",
       required: false,
-      format: "",
     },
     roleName: {
       name: "roleName",
       baseName: "role_name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

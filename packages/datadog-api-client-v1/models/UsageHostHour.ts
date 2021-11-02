@@ -77,7 +77,6 @@ export class UsageHostHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agentHostCount: {

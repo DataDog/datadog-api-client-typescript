@@ -37,7 +37,6 @@ export class ProcessQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filterBy: {
@@ -45,7 +44,6 @@ export class ProcessQueryDefinition {
       baseName: "filter_by",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -59,14 +57,12 @@ export class ProcessQueryDefinition {
       baseName: "metric",
       type: "string",
       required: true,
-      format: "",
     },
     searchBy: {
       name: "searchBy",
       baseName: "search_by",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -42,7 +42,6 @@ export class GeomapWidgetRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     formulas: {
@@ -50,49 +49,42 @@ export class GeomapWidgetRequest {
       baseName: "formulas",
       type: "Array<WidgetFormula>",
       required: false,
-      format: "",
     },
     logQuery: {
       name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     q: {
       name: "q",
       baseName: "q",
       type: "string",
       required: false,
-      format: "",
     },
     queries: {
       name: "queries",
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
       required: false,
-      format: "",
     },
     responseFormat: {
       name: "responseFormat",
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
       required: false,
-      format: "",
     },
     rumQuery: {
       name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     securityQuery: {
       name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
   };
 

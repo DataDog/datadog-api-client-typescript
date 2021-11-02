@@ -30,7 +30,6 @@ export class OrganizationCreateResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     apiKey: {
@@ -38,28 +37,24 @@ export class OrganizationCreateResponse {
       baseName: "api_key",
       type: "ApiKey",
       required: false,
-      format: "",
     },
     applicationKey: {
       name: "applicationKey",
       baseName: "application_key",
       type: "ApplicationKey",
       required: false,
-      format: "",
     },
     org: {
       name: "org",
       baseName: "org",
       type: "Organization",
       required: false,
-      format: "",
     },
     user: {
       name: "user",
       baseName: "user",
       type: "User",
       required: false,
-      format: "",
     },
   };
 

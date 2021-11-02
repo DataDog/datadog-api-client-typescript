@@ -40,7 +40,6 @@ export class SyntheticsTriggerCITestsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     batchId: {
@@ -48,28 +47,24 @@ export class SyntheticsTriggerCITestsResponse {
       baseName: "batch_id",
       type: "string",
       required: false,
-      format: "",
     },
     locations: {
       name: "locations",
       baseName: "locations",
       type: "Array<SyntheticsTriggerCITestLocation>",
       required: false,
-      format: "",
     },
     results: {
       name: "results",
       baseName: "results",
       type: "Array<SyntheticsTriggerCITestRunResult>",
       required: false,
-      format: "",
     },
     triggeredCheckIds: {
       name: "triggeredCheckIds",
       baseName: "triggered_check_ids",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

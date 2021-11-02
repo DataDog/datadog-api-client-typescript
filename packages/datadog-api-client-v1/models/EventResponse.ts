@@ -28,7 +28,6 @@ export class EventResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     event: {
@@ -36,14 +35,12 @@ export class EventResponse {
       baseName: "event",
       type: "Event",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

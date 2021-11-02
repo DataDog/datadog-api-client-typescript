@@ -40,7 +40,6 @@ export class SLOCorrectionUpdateRequestAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     category: {
@@ -48,14 +47,12 @@ export class SLOCorrectionUpdateRequestAttributes {
       baseName: "category",
       type: "SLOCorrectionCategory",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     end: {
       name: "end",
@@ -76,7 +73,6 @@ export class SLOCorrectionUpdateRequestAttributes {
       baseName: "timezone",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

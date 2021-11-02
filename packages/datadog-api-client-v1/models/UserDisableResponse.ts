@@ -25,7 +25,6 @@ export class UserDisableResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     message: {
@@ -33,7 +32,6 @@ export class UserDisableResponse {
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

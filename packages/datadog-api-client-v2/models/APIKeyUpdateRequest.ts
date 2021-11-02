@@ -24,7 +24,6 @@ export class APIKeyUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class APIKeyUpdateRequest {
       baseName: "data",
       type: "APIKeyUpdateData",
       required: true,
-      format: "",
     },
   };
 

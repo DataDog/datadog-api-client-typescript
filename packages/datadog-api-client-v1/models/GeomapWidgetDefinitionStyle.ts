@@ -29,7 +29,6 @@ export class GeomapWidgetDefinitionStyle {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     palette: {
@@ -37,14 +36,12 @@ export class GeomapWidgetDefinitionStyle {
       baseName: "palette",
       type: "string",
       required: true,
-      format: "",
     },
     paletteFlip: {
       name: "paletteFlip",
       baseName: "palette_flip",
       type: "boolean",
       required: true,
-      format: "",
     },
   };
 

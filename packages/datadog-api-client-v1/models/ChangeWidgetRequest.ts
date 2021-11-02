@@ -52,7 +52,6 @@ export class ChangeWidgetRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     apmQuery: {
@@ -60,105 +59,90 @@ export class ChangeWidgetRequest {
       baseName: "apm_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     changeType: {
       name: "changeType",
       baseName: "change_type",
       type: "WidgetChangeType",
       required: false,
-      format: "",
     },
     compareTo: {
       name: "compareTo",
       baseName: "compare_to",
       type: "WidgetCompareTo",
       required: false,
-      format: "",
     },
     eventQuery: {
       name: "eventQuery",
       baseName: "event_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     increaseGood: {
       name: "increaseGood",
       baseName: "increase_good",
       type: "boolean",
       required: false,
-      format: "",
     },
     logQuery: {
       name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     networkQuery: {
       name: "networkQuery",
       baseName: "network_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     orderBy: {
       name: "orderBy",
       baseName: "order_by",
       type: "WidgetOrderBy",
       required: false,
-      format: "",
     },
     orderDir: {
       name: "orderDir",
       baseName: "order_dir",
       type: "WidgetSort",
       required: false,
-      format: "",
     },
     processQuery: {
       name: "processQuery",
       baseName: "process_query",
       type: "ProcessQueryDefinition",
       required: false,
-      format: "",
     },
     profileMetricsQuery: {
       name: "profileMetricsQuery",
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     q: {
       name: "q",
       baseName: "q",
       type: "string",
       required: false,
-      format: "",
     },
     rumQuery: {
       name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     securityQuery: {
       name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     showPresent: {
       name: "showPresent",
       baseName: "show_present",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

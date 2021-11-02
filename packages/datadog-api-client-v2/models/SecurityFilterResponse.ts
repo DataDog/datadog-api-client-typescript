@@ -26,7 +26,6 @@ export class SecurityFilterResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -34,14 +33,12 @@ export class SecurityFilterResponse {
       baseName: "data",
       type: "SecurityFilter",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "SecurityFilterMeta",
       required: false,
-      format: "",
     },
   };
 

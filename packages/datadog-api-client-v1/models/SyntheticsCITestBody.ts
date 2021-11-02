@@ -27,7 +27,6 @@ export class SyntheticsCITestBody {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     tests: {
@@ -35,7 +34,6 @@ export class SyntheticsCITestBody {
       baseName: "tests",
       type: "Array<SyntheticsCITest>",
       required: false,
-      format: "",
     },
   };
 

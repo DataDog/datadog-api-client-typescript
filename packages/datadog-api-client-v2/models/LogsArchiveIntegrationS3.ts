@@ -29,7 +29,6 @@ export class LogsArchiveIntegrationS3 {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountId: {
@@ -37,14 +36,12 @@ export class LogsArchiveIntegrationS3 {
       baseName: "account_id",
       type: "string",
       required: true,
-      format: "",
     },
     roleName: {
       name: "roleName",
       baseName: "role_name",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

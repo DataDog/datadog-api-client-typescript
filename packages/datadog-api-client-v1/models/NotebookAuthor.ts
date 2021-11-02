@@ -57,7 +57,6 @@ export class NotebookAuthor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -72,56 +71,48 @@ export class NotebookAuthor {
       baseName: "disabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     email: {
       name: "email",
       baseName: "email",
       type: "string",
       required: false,
-      format: "",
     },
     handle: {
       name: "handle",
       baseName: "handle",
       type: "string",
       required: false,
-      format: "",
     },
     icon: {
       name: "icon",
       baseName: "icon",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     verified: {
       name: "verified",
       baseName: "verified",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

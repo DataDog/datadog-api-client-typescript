@@ -40,7 +40,6 @@ export class SyntheticsConfigVariable {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     example: {
@@ -48,35 +47,30 @@ export class SyntheticsConfigVariable {
       baseName: "example",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     pattern: {
       name: "pattern",
       baseName: "pattern",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SyntheticsConfigVariableType",
       required: true,
-      format: "",
     },
   };
 

@@ -24,7 +24,6 @@ export class MetricAllTagsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class MetricAllTagsResponse {
       baseName: "data",
       type: "MetricAllTags",
       required: false,
-      format: "",
     },
   };
 

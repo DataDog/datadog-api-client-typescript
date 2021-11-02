@@ -29,7 +29,6 @@ export class DashboardTemplateVariablePresetValue {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     name: {
@@ -37,14 +36,12 @@ export class DashboardTemplateVariablePresetValue {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

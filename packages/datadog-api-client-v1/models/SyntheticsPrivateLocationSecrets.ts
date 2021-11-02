@@ -26,7 +26,6 @@ export class SyntheticsPrivateLocationSecrets {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     authentication: {
@@ -34,14 +33,12 @@ export class SyntheticsPrivateLocationSecrets {
       baseName: "authentication",
       type: "SyntheticsPrivateLocationSecretsAuthentication",
       required: false,
-      format: "",
     },
     configDecryption: {
       name: "configDecryption",
       baseName: "config_decryption",
       type: "SyntheticsPrivateLocationSecretsConfigDecryption",
       required: false,
-      format: "",
     },
   };
 

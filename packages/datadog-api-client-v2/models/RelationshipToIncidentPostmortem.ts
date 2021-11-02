@@ -24,7 +24,6 @@ export class RelationshipToIncidentPostmortem {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class RelationshipToIncidentPostmortem {
       baseName: "data",
       type: "RelationshipToIncidentPostmortemData",
       required: true,
-      format: "",
     },
   };
 

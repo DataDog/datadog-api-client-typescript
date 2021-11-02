@@ -75,7 +75,6 @@ export class MetricsQueryMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggr: {
@@ -83,14 +82,12 @@ export class MetricsQueryMetadata {
       baseName: "aggr",
       type: "string",
       required: false,
-      format: "",
     },
     displayName: {
       name: "displayName",
       baseName: "display_name",
       type: "string",
       required: false,
-      format: "",
     },
     end: {
       name: "end",
@@ -104,7 +101,6 @@ export class MetricsQueryMetadata {
       baseName: "expression",
       type: "string",
       required: false,
-      format: "",
     },
     interval: {
       name: "interval",
@@ -125,7 +121,6 @@ export class MetricsQueryMetadata {
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     pointlist: {
       name: "pointlist",
@@ -146,7 +141,6 @@ export class MetricsQueryMetadata {
       baseName: "scope",
       type: "string",
       required: false,
-      format: "",
     },
     start: {
       name: "start",
@@ -160,14 +154,12 @@ export class MetricsQueryMetadata {
       baseName: "tag_set",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     unit: {
       name: "unit",
       baseName: "unit",
       type: "Array<MetricsQueryUnit>",
       required: false,
-      format: "",
     },
   };
 

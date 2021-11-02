@@ -54,7 +54,6 @@ export class SyntheticsAPITestResultData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cert: {
@@ -62,28 +61,24 @@ export class SyntheticsAPITestResultData {
       baseName: "cert",
       type: "SyntheticsSSLCertificate",
       required: false,
-      format: "",
     },
     errorCode: {
       name: "errorCode",
       baseName: "errorCode",
       type: "SyntheticsErrorCode",
       required: false,
-      format: "",
     },
     errorMessage: {
       name: "errorMessage",
       baseName: "errorMessage",
       type: "string",
       required: false,
-      format: "",
     },
     eventType: {
       name: "eventType",
       baseName: "eventType",
       type: "SyntheticsTestProcessStatus",
       required: false,
-      format: "",
     },
     httpStatusCode: {
       name: "httpStatusCode",
@@ -97,21 +92,18 @@ export class SyntheticsAPITestResultData {
       baseName: "requestHeaders",
       type: "{ [key: string]: any; }",
       required: false,
-      format: "",
     },
     responseBody: {
       name: "responseBody",
       baseName: "responseBody",
       type: "string",
       required: false,
-      format: "",
     },
     responseHeaders: {
       name: "responseHeaders",
       baseName: "responseHeaders",
       type: "{ [key: string]: any; }",
       required: false,
-      format: "",
     },
     responseSize: {
       name: "responseSize",
@@ -125,7 +117,6 @@ export class SyntheticsAPITestResultData {
       baseName: "timings",
       type: "SyntheticsTiming",
       required: false,
-      format: "",
     },
   };
 

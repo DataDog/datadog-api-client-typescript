@@ -24,7 +24,6 @@ export class NotebookResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class NotebookResponse {
       baseName: "data",
       type: "NotebookResponseData",
       required: false,
-      format: "",
     },
   };
 

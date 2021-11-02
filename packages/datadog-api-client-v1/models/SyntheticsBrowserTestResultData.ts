@@ -65,7 +65,6 @@ export class SyntheticsBrowserTestResultData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     browserType: {
@@ -73,21 +72,18 @@ export class SyntheticsBrowserTestResultData {
       baseName: "browserType",
       type: "string",
       required: false,
-      format: "",
     },
     browserVersion: {
       name: "browserVersion",
       baseName: "browserVersion",
       type: "string",
       required: false,
-      format: "",
     },
     device: {
       name: "device",
       baseName: "device",
       type: "SyntheticsDevice",
       required: false,
-      format: "",
     },
     duration: {
       name: "duration",
@@ -101,14 +97,12 @@ export class SyntheticsBrowserTestResultData {
       baseName: "error",
       type: "string",
       required: false,
-      format: "",
     },
     passed: {
       name: "passed",
       baseName: "passed",
       type: "boolean",
       required: false,
-      format: "",
     },
     receivedEmailCount: {
       name: "receivedEmailCount",
@@ -122,21 +116,18 @@ export class SyntheticsBrowserTestResultData {
       baseName: "startUrl",
       type: "string",
       required: false,
-      format: "",
     },
     stepDetails: {
       name: "stepDetails",
       baseName: "stepDetails",
       type: "Array<SyntheticsStepDetail>",
       required: false,
-      format: "",
     },
     thumbnailsBucketKey: {
       name: "thumbnailsBucketKey",
       baseName: "thumbnailsBucketKey",
       type: "boolean",
       required: false,
-      format: "",
     },
     timeToInteractive: {
       name: "timeToInteractive",

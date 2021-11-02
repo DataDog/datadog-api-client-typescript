@@ -33,7 +33,6 @@ export class SyntheticsAssertionJSONPathTargetTarget {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     jsonPath: {
@@ -41,21 +40,18 @@ export class SyntheticsAssertionJSONPathTargetTarget {
       baseName: "jsonPath",
       type: "string",
       required: false,
-      format: "",
     },
     operator: {
       name: "operator",
       baseName: "operator",
       type: "string",
       required: false,
-      format: "",
     },
     targetValue: {
       name: "targetValue",
       baseName: "targetValue",
       type: "any",
       required: false,
-      format: "",
     },
   };
 

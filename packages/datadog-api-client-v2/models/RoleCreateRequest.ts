@@ -24,7 +24,6 @@ export class RoleCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class RoleCreateRequest {
       baseName: "data",
       type: "RoleCreateData",
       required: true,
-      format: "",
     },
   };
 

@@ -41,7 +41,6 @@ export class MetricsQueryUnit {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     family: {
@@ -49,21 +48,18 @@ export class MetricsQueryUnit {
       baseName: "family",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     plural: {
       name: "plural",
       baseName: "plural",
       type: "string",
       required: false,
-      format: "",
     },
     scaleFactor: {
       name: "scaleFactor",
@@ -77,7 +73,6 @@ export class MetricsQueryUnit {
       baseName: "short_name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

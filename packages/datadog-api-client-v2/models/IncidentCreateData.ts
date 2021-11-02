@@ -28,7 +28,6 @@ export class IncidentCreateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -36,21 +35,18 @@ export class IncidentCreateData {
       baseName: "attributes",
       type: "IncidentCreateAttributes",
       required: true,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "IncidentCreateRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "IncidentType",
       required: true,
-      format: "",
     },
   };
 

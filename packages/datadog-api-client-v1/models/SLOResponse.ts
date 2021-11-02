@@ -28,7 +28,6 @@ export class SLOResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -36,14 +35,12 @@ export class SLOResponse {
       baseName: "data",
       type: "SLOResponseData",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

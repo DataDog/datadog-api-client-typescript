@@ -44,7 +44,6 @@ export class LogsUserAgentParser {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     isEnabled: {
@@ -52,42 +51,36 @@ export class LogsUserAgentParser {
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     isEncoded: {
       name: "isEncoded",
       baseName: "is_encoded",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     sources: {
       name: "sources",
       baseName: "sources",
       type: "Array<string>",
       required: true,
-      format: "",
     },
     target: {
       name: "target",
       baseName: "target",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsUserAgentParserType",
       required: true,
-      format: "",
     },
   };
 

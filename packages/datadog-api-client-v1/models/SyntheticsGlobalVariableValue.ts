@@ -29,7 +29,6 @@ export class SyntheticsGlobalVariableValue {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     secure: {
@@ -37,14 +36,12 @@ export class SyntheticsGlobalVariableValue {
       baseName: "secure",
       type: "boolean",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

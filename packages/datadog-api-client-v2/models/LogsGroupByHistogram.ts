@@ -33,7 +33,6 @@ export class LogsGroupByHistogram {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     interval: {

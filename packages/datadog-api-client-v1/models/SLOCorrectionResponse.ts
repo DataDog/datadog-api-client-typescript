@@ -24,7 +24,6 @@ export class SLOCorrectionResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class SLOCorrectionResponse {
       baseName: "data",
       type: "SLOCorrection",
       required: false,
-      format: "",
     },
   };
 

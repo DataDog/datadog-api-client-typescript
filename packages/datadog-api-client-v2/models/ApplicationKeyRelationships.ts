@@ -24,7 +24,6 @@ export class ApplicationKeyRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     ownedBy: {
@@ -32,7 +31,6 @@ export class ApplicationKeyRelationships {
       baseName: "owned_by",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
   };
 

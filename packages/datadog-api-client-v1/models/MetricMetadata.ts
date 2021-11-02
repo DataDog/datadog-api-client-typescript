@@ -49,7 +49,6 @@ export class MetricMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     description: {
@@ -57,28 +56,24 @@ export class MetricMetadata {
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     integration: {
       name: "integration",
       baseName: "integration",
       type: "string",
       required: false,
-      format: "",
     },
     perUnit: {
       name: "perUnit",
       baseName: "per_unit",
       type: "string",
       required: false,
-      format: "",
     },
     shortName: {
       name: "shortName",
       baseName: "short_name",
       type: "string",
       required: false,
-      format: "",
     },
     statsdInterval: {
       name: "statsdInterval",
@@ -92,14 +87,12 @@ export class MetricMetadata {
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
     unit: {
       name: "unit",
       baseName: "unit",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

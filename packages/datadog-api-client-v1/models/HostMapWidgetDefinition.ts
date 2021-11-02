@@ -65,7 +65,6 @@ export class HostMapWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customLinks: {
@@ -73,91 +72,78 @@ export class HostMapWidgetDefinition {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
       required: false,
-      format: "",
     },
     group: {
       name: "group",
       baseName: "group",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     noGroupHosts: {
       name: "noGroupHosts",
       baseName: "no_group_hosts",
       type: "boolean",
       required: false,
-      format: "",
     },
     noMetricHosts: {
       name: "noMetricHosts",
       baseName: "no_metric_hosts",
       type: "boolean",
       required: false,
-      format: "",
     },
     nodeType: {
       name: "nodeType",
       baseName: "node_type",
       type: "WidgetNodeType",
       required: false,
-      format: "",
     },
     notes: {
       name: "notes",
       baseName: "notes",
       type: "string",
       required: false,
-      format: "",
     },
     requests: {
       name: "requests",
       baseName: "requests",
       type: "HostMapWidgetDefinitionRequests",
       required: true,
-      format: "",
     },
     scope: {
       name: "scope",
       baseName: "scope",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     style: {
       name: "style",
       baseName: "style",
       type: "HostMapWidgetDefinitionStyle",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "HostMapWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

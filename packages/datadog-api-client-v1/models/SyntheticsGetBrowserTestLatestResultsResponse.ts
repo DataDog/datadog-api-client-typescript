@@ -31,7 +31,6 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     lastTimestampFetched: {
@@ -46,7 +45,6 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
       baseName: "results",
       type: "Array<SyntheticsBrowserTestResultShort>",
       required: false,
-      format: "",
     },
   };
 

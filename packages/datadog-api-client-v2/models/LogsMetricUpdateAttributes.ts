@@ -29,7 +29,6 @@ export class LogsMetricUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filter: {
@@ -37,14 +36,12 @@ export class LogsMetricUpdateAttributes {
       baseName: "filter",
       type: "LogsMetricFilter",
       required: false,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricGroupBy>",
       required: false,
-      format: "",
     },
   };
 

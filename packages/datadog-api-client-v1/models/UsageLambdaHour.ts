@@ -33,7 +33,6 @@ export class UsageLambdaHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     funcCount: {

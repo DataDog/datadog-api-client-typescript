@@ -32,7 +32,6 @@ export class SLOBulkDeleteError {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -40,21 +39,18 @@ export class SLOBulkDeleteError {
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: true,
-      format: "",
     },
     timeframe: {
       name: "timeframe",
       baseName: "timeframe",
       type: "SLOErrorTimeframe",
       required: true,
-      format: "",
     },
   };
 

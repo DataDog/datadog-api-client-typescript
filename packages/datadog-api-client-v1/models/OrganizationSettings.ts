@@ -52,7 +52,6 @@ export class OrganizationSettings {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     privateWidgetShare: {
@@ -60,70 +59,60 @@ export class OrganizationSettings {
       baseName: "private_widget_share",
       type: "boolean",
       required: false,
-      format: "",
     },
     saml: {
       name: "saml",
       baseName: "saml",
       type: "OrganizationSettingsSaml",
       required: false,
-      format: "",
     },
     samlAutocreateAccessRole: {
       name: "samlAutocreateAccessRole",
       baseName: "saml_autocreate_access_role",
       type: "AccessRole",
       required: false,
-      format: "",
     },
     samlAutocreateUsersDomains: {
       name: "samlAutocreateUsersDomains",
       baseName: "saml_autocreate_users_domains",
       type: "OrganizationSettingsSamlAutocreateUsersDomains",
       required: false,
-      format: "",
     },
     samlCanBeEnabled: {
       name: "samlCanBeEnabled",
       baseName: "saml_can_be_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     samlIdpEndpoint: {
       name: "samlIdpEndpoint",
       baseName: "saml_idp_endpoint",
       type: "string",
       required: false,
-      format: "",
     },
     samlIdpInitiatedLogin: {
       name: "samlIdpInitiatedLogin",
       baseName: "saml_idp_initiated_login",
       type: "OrganizationSettingsSamlIdpInitiatedLogin",
       required: false,
-      format: "",
     },
     samlIdpMetadataUploaded: {
       name: "samlIdpMetadataUploaded",
       baseName: "saml_idp_metadata_uploaded",
       type: "boolean",
       required: false,
-      format: "",
     },
     samlLoginUrl: {
       name: "samlLoginUrl",
       baseName: "saml_login_url",
       type: "string",
       required: false,
-      format: "",
     },
     samlStrictMode: {
       name: "samlStrictMode",
       baseName: "saml_strict_mode",
       type: "OrganizationSettingsSamlStrictMode",
       required: false,
-      format: "",
     },
   };
 

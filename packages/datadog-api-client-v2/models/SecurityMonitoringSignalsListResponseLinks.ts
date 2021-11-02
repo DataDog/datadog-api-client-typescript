@@ -25,7 +25,6 @@ export class SecurityMonitoringSignalsListResponseLinks {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     next: {
@@ -33,7 +32,6 @@ export class SecurityMonitoringSignalsListResponseLinks {
       baseName: "next",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

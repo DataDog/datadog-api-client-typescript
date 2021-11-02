@@ -33,7 +33,6 @@ export class Creator {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     email: {
@@ -41,21 +40,18 @@ export class Creator {
       baseName: "email",
       type: "string",
       required: false,
-      format: "",
     },
     handle: {
       name: "handle",
       baseName: "handle",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

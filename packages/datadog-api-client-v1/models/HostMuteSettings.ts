@@ -33,7 +33,6 @@ export class HostMuteSettings {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     end: {
@@ -48,14 +47,12 @@ export class HostMuteSettings {
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     override: {
       name: "override",
       baseName: "override",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

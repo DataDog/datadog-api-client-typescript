@@ -29,7 +29,6 @@ export class LogsGrokParserRules {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     matchRules: {
@@ -37,14 +36,12 @@ export class LogsGrokParserRules {
       baseName: "match_rules",
       type: "string",
       required: true,
-      format: "",
     },
     supportRules: {
       name: "supportRules",
       baseName: "support_rules",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

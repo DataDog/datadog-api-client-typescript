@@ -33,7 +33,6 @@ export class UsageSDSHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hour: {

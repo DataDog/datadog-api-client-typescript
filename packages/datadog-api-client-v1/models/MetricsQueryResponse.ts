@@ -59,7 +59,6 @@ export class MetricsQueryResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     error: {
@@ -67,7 +66,6 @@ export class MetricsQueryResponse {
       baseName: "error",
       type: "string",
       required: false,
-      format: "",
     },
     fromDate: {
       name: "fromDate",
@@ -81,42 +79,36 @@ export class MetricsQueryResponse {
       baseName: "group_by",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     resType: {
       name: "resType",
       baseName: "res_type",
       type: "string",
       required: false,
-      format: "",
     },
     series: {
       name: "series",
       baseName: "series",
       type: "Array<MetricsQueryMetadata>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
     toDate: {
       name: "toDate",

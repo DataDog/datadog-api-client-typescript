@@ -29,7 +29,6 @@ export class MetricsListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     from: {
@@ -37,14 +36,12 @@ export class MetricsListResponse {
       baseName: "from",
       type: "string",
       required: false,
-      format: "",
     },
     metrics: {
       name: "metrics",
       baseName: "metrics",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

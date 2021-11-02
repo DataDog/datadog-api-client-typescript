@@ -29,7 +29,6 @@ export class IPPrefixesProcess {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     prefixesIpv4: {
@@ -37,14 +36,12 @@ export class IPPrefixesProcess {
       baseName: "prefixes_ipv4",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     prefixesIpv6: {
       name: "prefixesIpv6",
       baseName: "prefixes_ipv6",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

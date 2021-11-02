@@ -27,7 +27,6 @@ export class SyntheticsListGlobalVariablesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     variables: {
@@ -35,7 +34,6 @@ export class SyntheticsListGlobalVariablesResponse {
       baseName: "variables",
       type: "Array<SyntheticsGlobalVariable>",
       required: false,
-      format: "",
     },
   };
 

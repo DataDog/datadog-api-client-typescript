@@ -31,7 +31,6 @@ export class LogsByRetention {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     orgs: {
@@ -39,21 +38,18 @@ export class LogsByRetention {
       baseName: "orgs",
       type: "LogsByRetentionOrgs",
       required: false,
-      format: "",
     },
     usage: {
       name: "usage",
       baseName: "usage",
       type: "Array<LogsRetentionAggSumUsage>",
       required: false,
-      format: "",
     },
     usageByMonth: {
       name: "usageByMonth",
       baseName: "usage_by_month",
       type: "LogsByRetentionMonthlyUsage",
       required: false,
-      format: "",
     },
   };
 

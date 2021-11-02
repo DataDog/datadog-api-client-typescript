@@ -41,7 +41,6 @@ export class WidgetLayout {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     height: {
@@ -56,7 +55,6 @@ export class WidgetLayout {
       baseName: "is_column_break",
       type: "boolean",
       required: false,
-      format: "",
     },
     width: {
       name: "width",

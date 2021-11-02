@@ -37,7 +37,6 @@ export class UsageLogsByRetentionHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     indexedEventsCount: {
@@ -66,7 +65,6 @@ export class UsageLogsByRetentionHour {
       baseName: "retention",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

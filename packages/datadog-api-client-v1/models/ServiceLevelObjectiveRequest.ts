@@ -51,7 +51,6 @@ export class ServiceLevelObjectiveRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     description: {
@@ -59,14 +58,12 @@ export class ServiceLevelObjectiveRequest {
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     groups: {
       name: "groups",
       baseName: "groups",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     monitorIds: {
       name: "monitorIds",
@@ -80,35 +77,30 @@ export class ServiceLevelObjectiveRequest {
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     thresholds: {
       name: "thresholds",
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SLOType",
       required: true,
-      format: "",
     },
   };
 

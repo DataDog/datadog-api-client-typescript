@@ -24,7 +24,6 @@ export class SecurityFilterUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class SecurityFilterUpdateRequest {
       baseName: "data",
       type: "SecurityFilterUpdateData",
       required: true,
-      format: "",
     },
   };
 

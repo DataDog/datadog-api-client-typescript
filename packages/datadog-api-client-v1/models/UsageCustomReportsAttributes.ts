@@ -41,7 +41,6 @@ export class UsageCustomReportsAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     computedOn: {
@@ -49,14 +48,12 @@ export class UsageCustomReportsAttributes {
       baseName: "computed_on",
       type: "string",
       required: false,
-      format: "",
     },
     endDate: {
       name: "endDate",
       baseName: "end_date",
       type: "string",
       required: false,
-      format: "",
     },
     size: {
       name: "size",
@@ -70,14 +67,12 @@ export class UsageCustomReportsAttributes {
       baseName: "start_date",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

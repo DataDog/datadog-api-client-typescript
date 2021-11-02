@@ -32,7 +32,6 @@ export class IncidentTeamResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -40,28 +39,24 @@ export class IncidentTeamResponseData {
       baseName: "attributes",
       type: "IncidentTeamResponseAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "IncidentTeamRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "IncidentTeamType",
       required: false,
-      format: "",
     },
   };
 

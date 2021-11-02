@@ -31,7 +31,6 @@ export class LogsByRetentionMonthlyUsage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     date: {
@@ -46,7 +45,6 @@ export class LogsByRetentionMonthlyUsage {
       baseName: "usage",
       type: "Array<LogsRetentionSumUsage>",
       required: false,
-      format: "",
     },
   };
 

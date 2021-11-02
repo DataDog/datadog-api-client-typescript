@@ -33,7 +33,6 @@ export class SyntheticsCoreWebVitals {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cls: {
@@ -55,7 +54,6 @@ export class SyntheticsCoreWebVitals {
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

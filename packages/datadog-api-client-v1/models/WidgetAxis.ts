@@ -41,7 +41,6 @@ export class WidgetAxis {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     includeZero: {
@@ -49,35 +48,30 @@ export class WidgetAxis {
       baseName: "include_zero",
       type: "boolean",
       required: false,
-      format: "",
     },
     label: {
       name: "label",
       baseName: "label",
       type: "string",
       required: false,
-      format: "",
     },
     max: {
       name: "max",
       baseName: "max",
       type: "string",
       required: false,
-      format: "",
     },
     min: {
       name: "min",
       baseName: "min",
       type: "string",
       required: false,
-      format: "",
     },
     scale: {
       name: "scale",
       baseName: "scale",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

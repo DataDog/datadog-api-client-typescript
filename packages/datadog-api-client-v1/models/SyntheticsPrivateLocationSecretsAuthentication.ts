@@ -29,7 +29,6 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -37,14 +36,12 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     key: {
       name: "key",
       baseName: "key",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

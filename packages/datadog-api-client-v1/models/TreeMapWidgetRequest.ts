@@ -25,7 +25,6 @@ export class TreeMapWidgetRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     q: {
@@ -33,7 +32,6 @@ export class TreeMapWidgetRequest {
       baseName: "q",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

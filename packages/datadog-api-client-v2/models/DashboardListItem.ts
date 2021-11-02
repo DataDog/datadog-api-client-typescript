@@ -66,7 +66,6 @@ export class DashboardListItem {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     author: {
@@ -74,7 +73,6 @@ export class DashboardListItem {
       baseName: "author",
       type: "Creator",
       required: false,
-      format: "",
     },
     created: {
       name: "created",
@@ -88,35 +86,30 @@ export class DashboardListItem {
       baseName: "icon",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     isFavorite: {
       name: "isFavorite",
       baseName: "is_favorite",
       type: "boolean",
       required: false,
-      format: "",
     },
     isReadOnly: {
       name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
       required: false,
-      format: "",
     },
     isShared: {
       name: "isShared",
       baseName: "is_shared",
       type: "boolean",
       required: false,
-      format: "",
     },
     modified: {
       name: "modified",
@@ -137,21 +130,18 @@ export class DashboardListItem {
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "DashboardType",
       required: true,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

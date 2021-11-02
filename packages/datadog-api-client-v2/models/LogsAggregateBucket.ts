@@ -31,7 +31,6 @@ export class LogsAggregateBucket {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     by: {
@@ -39,14 +38,12 @@ export class LogsAggregateBucket {
       baseName: "by",
       type: "{ [key: string]: string; }",
       required: false,
-      format: "",
     },
     computes: {
       name: "computes",
       baseName: "computes",
       type: "{ [key: string]: LogsAggregateBucketValue; }",
       required: false,
-      format: "",
     },
   };
 

@@ -48,7 +48,6 @@ export class ImageWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hasBackground: {
@@ -56,63 +55,54 @@ export class ImageWidgetDefinition {
       baseName: "has_background",
       type: "boolean",
       required: false,
-      format: "",
     },
     hasBorder: {
       name: "hasBorder",
       baseName: "has_border",
       type: "boolean",
       required: false,
-      format: "",
     },
     horizontalAlign: {
       name: "horizontalAlign",
       baseName: "horizontal_align",
       type: "WidgetHorizontalAlign",
       required: false,
-      format: "",
     },
     margin: {
       name: "margin",
       baseName: "margin",
       type: "WidgetMargin",
       required: false,
-      format: "",
     },
     sizing: {
       name: "sizing",
       baseName: "sizing",
       type: "WidgetImageSizing",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "ImageWidgetDefinitionType",
       required: true,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: true,
-      format: "",
     },
     urlDarkTheme: {
       name: "urlDarkTheme",
       baseName: "url_dark_theme",
       type: "string",
       required: false,
-      format: "",
     },
     verticalAlign: {
       name: "verticalAlign",
       baseName: "vertical_align",
       type: "WidgetVerticalAlign",
       required: false,
-      format: "",
     },
   };
 

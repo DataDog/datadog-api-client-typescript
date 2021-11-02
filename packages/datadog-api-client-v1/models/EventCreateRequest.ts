@@ -74,7 +74,6 @@ export class EventCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregationKey: {
@@ -82,14 +81,12 @@ export class EventCreateRequest {
       baseName: "aggregation_key",
       type: "string",
       required: false,
-      format: "",
     },
     alertType: {
       name: "alertType",
       baseName: "alert_type",
       type: "EventAlertType",
       required: false,
-      format: "",
     },
     dateHappened: {
       name: "dateHappened",
@@ -103,14 +100,12 @@ export class EventCreateRequest {
       baseName: "device_name",
       type: "string",
       required: false,
-      format: "",
     },
     host: {
       name: "host",
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
@@ -124,14 +119,12 @@ export class EventCreateRequest {
       baseName: "payload",
       type: "string",
       required: false,
-      format: "",
     },
     priority: {
       name: "priority",
       baseName: "priority",
       type: "EventPriority",
       required: false,
-      format: "",
     },
     relatedEventId: {
       name: "relatedEventId",
@@ -145,35 +138,30 @@ export class EventCreateRequest {
       baseName: "source_type_name",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     text: {
       name: "text",
       baseName: "text",
       type: "string",
       required: true,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: true,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

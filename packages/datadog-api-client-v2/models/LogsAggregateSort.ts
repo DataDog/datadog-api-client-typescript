@@ -32,7 +32,6 @@ export class LogsAggregateSort {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -40,28 +39,24 @@ export class LogsAggregateSort {
       baseName: "aggregation",
       type: "LogsAggregationFunction",
       required: false,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     order: {
       name: "order",
       baseName: "order",
       type: "LogsSortOrder",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsAggregateSortType",
       required: false,
-      format: "",
     },
   };
 

@@ -33,7 +33,6 @@ export class IncidentServiceResponseAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     created: {
@@ -55,7 +54,6 @@ export class IncidentServiceResponseAttributes {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -33,7 +33,6 @@ export class UserCreateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     email: {
@@ -41,21 +40,18 @@ export class UserCreateAttributes {
       baseName: "email",
       type: "string",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

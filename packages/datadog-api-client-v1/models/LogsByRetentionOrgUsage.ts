@@ -27,7 +27,6 @@ export class LogsByRetentionOrgUsage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class LogsByRetentionOrgUsage {
       baseName: "usage",
       type: "Array<LogsRetentionSumUsage>",
       required: false,
-      format: "",
     },
   };
 

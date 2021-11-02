@@ -29,7 +29,6 @@ export class WidgetEvent {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     q: {
@@ -37,14 +36,12 @@ export class WidgetEvent {
       baseName: "q",
       type: "string",
       required: true,
-      format: "",
     },
     tagsExecution: {
       name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -29,7 +29,6 @@ export class HostTags {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     host: {
@@ -37,14 +36,12 @@ export class HostTags {
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

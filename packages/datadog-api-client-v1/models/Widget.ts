@@ -30,7 +30,6 @@ export class Widget {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     definition: {
@@ -38,7 +37,6 @@ export class Widget {
       baseName: "definition",
       type: "WidgetDefinition",
       required: true,
-      format: "",
     },
     id: {
       name: "id",
@@ -52,7 +50,6 @@ export class Widget {
       baseName: "layout",
       type: "WidgetLayout",
       required: false,
-      format: "",
     },
   };
 

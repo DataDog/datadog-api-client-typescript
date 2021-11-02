@@ -31,7 +31,6 @@ export class DashboardListItems {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dashboards: {
@@ -39,7 +38,6 @@ export class DashboardListItems {
       baseName: "dashboards",
       type: "Array<DashboardListItem>",
       required: true,
-      format: "",
     },
     total: {
       name: "total",

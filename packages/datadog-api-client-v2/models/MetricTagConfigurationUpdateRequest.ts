@@ -24,7 +24,6 @@ export class MetricTagConfigurationUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class MetricTagConfigurationUpdateRequest {
       baseName: "data",
       type: "MetricTagConfigurationUpdateData",
       required: true,
-      format: "",
     },
   };
 

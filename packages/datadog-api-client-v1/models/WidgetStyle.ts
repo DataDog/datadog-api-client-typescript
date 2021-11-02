@@ -25,7 +25,6 @@ export class WidgetStyle {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     palette: {
@@ -33,7 +32,6 @@ export class WidgetStyle {
       baseName: "palette",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

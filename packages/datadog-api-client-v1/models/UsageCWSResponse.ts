@@ -27,7 +27,6 @@ export class UsageCWSResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageCWSResponse {
       baseName: "usage",
       type: "Array<UsageCWSHour>",
       required: false,
-      format: "",
     },
   };
 

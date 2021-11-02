@@ -37,7 +37,6 @@ export class UserInvitationDataAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -59,14 +58,12 @@ export class UserInvitationDataAttributes {
       baseName: "invite_type",
       type: "string",
       required: false,
-      format: "",
     },
     uuid: {
       name: "uuid",
       baseName: "uuid",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

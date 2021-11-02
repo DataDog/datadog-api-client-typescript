@@ -49,7 +49,6 @@ export class PermissionAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     created: {
@@ -64,42 +63,36 @@ export class PermissionAttributes {
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     displayName: {
       name: "displayName",
       baseName: "display_name",
       type: "string",
       required: false,
-      format: "",
     },
     displayType: {
       name: "displayType",
       baseName: "display_type",
       type: "string",
       required: false,
-      format: "",
     },
     groupName: {
       name: "groupName",
       baseName: "group_name",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     restricted: {
       name: "restricted",
       baseName: "restricted",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

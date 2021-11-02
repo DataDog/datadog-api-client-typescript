@@ -29,7 +29,6 @@ export class UsageAttributionResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     metadata: {
@@ -37,14 +36,12 @@ export class UsageAttributionResponse {
       baseName: "metadata",
       type: "UsageAttributionMetadata",
       required: false,
-      format: "",
     },
     usage: {
       name: "usage",
       baseName: "usage",
       type: "Array<UsageAttributionBody>",
       required: false,
-      format: "",
     },
   };
 

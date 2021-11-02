@@ -29,7 +29,6 @@ export class APIKeyResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class APIKeyResponse {
       baseName: "data",
       type: "FullAPIKey",
       required: false,
-      format: "",
     },
     included: {
       name: "included",
       baseName: "included",
       type: "Array<APIKeyResponseIncludedItem>",
       required: false,
-      format: "",
     },
   };
 

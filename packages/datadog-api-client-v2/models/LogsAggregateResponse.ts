@@ -26,7 +26,6 @@ export class LogsAggregateResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -34,14 +33,12 @@ export class LogsAggregateResponse {
       baseName: "data",
       type: "LogsAggregateResponseData",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "LogsResponseMetadata",
       required: false,
-      format: "",
     },
   };
 

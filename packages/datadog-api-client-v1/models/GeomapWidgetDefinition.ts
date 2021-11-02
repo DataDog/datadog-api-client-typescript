@@ -50,7 +50,6 @@ export class GeomapWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customLinks: {
@@ -58,63 +57,54 @@ export class GeomapWidgetDefinition {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
       required: false,
-      format: "",
     },
     requests: {
       name: "requests",
       baseName: "requests",
       type: "Array<GeomapWidgetRequest>",
       required: true,
-      format: "",
     },
     style: {
       name: "style",
       baseName: "style",
       type: "GeomapWidgetDefinitionStyle",
       required: true,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "GeomapWidgetDefinitionType",
       required: true,
-      format: "",
     },
     view: {
       name: "view",
       baseName: "view",
       type: "GeomapWidgetDefinitionView",
       required: true,
-      format: "",
     },
   };
 

@@ -40,7 +40,6 @@ export class SLOThreshold {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     target: {
@@ -55,14 +54,12 @@ export class SLOThreshold {
       baseName: "target_display",
       type: "string",
       required: false,
-      format: "",
     },
     timeframe: {
       name: "timeframe",
       baseName: "timeframe",
       type: "SLOTimeframe",
       required: true,
-      format: "",
     },
     warning: {
       name: "warning",
@@ -76,7 +73,6 @@ export class SLOThreshold {
       baseName: "warning_display",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

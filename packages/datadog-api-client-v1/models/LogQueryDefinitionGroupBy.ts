@@ -32,7 +32,6 @@ export class LogQueryDefinitionGroupBy {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     facet: {
@@ -40,7 +39,6 @@ export class LogQueryDefinitionGroupBy {
       baseName: "facet",
       type: "string",
       required: true,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -54,7 +52,6 @@ export class LogQueryDefinitionGroupBy {
       baseName: "sort",
       type: "LogQueryDefinitionGroupBySort",
       required: false,
-      format: "",
     },
   };
 

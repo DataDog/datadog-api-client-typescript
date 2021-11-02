@@ -46,7 +46,6 @@ export class SLOCorrectionResponseAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     category: {
@@ -54,21 +53,18 @@ export class SLOCorrectionResponseAttributes {
       baseName: "category",
       type: "SLOCorrectionCategory",
       required: false,
-      format: "",
     },
     creator: {
       name: "creator",
       baseName: "creator",
       type: "Creator",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     end: {
       name: "end",
@@ -82,7 +78,6 @@ export class SLOCorrectionResponseAttributes {
       baseName: "slo_id",
       type: "string",
       required: false,
-      format: "",
     },
     start: {
       name: "start",
@@ -96,7 +91,6 @@ export class SLOCorrectionResponseAttributes {
       baseName: "timezone",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

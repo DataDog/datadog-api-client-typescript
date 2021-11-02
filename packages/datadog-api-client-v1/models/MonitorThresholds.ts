@@ -45,7 +45,6 @@ export class MonitorThresholds {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     critical: {

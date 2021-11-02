@@ -29,7 +29,6 @@ export class ApplicationKeyResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class ApplicationKeyResponse {
       baseName: "data",
       type: "FullApplicationKey",
       required: false,
-      format: "",
     },
     included: {
       name: "included",
       baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
       required: false,
-      format: "",
     },
   };
 

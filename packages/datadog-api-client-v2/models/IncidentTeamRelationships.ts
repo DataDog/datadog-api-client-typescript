@@ -25,7 +25,6 @@ export class IncidentTeamRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdBy: {
@@ -33,14 +32,12 @@ export class IncidentTeamRelationships {
       baseName: "created_by",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
     lastModifiedBy: {
       name: "lastModifiedBy",
       baseName: "last_modified_by",
       type: "RelationshipToUser",
       required: false,
-      format: "",
     },
   };
 

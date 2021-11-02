@@ -29,7 +29,6 @@ export class UsageAnalyzedLogsHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     analyzedLogs: {

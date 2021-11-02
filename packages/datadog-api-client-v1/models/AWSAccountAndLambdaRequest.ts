@@ -29,7 +29,6 @@ export class AWSAccountAndLambdaRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountId: {
@@ -37,14 +36,12 @@ export class AWSAccountAndLambdaRequest {
       baseName: "account_id",
       type: "string",
       required: true,
-      format: "",
     },
     lambdaArn: {
       name: "lambdaArn",
       baseName: "lambda_arn",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

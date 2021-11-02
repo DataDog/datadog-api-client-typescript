@@ -54,7 +54,6 @@ export class CheckStatusWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     check: {
@@ -62,70 +61,60 @@ export class CheckStatusWidgetDefinition {
       baseName: "check",
       type: "string",
       required: true,
-      format: "",
     },
     group: {
       name: "group",
       baseName: "group",
       type: "string",
       required: false,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     grouping: {
       name: "grouping",
       baseName: "grouping",
       type: "WidgetGrouping",
       required: true,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "CheckStatusWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

@@ -28,7 +28,6 @@ export class UserCreateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -36,21 +35,18 @@ export class UserCreateData {
       baseName: "attributes",
       type: "UserCreateAttributes",
       required: true,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "UserRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "UsersType",
       required: true,
-      format: "",
     },
   };
 

@@ -32,7 +32,6 @@ export class LogsExclusion {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filter: {
@@ -40,21 +39,18 @@ export class LogsExclusion {
       baseName: "filter",
       type: "LogsExclusionFilter",
       required: false,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class UserListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     users: {
@@ -35,7 +34,6 @@ export class UserListResponse {
       baseName: "users",
       type: "Array<User>",
       required: false,
-      format: "",
     },
   };
 

@@ -30,7 +30,6 @@ export class FormulaAndFunctionEventQueryGroupBySort {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -38,21 +37,18 @@ export class FormulaAndFunctionEventQueryGroupBySort {
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
       required: true,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     order: {
       name: "order",
       baseName: "order",
       type: "QuerySortOrder",
       required: false,
-      format: "",
     },
   };
 

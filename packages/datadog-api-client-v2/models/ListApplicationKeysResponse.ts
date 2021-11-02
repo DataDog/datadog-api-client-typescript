@@ -32,7 +32,6 @@ export class ListApplicationKeysResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -40,14 +39,12 @@ export class ListApplicationKeysResponse {
       baseName: "data",
       type: "Array<PartialApplicationKey>",
       required: false,
-      format: "",
     },
     included: {
       name: "included",
       baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
       required: false,
-      format: "",
     },
   };
 

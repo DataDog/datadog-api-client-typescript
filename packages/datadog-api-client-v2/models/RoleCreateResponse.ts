@@ -24,7 +24,6 @@ export class RoleCreateResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class RoleCreateResponse {
       baseName: "data",
       type: "RoleCreateResponseData",
       required: false,
-      format: "",
     },
   };
 

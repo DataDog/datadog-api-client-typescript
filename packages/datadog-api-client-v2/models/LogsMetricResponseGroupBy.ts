@@ -29,7 +29,6 @@ export class LogsMetricResponseGroupBy {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     path: {
@@ -37,14 +36,12 @@ export class LogsMetricResponseGroupBy {
       baseName: "path",
       type: "string",
       required: false,
-      format: "",
     },
     tagName: {
       name: "tagName",
       baseName: "tag_name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

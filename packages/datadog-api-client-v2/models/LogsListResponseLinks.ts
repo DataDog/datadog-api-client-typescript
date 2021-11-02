@@ -25,7 +25,6 @@ export class LogsListResponseLinks {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     next: {
@@ -33,7 +32,6 @@ export class LogsListResponseLinks {
       baseName: "next",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

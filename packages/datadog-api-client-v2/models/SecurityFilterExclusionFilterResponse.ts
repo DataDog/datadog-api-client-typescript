@@ -29,7 +29,6 @@ export class SecurityFilterExclusionFilterResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     name: {
@@ -37,14 +36,12 @@ export class SecurityFilterExclusionFilterResponse {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

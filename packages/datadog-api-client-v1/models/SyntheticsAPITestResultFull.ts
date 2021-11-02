@@ -44,7 +44,6 @@ export class SyntheticsAPITestResultFull {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     check: {
@@ -52,7 +51,6 @@ export class SyntheticsAPITestResultFull {
       baseName: "check",
       type: "SyntheticsAPITestResultFullCheck",
       required: false,
-      format: "",
     },
     checkTime: {
       name: "checkTime",
@@ -73,28 +71,24 @@ export class SyntheticsAPITestResultFull {
       baseName: "probe_dc",
       type: "string",
       required: false,
-      format: "",
     },
     result: {
       name: "result",
       baseName: "result",
       type: "SyntheticsAPITestResultData",
       required: false,
-      format: "",
     },
     resultId: {
       name: "resultId",
       baseName: "result_id",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "SyntheticsTestMonitorStatus",
       required: false,
-      format: "",
     },
   };
 

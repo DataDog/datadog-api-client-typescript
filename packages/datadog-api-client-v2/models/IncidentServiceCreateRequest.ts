@@ -24,7 +24,6 @@ export class IncidentServiceCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class IncidentServiceCreateRequest {
       baseName: "data",
       type: "IncidentServiceCreateData",
       required: true,
-      format: "",
     },
   };
 

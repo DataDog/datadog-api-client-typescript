@@ -84,7 +84,6 @@ export class DowntimeChild {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     active: {
@@ -92,7 +91,6 @@ export class DowntimeChild {
       baseName: "active",
       type: "boolean",
       required: false,
-      format: "",
     },
     canceled: {
       name: "canceled",
@@ -113,7 +111,6 @@ export class DowntimeChild {
       baseName: "disabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     downtimeType: {
       name: "downtimeType",
@@ -141,7 +138,6 @@ export class DowntimeChild {
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     monitorId: {
       name: "monitorId",
@@ -155,7 +151,6 @@ export class DowntimeChild {
       baseName: "monitor_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     parentId: {
       name: "parentId",
@@ -169,14 +164,12 @@ export class DowntimeChild {
       baseName: "recurrence",
       type: "DowntimeRecurrence",
       required: false,
-      format: "",
     },
     scope: {
       name: "scope",
       baseName: "scope",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     start: {
       name: "start",
@@ -190,7 +183,6 @@ export class DowntimeChild {
       baseName: "timezone",
       type: "string",
       required: false,
-      format: "",
     },
     updaterId: {
       name: "updaterId",

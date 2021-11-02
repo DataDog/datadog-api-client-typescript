@@ -37,7 +37,6 @@ export class NotebookCreateDataAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cells: {
@@ -45,35 +44,30 @@ export class NotebookCreateDataAttributes {
       baseName: "cells",
       type: "Array<NotebookCellCreateRequest>",
       required: true,
-      format: "",
     },
     metadata: {
       name: "metadata",
       baseName: "metadata",
       type: "NotebookMetadata",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "NotebookStatus",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "NotebookGlobalTime",
       required: true,
-      format: "",
     },
   };
 

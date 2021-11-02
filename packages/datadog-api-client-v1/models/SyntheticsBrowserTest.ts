@@ -59,7 +59,6 @@ export class SyntheticsBrowserTest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     config: {
@@ -67,21 +66,18 @@ export class SyntheticsBrowserTest {
       baseName: "config",
       type: "SyntheticsBrowserTestConfig",
       required: false,
-      format: "",
     },
     locations: {
       name: "locations",
       baseName: "locations",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: true,
-      format: "",
     },
     monitorId: {
       name: "monitorId",
@@ -95,49 +91,42 @@ export class SyntheticsBrowserTest {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "SyntheticsTestOptions",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
       required: false,
-      format: "",
     },
     steps: {
       name: "steps",
       baseName: "steps",
       type: "Array<SyntheticsStep>",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SyntheticsBrowserTestType",
       required: false,
-      format: "",
     },
   };
 

@@ -26,7 +26,6 @@ export class NotebookCellCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -34,14 +33,12 @@ export class NotebookCellCreateRequest {
       baseName: "attributes",
       type: "NotebookCellCreateRequestAttributes",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "NotebookCellResourceType",
       required: true,
-      format: "",
     },
   };
 

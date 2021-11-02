@@ -29,7 +29,6 @@ export class SyntheticsBasicAuth {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     password: {
@@ -37,14 +36,12 @@ export class SyntheticsBasicAuth {
       baseName: "password",
       type: "string",
       required: true,
-      format: "",
     },
     username: {
       name: "username",
       baseName: "username",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

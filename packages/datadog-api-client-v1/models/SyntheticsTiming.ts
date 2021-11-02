@@ -57,7 +57,6 @@ export class SyntheticsTiming {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dns: {

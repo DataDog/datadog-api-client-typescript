@@ -42,7 +42,6 @@ export class LogsArchiveDestinationAzure {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     container: {
@@ -50,42 +49,36 @@ export class LogsArchiveDestinationAzure {
       baseName: "container",
       type: "string",
       required: true,
-      format: "",
     },
     integration: {
       name: "integration",
       baseName: "integration",
       type: "LogsArchiveIntegrationAzure",
       required: true,
-      format: "",
     },
     path: {
       name: "path",
       baseName: "path",
       type: "string",
       required: false,
-      format: "",
     },
     region: {
       name: "region",
       baseName: "region",
       type: "string",
       required: false,
-      format: "",
     },
     storageAccount: {
       name: "storageAccount",
       baseName: "storage_account",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsArchiveDestinationAzureType",
       required: true,
-      format: "",
     },
   };
 

@@ -26,7 +26,6 @@ export class LogsMetricUpdateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -34,14 +33,12 @@ export class LogsMetricUpdateData {
       baseName: "attributes",
       type: "LogsMetricUpdateAttributes",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsMetricType",
       required: true,
-      format: "",
     },
   };
 

@@ -88,7 +88,6 @@ export class SyntheticsTestRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     allowInsecure: {
@@ -96,35 +95,30 @@ export class SyntheticsTestRequest {
       baseName: "allow_insecure",
       type: "boolean",
       required: false,
-      format: "",
     },
     basicAuth: {
       name: "basicAuth",
       baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
       required: false,
-      format: "",
     },
     body: {
       name: "body",
       baseName: "body",
       type: "string",
       required: false,
-      format: "",
     },
     certificate: {
       name: "certificate",
       baseName: "certificate",
       type: "SyntheticsTestRequestCertificate",
       required: false,
-      format: "",
     },
     dnsServer: {
       name: "dnsServer",
       baseName: "dnsServer",
       type: "string",
       required: false,
-      format: "",
     },
     dnsServerPort: {
       name: "dnsServerPort",
@@ -138,35 +132,30 @@ export class SyntheticsTestRequest {
       baseName: "follow_redirects",
       type: "boolean",
       required: false,
-      format: "",
     },
     headers: {
       name: "headers",
       baseName: "headers",
       type: "{ [key: string]: string; }",
       required: false,
-      format: "",
     },
     host: {
       name: "host",
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     method: {
       name: "method",
       baseName: "method",
       type: "HTTPMethod",
       required: false,
-      format: "",
     },
     noSavingResponseBody: {
       name: "noSavingResponseBody",
       baseName: "noSavingResponseBody",
       type: "boolean",
       required: false,
-      format: "",
     },
     numberOfPackets: {
       name: "numberOfPackets",
@@ -187,21 +176,18 @@ export class SyntheticsTestRequest {
       baseName: "query",
       type: "any",
       required: false,
-      format: "",
     },
     servername: {
       name: "servername",
       baseName: "servername",
       type: "string",
       required: false,
-      format: "",
     },
     shouldTrackHops: {
       name: "shouldTrackHops",
       baseName: "shouldTrackHops",
       type: "boolean",
       required: false,
-      format: "",
     },
     timeout: {
       name: "timeout",
@@ -215,7 +201,6 @@ export class SyntheticsTestRequest {
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

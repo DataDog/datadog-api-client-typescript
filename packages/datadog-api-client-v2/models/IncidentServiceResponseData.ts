@@ -32,7 +32,6 @@ export class IncidentServiceResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -40,28 +39,24 @@ export class IncidentServiceResponseData {
       baseName: "attributes",
       type: "IncidentServiceResponseAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "IncidentServiceRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "IncidentServiceType",
       required: true,
-      format: "",
     },
   };
 

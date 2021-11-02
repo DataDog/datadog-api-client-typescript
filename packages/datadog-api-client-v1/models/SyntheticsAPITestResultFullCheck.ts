@@ -24,7 +24,6 @@ export class SyntheticsAPITestResultFullCheck {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     config: {
@@ -32,7 +31,6 @@ export class SyntheticsAPITestResultFullCheck {
       baseName: "config",
       type: "SyntheticsTestConfig",
       required: true,
-      format: "",
     },
   };
 

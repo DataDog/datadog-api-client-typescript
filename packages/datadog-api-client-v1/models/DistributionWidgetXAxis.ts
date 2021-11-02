@@ -37,7 +37,6 @@ export class DistributionWidgetXAxis {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     includeZero: {
@@ -45,28 +44,24 @@ export class DistributionWidgetXAxis {
       baseName: "include_zero",
       type: "boolean",
       required: false,
-      format: "",
     },
     max: {
       name: "max",
       baseName: "max",
       type: "string",
       required: false,
-      format: "",
     },
     min: {
       name: "min",
       baseName: "min",
       type: "string",
       required: false,
-      format: "",
     },
     scale: {
       name: "scale",
       baseName: "scale",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

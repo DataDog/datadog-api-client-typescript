@@ -24,7 +24,6 @@ export class ResponseMetaAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {
@@ -32,7 +31,6 @@ export class ResponseMetaAttributes {
       baseName: "page",
       type: "Pagination",
       required: false,
-      format: "",
     },
   };
 

@@ -49,7 +49,6 @@ export class ApmStatsQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     columns: {
@@ -57,49 +56,42 @@ export class ApmStatsQueryDefinition {
       baseName: "columns",
       type: "Array<ApmStatsQueryColumnType>",
       required: false,
-      format: "",
     },
     env: {
       name: "env",
       baseName: "env",
       type: "string",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     primaryTag: {
       name: "primaryTag",
       baseName: "primary_tag",
       type: "string",
       required: true,
-      format: "",
     },
     resource: {
       name: "resource",
       baseName: "resource",
       type: "string",
       required: false,
-      format: "",
     },
     rowType: {
       name: "rowType",
       baseName: "row_type",
       type: "ApmStatsQueryRowType",
       required: true,
-      format: "",
     },
     service: {
       name: "service",
       baseName: "service",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

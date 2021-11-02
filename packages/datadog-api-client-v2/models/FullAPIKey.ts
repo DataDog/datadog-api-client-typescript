@@ -32,7 +32,6 @@ export class FullAPIKey {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -40,28 +39,24 @@ export class FullAPIKey {
       baseName: "attributes",
       type: "FullAPIKeyAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     relationships: {
       name: "relationships",
       baseName: "relationships",
       type: "APIKeyRelationships",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "APIKeysType",
       required: false,
-      format: "",
     },
   };
 

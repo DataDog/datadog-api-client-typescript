@@ -65,7 +65,6 @@ export class MonitorSearchResult {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     classification: {
@@ -73,14 +72,12 @@ export class MonitorSearchResult {
       baseName: "classification",
       type: "string",
       required: false,
-      format: "",
     },
     creator: {
       name: "creator",
       baseName: "creator",
       type: "Creator",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
@@ -101,21 +98,18 @@ export class MonitorSearchResult {
       baseName: "metrics",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     notifications: {
       name: "notifications",
       baseName: "notifications",
       type: "Array<MonitorSearchResultNotification>",
       required: false,
-      format: "",
     },
     orgId: {
       name: "orgId",
@@ -129,28 +123,24 @@ export class MonitorSearchResult {
       baseName: "scopes",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "MonitorType",
       required: false,
-      format: "",
     },
   };
 

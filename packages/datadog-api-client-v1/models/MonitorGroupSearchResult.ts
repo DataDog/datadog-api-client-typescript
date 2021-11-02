@@ -48,7 +48,6 @@ export class MonitorGroupSearchResult {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     group: {
@@ -56,14 +55,12 @@ export class MonitorGroupSearchResult {
       baseName: "group",
       type: "string",
       required: false,
-      format: "",
     },
     groupTags: {
       name: "groupTags",
       baseName: "group_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     lastNodataTs: {
       name: "lastNodataTs",
@@ -91,14 +88,12 @@ export class MonitorGroupSearchResult {
       baseName: "monitor_name",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
       required: false,
-      format: "",
     },
   };
 

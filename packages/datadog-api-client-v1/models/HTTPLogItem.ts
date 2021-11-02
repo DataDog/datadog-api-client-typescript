@@ -41,7 +41,6 @@ export class HTTPLogItem {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     ddsource: {
@@ -49,35 +48,30 @@ export class HTTPLogItem {
       baseName: "ddsource",
       type: "string",
       required: false,
-      format: "",
     },
     ddtags: {
       name: "ddtags",
       baseName: "ddtags",
       type: "string",
       required: false,
-      format: "",
     },
     hostname: {
       name: "hostname",
       baseName: "hostname",
       type: "string",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     service: {
       name: "service",
       baseName: "service",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

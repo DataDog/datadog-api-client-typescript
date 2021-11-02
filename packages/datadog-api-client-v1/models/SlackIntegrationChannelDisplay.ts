@@ -37,7 +37,6 @@ export class SlackIntegrationChannelDisplay {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     message: {
@@ -45,28 +44,24 @@ export class SlackIntegrationChannelDisplay {
       baseName: "message",
       type: "boolean",
       required: false,
-      format: "",
     },
     notified: {
       name: "notified",
       baseName: "notified",
       type: "boolean",
       required: false,
-      format: "",
     },
     snapshot: {
       name: "snapshot",
       baseName: "snapshot",
       type: "boolean",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

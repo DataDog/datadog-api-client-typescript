@@ -32,7 +32,6 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -40,7 +39,6 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
       required: true,
-      format: "",
     },
     interval: {
       name: "interval",
@@ -54,7 +52,6 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

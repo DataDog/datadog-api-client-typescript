@@ -29,7 +29,6 @@ export class UsageSyntheticsAPIHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     checkCallsCount: {

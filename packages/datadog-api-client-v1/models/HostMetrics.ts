@@ -33,7 +33,6 @@ export class HostMetrics {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cpu: {

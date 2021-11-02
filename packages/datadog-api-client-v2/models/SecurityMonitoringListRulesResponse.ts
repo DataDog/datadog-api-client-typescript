@@ -29,7 +29,6 @@ export class SecurityMonitoringListRulesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class SecurityMonitoringListRulesResponse {
       baseName: "data",
       type: "Array<SecurityMonitoringRuleResponse>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "ResponseMetaAttributes",
       required: false,
-      format: "",
     },
   };
 

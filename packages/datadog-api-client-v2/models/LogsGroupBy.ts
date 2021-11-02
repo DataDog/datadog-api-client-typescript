@@ -38,7 +38,6 @@ export class LogsGroupBy {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     facet: {
@@ -46,14 +45,12 @@ export class LogsGroupBy {
       baseName: "facet",
       type: "string",
       required: true,
-      format: "",
     },
     histogram: {
       name: "histogram",
       baseName: "histogram",
       type: "LogsGroupByHistogram",
       required: false,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -67,21 +64,18 @@ export class LogsGroupBy {
       baseName: "missing",
       type: "LogsGroupByMissing",
       required: false,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "LogsAggregateSort",
       required: false,
-      format: "",
     },
     total: {
       name: "total",
       baseName: "total",
       type: "LogsGroupByTotal",
       required: false,
-      format: "",
     },
   };
 

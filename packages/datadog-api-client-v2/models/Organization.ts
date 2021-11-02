@@ -30,7 +30,6 @@ export class Organization {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class Organization {
       baseName: "attributes",
       type: "OrganizationAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "OrganizationsType",
       required: true,
-      format: "",
     },
   };
 

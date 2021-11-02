@@ -24,7 +24,6 @@ export class LogsMetricCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class LogsMetricCreateRequest {
       baseName: "data",
       type: "LogsMetricCreateData",
       required: true,
-      format: "",
     },
   };
 

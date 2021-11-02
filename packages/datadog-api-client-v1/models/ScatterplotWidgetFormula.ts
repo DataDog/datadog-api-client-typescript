@@ -32,7 +32,6 @@ export class ScatterplotWidgetFormula {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     alias: {
@@ -40,21 +39,18 @@ export class ScatterplotWidgetFormula {
       baseName: "alias",
       type: "string",
       required: false,
-      format: "",
     },
     dimension: {
       name: "dimension",
       baseName: "dimension",
       type: "ScatterplotDimension",
       required: true,
-      format: "",
     },
     formula: {
       name: "formula",
       baseName: "formula",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

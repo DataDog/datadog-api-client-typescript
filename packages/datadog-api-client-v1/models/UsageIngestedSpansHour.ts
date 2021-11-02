@@ -29,7 +29,6 @@ export class UsageIngestedSpansHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hour: {

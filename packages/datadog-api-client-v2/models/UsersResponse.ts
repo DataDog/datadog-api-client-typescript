@@ -34,7 +34,6 @@ export class UsersResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -42,21 +41,18 @@ export class UsersResponse {
       baseName: "data",
       type: "Array<User>",
       required: false,
-      format: "",
     },
     included: {
       name: "included",
       baseName: "included",
       type: "Array<UserResponseIncludedItem>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "ResponseMetaAttributes",
       required: false,
-      format: "",
     },
   };
 

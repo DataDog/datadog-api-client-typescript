@@ -28,7 +28,6 @@ export class CheckCanDeleteSLOResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -36,14 +35,12 @@ export class CheckCanDeleteSLOResponse {
       baseName: "data",
       type: "CheckCanDeleteSLOResponseData",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "{ [key: string]: string; }",
       required: false,
-      format: "",
     },
   };
 

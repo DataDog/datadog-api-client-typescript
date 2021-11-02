@@ -25,7 +25,6 @@ export class IdpResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     message: {
@@ -33,7 +32,6 @@ export class IdpResponse {
       baseName: "message",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

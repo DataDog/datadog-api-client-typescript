@@ -53,7 +53,6 @@ export class ProcessSummaryAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cmdline: {
@@ -61,14 +60,12 @@ export class ProcessSummaryAttributes {
       baseName: "cmdline",
       type: "string",
       required: false,
-      format: "",
     },
     host: {
       name: "host",
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     pid: {
       name: "pid",
@@ -89,28 +86,24 @@ export class ProcessSummaryAttributes {
       baseName: "start",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     timestamp: {
       name: "timestamp",
       baseName: "timestamp",
       type: "string",
       required: false,
-      format: "",
     },
     user: {
       name: "user",
       baseName: "user",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

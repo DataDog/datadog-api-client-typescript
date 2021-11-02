@@ -30,7 +30,6 @@ export class LogsListRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filter: {
@@ -38,28 +37,24 @@ export class LogsListRequest {
       baseName: "filter",
       type: "LogsQueryFilter",
       required: false,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "LogsQueryOptions",
       required: false,
-      format: "",
     },
     page: {
       name: "page",
       baseName: "page",
       type: "LogsListRequestPage",
       required: false,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "LogsSort",
       required: false,
-      format: "",
     },
   };
 

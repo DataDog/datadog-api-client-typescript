@@ -33,7 +33,6 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     isSecret: {
@@ -41,21 +40,18 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
       baseName: "is_secret",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

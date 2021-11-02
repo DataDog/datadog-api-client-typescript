@@ -56,7 +56,6 @@ export class DashboardSummaryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     authorHandle: {
@@ -64,7 +63,6 @@ export class DashboardSummaryDefinition {
       baseName: "author_handle",
       type: "string",
       required: false,
-      format: "",
     },
     createdAt: {
       name: "createdAt",
@@ -78,28 +76,24 @@ export class DashboardSummaryDefinition {
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     isReadOnly: {
       name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
       required: false,
-      format: "",
     },
     layoutType: {
       name: "layoutType",
       baseName: "layout_type",
       type: "DashboardLayoutType",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -113,14 +107,12 @@ export class DashboardSummaryDefinition {
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

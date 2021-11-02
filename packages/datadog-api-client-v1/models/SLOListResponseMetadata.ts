@@ -24,7 +24,6 @@ export class SLOListResponseMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {
@@ -32,7 +31,6 @@ export class SLOListResponseMetadata {
       baseName: "page",
       type: "SLOListResponseMetadataPage",
       required: false,
-      format: "",
     },
   };
 

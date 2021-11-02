@@ -25,7 +25,6 @@ export class SyntheticsDeleteTestsPayload {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     publicIds: {
@@ -33,7 +32,6 @@ export class SyntheticsDeleteTestsPayload {
       baseName: "public_ids",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

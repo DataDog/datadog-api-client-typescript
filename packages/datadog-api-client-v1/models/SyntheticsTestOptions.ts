@@ -71,7 +71,6 @@ export class SyntheticsTestOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     acceptSelfSigned: {
@@ -79,35 +78,30 @@ export class SyntheticsTestOptions {
       baseName: "accept_self_signed",
       type: "boolean",
       required: false,
-      format: "",
     },
     allowInsecure: {
       name: "allowInsecure",
       baseName: "allow_insecure",
       type: "boolean",
       required: false,
-      format: "",
     },
     deviceIds: {
       name: "deviceIds",
       baseName: "device_ids",
       type: "Array<SyntheticsDeviceID>",
       required: false,
-      format: "",
     },
     disableCors: {
       name: "disableCors",
       baseName: "disableCors",
       type: "boolean",
       required: false,
-      format: "",
     },
     followRedirects: {
       name: "followRedirects",
       baseName: "follow_redirects",
       type: "boolean",
       required: false,
-      format: "",
     },
     minFailureDuration: {
       name: "minFailureDuration",
@@ -128,14 +122,12 @@ export class SyntheticsTestOptions {
       baseName: "monitor_name",
       type: "string",
       required: false,
-      format: "",
     },
     monitorOptions: {
       name: "monitorOptions",
       baseName: "monitor_options",
       type: "SyntheticsTestOptionsMonitorOptions",
       required: false,
-      format: "",
     },
     monitorPriority: {
       name: "monitorPriority",
@@ -149,14 +141,12 @@ export class SyntheticsTestOptions {
       baseName: "noScreenshot",
       type: "boolean",
       required: false,
-      format: "",
     },
     retry: {
       name: "retry",
       baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
       required: false,
-      format: "",
     },
     tickEvery: {
       name: "tickEvery",

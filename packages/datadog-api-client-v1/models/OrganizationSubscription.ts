@@ -25,7 +25,6 @@ export class OrganizationSubscription {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     type: {
@@ -33,7 +32,6 @@ export class OrganizationSubscription {
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

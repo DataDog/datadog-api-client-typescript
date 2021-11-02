@@ -30,7 +30,6 @@ export class WidgetRequestStyle {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     lineType: {
@@ -38,21 +37,18 @@ export class WidgetRequestStyle {
       baseName: "line_type",
       type: "WidgetLineType",
       required: false,
-      format: "",
     },
     lineWidth: {
       name: "lineWidth",
       baseName: "line_width",
       type: "WidgetLineWidth",
       required: false,
-      format: "",
     },
     palette: {
       name: "palette",
       baseName: "palette",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

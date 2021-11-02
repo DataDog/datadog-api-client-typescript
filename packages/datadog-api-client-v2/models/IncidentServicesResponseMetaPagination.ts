@@ -33,7 +33,6 @@ export class IncidentServicesResponseMetaPagination {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     nextOffset: {

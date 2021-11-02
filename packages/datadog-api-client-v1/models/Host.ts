@@ -74,7 +74,6 @@ export class Host {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aliases: {
@@ -82,28 +81,24 @@ export class Host {
       baseName: "aliases",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     apps: {
       name: "apps",
       baseName: "apps",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     awsName: {
       name: "awsName",
       baseName: "aws_name",
       type: "string",
       required: false,
-      format: "",
     },
     hostName: {
       name: "hostName",
       baseName: "host_name",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
@@ -117,7 +112,6 @@ export class Host {
       baseName: "is_muted",
       type: "boolean",
       required: false,
-      format: "",
     },
     lastReportedTime: {
       name: "lastReportedTime",
@@ -131,14 +125,12 @@ export class Host {
       baseName: "meta",
       type: "HostMeta",
       required: false,
-      format: "",
     },
     metrics: {
       name: "metrics",
       baseName: "metrics",
       type: "HostMetrics",
       required: false,
-      format: "",
     },
     muteTimeout: {
       name: "muteTimeout",
@@ -152,28 +144,24 @@ export class Host {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     sources: {
       name: "sources",
       baseName: "sources",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     tagsBySource: {
       name: "tagsBySource",
       baseName: "tags_by_source",
       type: "{ [key: string]: Array<string>; }",
       required: false,
-      format: "",
     },
     up: {
       name: "up",
       baseName: "up",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

@@ -49,7 +49,6 @@ export class UsageBillableSummaryBody {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountBillableUsage: {
@@ -99,7 +98,6 @@ export class UsageBillableSummaryBody {
       baseName: "usage_unit",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

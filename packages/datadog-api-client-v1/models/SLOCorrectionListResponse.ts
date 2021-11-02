@@ -29,7 +29,6 @@ export class SLOCorrectionListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class SLOCorrectionListResponse {
       baseName: "data",
       type: "Array<SLOCorrection>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "ResponseMetaAttributes",
       required: false,
-      format: "",
     },
   };
 

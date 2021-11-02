@@ -29,7 +29,6 @@ export class UsageTopAvgMetricsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     metadata: {
@@ -37,14 +36,12 @@ export class UsageTopAvgMetricsResponse {
       baseName: "metadata",
       type: "UsageTopAvgMetricsMetadata",
       required: false,
-      format: "",
     },
     usage: {
       name: "usage",
       baseName: "usage",
       type: "Array<UsageTopAvgMetricsHour>",
       required: false,
-      format: "",
     },
   };
 

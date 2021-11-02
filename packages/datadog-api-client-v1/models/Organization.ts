@@ -44,7 +44,6 @@ export class Organization {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     billing: {
@@ -52,49 +51,42 @@ export class Organization {
       baseName: "billing",
       type: "OrganizationBilling",
       required: false,
-      format: "",
     },
     created: {
       name: "created",
       baseName: "created",
       type: "string",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     settings: {
       name: "settings",
       baseName: "settings",
       type: "OrganizationSettings",
       required: false,
-      format: "",
     },
     subscription: {
       name: "subscription",
       baseName: "subscription",
       type: "OrganizationSubscription",
       required: false,
-      format: "",
     },
   };
 

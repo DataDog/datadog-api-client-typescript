@@ -24,7 +24,6 @@ export class IncidentCreateRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     commander: {
@@ -32,7 +31,6 @@ export class IncidentCreateRelationships {
       baseName: "commander",
       type: "RelationshipToUser",
       required: true,
-      format: "",
     },
   };
 

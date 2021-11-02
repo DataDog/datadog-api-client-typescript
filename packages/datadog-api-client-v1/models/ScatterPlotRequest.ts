@@ -38,7 +38,6 @@ export class ScatterPlotRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregator: {
@@ -46,70 +45,60 @@ export class ScatterPlotRequest {
       baseName: "aggregator",
       type: "ScatterplotWidgetAggregator",
       required: false,
-      format: "",
     },
     apmQuery: {
       name: "apmQuery",
       baseName: "apm_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     eventQuery: {
       name: "eventQuery",
       baseName: "event_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     logQuery: {
       name: "logQuery",
       baseName: "log_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     networkQuery: {
       name: "networkQuery",
       baseName: "network_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     processQuery: {
       name: "processQuery",
       baseName: "process_query",
       type: "ProcessQueryDefinition",
       required: false,
-      format: "",
     },
     profileMetricsQuery: {
       name: "profileMetricsQuery",
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     q: {
       name: "q",
       baseName: "q",
       type: "string",
       required: false,
-      format: "",
     },
     rumQuery: {
       name: "rumQuery",
       baseName: "rum_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
     securityQuery: {
       name: "securityQuery",
       baseName: "security_query",
       type: "LogQueryDefinition",
       required: false,
-      format: "",
     },
   };
 

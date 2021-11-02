@@ -33,7 +33,6 @@ export class UsageProfilingHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     avgContainerAgentCount: {

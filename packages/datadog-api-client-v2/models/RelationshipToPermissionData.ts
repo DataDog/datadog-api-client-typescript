@@ -28,7 +28,6 @@ export class RelationshipToPermissionData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -36,14 +35,12 @@ export class RelationshipToPermissionData {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "PermissionsType",
       required: false,
-      format: "",
     },
   };
 

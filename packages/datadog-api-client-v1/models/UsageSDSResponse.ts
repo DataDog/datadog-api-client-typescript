@@ -27,7 +27,6 @@ export class UsageSDSResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageSDSResponse {
       baseName: "usage",
       type: "Array<UsageSDSHour>",
       required: false,
-      format: "",
     },
   };
 

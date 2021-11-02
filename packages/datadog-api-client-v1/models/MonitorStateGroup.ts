@@ -44,7 +44,6 @@ export class MonitorStateGroup {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     lastNodataTs: {
@@ -80,14 +79,12 @@ export class MonitorStateGroup {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "MonitorOverallStates",
       required: false,
-      format: "",
     },
   };
 

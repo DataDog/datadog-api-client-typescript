@@ -36,7 +36,6 @@ export class SyntheticsBrowserError {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     description: {
@@ -44,14 +43,12 @@ export class SyntheticsBrowserError {
       baseName: "description",
       type: "string",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     status: {
       name: "status",
@@ -65,7 +62,6 @@ export class SyntheticsBrowserError {
       baseName: "type",
       type: "SyntheticsBrowserErrorType",
       required: true,
-      format: "",
     },
   };
 

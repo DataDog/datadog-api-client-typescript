@@ -24,7 +24,6 @@ export class SecurityMonitoringSignalsListResponseMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {
@@ -32,7 +31,6 @@ export class SecurityMonitoringSignalsListResponseMeta {
       baseName: "page",
       type: "SecurityMonitoringSignalsListResponseMetaPage",
       required: false,
-      format: "",
     },
   };
 

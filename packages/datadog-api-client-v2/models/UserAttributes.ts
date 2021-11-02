@@ -65,7 +65,6 @@ export class UserAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -80,28 +79,24 @@ export class UserAttributes {
       baseName: "disabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     email: {
       name: "email",
       baseName: "email",
       type: "string",
       required: false,
-      format: "",
     },
     handle: {
       name: "handle",
       baseName: "handle",
       type: "string",
       required: false,
-      format: "",
     },
     icon: {
       name: "icon",
       baseName: "icon",
       type: "string",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -115,35 +110,30 @@ export class UserAttributes {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     serviceAccount: {
       name: "serviceAccount",
       baseName: "service_account",
       type: "boolean",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     verified: {
       name: "verified",
       baseName: "verified",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

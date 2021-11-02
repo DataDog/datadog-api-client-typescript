@@ -31,7 +31,6 @@ export class EventListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     events: {
@@ -39,14 +38,12 @@ export class EventListResponse {
       baseName: "events",
       type: "Array<Event>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

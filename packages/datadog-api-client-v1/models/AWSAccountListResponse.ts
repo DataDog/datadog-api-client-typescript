@@ -27,7 +27,6 @@ export class AWSAccountListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accounts: {
@@ -35,7 +34,6 @@ export class AWSAccountListResponse {
       baseName: "accounts",
       type: "Array<AWSAccount>",
       required: false,
-      format: "",
     },
   };
 

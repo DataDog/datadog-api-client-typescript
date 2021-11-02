@@ -29,7 +29,6 @@ export class LogsExclusionFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     query: {
@@ -37,7 +36,6 @@ export class LogsExclusionFilter {
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     sampleRate: {
       name: "sampleRate",

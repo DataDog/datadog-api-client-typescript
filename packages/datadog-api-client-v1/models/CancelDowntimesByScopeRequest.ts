@@ -25,7 +25,6 @@ export class CancelDowntimesByScopeRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     scope: {
@@ -33,7 +32,6 @@ export class CancelDowntimesByScopeRequest {
       baseName: "scope",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

@@ -28,7 +28,6 @@ export class AWSTagFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     namespace: {
@@ -36,14 +35,12 @@ export class AWSTagFilter {
       baseName: "namespace",
       type: "AWSNamespace",
       required: false,
-      format: "",
     },
     tagFilterStr: {
       name: "tagFilterStr",
       baseName: "tag_filter_str",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

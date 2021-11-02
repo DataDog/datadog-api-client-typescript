@@ -47,7 +47,6 @@ export class AlertValueWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     alertId: {
@@ -55,7 +54,6 @@ export class AlertValueWidgetDefinition {
       baseName: "alert_id",
       type: "string",
       required: true,
-      format: "",
     },
     precision: {
       name: "precision",
@@ -69,42 +67,36 @@ export class AlertValueWidgetDefinition {
       baseName: "text_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "AlertValueWidgetDefinitionType",
       required: true,
-      format: "",
     },
     unit: {
       name: "unit",
       baseName: "unit",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

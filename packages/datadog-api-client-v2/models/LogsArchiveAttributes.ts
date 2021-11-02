@@ -42,7 +42,6 @@ export class LogsArchiveAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     destination: {
@@ -50,42 +49,36 @@ export class LogsArchiveAttributes {
       baseName: "destination",
       type: "LogsArchiveDestination",
       required: true,
-      format: "",
     },
     includeTags: {
       name: "includeTags",
       baseName: "include_tags",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
     rehydrationTags: {
       name: "rehydrationTags",
       baseName: "rehydration_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     state: {
       name: "state",
       baseName: "state",
       type: "LogsArchiveState",
       required: false,
-      format: "",
     },
   };
 

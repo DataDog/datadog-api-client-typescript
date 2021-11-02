@@ -25,7 +25,6 @@ export class CheckCanDeleteMonitorResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     ok: {

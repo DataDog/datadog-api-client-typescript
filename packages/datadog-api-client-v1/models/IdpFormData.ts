@@ -27,7 +27,6 @@ export class IdpFormData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     idpFile: {

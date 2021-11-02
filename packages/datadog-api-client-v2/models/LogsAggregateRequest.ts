@@ -38,7 +38,6 @@ export class LogsAggregateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     compute: {
@@ -46,35 +45,30 @@ export class LogsAggregateRequest {
       baseName: "compute",
       type: "Array<LogsCompute>",
       required: false,
-      format: "",
     },
     filter: {
       name: "filter",
       baseName: "filter",
       type: "LogsQueryFilter",
       required: false,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsGroupBy>",
       required: false,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "LogsQueryOptions",
       required: false,
-      format: "",
     },
     page: {
       name: "page",
       baseName: "page",
       type: "LogsAggregateRequestPage",
       required: false,
-      format: "",
     },
   };
 

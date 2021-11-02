@@ -28,7 +28,6 @@ export class IncidentFieldAttributesSingleValue {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     type: {
@@ -36,14 +35,12 @@ export class IncidentFieldAttributesSingleValue {
       baseName: "type",
       type: "IncidentFieldAttributesSingleValueType",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

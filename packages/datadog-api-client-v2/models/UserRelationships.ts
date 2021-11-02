@@ -24,7 +24,6 @@ export class UserRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     roles: {
@@ -32,7 +31,6 @@ export class UserRelationships {
       baseName: "roles",
       type: "RelationshipToRoles",
       required: false,
-      format: "",
     },
   };
 

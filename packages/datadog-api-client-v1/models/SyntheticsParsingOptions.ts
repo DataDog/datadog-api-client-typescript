@@ -34,7 +34,6 @@ export class SyntheticsParsingOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     field: {
@@ -42,28 +41,24 @@ export class SyntheticsParsingOptions {
       baseName: "field",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     parser: {
       name: "parser",
       baseName: "parser",
       type: "SyntheticsVariableParser",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SyntheticsGlobalVariableParseTestOptionsType",
       required: false,
-      format: "",
     },
   };
 

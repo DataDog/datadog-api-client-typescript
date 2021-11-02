@@ -76,7 +76,6 @@ export class Monitor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     created: {
@@ -91,7 +90,6 @@ export class Monitor {
       baseName: "creator",
       type: "Creator",
       required: false,
-      format: "",
     },
     deleted: {
       name: "deleted",
@@ -112,7 +110,6 @@ export class Monitor {
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     modified: {
       name: "modified",
@@ -126,28 +123,24 @@ export class Monitor {
       baseName: "multi",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "MonitorOptions",
       required: false,
-      format: "",
     },
     overallState: {
       name: "overallState",
       baseName: "overall_state",
       type: "MonitorOverallStates",
       required: false,
-      format: "",
     },
     priority: {
       name: "priority",
@@ -161,35 +154,30 @@ export class Monitor {
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
     restrictedRoles: {
       name: "restrictedRoles",
       baseName: "restricted_roles",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     state: {
       name: "state",
       baseName: "state",
       type: "MonitorState",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "MonitorType",
       required: true,
-      format: "",
     },
   };
 

@@ -25,7 +25,6 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     key: {
@@ -33,7 +32,6 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
       baseName: "key",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

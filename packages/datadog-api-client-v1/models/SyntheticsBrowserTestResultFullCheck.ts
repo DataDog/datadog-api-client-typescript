@@ -24,7 +24,6 @@ export class SyntheticsBrowserTestResultFullCheck {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     config: {
@@ -32,7 +31,6 @@ export class SyntheticsBrowserTestResultFullCheck {
       baseName: "config",
       type: "SyntheticsTestConfig",
       required: true,
-      format: "",
     },
   };
 

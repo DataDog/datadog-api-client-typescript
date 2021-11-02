@@ -29,7 +29,6 @@ export class NotebookSplitBy {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     keys: {
@@ -37,14 +36,12 @@ export class NotebookSplitBy {
       baseName: "keys",
       type: "Array<string>",
       required: true,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

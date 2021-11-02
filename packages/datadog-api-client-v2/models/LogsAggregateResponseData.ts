@@ -27,7 +27,6 @@ export class LogsAggregateResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     buckets: {
@@ -35,7 +34,6 @@ export class LogsAggregateResponseData {
       baseName: "buckets",
       type: "Array<LogsAggregateBucket>",
       required: false,
-      format: "",
     },
   };
 

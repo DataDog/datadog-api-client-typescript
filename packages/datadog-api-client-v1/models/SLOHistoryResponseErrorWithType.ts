@@ -29,7 +29,6 @@ export class SLOHistoryResponseErrorWithType {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     errorMessage: {
@@ -37,14 +36,12 @@ export class SLOHistoryResponseErrorWithType {
       baseName: "error_message",
       type: "string",
       required: true,
-      format: "",
     },
     errorType: {
       name: "errorType",
       baseName: "error_type",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

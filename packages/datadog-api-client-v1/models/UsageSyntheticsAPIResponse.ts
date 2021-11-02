@@ -27,7 +27,6 @@ export class UsageSyntheticsAPIResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageSyntheticsAPIResponse {
       baseName: "usage",
       type: "Array<UsageSyntheticsAPIHour>",
       required: false,
-      format: "",
     },
   };
 

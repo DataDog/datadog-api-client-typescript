@@ -40,7 +40,6 @@ export class WebhooksIntegration {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customHeaders: {
@@ -48,35 +47,30 @@ export class WebhooksIntegration {
       baseName: "custom_headers",
       type: "string",
       required: false,
-      format: "",
     },
     encodeAs: {
       name: "encodeAs",
       baseName: "encode_as",
       type: "WebhooksIntegrationEncoding",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     payload: {
       name: "payload",
       baseName: "payload",
       type: "string",
       required: false,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

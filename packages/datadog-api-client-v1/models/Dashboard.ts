@@ -81,7 +81,6 @@ export class Dashboard {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     authorHandle: {
@@ -89,7 +88,6 @@ export class Dashboard {
       baseName: "author_handle",
       type: "string",
       required: false,
-      format: "",
     },
     createdAt: {
       name: "createdAt",
@@ -103,28 +101,24 @@ export class Dashboard {
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     isReadOnly: {
       name: "isReadOnly",
       baseName: "is_read_only",
       type: "boolean",
       required: false,
-      format: "",
     },
     layoutType: {
       name: "layoutType",
       baseName: "layout_type",
       type: "DashboardLayoutType",
       required: true,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -138,56 +132,48 @@ export class Dashboard {
       baseName: "notify_list",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     reflowType: {
       name: "reflowType",
       baseName: "reflow_type",
       type: "DashboardReflowType",
       required: false,
-      format: "",
     },
     restrictedRoles: {
       name: "restrictedRoles",
       baseName: "restricted_roles",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     templateVariablePresets: {
       name: "templateVariablePresets",
       baseName: "template_variable_presets",
       type: "Array<DashboardTemplateVariablePreset>",
       required: false,
-      format: "",
     },
     templateVariables: {
       name: "templateVariables",
       baseName: "template_variables",
       type: "Array<DashboardTemplateVariable>",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: true,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
     widgets: {
       name: "widgets",
       baseName: "widgets",
       type: "Array<Widget>",
       required: true,
-      format: "",
     },
   };
 

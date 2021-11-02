@@ -27,7 +27,6 @@ export class UsageLogsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageLogsResponse {
       baseName: "usage",
       type: "Array<UsageLogsHour>",
       required: false,
-      format: "",
     },
   };
 

@@ -31,7 +31,6 @@ export class AWSLogsAsyncResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     errors: {
@@ -39,14 +38,12 @@ export class AWSLogsAsyncResponse {
       baseName: "errors",
       type: "Array<AWSLogsAsyncError>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

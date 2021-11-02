@@ -245,7 +245,6 @@ export class UsageSummaryResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agentHostTop99pSum: {
@@ -491,7 +490,6 @@ export class UsageSummaryResponse {
       baseName: "logs_by_retention",
       type: "LogsByRetention",
       required: false,
-      format: "",
     },
     mobileRumSessionCountAggSum: {
       name: "mobileRumSessionCountAggSum",
@@ -631,7 +629,6 @@ export class UsageSummaryResponse {
       baseName: "usage",
       type: "Array<UsageSummaryDate>",
       required: false,
-      format: "",
     },
     vsphereHostTop99pSum: {
       name: "vsphereHostTop99pSum",

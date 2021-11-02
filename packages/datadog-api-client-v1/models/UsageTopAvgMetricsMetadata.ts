@@ -32,7 +32,6 @@ export class UsageTopAvgMetricsMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     day: {
@@ -54,7 +53,6 @@ export class UsageTopAvgMetricsMetadata {
       baseName: "pagination",
       type: "UsageAttributionPagination",
       required: false,
-      format: "",
     },
   };
 

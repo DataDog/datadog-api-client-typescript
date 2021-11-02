@@ -42,7 +42,6 @@ export class LogsListRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     index: {
@@ -50,7 +49,6 @@ export class LogsListRequest {
       baseName: "index",
       type: "string",
       required: false,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -64,28 +62,24 @@ export class LogsListRequest {
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "LogsSort",
       required: false,
-      format: "",
     },
     startAt: {
       name: "startAt",
       baseName: "startAt",
       type: "string",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "LogsListRequestTime",
       required: true,
-      format: "",
     },
   };
 

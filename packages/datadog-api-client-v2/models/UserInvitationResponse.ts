@@ -24,7 +24,6 @@ export class UserInvitationResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class UserInvitationResponse {
       baseName: "data",
       type: "UserInvitationResponseData",
       required: false,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class AWSTagFilterListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filters: {
@@ -35,7 +34,6 @@ export class AWSTagFilterListResponse {
       baseName: "filters",
       type: "Array<AWSTagFilter>",
       required: false,
-      format: "",
     },
   };
 

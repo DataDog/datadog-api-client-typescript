@@ -33,7 +33,6 @@ export class GraphSnapshot {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     graphDef: {
@@ -41,21 +40,18 @@ export class GraphSnapshot {
       baseName: "graph_def",
       type: "string",
       required: false,
-      format: "",
     },
     metricQuery: {
       name: "metricQuery",
       baseName: "metric_query",
       type: "string",
       required: false,
-      format: "",
     },
     snapshotUrl: {
       name: "snapshotUrl",
       baseName: "snapshot_url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -24,7 +24,6 @@ export class ProcessSummariesMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {
@@ -32,7 +31,6 @@ export class ProcessSummariesMeta {
       baseName: "page",
       type: "ProcessSummariesMetaPage",
       required: false,
-      format: "",
     },
   };
 

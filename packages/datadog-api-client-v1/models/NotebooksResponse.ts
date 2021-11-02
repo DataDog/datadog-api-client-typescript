@@ -29,7 +29,6 @@ export class NotebooksResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class NotebooksResponse {
       baseName: "data",
       type: "Array<NotebooksResponseData>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "NotebooksResponseMeta",
       required: false,
-      format: "",
     },
   };
 

@@ -33,7 +33,6 @@ export class ApplicationKey {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hash: {
@@ -41,21 +40,18 @@ export class ApplicationKey {
       baseName: "hash",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     owner: {
       name: "owner",
       baseName: "owner",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

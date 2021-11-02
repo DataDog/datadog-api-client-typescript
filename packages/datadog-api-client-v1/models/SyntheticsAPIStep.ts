@@ -48,7 +48,6 @@ export class SyntheticsAPIStep {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     allowFailure: {
@@ -56,49 +55,42 @@ export class SyntheticsAPIStep {
       baseName: "allowFailure",
       type: "boolean",
       required: false,
-      format: "",
     },
     assertions: {
       name: "assertions",
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
       required: false,
-      format: "",
     },
     extractedValues: {
       name: "extractedValues",
       baseName: "extractedValues",
       type: "Array<SyntheticsParsingOptions>",
       required: false,
-      format: "",
     },
     isCritical: {
       name: "isCritical",
       baseName: "isCritical",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     request: {
       name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
       required: false,
-      format: "",
     },
     subtype: {
       name: "subtype",
       baseName: "subtype",
       type: "SyntheticsAPIStepSubtype",
       required: false,
-      format: "",
     },
   };
 

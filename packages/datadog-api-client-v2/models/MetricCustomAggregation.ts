@@ -26,7 +26,6 @@ export class MetricCustomAggregation {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     space: {
@@ -34,14 +33,12 @@ export class MetricCustomAggregation {
       baseName: "space",
       type: "MetricCustomSpaceAggregation",
       required: true,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "MetricCustomTimeAggregation",
       required: true,
-      format: "",
     },
   };
 

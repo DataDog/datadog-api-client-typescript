@@ -30,7 +30,6 @@ export class NotebookCellResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class NotebookCellResponse {
       baseName: "attributes",
       type: "NotebookCellResponseAttributes",
       required: true,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "NotebookCellResourceType",
       required: true,
-      format: "",
     },
   };
 

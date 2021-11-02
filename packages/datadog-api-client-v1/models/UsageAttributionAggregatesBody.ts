@@ -33,7 +33,6 @@ export class UsageAttributionAggregatesBody {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggType: {
@@ -41,14 +40,12 @@ export class UsageAttributionAggregatesBody {
       baseName: "agg_type",
       type: "string",
       required: false,
-      format: "",
     },
     field: {
       name: "field",
       baseName: "field",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",

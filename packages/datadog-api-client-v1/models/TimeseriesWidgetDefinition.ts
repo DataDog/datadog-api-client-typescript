@@ -74,7 +74,6 @@ export class TimeseriesWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customLinks: {
@@ -82,105 +81,90 @@ export class TimeseriesWidgetDefinition {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
       required: false,
-      format: "",
     },
     events: {
       name: "events",
       baseName: "events",
       type: "Array<WidgetEvent>",
       required: false,
-      format: "",
     },
     legendColumns: {
       name: "legendColumns",
       baseName: "legend_columns",
       type: "Array<TimeseriesWidgetLegendColumn>",
       required: false,
-      format: "",
     },
     legendLayout: {
       name: "legendLayout",
       baseName: "legend_layout",
       type: "TimeseriesWidgetLegendLayout",
       required: false,
-      format: "",
     },
     legendSize: {
       name: "legendSize",
       baseName: "legend_size",
       type: "string",
       required: false,
-      format: "",
     },
     markers: {
       name: "markers",
       baseName: "markers",
       type: "Array<WidgetMarker>",
       required: false,
-      format: "",
     },
     requests: {
       name: "requests",
       baseName: "requests",
       type: "Array<TimeseriesWidgetRequest>",
       required: true,
-      format: "",
     },
     rightYaxis: {
       name: "rightYaxis",
       baseName: "right_yaxis",
       type: "WidgetAxis",
       required: false,
-      format: "",
     },
     showLegend: {
       name: "showLegend",
       baseName: "show_legend",
       type: "boolean",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "TimeseriesWidgetDefinitionType",
       required: true,
-      format: "",
     },
     yaxis: {
       name: "yaxis",
       baseName: "yaxis",
       type: "WidgetAxis",
       required: false,
-      format: "",
     },
   };
 

@@ -35,7 +35,6 @@ export class MetricTagConfigurationUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregations: {
@@ -43,21 +42,18 @@ export class MetricTagConfigurationUpdateAttributes {
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
       required: false,
-      format: "",
     },
     includePercentiles: {
       name: "includePercentiles",
       baseName: "include_percentiles",
       type: "boolean",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

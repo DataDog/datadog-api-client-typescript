@@ -24,7 +24,6 @@ export class NotebookMarkdownCellAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     definition: {
@@ -32,7 +31,6 @@ export class NotebookMarkdownCellAttributes {
       baseName: "definition",
       type: "NotebookMarkdownCellDefinition",
       required: true,
-      format: "",
     },
   };
 

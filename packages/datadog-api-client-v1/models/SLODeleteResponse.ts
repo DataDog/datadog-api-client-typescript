@@ -29,7 +29,6 @@ export class SLODeleteResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class SLODeleteResponse {
       baseName: "data",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "{ [key: string]: string; }",
       required: false,
-      format: "",
     },
   };
 

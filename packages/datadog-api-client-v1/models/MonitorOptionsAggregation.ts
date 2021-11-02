@@ -33,7 +33,6 @@ export class MonitorOptionsAggregation {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     groupBy: {
@@ -41,21 +40,18 @@ export class MonitorOptionsAggregation {
       baseName: "group_by",
       type: "string",
       required: false,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -35,7 +35,6 @@ export class AWSLogsListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountId: {
@@ -43,21 +42,18 @@ export class AWSLogsListResponse {
       baseName: "account_id",
       type: "string",
       required: false,
-      format: "",
     },
     lambdas: {
       name: "lambdas",
       baseName: "lambdas",
       type: "Array<AWSLogsLambda>",
       required: false,
-      format: "",
     },
     services: {
       name: "services",
       baseName: "services",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

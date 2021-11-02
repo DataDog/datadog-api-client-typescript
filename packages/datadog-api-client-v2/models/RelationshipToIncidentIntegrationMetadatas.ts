@@ -27,7 +27,6 @@ export class RelationshipToIncidentIntegrationMetadatas {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -35,7 +34,6 @@ export class RelationshipToIncidentIntegrationMetadatas {
       baseName: "data",
       type: "Array<RelationshipToIncidentIntegrationMetadataData>",
       required: true,
-      format: "",
     },
   };
 

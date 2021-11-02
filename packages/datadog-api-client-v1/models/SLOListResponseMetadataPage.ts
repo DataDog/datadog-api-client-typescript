@@ -29,7 +29,6 @@ export class SLOListResponseMetadataPage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     totalCount: {

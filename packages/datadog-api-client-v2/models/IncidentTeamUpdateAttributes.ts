@@ -25,7 +25,6 @@ export class IncidentTeamUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     name: {
@@ -33,7 +32,6 @@ export class IncidentTeamUpdateAttributes {
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

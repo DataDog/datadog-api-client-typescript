@@ -45,7 +45,6 @@ export class SyntheticsSSLCertificateIssuer {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     C: {
@@ -53,42 +52,36 @@ export class SyntheticsSSLCertificateIssuer {
       baseName: "C",
       type: "string",
       required: false,
-      format: "",
     },
     CN: {
       name: "CN",
       baseName: "CN",
       type: "string",
       required: false,
-      format: "",
     },
     L: {
       name: "L",
       baseName: "L",
       type: "string",
       required: false,
-      format: "",
     },
     O: {
       name: "O",
       baseName: "O",
       type: "string",
       required: false,
-      format: "",
     },
     OU: {
       name: "OU",
       baseName: "OU",
       type: "string",
       required: false,
-      format: "",
     },
     ST: {
       name: "ST",
       baseName: "ST",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

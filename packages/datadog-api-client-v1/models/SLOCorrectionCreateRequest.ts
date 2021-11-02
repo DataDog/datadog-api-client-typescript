@@ -24,7 +24,6 @@ export class SLOCorrectionCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class SLOCorrectionCreateRequest {
       baseName: "data",
       type: "SLOCorrectionCreateData",
       required: false,
-      format: "",
     },
   };
 

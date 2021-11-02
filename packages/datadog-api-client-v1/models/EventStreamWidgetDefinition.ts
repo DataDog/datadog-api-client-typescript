@@ -46,7 +46,6 @@ export class EventStreamWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     eventSize: {
@@ -54,56 +53,48 @@ export class EventStreamWidgetDefinition {
       baseName: "event_size",
       type: "WidgetEventSize",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
     tagsExecution: {
       name: "tagsExecution",
       baseName: "tags_execution",
       type: "string",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "EventStreamWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

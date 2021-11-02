@@ -28,7 +28,6 @@ export class SecurityMonitoringSignalListRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filter: {
@@ -36,21 +35,18 @@ export class SecurityMonitoringSignalListRequest {
       baseName: "filter",
       type: "SecurityMonitoringSignalListRequestFilter",
       required: false,
-      format: "",
     },
     page: {
       name: "page",
       baseName: "page",
       type: "SecurityMonitoringSignalListRequestPage",
       required: false,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "SecurityMonitoringSignalsSort",
       required: false,
-      format: "",
     },
   };
 

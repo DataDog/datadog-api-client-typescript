@@ -26,7 +26,6 @@ export class SecurityFilterUpdateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -34,14 +33,12 @@ export class SecurityFilterUpdateData {
       baseName: "attributes",
       type: "SecurityFilterUpdateAttributes",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SecurityFilterType",
       required: true,
-      format: "",
     },
   };
 

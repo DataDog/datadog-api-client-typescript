@@ -25,7 +25,6 @@ export class DashboardDeleteResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     deletedDashboardId: {
@@ -33,7 +32,6 @@ export class DashboardDeleteResponse {
       baseName: "deleted_dashboard_id",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -71,7 +71,6 @@ export class SLOHistoryMonitor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     errorBudgetRemaining: {
@@ -86,14 +85,12 @@ export class SLOHistoryMonitor {
       baseName: "errors",
       type: "Array<SLOHistoryResponseErrorWithType>",
       required: false,
-      format: "",
     },
     group: {
       name: "group",
       baseName: "group",
       type: "string",
       required: false,
-      format: "",
     },
     history: {
       name: "history",
@@ -114,14 +111,12 @@ export class SLOHistoryMonitor {
       baseName: "monitor_type",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     precision: {
       name: "precision",
@@ -135,7 +130,6 @@ export class SLOHistoryMonitor {
       baseName: "preview",
       type: "boolean",
       required: false,
-      format: "",
     },
     sliValue: {
       name: "sliValue",

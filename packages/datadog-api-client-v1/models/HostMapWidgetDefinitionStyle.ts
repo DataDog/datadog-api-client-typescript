@@ -37,7 +37,6 @@ export class HostMapWidgetDefinitionStyle {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     fillMax: {
@@ -45,28 +44,24 @@ export class HostMapWidgetDefinitionStyle {
       baseName: "fill_max",
       type: "string",
       required: false,
-      format: "",
     },
     fillMin: {
       name: "fillMin",
       baseName: "fill_min",
       type: "string",
       required: false,
-      format: "",
     },
     palette: {
       name: "palette",
       baseName: "palette",
       type: "string",
       required: false,
-      format: "",
     },
     paletteFlip: {
       name: "paletteFlip",
       baseName: "palette_flip",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

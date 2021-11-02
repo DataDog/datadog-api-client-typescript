@@ -31,7 +31,6 @@ export class SyntheticsBatchDetailsData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     metadata: {
@@ -39,21 +38,18 @@ export class SyntheticsBatchDetailsData {
       baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
       required: false,
-      format: "",
     },
     results: {
       name: "results",
       baseName: "results",
       type: "Array<SyntheticsBatchResult>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "SyntheticsStatus",
       required: false,
-      format: "",
     },
   };
 

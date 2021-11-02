@@ -37,7 +37,6 @@ export class MonitorSearchResponseMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     page: {

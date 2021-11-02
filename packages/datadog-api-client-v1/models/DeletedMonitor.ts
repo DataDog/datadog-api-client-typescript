@@ -25,7 +25,6 @@ export class DeletedMonitor {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     deletedMonitorId: {

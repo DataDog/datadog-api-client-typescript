@@ -29,7 +29,6 @@ export class SLOBulkDeleteResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class SLOBulkDeleteResponse {
       baseName: "data",
       type: "SLOBulkDeleteResponseData",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "Array<SLOBulkDeleteError>",
       required: false,
-      format: "",
     },
   };
 

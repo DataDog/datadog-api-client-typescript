@@ -65,7 +65,6 @@ export class AWSAccount {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accessKeyId: {
@@ -73,77 +72,66 @@ export class AWSAccount {
       baseName: "access_key_id",
       type: "string",
       required: false,
-      format: "",
     },
     accountId: {
       name: "accountId",
       baseName: "account_id",
       type: "string",
       required: false,
-      format: "",
     },
     accountSpecificNamespaceRules: {
       name: "accountSpecificNamespaceRules",
       baseName: "account_specific_namespace_rules",
       type: "{ [key: string]: boolean; }",
       required: false,
-      format: "",
     },
     cspmResourceCollectionEnabled: {
       name: "cspmResourceCollectionEnabled",
       baseName: "cspm_resource_collection_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     excludedRegions: {
       name: "excludedRegions",
       baseName: "excluded_regions",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     filterTags: {
       name: "filterTags",
       baseName: "filter_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     hostTags: {
       name: "hostTags",
       baseName: "host_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     metricsCollectionEnabled: {
       name: "metricsCollectionEnabled",
       baseName: "metrics_collection_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     resourceCollectionEnabled: {
       name: "resourceCollectionEnabled",
       baseName: "resource_collection_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     roleName: {
       name: "roleName",
       baseName: "role_name",
       type: "string",
       required: false,
-      format: "",
     },
     secretAccessKey: {
       name: "secretAccessKey",
       baseName: "secret_access_key",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

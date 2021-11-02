@@ -30,7 +30,6 @@ export class OrganizationCreateBody {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     billing: {
@@ -38,21 +37,18 @@ export class OrganizationCreateBody {
       baseName: "billing",
       type: "OrganizationBilling",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     subscription: {
       name: "subscription",
       baseName: "subscription",
       type: "OrganizationSubscription",
       required: false,
-      format: "",
     },
   };
 

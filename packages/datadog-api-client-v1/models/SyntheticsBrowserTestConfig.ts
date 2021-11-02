@@ -43,7 +43,6 @@ export class SyntheticsBrowserTestConfig {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     assertions: {
@@ -51,35 +50,30 @@ export class SyntheticsBrowserTestConfig {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
       required: true,
-      format: "",
     },
     configVariables: {
       name: "configVariables",
       baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
       required: false,
-      format: "",
     },
     request: {
       name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
       required: true,
-      format: "",
     },
     setCookie: {
       name: "setCookie",
       baseName: "setCookie",
       type: "string",
       required: false,
-      format: "",
     },
     variables: {
       name: "variables",
       baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
       required: false,
-      format: "",
     },
   };
 

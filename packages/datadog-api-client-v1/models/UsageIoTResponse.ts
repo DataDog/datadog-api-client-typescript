@@ -27,7 +27,6 @@ export class UsageIoTResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageIoTResponse {
       baseName: "usage",
       type: "Array<UsageIoTHour>",
       required: false,
-      format: "",
     },
   };
 

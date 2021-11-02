@@ -27,7 +27,6 @@ export class ApiKeyListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     apiKeys: {
@@ -35,7 +34,6 @@ export class ApiKeyListResponse {
       baseName: "api_keys",
       type: "Array<ApiKey>",
       required: false,
-      format: "",
     },
   };
 

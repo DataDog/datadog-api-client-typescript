@@ -25,7 +25,6 @@ export class LogsArchiveOrderAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     archiveIds: {
@@ -33,7 +32,6 @@ export class LogsArchiveOrderAttributes {
       baseName: "archive_ids",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

@@ -32,7 +32,6 @@ export class NotebookMetadata {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     isTemplate: {
@@ -40,21 +39,18 @@ export class NotebookMetadata {
       baseName: "is_template",
       type: "boolean",
       required: false,
-      format: "",
     },
     takeSnapshots: {
       name: "takeSnapshots",
       baseName: "take_snapshots",
       type: "boolean",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "NotebookMetadataType",
       required: false,
-      format: "",
     },
   };
 

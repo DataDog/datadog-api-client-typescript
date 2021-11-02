@@ -25,7 +25,6 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     query: {
@@ -33,7 +32,6 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

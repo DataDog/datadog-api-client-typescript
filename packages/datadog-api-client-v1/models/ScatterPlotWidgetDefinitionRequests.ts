@@ -27,7 +27,6 @@ export class ScatterPlotWidgetDefinitionRequests {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     table: {
@@ -35,21 +34,18 @@ export class ScatterPlotWidgetDefinitionRequests {
       baseName: "table",
       type: "ScatterplotTableRequest",
       required: false,
-      format: "",
     },
     x: {
       name: "x",
       baseName: "x",
       type: "ScatterPlotRequest",
       required: false,
-      format: "",
     },
     y: {
       name: "y",
       baseName: "y",
       type: "ScatterPlotRequest",
       required: false,
-      format: "",
     },
   };
 

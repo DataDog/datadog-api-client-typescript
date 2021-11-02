@@ -29,7 +29,6 @@ export class UsageFargateHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hour: {

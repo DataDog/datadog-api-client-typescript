@@ -35,7 +35,6 @@ export class HostListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hostList: {
@@ -43,7 +42,6 @@ export class HostListResponse {
       baseName: "host_list",
       type: "Array<Host>",
       required: false,
-      format: "",
     },
     totalMatching: {
       name: "totalMatching",

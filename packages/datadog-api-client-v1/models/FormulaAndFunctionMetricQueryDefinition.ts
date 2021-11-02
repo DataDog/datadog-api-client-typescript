@@ -34,7 +34,6 @@ export class FormulaAndFunctionMetricQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregator: {
@@ -42,28 +41,24 @@ export class FormulaAndFunctionMetricQueryDefinition {
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
       required: false,
-      format: "",
     },
     dataSource: {
       name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionMetricDataSource",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

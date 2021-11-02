@@ -33,7 +33,6 @@ export class RoleUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -55,7 +54,6 @@ export class RoleUpdateAttributes {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

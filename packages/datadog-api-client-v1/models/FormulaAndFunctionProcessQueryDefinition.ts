@@ -52,7 +52,6 @@ export class FormulaAndFunctionProcessQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregator: {
@@ -60,21 +59,18 @@ export class FormulaAndFunctionProcessQueryDefinition {
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
       required: false,
-      format: "",
     },
     dataSource: {
       name: "dataSource",
       baseName: "data_source",
       type: "FormulaAndFunctionProcessQueryDataSource",
       required: true,
-      format: "",
     },
     isNormalizedCpu: {
       name: "isNormalizedCpu",
       baseName: "is_normalized_cpu",
       type: "boolean",
       required: false,
-      format: "",
     },
     limit: {
       name: "limit",
@@ -88,35 +84,30 @@ export class FormulaAndFunctionProcessQueryDefinition {
       baseName: "metric",
       type: "string",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "QuerySortOrder",
       required: false,
-      format: "",
     },
     tagFilters: {
       name: "tagFilters",
       baseName: "tag_filters",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     textFilter: {
       name: "textFilter",
       baseName: "text_filter",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

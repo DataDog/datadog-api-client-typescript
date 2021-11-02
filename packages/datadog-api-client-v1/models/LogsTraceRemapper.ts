@@ -36,7 +36,6 @@ export class LogsTraceRemapper {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     isEnabled: {
@@ -44,28 +43,24 @@ export class LogsTraceRemapper {
       baseName: "is_enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     sources: {
       name: "sources",
       baseName: "sources",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsTraceRemapperType",
       required: true,
-      format: "",
     },
   };
 

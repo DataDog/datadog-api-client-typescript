@@ -33,7 +33,6 @@ export class NotebookAbsoluteTime {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     end: {
@@ -48,7 +47,6 @@ export class NotebookAbsoluteTime {
       baseName: "live",
       type: "boolean",
       required: false,
-      format: "",
     },
     start: {
       name: "start",

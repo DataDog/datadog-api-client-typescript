@@ -29,7 +29,6 @@ export class SLOHistoryResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class SLOHistoryResponse {
       baseName: "data",
       type: "SLOHistoryResponseData",
       required: false,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "Array<SLOHistoryResponseError>",
       required: false,
-      format: "",
     },
   };
 

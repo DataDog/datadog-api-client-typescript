@@ -29,7 +29,6 @@ export class SecurityMonitoringSignalListRequestPage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cursor: {
@@ -37,7 +36,6 @@ export class SecurityMonitoringSignalListRequestPage {
       baseName: "cursor",
       type: "string",
       required: false,
-      format: "",
     },
     limit: {
       name: "limit",

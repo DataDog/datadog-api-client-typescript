@@ -29,7 +29,6 @@ export class LogsQueryOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     timeOffset: {
@@ -44,7 +43,6 @@ export class LogsQueryOptions {
       baseName: "timezone",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

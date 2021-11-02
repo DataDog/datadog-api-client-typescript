@@ -24,7 +24,6 @@ export class LogsMetricUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class LogsMetricUpdateRequest {
       baseName: "data",
       type: "LogsMetricUpdateData",
       required: true,
-      format: "",
     },
   };
 

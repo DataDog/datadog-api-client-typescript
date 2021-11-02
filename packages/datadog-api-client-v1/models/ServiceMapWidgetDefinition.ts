@@ -47,7 +47,6 @@ export class ServiceMapWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customLinks: {
@@ -55,49 +54,42 @@ export class ServiceMapWidgetDefinition {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
       required: false,
-      format: "",
     },
     filters: {
       name: "filters",
       baseName: "filters",
       type: "Array<string>",
       required: true,
-      format: "",
     },
     service: {
       name: "service",
       baseName: "service",
       type: "string",
       required: true,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "ServiceMapWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

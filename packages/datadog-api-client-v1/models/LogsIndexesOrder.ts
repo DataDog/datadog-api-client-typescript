@@ -25,7 +25,6 @@ export class LogsIndexesOrder {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     indexNames: {
@@ -33,7 +32,6 @@ export class LogsIndexesOrder {
       baseName: "index_names",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

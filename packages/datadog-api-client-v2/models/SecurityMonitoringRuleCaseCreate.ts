@@ -36,7 +36,6 @@ export class SecurityMonitoringRuleCaseCreate {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     condition: {
@@ -44,28 +43,24 @@ export class SecurityMonitoringRuleCaseCreate {
       baseName: "condition",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     notifications: {
       name: "notifications",
       baseName: "notifications",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "SecurityMonitoringRuleSeverity",
       required: true,
-      format: "",
     },
   };
 

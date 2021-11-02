@@ -27,7 +27,6 @@ export class LogsIndexListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     indexes: {
@@ -35,7 +34,6 @@ export class LogsIndexListResponse {
       baseName: "indexes",
       type: "Array<LogsIndex>",
       required: false,
-      format: "",
     },
   };
 

@@ -25,7 +25,6 @@ export class SyntheticsTestOptionsMonitorOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     renotifyInterval: {

@@ -69,7 +69,6 @@ export class ServiceLevelObjective {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -84,28 +83,24 @@ export class ServiceLevelObjective {
       baseName: "creator",
       type: "Creator",
       required: false,
-      format: "",
     },
     description: {
       name: "description",
       baseName: "description",
       type: "string",
       required: false,
-      format: "",
     },
     groups: {
       name: "groups",
       baseName: "groups",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -126,42 +121,36 @@ export class ServiceLevelObjective {
       baseName: "monitor_tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     thresholds: {
       name: "thresholds",
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SLOType",
       required: true,
-      format: "",
     },
   };
 

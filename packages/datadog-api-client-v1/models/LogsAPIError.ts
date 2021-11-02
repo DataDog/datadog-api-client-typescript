@@ -33,7 +33,6 @@ export class LogsAPIError {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     code: {
@@ -41,21 +40,18 @@ export class LogsAPIError {
       baseName: "code",
       type: "string",
       required: false,
-      format: "",
     },
     details: {
       name: "details",
       baseName: "details",
       type: "Array<LogsAPIError>",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

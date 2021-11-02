@@ -64,7 +64,6 @@ export class LogStreamWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     columns: {
@@ -72,91 +71,78 @@ export class LogStreamWidgetDefinition {
       baseName: "columns",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     indexes: {
       name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     logset: {
       name: "logset",
       baseName: "logset",
       type: "string",
       required: false,
-      format: "",
     },
     messageDisplay: {
       name: "messageDisplay",
       baseName: "message_display",
       type: "WidgetMessageDisplay",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     showDateColumn: {
       name: "showDateColumn",
       baseName: "show_date_column",
       type: "boolean",
       required: false,
-      format: "",
     },
     showMessageColumn: {
       name: "showMessageColumn",
       baseName: "show_message_column",
       type: "boolean",
       required: false,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "WidgetFieldSort",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogStreamWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

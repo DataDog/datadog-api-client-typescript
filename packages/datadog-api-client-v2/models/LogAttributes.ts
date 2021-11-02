@@ -49,7 +49,6 @@ export class LogAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -57,42 +56,36 @@ export class LogAttributes {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
       required: false,
-      format: "",
     },
     host: {
       name: "host",
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     service: {
       name: "service",
       baseName: "service",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     timestamp: {
       name: "timestamp",

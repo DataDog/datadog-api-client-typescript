@@ -54,7 +54,6 @@ export class WidgetConditionalFormat {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     comparator: {
@@ -62,56 +61,48 @@ export class WidgetConditionalFormat {
       baseName: "comparator",
       type: "WidgetComparator",
       required: true,
-      format: "",
     },
     customBgColor: {
       name: "customBgColor",
       baseName: "custom_bg_color",
       type: "string",
       required: false,
-      format: "",
     },
     customFgColor: {
       name: "customFgColor",
       baseName: "custom_fg_color",
       type: "string",
       required: false,
-      format: "",
     },
     hideValue: {
       name: "hideValue",
       baseName: "hide_value",
       type: "boolean",
       required: false,
-      format: "",
     },
     imageUrl: {
       name: "imageUrl",
       baseName: "image_url",
       type: "string",
       required: false,
-      format: "",
     },
     metric: {
       name: "metric",
       baseName: "metric",
       type: "string",
       required: false,
-      format: "",
     },
     palette: {
       name: "palette",
       baseName: "palette",
       type: "WidgetPalette",
       required: true,
-      format: "",
     },
     timeframe: {
       name: "timeframe",
       baseName: "timeframe",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",

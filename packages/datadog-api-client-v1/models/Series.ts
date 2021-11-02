@@ -45,7 +45,6 @@ export class Series {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     host: {
@@ -53,7 +52,6 @@ export class Series {
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     interval: {
       name: "interval",
@@ -67,7 +65,6 @@ export class Series {
       baseName: "metric",
       type: "string",
       required: true,
-      format: "",
     },
     points: {
       name: "points",
@@ -81,14 +78,12 @@ export class Series {
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

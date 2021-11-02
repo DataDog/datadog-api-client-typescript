@@ -25,7 +25,6 @@ export class LogsPipelinesOrder {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     pipelineIds: {
@@ -33,7 +32,6 @@ export class LogsPipelinesOrder {
       baseName: "pipeline_ids",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

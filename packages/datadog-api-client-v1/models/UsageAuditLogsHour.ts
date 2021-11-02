@@ -29,7 +29,6 @@ export class UsageAuditLogsHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hour: {

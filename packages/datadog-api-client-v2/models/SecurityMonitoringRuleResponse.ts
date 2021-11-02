@@ -89,7 +89,6 @@ export class SecurityMonitoringRuleResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cases: {
@@ -97,7 +96,6 @@ export class SecurityMonitoringRuleResponse {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
       required: false,
-      format: "",
     },
     createdAt: {
       name: "createdAt",
@@ -118,84 +116,72 @@ export class SecurityMonitoringRuleResponse {
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
       required: false,
-      format: "",
     },
     hasExtendedTitle: {
       name: "hasExtendedTitle",
       baseName: "hasExtendedTitle",
       type: "boolean",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     isDefault: {
       name: "isDefault",
       baseName: "isDefault",
       type: "boolean",
       required: false,
-      format: "",
     },
     isDeleted: {
       name: "isDeleted",
       baseName: "isDeleted",
       type: "boolean",
       required: false,
-      format: "",
     },
     isEnabled: {
       name: "isEnabled",
       baseName: "isEnabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
       required: false,
-      format: "",
     },
     queries: {
       name: "queries",
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQuery>",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SecurityMonitoringRuleTypeRead",
       required: false,
-      format: "",
     },
     updateAuthorId: {
       name: "updateAuthorId",

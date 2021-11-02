@@ -30,7 +30,6 @@ export class UserResponseRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     org: {
@@ -38,28 +37,24 @@ export class UserResponseRelationships {
       baseName: "org",
       type: "RelationshipToOrganization",
       required: false,
-      format: "",
     },
     otherOrgs: {
       name: "otherOrgs",
       baseName: "other_orgs",
       type: "RelationshipToOrganizations",
       required: false,
-      format: "",
     },
     otherUsers: {
       name: "otherUsers",
       baseName: "other_users",
       type: "RelationshipToUsers",
       required: false,
-      format: "",
     },
     roles: {
       name: "roles",
       baseName: "roles",
       type: "RelationshipToRoles",
       required: false,
-      format: "",
     },
   };
 

@@ -44,7 +44,6 @@ export class IPRanges {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agents: {
@@ -52,49 +51,42 @@ export class IPRanges {
       baseName: "agents",
       type: "IPPrefixesAgents",
       required: false,
-      format: "",
     },
     api: {
       name: "api",
       baseName: "api",
       type: "IPPrefixesAPI",
       required: false,
-      format: "",
     },
     apm: {
       name: "apm",
       baseName: "apm",
       type: "IPPrefixesAPM",
       required: false,
-      format: "",
     },
     logs: {
       name: "logs",
       baseName: "logs",
       type: "IPPrefixesLogs",
       required: false,
-      format: "",
     },
     modified: {
       name: "modified",
       baseName: "modified",
       type: "string",
       required: false,
-      format: "",
     },
     process: {
       name: "process",
       baseName: "process",
       type: "IPPrefixesProcess",
       required: false,
-      format: "",
     },
     synthetics: {
       name: "synthetics",
       baseName: "synthetics",
       type: "IPPrefixesSynthetics",
       required: false,
-      format: "",
     },
     version: {
       name: "version",
@@ -108,7 +100,6 @@ export class IPRanges {
       baseName: "webhooks",
       type: "IPPrefixesWebhooks",
       required: false,
-      format: "",
     },
   };
 

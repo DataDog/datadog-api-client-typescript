@@ -25,7 +25,6 @@ export class ApplicationKeyUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     name: {
@@ -33,7 +32,6 @@ export class ApplicationKeyUpdateAttributes {
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

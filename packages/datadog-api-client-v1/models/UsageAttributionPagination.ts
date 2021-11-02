@@ -33,7 +33,6 @@ export class UsageAttributionPagination {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     limit: {
@@ -48,7 +47,6 @@ export class UsageAttributionPagination {
       baseName: "next_record_id",
       type: "string",
       required: false,
-      format: "",
     },
     totalNumberOfRecords: {
       name: "totalNumberOfRecords",

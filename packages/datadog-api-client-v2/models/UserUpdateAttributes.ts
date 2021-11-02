@@ -33,7 +33,6 @@ export class UserUpdateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     disabled: {
@@ -41,21 +40,18 @@ export class UserUpdateAttributes {
       baseName: "disabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     email: {
       name: "email",
       baseName: "email",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

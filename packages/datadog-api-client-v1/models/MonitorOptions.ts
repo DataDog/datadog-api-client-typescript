@@ -114,7 +114,6 @@ export class MonitorOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -122,28 +121,24 @@ export class MonitorOptions {
       baseName: "aggregation",
       type: "MonitorOptionsAggregation",
       required: false,
-      format: "",
     },
     deviceIds: {
       name: "deviceIds",
       baseName: "device_ids",
       type: "Array<MonitorDeviceID>",
       required: false,
-      format: "",
     },
     enableLogsSample: {
       name: "enableLogsSample",
       baseName: "enable_logs_sample",
       type: "boolean",
       required: false,
-      format: "",
     },
     escalationMessage: {
       name: "escalationMessage",
       baseName: "escalation_message",
       type: "string",
       required: false,
-      format: "",
     },
     evaluationDelay: {
       name: "evaluationDelay",
@@ -157,21 +152,18 @@ export class MonitorOptions {
       baseName: "groupby_simple_monitor",
       type: "boolean",
       required: false,
-      format: "",
     },
     includeTags: {
       name: "includeTags",
       baseName: "include_tags",
       type: "boolean",
       required: false,
-      format: "",
     },
     locked: {
       name: "locked",
       baseName: "locked",
       type: "boolean",
       required: false,
-      format: "",
     },
     minFailureDuration: {
       name: "minFailureDuration",
@@ -213,14 +205,12 @@ export class MonitorOptions {
       baseName: "notify_audit",
       type: "boolean",
       required: false,
-      format: "",
     },
     notifyNoData: {
       name: "notifyNoData",
       baseName: "notify_no_data",
       type: "boolean",
       required: false,
-      format: "",
     },
     renotifyInterval: {
       name: "renotifyInterval",
@@ -241,14 +231,12 @@ export class MonitorOptions {
       baseName: "renotify_statuses",
       type: "Array<MonitorRenotifyStatusType>",
       required: false,
-      format: "",
     },
     requireFullWindow: {
       name: "requireFullWindow",
       baseName: "require_full_window",
       type: "boolean",
       required: false,
-      format: "",
     },
     silenced: {
       name: "silenced",
@@ -262,21 +250,18 @@ export class MonitorOptions {
       baseName: "synthetics_check_id",
       type: "string",
       required: false,
-      format: "",
     },
     thresholdWindows: {
       name: "thresholdWindows",
       baseName: "threshold_windows",
       type: "MonitorThresholdWindowOptions",
       required: false,
-      format: "",
     },
     thresholds: {
       name: "thresholds",
       baseName: "thresholds",
       type: "MonitorThresholds",
       required: false,
-      format: "",
     },
     timeoutH: {
       name: "timeoutH",

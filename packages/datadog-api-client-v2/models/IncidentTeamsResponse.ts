@@ -34,7 +34,6 @@ export class IncidentTeamsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -42,21 +41,18 @@ export class IncidentTeamsResponse {
       baseName: "data",
       type: "Array<IncidentTeamResponseData>",
       required: true,
-      format: "",
     },
     included: {
       name: "included",
       baseName: "included",
       type: "Array<IncidentTeamIncludedItems>",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "IncidentServicesResponseMeta",
       required: false,
-      format: "",
     },
   };
 

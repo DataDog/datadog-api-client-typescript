@@ -73,7 +73,6 @@ export class SyntheticsCITest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     allowInsecureCertificates: {
@@ -81,98 +80,84 @@ export class SyntheticsCITest {
       baseName: "allowInsecureCertificates",
       type: "boolean",
       required: false,
-      format: "",
     },
     basicAuth: {
       name: "basicAuth",
       baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
       required: false,
-      format: "",
     },
     body: {
       name: "body",
       baseName: "body",
       type: "string",
       required: false,
-      format: "",
     },
     bodyType: {
       name: "bodyType",
       baseName: "bodyType",
       type: "string",
       required: false,
-      format: "",
     },
     cookies: {
       name: "cookies",
       baseName: "cookies",
       type: "string",
       required: false,
-      format: "",
     },
     deviceIds: {
       name: "deviceIds",
       baseName: "deviceIds",
       type: "Array<SyntheticsDeviceID>",
       required: false,
-      format: "",
     },
     followRedirects: {
       name: "followRedirects",
       baseName: "followRedirects",
       type: "boolean",
       required: false,
-      format: "",
     },
     headers: {
       name: "headers",
       baseName: "headers",
       type: "{ [key: string]: string; }",
       required: false,
-      format: "",
     },
     locations: {
       name: "locations",
       baseName: "locations",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     metadata: {
       name: "metadata",
       baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: true,
-      format: "",
     },
     retry: {
       name: "retry",
       baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
       required: false,
-      format: "",
     },
     startUrl: {
       name: "startUrl",
       baseName: "startUrl",
       type: "string",
       required: false,
-      format: "",
     },
     variables: {
       name: "variables",
       baseName: "variables",
       type: "{ [key: string]: string; }",
       required: false,
-      format: "",
     },
   };
 

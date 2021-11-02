@@ -27,7 +27,6 @@ export class UsageFargateResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageFargateResponse {
       baseName: "usage",
       type: "Array<UsageFargateHour>",
       required: false,
-      format: "",
     },
   };
 

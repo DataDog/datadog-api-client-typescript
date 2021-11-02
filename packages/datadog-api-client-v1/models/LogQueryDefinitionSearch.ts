@@ -25,7 +25,6 @@ export class LogQueryDefinitionSearch {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     query: {
@@ -33,7 +32,6 @@ export class LogQueryDefinitionSearch {
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

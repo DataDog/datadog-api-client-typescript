@@ -70,7 +70,6 @@ export class Event {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     alertType: {
@@ -78,7 +77,6 @@ export class Event {
       baseName: "alert_type",
       type: "EventAlertType",
       required: false,
-      format: "",
     },
     dateHappened: {
       name: "dateHappened",
@@ -92,14 +90,12 @@ export class Event {
       baseName: "device_name",
       type: "string",
       required: false,
-      format: "",
     },
     host: {
       name: "host",
       baseName: "host",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
@@ -113,56 +109,48 @@ export class Event {
       baseName: "id_str",
       type: "string",
       required: false,
-      format: "",
     },
     payload: {
       name: "payload",
       baseName: "payload",
       type: "string",
       required: false,
-      format: "",
     },
     priority: {
       name: "priority",
       baseName: "priority",
       type: "EventPriority",
       required: false,
-      format: "",
     },
     sourceTypeName: {
       name: "sourceTypeName",
       baseName: "source_type_name",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     text: {
       name: "text",
       baseName: "text",
       type: "string",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     url: {
       name: "url",
       baseName: "url",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

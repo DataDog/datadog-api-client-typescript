@@ -27,7 +27,6 @@ export class UsageLambdaResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageLambdaResponse {
       baseName: "usage",
       type: "Array<UsageLambdaHour>",
       required: false,
-      format: "",
     },
   };
 

@@ -61,7 +61,6 @@ export class HeatMapWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customLinks: {
@@ -69,77 +68,66 @@ export class HeatMapWidgetDefinition {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
       required: false,
-      format: "",
     },
     events: {
       name: "events",
       baseName: "events",
       type: "Array<WidgetEvent>",
       required: false,
-      format: "",
     },
     legendSize: {
       name: "legendSize",
       baseName: "legend_size",
       type: "string",
       required: false,
-      format: "",
     },
     requests: {
       name: "requests",
       baseName: "requests",
       type: "Array<HeatMapWidgetRequest>",
       required: true,
-      format: "",
     },
     showLegend: {
       name: "showLegend",
       baseName: "show_legend",
       type: "boolean",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "HeatMapWidgetDefinitionType",
       required: true,
-      format: "",
     },
     yaxis: {
       name: "yaxis",
       baseName: "yaxis",
       type: "WidgetAxis",
       required: false,
-      format: "",
     },
   };
 

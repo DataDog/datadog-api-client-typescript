@@ -40,7 +40,6 @@ export class SyntheticsStep {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     allowFailure: {
@@ -48,21 +47,18 @@ export class SyntheticsStep {
       baseName: "allowFailure",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     params: {
       name: "params",
       baseName: "params",
       type: "any",
       required: false,
-      format: "",
     },
     timeout: {
       name: "timeout",
@@ -76,7 +72,6 @@ export class SyntheticsStep {
       baseName: "type",
       type: "SyntheticsStepType",
       required: false,
-      format: "",
     },
   };
 

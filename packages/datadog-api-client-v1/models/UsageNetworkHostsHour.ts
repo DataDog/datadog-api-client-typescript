@@ -29,7 +29,6 @@ export class UsageNetworkHostsHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     hostCount: {

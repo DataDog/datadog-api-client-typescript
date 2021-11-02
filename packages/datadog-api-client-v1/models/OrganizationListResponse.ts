@@ -27,7 +27,6 @@ export class OrganizationListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     orgs: {
@@ -35,7 +34,6 @@ export class OrganizationListResponse {
       baseName: "orgs",
       type: "Array<Organization>",
       required: false,
-      format: "",
     },
   };
 

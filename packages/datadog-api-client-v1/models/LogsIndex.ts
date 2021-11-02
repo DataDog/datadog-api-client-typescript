@@ -45,7 +45,6 @@ export class LogsIndex {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dailyLimit: {
@@ -60,28 +59,24 @@ export class LogsIndex {
       baseName: "exclusion_filters",
       type: "Array<LogsExclusion>",
       required: false,
-      format: "",
     },
     filter: {
       name: "filter",
       baseName: "filter",
       type: "LogsFilter",
       required: true,
-      format: "",
     },
     isRateLimited: {
       name: "isRateLimited",
       baseName: "is_rate_limited",
       type: "boolean",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     numRetentionDays: {
       name: "numRetentionDays",

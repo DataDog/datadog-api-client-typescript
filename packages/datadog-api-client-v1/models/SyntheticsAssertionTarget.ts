@@ -34,7 +34,6 @@ export class SyntheticsAssertionTarget {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     operator: {
@@ -42,28 +41,24 @@ export class SyntheticsAssertionTarget {
       baseName: "operator",
       type: "SyntheticsAssertionOperator",
       required: true,
-      format: "",
     },
     property: {
       name: "property",
       baseName: "property",
       type: "string",
       required: false,
-      format: "",
     },
     target: {
       name: "target",
       baseName: "target",
       type: "any",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SyntheticsAssertionType",
       required: true,
-      format: "",
     },
   };
 

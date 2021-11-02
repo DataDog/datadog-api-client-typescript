@@ -29,7 +29,6 @@ export class AWSLogsListServicesResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -37,14 +36,12 @@ export class AWSLogsListServicesResponse {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     label: {
       name: "label",
       baseName: "label",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

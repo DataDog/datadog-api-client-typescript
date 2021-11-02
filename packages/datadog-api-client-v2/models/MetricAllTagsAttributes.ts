@@ -25,7 +25,6 @@ export class MetricAllTagsAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     tags: {
@@ -33,7 +32,6 @@ export class MetricAllTagsAttributes {
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

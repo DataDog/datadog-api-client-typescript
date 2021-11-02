@@ -33,7 +33,6 @@ export class SyntheticsTestRequestCertificateItem {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     content: {
@@ -41,21 +40,18 @@ export class SyntheticsTestRequestCertificateItem {
       baseName: "content",
       type: "string",
       required: false,
-      format: "",
     },
     filename: {
       name: "filename",
       baseName: "filename",
       type: "string",
       required: false,
-      format: "",
     },
     updatedAt: {
       name: "updatedAt",
       baseName: "updatedAt",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

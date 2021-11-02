@@ -35,7 +35,6 @@ export class LogsListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     logs: {
@@ -43,21 +42,18 @@ export class LogsListResponse {
       baseName: "logs",
       type: "Array<Log>",
       required: false,
-      format: "",
     },
     nextLogId: {
       name: "nextLogId",
       baseName: "nextLogId",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -37,7 +37,6 @@ export class ServiceAccountCreateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     email: {
@@ -45,28 +44,24 @@ export class ServiceAccountCreateAttributes {
       baseName: "email",
       type: "string",
       required: true,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     serviceAccount: {
       name: "serviceAccount",
       baseName: "service_account",
       type: "boolean",
       required: true,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

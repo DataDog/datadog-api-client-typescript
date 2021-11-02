@@ -26,7 +26,6 @@ export class RoleRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     permissions: {
@@ -34,14 +33,12 @@ export class RoleRelationships {
       baseName: "permissions",
       type: "RelationshipToPermissions",
       required: false,
-      format: "",
     },
     users: {
       name: "users",
       baseName: "users",
       type: "RelationshipToUsers",
       required: false,
-      format: "",
     },
   };
 

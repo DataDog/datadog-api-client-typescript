@@ -58,7 +58,6 @@ export class DistributionWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     legendSize: {
@@ -66,77 +65,66 @@ export class DistributionWidgetDefinition {
       baseName: "legend_size",
       type: "string",
       required: false,
-      format: "",
     },
     markers: {
       name: "markers",
       baseName: "markers",
       type: "Array<WidgetMarker>",
       required: false,
-      format: "",
     },
     requests: {
       name: "requests",
       baseName: "requests",
       type: "Array<DistributionWidgetRequest>",
       required: true,
-      format: "",
     },
     showLegend: {
       name: "showLegend",
       baseName: "show_legend",
       type: "boolean",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "DistributionWidgetDefinitionType",
       required: true,
-      format: "",
     },
     xaxis: {
       name: "xaxis",
       baseName: "xaxis",
       type: "DistributionWidgetXAxis",
       required: false,
-      format: "",
     },
     yaxis: {
       name: "yaxis",
       baseName: "yaxis",
       type: "DistributionWidgetYAxis",
       required: false,
-      format: "",
     },
   };
 

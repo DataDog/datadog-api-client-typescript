@@ -29,7 +29,6 @@ export class HTTPLogError {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     code: {
@@ -44,7 +43,6 @@ export class HTTPLogError {
       baseName: "message",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

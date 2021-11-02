@@ -37,7 +37,6 @@ export class ApiKey {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     created: {
@@ -45,28 +44,24 @@ export class ApiKey {
       baseName: "created",
       type: "string",
       required: false,
-      format: "",
     },
     createdBy: {
       name: "createdBy",
       baseName: "created_by",
       type: "string",
       required: false,
-      format: "",
     },
     key: {
       name: "key",
       baseName: "key",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

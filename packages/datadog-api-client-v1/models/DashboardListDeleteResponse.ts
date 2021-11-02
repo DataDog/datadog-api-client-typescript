@@ -25,7 +25,6 @@ export class DashboardListDeleteResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     deletedDashboardListId: {

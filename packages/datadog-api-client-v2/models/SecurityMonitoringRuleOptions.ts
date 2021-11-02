@@ -32,7 +32,6 @@ export class SecurityMonitoringRuleOptions {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     detectionMethod: {
@@ -40,35 +39,30 @@ export class SecurityMonitoringRuleOptions {
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
       required: false,
-      format: "",
     },
     evaluationWindow: {
       name: "evaluationWindow",
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
       required: false,
-      format: "",
     },
     keepAlive: {
       name: "keepAlive",
       baseName: "keepAlive",
       type: "SecurityMonitoringRuleKeepAlive",
       required: false,
-      format: "",
     },
     maxSignalDuration: {
       name: "maxSignalDuration",
       baseName: "maxSignalDuration",
       type: "SecurityMonitoringRuleMaxSignalDuration",
       required: false,
-      format: "",
     },
     newValueOptions: {
       name: "newValueOptions",
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
       required: false,
-      format: "",
     },
   };
 

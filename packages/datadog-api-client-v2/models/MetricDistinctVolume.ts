@@ -30,7 +30,6 @@ export class MetricDistinctVolume {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class MetricDistinctVolume {
       baseName: "attributes",
       type: "MetricDistinctVolumeAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "MetricDistinctVolumeType",
       required: false,
-      format: "",
     },
   };
 

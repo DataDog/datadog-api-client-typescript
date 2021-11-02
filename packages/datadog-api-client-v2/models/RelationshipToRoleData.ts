@@ -28,7 +28,6 @@ export class RelationshipToRoleData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -36,14 +35,12 @@ export class RelationshipToRoleData {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "RolesType",
       required: false,
-      format: "",
     },
   };
 

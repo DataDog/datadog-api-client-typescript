@@ -33,7 +33,6 @@ export class IncidentTeamResponseAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     created: {
@@ -55,7 +54,6 @@ export class IncidentTeamResponseAttributes {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

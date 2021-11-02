@@ -24,7 +24,6 @@ export class UserResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     user: {
@@ -32,7 +31,6 @@ export class UserResponse {
       baseName: "user",
       type: "User",
       required: false,
-      format: "",
     },
   };
 

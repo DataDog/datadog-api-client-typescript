@@ -29,7 +29,6 @@ export class ServiceLevelObjectiveQuery {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     denominator: {
@@ -37,14 +36,12 @@ export class ServiceLevelObjectiveQuery {
       baseName: "denominator",
       type: "string",
       required: true,
-      format: "",
     },
     numerator: {
       name: "numerator",
       baseName: "numerator",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

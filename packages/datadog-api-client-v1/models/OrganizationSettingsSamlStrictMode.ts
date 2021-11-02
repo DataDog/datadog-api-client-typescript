@@ -25,7 +25,6 @@ export class OrganizationSettingsSamlStrictMode {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     enabled: {
@@ -33,7 +32,6 @@ export class OrganizationSettingsSamlStrictMode {
       baseName: "enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

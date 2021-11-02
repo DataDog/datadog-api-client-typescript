@@ -24,7 +24,6 @@ export class UserUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class UserUpdateRequest {
       baseName: "data",
       type: "UserUpdateData",
       required: true,
-      format: "",
     },
   };
 

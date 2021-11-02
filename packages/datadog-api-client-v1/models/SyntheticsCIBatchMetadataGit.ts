@@ -29,7 +29,6 @@ export class SyntheticsCIBatchMetadataGit {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     branch: {
@@ -37,14 +36,12 @@ export class SyntheticsCIBatchMetadataGit {
       baseName: "branch",
       type: "string",
       required: false,
-      format: "",
     },
     commitSha: {
       name: "commitSha",
       baseName: "commit_sha",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

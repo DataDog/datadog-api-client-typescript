@@ -48,7 +48,6 @@ export class User {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accessRole: {
@@ -56,14 +55,12 @@ export class User {
       baseName: "access_role",
       type: "AccessRole",
       required: false,
-      format: "",
     },
     disabled: {
       name: "disabled",
       baseName: "disabled",
       type: "boolean",
       required: false,
-      format: "",
     },
     email: {
       name: "email",
@@ -84,21 +81,18 @@ export class User {
       baseName: "icon",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     verified: {
       name: "verified",
       baseName: "verified",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

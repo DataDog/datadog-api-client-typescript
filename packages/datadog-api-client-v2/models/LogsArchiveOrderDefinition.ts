@@ -26,7 +26,6 @@ export class LogsArchiveOrderDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -34,14 +33,12 @@ export class LogsArchiveOrderDefinition {
       baseName: "attributes",
       type: "LogsArchiveOrderAttributes",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "LogsArchiveOrderDefinitionType",
       required: true,
-      format: "",
     },
   };
 

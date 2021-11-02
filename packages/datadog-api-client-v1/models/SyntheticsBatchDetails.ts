@@ -24,7 +24,6 @@ export class SyntheticsBatchDetails {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class SyntheticsBatchDetails {
       baseName: "data",
       type: "SyntheticsBatchDetailsData",
       required: false,
-      format: "",
     },
   };
 

@@ -30,7 +30,6 @@ export class MetricTagConfigurationUpdateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class MetricTagConfigurationUpdateData {
       baseName: "attributes",
       type: "MetricTagConfigurationUpdateAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "MetricTagConfigurationType",
       required: true,
-      format: "",
     },
   };
 

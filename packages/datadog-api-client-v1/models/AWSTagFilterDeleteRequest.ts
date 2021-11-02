@@ -28,7 +28,6 @@ export class AWSTagFilterDeleteRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     accountId: {
@@ -36,14 +35,12 @@ export class AWSTagFilterDeleteRequest {
       baseName: "account_id",
       type: "string",
       required: false,
-      format: "",
     },
     namespace: {
       name: "namespace",
       baseName: "namespace",
       type: "AWSNamespace",
       required: false,
-      format: "",
     },
   };
 

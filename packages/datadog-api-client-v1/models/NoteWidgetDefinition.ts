@@ -54,7 +54,6 @@ export class NoteWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     backgroundColor: {
@@ -62,70 +61,60 @@ export class NoteWidgetDefinition {
       baseName: "background_color",
       type: "string",
       required: false,
-      format: "",
     },
     content: {
       name: "content",
       baseName: "content",
       type: "string",
       required: true,
-      format: "",
     },
     fontSize: {
       name: "fontSize",
       baseName: "font_size",
       type: "string",
       required: false,
-      format: "",
     },
     hasPadding: {
       name: "hasPadding",
       baseName: "has_padding",
       type: "boolean",
       required: false,
-      format: "",
     },
     showTick: {
       name: "showTick",
       baseName: "show_tick",
       type: "boolean",
       required: false,
-      format: "",
     },
     textAlign: {
       name: "textAlign",
       baseName: "text_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     tickEdge: {
       name: "tickEdge",
       baseName: "tick_edge",
       type: "WidgetTickEdge",
       required: false,
-      format: "",
     },
     tickPos: {
       name: "tickPos",
       baseName: "tick_pos",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "NoteWidgetDefinitionType",
       required: true,
-      format: "",
     },
     verticalAlign: {
       name: "verticalAlign",
       baseName: "vertical_align",
       type: "WidgetVerticalAlign",
       required: false,
-      format: "",
     },
   };
 

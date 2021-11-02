@@ -45,7 +45,6 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     family: {
@@ -53,7 +52,6 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
       baseName: "family",
       type: "string",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
@@ -67,14 +65,12 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     plural: {
       name: "plural",
       baseName: "plural",
       type: "string",
       required: false,
-      format: "",
     },
     scaleFactor: {
       name: "scaleFactor",
@@ -88,7 +84,6 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
       baseName: "short_name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

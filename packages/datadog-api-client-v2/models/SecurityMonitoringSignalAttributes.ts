@@ -37,7 +37,6 @@ export class SecurityMonitoringSignalAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -45,14 +44,12 @@ export class SecurityMonitoringSignalAttributes {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",

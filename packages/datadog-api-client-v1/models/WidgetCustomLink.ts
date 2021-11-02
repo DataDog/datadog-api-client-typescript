@@ -37,7 +37,6 @@ export class WidgetCustomLink {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     isHidden: {
@@ -45,28 +44,24 @@ export class WidgetCustomLink {
       baseName: "is_hidden",
       type: "boolean",
       required: false,
-      format: "",
     },
     label: {
       name: "label",
       baseName: "label",
       type: "string",
       required: false,
-      format: "",
     },
     link: {
       name: "link",
       baseName: "link",
       type: "string",
       required: false,
-      format: "",
     },
     overrideLabel: {
       name: "overrideLabel",
       baseName: "override_label",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

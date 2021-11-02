@@ -28,7 +28,6 @@ export class LogsCategoryProcessorCategory {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     filter: {
@@ -36,14 +35,12 @@ export class LogsCategoryProcessorCategory {
       baseName: "filter",
       type: "LogsFilter",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

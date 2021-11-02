@@ -37,7 +37,6 @@ export class LogsQueryFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     from: {
@@ -45,28 +44,24 @@ export class LogsQueryFilter {
       baseName: "from",
       type: "string",
       required: false,
-      format: "",
     },
     indexes: {
       name: "indexes",
       baseName: "indexes",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
     to: {
       name: "to",
       baseName: "to",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

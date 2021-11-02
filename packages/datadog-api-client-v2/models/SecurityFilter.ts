@@ -30,7 +30,6 @@ export class SecurityFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class SecurityFilter {
       baseName: "attributes",
       type: "SecurityFilterAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SecurityFilterType",
       required: false,
-      format: "",
     },
   };
 

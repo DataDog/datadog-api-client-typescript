@@ -31,7 +31,6 @@ export class ListStreamWidgetRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     columns: {
@@ -39,21 +38,18 @@ export class ListStreamWidgetRequest {
       baseName: "columns",
       type: "Array<ListStreamColumn>",
       required: true,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "ListStreamQuery",
       required: true,
-      format: "",
     },
     responseFormat: {
       name: "responseFormat",
       baseName: "response_format",
       type: "ListStreamResponseFormat",
       required: true,
-      format: "",
     },
   };
 

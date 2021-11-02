@@ -24,7 +24,6 @@ export class UserInvitationRelationships {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     user: {
@@ -32,7 +31,6 @@ export class UserInvitationRelationships {
       baseName: "user",
       type: "RelationshipToUser",
       required: true,
-      format: "",
     },
   };
 

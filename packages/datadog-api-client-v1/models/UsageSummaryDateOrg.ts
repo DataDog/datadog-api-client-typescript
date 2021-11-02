@@ -213,7 +213,6 @@ export class UsageSummaryDateOrg {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agentHostTop99p: {
@@ -382,7 +381,6 @@ export class UsageSummaryDateOrg {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     incidentManagementMonthlyActiveUsersHwm: {
       name: "incidentManagementMonthlyActiveUsersHwm",
@@ -452,7 +450,6 @@ export class UsageSummaryDateOrg {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     netflowIndexedEventsCountSum: {
       name: "netflowIndexedEventsCountSum",
@@ -487,7 +484,6 @@ export class UsageSummaryDateOrg {
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     rumSessionCountSum: {
       name: "rumSessionCountSum",

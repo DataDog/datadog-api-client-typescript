@@ -26,7 +26,6 @@ export class ApplicationKeyCreateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -34,14 +33,12 @@ export class ApplicationKeyCreateData {
       baseName: "attributes",
       type: "ApplicationKeyCreateAttributes",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "ApplicationKeysType",
       required: true,
-      format: "",
     },
   };
 

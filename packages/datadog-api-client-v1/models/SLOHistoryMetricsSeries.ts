@@ -36,7 +36,6 @@ export class SLOHistoryMetricsSeries {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     count: {
@@ -51,7 +50,6 @@ export class SLOHistoryMetricsSeries {
       baseName: "metadata",
       type: "SLOHistoryMetricsSeriesMetadata",
       required: false,
-      format: "",
     },
     sum: {
       name: "sum",

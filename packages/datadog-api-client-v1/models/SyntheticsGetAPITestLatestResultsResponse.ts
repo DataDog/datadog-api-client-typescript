@@ -31,7 +31,6 @@ export class SyntheticsGetAPITestLatestResultsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     lastTimestampFetched: {
@@ -46,7 +45,6 @@ export class SyntheticsGetAPITestLatestResultsResponse {
       baseName: "results",
       type: "Array<SyntheticsAPITestResultShort>",
       required: false,
-      format: "",
     },
   };
 

@@ -48,7 +48,6 @@ export class UsageAttributionBody {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     month: {
@@ -63,42 +62,36 @@ export class UsageAttributionBody {
       baseName: "org_name",
       type: "string",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     tagConfigSource: {
       name: "tagConfigSource",
       baseName: "tag_config_source",
       type: "string",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
       required: false,
-      format: "",
     },
     updatedAt: {
       name: "updatedAt",
       baseName: "updated_at",
       type: "string",
       required: false,
-      format: "",
     },
     values: {
       name: "values",
       baseName: "values",
       type: "UsageAttributionValues",
       required: false,
-      format: "",
     },
   };
 

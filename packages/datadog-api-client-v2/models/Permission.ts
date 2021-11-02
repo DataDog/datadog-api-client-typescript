@@ -30,7 +30,6 @@ export class Permission {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class Permission {
       baseName: "attributes",
       type: "PermissionAttributes",
       required: false,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "PermissionsType",
       required: true,
-      format: "",
     },
   };
 

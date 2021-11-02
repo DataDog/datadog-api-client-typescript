@@ -52,7 +52,6 @@ export class DashboardList {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     author: {
@@ -60,7 +59,6 @@ export class DashboardList {
       baseName: "author",
       type: "Creator",
       required: false,
-      format: "",
     },
     created: {
       name: "created",
@@ -88,7 +86,6 @@ export class DashboardList {
       baseName: "is_favorite",
       type: "boolean",
       required: false,
-      format: "",
     },
     modified: {
       name: "modified",
@@ -102,14 +99,12 @@ export class DashboardList {
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

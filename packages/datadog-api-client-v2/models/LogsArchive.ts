@@ -24,7 +24,6 @@ export class LogsArchive {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class LogsArchive {
       baseName: "data",
       type: "LogsArchiveDefinition",
       required: false,
-      format: "",
     },
   };
 

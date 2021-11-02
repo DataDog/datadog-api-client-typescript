@@ -31,7 +31,6 @@ export class LogsListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -39,21 +38,18 @@ export class LogsListResponse {
       baseName: "data",
       type: "Array<Log>",
       required: false,
-      format: "",
     },
     links: {
       name: "links",
       baseName: "links",
       type: "LogsListResponseLinks",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "LogsResponseMetadata",
       required: false,
-      format: "",
     },
   };
 

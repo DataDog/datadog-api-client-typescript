@@ -37,7 +37,6 @@ export class IPPrefixesSynthetics {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     prefixesIpv4: {
@@ -45,28 +44,24 @@ export class IPPrefixesSynthetics {
       baseName: "prefixes_ipv4",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     prefixesIpv4ByLocation: {
       name: "prefixesIpv4ByLocation",
       baseName: "prefixes_ipv4_by_location",
       type: "{ [key: string]: Array<string>; }",
       required: false,
-      format: "",
     },
     prefixesIpv6: {
       name: "prefixesIpv6",
       baseName: "prefixes_ipv6",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     prefixesIpv6ByLocation: {
       name: "prefixesIpv6ByLocation",
       baseName: "prefixes_ipv6_by_location",
       type: "{ [key: string]: Array<string>; }",
       required: false,
-      format: "",
     },
   };
 

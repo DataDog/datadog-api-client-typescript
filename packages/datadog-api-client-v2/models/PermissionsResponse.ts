@@ -27,7 +27,6 @@ export class PermissionsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -35,7 +34,6 @@ export class PermissionsResponse {
       baseName: "data",
       type: "Array<Permission>",
       required: false,
-      format: "",
     },
   };
 

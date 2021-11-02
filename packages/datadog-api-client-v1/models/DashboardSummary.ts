@@ -27,7 +27,6 @@ export class DashboardSummary {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dashboards: {
@@ -35,7 +34,6 @@ export class DashboardSummary {
       baseName: "dashboards",
       type: "Array<DashboardSummaryDefinition>",
       required: false,
-      format: "",
     },
   };
 

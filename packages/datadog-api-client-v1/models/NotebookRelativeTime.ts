@@ -24,7 +24,6 @@ export class NotebookRelativeTime {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     liveSpan: {
@@ -32,7 +31,6 @@ export class NotebookRelativeTime {
       baseName: "live_span",
       type: "WidgetLiveSpan",
       required: true,
-      format: "",
     },
   };
 

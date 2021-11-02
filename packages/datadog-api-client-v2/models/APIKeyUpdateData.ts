@@ -30,7 +30,6 @@ export class APIKeyUpdateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -38,21 +37,18 @@ export class APIKeyUpdateData {
       baseName: "attributes",
       type: "APIKeyUpdateAttributes",
       required: true,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "APIKeysType",
       required: true,
-      format: "",
     },
   };
 

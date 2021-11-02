@@ -27,7 +27,6 @@ export class UsageSNMPResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     usage: {
@@ -35,7 +34,6 @@ export class UsageSNMPResponse {
       baseName: "usage",
       type: "Array<UsageSNMPHour>",
       required: false,
-      format: "",
     },
   };
 

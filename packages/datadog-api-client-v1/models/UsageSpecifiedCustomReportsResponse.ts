@@ -26,7 +26,6 @@ export class UsageSpecifiedCustomReportsResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -34,14 +33,12 @@ export class UsageSpecifiedCustomReportsResponse {
       baseName: "data",
       type: "UsageSpecifiedCustomReportsData",
       required: false,
-      format: "",
     },
     meta: {
       name: "meta",
       baseName: "meta",
       type: "UsageSpecifiedCustomReportsMeta",
       required: false,
-      format: "",
     },
   };
 

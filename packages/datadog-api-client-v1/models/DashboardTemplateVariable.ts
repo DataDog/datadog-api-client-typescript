@@ -37,7 +37,6 @@ export class DashboardTemplateVariable {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     availableValues: {
@@ -45,28 +44,24 @@ export class DashboardTemplateVariable {
       baseName: "available_values",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     _default: {
       name: "_default",
       baseName: "default",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     prefix: {
       name: "prefix",
       baseName: "prefix",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

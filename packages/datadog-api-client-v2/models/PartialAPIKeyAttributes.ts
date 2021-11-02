@@ -37,7 +37,6 @@ export class PartialAPIKeyAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -45,28 +44,24 @@ export class PartialAPIKeyAttributes {
       baseName: "created_at",
       type: "string",
       required: false,
-      format: "",
     },
     last4: {
       name: "last4",
       baseName: "last4",
       type: "string",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
       baseName: "modified_at",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

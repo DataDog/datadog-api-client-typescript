@@ -31,7 +31,6 @@ export class LogsMetricResponseAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     compute: {
@@ -39,21 +38,18 @@ export class LogsMetricResponseAttributes {
       baseName: "compute",
       type: "LogsMetricResponseCompute",
       required: false,
-      format: "",
     },
     filter: {
       name: "filter",
       baseName: "filter",
       type: "LogsMetricResponseFilter",
       required: false,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<LogsMetricResponseGroupBy>",
       required: false,
-      format: "",
     },
   };
 

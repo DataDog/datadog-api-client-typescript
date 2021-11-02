@@ -27,7 +27,6 @@ export class ApplicationKeyListResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     applicationKeys: {
@@ -35,7 +34,6 @@ export class ApplicationKeyListResponse {
       baseName: "application_keys",
       type: "Array<ApplicationKey>",
       required: false,
-      format: "",
     },
   };
 

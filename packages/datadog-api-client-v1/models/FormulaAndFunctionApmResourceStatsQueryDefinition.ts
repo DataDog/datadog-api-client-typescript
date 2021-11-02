@@ -58,7 +58,6 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dataSource: {
@@ -66,70 +65,60 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
       baseName: "data_source",
       type: "FormulaAndFunctionApmResourceStatsDataSource",
       required: true,
-      format: "",
     },
     env: {
       name: "env",
       baseName: "env",
       type: "string",
       required: true,
-      format: "",
     },
     groupBy: {
       name: "groupBy",
       baseName: "group_by",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     operationName: {
       name: "operationName",
       baseName: "operation_name",
       type: "string",
       required: false,
-      format: "",
     },
     primaryTagName: {
       name: "primaryTagName",
       baseName: "primary_tag_name",
       type: "string",
       required: false,
-      format: "",
     },
     primaryTagValue: {
       name: "primaryTagValue",
       baseName: "primary_tag_value",
       type: "string",
       required: false,
-      format: "",
     },
     resourceName: {
       name: "resourceName",
       baseName: "resource_name",
       type: "string",
       required: false,
-      format: "",
     },
     service: {
       name: "service",
       baseName: "service",
       type: "string",
       required: true,
-      format: "",
     },
     stat: {
       name: "stat",
       baseName: "stat",
       type: "FormulaAndFunctionApmResourceStatName",
       required: true,
-      format: "",
     },
   };
 

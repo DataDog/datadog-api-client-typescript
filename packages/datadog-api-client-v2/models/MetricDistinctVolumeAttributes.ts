@@ -25,7 +25,6 @@ export class MetricDistinctVolumeAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     distinctVolume: {

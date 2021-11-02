@@ -41,7 +41,6 @@ export class FullAPIKeyAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     createdAt: {
@@ -49,35 +48,30 @@ export class FullAPIKeyAttributes {
       baseName: "created_at",
       type: "string",
       required: false,
-      format: "",
     },
     key: {
       name: "key",
       baseName: "key",
       type: "string",
       required: false,
-      format: "",
     },
     last4: {
       name: "last4",
       baseName: "last4",
       type: "string",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
       baseName: "modified_at",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

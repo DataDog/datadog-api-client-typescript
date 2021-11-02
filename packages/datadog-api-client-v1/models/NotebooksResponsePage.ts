@@ -29,7 +29,6 @@ export class NotebooksResponsePage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     totalCount: {

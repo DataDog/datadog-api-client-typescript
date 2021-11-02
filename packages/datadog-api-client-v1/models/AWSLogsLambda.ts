@@ -25,7 +25,6 @@ export class AWSLogsLambda {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     arn: {
@@ -33,7 +32,6 @@ export class AWSLogsLambda {
       baseName: "arn",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

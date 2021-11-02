@@ -25,7 +25,6 @@ export class LogsMetricFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     query: {
@@ -33,7 +32,6 @@ export class LogsMetricFilter {
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

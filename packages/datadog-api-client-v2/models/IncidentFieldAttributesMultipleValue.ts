@@ -28,7 +28,6 @@ export class IncidentFieldAttributesMultipleValue {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     type: {
@@ -36,14 +35,12 @@ export class IncidentFieldAttributesMultipleValue {
       baseName: "type",
       type: "IncidentFieldAttributesValueType",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

@@ -28,7 +28,6 @@ export class RelationshipToIncidentPostmortemData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -36,14 +35,12 @@ export class RelationshipToIncidentPostmortemData {
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "IncidentPostmortemType",
       required: true,
-      format: "",
     },
   };
 

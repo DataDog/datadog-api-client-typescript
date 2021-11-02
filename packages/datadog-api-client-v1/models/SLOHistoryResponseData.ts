@@ -56,7 +56,6 @@ export class SLOHistoryResponseData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     fromTs: {
@@ -71,42 +70,36 @@ export class SLOHistoryResponseData {
       baseName: "group_by",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     groups: {
       name: "groups",
       baseName: "groups",
       type: "Array<SLOHistoryMonitor>",
       required: false,
-      format: "",
     },
     monitors: {
       name: "monitors",
       baseName: "monitors",
       type: "Array<SLOHistoryMonitor>",
       required: false,
-      format: "",
     },
     overall: {
       name: "overall",
       baseName: "overall",
       type: "SLOHistorySLIData",
       required: false,
-      format: "",
     },
     series: {
       name: "series",
       baseName: "series",
       type: "SLOHistoryMetrics",
       required: false,
-      format: "",
     },
     thresholds: {
       name: "thresholds",
       baseName: "thresholds",
       type: "{ [key: string]: SLOThreshold; }",
       required: false,
-      format: "",
     },
     toTs: {
       name: "toTs",
@@ -120,14 +113,12 @@ export class SLOHistoryResponseData {
       baseName: "type",
       type: "SLOType",
       required: false,
-      format: "",
     },
     typeId: {
       name: "typeId",
       baseName: "type_id",
       type: "SLOTypeNumeric",
       required: false,
-      format: "",
     },
   };
 

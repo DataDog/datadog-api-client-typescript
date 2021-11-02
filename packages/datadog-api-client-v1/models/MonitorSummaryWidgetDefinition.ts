@@ -62,7 +62,6 @@ export class MonitorSummaryWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     colorPreference: {
@@ -70,7 +69,6 @@ export class MonitorSummaryWidgetDefinition {
       baseName: "color_preference",
       type: "WidgetColorPreference",
       required: false,
-      format: "",
     },
     count: {
       name: "count",
@@ -84,35 +82,30 @@ export class MonitorSummaryWidgetDefinition {
       baseName: "display_format",
       type: "WidgetMonitorSummaryDisplayFormat",
       required: false,
-      format: "",
     },
     hideZeroCounts: {
       name: "hideZeroCounts",
       baseName: "hide_zero_counts",
       type: "boolean",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: true,
-      format: "",
     },
     showLastTriggered: {
       name: "showLastTriggered",
       baseName: "show_last_triggered",
       type: "boolean",
       required: false,
-      format: "",
     },
     sort: {
       name: "sort",
       baseName: "sort",
       type: "WidgetMonitorSummarySort",
       required: false,
-      format: "",
     },
     start: {
       name: "start",
@@ -126,35 +119,30 @@ export class MonitorSummaryWidgetDefinition {
       baseName: "summary_type",
       type: "WidgetSummaryType",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "MonitorSummaryWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

@@ -57,7 +57,6 @@ export class SLOWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     globalTimeTarget: {
@@ -65,70 +64,60 @@ export class SLOWidgetDefinition {
       baseName: "global_time_target",
       type: "string",
       required: false,
-      format: "",
     },
     showErrorBudget: {
       name: "showErrorBudget",
       baseName: "show_error_budget",
       type: "boolean",
       required: false,
-      format: "",
     },
     sloId: {
       name: "sloId",
       baseName: "slo_id",
       type: "string",
       required: false,
-      format: "",
     },
     timeWindows: {
       name: "timeWindows",
       baseName: "time_windows",
       type: "Array<WidgetTimeWindows>",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SLOWidgetDefinitionType",
       required: true,
-      format: "",
     },
     viewMode: {
       name: "viewMode",
       baseName: "view_mode",
       type: "WidgetViewMode",
       required: false,
-      format: "",
     },
     viewType: {
       name: "viewType",
       baseName: "view_type",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

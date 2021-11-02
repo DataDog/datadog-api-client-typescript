@@ -29,7 +29,6 @@ export class LogsArchiveIntegrationAzure {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     clientId: {
@@ -37,14 +36,12 @@ export class LogsArchiveIntegrationAzure {
       baseName: "client_id",
       type: "string",
       required: true,
-      format: "",
     },
     tenantId: {
       name: "tenantId",
       baseName: "tenant_id",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

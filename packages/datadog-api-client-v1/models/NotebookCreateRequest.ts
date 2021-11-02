@@ -24,7 +24,6 @@ export class NotebookCreateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -32,7 +31,6 @@ export class NotebookCreateRequest {
       baseName: "data",
       type: "NotebookCreateData",
       required: true,
-      format: "",
     },
   };
 

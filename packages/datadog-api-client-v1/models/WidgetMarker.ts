@@ -37,7 +37,6 @@ export class WidgetMarker {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     displayType: {
@@ -45,28 +44,24 @@ export class WidgetMarker {
       baseName: "display_type",
       type: "string",
       required: false,
-      format: "",
     },
     label: {
       name: "label",
       baseName: "label",
       type: "string",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",
       baseName: "value",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

@@ -25,7 +25,6 @@ export class LogsAggregateRequestPage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cursor: {
@@ -33,7 +32,6 @@ export class LogsAggregateRequestPage {
       baseName: "cursor",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -28,7 +28,6 @@ export class SecurityMonitoringFilter {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     action: {
@@ -36,14 +35,12 @@ export class SecurityMonitoringFilter {
       baseName: "action",
       type: "SecurityMonitoringFilterAction",
       required: false,
-      format: "",
     },
     query: {
       name: "query",
       baseName: "query",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

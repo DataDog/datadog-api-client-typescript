@@ -28,7 +28,6 @@ export class WidgetFieldSort {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     column: {
@@ -36,14 +35,12 @@ export class WidgetFieldSort {
       baseName: "column",
       type: "string",
       required: true,
-      format: "",
     },
     order: {
       name: "order",
       baseName: "order",
       type: "WidgetSort",
       required: true,
-      format: "",
     },
   };
 

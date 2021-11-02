@@ -41,7 +41,6 @@ export class LogsIndexUpdateRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dailyLimit: {
@@ -56,21 +55,18 @@ export class LogsIndexUpdateRequest {
       baseName: "disable_daily_limit",
       type: "boolean",
       required: false,
-      format: "",
     },
     exclusionFilters: {
       name: "exclusionFilters",
       baseName: "exclusion_filters",
       type: "Array<LogsExclusion>",
       required: false,
-      format: "",
     },
     filter: {
       name: "filter",
       baseName: "filter",
       type: "LogsFilter",
       required: true,
-      format: "",
     },
     numRetentionDays: {
       name: "numRetentionDays",

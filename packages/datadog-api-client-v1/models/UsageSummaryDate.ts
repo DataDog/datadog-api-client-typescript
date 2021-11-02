@@ -211,7 +211,6 @@ export class UsageSummaryDate {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     agentHostTop99p: {
@@ -471,7 +470,6 @@ export class UsageSummaryDate {
       baseName: "orgs",
       type: "Array<UsageSummaryDateOrg>",
       required: false,
-      format: "",
     },
     profilingHostTop99p: {
       name: "profilingHostTop99p",

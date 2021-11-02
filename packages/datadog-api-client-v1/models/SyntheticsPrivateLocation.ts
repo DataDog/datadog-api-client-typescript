@@ -40,7 +40,6 @@ export class SyntheticsPrivateLocation {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     description: {
@@ -48,35 +47,30 @@ export class SyntheticsPrivateLocation {
       baseName: "description",
       type: "string",
       required: true,
-      format: "",
     },
     id: {
       name: "id",
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     name: {
       name: "name",
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     secrets: {
       name: "secrets",
       baseName: "secrets",
       type: "SyntheticsPrivateLocationSecrets",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: true,
-      format: "",
     },
   };
 

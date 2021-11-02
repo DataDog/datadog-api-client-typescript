@@ -25,7 +25,6 @@ export class AWSAccountCreateResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     externalId: {
@@ -33,7 +32,6 @@ export class AWSAccountCreateResponse {
       baseName: "external_id",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

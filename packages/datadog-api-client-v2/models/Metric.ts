@@ -28,7 +28,6 @@ export class Metric {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -36,14 +35,12 @@ export class Metric {
       baseName: "id",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "MetricType",
       required: false,
-      format: "",
     },
   };
 

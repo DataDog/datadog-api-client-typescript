@@ -53,7 +53,6 @@ export class UsageLogsHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     billableIngestedBytes: {

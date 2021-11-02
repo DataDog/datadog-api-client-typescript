@@ -96,7 +96,6 @@ export class IncidentResponseAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     created: {
@@ -125,7 +124,6 @@ export class IncidentResponseAttributes {
       baseName: "customer_impact_scope",
       type: "string",
       required: false,
-      format: "",
     },
     customerImpactStart: {
       name: "customerImpactStart",
@@ -139,7 +137,6 @@ export class IncidentResponseAttributes {
       baseName: "customer_impacted",
       type: "boolean",
       required: false,
-      format: "",
     },
     detected: {
       name: "detected",
@@ -153,7 +150,6 @@ export class IncidentResponseAttributes {
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
       required: false,
-      format: "",
     },
     modified: {
       name: "modified",
@@ -167,14 +163,12 @@ export class IncidentResponseAttributes {
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
       required: false,
-      format: "",
     },
     postmortemId: {
       name: "postmortemId",
       baseName: "postmortem_id",
       type: "string",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
@@ -223,7 +217,6 @@ export class IncidentResponseAttributes {
       baseName: "title",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

@@ -25,7 +25,6 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     enabled: {
@@ -33,7 +32,6 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
       baseName: "enabled",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

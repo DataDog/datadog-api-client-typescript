@@ -32,7 +32,6 @@ export class LogQueryDefinitionGroupBySort {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregation: {
@@ -40,21 +39,18 @@ export class LogQueryDefinitionGroupBySort {
       baseName: "aggregation",
       type: "string",
       required: true,
-      format: "",
     },
     facet: {
       name: "facet",
       baseName: "facet",
       type: "string",
       required: false,
-      format: "",
     },
     order: {
       name: "order",
       baseName: "order",
       type: "WidgetSort",
       required: true,
-      format: "",
     },
   };
 

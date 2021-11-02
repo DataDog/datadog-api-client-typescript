@@ -27,7 +27,6 @@ export class DashboardListAddItemsRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     dashboards: {
@@ -35,7 +34,6 @@ export class DashboardListAddItemsRequest {
       baseName: "dashboards",
       type: "Array<DashboardListItemRequest>",
       required: false,
-      format: "",
     },
   };
 

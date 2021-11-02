@@ -29,7 +29,6 @@ export class UserResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -37,14 +36,12 @@ export class UserResponse {
       baseName: "data",
       type: "User",
       required: false,
-      format: "",
     },
     included: {
       name: "included",
       baseName: "included",
       type: "Array<UserResponseIncludedItem>",
       required: false,
-      format: "",
     },
   };
 

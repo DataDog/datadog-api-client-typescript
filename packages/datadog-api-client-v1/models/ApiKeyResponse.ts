@@ -24,7 +24,6 @@ export class ApiKeyResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     apiKey: {
@@ -32,7 +31,6 @@ export class ApiKeyResponse {
       baseName: "api_key",
       type: "ApiKey",
       required: false,
-      format: "",
     },
   };
 

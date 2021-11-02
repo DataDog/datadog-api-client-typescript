@@ -24,7 +24,6 @@ export class IncidentServicesResponseMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     pagination: {
@@ -32,7 +31,6 @@ export class IncidentServicesResponseMeta {
       baseName: "pagination",
       type: "IncidentServicesResponseMetaPagination",
       required: false,
-      format: "",
     },
   };
 

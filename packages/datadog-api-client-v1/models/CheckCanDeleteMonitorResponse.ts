@@ -28,7 +28,6 @@ export class CheckCanDeleteMonitorResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -36,14 +35,12 @@ export class CheckCanDeleteMonitorResponse {
       baseName: "data",
       type: "CheckCanDeleteMonitorResponseData",
       required: true,
-      format: "",
     },
     errors: {
       name: "errors",
       baseName: "errors",
       type: "{ [key: string]: Array<string>; }",
       required: false,
-      format: "",
     },
   };
 

@@ -31,7 +31,6 @@ export class MonitorSearchResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     counts: {
@@ -39,21 +38,18 @@ export class MonitorSearchResponse {
       baseName: "counts",
       type: "MonitorSearchResponseCounts",
       required: false,
-      format: "",
     },
     metadata: {
       name: "metadata",
       baseName: "metadata",
       type: "MonitorSearchResponseMetadata",
       required: false,
-      format: "",
     },
     monitors: {
       name: "monitors",
       baseName: "monitors",
       type: "Array<MonitorSearchResult>",
       required: false,
-      format: "",
     },
   };
 

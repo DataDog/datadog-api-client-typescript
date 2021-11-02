@@ -45,7 +45,6 @@ export class MetricTagConfigurationAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     aggregations: {
@@ -53,7 +52,6 @@ export class MetricTagConfigurationAttributes {
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
       required: false,
-      format: "",
     },
     createdAt: {
       name: "createdAt",
@@ -67,14 +65,12 @@ export class MetricTagConfigurationAttributes {
       baseName: "include_percentiles",
       type: "boolean",
       required: false,
-      format: "",
     },
     metricType: {
       name: "metricType",
       baseName: "metric_type",
       type: "MetricTagConfigurationMetricTypes",
       required: false,
-      format: "",
     },
     modifiedAt: {
       name: "modifiedAt",
@@ -88,7 +84,6 @@ export class MetricTagConfigurationAttributes {
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
   };
 

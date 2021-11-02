@@ -76,7 +76,6 @@ export class ServiceSummaryWidgetDefinition {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     displayFormat: {
@@ -84,112 +83,96 @@ export class ServiceSummaryWidgetDefinition {
       baseName: "display_format",
       type: "WidgetServiceSummaryDisplayFormat",
       required: false,
-      format: "",
     },
     env: {
       name: "env",
       baseName: "env",
       type: "string",
       required: true,
-      format: "",
     },
     service: {
       name: "service",
       baseName: "service",
       type: "string",
       required: true,
-      format: "",
     },
     showBreakdown: {
       name: "showBreakdown",
       baseName: "show_breakdown",
       type: "boolean",
       required: false,
-      format: "",
     },
     showDistribution: {
       name: "showDistribution",
       baseName: "show_distribution",
       type: "boolean",
       required: false,
-      format: "",
     },
     showErrors: {
       name: "showErrors",
       baseName: "show_errors",
       type: "boolean",
       required: false,
-      format: "",
     },
     showHits: {
       name: "showHits",
       baseName: "show_hits",
       type: "boolean",
       required: false,
-      format: "",
     },
     showLatency: {
       name: "showLatency",
       baseName: "show_latency",
       type: "boolean",
       required: false,
-      format: "",
     },
     showResourceList: {
       name: "showResourceList",
       baseName: "show_resource_list",
       type: "boolean",
       required: false,
-      format: "",
     },
     sizeFormat: {
       name: "sizeFormat",
       baseName: "size_format",
       type: "WidgetSizeFormat",
       required: false,
-      format: "",
     },
     spanName: {
       name: "spanName",
       baseName: "span_name",
       type: "string",
       required: true,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "WidgetTime",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: false,
-      format: "",
     },
     titleAlign: {
       name: "titleAlign",
       baseName: "title_align",
       type: "WidgetTextAlign",
       required: false,
-      format: "",
     },
     titleSize: {
       name: "titleSize",
       baseName: "title_size",
       type: "string",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "ServiceSummaryWidgetDefinitionType",
       required: true,
-      format: "",
     },
   };
 

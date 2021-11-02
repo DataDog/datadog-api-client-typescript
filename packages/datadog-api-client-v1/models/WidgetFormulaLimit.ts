@@ -28,7 +28,6 @@ export class WidgetFormulaLimit {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     count: {
@@ -43,7 +42,6 @@ export class WidgetFormulaLimit {
       baseName: "order",
       type: "QuerySortOrder",
       required: false,
-      format: "",
     },
   };
 

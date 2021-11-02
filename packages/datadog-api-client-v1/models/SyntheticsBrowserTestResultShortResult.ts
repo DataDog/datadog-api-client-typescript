@@ -40,7 +40,6 @@ export class SyntheticsBrowserTestResultShortResult {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     device: {
@@ -48,7 +47,6 @@ export class SyntheticsBrowserTestResultShortResult {
       baseName: "device",
       type: "SyntheticsDevice",
       required: false,
-      format: "",
     },
     duration: {
       name: "duration",

@@ -45,7 +45,6 @@ export class IncidentCreateAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     customerImpacted: {
@@ -53,35 +52,30 @@ export class IncidentCreateAttributes {
       baseName: "customer_impacted",
       type: "boolean",
       required: true,
-      format: "",
     },
     fields: {
       name: "fields",
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
       required: false,
-      format: "",
     },
     initialCells: {
       name: "initialCells",
       baseName: "initial_cells",
       type: "Array<IncidentTimelineCellCreateAttributes>",
       required: false,
-      format: "",
     },
     notificationHandles: {
       name: "notificationHandles",
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
       required: false,
-      format: "",
     },
     title: {
       name: "title",
       baseName: "title",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

@@ -27,7 +27,6 @@ export class RelationshipToUsers {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -35,7 +34,6 @@ export class RelationshipToUsers {
       baseName: "data",
       type: "Array<RelationshipToUserData>",
       required: true,
-      format: "",
     },
   };
 

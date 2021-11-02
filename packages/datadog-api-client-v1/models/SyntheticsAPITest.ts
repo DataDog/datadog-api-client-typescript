@@ -56,7 +56,6 @@ export class SyntheticsAPITest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     config: {
@@ -64,21 +63,18 @@ export class SyntheticsAPITest {
       baseName: "config",
       type: "SyntheticsAPITestConfig",
       required: false,
-      format: "",
     },
     locations: {
       name: "locations",
       baseName: "locations",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     message: {
       name: "message",
       baseName: "message",
       type: "string",
       required: false,
-      format: "",
     },
     monitorId: {
       name: "monitorId",
@@ -92,49 +88,42 @@ export class SyntheticsAPITest {
       baseName: "name",
       type: "string",
       required: false,
-      format: "",
     },
     options: {
       name: "options",
       baseName: "options",
       type: "SyntheticsTestOptions",
       required: false,
-      format: "",
     },
     publicId: {
       name: "publicId",
       baseName: "public_id",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "SyntheticsTestPauseStatus",
       required: false,
-      format: "",
     },
     subtype: {
       name: "subtype",
       baseName: "subtype",
       type: "SyntheticsTestDetailsSubType",
       required: false,
-      format: "",
     },
     tags: {
       name: "tags",
       baseName: "tags",
       type: "Array<string>",
       required: false,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "SyntheticsAPITestType",
       required: false,
-      format: "",
     },
   };
 

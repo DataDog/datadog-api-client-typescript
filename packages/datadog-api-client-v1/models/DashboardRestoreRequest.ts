@@ -27,7 +27,6 @@ export class DashboardRestoreRequest {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     data: {
@@ -35,7 +34,6 @@ export class DashboardRestoreRequest {
       baseName: "data",
       type: "Array<DashboardBulkActionData>",
       required: true,
-      format: "",
     },
   };
 

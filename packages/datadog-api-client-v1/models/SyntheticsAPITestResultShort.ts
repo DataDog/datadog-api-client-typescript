@@ -38,7 +38,6 @@ export class SyntheticsAPITestResultShort {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     checkTime: {
@@ -53,28 +52,24 @@ export class SyntheticsAPITestResultShort {
       baseName: "probe_dc",
       type: "string",
       required: false,
-      format: "",
     },
     result: {
       name: "result",
       baseName: "result",
       type: "SyntheticsAPITestResultShortResult",
       required: false,
-      format: "",
     },
     resultId: {
       name: "resultId",
       baseName: "result_id",
       type: "string",
       required: false,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "SyntheticsTestMonitorStatus",
       required: false,
-      format: "",
     },
   };
 

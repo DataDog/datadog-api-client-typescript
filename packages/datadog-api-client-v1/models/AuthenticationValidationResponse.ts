@@ -25,7 +25,6 @@ export class AuthenticationValidationResponse {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     valid: {
@@ -33,7 +32,6 @@ export class AuthenticationValidationResponse {
       baseName: "valid",
       type: "boolean",
       required: false,
-      format: "",
     },
   };
 

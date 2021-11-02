@@ -25,7 +25,6 @@ export class LogsResponseMetadataPage {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     after: {
@@ -33,7 +32,6 @@ export class LogsResponseMetadataPage {
       baseName: "after",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

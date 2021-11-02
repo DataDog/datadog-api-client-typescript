@@ -30,7 +30,6 @@ export class NotebookTimeseriesCellAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     definition: {
@@ -38,28 +37,24 @@ export class NotebookTimeseriesCellAttributes {
       baseName: "definition",
       type: "TimeseriesWidgetDefinition",
       required: true,
-      format: "",
     },
     graphSize: {
       name: "graphSize",
       baseName: "graph_size",
       type: "NotebookGraphSize",
       required: false,
-      format: "",
     },
     splitBy: {
       name: "splitBy",
       baseName: "split_by",
       type: "NotebookSplitBy",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "NotebookCellTime",
       required: false,
-      format: "",
     },
   };
 

@@ -29,7 +29,6 @@ export class LogsArchiveIntegrationGCS {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     clientEmail: {
@@ -37,14 +36,12 @@ export class LogsArchiveIntegrationGCS {
       baseName: "client_email",
       type: "string",
       required: true,
-      format: "",
     },
     projectId: {
       name: "projectId",
       baseName: "project_id",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

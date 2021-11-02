@@ -25,7 +25,6 @@ export class SecurityFilterMeta {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     warning: {
@@ -33,7 +32,6 @@ export class SecurityFilterMeta {
       baseName: "warning",
       type: "string",
       required: false,
-      format: "",
     },
   };
 

@@ -47,7 +47,6 @@ export class NotebooksResponseDataAttributes {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     author: {
@@ -55,14 +54,12 @@ export class NotebooksResponseDataAttributes {
       baseName: "author",
       type: "NotebookAuthor",
       required: false,
-      format: "",
     },
     cells: {
       name: "cells",
       baseName: "cells",
       type: "Array<NotebookCellResponse>",
       required: false,
-      format: "",
     },
     created: {
       name: "created",
@@ -76,7 +73,6 @@ export class NotebooksResponseDataAttributes {
       baseName: "metadata",
       type: "NotebookMetadata",
       required: false,
-      format: "",
     },
     modified: {
       name: "modified",
@@ -90,21 +86,18 @@ export class NotebooksResponseDataAttributes {
       baseName: "name",
       type: "string",
       required: true,
-      format: "",
     },
     status: {
       name: "status",
       baseName: "status",
       type: "NotebookStatus",
       required: false,
-      format: "",
     },
     time: {
       name: "time",
       baseName: "time",
       type: "NotebookGlobalTime",
       required: false,
-      format: "",
     },
   };
 

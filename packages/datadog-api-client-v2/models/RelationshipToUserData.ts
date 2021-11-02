@@ -28,7 +28,6 @@ export class RelationshipToUserData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     id: {
@@ -36,14 +35,12 @@ export class RelationshipToUserData {
       baseName: "id",
       type: "string",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "UsersType",
       required: true,
-      format: "",
     },
   };
 

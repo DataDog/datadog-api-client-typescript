@@ -25,7 +25,6 @@ export class CanceledDowntimesIds {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cancelledIds: {

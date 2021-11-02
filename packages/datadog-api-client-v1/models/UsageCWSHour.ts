@@ -33,7 +33,6 @@ export class UsageCWSHour {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     cwsContainerCount: {

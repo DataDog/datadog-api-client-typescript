@@ -25,7 +25,6 @@ export class PagerDutyServiceKey {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     serviceKey: {
@@ -33,7 +32,6 @@ export class PagerDutyServiceKey {
       baseName: "service_key",
       type: "string",
       required: true,
-      format: "",
     },
   };
 

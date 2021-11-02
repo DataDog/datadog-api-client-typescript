@@ -39,7 +39,6 @@ export class SyntheticsTestConfig {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     assertions: {
@@ -47,28 +46,24 @@ export class SyntheticsTestConfig {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
       required: false,
-      format: "",
     },
     configVariables: {
       name: "configVariables",
       baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
       required: false,
-      format: "",
     },
     request: {
       name: "request",
       baseName: "request",
       type: "SyntheticsTestRequest",
       required: false,
-      format: "",
     },
     variables: {
       name: "variables",
       baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
       required: false,
-      format: "",
     },
   };
 

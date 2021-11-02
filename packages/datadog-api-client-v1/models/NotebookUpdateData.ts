@@ -26,7 +26,6 @@ export class NotebookUpdateData {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     attributes: {
@@ -34,14 +33,12 @@ export class NotebookUpdateData {
       baseName: "attributes",
       type: "NotebookUpdateDataAttributes",
       required: true,
-      format: "",
     },
     type: {
       name: "type",
       baseName: "type",
       type: "NotebookResourceType",
       required: true,
-      format: "",
     },
   };
 

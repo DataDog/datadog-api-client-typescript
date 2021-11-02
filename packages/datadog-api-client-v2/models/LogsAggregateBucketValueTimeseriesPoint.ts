@@ -29,7 +29,6 @@ export class LogsAggregateBucketValueTimeseriesPoint {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     time: {
@@ -37,7 +36,6 @@ export class LogsAggregateBucketValueTimeseriesPoint {
       baseName: "time",
       type: "string",
       required: false,
-      format: "",
     },
     value: {
       name: "value",

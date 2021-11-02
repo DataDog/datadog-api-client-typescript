@@ -24,7 +24,6 @@ export class SyntheticsUpdateTestPauseStatusPayload {
       type: string;
       required: boolean;
       format?: string;
-      enumValues?: any;
     };
   } = {
     newStatus: {
@@ -32,7 +31,6 @@ export class SyntheticsUpdateTestPauseStatusPayload {
       baseName: "new_status",
       type: "SyntheticsTestPauseStatus",
       required: false,
-      format: "",
     },
   };
 
