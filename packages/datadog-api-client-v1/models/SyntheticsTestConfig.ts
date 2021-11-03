@@ -20,7 +20,7 @@ import { ObjectSerializer } from "./ObjectSerializer";
 
 export class SyntheticsTestConfig {
   /**
-   * Array of assertions used for the test.
+   * Array of assertions used for the test. Required for single API tests.
    */
   "assertions"?: Array<SyntheticsAssertion>;
   /**

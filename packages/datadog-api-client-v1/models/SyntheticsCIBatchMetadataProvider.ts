@@ -8,60 +8,61 @@
  * Do not edit the class manually.
  */
 
-import { UsageComplianceHour } from "./UsageComplianceHour";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * The response containing the Compliance Monitoring usage for each hour for a given organization.
+ * Description of the CI provider.
  */
 
-export class UsageComplianceResponse {
+export class SyntheticsCIBatchMetadataProvider {
   /**
-   * Get hourly usage for Compliance Monitoring.
+   * Name of the CI provider.
    */
-  "usage"?: Array<UsageComplianceHour>;
+  "name"?: string;
+
+  "unparsedObject"?: any;
 
   static readonly discriminator: string | undefined = undefined;
 
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageComplianceHour>",
+    name: {
+      baseName: "name",
+      type: "string",
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
-    return UsageComplianceResponse.attributeTypeMap;
+    return SyntheticsCIBatchMetadataProvider.attributeTypeMap;
   }
 
-  static deserialize(data: { [key: string]: any }): UsageComplianceResponse {
-    const res = new UsageComplianceResponse();
+  static deserialize(data: {
+    [key: string]: any;
+  }): SyntheticsCIBatchMetadataProvider {
+    const res = new SyntheticsCIBatchMetadataProvider();
 
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageComplianceHour>",
-      ""
-    );
+    res.name = ObjectSerializer.deserialize(data.name, "string", "");
 
     return res;
   }
 
-  static serialize(data: UsageComplianceResponse): { [key: string]: any } {
-    const attributeTypes = UsageComplianceResponse.getAttributeTypeMap();
+  static serialize(data: SyntheticsCIBatchMetadataProvider): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsCIBatchMetadataProvider.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {
         throw new TypeError(`${key} attribute not in schema`);
       }
     }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageComplianceHour>",
-      ""
-    );
+    if (data?.unparsedObject !== undefined) {
+      return data.unparsedObject;
+    }
+    res.name = ObjectSerializer.serialize(data.name, "string", "");
 
     return res;
   }

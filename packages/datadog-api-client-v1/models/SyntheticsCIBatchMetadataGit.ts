@@ -37,7 +37,7 @@ export class SyntheticsCIBatchMetadataGit {
       format: "",
     },
     commitSha: {
-      baseName: "commit_sha",
+      baseName: "commitSha",
       type: "string",
       format: "",
     },
@@ -54,7 +54,7 @@ export class SyntheticsCIBatchMetadataGit {
 
     res.branch = ObjectSerializer.deserialize(data.branch, "string", "");
 
-    res.commitSha = ObjectSerializer.deserialize(data.commit_sha, "string", "");
+    res.commitSha = ObjectSerializer.deserialize(data.commitSha, "string", "");
 
     return res;
   }
@@ -72,7 +72,7 @@ export class SyntheticsCIBatchMetadataGit {
     }
     res.branch = ObjectSerializer.serialize(data.branch, "string", "");
 
-    res.commit_sha = ObjectSerializer.serialize(data.commitSha, "string", "");
+    res.commitSha = ObjectSerializer.serialize(data.commitSha, "string", "");
 
     return res;
   }

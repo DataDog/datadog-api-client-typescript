@@ -310,6 +310,8 @@ import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
+import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
+import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
 import { SyntheticsCITest } from "./SyntheticsCITest";
 import { SyntheticsCITestBody } from "./SyntheticsCITestBody";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
@@ -969,6 +971,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsCIBatchMetadata: SyntheticsCIBatchMetadata,
   SyntheticsCIBatchMetadataCI: SyntheticsCIBatchMetadataCI,
   SyntheticsCIBatchMetadataGit: SyntheticsCIBatchMetadataGit,
+  SyntheticsCIBatchMetadataPipeline: SyntheticsCIBatchMetadataPipeline,
+  SyntheticsCIBatchMetadataProvider: SyntheticsCIBatchMetadataProvider,
   SyntheticsCITest: SyntheticsCITest,
   SyntheticsCITestBody: SyntheticsCITestBody,
   SyntheticsConfigVariable: SyntheticsConfigVariable,

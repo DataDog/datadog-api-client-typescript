@@ -8,6 +8,8 @@
  * Do not edit the class manually.
  */
 
+import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
+import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
@@ -15,14 +17,8 @@ import { ObjectSerializer } from "./ObjectSerializer";
  */
 
 export class SyntheticsCIBatchMetadataCI {
-  /**
-   * Name of the pipeline.
-   */
-  "pipeline"?: string;
-  /**
-   * Name of the CI provider.
-   */
-  "provider"?: string;
+  "pipeline"?: SyntheticsCIBatchMetadataPipeline;
+  "provider"?: SyntheticsCIBatchMetadataProvider;
 
   "unparsedObject"?: any;
 
@@ -33,12 +29,12 @@ export class SyntheticsCIBatchMetadataCI {
   } = {
     pipeline: {
       baseName: "pipeline",
-      type: "string",
+      type: "SyntheticsCIBatchMetadataPipeline",
       format: "",
     },
     provider: {
       baseName: "provider",
-      type: "string",
+      type: "SyntheticsCIBatchMetadataProvider",
       format: "",
     },
   };
@@ -52,9 +48,17 @@ export class SyntheticsCIBatchMetadataCI {
   }): SyntheticsCIBatchMetadataCI {
     const res = new SyntheticsCIBatchMetadataCI();
 
-    res.pipeline = ObjectSerializer.deserialize(data.pipeline, "string", "");
+    res.pipeline = ObjectSerializer.deserialize(
+      data.pipeline,
+      "SyntheticsCIBatchMetadataPipeline",
+      ""
+    );
 
-    res.provider = ObjectSerializer.deserialize(data.provider, "string", "");
+    res.provider = ObjectSerializer.deserialize(
+      data.provider,
+      "SyntheticsCIBatchMetadataProvider",
+      ""
+    );
 
     return res;
   }
@@ -70,9 +74,17 @@ export class SyntheticsCIBatchMetadataCI {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
-    res.pipeline = ObjectSerializer.serialize(data.pipeline, "string", "");
+    res.pipeline = ObjectSerializer.serialize(
+      data.pipeline,
+      "SyntheticsCIBatchMetadataPipeline",
+      ""
+    );
 
-    res.provider = ObjectSerializer.serialize(data.provider, "string", "");
+    res.provider = ObjectSerializer.serialize(
+      data.provider,
+      "SyntheticsCIBatchMetadataProvider",
+      ""
+    );
 
     return res;
   }
