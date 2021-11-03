@@ -11,11 +11,6 @@
 import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Datadog API key.
- */
 
 export class FullAPIKey {
   "attributes"?: FullAPIKeyAttributes;
@@ -28,97 +23,34 @@ export class FullAPIKey {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     attributes: {
       baseName: "attributes",
       type: "FullAPIKeyAttributes",
-      format: "",
     },
     id: {
       baseName: "id",
       type: "string",
-      format: "",
     },
     relationships: {
       baseName: "relationships",
       type: "APIKeyRelationships",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "APIKeysType",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FullAPIKey.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): FullAPIKey {
-    const res = new FullAPIKey();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "FullAPIKeyAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.deserialize(
-      data.relationships,
-      "APIKeyRelationships",
-      ""
-    );
-
-    if (["api_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new FullAPIKey();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: FullAPIKey): { [key: string]: any } {
-    const attributeTypes = FullAPIKey.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "FullAPIKeyAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.relationships = ObjectSerializer.serialize(
-      data.relationships,
-      "APIKeyRelationships",
-      ""
-    );
-
-    if (["api_keys", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

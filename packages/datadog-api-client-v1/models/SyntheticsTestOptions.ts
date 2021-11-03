@@ -11,11 +11,6 @@
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing the extra options for a Synthetic test.
- */
 
 export class SyntheticsTestOptions {
   /**
@@ -67,256 +62,78 @@ export class SyntheticsTestOptions {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     acceptSelfSigned: {
       baseName: "accept_self_signed",
       type: "boolean",
-      format: "",
     },
     allowInsecure: {
       baseName: "allow_insecure",
       type: "boolean",
-      format: "",
     },
     deviceIds: {
       baseName: "device_ids",
       type: "Array<SyntheticsDeviceID>",
-      format: "",
     },
     disableCors: {
       baseName: "disableCors",
       type: "boolean",
-      format: "",
     },
     followRedirects: {
       baseName: "follow_redirects",
       type: "boolean",
-      format: "",
     },
     minFailureDuration: {
       baseName: "min_failure_duration",
       type: "number",
+
       format: "int64",
     },
     minLocationFailed: {
       baseName: "min_location_failed",
       type: "number",
+
       format: "int64",
     },
     monitorName: {
       baseName: "monitor_name",
       type: "string",
-      format: "",
     },
     monitorOptions: {
       baseName: "monitor_options",
       type: "SyntheticsTestOptionsMonitorOptions",
-      format: "",
     },
     monitorPriority: {
       baseName: "monitor_priority",
       type: "number",
+
       format: "int32",
     },
     noScreenshot: {
       baseName: "noScreenshot",
       type: "boolean",
-      format: "",
     },
     retry: {
       baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
-      format: "",
     },
     tickEvery: {
       baseName: "tick_every",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTestOptions.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsTestOptions {
-    const res = new SyntheticsTestOptions();
-
-    res.acceptSelfSigned = ObjectSerializer.deserialize(
-      data.accept_self_signed,
-      "boolean",
-      ""
-    );
-
-    res.allowInsecure = ObjectSerializer.deserialize(
-      data.allow_insecure,
-      "boolean",
-      ""
-    );
-
-    res.deviceIds = ObjectSerializer.deserialize(
-      data.device_ids,
-      "Array<SyntheticsDeviceID>",
-      ""
-    );
-
-    res.disableCors = ObjectSerializer.deserialize(
-      data.disableCors,
-      "boolean",
-      ""
-    );
-
-    res.followRedirects = ObjectSerializer.deserialize(
-      data.follow_redirects,
-      "boolean",
-      ""
-    );
-
-    res.minFailureDuration = ObjectSerializer.deserialize(
-      data.min_failure_duration,
-      "number",
-      "int64"
-    );
-
-    res.minLocationFailed = ObjectSerializer.deserialize(
-      data.min_location_failed,
-      "number",
-      "int64"
-    );
-
-    res.monitorName = ObjectSerializer.deserialize(
-      data.monitor_name,
-      "string",
-      ""
-    );
-
-    res.monitorOptions = ObjectSerializer.deserialize(
-      data.monitor_options,
-      "SyntheticsTestOptionsMonitorOptions",
-      ""
-    );
-
-    res.monitorPriority = ObjectSerializer.deserialize(
-      data.monitor_priority,
-      "number",
-      "int32"
-    );
-
-    res.noScreenshot = ObjectSerializer.deserialize(
-      data.noScreenshot,
-      "boolean",
-      ""
-    );
-
-    res.retry = ObjectSerializer.deserialize(
-      data.retry,
-      "SyntheticsTestOptionsRetry",
-      ""
-    );
-
-    res.tickEvery = ObjectSerializer.deserialize(
-      data.tick_every,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTestOptions): { [key: string]: any } {
-    const attributeTypes = SyntheticsTestOptions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.accept_self_signed = ObjectSerializer.serialize(
-      data.acceptSelfSigned,
-      "boolean",
-      ""
-    );
-
-    res.allow_insecure = ObjectSerializer.serialize(
-      data.allowInsecure,
-      "boolean",
-      ""
-    );
-
-    res.device_ids = ObjectSerializer.serialize(
-      data.deviceIds,
-      "Array<SyntheticsDeviceID>",
-      ""
-    );
-
-    res.disableCors = ObjectSerializer.serialize(
-      data.disableCors,
-      "boolean",
-      ""
-    );
-
-    res.follow_redirects = ObjectSerializer.serialize(
-      data.followRedirects,
-      "boolean",
-      ""
-    );
-
-    res.min_failure_duration = ObjectSerializer.serialize(
-      data.minFailureDuration,
-      "number",
-      "int64"
-    );
-
-    res.min_location_failed = ObjectSerializer.serialize(
-      data.minLocationFailed,
-      "number",
-      "int64"
-    );
-
-    res.monitor_name = ObjectSerializer.serialize(
-      data.monitorName,
-      "string",
-      ""
-    );
-
-    res.monitor_options = ObjectSerializer.serialize(
-      data.monitorOptions,
-      "SyntheticsTestOptionsMonitorOptions",
-      ""
-    );
-
-    res.monitor_priority = ObjectSerializer.serialize(
-      data.monitorPriority,
-      "number",
-      "int32"
-    );
-
-    res.noScreenshot = ObjectSerializer.serialize(
-      data.noScreenshot,
-      "boolean",
-      ""
-    );
-
-    res.retry = ObjectSerializer.serialize(
-      data.retry,
-      "SyntheticsTestOptionsRetry",
-      ""
-    );
-
-    res.tick_every = ObjectSerializer.serialize(
-      data.tickEvery,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { UsageSyntheticsHour } from "./UsageSyntheticsHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of Synthetics API tests run for each hour for a given organization.
- */
 
 export class UsageSyntheticsResponse {
   /**
@@ -23,52 +18,22 @@ export class UsageSyntheticsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     usage: {
       baseName: "usage",
       type: "Array<UsageSyntheticsHour>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSyntheticsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSyntheticsResponse {
-    const res = new UsageSyntheticsResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageSyntheticsHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSyntheticsResponse): { [key: string]: any } {
-    const attributeTypes = UsageSyntheticsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageSyntheticsHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

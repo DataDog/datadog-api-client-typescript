@@ -9,11 +9,6 @@
  */
 
 import { Organization } from "./Organization";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response with the list of organizations.
- */
 
 export class OrganizationListResponse {
   /**
@@ -23,48 +18,22 @@ export class OrganizationListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     orgs: {
       baseName: "orgs",
       type: "Array<Organization>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return OrganizationListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): OrganizationListResponse {
-    const res = new OrganizationListResponse();
-
-    res.orgs = ObjectSerializer.deserialize(
-      data.orgs,
-      "Array<Organization>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: OrganizationListResponse): { [key: string]: any } {
-    const attributeTypes = OrganizationListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.orgs = ObjectSerializer.serialize(data.orgs, "Array<Organization>", "");
-
-    return res;
   }
 
   public constructor() {}

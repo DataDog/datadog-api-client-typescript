@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
- */
-
 export class SyntheticsDeleteTestsPayload {
   /**
    * An array of Synthetic test IDs you want to delete.
@@ -22,54 +16,22 @@ export class SyntheticsDeleteTestsPayload {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     publicIds: {
       baseName: "public_ids",
       type: "Array<string>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsDeleteTestsPayload.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsDeleteTestsPayload {
-    const res = new SyntheticsDeleteTestsPayload();
-
-    res.publicIds = ObjectSerializer.deserialize(
-      data.public_ids,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsDeleteTestsPayload): { [key: string]: any } {
-    const attributeTypes = SyntheticsDeleteTestsPayload.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.public_ids = ObjectSerializer.serialize(
-      data.publicIds,
-      "Array<string>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricTagConfigurationMetricTypes } from "./MetricTagConfigurationMetricTypes";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing the definition of a metric tag configuration attributes.
- */
 
 export class MetricTagConfigurationAttributes {
   /**
@@ -41,144 +36,46 @@ export class MetricTagConfigurationAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     aggregations: {
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
-      format: "",
     },
     createdAt: {
       baseName: "created_at",
       type: "Date",
+
       format: "date-time",
     },
     includePercentiles: {
       baseName: "include_percentiles",
       type: "boolean",
-      format: "",
     },
     metricType: {
       baseName: "metric_type",
       type: "MetricTagConfigurationMetricTypes",
-      format: "",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
+
       format: "date-time",
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricTagConfigurationAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricTagConfigurationAttributes {
-    const res = new MetricTagConfigurationAttributes();
-
-    res.aggregations = ObjectSerializer.deserialize(
-      data.aggregations,
-      "Array<MetricCustomAggregation>",
-      ""
-    );
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "Date",
-      "date-time"
-    );
-
-    res.includePercentiles = ObjectSerializer.deserialize(
-      data.include_percentiles,
-      "boolean",
-      ""
-    );
-
-    if (
-      ["gauge", "count", "rate", "distribution", undefined].includes(
-        data.metric_type
-      )
-    ) {
-      res.metricType = data.metric_type;
-    } else {
-      const raw = new MetricTagConfigurationAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "Date",
-      "date-time"
-    );
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    return res;
-  }
-
-  static serialize(data: MetricTagConfigurationAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MetricTagConfigurationAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.aggregations = ObjectSerializer.serialize(
-      data.aggregations,
-      "Array<MetricCustomAggregation>",
-      ""
-    );
-
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "Date",
-      "date-time"
-    );
-
-    res.include_percentiles = ObjectSerializer.serialize(
-      data.includePercentiles,
-      "boolean",
-      ""
-    );
-
-    if (
-      ["gauge", "count", "rate", "distribution", undefined].includes(
-        data.metricType
-      )
-    ) {
-      res.metric_type = data.metricType;
-    } else {
-      throw TypeError(`invalid enum value ${data.metricType} for metricType`);
-    }
-
-    res.modified_at = ObjectSerializer.serialize(
-      data.modifiedAt,
-      "Date",
-      "date-time"
-    );
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

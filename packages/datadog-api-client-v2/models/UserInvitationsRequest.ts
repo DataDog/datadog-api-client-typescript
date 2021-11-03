@@ -9,11 +9,6 @@
  */
 
 import { UserInvitationData } from "./UserInvitationData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object to invite users to join the organization.
- */
 
 export class UserInvitationsRequest {
   /**
@@ -23,62 +18,23 @@ export class UserInvitationsRequest {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<UserInvitationData>",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return UserInvitationsRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserInvitationsRequest {
-    const res = new UserInvitationsRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'UserInvitationsRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<UserInvitationData>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UserInvitationsRequest): { [key: string]: any } {
-    const attributeTypes = UserInvitationsRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'UserInvitationsRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<UserInvitationData>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

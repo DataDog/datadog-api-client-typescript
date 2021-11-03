@@ -9,69 +9,29 @@
  */
 
 import { NotebookCreateData } from "./NotebookCreateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The description of a notebook create request.
- */
 
 export class NotebookCreateRequest {
   "data": NotebookCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "NotebookCreateData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookCreateRequest {
-    const res = new NotebookCreateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'NotebookCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "NotebookCreateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: NotebookCreateRequest): { [key: string]: any } {
-    const attributeTypes = NotebookCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'NotebookCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(data.data, "NotebookCreateData", "");
-
-    return res;
   }
 
   public constructor() {}

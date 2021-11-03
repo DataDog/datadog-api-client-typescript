@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Links attributes.
- */
-
 export class LogsListResponseLinks {
   /**
    * Link for the next set of results. Note that the request can also be made using the POST endpoint.
@@ -22,44 +16,22 @@ export class LogsListResponseLinks {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     next: {
       baseName: "next",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsListResponseLinks.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsListResponseLinks {
-    const res = new LogsListResponseLinks();
-
-    res.next = ObjectSerializer.deserialize(data.next, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsListResponseLinks): { [key: string]: any } {
-    const attributeTypes = LogsListResponseLinks.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.next = ObjectSerializer.serialize(data.next, "string", "");
-
-    return res;
   }
 
   public constructor() {}

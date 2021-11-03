@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The object containing page total count.
- */
-
 export class UsageCustomReportsPage {
   /**
    * Total page count.
@@ -22,52 +16,24 @@ export class UsageCustomReportsPage {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     totalCount: {
       baseName: "total_count",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageCustomReportsPage.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageCustomReportsPage {
-    const res = new UsageCustomReportsPage();
-
-    res.totalCount = ObjectSerializer.deserialize(
-      data.total_count,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageCustomReportsPage): { [key: string]: any } {
-    const attributeTypes = UsageCustomReportsPage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.total_count = ObjectSerializer.serialize(
-      data.totalCount,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

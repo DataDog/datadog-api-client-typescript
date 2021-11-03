@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An object defining the recurrence of the downtime.
- */
-
 export class DowntimeRecurrence {
   /**
    * How often to repeat as an integer. For example, to repeat every 3 days, select a type of `days` and a period of `3`.
@@ -42,113 +36,48 @@ export class DowntimeRecurrence {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     period: {
       baseName: "period",
       type: "number",
+
       format: "int32",
     },
     rrule: {
       baseName: "rrule",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "string",
-      format: "",
     },
     untilDate: {
       baseName: "until_date",
       type: "number",
+
       format: "int64",
     },
     untilOccurrences: {
       baseName: "until_occurrences",
       type: "number",
+
       format: "int32",
     },
     weekDays: {
       baseName: "week_days",
       type: "Array<string>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DowntimeRecurrence.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DowntimeRecurrence {
-    const res = new DowntimeRecurrence();
-
-    res.period = ObjectSerializer.deserialize(data.period, "number", "int32");
-
-    res.rrule = ObjectSerializer.deserialize(data.rrule, "string", "");
-
-    res.type = ObjectSerializer.deserialize(data.type, "string", "");
-
-    res.untilDate = ObjectSerializer.deserialize(
-      data.until_date,
-      "number",
-      "int64"
-    );
-
-    res.untilOccurrences = ObjectSerializer.deserialize(
-      data.until_occurrences,
-      "number",
-      "int32"
-    );
-
-    res.weekDays = ObjectSerializer.deserialize(
-      data.week_days,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: DowntimeRecurrence): { [key: string]: any } {
-    const attributeTypes = DowntimeRecurrence.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.period = ObjectSerializer.serialize(data.period, "number", "int32");
-
-    res.rrule = ObjectSerializer.serialize(data.rrule, "string", "");
-
-    res.type = ObjectSerializer.serialize(data.type, "string", "");
-
-    res.until_date = ObjectSerializer.serialize(
-      data.untilDate,
-      "number",
-      "int64"
-    );
-
-    res.until_occurrences = ObjectSerializer.serialize(
-      data.untilOccurrences,
-      "number",
-      "int32"
-    );
-
-    res.week_days = ObjectSerializer.serialize(
-      data.weekDays,
-      "Array<string>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

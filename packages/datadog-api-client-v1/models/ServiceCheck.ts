@@ -9,11 +9,6 @@
  */
 
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An object containing service check and status.
- */
 
 export class ServiceCheck {
   /**
@@ -40,147 +35,48 @@ export class ServiceCheck {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     check: {
       baseName: "check",
       type: "string",
-      format: "",
+      required: true,
     },
     hostName: {
       baseName: "host_name",
       type: "string",
-      format: "",
+      required: true,
     },
     message: {
       baseName: "message",
       type: "string",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "ServiceCheckStatus",
-      format: "",
+      required: true,
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      format: "",
+      required: true,
     },
     timestamp: {
       baseName: "timestamp",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return ServiceCheck.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ServiceCheck {
-    const res = new ServiceCheck();
-
-    if (data.check === undefined) {
-      throw new TypeError(
-        "missing required attribute 'check' on 'ServiceCheck' object"
-      );
-    }
-    res.check = ObjectSerializer.deserialize(data.check, "string", "");
-
-    if (data.host_name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'host_name' on 'ServiceCheck' object"
-      );
-    }
-    res.hostName = ObjectSerializer.deserialize(data.host_name, "string", "");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    if (data.status === undefined) {
-      throw new TypeError(
-        "missing required attribute 'status' on 'ServiceCheck' object"
-      );
-    }
-    if ([0, 1, 2, 3, undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new ServiceCheck();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.tags === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tags' on 'ServiceCheck' object"
-      );
-    }
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    res.timestamp = ObjectSerializer.deserialize(
-      data.timestamp,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: ServiceCheck): { [key: string]: any } {
-    const attributeTypes = ServiceCheck.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.check === undefined) {
-      throw new TypeError(
-        "missing required attribute 'check' on 'ServiceCheck' object"
-      );
-    }
-    res.check = ObjectSerializer.serialize(data.check, "string", "");
-
-    if (data.hostName === undefined) {
-      throw new TypeError(
-        "missing required attribute 'host_name' on 'ServiceCheck' object"
-      );
-    }
-    res.host_name = ObjectSerializer.serialize(data.hostName, "string", "");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    if (data.status === undefined) {
-      throw new TypeError(
-        "missing required attribute 'status' on 'ServiceCheck' object"
-      );
-    }
-    if ([0, 1, 2, 3, undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    if (data.tags === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tags' on 'ServiceCheck' object"
-      );
-    }
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    res.timestamp = ObjectSerializer.serialize(
-      data.timestamp,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

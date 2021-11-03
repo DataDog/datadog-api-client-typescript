@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsDevice } from "./SyntheticsDevice";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object with the result of the last browser test run.
- */
 
 export class SyntheticsBrowserTestResultShortResult {
   "device"?: SyntheticsDevice;
@@ -36,125 +31,46 @@ export class SyntheticsBrowserTestResultShortResult {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     device: {
       baseName: "device",
       type: "SyntheticsDevice",
-      format: "",
     },
     duration: {
       baseName: "duration",
       type: "number",
+
       format: "double",
     },
     errorCount: {
       baseName: "errorCount",
       type: "number",
+
       format: "int64",
     },
     stepCountCompleted: {
       baseName: "stepCountCompleted",
       type: "number",
+
       format: "int64",
     },
     stepCountTotal: {
       baseName: "stepCountTotal",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsBrowserTestResultShortResult {
-    const res = new SyntheticsBrowserTestResultShortResult();
-
-    res.device = ObjectSerializer.deserialize(
-      data.device,
-      "SyntheticsDevice",
-      ""
-    );
-
-    res.duration = ObjectSerializer.deserialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    res.errorCount = ObjectSerializer.deserialize(
-      data.errorCount,
-      "number",
-      "int64"
-    );
-
-    res.stepCountCompleted = ObjectSerializer.deserialize(
-      data.stepCountCompleted,
-      "number",
-      "int64"
-    );
-
-    res.stepCountTotal = ObjectSerializer.deserialize(
-      data.stepCountTotal,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBrowserTestResultShortResult): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsBrowserTestResultShortResult.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.device = ObjectSerializer.serialize(
-      data.device,
-      "SyntheticsDevice",
-      ""
-    );
-
-    res.duration = ObjectSerializer.serialize(
-      data.duration,
-      "number",
-      "double"
-    );
-
-    res.errorCount = ObjectSerializer.serialize(
-      data.errorCount,
-      "number",
-      "int64"
-    );
-
-    res.stepCountCompleted = ObjectSerializer.serialize(
-      data.stepCountCompleted,
-      "number",
-      "int64"
-    );
-
-    res.stepCountTotal = ObjectSerializer.serialize(
-      data.stepCountTotal,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

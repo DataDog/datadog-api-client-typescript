@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Search result.
- */
-
 export class MetricSearchResponseResults {
   /**
    * List of metrics that match the search query.
@@ -22,50 +16,22 @@ export class MetricSearchResponseResults {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     metrics: {
       baseName: "metrics",
       type: "Array<string>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricSearchResponseResults.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricSearchResponseResults {
-    const res = new MetricSearchResponseResults();
-
-    res.metrics = ObjectSerializer.deserialize(
-      data.metrics,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricSearchResponseResults): { [key: string]: any } {
-    const attributeTypes = MetricSearchResponseResults.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.metrics = ObjectSerializer.serialize(data.metrics, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

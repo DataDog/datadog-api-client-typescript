@@ -9,11 +9,6 @@
  */
 
 import { LogsFilter } from "./LogsFilter";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing the logs filter.
- */
 
 export class LogsCategoryProcessorCategory {
   "filter"?: LogsFilter;
@@ -24,57 +19,26 @@ export class LogsCategoryProcessorCategory {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     filter: {
       baseName: "filter",
       type: "LogsFilter",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsCategoryProcessorCategory.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): LogsCategoryProcessorCategory {
-    const res = new LogsCategoryProcessorCategory();
-
-    res.filter = ObjectSerializer.deserialize(data.filter, "LogsFilter", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsCategoryProcessorCategory): {
-    [key: string]: any;
-  } {
-    const attributeTypes = LogsCategoryProcessorCategory.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.filter = ObjectSerializer.serialize(data.filter, "LogsFilter", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

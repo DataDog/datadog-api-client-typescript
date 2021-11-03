@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The style to apply to the widget.
- */
-
 export class GeomapWidgetDefinitionStyle {
   /**
    * The color palette to apply to the widget.
@@ -26,83 +20,28 @@ export class GeomapWidgetDefinitionStyle {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     palette: {
       baseName: "palette",
       type: "string",
-      format: "",
+      required: true,
     },
     paletteFlip: {
       baseName: "palette_flip",
       type: "boolean",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return GeomapWidgetDefinitionStyle.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): GeomapWidgetDefinitionStyle {
-    const res = new GeomapWidgetDefinitionStyle();
-
-    if (data.palette === undefined) {
-      throw new TypeError(
-        "missing required attribute 'palette' on 'GeomapWidgetDefinitionStyle' object"
-      );
-    }
-    res.palette = ObjectSerializer.deserialize(data.palette, "string", "");
-
-    if (data.palette_flip === undefined) {
-      throw new TypeError(
-        "missing required attribute 'palette_flip' on 'GeomapWidgetDefinitionStyle' object"
-      );
-    }
-    res.paletteFlip = ObjectSerializer.deserialize(
-      data.palette_flip,
-      "boolean",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: GeomapWidgetDefinitionStyle): { [key: string]: any } {
-    const attributeTypes = GeomapWidgetDefinitionStyle.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.palette === undefined) {
-      throw new TypeError(
-        "missing required attribute 'palette' on 'GeomapWidgetDefinitionStyle' object"
-      );
-    }
-    res.palette = ObjectSerializer.serialize(data.palette, "string", "");
-
-    if (data.paletteFlip === undefined) {
-      throw new TypeError(
-        "missing required attribute 'palette_flip' on 'GeomapWidgetDefinitionStyle' object"
-      );
-    }
-    res.palette_flip = ObjectSerializer.serialize(
-      data.paletteFlip,
-      "boolean",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

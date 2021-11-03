@@ -10,11 +10,6 @@
 
 import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
 import { FormulaAndFunctionMetricDataSource } from "./FormulaAndFunctionMetricDataSource";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A formula and functions metrics query.
- */
 
 export class FormulaAndFunctionMetricQueryDefinition {
   "aggregator"?: FormulaAndFunctionMetricAggregation;
@@ -30,150 +25,37 @@ export class FormulaAndFunctionMetricQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     aggregator: {
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
-      format: "",
     },
     dataSource: {
       baseName: "data_source",
       type: "FormulaAndFunctionMetricDataSource",
-      format: "",
+      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     query: {
       baseName: "query",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return FormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): FormulaAndFunctionMetricQueryDefinition {
-    const res = new FormulaAndFunctionMetricQueryDefinition();
-
-    if (
-      [
-        "avg",
-        "min",
-        "max",
-        "sum",
-        "last",
-        "area",
-        "l2norm",
-        "percentile",
-        undefined,
-      ].includes(data.aggregator)
-    ) {
-      res.aggregator = data.aggregator;
-    } else {
-      const raw = new FormulaAndFunctionMetricQueryDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.data_source === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data_source' on 'FormulaAndFunctionMetricQueryDefinition' object"
-      );
-    }
-    if (["metrics", undefined].includes(data.data_source)) {
-      res.dataSource = data.data_source;
-    } else {
-      const raw = new FormulaAndFunctionMetricQueryDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'FormulaAndFunctionMetricQueryDefinition' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'FormulaAndFunctionMetricQueryDefinition' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: FormulaAndFunctionMetricQueryDefinition): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      FormulaAndFunctionMetricQueryDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      [
-        "avg",
-        "min",
-        "max",
-        "sum",
-        "last",
-        "area",
-        "l2norm",
-        "percentile",
-        undefined,
-      ].includes(data.aggregator)
-    ) {
-      res.aggregator = data.aggregator;
-    } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
-    }
-
-    if (data.dataSource === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data_source' on 'FormulaAndFunctionMetricQueryDefinition' object"
-      );
-    }
-    if (["metrics", undefined].includes(data.dataSource)) {
-      res.data_source = data.dataSource;
-    } else {
-      throw TypeError(`invalid enum value ${data.dataSource} for dataSource`);
-    }
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'FormulaAndFunctionMetricQueryDefinition' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'FormulaAndFunctionMetricQueryDefinition' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

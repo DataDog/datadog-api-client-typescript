@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
- */
-
 export class WidgetCustomLink {
   /**
    * The flag for toggling context menu link visibility.
@@ -34,79 +28,34 @@ export class WidgetCustomLink {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     isHidden: {
       baseName: "is_hidden",
       type: "boolean",
-      format: "",
     },
     label: {
       baseName: "label",
       type: "string",
-      format: "",
     },
     link: {
       baseName: "link",
       type: "string",
-      format: "",
     },
     overrideLabel: {
       baseName: "override_label",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetCustomLink.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetCustomLink {
-    const res = new WidgetCustomLink();
-
-    res.isHidden = ObjectSerializer.deserialize(data.is_hidden, "boolean", "");
-
-    res.label = ObjectSerializer.deserialize(data.label, "string", "");
-
-    res.link = ObjectSerializer.deserialize(data.link, "string", "");
-
-    res.overrideLabel = ObjectSerializer.deserialize(
-      data.override_label,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: WidgetCustomLink): { [key: string]: any } {
-    const attributeTypes = WidgetCustomLink.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.is_hidden = ObjectSerializer.serialize(data.isHidden, "boolean", "");
-
-    res.label = ObjectSerializer.serialize(data.label, "string", "");
-
-    res.link = ObjectSerializer.serialize(data.link, "string", "");
-
-    res.override_label = ObjectSerializer.serialize(
-      data.overrideLabel,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

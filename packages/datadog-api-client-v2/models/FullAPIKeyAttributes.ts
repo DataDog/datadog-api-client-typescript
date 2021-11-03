@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of a full API key.
- */
-
 export class FullAPIKeyAttributes {
   /**
    * Creation date of the API key.
@@ -38,84 +32,38 @@ export class FullAPIKeyAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     createdAt: {
       baseName: "created_at",
       type: "string",
-      format: "",
     },
     key: {
       baseName: "key",
       type: "string",
-      format: "",
     },
     last4: {
       baseName: "last4",
       type: "string",
-      format: "",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "string",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return FullAPIKeyAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): FullAPIKeyAttributes {
-    const res = new FullAPIKeyAttributes();
-
-    res.createdAt = ObjectSerializer.deserialize(data.created_at, "string", "");
-
-    res.key = ObjectSerializer.deserialize(data.key, "string", "");
-
-    res.last4 = ObjectSerializer.deserialize(data.last4, "string", "");
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "string",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: FullAPIKeyAttributes): { [key: string]: any } {
-    const attributeTypes = FullAPIKeyAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_at = ObjectSerializer.serialize(data.createdAt, "string", "");
-
-    res.key = ObjectSerializer.serialize(data.key, "string", "");
-
-    res.last4 = ObjectSerializer.serialize(data.last4, "string", "");
-
-    res.modified_at = ObjectSerializer.serialize(data.modifiedAt, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -9,78 +9,29 @@
  */
 
 import { MetricTagConfigurationCreateData } from "./MetricTagConfigurationCreateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Request object that includes the metric that you would like to configure tags for.
- */
 
 export class MetricTagConfigurationCreateRequest {
   "data": MetricTagConfigurationCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "MetricTagConfigurationCreateData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return MetricTagConfigurationCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricTagConfigurationCreateRequest {
-    const res = new MetricTagConfigurationCreateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'MetricTagConfigurationCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "MetricTagConfigurationCreateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricTagConfigurationCreateRequest): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MetricTagConfigurationCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'MetricTagConfigurationCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "MetricTagConfigurationCreateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

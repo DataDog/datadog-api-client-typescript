@@ -9,11 +9,6 @@
  */
 
 import { Event } from "./Event";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing an event response.
- */
 
 export class EventResponse {
   "event"?: Event;
@@ -24,53 +19,26 @@ export class EventResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     event: {
       baseName: "event",
       type: "Event",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return EventResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): EventResponse {
-    const res = new EventResponse();
-
-    res.event = ObjectSerializer.deserialize(data.event, "Event", "");
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: EventResponse): { [key: string]: any } {
-    const attributeTypes = EventResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.event = ObjectSerializer.serialize(data.event, "Event", "");
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    return res;
   }
 
   public constructor() {}

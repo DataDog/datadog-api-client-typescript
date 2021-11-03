@@ -9,11 +9,6 @@
  */
 
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Template variables saved views.
- */
 
 export class DashboardTemplateVariablePreset {
   /**
@@ -27,66 +22,26 @@ export class DashboardTemplateVariablePreset {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     templateVariables: {
       baseName: "template_variables",
       type: "Array<DashboardTemplateVariablePresetValue>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardTemplateVariablePreset.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): DashboardTemplateVariablePreset {
-    const res = new DashboardTemplateVariablePreset();
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.templateVariables = ObjectSerializer.deserialize(
-      data.template_variables,
-      "Array<DashboardTemplateVariablePresetValue>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: DashboardTemplateVariablePreset): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      DashboardTemplateVariablePreset.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.template_variables = ObjectSerializer.serialize(
-      data.templateVariables,
-      "Array<DashboardTemplateVariablePresetValue>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

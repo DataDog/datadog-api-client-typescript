@@ -9,11 +9,6 @@
  */
 
 import { DashboardType } from "./DashboardType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A dashboard within a list.
- */
 
 export class DashboardListItemResponse {
   /**
@@ -24,101 +19,28 @@ export class DashboardListItemResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     id: {
       baseName: "id",
       type: "string",
-      format: "",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "DashboardType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardListItemResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardListItemResponse {
-    const res = new DashboardListItemResponse();
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'DashboardListItemResponse' object"
-      );
-    }
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'DashboardListItemResponse' object"
-      );
-    }
-    if (
-      [
-        "custom_timeboard",
-        "custom_screenboard",
-        "integration_screenboard",
-        "integration_timeboard",
-        "host_timeboard",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      const raw = new DashboardListItemResponse();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: DashboardListItemResponse): { [key: string]: any } {
-    const attributeTypes = DashboardListItemResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'DashboardListItemResponse' object"
-      );
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'DashboardListItemResponse' object"
-      );
-    }
-    if (
-      [
-        "custom_timeboard",
-        "custom_screenboard",
-        "integration_screenboard",
-        "integration_timeboard",
-        "host_timeboard",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

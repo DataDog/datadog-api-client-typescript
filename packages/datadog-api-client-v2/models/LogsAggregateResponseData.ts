@@ -9,11 +9,6 @@
  */
 
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The query results
- */
 
 export class LogsAggregateResponseData {
   /**
@@ -23,52 +18,22 @@ export class LogsAggregateResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     buckets: {
       baseName: "buckets",
       type: "Array<LogsAggregateBucket>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsAggregateResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsAggregateResponseData {
-    const res = new LogsAggregateResponseData();
-
-    res.buckets = ObjectSerializer.deserialize(
-      data.buckets,
-      "Array<LogsAggregateBucket>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsAggregateResponseData): { [key: string]: any } {
-    const attributeTypes = LogsAggregateResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.buckets = ObjectSerializer.serialize(
-      data.buckets,
-      "Array<LogsAggregateBucket>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

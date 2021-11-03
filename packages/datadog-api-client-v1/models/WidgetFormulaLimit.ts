@@ -9,11 +9,6 @@
  */
 
 import { QuerySortOrder } from "./QuerySortOrder";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Options for limiting results returned.
- */
 
 export class WidgetFormulaLimit {
   /**
@@ -24,63 +19,28 @@ export class WidgetFormulaLimit {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     count: {
       baseName: "count",
       type: "number",
+
       format: "int64",
     },
     order: {
       baseName: "order",
       type: "QuerySortOrder",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetFormulaLimit.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetFormulaLimit {
-    const res = new WidgetFormulaLimit();
-
-    res.count = ObjectSerializer.deserialize(data.count, "number", "int64");
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      const raw = new WidgetFormulaLimit();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: WidgetFormulaLimit): { [key: string]: any } {
-    const attributeTypes = WidgetFormulaLimit.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.count = ObjectSerializer.serialize(data.count, "number", "int64");
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
-    }
-
-    return res;
   }
 
   public constructor() {}

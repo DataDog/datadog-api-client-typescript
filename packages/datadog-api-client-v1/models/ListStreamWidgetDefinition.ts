@@ -12,11 +12,6 @@ import { ListStreamWidgetDefinitionType } from "./ListStreamWidgetDefinitionType
 import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The list stream visualization displays a table of recent events in your application that match a search criteria using user-defined columns.
- */
 
 export class ListStreamWidgetDefinition {
   /**
@@ -45,167 +40,52 @@ export class ListStreamWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     legendSize: {
       baseName: "legend_size",
       type: "string",
-      format: "",
     },
     requests: {
       baseName: "requests",
       type: "Array<ListStreamWidgetRequest>",
-      format: "",
+      required: true,
     },
     showLegend: {
       baseName: "show_legend",
       type: "boolean",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "WidgetTime",
-      format: "",
     },
     title: {
       baseName: "title",
       type: "string",
-      format: "",
     },
     titleAlign: {
       baseName: "title_align",
       type: "WidgetTextAlign",
-      format: "",
     },
     titleSize: {
       baseName: "title_size",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "ListStreamWidgetDefinitionType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return ListStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ListStreamWidgetDefinition {
-    const res = new ListStreamWidgetDefinition();
-
-    res.legendSize = ObjectSerializer.deserialize(
-      data.legend_size,
-      "string",
-      ""
-    );
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'ListStreamWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.deserialize(
-      data.requests,
-      "Array<ListStreamWidgetRequest>",
-      ""
-    );
-
-    res.showLegend = ObjectSerializer.deserialize(
-      data.show_legend,
-      "boolean",
-      ""
-    );
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new ListStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ListStreamWidgetDefinition' object"
-      );
-    }
-    if (["list_stream", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ListStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ListStreamWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = ListStreamWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "");
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'ListStreamWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.serialize(
-      data.requests,
-      "Array<ListStreamWidgetRequest>",
-      ""
-    );
-
-    res.show_legend = ObjectSerializer.serialize(
-      data.showLegend,
-      "boolean",
-      ""
-    );
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ListStreamWidgetDefinition' object"
-      );
-    }
-    if (["list_stream", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

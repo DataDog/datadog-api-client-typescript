@@ -9,11 +9,6 @@
  */
 
 import { NotebookMetadataType } from "./NotebookMetadataType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Metadata associated with the notebook.
- */
 
 export class NotebookMetadata {
   /**
@@ -28,106 +23,30 @@ export class NotebookMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     isTemplate: {
       baseName: "is_template",
       type: "boolean",
-      format: "",
     },
     takeSnapshots: {
       baseName: "take_snapshots",
       type: "boolean",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "NotebookMetadataType",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): NotebookMetadata {
-    const res = new NotebookMetadata();
-
-    res.isTemplate = ObjectSerializer.deserialize(
-      data.is_template,
-      "boolean",
-      ""
-    );
-
-    res.takeSnapshots = ObjectSerializer.deserialize(
-      data.take_snapshots,
-      "boolean",
-      ""
-    );
-
-    if (
-      [
-        "postmortem",
-        "runbook",
-        "investigation",
-        "documentation",
-        "report",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      const raw = new NotebookMetadata();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: NotebookMetadata): { [key: string]: any } {
-    const attributeTypes = NotebookMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.is_template = ObjectSerializer.serialize(
-      data.isTemplate,
-      "boolean",
-      ""
-    );
-
-    res.take_snapshots = ObjectSerializer.serialize(
-      data.takeSnapshots,
-      "boolean",
-      ""
-    );
-
-    if (
-      [
-        "postmortem",
-        "runbook",
-        "investigation",
-        "documentation",
-        "report",
-        undefined,
-      ].includes(data.type)
-    ) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

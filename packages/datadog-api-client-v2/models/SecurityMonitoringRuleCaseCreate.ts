@@ -9,11 +9,6 @@
  */
 
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Case when signal is generated.
- */
 
 export class SecurityMonitoringRuleCaseCreate {
   /**
@@ -32,112 +27,35 @@ export class SecurityMonitoringRuleCaseCreate {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     condition: {
       baseName: "condition",
       type: "string",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     notifications: {
       baseName: "notifications",
       type: "Array<string>",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "SecurityMonitoringRuleSeverity",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleCaseCreate.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringRuleCaseCreate {
-    const res = new SecurityMonitoringRuleCaseCreate();
-
-    res.condition = ObjectSerializer.deserialize(data.condition, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.notifications = ObjectSerializer.deserialize(
-      data.notifications,
-      "Array<string>",
-      ""
-    );
-
-    if (data.status === undefined) {
-      throw new TypeError(
-        "missing required attribute 'status' on 'SecurityMonitoringRuleCaseCreate' object"
-      );
-    }
-    if (
-      ["info", "low", "medium", "high", "critical", undefined].includes(
-        data.status
-      )
-    ) {
-      res.status = data.status;
-    } else {
-      const raw = new SecurityMonitoringRuleCaseCreate();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleCaseCreate): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringRuleCaseCreate.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.condition = ObjectSerializer.serialize(data.condition, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.notifications = ObjectSerializer.serialize(
-      data.notifications,
-      "Array<string>",
-      ""
-    );
-
-    if (data.status === undefined) {
-      throw new TypeError(
-        "missing required attribute 'status' on 'SecurityMonitoringRuleCaseCreate' object"
-      );
-    }
-    if (
-      ["info", "low", "medium", "high", "critical", undefined].includes(
-        data.status
-      )
-    ) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
 import { SecurityMonitoringRuntimeAgentRule } from "./SecurityMonitoringRuntimeAgentRule";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Query for matching rule.
- */
 
 export class SecurityMonitoringRuleQueryCreate {
   "agentRule"?: SecurityMonitoringRuntimeAgentRule;
@@ -42,155 +37,47 @@ export class SecurityMonitoringRuleQueryCreate {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     agentRule: {
       baseName: "agentRule",
       type: "SecurityMonitoringRuntimeAgentRule",
-      format: "",
     },
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
-      format: "",
     },
     distinctFields: {
       baseName: "distinctFields",
       type: "Array<string>",
-      format: "",
     },
     groupByFields: {
       baseName: "groupByFields",
       type: "Array<string>",
-      format: "",
     },
     metric: {
       baseName: "metric",
       type: "string",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     query: {
       baseName: "query",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleQueryCreate.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringRuleQueryCreate {
-    const res = new SecurityMonitoringRuleQueryCreate();
-
-    res.agentRule = ObjectSerializer.deserialize(
-      data.agentRule,
-      "SecurityMonitoringRuntimeAgentRule",
-      ""
-    );
-
-    if (
-      ["count", "cardinality", "sum", "max", "new_value", undefined].includes(
-        data.aggregation
-      )
-    ) {
-      res.aggregation = data.aggregation;
-    } else {
-      const raw = new SecurityMonitoringRuleQueryCreate();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.distinctFields = ObjectSerializer.deserialize(
-      data.distinctFields,
-      "Array<string>",
-      ""
-    );
-
-    res.groupByFields = ObjectSerializer.deserialize(
-      data.groupByFields,
-      "Array<string>",
-      ""
-    );
-
-    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'SecurityMonitoringRuleQueryCreate' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleQueryCreate): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringRuleQueryCreate.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.agentRule = ObjectSerializer.serialize(
-      data.agentRule,
-      "SecurityMonitoringRuntimeAgentRule",
-      ""
-    );
-
-    if (
-      ["count", "cardinality", "sum", "max", "new_value", undefined].includes(
-        data.aggregation
-      )
-    ) {
-      res.aggregation = data.aggregation;
-    } else {
-      throw TypeError(`invalid enum value ${data.aggregation} for aggregation`);
-    }
-
-    res.distinctFields = ObjectSerializer.serialize(
-      data.distinctFields,
-      "Array<string>",
-      ""
-    );
-
-    res.groupByFields = ObjectSerializer.serialize(
-      data.groupByFields,
-      "Array<string>",
-      ""
-    );
-
-    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'SecurityMonitoringRuleQueryCreate' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

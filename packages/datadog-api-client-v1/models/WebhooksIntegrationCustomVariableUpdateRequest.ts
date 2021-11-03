@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Update request of a custom variable object.  *All properties are optional.*
- */
-
 export class WebhooksIntegrationCustomVariableUpdateRequest {
   /**
    * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
@@ -30,67 +24,30 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     isSecret: {
       baseName: "is_secret",
       type: "boolean",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     value: {
       baseName: "value",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WebhooksIntegrationCustomVariableUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): WebhooksIntegrationCustomVariableUpdateRequest {
-    const res = new WebhooksIntegrationCustomVariableUpdateRequest();
-
-    res.isSecret = ObjectSerializer.deserialize(data.is_secret, "boolean", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.value = ObjectSerializer.deserialize(data.value, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: WebhooksIntegrationCustomVariableUpdateRequest): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      WebhooksIntegrationCustomVariableUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.is_secret = ObjectSerializer.serialize(data.isSecret, "boolean", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.value = ObjectSerializer.serialize(data.value, "string", "");
-
-    return res;
   }
 
   public constructor() {}

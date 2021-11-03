@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Number of Synthetics Browser tests run for each hour for a given organization.
- */
-
 export class UsageSyntheticsBrowserHour {
   /**
    * Contains the number of Synthetics Browser tests run.
@@ -26,61 +20,30 @@ export class UsageSyntheticsBrowserHour {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     browserCheckCallsCount: {
       baseName: "browser_check_calls_count",
       type: "number",
+
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
+
       format: "date-time",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSyntheticsBrowserHour.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageSyntheticsBrowserHour {
-    const res = new UsageSyntheticsBrowserHour();
-
-    res.browserCheckCallsCount = ObjectSerializer.deserialize(
-      data.browser_check_calls_count,
-      "number",
-      "int64"
-    );
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    return res;
-  }
-
-  static serialize(data: UsageSyntheticsBrowserHour): { [key: string]: any } {
-    const attributeTypes = UsageSyntheticsBrowserHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.browser_check_calls_count = ObjectSerializer.serialize(
-      data.browserCheckCallsCount,
-      "number",
-      "int64"
-    );
-
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The IdP response object.
- */
-
 export class IdpResponse {
   /**
    * Identity provider response.
@@ -22,54 +16,23 @@ export class IdpResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     message: {
       baseName: "message",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return IdpResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): IdpResponse {
-    const res = new IdpResponse();
-
-    if (data.message === undefined) {
-      throw new TypeError(
-        "missing required attribute 'message' on 'IdpResponse' object"
-      );
-    }
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: IdpResponse): { [key: string]: any } {
-    const attributeTypes = IdpResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.message === undefined) {
-      throw new TypeError(
-        "missing required attribute 'message' on 'IdpResponse' object"
-      );
-    }
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    return res;
   }
 
   public constructor() {}

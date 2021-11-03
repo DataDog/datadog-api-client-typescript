@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Global query options that are used during the query. Note: You should only supply timezone or time offset but not both otherwise the query will fail.
- */
-
 export class LogsQueryOptions {
   /**
    * The time offset (in seconds) to apply to the query.
@@ -26,61 +20,28 @@ export class LogsQueryOptions {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     timeOffset: {
       baseName: "timeOffset",
       type: "number",
+
       format: "int64",
     },
     timezone: {
       baseName: "timezone",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsQueryOptions.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsQueryOptions {
-    const res = new LogsQueryOptions();
-
-    res.timeOffset = ObjectSerializer.deserialize(
-      data.timeOffset,
-      "number",
-      "int64"
-    );
-
-    res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsQueryOptions): { [key: string]: any } {
-    const attributeTypes = LogsQueryOptions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.timeOffset = ObjectSerializer.serialize(
-      data.timeOffset,
-      "number",
-      "int64"
-    );
-
-    res.timezone = ObjectSerializer.serialize(data.timezone, "string", "");
-
-    return res;
   }
 
   public constructor() {}

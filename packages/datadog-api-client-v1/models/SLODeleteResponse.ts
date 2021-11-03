@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A response list of all service level objective deleted.
- */
-
 export class SLODeleteResponse {
   /**
    * An array containing the ID of the deleted service level objective object.
@@ -26,61 +20,26 @@ export class SLODeleteResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<string>",
-      format: "",
     },
     errors: {
       baseName: "errors",
       type: "{ [key: string]: string; }",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLODeleteResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLODeleteResponse {
-    const res = new SLODeleteResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "Array<string>", "");
-
-    res.errors = ObjectSerializer.deserialize(
-      data.errors,
-      "{ [key: string]: string; }",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLODeleteResponse): { [key: string]: any } {
-    const attributeTypes = SLODeleteResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "Array<string>", "");
-
-    res.errors = ObjectSerializer.serialize(
-      data.errors,
-      "{ [key: string]: string; }",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

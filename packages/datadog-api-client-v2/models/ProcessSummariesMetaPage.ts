@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Paging attributes.
- */
-
 export class ProcessSummariesMetaPage {
   /**
    * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
@@ -26,53 +20,28 @@ export class ProcessSummariesMetaPage {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     after: {
       baseName: "after",
       type: "string",
-      format: "",
     },
     size: {
       baseName: "size",
       type: "number",
+
       format: "int32",
     },
   };
 
   static getAttributeTypeMap() {
     return ProcessSummariesMetaPage.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ProcessSummariesMetaPage {
-    const res = new ProcessSummariesMetaPage();
-
-    res.after = ObjectSerializer.deserialize(data.after, "string", "");
-
-    res.size = ObjectSerializer.deserialize(data.size, "number", "int32");
-
-    return res;
-  }
-
-  static serialize(data: ProcessSummariesMetaPage): { [key: string]: any } {
-    const attributeTypes = ProcessSummariesMetaPage.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.after = ObjectSerializer.serialize(data.after, "string", "");
-
-    res.size = ObjectSerializer.serialize(data.size, "number", "int32");
-
-    return res;
   }
 
   public constructor() {}

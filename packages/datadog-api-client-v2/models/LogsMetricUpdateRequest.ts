@@ -9,73 +9,29 @@
  */
 
 import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The new log-based metric body.
- */
 
 export class LogsMetricUpdateRequest {
   "data": LogsMetricUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "LogsMetricUpdateData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogsMetricUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsMetricUpdateRequest {
-    const res = new LogsMetricUpdateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'LogsMetricUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "LogsMetricUpdateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsMetricUpdateRequest): { [key: string]: any } {
-    const attributeTypes = LogsMetricUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'LogsMetricUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "LogsMetricUpdateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

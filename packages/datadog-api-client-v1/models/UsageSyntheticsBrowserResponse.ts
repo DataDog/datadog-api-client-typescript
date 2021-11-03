@@ -9,11 +9,6 @@
  */
 
 import { UsageSyntheticsBrowserHour } from "./UsageSyntheticsBrowserHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of Synthetics Browser tests run for each hour for a given organization.
- */
 
 export class UsageSyntheticsBrowserResponse {
   /**
@@ -23,56 +18,22 @@ export class UsageSyntheticsBrowserResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     usage: {
       baseName: "usage",
       type: "Array<UsageSyntheticsBrowserHour>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSyntheticsBrowserResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): UsageSyntheticsBrowserResponse {
-    const res = new UsageSyntheticsBrowserResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageSyntheticsBrowserHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSyntheticsBrowserResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes = UsageSyntheticsBrowserResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageSyntheticsBrowserHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

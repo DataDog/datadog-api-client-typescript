@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Datadog API key.
- */
-
 export class ApiKey {
   /**
    * Date of creation of the API key.
@@ -34,71 +28,34 @@ export class ApiKey {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     created: {
       baseName: "created",
       type: "string",
-      format: "",
     },
     createdBy: {
       baseName: "created_by",
       type: "string",
-      format: "",
     },
     key: {
       baseName: "key",
       type: "string",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApiKey.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ApiKey {
-    const res = new ApiKey();
-
-    res.created = ObjectSerializer.deserialize(data.created, "string", "");
-
-    res.createdBy = ObjectSerializer.deserialize(data.created_by, "string", "");
-
-    res.key = ObjectSerializer.deserialize(data.key, "string", "");
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: ApiKey): { [key: string]: any } {
-    const attributeTypes = ApiKey.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created = ObjectSerializer.serialize(data.created, "string", "");
-
-    res.created_by = ObjectSerializer.serialize(data.createdBy, "string", "");
-
-    res.key = ObjectSerializer.serialize(data.key, "string", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

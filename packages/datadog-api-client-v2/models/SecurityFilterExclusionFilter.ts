@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Exclusion filter for the security filter.
- */
-
 export class SecurityFilterExclusionFilter {
   /**
    * Exclusion filter name.
@@ -26,77 +20,28 @@ export class SecurityFilterExclusionFilter {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     query: {
       baseName: "query",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityFilterExclusionFilter.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityFilterExclusionFilter {
-    const res = new SecurityFilterExclusionFilter();
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SecurityFilterExclusionFilter' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'SecurityFilterExclusionFilter' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SecurityFilterExclusionFilter): {
-    [key: string]: any;
-  } {
-    const attributeTypes = SecurityFilterExclusionFilter.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SecurityFilterExclusionFilter' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'SecurityFilterExclusionFilter' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

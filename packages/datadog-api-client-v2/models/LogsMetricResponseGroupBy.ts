@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A group by rule.
- */
-
 export class LogsMetricResponseGroupBy {
   /**
    * The path to the value the log-based metric will be aggregated over.
@@ -26,53 +20,26 @@ export class LogsMetricResponseGroupBy {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     path: {
       baseName: "path",
       type: "string",
-      format: "",
     },
     tagName: {
       baseName: "tag_name",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsMetricResponseGroupBy.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsMetricResponseGroupBy {
-    const res = new LogsMetricResponseGroupBy();
-
-    res.path = ObjectSerializer.deserialize(data.path, "string", "");
-
-    res.tagName = ObjectSerializer.deserialize(data.tag_name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsMetricResponseGroupBy): { [key: string]: any } {
-    const attributeTypes = LogsMetricResponseGroupBy.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.path = ObjectSerializer.serialize(data.path, "string", "");
-
-    res.tag_name = ObjectSerializer.serialize(data.tagName, "string", "");
-
-    return res;
   }
 
   public constructor() {}

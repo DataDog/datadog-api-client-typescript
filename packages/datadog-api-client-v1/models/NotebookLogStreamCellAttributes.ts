@@ -11,11 +11,6 @@
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attributes of a notebook `log_stream` cell.
- */
 
 export class NotebookLogStreamCellAttributes {
   "definition": LogStreamWidgetDefinition;
@@ -24,95 +19,31 @@ export class NotebookLogStreamCellAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     definition: {
       baseName: "definition",
       type: "LogStreamWidgetDefinition",
-      format: "",
+      required: true,
     },
     graphSize: {
       baseName: "graph_size",
       type: "NotebookGraphSize",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "NotebookCellTime",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookLogStreamCellAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): NotebookLogStreamCellAttributes {
-    const res = new NotebookLogStreamCellAttributes();
-
-    if (data.definition === undefined) {
-      throw new TypeError(
-        "missing required attribute 'definition' on 'NotebookLogStreamCellAttributes' object"
-      );
-    }
-    res.definition = ObjectSerializer.deserialize(
-      data.definition,
-      "LogStreamWidgetDefinition",
-      ""
-    );
-
-    if (["xs", "s", "m", "l", "xl", undefined].includes(data.graph_size)) {
-      res.graphSize = data.graph_size;
-    } else {
-      const raw = new NotebookLogStreamCellAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.time = ObjectSerializer.deserialize(data.time, "NotebookCellTime", "");
-
-    return res;
-  }
-
-  static serialize(data: NotebookLogStreamCellAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      NotebookLogStreamCellAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.definition === undefined) {
-      throw new TypeError(
-        "missing required attribute 'definition' on 'NotebookLogStreamCellAttributes' object"
-      );
-    }
-    res.definition = ObjectSerializer.serialize(
-      data.definition,
-      "LogStreamWidgetDefinition",
-      ""
-    );
-
-    if (["xs", "s", "m", "l", "xl", undefined].includes(data.graphSize)) {
-      res.graph_size = data.graphSize;
-    } else {
-      throw TypeError(`invalid enum value ${data.graphSize} for graphSize`);
-    }
-
-    res.time = ObjectSerializer.serialize(data.time, "NotebookCellTime", "");
-
-    return res;
   }
 
   public constructor() {}

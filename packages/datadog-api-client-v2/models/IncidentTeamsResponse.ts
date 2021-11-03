@@ -11,11 +11,6 @@
 import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response with a list of incident team payloads.
- */
 
 export class IncidentTeamsResponse {
   /**
@@ -30,96 +25,31 @@ export class IncidentTeamsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<IncidentTeamResponseData>",
-      format: "",
+      required: true,
     },
     included: {
       baseName: "included",
       type: "Array<IncidentTeamIncludedItems>",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "IncidentServicesResponseMeta",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentTeamsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): IncidentTeamsResponse {
-    const res = new IncidentTeamsResponse();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentTeamsResponse' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<IncidentTeamResponseData>",
-      ""
-    );
-
-    res.included = ObjectSerializer.deserialize(
-      data.included,
-      "Array<IncidentTeamIncludedItems>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "IncidentServicesResponseMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentTeamsResponse): { [key: string]: any } {
-    const attributeTypes = IncidentTeamsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentTeamsResponse' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<IncidentTeamResponseData>",
-      ""
-    );
-
-    res.included = ObjectSerializer.serialize(
-      data.included,
-      "Array<IncidentTeamIncludedItems>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "IncidentServicesResponseMeta",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

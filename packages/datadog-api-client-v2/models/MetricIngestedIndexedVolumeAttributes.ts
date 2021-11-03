@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing the definition of a metric's ingested and indexed volume.
- */
-
 export class MetricIngestedIndexedVolumeAttributes {
   /**
    * Indexed volume for the given metric.
@@ -26,74 +20,30 @@ export class MetricIngestedIndexedVolumeAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     indexedVolume: {
       baseName: "indexed_volume",
       type: "number",
+
       format: "int64",
     },
     ingestedVolume: {
       baseName: "ingested_volume",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricIngestedIndexedVolumeAttributes {
-    const res = new MetricIngestedIndexedVolumeAttributes();
-
-    res.indexedVolume = ObjectSerializer.deserialize(
-      data.indexed_volume,
-      "number",
-      "int64"
-    );
-
-    res.ingestedVolume = ObjectSerializer.deserialize(
-      data.ingested_volume,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricIngestedIndexedVolumeAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      MetricIngestedIndexedVolumeAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.indexed_volume = ObjectSerializer.serialize(
-      data.indexedVolume,
-      "number",
-      "int64"
-    );
-
-    res.ingested_volume = ObjectSerializer.serialize(
-      data.ingestedVolume,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -11,11 +11,6 @@
 import { Log } from "./Log";
 import { LogsListResponseLinks } from "./LogsListResponseLinks";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object with all logs matching the request and pagination information.
- */
 
 export class LogsListResponse {
   /**
@@ -27,78 +22,30 @@ export class LogsListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<Log>",
-      format: "",
     },
     links: {
       baseName: "links",
       type: "LogsListResponseLinks",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "LogsResponseMetadata",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsListResponse {
-    const res = new LogsListResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "Array<Log>", "");
-
-    res.links = ObjectSerializer.deserialize(
-      data.links,
-      "LogsListResponseLinks",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "LogsResponseMetadata",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsListResponse): { [key: string]: any } {
-    const attributeTypes = LogsListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "Array<Log>", "");
-
-    res.links = ObjectSerializer.serialize(
-      data.links,
-      "LogsListResponseLinks",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "LogsResponseMetadata",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

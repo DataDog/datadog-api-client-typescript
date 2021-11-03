@@ -17,80 +17,26 @@ export class SecurityMonitoringRuleNewValueOptions {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     forgetAfter: {
       baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-      format: "",
     },
     learningDuration: {
       baseName: "learningDuration",
       type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringRuleNewValueOptions {
-    const res = new SecurityMonitoringRuleNewValueOptions();
-
-    if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
-      res.forgetAfter = data.forgetAfter;
-    } else {
-      const raw = new SecurityMonitoringRuleNewValueOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if ([0, 1, 7, undefined].includes(data.learningDuration)) {
-      res.learningDuration = data.learningDuration;
-    } else {
-      const raw = new SecurityMonitoringRuleNewValueOptions();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleNewValueOptions): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringRuleNewValueOptions.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if ([1, 2, 7, 14, 21, 28, undefined].includes(data.forgetAfter)) {
-      res.forgetAfter = data.forgetAfter;
-    } else {
-      throw TypeError(`invalid enum value ${data.forgetAfter} for forgetAfter`);
-    }
-
-    if ([0, 1, 7, undefined].includes(data.learningDuration)) {
-      res.learningDuration = data.learningDuration;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.learningDuration} for learningDuration`
-      );
-    }
-
-    return res;
   }
 
   public constructor() {}

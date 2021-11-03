@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing the definition of a metric's distinct volume.
- */
-
 export class MetricDistinctVolumeAttributes {
   /**
    * Distinct volume for the given metric.
@@ -22,56 +16,24 @@ export class MetricDistinctVolumeAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     distinctVolume: {
       baseName: "distinct_volume",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return MetricDistinctVolumeAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): MetricDistinctVolumeAttributes {
-    const res = new MetricDistinctVolumeAttributes();
-
-    res.distinctVolume = ObjectSerializer.deserialize(
-      data.distinct_volume,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: MetricDistinctVolumeAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes = MetricDistinctVolumeAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.distinct_volume = ObjectSerializer.serialize(
-      data.distinctVolume,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

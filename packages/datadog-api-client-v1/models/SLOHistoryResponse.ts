@@ -10,11 +10,6 @@
 
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A service level objective history response.
- */
 
 export class SLOHistoryResponse {
   "data"?: SLOHistoryResponseData;
@@ -25,69 +20,26 @@ export class SLOHistoryResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "SLOHistoryResponseData",
-      format: "",
     },
     errors: {
       baseName: "errors",
       type: "Array<SLOHistoryResponseError>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOHistoryResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOHistoryResponse {
-    const res = new SLOHistoryResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "SLOHistoryResponseData",
-      ""
-    );
-
-    res.errors = ObjectSerializer.deserialize(
-      data.errors,
-      "Array<SLOHistoryResponseError>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOHistoryResponse): { [key: string]: any } {
-    const attributeTypes = SLOHistoryResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "SLOHistoryResponseData",
-      ""
-    );
-
-    res.errors = ObjectSerializer.serialize(
-      data.errors,
-      "Array<SLOHistoryResponseError>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

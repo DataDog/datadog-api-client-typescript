@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsBrowserVariableType } from "./SyntheticsBrowserVariableType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
- */
 
 export class SyntheticsBrowserVariable {
   /**
@@ -36,118 +31,40 @@ export class SyntheticsBrowserVariable {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     example: {
       baseName: "example",
       type: "string",
-      format: "",
     },
     id: {
       baseName: "id",
       type: "string",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     pattern: {
       baseName: "pattern",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "SyntheticsBrowserVariableType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBrowserVariable.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsBrowserVariable {
-    const res = new SyntheticsBrowserVariable();
-
-    res.example = ObjectSerializer.deserialize(data.example, "string", "");
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsBrowserVariable' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.pattern = ObjectSerializer.deserialize(data.pattern, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SyntheticsBrowserVariable' object"
-      );
-    }
-    if (
-      ["element", "email", "global", "javascript", "text", undefined].includes(
-        data.type
-      )
-    ) {
-      res.type = data.type;
-    } else {
-      const raw = new SyntheticsBrowserVariable();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBrowserVariable): { [key: string]: any } {
-    const attributeTypes = SyntheticsBrowserVariable.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.example = ObjectSerializer.serialize(data.example, "string", "");
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SyntheticsBrowserVariable' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.pattern = ObjectSerializer.serialize(data.pattern, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'SyntheticsBrowserVariable' object"
-      );
-    }
-    if (
-      ["element", "email", "global", "javascript", "text", undefined].includes(
-        data.type
-      )
-    ) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

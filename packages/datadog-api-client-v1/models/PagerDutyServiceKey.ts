@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * PagerDuty service object key.
- */
-
 export class PagerDutyServiceKey {
   /**
    * Your service key in PagerDuty.
@@ -22,58 +16,23 @@ export class PagerDutyServiceKey {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     serviceKey: {
       baseName: "service_key",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return PagerDutyServiceKey.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): PagerDutyServiceKey {
-    const res = new PagerDutyServiceKey();
-
-    if (data.service_key === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service_key' on 'PagerDutyServiceKey' object"
-      );
-    }
-    res.serviceKey = ObjectSerializer.deserialize(
-      data.service_key,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: PagerDutyServiceKey): { [key: string]: any } {
-    const attributeTypes = PagerDutyServiceKey.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.serviceKey === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service_key' on 'PagerDutyServiceKey' object"
-      );
-    }
-    res.service_key = ObjectSerializer.serialize(data.serviceKey, "string", "");
-
-    return res;
   }
 
   public constructor() {}

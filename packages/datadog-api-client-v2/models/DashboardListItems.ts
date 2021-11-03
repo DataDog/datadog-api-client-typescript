@@ -9,11 +9,6 @@
  */
 
 import { DashboardListItem } from "./DashboardListItem";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Dashboards within a list.
- */
 
 export class DashboardListItems {
   /**
@@ -27,71 +22,29 @@ export class DashboardListItems {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     dashboards: {
       baseName: "dashboards",
       type: "Array<DashboardListItem>",
-      format: "",
+      required: true,
     },
     total: {
       baseName: "total",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardListItems.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardListItems {
-    const res = new DashboardListItems();
-
-    if (data.dashboards === undefined) {
-      throw new TypeError(
-        "missing required attribute 'dashboards' on 'DashboardListItems' object"
-      );
-    }
-    res.dashboards = ObjectSerializer.deserialize(
-      data.dashboards,
-      "Array<DashboardListItem>",
-      ""
-    );
-
-    res.total = ObjectSerializer.deserialize(data.total, "number", "int64");
-
-    return res;
-  }
-
-  static serialize(data: DashboardListItems): { [key: string]: any } {
-    const attributeTypes = DashboardListItems.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.dashboards === undefined) {
-      throw new TypeError(
-        "missing required attribute 'dashboards' on 'DashboardListItems' object"
-      );
-    }
-    res.dashboards = ObjectSerializer.serialize(
-      data.dashboards,
-      "Array<DashboardListItem>",
-      ""
-    );
-
-    res.total = ObjectSerializer.serialize(data.total, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

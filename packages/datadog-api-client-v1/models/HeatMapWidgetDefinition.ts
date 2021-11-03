@@ -15,11 +15,6 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
- */
 
 export class HeatMapWidgetDefinition {
   /**
@@ -57,210 +52,64 @@ export class HeatMapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      format: "",
     },
     events: {
       baseName: "events",
       type: "Array<WidgetEvent>",
-      format: "",
     },
     legendSize: {
       baseName: "legend_size",
       type: "string",
-      format: "",
     },
     requests: {
       baseName: "requests",
       type: "Array<HeatMapWidgetRequest>",
-      format: "",
+      required: true,
     },
     showLegend: {
       baseName: "show_legend",
       type: "boolean",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "WidgetTime",
-      format: "",
     },
     title: {
       baseName: "title",
       type: "string",
-      format: "",
     },
     titleAlign: {
       baseName: "title_align",
       type: "WidgetTextAlign",
-      format: "",
     },
     titleSize: {
       baseName: "title_size",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "HeatMapWidgetDefinitionType",
-      format: "",
+      required: true,
     },
     yaxis: {
       baseName: "yaxis",
       type: "WidgetAxis",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HeatMapWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HeatMapWidgetDefinition {
-    const res = new HeatMapWidgetDefinition();
-
-    res.customLinks = ObjectSerializer.deserialize(
-      data.custom_links,
-      "Array<WidgetCustomLink>",
-      ""
-    );
-
-    res.events = ObjectSerializer.deserialize(
-      data.events,
-      "Array<WidgetEvent>",
-      ""
-    );
-
-    res.legendSize = ObjectSerializer.deserialize(
-      data.legend_size,
-      "string",
-      ""
-    );
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'HeatMapWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.deserialize(
-      data.requests,
-      "Array<HeatMapWidgetRequest>",
-      ""
-    );
-
-    res.showLegend = ObjectSerializer.deserialize(
-      data.show_legend,
-      "boolean",
-      ""
-    );
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new HeatMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'HeatMapWidgetDefinition' object"
-      );
-    }
-    if (["heatmap", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new HeatMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.yaxis = ObjectSerializer.deserialize(data.yaxis, "WidgetAxis", "");
-
-    return res;
-  }
-
-  static serialize(data: HeatMapWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = HeatMapWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.custom_links = ObjectSerializer.serialize(
-      data.customLinks,
-      "Array<WidgetCustomLink>",
-      ""
-    );
-
-    res.events = ObjectSerializer.serialize(
-      data.events,
-      "Array<WidgetEvent>",
-      ""
-    );
-
-    res.legend_size = ObjectSerializer.serialize(data.legendSize, "string", "");
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'HeatMapWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.serialize(
-      data.requests,
-      "Array<HeatMapWidgetRequest>",
-      ""
-    );
-
-    res.show_legend = ObjectSerializer.serialize(
-      data.showLegend,
-      "boolean",
-      ""
-    );
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'HeatMapWidgetDefinition' object"
-      );
-    }
-    if (["heatmap", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    res.yaxis = ObjectSerializer.serialize(data.yaxis, "WidgetAxis", "");
-
-    return res;
   }
 
   public constructor() {}

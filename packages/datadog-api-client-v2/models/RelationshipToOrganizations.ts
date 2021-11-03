@@ -9,11 +9,6 @@
  */
 
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationship to organizations.
- */
 
 export class RelationshipToOrganizations {
   /**
@@ -23,64 +18,23 @@ export class RelationshipToOrganizations {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<RelationshipToOrganizationData>",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToOrganizations.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): RelationshipToOrganizations {
-    const res = new RelationshipToOrganizations();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'RelationshipToOrganizations' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<RelationshipToOrganizationData>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToOrganizations): { [key: string]: any } {
-    const attributeTypes = RelationshipToOrganizations.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'RelationshipToOrganizations' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<RelationshipToOrganizationData>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Y Axis controls for the distribution widget.
- */
-
 export class DistributionWidgetYAxis {
   /**
    * True includes zero.
@@ -38,88 +32,38 @@ export class DistributionWidgetYAxis {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     includeZero: {
       baseName: "include_zero",
       type: "boolean",
-      format: "",
     },
     label: {
       baseName: "label",
       type: "string",
-      format: "",
     },
     max: {
       baseName: "max",
       type: "string",
-      format: "",
     },
     min: {
       baseName: "min",
       type: "string",
-      format: "",
     },
     scale: {
       baseName: "scale",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DistributionWidgetYAxis.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DistributionWidgetYAxis {
-    const res = new DistributionWidgetYAxis();
-
-    res.includeZero = ObjectSerializer.deserialize(
-      data.include_zero,
-      "boolean",
-      ""
-    );
-
-    res.label = ObjectSerializer.deserialize(data.label, "string", "");
-
-    res.max = ObjectSerializer.deserialize(data.max, "string", "");
-
-    res.min = ObjectSerializer.deserialize(data.min, "string", "");
-
-    res.scale = ObjectSerializer.deserialize(data.scale, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: DistributionWidgetYAxis): { [key: string]: any } {
-    const attributeTypes = DistributionWidgetYAxis.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.include_zero = ObjectSerializer.serialize(
-      data.includeZero,
-      "boolean",
-      ""
-    );
-
-    res.label = ObjectSerializer.serialize(data.label, "string", "");
-
-    res.max = ObjectSerializer.serialize(data.max, "string", "");
-
-    res.min = ObjectSerializer.serialize(data.min, "string", "");
-
-    res.scale = ObjectSerializer.serialize(data.scale, "string", "");
-
-    return res;
   }
 
   public constructor() {}

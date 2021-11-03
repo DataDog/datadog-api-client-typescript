@@ -10,11 +10,6 @@
 
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { FullApplicationKey } from "./FullApplicationKey";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response for retrieving an application key.
- */
 
 export class ApplicationKeyResponse {
   "data"?: FullApplicationKey;
@@ -25,65 +20,26 @@ export class ApplicationKeyResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "FullApplicationKey",
-      format: "",
     },
     included: {
       baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ApplicationKeyResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ApplicationKeyResponse {
-    const res = new ApplicationKeyResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "FullApplicationKey",
-      ""
-    );
-
-    res.included = ObjectSerializer.deserialize(
-      data.included,
-      "Array<ApplicationKeyResponseIncludedItem>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ApplicationKeyResponse): { [key: string]: any } {
-    const attributeTypes = ApplicationKeyResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "FullApplicationKey", "");
-
-    res.included = ObjectSerializer.serialize(
-      data.included,
-      "Array<ApplicationKeyResponseIncludedItem>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

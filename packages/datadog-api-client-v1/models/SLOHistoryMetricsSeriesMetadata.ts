@@ -9,11 +9,6 @@
  */
 
 import { SLOHistoryMetricsSeriesMetadataUnit } from "./SLOHistoryMetricsSeriesMetadataUnit";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Query metadata.
- */
 
 export class SLOHistoryMetricsSeriesMetadata {
   /**
@@ -43,114 +38,44 @@ export class SLOHistoryMetricsSeriesMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     aggr: {
       baseName: "aggr",
       type: "string",
-      format: "",
     },
     expression: {
       baseName: "expression",
       type: "string",
-      format: "",
     },
     metric: {
       baseName: "metric",
       type: "string",
-      format: "",
     },
     queryIndex: {
       baseName: "query_index",
       type: "number",
+
       format: "int64",
     },
     scope: {
       baseName: "scope",
       type: "string",
-      format: "",
     },
     unit: {
       baseName: "unit",
       type: "Array<SLOHistoryMetricsSeriesMetadataUnit>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOHistoryMetricsSeriesMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SLOHistoryMetricsSeriesMetadata {
-    const res = new SLOHistoryMetricsSeriesMetadata();
-
-    res.aggr = ObjectSerializer.deserialize(data.aggr, "string", "");
-
-    res.expression = ObjectSerializer.deserialize(
-      data.expression,
-      "string",
-      ""
-    );
-
-    res.metric = ObjectSerializer.deserialize(data.metric, "string", "");
-
-    res.queryIndex = ObjectSerializer.deserialize(
-      data.query_index,
-      "number",
-      "int64"
-    );
-
-    res.scope = ObjectSerializer.deserialize(data.scope, "string", "");
-
-    res.unit = ObjectSerializer.deserialize(
-      data.unit,
-      "Array<SLOHistoryMetricsSeriesMetadataUnit>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOHistoryMetricsSeriesMetadata): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SLOHistoryMetricsSeriesMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.aggr = ObjectSerializer.serialize(data.aggr, "string", "");
-
-    res.expression = ObjectSerializer.serialize(data.expression, "string", "");
-
-    res.metric = ObjectSerializer.serialize(data.metric, "string", "");
-
-    res.query_index = ObjectSerializer.serialize(
-      data.queryIndex,
-      "number",
-      "int64"
-    );
-
-    res.scope = ObjectSerializer.serialize(data.scope, "string", "");
-
-    res.unit = ObjectSerializer.serialize(
-      data.unit,
-      "Array<SLOHistoryMetricsSeriesMetadataUnit>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

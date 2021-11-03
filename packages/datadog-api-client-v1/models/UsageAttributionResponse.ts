@@ -10,11 +10,6 @@
 
 import { UsageAttributionBody } from "./UsageAttributionBody";
 import { UsageAttributionMetadata } from "./UsageAttributionMetadata";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the Usage Summary by tag(s).
- */
 
 export class UsageAttributionResponse {
   "metadata"?: UsageAttributionMetadata;
@@ -25,69 +20,26 @@ export class UsageAttributionResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     metadata: {
       baseName: "metadata",
       type: "UsageAttributionMetadata",
-      format: "",
     },
     usage: {
       baseName: "usage",
       type: "Array<UsageAttributionBody>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageAttributionResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageAttributionResponse {
-    const res = new UsageAttributionResponse();
-
-    res.metadata = ObjectSerializer.deserialize(
-      data.metadata,
-      "UsageAttributionMetadata",
-      ""
-    );
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageAttributionBody>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageAttributionResponse): { [key: string]: any } {
-    const attributeTypes = UsageAttributionResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.metadata = ObjectSerializer.serialize(
-      data.metadata,
-      "UsageAttributionMetadata",
-      ""
-    );
-
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageAttributionBody>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { LogsByRetentionOrgUsage } from "./LogsByRetentionOrgUsage";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Indexed logs usage summary for each organization for each retention period with usage.
- */
 
 export class LogsByRetentionOrgs {
   /**
@@ -23,52 +18,22 @@ export class LogsByRetentionOrgs {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     usage: {
       baseName: "usage",
       type: "Array<LogsByRetentionOrgUsage>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsByRetentionOrgs.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsByRetentionOrgs {
-    const res = new LogsByRetentionOrgs();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<LogsByRetentionOrgUsage>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsByRetentionOrgs): { [key: string]: any } {
-    const attributeTypes = LogsByRetentionOrgs.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<LogsByRetentionOrgUsage>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

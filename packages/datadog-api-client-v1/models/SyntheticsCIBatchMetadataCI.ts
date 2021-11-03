@@ -10,11 +10,6 @@
 
 import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
 import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Description of the CI provider.
- */
 
 export class SyntheticsCIBatchMetadataCI {
   "pipeline"?: SyntheticsCIBatchMetadataPipeline;
@@ -22,71 +17,26 @@ export class SyntheticsCIBatchMetadataCI {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     pipeline: {
       baseName: "pipeline",
       type: "SyntheticsCIBatchMetadataPipeline",
-      format: "",
     },
     provider: {
       baseName: "provider",
       type: "SyntheticsCIBatchMetadataProvider",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsCIBatchMetadataCI.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsCIBatchMetadataCI {
-    const res = new SyntheticsCIBatchMetadataCI();
-
-    res.pipeline = ObjectSerializer.deserialize(
-      data.pipeline,
-      "SyntheticsCIBatchMetadataPipeline",
-      ""
-    );
-
-    res.provider = ObjectSerializer.deserialize(
-      data.provider,
-      "SyntheticsCIBatchMetadataProvider",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsCIBatchMetadataCI): { [key: string]: any } {
-    const attributeTypes = SyntheticsCIBatchMetadataCI.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.pipeline = ObjectSerializer.serialize(
-      data.pipeline,
-      "SyntheticsCIBatchMetadataPipeline",
-      ""
-    );
-
-    res.provider = ObjectSerializer.serialize(
-      data.provider,
-      "SyntheticsCIBatchMetadataProvider",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

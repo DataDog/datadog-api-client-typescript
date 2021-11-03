@@ -12,11 +12,6 @@ import { SyntheticsAPIStep } from "./SyntheticsAPIStep";
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Configuration object for a Synthetic API test.
- */
 
 export class SyntheticsAPITestConfig {
   /**
@@ -35,103 +30,34 @@ export class SyntheticsAPITestConfig {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
-      format: "",
     },
     configVariables: {
       baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
-      format: "",
     },
     request: {
       baseName: "request",
       type: "SyntheticsTestRequest",
-      format: "",
     },
     steps: {
       baseName: "steps",
       type: "Array<SyntheticsAPIStep>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsAPITestConfig.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsAPITestConfig {
-    const res = new SyntheticsAPITestConfig();
-
-    res.assertions = ObjectSerializer.deserialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.configVariables = ObjectSerializer.deserialize(
-      data.configVariables,
-      "Array<SyntheticsConfigVariable>",
-      ""
-    );
-
-    res.request = ObjectSerializer.deserialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    res.steps = ObjectSerializer.deserialize(
-      data.steps,
-      "Array<SyntheticsAPIStep>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsAPITestConfig): { [key: string]: any } {
-    const attributeTypes = SyntheticsAPITestConfig.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.assertions = ObjectSerializer.serialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.configVariables = ObjectSerializer.serialize(
-      data.configVariables,
-      "Array<SyntheticsConfigVariable>",
-      ""
-    );
-
-    res.request = ObjectSerializer.serialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    res.steps = ObjectSerializer.serialize(
-      data.steps,
-      "Array<SyntheticsAPIStep>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

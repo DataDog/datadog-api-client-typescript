@@ -22,23 +22,22 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0
 }
 
-
-let enumsMap: Set<string> = new Set<string>([
+const enumsMap: {[key: string]: any[]} = {
     {{#models}}
         {{#model}}
             {{#isEnum}}
-    "{{classname}}{{enumName}}",
+    "{{classname}}{{enumName}}": [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
             {{/isEnum}}
             {{#hasEnums}}
                 {{#vars}}
                     {{#isEnum}}
-    "{{classname}}{{enumName}}",
+    "{{classname}}{{enumName}}": [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
                     {{/isEnum}}
                 {{/vars}}
             {{/hasEnums}}
         {{/model}}
     {{/models}}
-]);
+};
 
 let typeMap: {[index: string]: any} = {
     {{#models}}
@@ -58,41 +57,6 @@ let oneOfMap: {[index: string]: string[]} = {
 };
 
 export class ObjectSerializer {
-    public static findCorrectType(data: any, expectedType: string) {
-        if (data == undefined) {
-            return expectedType;
-        } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-            return expectedType;
-        } else if (expectedType === "Date") {
-            return expectedType;
-        } else {
-            if (enumsMap.has(expectedType)) {
-                return expectedType;
-            }
-
-            if (!typeMap[expectedType]) {
-                return expectedType; // w/e we don't know the type
-            }
-
-            // Check the discriminator
-            let discriminatorProperty = typeMap[expectedType].discriminator;
-            if (discriminatorProperty == null) {
-                return expectedType; // the type does not have a discriminator. use it.
-            } else {
-                if (data[discriminatorProperty]) {
-                    var discriminatorType = data[discriminatorProperty];
-                    if(typeMap[discriminatorType]){
-                        return discriminatorType; // use the type given in the discriminator
-                    } else {
-                        return expectedType; // discriminator did not map to a type
-                    }
-                } else {
-                    return expectedType; // discriminator was not present (or an empty string)
-                }
-            }
-        }
-    }
-
     public static serialize(data: any, type: string, format: string) {
         if (data == undefined) {
             return data;
@@ -131,14 +95,17 @@ export class ObjectSerializer {
                 return data.toISOString();
             }
         } else {
-            if (enumsMap.has(type)) {
-                return data;
+            if (enumsMap[type]) {
+                if (enumsMap[type].includes(data)) {
+                  return data;
+                }
+                throw new TypeError(`unknown enum value '${data}'`)
             }
             if (oneOfMap[type]) {
                 let oneOfs: any[] = [];
                 for(let oneOf of oneOfMap[type]) {
                     try {
-                        oneOfs.push(ObjectSerializer.serialize(data, oneOf, format))
+                        oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
                     } catch (e) {
                         console.debug(`could not serialize ${oneOf} (${e})`)
                     }
@@ -152,17 +119,28 @@ export class ObjectSerializer {
                 return oneOfs[0];
             }
 
-            if (!typeMap[type]) { // dont know the type
-                throw new TypeError(`unknown type '${type}'`);
-            }
+            // get the map for the correct type.
+            let attributesMap = typeMap[type].getAttributeTypeMap();
+            let instance: {[index: string]: any} = {};
 
-            return typeMap[type].serialize(data);
+            for (let attributeName in attributesMap) {
+                let attributeObj = attributesMap[attributeName];
+                instance[attributeObj.baseName] = ObjectSerializer.serialize(data[attributeName], attributeObj.type, attributeObj.format);
+
+                // check for required properties
+                if (attributeObj?.required && instance[attributeObj.baseName] === undefined) {
+                    throw new Error(`missing required property '${attributeObj.baseName}'`);
+                }
+
+                if (enumsMap[attributeObj.type] && !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])) {
+                    instance.unparsedObject = instance[attributeObj.baseName];
+                }
+            }
+            return instance;
         }
     }
 
-    public static deserialize(data: any, type: string, format: string) {
-        // polymorphism may change the actual type.
-        type = ObjectSerializer.findCorrectType(data, type);
+    public static deserialize(data: any, type: string, format: string = "") {
         if (data == undefined) {
             return data;
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -188,8 +166,8 @@ export class ObjectSerializer {
         } else if (type === "Date") {
             return new Date(data);
         } else {
-            if (enumsMap.has(type)) {// is Enum
-                return data;
+            if (enumsMap[type]) {
+               return data;
             }
 
             if (oneOfMap[type]) {
@@ -214,7 +192,26 @@ export class ObjectSerializer {
             if (!typeMap[type]) { // dont know the type
                 throw new TypeError(`unknown type '${type}'`);
             }
-            return typeMap[type].deserialize(data);
+
+            let instance = new typeMap[type]();
+            let attributesMap = typeMap[type].getAttributeTypeMap();
+
+            for (let attributeName in attributesMap) {
+                let attributeObj = attributesMap[attributeName];
+                instance[attributeName] = ObjectSerializer.deserialize(data[attributeObj.baseName], attributeObj.type, attributeObj.format);
+
+                // check for required properties
+                if (attributeObj?.required && instance[attributeName] == undefined) {
+                    throw new Error(`missing required property '${attributeName}'`);
+                }
+
+                // check for enum values
+                if (enumsMap[attributeObj.type] && !enumsMap[attributeObj.type].includes(instance[attributeName])) {
+                    instance.unparsedObject = instance[attributeName];
+                }
+            }
+
+            return instance;
         }
     }
 

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
- */
-
 export class SyntheticsTiming {
   /**
    * The duration in millisecond of the DNS lookup.
@@ -54,148 +48,72 @@ export class SyntheticsTiming {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     dns: {
       baseName: "dns",
       type: "number",
+
       format: "double",
     },
     download: {
       baseName: "download",
       type: "number",
+
       format: "double",
     },
     firstByte: {
       baseName: "firstByte",
       type: "number",
+
       format: "double",
     },
     handshake: {
       baseName: "handshake",
       type: "number",
+
       format: "double",
     },
     redirect: {
       baseName: "redirect",
       type: "number",
+
       format: "double",
     },
     ssl: {
       baseName: "ssl",
       type: "number",
+
       format: "double",
     },
     tcp: {
       baseName: "tcp",
       type: "number",
+
       format: "double",
     },
     total: {
       baseName: "total",
       type: "number",
+
       format: "double",
     },
     wait: {
       baseName: "wait",
       type: "number",
+
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsTiming.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsTiming {
-    const res = new SyntheticsTiming();
-
-    res.dns = ObjectSerializer.deserialize(data.dns, "number", "double");
-
-    res.download = ObjectSerializer.deserialize(
-      data.download,
-      "number",
-      "double"
-    );
-
-    res.firstByte = ObjectSerializer.deserialize(
-      data.firstByte,
-      "number",
-      "double"
-    );
-
-    res.handshake = ObjectSerializer.deserialize(
-      data.handshake,
-      "number",
-      "double"
-    );
-
-    res.redirect = ObjectSerializer.deserialize(
-      data.redirect,
-      "number",
-      "double"
-    );
-
-    res.ssl = ObjectSerializer.deserialize(data.ssl, "number", "double");
-
-    res.tcp = ObjectSerializer.deserialize(data.tcp, "number", "double");
-
-    res.total = ObjectSerializer.deserialize(data.total, "number", "double");
-
-    res.wait = ObjectSerializer.deserialize(data.wait, "number", "double");
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsTiming): { [key: string]: any } {
-    const attributeTypes = SyntheticsTiming.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.dns = ObjectSerializer.serialize(data.dns, "number", "double");
-
-    res.download = ObjectSerializer.serialize(
-      data.download,
-      "number",
-      "double"
-    );
-
-    res.firstByte = ObjectSerializer.serialize(
-      data.firstByte,
-      "number",
-      "double"
-    );
-
-    res.handshake = ObjectSerializer.serialize(
-      data.handshake,
-      "number",
-      "double"
-    );
-
-    res.redirect = ObjectSerializer.serialize(
-      data.redirect,
-      "number",
-      "double"
-    );
-
-    res.ssl = ObjectSerializer.serialize(data.ssl, "number", "double");
-
-    res.tcp = ObjectSerializer.serialize(data.tcp, "number", "double");
-
-    res.total = ObjectSerializer.serialize(data.total, "number", "double");
-
-    res.wait = ObjectSerializer.serialize(data.wait, "number", "double");
-
-    return res;
   }
 
   public constructor() {}

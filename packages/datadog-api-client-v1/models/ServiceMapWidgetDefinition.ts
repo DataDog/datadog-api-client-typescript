@@ -11,11 +11,6 @@
 import { ServiceMapWidgetDefinitionType } from "./ServiceMapWidgetDefinitionType";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * This widget displays a map of a service to all of the services that call it, and all of the services that it calls.
- */
 
 export class ServiceMapWidgetDefinition {
   /**
@@ -43,160 +38,49 @@ export class ServiceMapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
-      format: "",
     },
     filters: {
       baseName: "filters",
       type: "Array<string>",
-      format: "",
+      required: true,
     },
     service: {
       baseName: "service",
       type: "string",
-      format: "",
+      required: true,
     },
     title: {
       baseName: "title",
       type: "string",
-      format: "",
     },
     titleAlign: {
       baseName: "title_align",
       type: "WidgetTextAlign",
-      format: "",
     },
     titleSize: {
       baseName: "title_size",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "ServiceMapWidgetDefinitionType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return ServiceMapWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ServiceMapWidgetDefinition {
-    const res = new ServiceMapWidgetDefinition();
-
-    res.customLinks = ObjectSerializer.deserialize(
-      data.custom_links,
-      "Array<WidgetCustomLink>",
-      ""
-    );
-
-    if (data.filters === undefined) {
-      throw new TypeError(
-        "missing required attribute 'filters' on 'ServiceMapWidgetDefinition' object"
-      );
-    }
-    res.filters = ObjectSerializer.deserialize(
-      data.filters,
-      "Array<string>",
-      ""
-    );
-
-    if (data.service === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service' on 'ServiceMapWidgetDefinition' object"
-      );
-    }
-    res.service = ObjectSerializer.deserialize(data.service, "string", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new ServiceMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceMapWidgetDefinition' object"
-      );
-    }
-    if (["servicemap", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new ServiceMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ServiceMapWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = ServiceMapWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.custom_links = ObjectSerializer.serialize(
-      data.customLinks,
-      "Array<WidgetCustomLink>",
-      ""
-    );
-
-    if (data.filters === undefined) {
-      throw new TypeError(
-        "missing required attribute 'filters' on 'ServiceMapWidgetDefinition' object"
-      );
-    }
-    res.filters = ObjectSerializer.serialize(data.filters, "Array<string>", "");
-
-    if (data.service === undefined) {
-      throw new TypeError(
-        "missing required attribute 'service' on 'ServiceMapWidgetDefinition' object"
-      );
-    }
-    res.service = ObjectSerializer.serialize(data.service, "string", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'ServiceMapWidgetDefinition' object"
-      );
-    }
-    if (["servicemap", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

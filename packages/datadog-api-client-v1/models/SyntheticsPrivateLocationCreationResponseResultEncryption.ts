@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Public key for the result encryption.
- */
-
 export class SyntheticsPrivateLocationCreationResponseResultEncryption {
   /**
    * Fingerprint for the encryption key.
@@ -26,58 +20,26 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     id: {
       baseName: "id",
       type: "string",
-      format: "",
     },
     key: {
       baseName: "key",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsPrivateLocationCreationResponseResultEncryption {
-    const res = new SyntheticsPrivateLocationCreationResponseResultEncryption();
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.key = ObjectSerializer.deserialize(data.key, "string", "");
-
-    return res;
-  }
-
-  static serialize(
-    data: SyntheticsPrivateLocationCreationResponseResultEncryption
-  ): { [key: string]: any } {
-    const attributeTypes =
-      SyntheticsPrivateLocationCreationResponseResultEncryption.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.key = ObjectSerializer.serialize(data.key, "string", "");
-
-    return res;
   }
 
   public constructor() {}

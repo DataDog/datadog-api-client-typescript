@@ -10,11 +10,6 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of rules.
- */
 
 export class SecurityMonitoringListRulesResponse {
   /**
@@ -25,74 +20,26 @@ export class SecurityMonitoringListRulesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<SecurityMonitoringRuleResponse>",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "ResponseMetaAttributes",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringListRulesResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringListRulesResponse {
-    const res = new SecurityMonitoringListRulesResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<SecurityMonitoringRuleResponse>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringListRulesResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringListRulesResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<SecurityMonitoringRuleResponse>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

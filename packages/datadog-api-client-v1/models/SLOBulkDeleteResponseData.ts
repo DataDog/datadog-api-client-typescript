@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An array of service level objective objects.
- */
-
 export class SLOBulkDeleteResponseData {
   /**
    * An array of service level objective object IDs that indicates which objects that were completely deleted.
@@ -26,61 +20,26 @@ export class SLOBulkDeleteResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     deleted: {
       baseName: "deleted",
       type: "Array<string>",
-      format: "",
     },
     updated: {
       baseName: "updated",
       type: "Array<string>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOBulkDeleteResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOBulkDeleteResponseData {
-    const res = new SLOBulkDeleteResponseData();
-
-    res.deleted = ObjectSerializer.deserialize(
-      data.deleted,
-      "Array<string>",
-      ""
-    );
-
-    res.updated = ObjectSerializer.deserialize(
-      data.updated,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOBulkDeleteResponseData): { [key: string]: any } {
-    const attributeTypes = SLOBulkDeleteResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.deleted = ObjectSerializer.serialize(data.deleted, "Array<string>", "");
-
-    res.updated = ObjectSerializer.serialize(data.updated, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

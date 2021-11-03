@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The Azure archive's integration destination.
- */
-
 export class LogsArchiveIntegrationAzure {
   /**
    * A client ID.
@@ -26,75 +20,28 @@ export class LogsArchiveIntegrationAzure {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     clientId: {
       baseName: "client_id",
       type: "string",
-      format: "",
+      required: true,
     },
     tenantId: {
       baseName: "tenant_id",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogsArchiveIntegrationAzure.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): LogsArchiveIntegrationAzure {
-    const res = new LogsArchiveIntegrationAzure();
-
-    if (data.client_id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'client_id' on 'LogsArchiveIntegrationAzure' object"
-      );
-    }
-    res.clientId = ObjectSerializer.deserialize(data.client_id, "string", "");
-
-    if (data.tenant_id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tenant_id' on 'LogsArchiveIntegrationAzure' object"
-      );
-    }
-    res.tenantId = ObjectSerializer.deserialize(data.tenant_id, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsArchiveIntegrationAzure): { [key: string]: any } {
-    const attributeTypes = LogsArchiveIntegrationAzure.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.clientId === undefined) {
-      throw new TypeError(
-        "missing required attribute 'client_id' on 'LogsArchiveIntegrationAzure' object"
-      );
-    }
-    res.client_id = ObjectSerializer.serialize(data.clientId, "string", "");
-
-    if (data.tenantId === undefined) {
-      throw new TypeError(
-        "missing required attribute 'tenant_id' on 'LogsArchiveIntegrationAzure' object"
-      );
-    }
-    res.tenant_id = ObjectSerializer.serialize(data.tenantId, "string", "");
-
-    return res;
   }
 
   public constructor() {}

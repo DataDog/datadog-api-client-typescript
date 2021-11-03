@@ -9,73 +9,29 @@
  */
 
 import { RelationshipToUserData } from "./RelationshipToUserData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationship to user.
- */
 
 export class RelationshipToUser {
   "data": RelationshipToUserData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "RelationshipToUserData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToUser.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RelationshipToUser {
-    const res = new RelationshipToUser();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'RelationshipToUser' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "RelationshipToUserData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToUser): { [key: string]: any } {
-    const attributeTypes = RelationshipToUser.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'RelationshipToUser' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "RelationshipToUserData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,63 +9,28 @@
  */
 
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An object that defines a correction to be applied to an SLO.
- */
 
 export class SLOCorrectionUpdateRequest {
   "data"?: SLOCorrectionUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "SLOCorrectionUpdateData",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOCorrectionUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOCorrectionUpdateRequest {
-    const res = new SLOCorrectionUpdateRequest();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "SLOCorrectionUpdateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOCorrectionUpdateRequest): { [key: string]: any } {
-    const attributeTypes = SLOCorrectionUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "SLOCorrectionUpdateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

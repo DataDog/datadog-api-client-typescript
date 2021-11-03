@@ -9,63 +9,28 @@
  */
 
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationship to role.
- */
 
 export class RelationshipToRole {
   "data"?: RelationshipToRoleData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "RelationshipToRoleData",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToRole.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RelationshipToRole {
-    const res = new RelationshipToRole();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "RelationshipToRoleData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToRole): { [key: string]: any } {
-    const attributeTypes = RelationshipToRole.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "RelationshipToRoleData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

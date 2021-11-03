@@ -9,11 +9,6 @@
  */
 
 import { UsageIoTHour } from "./UsageIoTHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the IoT usage for each hour for a given organization.
- */
 
 export class UsageIoTResponse {
   /**
@@ -23,52 +18,22 @@ export class UsageIoTResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     usage: {
       baseName: "usage",
       type: "Array<UsageIoTHour>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageIoTResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageIoTResponse {
-    const res = new UsageIoTResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageIoTHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageIoTResponse): { [key: string]: any } {
-    const attributeTypes = UsageIoTResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageIoTHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

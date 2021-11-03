@@ -18,11 +18,6 @@ import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Updated table widget.
- */
 
 export class TableWidgetRequest {
   "aggregator"?: WidgetAggregator;
@@ -68,350 +63,96 @@ export class TableWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     aggregator: {
       baseName: "aggregator",
       type: "WidgetAggregator",
-      format: "",
     },
     alias: {
       baseName: "alias",
       type: "string",
-      format: "",
     },
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     apmStatsQuery: {
       baseName: "apm_stats_query",
       type: "ApmStatsQueryDefinition",
-      format: "",
     },
     cellDisplayMode: {
       baseName: "cell_display_mode",
       type: "Array<TableWidgetCellDisplayMode>",
-      format: "",
     },
     conditionalFormats: {
       baseName: "conditional_formats",
       type: "Array<WidgetConditionalFormat>",
-      format: "",
     },
     eventQuery: {
       baseName: "event_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     formulas: {
       baseName: "formulas",
       type: "Array<WidgetFormula>",
-      format: "",
     },
     limit: {
       baseName: "limit",
       type: "number",
+
       format: "int64",
     },
     logQuery: {
       baseName: "log_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     networkQuery: {
       baseName: "network_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     order: {
       baseName: "order",
       type: "WidgetSort",
-      format: "",
     },
     processQuery: {
       baseName: "process_query",
       type: "ProcessQueryDefinition",
-      format: "",
     },
     profileMetricsQuery: {
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     q: {
       baseName: "q",
       type: "string",
-      format: "",
     },
     queries: {
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
-      format: "",
     },
     responseFormat: {
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
-      format: "",
     },
     rumQuery: {
       baseName: "rum_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return TableWidgetRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): TableWidgetRequest {
-    const res = new TableWidgetRequest();
-
-    if (
-      ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(
-        data.aggregator
-      )
-    ) {
-      res.aggregator = data.aggregator;
-    } else {
-      const raw = new TableWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.alias = ObjectSerializer.deserialize(data.alias, "string", "");
-
-    res.apmQuery = ObjectSerializer.deserialize(
-      data.apm_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.apmStatsQuery = ObjectSerializer.deserialize(
-      data.apm_stats_query,
-      "ApmStatsQueryDefinition",
-      ""
-    );
-
-    res.cellDisplayMode = ObjectSerializer.deserialize(
-      data.cell_display_mode,
-      "Array<TableWidgetCellDisplayMode>",
-      ""
-    );
-
-    res.conditionalFormats = ObjectSerializer.deserialize(
-      data.conditional_formats,
-      "Array<WidgetConditionalFormat>",
-      ""
-    );
-
-    res.eventQuery = ObjectSerializer.deserialize(
-      data.event_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.formulas = ObjectSerializer.deserialize(
-      data.formulas,
-      "Array<WidgetFormula>",
-      ""
-    );
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
-
-    res.logQuery = ObjectSerializer.deserialize(
-      data.log_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.networkQuery = ObjectSerializer.deserialize(
-      data.network_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      const raw = new TableWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.processQuery = ObjectSerializer.deserialize(
-      data.process_query,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profileMetricsQuery = ObjectSerializer.deserialize(
-      data.profile_metrics_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.deserialize(data.q, "string", "");
-
-    res.queries = ObjectSerializer.deserialize(
-      data.queries,
-      "Array<FormulaAndFunctionQueryDefinition>",
-      ""
-    );
-
-    if (["timeseries", "scalar", undefined].includes(data.response_format)) {
-      res.responseFormat = data.response_format;
-    } else {
-      const raw = new TableWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.rumQuery = ObjectSerializer.deserialize(
-      data.rum_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.securityQuery = ObjectSerializer.deserialize(
-      data.security_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: TableWidgetRequest): { [key: string]: any } {
-    const attributeTypes = TableWidgetRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (
-      ["avg", "last", "max", "min", "sum", "percentile", undefined].includes(
-        data.aggregator
-      )
-    ) {
-      res.aggregator = data.aggregator;
-    } else {
-      throw TypeError(`invalid enum value ${data.aggregator} for aggregator`);
-    }
-
-    res.alias = ObjectSerializer.serialize(data.alias, "string", "");
-
-    res.apm_query = ObjectSerializer.serialize(
-      data.apmQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.apm_stats_query = ObjectSerializer.serialize(
-      data.apmStatsQuery,
-      "ApmStatsQueryDefinition",
-      ""
-    );
-
-    res.cell_display_mode = ObjectSerializer.serialize(
-      data.cellDisplayMode,
-      "Array<TableWidgetCellDisplayMode>",
-      ""
-    );
-
-    res.conditional_formats = ObjectSerializer.serialize(
-      data.conditionalFormats,
-      "Array<WidgetConditionalFormat>",
-      ""
-    );
-
-    res.event_query = ObjectSerializer.serialize(
-      data.eventQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.formulas = ObjectSerializer.serialize(
-      data.formulas,
-      "Array<WidgetFormula>",
-      ""
-    );
-
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
-
-    res.log_query = ObjectSerializer.serialize(
-      data.logQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.network_query = ObjectSerializer.serialize(
-      data.networkQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    if (["asc", "desc", undefined].includes(data.order)) {
-      res.order = data.order;
-    } else {
-      throw TypeError(`invalid enum value ${data.order} for order`);
-    }
-
-    res.process_query = ObjectSerializer.serialize(
-      data.processQuery,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profile_metrics_query = ObjectSerializer.serialize(
-      data.profileMetricsQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.serialize(data.q, "string", "");
-
-    res.queries = ObjectSerializer.serialize(
-      data.queries,
-      "Array<FormulaAndFunctionQueryDefinition>",
-      ""
-    );
-
-    if (["timeseries", "scalar", undefined].includes(data.responseFormat)) {
-      res.response_format = data.responseFormat;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.responseFormat} for responseFormat`
-      );
-    }
-
-    res.rum_query = ObjectSerializer.serialize(
-      data.rumQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.security_query = ObjectSerializer.serialize(
-      data.securityQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

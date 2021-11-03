@@ -10,11 +10,6 @@
 
 import { UserInvitationRelationships } from "./UserInvitationRelationships";
 import { UserInvitationsType } from "./UserInvitationsType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object to create a user invitation.
- */
 
 export class UserInvitationData {
   "relationships": UserInvitationRelationships;
@@ -22,91 +17,28 @@ export class UserInvitationData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     relationships: {
       baseName: "relationships",
       type: "UserInvitationRelationships",
-      format: "",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "UserInvitationsType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return UserInvitationData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserInvitationData {
-    const res = new UserInvitationData();
-
-    if (data.relationships === undefined) {
-      throw new TypeError(
-        "missing required attribute 'relationships' on 'UserInvitationData' object"
-      );
-    }
-    res.relationships = ObjectSerializer.deserialize(
-      data.relationships,
-      "UserInvitationRelationships",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'UserInvitationData' object"
-      );
-    }
-    if (["user_invitations", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new UserInvitationData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: UserInvitationData): { [key: string]: any } {
-    const attributeTypes = UserInvitationData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.relationships === undefined) {
-      throw new TypeError(
-        "missing required attribute 'relationships' on 'UserInvitationData' object"
-      );
-    }
-    res.relationships = ObjectSerializer.serialize(
-      data.relationships,
-      "UserInvitationRelationships",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'UserInvitationData' object"
-      );
-    }
-    if (["user_invitations", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

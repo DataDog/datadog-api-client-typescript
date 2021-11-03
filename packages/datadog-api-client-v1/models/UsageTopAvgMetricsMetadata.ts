@@ -9,11 +9,6 @@
  */
 
 import { UsageAttributionPagination } from "./UsageAttributionPagination";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The object containing document metadata.
- */
 
 export class UsageTopAvgMetricsMetadata {
   /**
@@ -28,70 +23,34 @@ export class UsageTopAvgMetricsMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     day: {
       baseName: "day",
       type: "Date",
+
       format: "date-time",
     },
     month: {
       baseName: "month",
       type: "Date",
+
       format: "date-time",
     },
     pagination: {
       baseName: "pagination",
       type: "UsageAttributionPagination",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageTopAvgMetricsMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageTopAvgMetricsMetadata {
-    const res = new UsageTopAvgMetricsMetadata();
-
-    res.day = ObjectSerializer.deserialize(data.day, "Date", "date-time");
-
-    res.month = ObjectSerializer.deserialize(data.month, "Date", "date-time");
-
-    res.pagination = ObjectSerializer.deserialize(
-      data.pagination,
-      "UsageAttributionPagination",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageTopAvgMetricsMetadata): { [key: string]: any } {
-    const attributeTypes = UsageTopAvgMetricsMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.day = ObjectSerializer.serialize(data.day, "Date", "date-time");
-
-    res.month = ObjectSerializer.serialize(data.month, "Date", "date-time");
-
-    res.pagination = ObjectSerializer.serialize(
-      data.pagination,
-      "UsageAttributionPagination",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

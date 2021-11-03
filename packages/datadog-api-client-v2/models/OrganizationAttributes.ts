@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of the organization.
- */
-
 export class OrganizationAttributes {
   /**
    * Creation time of the organization.
@@ -50,131 +44,54 @@ export class OrganizationAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     createdAt: {
       baseName: "created_at",
       type: "Date",
+
       format: "date-time",
     },
     description: {
       baseName: "description",
       type: "string",
-      format: "",
     },
     disabled: {
       baseName: "disabled",
       type: "boolean",
-      format: "",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
+
       format: "date-time",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     publicId: {
       baseName: "public_id",
       type: "string",
-      format: "",
     },
     sharing: {
       baseName: "sharing",
       type: "string",
-      format: "",
     },
     url: {
       baseName: "url",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return OrganizationAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): OrganizationAttributes {
-    const res = new OrganizationAttributes();
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "Date",
-      "date-time"
-    );
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.disabled = ObjectSerializer.deserialize(data.disabled, "boolean", "");
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "Date",
-      "date-time"
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.publicId = ObjectSerializer.deserialize(data.public_id, "string", "");
-
-    res.sharing = ObjectSerializer.deserialize(data.sharing, "string", "");
-
-    res.url = ObjectSerializer.deserialize(data.url, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: OrganizationAttributes): { [key: string]: any } {
-    const attributeTypes = OrganizationAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "Date",
-      "date-time"
-    );
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.disabled = ObjectSerializer.serialize(data.disabled, "boolean", "");
-
-    res.modified_at = ObjectSerializer.serialize(
-      data.modifiedAt,
-      "Date",
-      "date-time"
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.public_id = ObjectSerializer.serialize(data.publicId, "string", "");
-
-    res.sharing = ObjectSerializer.serialize(data.sharing, "string", "");
-
-    res.url = ObjectSerializer.serialize(data.url, "string", "");
-
-    return res;
   }
 
   public constructor() {}

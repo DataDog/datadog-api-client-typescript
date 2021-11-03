@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Datadog-Azure integrations configured for your organization.
- */
-
 export class AzureAccount {
   /**
    * Your Azure web application ID.
@@ -46,134 +40,46 @@ export class AzureAccount {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     clientId: {
       baseName: "client_id",
       type: "string",
-      format: "",
     },
     clientSecret: {
       baseName: "client_secret",
       type: "string",
-      format: "",
     },
     errors: {
       baseName: "errors",
       type: "Array<string>",
-      format: "",
     },
     hostFilters: {
       baseName: "host_filters",
       type: "string",
-      format: "",
     },
     newClientId: {
       baseName: "new_client_id",
       type: "string",
-      format: "",
     },
     newTenantName: {
       baseName: "new_tenant_name",
       type: "string",
-      format: "",
     },
     tenantName: {
       baseName: "tenant_name",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AzureAccount.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AzureAccount {
-    const res = new AzureAccount();
-
-    res.clientId = ObjectSerializer.deserialize(data.client_id, "string", "");
-
-    res.clientSecret = ObjectSerializer.deserialize(
-      data.client_secret,
-      "string",
-      ""
-    );
-
-    res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "");
-
-    res.hostFilters = ObjectSerializer.deserialize(
-      data.host_filters,
-      "string",
-      ""
-    );
-
-    res.newClientId = ObjectSerializer.deserialize(
-      data.new_client_id,
-      "string",
-      ""
-    );
-
-    res.newTenantName = ObjectSerializer.deserialize(
-      data.new_tenant_name,
-      "string",
-      ""
-    );
-
-    res.tenantName = ObjectSerializer.deserialize(
-      data.tenant_name,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: AzureAccount): { [key: string]: any } {
-    const attributeTypes = AzureAccount.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.client_id = ObjectSerializer.serialize(data.clientId, "string", "");
-
-    res.client_secret = ObjectSerializer.serialize(
-      data.clientSecret,
-      "string",
-      ""
-    );
-
-    res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "");
-
-    res.host_filters = ObjectSerializer.serialize(
-      data.hostFilters,
-      "string",
-      ""
-    );
-
-    res.new_client_id = ObjectSerializer.serialize(
-      data.newClientId,
-      "string",
-      ""
-    );
-
-    res.new_tenant_name = ObjectSerializer.serialize(
-      data.newTenantName,
-      "string",
-      ""
-    );
-
-    res.tenant_name = ObjectSerializer.serialize(data.tenantName, "string", "");
-
-    return res;
   }
 
   public constructor() {}

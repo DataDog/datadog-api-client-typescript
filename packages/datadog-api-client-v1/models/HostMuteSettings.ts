@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Combination of settings to mute a host.
- */
-
 export class HostMuteSettings {
   /**
    * POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
@@ -30,62 +24,32 @@ export class HostMuteSettings {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     end: {
       baseName: "end",
       type: "number",
+
       format: "int64",
     },
     message: {
       baseName: "message",
       type: "string",
-      format: "",
     },
     override: {
       baseName: "override",
       type: "boolean",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HostMuteSettings.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HostMuteSettings {
-    const res = new HostMuteSettings();
-
-    res.end = ObjectSerializer.deserialize(data.end, "number", "int64");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.override = ObjectSerializer.deserialize(data.override, "boolean", "");
-
-    return res;
-  }
-
-  static serialize(data: HostMuteSettings): { [key: string]: any } {
-    const attributeTypes = HostMuteSettings.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.end = ObjectSerializer.serialize(data.end, "number", "int64");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.override = ObjectSerializer.serialize(data.override, "boolean", "");
-
-    return res;
   }
 
   public constructor() {}

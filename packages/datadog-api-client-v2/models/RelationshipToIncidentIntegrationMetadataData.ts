@@ -9,11 +9,6 @@
  */
 
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A relationship reference for an integration metadata object.
- */
 
 export class RelationshipToIncidentIntegrationMetadataData {
   /**
@@ -24,88 +19,28 @@ export class RelationshipToIncidentIntegrationMetadataData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     id: {
       baseName: "id",
       type: "string",
-      format: "",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "IncidentIntegrationMetadataType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): RelationshipToIncidentIntegrationMetadataData {
-    const res = new RelationshipToIncidentIntegrationMetadataData();
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'RelationshipToIncidentIntegrationMetadataData' object"
-      );
-    }
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'RelationshipToIncidentIntegrationMetadataData' object"
-      );
-    }
-    if (["incident_integrations", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new RelationshipToIncidentIntegrationMetadataData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToIncidentIntegrationMetadataData): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      RelationshipToIncidentIntegrationMetadataData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'RelationshipToIncidentIntegrationMetadataData' object"
-      );
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'RelationshipToIncidentIntegrationMetadataData' object"
-      );
-    }
-    if (["incident_integrations", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

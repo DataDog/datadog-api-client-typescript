@@ -10,11 +10,6 @@
 
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing information about a single user.
- */
 
 export class UserResponse {
   "data"?: User;
@@ -25,61 +20,26 @@ export class UserResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "User",
-      format: "",
     },
     included: {
       baseName: "included",
       type: "Array<UserResponseIncludedItem>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UserResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UserResponse {
-    const res = new UserResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "User", "");
-
-    res.included = ObjectSerializer.deserialize(
-      data.included,
-      "Array<UserResponseIncludedItem>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UserResponse): { [key: string]: any } {
-    const attributeTypes = UserResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "User", "");
-
-    res.included = ObjectSerializer.serialize(
-      data.included,
-      "Array<UserResponseIncludedItem>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -12,11 +12,6 @@ import { SyntheticsAPIStepSubtype } from "./SyntheticsAPIStepSubtype";
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The steps used in a Synthetics multistep API test.
- */
 
 export class SyntheticsAPIStep {
   /**
@@ -44,144 +39,46 @@ export class SyntheticsAPIStep {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     allowFailure: {
       baseName: "allowFailure",
       type: "boolean",
-      format: "",
     },
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
-      format: "",
     },
     extractedValues: {
       baseName: "extractedValues",
       type: "Array<SyntheticsParsingOptions>",
-      format: "",
     },
     isCritical: {
       baseName: "isCritical",
       type: "boolean",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     request: {
       baseName: "request",
       type: "SyntheticsTestRequest",
-      format: "",
     },
     subtype: {
       baseName: "subtype",
       type: "SyntheticsAPIStepSubtype",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsAPIStep.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsAPIStep {
-    const res = new SyntheticsAPIStep();
-
-    res.allowFailure = ObjectSerializer.deserialize(
-      data.allowFailure,
-      "boolean",
-      ""
-    );
-
-    res.assertions = ObjectSerializer.deserialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.extractedValues = ObjectSerializer.deserialize(
-      data.extractedValues,
-      "Array<SyntheticsParsingOptions>",
-      ""
-    );
-
-    res.isCritical = ObjectSerializer.deserialize(
-      data.isCritical,
-      "boolean",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.request = ObjectSerializer.deserialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    if (["http", undefined].includes(data.subtype)) {
-      res.subtype = data.subtype;
-    } else {
-      const raw = new SyntheticsAPIStep();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsAPIStep): { [key: string]: any } {
-    const attributeTypes = SyntheticsAPIStep.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.allowFailure = ObjectSerializer.serialize(
-      data.allowFailure,
-      "boolean",
-      ""
-    );
-
-    res.assertions = ObjectSerializer.serialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.extractedValues = ObjectSerializer.serialize(
-      data.extractedValues,
-      "Array<SyntheticsParsingOptions>",
-      ""
-    );
-
-    res.isCritical = ObjectSerializer.serialize(data.isCritical, "boolean", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.request = ObjectSerializer.serialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    if (["http", undefined].includes(data.subtype)) {
-      res.subtype = data.subtype;
-    } else {
-      throw TypeError(`invalid enum value ${data.subtype} for subtype`);
-    }
-
-    return res;
   }
 
   public constructor() {}
