@@ -1,5 +1,45 @@
 # CHANGELOG
 
+## 1.0.0-beta.6 / 2021-11-03
+
+* [Added] Added `available_values` property to template variables schema. See [#258](https://github.com/DataDog/datadog-api-client-typescript/pull/258).
+* [Added] Add `follow_redirects` options to test request in Synthetics. See [#267](https://github.com/DataDog/datadog-api-client-typescript/pull/267).
+* [Added] ApmDependencyStatsQuery for formulas and functions dashboard widgets. See [#278](https://github.com/DataDog/datadog-api-client-typescript/pull/278).
+* [Added] Add formula and function APM resource stats query definition for dashboards. See [#279](https://github.com/DataDog/datadog-api-client-typescript/pull/279).
+* [Added] Add support for funnel widget in dashboards. See [#286](https://github.com/DataDog/datadog-api-client-typescript/pull/286).
+* [Added] Add information about creator to Synthetics tests details. See [#295](https://github.com/DataDog/datadog-api-client-typescript/pull/295).
+* [Added] Add support for gzip and deflate encoding. See [#291](https://github.com/DataDog/datadog-api-client-typescript/pull/291).
+* [Added] Add support for formulas and functions in the Scatterplot Widget for dashboards. See [#284](https://github.com/DataDog/datadog-api-client-typescript/pull/284).
+* [Added] Document encoding in metrics intake. See [#306](https://github.com/DataDog/datadog-api-client-typescript/pull/306).
+* [Added] Add `servername` property to SSL Synthetics tests request. See [#305](https://github.com/DataDog/datadog-api-client-typescript/pull/305).
+* [Added] Add `renotify_occurrences` and `renotify_statuses` monitor options. See [#315](https://github.com/DataDog/datadog-api-client-typescript/pull/315).
+* [Added] Add `type` and `is_template` properties to notebooks. See [#317](https://github.com/DataDog/datadog-api-client-typescript/pull/317).
+* [Added] Add endpoint to get details of a Synthetics batch. See [#262](https://github.com/DataDog/datadog-api-client-typescript/pull/262).
+* [Added] Add SDS to usage metering endpoint. See [#321](https://github.com/DataDog/datadog-api-client-typescript/pull/321).
+* [Added] Add `metrics_collection_enabled`, `cspm_resource_collection_enabled ` and `resource_collection_enabled` to AWS integration request. See [#319](https://github.com/DataDog/datadog-api-client-typescript/pull/319).
+* [Added] Add `apm_stats_query` property to `DistributionWidgetRequest`. See [#328](https://github.com/DataDog/datadog-api-client-typescript/pull/328).
+* [Added] Add aggregations attribute to v2 metric tag configuration. See [#273](https://github.com/DataDog/datadog-api-client-typescript/pull/273).
+* [Added] Add support for RRULE fields in SLO corrections. See [#302](https://github.com/DataDog/datadog-api-client-typescript/pull/302).
+* [Added] Improve typescript server management. See [#322](https://github.com/DataDog/datadog-api-client-typescript/pull/322).
+* [Fixed] Fix SLO history error response type for overall errors. See [#265](https://github.com/DataDog/datadog-api-client-typescript/pull/265).
+* [Fixed] Bump url-parse from 1.5.1 to 1.5.2. See [#270](https://github.com/DataDog/datadog-api-client-typescript/pull/270).
+* [Fixed] Mark SLO Correction Type as required. See [#264](https://github.com/DataDog/datadog-api-client-typescript/pull/264).
+* [Fixed] Make the name property required for APM Dependency Stat Query Dashboard Widget. See [#283](https://github.com/DataDog/datadog-api-client-typescript/pull/283).
+* [Fixed] Show body content for unknown responses. See [#287](https://github.com/DataDog/datadog-api-client-typescript/pull/287).
+* [Fixed] Fix typo in usage attribution field names for profiled containers. See [#296](https://github.com/DataDog/datadog-api-client-typescript/pull/296).
+* [Fixed] Make sure that OpenAPI definition are valid with real server responses. See [#294](https://github.com/DataDog/datadog-api-client-typescript/pull/294).
+* [Fixed] Fix incidents schemas. See [#303](https://github.com/DataDog/datadog-api-client-typescript/pull/303).
+* [Fixed] `IncidentFieldAttributesMultipleValue` can be nullable. See [#304](https://github.com/DataDog/datadog-api-client-typescript/pull/304).
+* [Fixed] Remove event title length constraint. See [#300](https://github.com/DataDog/datadog-api-client-typescript/pull/300).
+* [Fixed] Use plural form for dbm hosts usage properties. See [#312](https://github.com/DataDog/datadog-api-client-typescript/pull/312).
+* [Security] Bump tmpl from 1.0.4 to 1.0.5. See [#289](https://github.com/DataDog/datadog-api-client-typescript/pull/289).
+* [Changed] Fix SLO history schema for groups and monitors fields. See [#272](https://github.com/DataDog/datadog-api-client-typescript/pull/272).
+* [Changed] Remove metadata from required list for metric SLO history endpoint. See [#277](https://github.com/DataDog/datadog-api-client-typescript/pull/277).
+* [Changed] Use AVG aggregation function for DBM queries. See [#290](https://github.com/DataDog/datadog-api-client-typescript/pull/290).
+* [Changed] Enable compression in responses. See [#314](https://github.com/DataDog/datadog-api-client-typescript/pull/314).
+* [Changed] Update Synthetics CI test metadata. See [#311](https://github.com/DataDog/datadog-api-client-typescript/pull/311).
+* [Deprecated] Update property descriptions for Dashboard RBAC release. See [#335](https://github.com/DataDog/datadog-api-client-typescript/pull/335).
+
 ## 1.0.0-beta.5 / 2021-08-27
 
 * [Added] Add config variables to Synthetics browser test config. See [#257](https://github.com/DataDog/datadog-api-client-typescript/pull/257).
