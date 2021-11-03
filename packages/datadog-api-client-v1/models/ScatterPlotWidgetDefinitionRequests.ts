@@ -10,11 +10,6 @@
 
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Widget definition.
- */
 
 export class ScatterPlotWidgetDefinitionRequests {
   "table"?: ScatterplotTableRequest;
@@ -23,75 +18,30 @@ export class ScatterPlotWidgetDefinitionRequests {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     table: {
       baseName: "table",
       type: "ScatterplotTableRequest",
-      format: "",
     },
     x: {
       baseName: "x",
       type: "ScatterPlotRequest",
-      format: "",
     },
     y: {
       baseName: "y",
       type: "ScatterPlotRequest",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): ScatterPlotWidgetDefinitionRequests {
-    const res = new ScatterPlotWidgetDefinitionRequests();
-
-    res.table = ObjectSerializer.deserialize(
-      data.table,
-      "ScatterplotTableRequest",
-      ""
-    );
-
-    res.x = ObjectSerializer.deserialize(data.x, "ScatterPlotRequest", "");
-
-    res.y = ObjectSerializer.deserialize(data.y, "ScatterPlotRequest", "");
-
-    return res;
-  }
-
-  static serialize(data: ScatterPlotWidgetDefinitionRequests): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      ScatterPlotWidgetDefinitionRequests.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.table = ObjectSerializer.serialize(
-      data.table,
-      "ScatterplotTableRequest",
-      ""
-    );
-
-    res.x = ObjectSerializer.serialize(data.x, "ScatterPlotRequest", "");
-
-    res.y = ObjectSerializer.serialize(data.y, "ScatterPlotRequest", "");
-
-    return res;
   }
 
   public constructor() {}

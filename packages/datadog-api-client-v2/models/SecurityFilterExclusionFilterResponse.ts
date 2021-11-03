@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A single exclusion filter.
- */
-
 export class SecurityFilterExclusionFilterResponse {
   /**
    * The exclusion filter name.
@@ -26,58 +20,26 @@ export class SecurityFilterExclusionFilterResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     query: {
       baseName: "query",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityFilterExclusionFilterResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityFilterExclusionFilterResponse {
-    const res = new SecurityFilterExclusionFilterResponse();
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SecurityFilterExclusionFilterResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityFilterExclusionFilterResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

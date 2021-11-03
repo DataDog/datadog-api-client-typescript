@@ -11,11 +11,6 @@
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamResponseFormat } from "./ListStreamResponseFormat";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Updated list stream widget.
- */
 
 export class ListStreamWidgetRequest {
   /**
@@ -27,112 +22,33 @@ export class ListStreamWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     columns: {
       baseName: "columns",
       type: "Array<ListStreamColumn>",
-      format: "",
+      required: true,
     },
     query: {
       baseName: "query",
       type: "ListStreamQuery",
-      format: "",
+      required: true,
     },
     responseFormat: {
       baseName: "response_format",
       type: "ListStreamResponseFormat",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return ListStreamWidgetRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ListStreamWidgetRequest {
-    const res = new ListStreamWidgetRequest();
-
-    if (data.columns === undefined) {
-      throw new TypeError(
-        "missing required attribute 'columns' on 'ListStreamWidgetRequest' object"
-      );
-    }
-    res.columns = ObjectSerializer.deserialize(
-      data.columns,
-      "Array<ListStreamColumn>",
-      ""
-    );
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'ListStreamWidgetRequest' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "ListStreamQuery", "");
-
-    if (data.response_format === undefined) {
-      throw new TypeError(
-        "missing required attribute 'response_format' on 'ListStreamWidgetRequest' object"
-      );
-    }
-    if (["event_list", undefined].includes(data.response_format)) {
-      res.responseFormat = data.response_format;
-    } else {
-      const raw = new ListStreamWidgetRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ListStreamWidgetRequest): { [key: string]: any } {
-    const attributeTypes = ListStreamWidgetRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.columns === undefined) {
-      throw new TypeError(
-        "missing required attribute 'columns' on 'ListStreamWidgetRequest' object"
-      );
-    }
-    res.columns = ObjectSerializer.serialize(
-      data.columns,
-      "Array<ListStreamColumn>",
-      ""
-    );
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'ListStreamWidgetRequest' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "ListStreamQuery", "");
-
-    if (data.responseFormat === undefined) {
-      throw new TypeError(
-        "missing required attribute 'response_format' on 'ListStreamWidgetRequest' object"
-      );
-    }
-    if (["event_list", undefined].includes(data.responseFormat)) {
-      res.response_format = data.responseFormat;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.responseFormat} for responseFormat`
-      );
-    }
-
-    return res;
   }
 
   public constructor() {}

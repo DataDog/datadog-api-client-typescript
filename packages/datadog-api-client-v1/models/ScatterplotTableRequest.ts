@@ -11,11 +11,6 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Scatterplot request containing formulas and functions.
- */
 
 export class ScatterplotTableRequest {
   /**
@@ -30,90 +25,30 @@ export class ScatterplotTableRequest {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     formulas: {
       baseName: "formulas",
       type: "Array<ScatterplotWidgetFormula>",
-      format: "",
     },
     queries: {
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
-      format: "",
     },
     responseFormat: {
       baseName: "response_format",
       type: "FormulaAndFunctionResponseFormat",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ScatterplotTableRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ScatterplotTableRequest {
-    const res = new ScatterplotTableRequest();
-
-    res.formulas = ObjectSerializer.deserialize(
-      data.formulas,
-      "Array<ScatterplotWidgetFormula>",
-      ""
-    );
-
-    res.queries = ObjectSerializer.deserialize(
-      data.queries,
-      "Array<FormulaAndFunctionQueryDefinition>",
-      ""
-    );
-
-    if (["timeseries", "scalar", undefined].includes(data.response_format)) {
-      res.responseFormat = data.response_format;
-    } else {
-      const raw = new ScatterplotTableRequest();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: ScatterplotTableRequest): { [key: string]: any } {
-    const attributeTypes = ScatterplotTableRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.formulas = ObjectSerializer.serialize(
-      data.formulas,
-      "Array<ScatterplotWidgetFormula>",
-      ""
-    );
-
-    res.queries = ObjectSerializer.serialize(
-      data.queries,
-      "Array<FormulaAndFunctionQueryDefinition>",
-      ""
-    );
-
-    if (["timeseries", "scalar", undefined].includes(data.responseFormat)) {
-      res.response_format = data.responseFormat;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.responseFormat} for responseFormat`
-      );
-    }
-
-    return res;
   }
 
   public constructor() {}

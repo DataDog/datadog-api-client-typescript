@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Description of the Lambdas.
- */
-
 export class AWSLogsLambda {
   /**
    * Available ARN IDs.
@@ -22,44 +16,22 @@ export class AWSLogsLambda {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     arn: {
       baseName: "arn",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSLogsLambda.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSLogsLambda {
-    const res = new AWSLogsLambda();
-
-    res.arn = ObjectSerializer.deserialize(data.arn, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: AWSLogsLambda): { [key: string]: any } {
-    const attributeTypes = AWSLogsLambda.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.arn = ObjectSerializer.serialize(data.arn, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attributes associated with the archive order.
- */
-
 export class LogsArchiveOrderAttributes {
   /**
    * An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array define the overall archives order for Datadog.
@@ -22,62 +16,23 @@ export class LogsArchiveOrderAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     archiveIds: {
       baseName: "archive_ids",
       type: "Array<string>",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogsArchiveOrderAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsArchiveOrderAttributes {
-    const res = new LogsArchiveOrderAttributes();
-
-    if (data.archive_ids === undefined) {
-      throw new TypeError(
-        "missing required attribute 'archive_ids' on 'LogsArchiveOrderAttributes' object"
-      );
-    }
-    res.archiveIds = ObjectSerializer.deserialize(
-      data.archive_ids,
-      "Array<string>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsArchiveOrderAttributes): { [key: string]: any } {
-    const attributeTypes = LogsArchiveOrderAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.archiveIds === undefined) {
-      throw new TypeError(
-        "missing required attribute 'archive_ids' on 'LogsArchiveOrderAttributes' object"
-      );
-    }
-    res.archive_ids = ObjectSerializer.serialize(
-      data.archiveIds,
-      "Array<string>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

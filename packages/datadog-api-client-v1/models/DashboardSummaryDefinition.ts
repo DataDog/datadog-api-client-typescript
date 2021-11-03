@@ -9,11 +9,6 @@
  */
 
 import { DashboardLayoutType } from "./DashboardLayoutType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Dashboard definition.
- */
 
 export class DashboardSummaryDefinition {
   /**
@@ -52,166 +47,58 @@ export class DashboardSummaryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     authorHandle: {
       baseName: "author_handle",
       type: "string",
-      format: "",
     },
     createdAt: {
       baseName: "created_at",
       type: "Date",
+
       format: "date-time",
     },
     description: {
       baseName: "description",
       type: "string",
-      format: "",
     },
     id: {
       baseName: "id",
       type: "string",
-      format: "",
     },
     isReadOnly: {
       baseName: "is_read_only",
       type: "boolean",
-      format: "",
     },
     layoutType: {
       baseName: "layout_type",
       type: "DashboardLayoutType",
-      format: "",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
+
       format: "date-time",
     },
     title: {
       baseName: "title",
       type: "string",
-      format: "",
     },
     url: {
       baseName: "url",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardSummaryDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardSummaryDefinition {
-    const res = new DashboardSummaryDefinition();
-
-    res.authorHandle = ObjectSerializer.deserialize(
-      data.author_handle,
-      "string",
-      ""
-    );
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "Date",
-      "date-time"
-    );
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.isReadOnly = ObjectSerializer.deserialize(
-      data.is_read_only,
-      "boolean",
-      ""
-    );
-
-    if (["ordered", "free", undefined].includes(data.layout_type)) {
-      res.layoutType = data.layout_type;
-    } else {
-      const raw = new DashboardSummaryDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "Date",
-      "date-time"
-    );
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    res.url = ObjectSerializer.deserialize(data.url, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: DashboardSummaryDefinition): { [key: string]: any } {
-    const attributeTypes = DashboardSummaryDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.author_handle = ObjectSerializer.serialize(
-      data.authorHandle,
-      "string",
-      ""
-    );
-
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "Date",
-      "date-time"
-    );
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.is_read_only = ObjectSerializer.serialize(
-      data.isReadOnly,
-      "boolean",
-      ""
-    );
-
-    if (["ordered", "free", undefined].includes(data.layoutType)) {
-      res.layout_type = data.layoutType;
-    } else {
-      throw TypeError(`invalid enum value ${data.layoutType} for layoutType`);
-    }
-
-    res.modified_at = ObjectSerializer.serialize(
-      data.modifiedAt,
-      "Date",
-      "date-time"
-    );
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    res.url = ObjectSerializer.serialize(data.url, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -9,75 +9,29 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The relationships the incident will have with other resources once created.
- */
 
 export class IncidentCreateRelationships {
   "commander": RelationshipToUser;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     commander: {
       baseName: "commander",
       type: "RelationshipToUser",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentCreateRelationships.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentCreateRelationships {
-    const res = new IncidentCreateRelationships();
-
-    if (data.commander === undefined) {
-      throw new TypeError(
-        "missing required attribute 'commander' on 'IncidentCreateRelationships' object"
-      );
-    }
-    res.commander = ObjectSerializer.deserialize(
-      data.commander,
-      "RelationshipToUser",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentCreateRelationships): { [key: string]: any } {
-    const attributeTypes = IncidentCreateRelationships.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.commander === undefined) {
-      throw new TypeError(
-        "missing required attribute 'commander' on 'IncidentCreateRelationships' object"
-      );
-    }
-    res.commander = ObjectSerializer.serialize(
-      data.commander,
-      "RelationshipToUser",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

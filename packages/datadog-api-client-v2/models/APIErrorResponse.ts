@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * API error response.
- */
-
 export class APIErrorResponse {
   /**
    * A list of errors.
@@ -22,54 +16,23 @@ export class APIErrorResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     errors: {
       baseName: "errors",
       type: "Array<string>",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return APIErrorResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): APIErrorResponse {
-    const res = new APIErrorResponse();
-
-    if (data.errors === undefined) {
-      throw new TypeError(
-        "missing required attribute 'errors' on 'APIErrorResponse' object"
-      );
-    }
-    res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "");
-
-    return res;
-  }
-
-  static serialize(data: APIErrorResponse): { [key: string]: any } {
-    const attributeTypes = APIErrorResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.errors === undefined) {
-      throw new TypeError(
-        "missing required attribute 'errors' on 'APIErrorResponse' object"
-      );
-    }
-    res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "");
-
-    return res;
   }
 
   public constructor() {}

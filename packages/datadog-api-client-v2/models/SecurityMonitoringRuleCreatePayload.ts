@@ -13,11 +13,6 @@ import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCr
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Create a new rule.
- */
 
 export class SecurityMonitoringRuleCreatePayload {
   /**
@@ -57,240 +52,64 @@ export class SecurityMonitoringRuleCreatePayload {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
-      format: "",
+      required: true,
     },
     filters: {
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
-      format: "",
     },
     hasExtendedTitle: {
       baseName: "hasExtendedTitle",
       type: "boolean",
-      format: "",
     },
     isEnabled: {
       baseName: "isEnabled",
       type: "boolean",
-      format: "",
+      required: true,
     },
     message: {
       baseName: "message",
       type: "string",
-      format: "",
+      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     options: {
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
-      format: "",
+      required: true,
     },
     queries: {
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQueryCreate>",
-      format: "",
+      required: true,
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "SecurityMonitoringRuleTypeCreate",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringRuleCreatePayload.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringRuleCreatePayload {
-    const res = new SecurityMonitoringRuleCreatePayload();
-
-    if (data.cases === undefined) {
-      throw new TypeError(
-        "missing required attribute 'cases' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.cases = ObjectSerializer.deserialize(
-      data.cases,
-      "Array<SecurityMonitoringRuleCaseCreate>",
-      ""
-    );
-
-    res.filters = ObjectSerializer.deserialize(
-      data.filters,
-      "Array<SecurityMonitoringFilter>",
-      ""
-    );
-
-    res.hasExtendedTitle = ObjectSerializer.deserialize(
-      data.hasExtendedTitle,
-      "boolean",
-      ""
-    );
-
-    if (data.isEnabled === undefined) {
-      throw new TypeError(
-        "missing required attribute 'isEnabled' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.isEnabled = ObjectSerializer.deserialize(data.isEnabled, "boolean", "");
-
-    if (data.message === undefined) {
-      throw new TypeError(
-        "missing required attribute 'message' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (data.options === undefined) {
-      throw new TypeError(
-        "missing required attribute 'options' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.options = ObjectSerializer.deserialize(
-      data.options,
-      "SecurityMonitoringRuleOptions",
-      ""
-    );
-
-    if (data.queries === undefined) {
-      throw new TypeError(
-        "missing required attribute 'queries' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.queries = ObjectSerializer.deserialize(
-      data.queries,
-      "Array<SecurityMonitoringRuleQueryCreate>",
-      ""
-    );
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    if (["log_detection", "workload_security", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SecurityMonitoringRuleCreatePayload();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringRuleCreatePayload): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringRuleCreatePayload.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.cases === undefined) {
-      throw new TypeError(
-        "missing required attribute 'cases' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.cases = ObjectSerializer.serialize(
-      data.cases,
-      "Array<SecurityMonitoringRuleCaseCreate>",
-      ""
-    );
-
-    res.filters = ObjectSerializer.serialize(
-      data.filters,
-      "Array<SecurityMonitoringFilter>",
-      ""
-    );
-
-    res.hasExtendedTitle = ObjectSerializer.serialize(
-      data.hasExtendedTitle,
-      "boolean",
-      ""
-    );
-
-    if (data.isEnabled === undefined) {
-      throw new TypeError(
-        "missing required attribute 'isEnabled' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.isEnabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    if (data.message === undefined) {
-      throw new TypeError(
-        "missing required attribute 'message' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (data.options === undefined) {
-      throw new TypeError(
-        "missing required attribute 'options' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.options = ObjectSerializer.serialize(
-      data.options,
-      "SecurityMonitoringRuleOptions",
-      ""
-    );
-
-    if (data.queries === undefined) {
-      throw new TypeError(
-        "missing required attribute 'queries' on 'SecurityMonitoringRuleCreatePayload' object"
-      );
-    }
-    res.queries = ObjectSerializer.serialize(
-      data.queries,
-      "Array<SecurityMonitoringRuleQueryCreate>",
-      ""
-    );
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    if (["log_detection", "workload_security", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

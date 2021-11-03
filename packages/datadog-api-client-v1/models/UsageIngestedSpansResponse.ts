@@ -9,11 +9,6 @@
  */
 
 import { UsageIngestedSpansHour } from "./UsageIngestedSpansHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the ingested spans usage for each hour for a given organization.
- */
 
 export class UsageIngestedSpansResponse {
   /**
@@ -23,52 +18,22 @@ export class UsageIngestedSpansResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     usage: {
       baseName: "usage",
       type: "Array<UsageIngestedSpansHour>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageIngestedSpansResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageIngestedSpansResponse {
-    const res = new UsageIngestedSpansResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageIngestedSpansHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageIngestedSpansResponse): { [key: string]: any } {
-    const attributeTypes = UsageIngestedSpansResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageIngestedSpansHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

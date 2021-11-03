@@ -12,11 +12,6 @@ import { Creator } from "./Creator";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
- */
 
 export class SLOResponseData {
   /**
@@ -69,235 +64,82 @@ export class SLOResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     configuredAlertIds: {
       baseName: "configured_alert_ids",
       type: "Array<number>",
+
       format: "int64",
     },
     createdAt: {
       baseName: "created_at",
       type: "number",
+
       format: "int64",
     },
     creator: {
       baseName: "creator",
       type: "Creator",
-      format: "",
     },
     description: {
       baseName: "description",
       type: "string",
-      format: "",
     },
     groups: {
       baseName: "groups",
       type: "Array<string>",
-      format: "",
     },
     id: {
       baseName: "id",
       type: "string",
-      format: "",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "number",
+
       format: "int64",
     },
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
+
       format: "int64",
     },
     monitorTags: {
       baseName: "monitor_tags",
       type: "Array<string>",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     query: {
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
-      format: "",
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      format: "",
     },
     thresholds: {
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "SLOType",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOResponseData {
-    const res = new SLOResponseData();
-
-    res.configuredAlertIds = ObjectSerializer.deserialize(
-      data.configured_alert_ids,
-      "Array<number>",
-      "int64"
-    );
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "number",
-      "int64"
-    );
-
-    res.creator = ObjectSerializer.deserialize(data.creator, "Creator", "");
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.groups = ObjectSerializer.deserialize(data.groups, "Array<string>", "");
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "number",
-      "int64"
-    );
-
-    res.monitorIds = ObjectSerializer.deserialize(
-      data.monitor_ids,
-      "Array<number>",
-      "int64"
-    );
-
-    res.monitorTags = ObjectSerializer.deserialize(
-      data.monitor_tags,
-      "Array<string>",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.query = ObjectSerializer.deserialize(
-      data.query,
-      "ServiceLevelObjectiveQuery",
-      ""
-    );
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    res.thresholds = ObjectSerializer.deserialize(
-      data.thresholds,
-      "Array<SLOThreshold>",
-      ""
-    );
-
-    if (["metric", "monitor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new SLOResponseData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SLOResponseData): { [key: string]: any } {
-    const attributeTypes = SLOResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.configured_alert_ids = ObjectSerializer.serialize(
-      data.configuredAlertIds,
-      "Array<number>",
-      "int64"
-    );
-
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "number",
-      "int64"
-    );
-
-    res.creator = ObjectSerializer.serialize(data.creator, "Creator", "");
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.groups = ObjectSerializer.serialize(data.groups, "Array<string>", "");
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    res.modified_at = ObjectSerializer.serialize(
-      data.modifiedAt,
-      "number",
-      "int64"
-    );
-
-    res.monitor_ids = ObjectSerializer.serialize(
-      data.monitorIds,
-      "Array<number>",
-      "int64"
-    );
-
-    res.monitor_tags = ObjectSerializer.serialize(
-      data.monitorTags,
-      "Array<string>",
-      ""
-    );
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.query = ObjectSerializer.serialize(
-      data.query,
-      "ServiceLevelObjectiveQuery",
-      ""
-    );
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    res.thresholds = ObjectSerializer.serialize(
-      data.thresholds,
-      "Array<SLOThreshold>",
-      ""
-    );
-
-    if (["metric", "monitor", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

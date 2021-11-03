@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Search filters for listing security signals.
- */
-
 export class SecurityMonitoringSignalListRequestFilter {
   /**
    * The minimum timestamp for requested security signals.
@@ -30,67 +24,34 @@ export class SecurityMonitoringSignalListRequestFilter {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     from: {
       baseName: "from",
       type: "Date",
+
       format: "date-time",
     },
     query: {
       baseName: "query",
       type: "string",
-      format: "",
     },
     to: {
       baseName: "to",
       type: "Date",
+
       format: "date-time",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityMonitoringSignalListRequestFilter {
-    const res = new SecurityMonitoringSignalListRequestFilter();
-
-    res.from = ObjectSerializer.deserialize(data.from, "Date", "date-time");
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    res.to = ObjectSerializer.deserialize(data.to, "Date", "date-time");
-
-    return res;
-  }
-
-  static serialize(data: SecurityMonitoringSignalListRequestFilter): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SecurityMonitoringSignalListRequestFilter.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.from = ObjectSerializer.serialize(data.from, "Date", "date-time");
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    res.to = ObjectSerializer.serialize(data.to, "Date", "date-time");
-
-    return res;
   }
 
   public constructor() {}

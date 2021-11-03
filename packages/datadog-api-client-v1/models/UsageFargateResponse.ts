@@ -9,11 +9,6 @@
  */
 
 import { UsageFargateHour } from "./UsageFargateHour";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing the number of Fargate tasks run and hourly usage.
- */
 
 export class UsageFargateResponse {
   /**
@@ -23,52 +18,22 @@ export class UsageFargateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     usage: {
       baseName: "usage",
       type: "Array<UsageFargateHour>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageFargateResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageFargateResponse {
-    const res = new UsageFargateResponse();
-
-    res.usage = ObjectSerializer.deserialize(
-      data.usage,
-      "Array<UsageFargateHour>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageFargateResponse): { [key: string]: any } {
-    const attributeTypes = UsageFargateResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.usage = ObjectSerializer.serialize(
-      data.usage,
-      "Array<UsageFargateHour>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

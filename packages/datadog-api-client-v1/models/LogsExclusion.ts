@@ -9,11 +9,6 @@
  */
 
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Represents the index exclusion filter object from configuration API.
- */
 
 export class LogsExclusion {
   "filter"?: LogsExclusionFilter;
@@ -28,84 +23,31 @@ export class LogsExclusion {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     filter: {
       baseName: "filter",
       type: "LogsExclusionFilter",
-      format: "",
     },
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogsExclusion.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsExclusion {
-    const res = new LogsExclusion();
-
-    res.filter = ObjectSerializer.deserialize(
-      data.filter,
-      "LogsExclusionFilter",
-      ""
-    );
-
-    res.isEnabled = ObjectSerializer.deserialize(
-      data.is_enabled,
-      "boolean",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'LogsExclusion' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogsExclusion): { [key: string]: any } {
-    const attributeTypes = LogsExclusion.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.filter = ObjectSerializer.serialize(
-      data.filter,
-      "LogsExclusionFilter",
-      ""
-    );
-
-    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'LogsExclusion' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

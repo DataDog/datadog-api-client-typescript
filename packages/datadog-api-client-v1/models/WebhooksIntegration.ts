@@ -9,11 +9,6 @@
  */
 
 import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Datadog-Webhooks integration.
- */
 
 export class WebhooksIntegration {
   /**
@@ -36,118 +31,40 @@ export class WebhooksIntegration {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     customHeaders: {
       baseName: "custom_headers",
       type: "string",
-      format: "",
     },
     encodeAs: {
       baseName: "encode_as",
       type: "WebhooksIntegrationEncoding",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     payload: {
       baseName: "payload",
       type: "string",
-      format: "",
     },
     url: {
       baseName: "url",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return WebhooksIntegration.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WebhooksIntegration {
-    const res = new WebhooksIntegration();
-
-    res.customHeaders = ObjectSerializer.deserialize(
-      data.custom_headers,
-      "string",
-      ""
-    );
-
-    if (["json", "form", undefined].includes(data.encode_as)) {
-      res.encodeAs = data.encode_as;
-    } else {
-      const raw = new WebhooksIntegration();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'WebhooksIntegration' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.payload = ObjectSerializer.deserialize(data.payload, "string", "");
-
-    if (data.url === undefined) {
-      throw new TypeError(
-        "missing required attribute 'url' on 'WebhooksIntegration' object"
-      );
-    }
-    res.url = ObjectSerializer.deserialize(data.url, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: WebhooksIntegration): { [key: string]: any } {
-    const attributeTypes = WebhooksIntegration.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.custom_headers = ObjectSerializer.serialize(
-      data.customHeaders,
-      "string",
-      ""
-    );
-
-    if (["json", "form", undefined].includes(data.encodeAs)) {
-      res.encode_as = data.encodeAs;
-    } else {
-      throw TypeError(`invalid enum value ${data.encodeAs} for encodeAs`);
-    }
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'WebhooksIntegration' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.payload = ObjectSerializer.serialize(data.payload, "string", "");
-
-    if (data.url === undefined) {
-      throw new TypeError(
-        "missing required attribute 'url' on 'WebhooksIntegration' object"
-      );
-    }
-    res.url = ObjectSerializer.serialize(data.url, "string", "");
-
-    return res;
   }
 
   public constructor() {}

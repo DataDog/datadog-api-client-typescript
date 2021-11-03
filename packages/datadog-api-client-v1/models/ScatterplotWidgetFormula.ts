@@ -9,11 +9,6 @@
  */
 
 import { ScatterplotDimension } from "./ScatterplotDimension";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Formula to be used in a Scatterplot widget query.
- */
 
 export class ScatterplotWidgetFormula {
   /**
@@ -28,92 +23,32 @@ export class ScatterplotWidgetFormula {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     alias: {
       baseName: "alias",
       type: "string",
-      format: "",
     },
     dimension: {
       baseName: "dimension",
       type: "ScatterplotDimension",
-      format: "",
+      required: true,
     },
     formula: {
       baseName: "formula",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return ScatterplotWidgetFormula.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ScatterplotWidgetFormula {
-    const res = new ScatterplotWidgetFormula();
-
-    res.alias = ObjectSerializer.deserialize(data.alias, "string", "");
-
-    if (data.dimension === undefined) {
-      throw new TypeError(
-        "missing required attribute 'dimension' on 'ScatterplotWidgetFormula' object"
-      );
-    }
-    if (["x", "y", "radius", "color", undefined].includes(data.dimension)) {
-      res.dimension = data.dimension;
-    } else {
-      const raw = new ScatterplotWidgetFormula();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.formula === undefined) {
-      throw new TypeError(
-        "missing required attribute 'formula' on 'ScatterplotWidgetFormula' object"
-      );
-    }
-    res.formula = ObjectSerializer.deserialize(data.formula, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: ScatterplotWidgetFormula): { [key: string]: any } {
-    const attributeTypes = ScatterplotWidgetFormula.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.alias = ObjectSerializer.serialize(data.alias, "string", "");
-
-    if (data.dimension === undefined) {
-      throw new TypeError(
-        "missing required attribute 'dimension' on 'ScatterplotWidgetFormula' object"
-      );
-    }
-    if (["x", "y", "radius", "color", undefined].includes(data.dimension)) {
-      res.dimension = data.dimension;
-    } else {
-      throw TypeError(`invalid enum value ${data.dimension} for dimension`);
-    }
-
-    if (data.formula === undefined) {
-      throw new TypeError(
-        "missing required attribute 'formula' on 'ScatterplotWidgetFormula' object"
-      );
-    }
-    res.formula = ObjectSerializer.serialize(data.formula, "string", "");
-
-    return res;
   }
 
   public constructor() {}

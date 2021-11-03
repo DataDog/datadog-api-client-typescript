@@ -9,11 +9,6 @@
  */
 
 import { MonitorOverallStates } from "./MonitorOverallStates";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A single monitor group search result.
- */
 
 export class MonitorGroupSearchResult {
   /**
@@ -44,170 +39,52 @@ export class MonitorGroupSearchResult {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     group: {
       baseName: "group",
       type: "string",
-      format: "",
     },
     groupTags: {
       baseName: "group_tags",
       type: "Array<string>",
-      format: "",
     },
     lastNodataTs: {
       baseName: "last_nodata_ts",
       type: "number",
+
       format: "int64",
     },
     lastTriggeredTs: {
       baseName: "last_triggered_ts",
       type: "number",
+
       format: "int64",
     },
     monitorId: {
       baseName: "monitor_id",
       type: "number",
+
       format: "int64",
     },
     monitorName: {
       baseName: "monitor_name",
       type: "string",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "MonitorOverallStates",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return MonitorGroupSearchResult.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): MonitorGroupSearchResult {
-    const res = new MonitorGroupSearchResult();
-
-    res.group = ObjectSerializer.deserialize(data.group, "string", "");
-
-    res.groupTags = ObjectSerializer.deserialize(
-      data.group_tags,
-      "Array<string>",
-      ""
-    );
-
-    res.lastNodataTs = ObjectSerializer.deserialize(
-      data.last_nodata_ts,
-      "number",
-      "int64"
-    );
-
-    res.lastTriggeredTs = ObjectSerializer.deserialize(
-      data.last_triggered_ts,
-      "number",
-      "int64"
-    );
-
-    res.monitorId = ObjectSerializer.deserialize(
-      data.monitor_id,
-      "number",
-      "int64"
-    );
-
-    res.monitorName = ObjectSerializer.deserialize(
-      data.monitor_name,
-      "string",
-      ""
-    );
-
-    if (
-      [
-        "Alert",
-        "Ignored",
-        "No Data",
-        "OK",
-        "Skipped",
-        "Unknown",
-        "Warn",
-        undefined,
-      ].includes(data.status)
-    ) {
-      res.status = data.status;
-    } else {
-      const raw = new MonitorGroupSearchResult();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: MonitorGroupSearchResult): { [key: string]: any } {
-    const attributeTypes = MonitorGroupSearchResult.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.group = ObjectSerializer.serialize(data.group, "string", "");
-
-    res.group_tags = ObjectSerializer.serialize(
-      data.groupTags,
-      "Array<string>",
-      ""
-    );
-
-    res.last_nodata_ts = ObjectSerializer.serialize(
-      data.lastNodataTs,
-      "number",
-      "int64"
-    );
-
-    res.last_triggered_ts = ObjectSerializer.serialize(
-      data.lastTriggeredTs,
-      "number",
-      "int64"
-    );
-
-    res.monitor_id = ObjectSerializer.serialize(
-      data.monitorId,
-      "number",
-      "int64"
-    );
-
-    res.monitor_name = ObjectSerializer.serialize(
-      data.monitorName,
-      "string",
-      ""
-    );
-
-    if (
-      [
-        "Alert",
-        "Ignored",
-        "No Data",
-        "OK",
-        "Skipped",
-        "Unknown",
-        "Warn",
-        undefined,
-      ].includes(data.status)
-    ) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    return res;
   }
 
   public constructor() {}

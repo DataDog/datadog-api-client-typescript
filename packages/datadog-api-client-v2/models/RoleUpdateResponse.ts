@@ -9,63 +9,28 @@
  */
 
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response containing information about an updated role.
- */
 
 export class RoleUpdateResponse {
   "data"?: RoleUpdateResponseData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "RoleUpdateResponseData",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return RoleUpdateResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RoleUpdateResponse {
-    const res = new RoleUpdateResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "RoleUpdateResponseData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: RoleUpdateResponse): { [key: string]: any } {
-    const attributeTypes = RoleUpdateResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "RoleUpdateResponseData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

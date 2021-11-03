@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Markers allow you to add visual conditional formatting for your graphs.
- */
-
 export class WidgetMarker {
   /**
    * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
@@ -34,89 +28,35 @@ export class WidgetMarker {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     displayType: {
       baseName: "display_type",
       type: "string",
-      format: "",
     },
     label: {
       baseName: "label",
       type: "string",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "string",
-      format: "",
     },
     value: {
       baseName: "value",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetMarker.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetMarker {
-    const res = new WidgetMarker();
-
-    res.displayType = ObjectSerializer.deserialize(
-      data.display_type,
-      "string",
-      ""
-    );
-
-    res.label = ObjectSerializer.deserialize(data.label, "string", "");
-
-    res.time = ObjectSerializer.deserialize(data.time, "string", "");
-
-    if (data.value === undefined) {
-      throw new TypeError(
-        "missing required attribute 'value' on 'WidgetMarker' object"
-      );
-    }
-    res.value = ObjectSerializer.deserialize(data.value, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: WidgetMarker): { [key: string]: any } {
-    const attributeTypes = WidgetMarker.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.display_type = ObjectSerializer.serialize(
-      data.displayType,
-      "string",
-      ""
-    );
-
-    res.label = ObjectSerializer.serialize(data.label, "string", "");
-
-    res.time = ObjectSerializer.serialize(data.time, "string", "");
-
-    if (data.value === undefined) {
-      throw new TypeError(
-        "missing required attribute 'value' on 'WidgetMarker' object"
-      );
-    }
-    res.value = ObjectSerializer.serialize(data.value, "string", "");
-
-    return res;
   }
 
   public constructor() {}

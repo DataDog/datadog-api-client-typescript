@@ -13,11 +13,6 @@ import { NotebookCellResponse } from "./NotebookCellResponse";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attributes of a notebook.
- */
 
 export class NotebookResponseDataAttributes {
   "author"?: NotebookAuthor;
@@ -43,187 +38,57 @@ export class NotebookResponseDataAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     author: {
       baseName: "author",
       type: "NotebookAuthor",
-      format: "",
     },
     cells: {
       baseName: "cells",
       type: "Array<NotebookCellResponse>",
-      format: "",
+      required: true,
     },
     created: {
       baseName: "created",
       type: "Date",
+
       format: "date-time",
     },
     metadata: {
       baseName: "metadata",
       type: "NotebookMetadata",
-      format: "",
     },
     modified: {
       baseName: "modified",
       type: "Date",
+
       format: "date-time",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     status: {
       baseName: "status",
       type: "NotebookStatus",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "NotebookGlobalTime",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookResponseDataAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): NotebookResponseDataAttributes {
-    const res = new NotebookResponseDataAttributes();
-
-    res.author = ObjectSerializer.deserialize(
-      data.author,
-      "NotebookAuthor",
-      ""
-    );
-
-    if (data.cells === undefined) {
-      throw new TypeError(
-        "missing required attribute 'cells' on 'NotebookResponseDataAttributes' object"
-      );
-    }
-    res.cells = ObjectSerializer.deserialize(
-      data.cells,
-      "Array<NotebookCellResponse>",
-      ""
-    );
-
-    res.created = ObjectSerializer.deserialize(
-      data.created,
-      "Date",
-      "date-time"
-    );
-
-    res.metadata = ObjectSerializer.deserialize(
-      data.metadata,
-      "NotebookMetadata",
-      ""
-    );
-
-    res.modified = ObjectSerializer.deserialize(
-      data.modified,
-      "Date",
-      "date-time"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'NotebookResponseDataAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (["published", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new NotebookResponseDataAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'NotebookResponseDataAttributes' object"
-      );
-    }
-    res.time = ObjectSerializer.deserialize(
-      data.time,
-      "NotebookGlobalTime",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: NotebookResponseDataAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes = NotebookResponseDataAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.author = ObjectSerializer.serialize(data.author, "NotebookAuthor", "");
-
-    if (data.cells === undefined) {
-      throw new TypeError(
-        "missing required attribute 'cells' on 'NotebookResponseDataAttributes' object"
-      );
-    }
-    res.cells = ObjectSerializer.serialize(
-      data.cells,
-      "Array<NotebookCellResponse>",
-      ""
-    );
-
-    res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
-
-    res.metadata = ObjectSerializer.serialize(
-      data.metadata,
-      "NotebookMetadata",
-      ""
-    );
-
-    res.modified = ObjectSerializer.serialize(
-      data.modified,
-      "Date",
-      "date-time"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'NotebookResponseDataAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (["published", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'NotebookResponseDataAttributes' object"
-      );
-    }
-    res.time = ObjectSerializer.serialize(data.time, "NotebookGlobalTime", "");
-
-    return res;
   }
 
   public constructor() {}

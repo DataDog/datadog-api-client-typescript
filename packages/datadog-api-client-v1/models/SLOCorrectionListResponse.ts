@@ -10,11 +10,6 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOCorrection } from "./SLOCorrection";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A list of  SLO correction objects.
- */
 
 export class SLOCorrectionListResponse {
   /**
@@ -25,69 +20,26 @@ export class SLOCorrectionListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<SLOCorrection>",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "ResponseMetaAttributes",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOCorrectionListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOCorrectionListResponse {
-    const res = new SLOCorrectionListResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<SLOCorrection>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOCorrectionListResponse): { [key: string]: any } {
-    const attributeTypes = SLOCorrectionListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<SLOCorrection>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "ResponseMetaAttributes",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

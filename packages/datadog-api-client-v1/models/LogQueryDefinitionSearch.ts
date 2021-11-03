@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The query being made on the logs.
- */
-
 export class LogQueryDefinitionSearch {
   /**
    * Search value to apply.
@@ -22,54 +16,23 @@ export class LogQueryDefinitionSearch {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     query: {
       baseName: "query",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogQueryDefinitionSearch.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogQueryDefinitionSearch {
-    const res = new LogQueryDefinitionSearch();
-
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'LogQueryDefinitionSearch' object"
-      );
-    }
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: LogQueryDefinitionSearch): { [key: string]: any } {
-    const attributeTypes = LogQueryDefinitionSearch.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.query === undefined) {
-      throw new TypeError(
-        "missing required attribute 'query' on 'LogQueryDefinitionSearch' object"
-      );
-    }
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    return res;
   }
 
   public constructor() {}

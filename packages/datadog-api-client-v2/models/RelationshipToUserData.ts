@@ -9,11 +9,6 @@
  */
 
 import { UsersType } from "./UsersType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationship to user object.
- */
 
 export class RelationshipToUserData {
   /**
@@ -24,83 +19,28 @@ export class RelationshipToUserData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     id: {
       baseName: "id",
       type: "string",
-      format: "",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "UsersType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return RelationshipToUserData.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RelationshipToUserData {
-    const res = new RelationshipToUserData();
-
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'RelationshipToUserData' object"
-      );
-    }
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'RelationshipToUserData' object"
-      );
-    }
-    if (["users", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new RelationshipToUserData();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: RelationshipToUserData): { [key: string]: any } {
-    const attributeTypes = RelationshipToUserData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'id' on 'RelationshipToUserData' object"
-      );
-    }
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'RelationshipToUserData' object"
-      );
-    }
-    if (["users", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

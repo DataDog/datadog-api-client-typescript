@@ -9,11 +9,6 @@
  */
 
 import { DashboardList } from "./DashboardList";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Information on your dashboard lists.
- */
 
 export class DashboardListListResponse {
   /**
@@ -23,52 +18,22 @@ export class DashboardListListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     dashboardLists: {
       baseName: "dashboard_lists",
       type: "Array<DashboardList>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardListListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardListListResponse {
-    const res = new DashboardListListResponse();
-
-    res.dashboardLists = ObjectSerializer.deserialize(
-      data.dashboard_lists,
-      "Array<DashboardList>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: DashboardListListResponse): { [key: string]: any } {
-    const attributeTypes = DashboardListListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.dashboard_lists = ObjectSerializer.serialize(
-      data.dashboardLists,
-      "Array<DashboardList>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

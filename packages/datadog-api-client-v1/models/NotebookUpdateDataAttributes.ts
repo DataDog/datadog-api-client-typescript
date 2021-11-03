@@ -12,11 +12,6 @@ import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { NotebookUpdateCell } from "./NotebookUpdateCell";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The data attributes of a notebook.
- */
 
 export class NotebookUpdateDataAttributes {
   /**
@@ -33,142 +28,41 @@ export class NotebookUpdateDataAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     cells: {
       baseName: "cells",
       type: "Array<NotebookUpdateCell>",
-      format: "",
+      required: true,
     },
     metadata: {
       baseName: "metadata",
       type: "NotebookMetadata",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     status: {
       baseName: "status",
       type: "NotebookStatus",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "NotebookGlobalTime",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookUpdateDataAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): NotebookUpdateDataAttributes {
-    const res = new NotebookUpdateDataAttributes();
-
-    if (data.cells === undefined) {
-      throw new TypeError(
-        "missing required attribute 'cells' on 'NotebookUpdateDataAttributes' object"
-      );
-    }
-    res.cells = ObjectSerializer.deserialize(
-      data.cells,
-      "Array<NotebookUpdateCell>",
-      ""
-    );
-
-    res.metadata = ObjectSerializer.deserialize(
-      data.metadata,
-      "NotebookMetadata",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'NotebookUpdateDataAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    if (["published", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new NotebookUpdateDataAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'NotebookUpdateDataAttributes' object"
-      );
-    }
-    res.time = ObjectSerializer.deserialize(
-      data.time,
-      "NotebookGlobalTime",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: NotebookUpdateDataAttributes): { [key: string]: any } {
-    const attributeTypes = NotebookUpdateDataAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.cells === undefined) {
-      throw new TypeError(
-        "missing required attribute 'cells' on 'NotebookUpdateDataAttributes' object"
-      );
-    }
-    res.cells = ObjectSerializer.serialize(
-      data.cells,
-      "Array<NotebookUpdateCell>",
-      ""
-    );
-
-    res.metadata = ObjectSerializer.serialize(
-      data.metadata,
-      "NotebookMetadata",
-      ""
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'NotebookUpdateDataAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    if (["published", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    if (data.time === undefined) {
-      throw new TypeError(
-        "missing required attribute 'time' on 'NotebookUpdateDataAttributes' object"
-      );
-    }
-    res.time = ObjectSerializer.serialize(data.time, "NotebookGlobalTime", "");
-
-    return res;
   }
 
   public constructor() {}

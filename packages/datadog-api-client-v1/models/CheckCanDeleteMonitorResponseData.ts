@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Wrapper object with the list of monitor IDs.
- */
-
 export class CheckCanDeleteMonitorResponseData {
   /**
    * An array of of Monitor IDs that can be safely deleted.
@@ -22,49 +16,24 @@ export class CheckCanDeleteMonitorResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     ok: {
       baseName: "ok",
       type: "Array<number>",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return CheckCanDeleteMonitorResponseData.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): CheckCanDeleteMonitorResponseData {
-    const res = new CheckCanDeleteMonitorResponseData();
-
-    res.ok = ObjectSerializer.deserialize(data.ok, "Array<number>", "int64");
-
-    return res;
-  }
-
-  static serialize(data: CheckCanDeleteMonitorResponseData): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      CheckCanDeleteMonitorResponseData.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.ok = ObjectSerializer.serialize(data.ok, "Array<number>", "int64");
-
-    return res;
   }
 
   public constructor() {}

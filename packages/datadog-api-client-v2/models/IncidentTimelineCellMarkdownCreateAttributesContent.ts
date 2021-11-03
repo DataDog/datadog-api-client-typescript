@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The Markdown timeline cell contents.
- */
-
 export class IncidentTimelineCellMarkdownCreateAttributesContent {
   /**
    * The Markdown content of the cell.
@@ -22,49 +16,22 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     content: {
       baseName: "content",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentTimelineCellMarkdownCreateAttributesContent {
-    const res = new IncidentTimelineCellMarkdownCreateAttributesContent();
-
-    res.content = ObjectSerializer.deserialize(data.content, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: IncidentTimelineCellMarkdownCreateAttributesContent): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      IncidentTimelineCellMarkdownCreateAttributesContent.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.content = ObjectSerializer.serialize(data.content, "string", "");
-
-    return res;
   }
 
   public constructor() {}

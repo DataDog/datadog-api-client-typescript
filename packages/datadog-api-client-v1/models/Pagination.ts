@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Pagination object.
- */
-
 export class Pagination {
   /**
    * Total count.
@@ -26,69 +20,30 @@ export class Pagination {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     totalCount: {
       baseName: "total_count",
       type: "number",
+
       format: "int64",
     },
     totalFilteredCount: {
       baseName: "total_filtered_count",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return Pagination.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): Pagination {
-    const res = new Pagination();
-
-    res.totalCount = ObjectSerializer.deserialize(
-      data.total_count,
-      "number",
-      "int64"
-    );
-
-    res.totalFilteredCount = ObjectSerializer.deserialize(
-      data.total_filtered_count,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: Pagination): { [key: string]: any } {
-    const attributeTypes = Pagination.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.total_count = ObjectSerializer.serialize(
-      data.totalCount,
-      "number",
-      "int64"
-    );
-
-    res.total_filtered_count = ObjectSerializer.serialize(
-      data.totalFilteredCount,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

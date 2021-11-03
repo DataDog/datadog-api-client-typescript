@@ -9,75 +9,29 @@
  */
 
 import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Create request with an incident service payload.
- */
 
 export class IncidentServiceCreateRequest {
   "data": IncidentServiceCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "IncidentServiceCreateData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentServiceCreateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentServiceCreateRequest {
-    const res = new IncidentServiceCreateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentServiceCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "IncidentServiceCreateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: IncidentServiceCreateRequest): { [key: string]: any } {
-    const attributeTypes = IncidentServiceCreateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'IncidentServiceCreateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "IncidentServiceCreateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

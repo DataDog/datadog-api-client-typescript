@@ -10,11 +10,6 @@
 
 import { UsageSpecifiedCustomReportsData } from "./UsageSpecifiedCustomReportsData";
 import { UsageSpecifiedCustomReportsMeta } from "./UsageSpecifiedCustomReportsMeta";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Returns available specified custom reports.
- */
 
 export class UsageSpecifiedCustomReportsResponse {
   "data"?: UsageSpecifiedCustomReportsData;
@@ -22,74 +17,26 @@ export class UsageSpecifiedCustomReportsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "UsageSpecifiedCustomReportsData",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "UsageSpecifiedCustomReportsMeta",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSpecifiedCustomReportsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): UsageSpecifiedCustomReportsResponse {
-    const res = new UsageSpecifiedCustomReportsResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "UsageSpecifiedCustomReportsData",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "UsageSpecifiedCustomReportsMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSpecifiedCustomReportsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      UsageSpecifiedCustomReportsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "UsageSpecifiedCustomReportsData",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "UsageSpecifiedCustomReportsMeta",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

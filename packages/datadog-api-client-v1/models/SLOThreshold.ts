@@ -9,11 +9,6 @@
  */
 
 import { SLOTimeframe } from "./SLOTimeframe";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * SLO thresholds (target and optionally warning) for a single time window.
- */
 
 export class SLOThreshold {
   /**
@@ -36,130 +31,43 @@ export class SLOThreshold {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     target: {
       baseName: "target",
       type: "number",
+      required: true,
       format: "double",
     },
     targetDisplay: {
       baseName: "target_display",
       type: "string",
-      format: "",
     },
     timeframe: {
       baseName: "timeframe",
       type: "SLOTimeframe",
-      format: "",
+      required: true,
     },
     warning: {
       baseName: "warning",
       type: "number",
+
       format: "double",
     },
     warningDisplay: {
       baseName: "warning_display",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOThreshold.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOThreshold {
-    const res = new SLOThreshold();
-
-    if (data.target === undefined) {
-      throw new TypeError(
-        "missing required attribute 'target' on 'SLOThreshold' object"
-      );
-    }
-    res.target = ObjectSerializer.deserialize(data.target, "number", "double");
-
-    res.targetDisplay = ObjectSerializer.deserialize(
-      data.target_display,
-      "string",
-      ""
-    );
-
-    if (data.timeframe === undefined) {
-      throw new TypeError(
-        "missing required attribute 'timeframe' on 'SLOThreshold' object"
-      );
-    }
-    if (["7d", "30d", "90d", "custom", undefined].includes(data.timeframe)) {
-      res.timeframe = data.timeframe;
-    } else {
-      const raw = new SLOThreshold();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.warning = ObjectSerializer.deserialize(
-      data.warning,
-      "number",
-      "double"
-    );
-
-    res.warningDisplay = ObjectSerializer.deserialize(
-      data.warning_display,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOThreshold): { [key: string]: any } {
-    const attributeTypes = SLOThreshold.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.target === undefined) {
-      throw new TypeError(
-        "missing required attribute 'target' on 'SLOThreshold' object"
-      );
-    }
-    res.target = ObjectSerializer.serialize(data.target, "number", "double");
-
-    res.target_display = ObjectSerializer.serialize(
-      data.targetDisplay,
-      "string",
-      ""
-    );
-
-    if (data.timeframe === undefined) {
-      throw new TypeError(
-        "missing required attribute 'timeframe' on 'SLOThreshold' object"
-      );
-    }
-    if (["7d", "30d", "90d", "custom", undefined].includes(data.timeframe)) {
-      res.timeframe = data.timeframe;
-    } else {
-      throw TypeError(`invalid enum value ${data.timeframe} for timeframe`);
-    }
-
-    res.warning = ObjectSerializer.serialize(data.warning, "number", "double");
-
-    res.warning_display = ObjectSerializer.serialize(
-      data.warningDisplay,
-      "string",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

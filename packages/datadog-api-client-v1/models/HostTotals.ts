@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Total number of host currently monitored by Datadog.
- */
-
 export class HostTotals {
   /**
    * Total number of active host (UP and ???) reporting to Datadog.
@@ -26,65 +20,30 @@ export class HostTotals {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     totalActive: {
       baseName: "total_active",
       type: "number",
+
       format: "int64",
     },
     totalUp: {
       baseName: "total_up",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return HostTotals.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HostTotals {
-    const res = new HostTotals();
-
-    res.totalActive = ObjectSerializer.deserialize(
-      data.total_active,
-      "number",
-      "int64"
-    );
-
-    res.totalUp = ObjectSerializer.deserialize(
-      data.total_up,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: HostTotals): { [key: string]: any } {
-    const attributeTypes = HostTotals.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.total_active = ObjectSerializer.serialize(
-      data.totalActive,
-      "number",
-      "int64"
-    );
-
-    res.total_up = ObjectSerializer.serialize(data.totalUp, "number", "int64");
-
-    return res;
   }
 
   public constructor() {}

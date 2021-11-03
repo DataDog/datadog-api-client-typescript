@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The Response returned by the AWS Create Account call.
- */
-
 export class AWSAccountCreateResponse {
   /**
    * AWS external_id.
@@ -22,48 +16,22 @@ export class AWSAccountCreateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     externalId: {
       baseName: "external_id",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSAccountCreateResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSAccountCreateResponse {
-    const res = new AWSAccountCreateResponse();
-
-    res.externalId = ObjectSerializer.deserialize(
-      data.external_id,
-      "string",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: AWSAccountCreateResponse): { [key: string]: any } {
-    const attributeTypes = AWSAccountCreateResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.external_id = ObjectSerializer.serialize(data.externalId, "string", "");
-
-    return res;
   }
 
   public constructor() {}

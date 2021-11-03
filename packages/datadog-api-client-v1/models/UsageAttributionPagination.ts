@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The metadata for the current pagination.
- */
-
 export class UsageAttributionPagination {
   /**
    * Maximum amount of records to be returned.
@@ -30,78 +24,34 @@ export class UsageAttributionPagination {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     limit: {
       baseName: "limit",
       type: "number",
+
       format: "int64",
     },
     nextRecordId: {
       baseName: "next_record_id",
       type: "string",
-      format: "",
     },
     totalNumberOfRecords: {
       baseName: "total_number_of_records",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageAttributionPagination.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageAttributionPagination {
-    const res = new UsageAttributionPagination();
-
-    res.limit = ObjectSerializer.deserialize(data.limit, "number", "int64");
-
-    res.nextRecordId = ObjectSerializer.deserialize(
-      data.next_record_id,
-      "string",
-      ""
-    );
-
-    res.totalNumberOfRecords = ObjectSerializer.deserialize(
-      data.total_number_of_records,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageAttributionPagination): { [key: string]: any } {
-    const attributeTypes = UsageAttributionPagination.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.limit = ObjectSerializer.serialize(data.limit, "number", "int64");
-
-    res.next_record_id = ObjectSerializer.serialize(
-      data.nextRecordId,
-      "string",
-      ""
-    );
-
-    res.total_number_of_records = ObjectSerializer.serialize(
-      data.totalNumberOfRecords,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

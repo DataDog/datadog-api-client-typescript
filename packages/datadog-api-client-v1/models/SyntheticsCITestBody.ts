@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsCITest } from "./SyntheticsCITest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object describing the synthetics tests to trigger.
- */
 
 export class SyntheticsCITestBody {
   /**
@@ -23,52 +18,22 @@ export class SyntheticsCITestBody {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     tests: {
       baseName: "tests",
       type: "Array<SyntheticsCITest>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsCITestBody.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SyntheticsCITestBody {
-    const res = new SyntheticsCITestBody();
-
-    res.tests = ObjectSerializer.deserialize(
-      data.tests,
-      "Array<SyntheticsCITest>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsCITestBody): { [key: string]: any } {
-    const attributeTypes = SyntheticsCITestBody.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.tests = ObjectSerializer.serialize(
-      data.tests,
-      "Array<SyntheticsCITest>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

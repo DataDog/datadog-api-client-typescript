@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * JSON object containing all log attributes and their associated values.
- */
-
 export class LogAttributes {
   /**
    * JSON object of attributes from your log.
@@ -46,114 +40,48 @@ export class LogAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     attributes: {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
-      format: "",
     },
     host: {
       baseName: "host",
       type: "string",
-      format: "",
     },
     message: {
       baseName: "message",
       type: "string",
-      format: "",
     },
     service: {
       baseName: "service",
       type: "string",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "string",
-      format: "",
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      format: "",
     },
     timestamp: {
       baseName: "timestamp",
       type: "Date",
+
       format: "date-time",
     },
   };
 
   static getAttributeTypeMap() {
     return LogAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogAttributes {
-    const res = new LogAttributes();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "{ [key: string]: any; }",
-      ""
-    );
-
-    res.host = ObjectSerializer.deserialize(data.host, "string", "");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    res.service = ObjectSerializer.deserialize(data.service, "string", "");
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    res.tags = ObjectSerializer.deserialize(data.tags, "Array<string>", "");
-
-    res.timestamp = ObjectSerializer.deserialize(
-      data.timestamp,
-      "Date",
-      "date-time"
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogAttributes): { [key: string]: any } {
-    const attributeTypes = LogAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "{ [key: string]: any; }",
-      ""
-    );
-
-    res.host = ObjectSerializer.serialize(data.host, "string", "");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    res.service = ObjectSerializer.serialize(data.service, "string", "");
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    res.tags = ObjectSerializer.serialize(data.tags, "Array<string>", "");
-
-    res.timestamp = ObjectSerializer.serialize(
-      data.timestamp,
-      "Date",
-      "date-time"
-    );
-
-    return res;
   }
 
   public constructor() {}

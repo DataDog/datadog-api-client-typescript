@@ -10,11 +10,6 @@
 
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterMeta } from "./SecurityFilterMeta";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object which includes a single security filter.
- */
 
 export class SecurityFilterResponse {
   "data"?: SecurityFilter;
@@ -22,57 +17,26 @@ export class SecurityFilterResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "SecurityFilter",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "SecurityFilterMeta",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityFilterResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SecurityFilterResponse {
-    const res = new SecurityFilterResponse();
-
-    res.data = ObjectSerializer.deserialize(data.data, "SecurityFilter", "");
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "SecurityFilterMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SecurityFilterResponse): { [key: string]: any } {
-    const attributeTypes = SecurityFilterResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(data.data, "SecurityFilter", "");
-
-    res.meta = ObjectSerializer.serialize(data.meta, "SecurityFilterMeta", "");
-
-    return res;
   }
 
   public constructor() {}

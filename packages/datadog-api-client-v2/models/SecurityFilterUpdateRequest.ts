@@ -9,75 +9,29 @@
  */
 
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The new security filter body.
- */
 
 export class SecurityFilterUpdateRequest {
   "data": SecurityFilterUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "SecurityFilterUpdateData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return SecurityFilterUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SecurityFilterUpdateRequest {
-    const res = new SecurityFilterUpdateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'SecurityFilterUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "SecurityFilterUpdateData",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SecurityFilterUpdateRequest): { [key: string]: any } {
-    const attributeTypes = SecurityFilterUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'SecurityFilterUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "SecurityFilterUpdateData",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

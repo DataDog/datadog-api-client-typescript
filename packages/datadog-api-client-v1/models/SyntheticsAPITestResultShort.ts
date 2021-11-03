@@ -10,11 +10,6 @@
 
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object with the results of a single Synthetic API test.
- */
 
 export class SyntheticsAPITestResultShort {
   /**
@@ -34,108 +29,40 @@ export class SyntheticsAPITestResultShort {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     checkTime: {
       baseName: "check_time",
       type: "number",
+
       format: "double",
     },
     probeDc: {
       baseName: "probe_dc",
       type: "string",
-      format: "",
     },
     result: {
       baseName: "result",
       type: "SyntheticsAPITestResultShortResult",
-      format: "",
     },
     resultId: {
       baseName: "result_id",
       type: "string",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "SyntheticsTestMonitorStatus",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsAPITestResultShort.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsAPITestResultShort {
-    const res = new SyntheticsAPITestResultShort();
-
-    res.checkTime = ObjectSerializer.deserialize(
-      data.check_time,
-      "number",
-      "double"
-    );
-
-    res.probeDc = ObjectSerializer.deserialize(data.probe_dc, "string", "");
-
-    res.result = ObjectSerializer.deserialize(
-      data.result,
-      "SyntheticsAPITestResultShortResult",
-      ""
-    );
-
-    res.resultId = ObjectSerializer.deserialize(data.result_id, "string", "");
-
-    if ([0, 1, 2, undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new SyntheticsAPITestResultShort();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsAPITestResultShort): { [key: string]: any } {
-    const attributeTypes = SyntheticsAPITestResultShort.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.check_time = ObjectSerializer.serialize(
-      data.checkTime,
-      "number",
-      "double"
-    );
-
-    res.probe_dc = ObjectSerializer.serialize(data.probeDc, "string", "");
-
-    res.result = ObjectSerializer.serialize(
-      data.result,
-      "SyntheticsAPITestResultShortResult",
-      ""
-    );
-
-    res.result_id = ObjectSerializer.serialize(data.resultId, "string", "");
-
-    if ([0, 1, 2, undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    return res;
   }
 
   public constructor() {}

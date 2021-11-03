@@ -11,11 +11,6 @@
 import { LogsAggregateResponseStatus } from "./LogsAggregateResponseStatus";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The metadata associated with a request
- */
 
 export class LogsResponseMetadata {
   /**
@@ -35,106 +30,40 @@ export class LogsResponseMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     elapsed: {
       baseName: "elapsed",
       type: "number",
+
       format: "int64",
     },
     page: {
       baseName: "page",
       type: "LogsResponseMetadataPage",
-      format: "",
     },
     requestId: {
       baseName: "request_id",
       type: "string",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "LogsAggregateResponseStatus",
-      format: "",
     },
     warnings: {
       baseName: "warnings",
       type: "Array<LogsWarning>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return LogsResponseMetadata.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsResponseMetadata {
-    const res = new LogsResponseMetadata();
-
-    res.elapsed = ObjectSerializer.deserialize(data.elapsed, "number", "int64");
-
-    res.page = ObjectSerializer.deserialize(
-      data.page,
-      "LogsResponseMetadataPage",
-      ""
-    );
-
-    res.requestId = ObjectSerializer.deserialize(data.request_id, "string", "");
-
-    if (["done", "timeout", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      const raw = new LogsResponseMetadata();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.warnings = ObjectSerializer.deserialize(
-      data.warnings,
-      "Array<LogsWarning>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: LogsResponseMetadata): { [key: string]: any } {
-    const attributeTypes = LogsResponseMetadata.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.elapsed = ObjectSerializer.serialize(data.elapsed, "number", "int64");
-
-    res.page = ObjectSerializer.serialize(
-      data.page,
-      "LogsResponseMetadataPage",
-      ""
-    );
-
-    res.request_id = ObjectSerializer.serialize(data.requestId, "string", "");
-
-    if (["done", "timeout", undefined].includes(data.status)) {
-      res.status = data.status;
-    } else {
-      throw TypeError(`invalid enum value ${data.status} for status`);
-    }
-
-    res.warnings = ObjectSerializer.serialize(
-      data.warnings,
-      "Array<LogsWarning>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

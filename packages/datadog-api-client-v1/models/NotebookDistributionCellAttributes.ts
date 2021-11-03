@@ -12,11 +12,6 @@ import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attributes of a notebook `distribution` cell.
- */
 
 export class NotebookDistributionCellAttributes {
   "definition": DistributionWidgetDefinition;
@@ -26,112 +21,35 @@ export class NotebookDistributionCellAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     definition: {
       baseName: "definition",
       type: "DistributionWidgetDefinition",
-      format: "",
+      required: true,
     },
     graphSize: {
       baseName: "graph_size",
       type: "NotebookGraphSize",
-      format: "",
     },
     splitBy: {
       baseName: "split_by",
       type: "NotebookSplitBy",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "NotebookCellTime",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookDistributionCellAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): NotebookDistributionCellAttributes {
-    const res = new NotebookDistributionCellAttributes();
-
-    if (data.definition === undefined) {
-      throw new TypeError(
-        "missing required attribute 'definition' on 'NotebookDistributionCellAttributes' object"
-      );
-    }
-    res.definition = ObjectSerializer.deserialize(
-      data.definition,
-      "DistributionWidgetDefinition",
-      ""
-    );
-
-    if (["xs", "s", "m", "l", "xl", undefined].includes(data.graph_size)) {
-      res.graphSize = data.graph_size;
-    } else {
-      const raw = new NotebookDistributionCellAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.splitBy = ObjectSerializer.deserialize(
-      data.split_by,
-      "NotebookSplitBy",
-      ""
-    );
-
-    res.time = ObjectSerializer.deserialize(data.time, "NotebookCellTime", "");
-
-    return res;
-  }
-
-  static serialize(data: NotebookDistributionCellAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      NotebookDistributionCellAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.definition === undefined) {
-      throw new TypeError(
-        "missing required attribute 'definition' on 'NotebookDistributionCellAttributes' object"
-      );
-    }
-    res.definition = ObjectSerializer.serialize(
-      data.definition,
-      "DistributionWidgetDefinition",
-      ""
-    );
-
-    if (["xs", "s", "m", "l", "xl", undefined].includes(data.graphSize)) {
-      res.graph_size = data.graphSize;
-    } else {
-      throw TypeError(`invalid enum value ${data.graphSize} for graphSize`);
-    }
-
-    res.split_by = ObjectSerializer.serialize(
-      data.splitBy,
-      "NotebookSplitBy",
-      ""
-    );
-
-    res.time = ObjectSerializer.serialize(data.time, "NotebookCellTime", "");
-
-    return res;
   }
 
   public constructor() {}

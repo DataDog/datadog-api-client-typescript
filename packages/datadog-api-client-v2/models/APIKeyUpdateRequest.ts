@@ -9,65 +9,29 @@
  */
 
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Request used to update an API key.
- */
 
 export class APIKeyUpdateRequest {
   "data": APIKeyUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "APIKeyUpdateData",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return APIKeyUpdateRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): APIKeyUpdateRequest {
-    const res = new APIKeyUpdateRequest();
-
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'APIKeyUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.deserialize(data.data, "APIKeyUpdateData", "");
-
-    return res;
-  }
-
-  static serialize(data: APIKeyUpdateRequest): { [key: string]: any } {
-    const attributeTypes = APIKeyUpdateRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.data === undefined) {
-      throw new TypeError(
-        "missing required attribute 'data' on 'APIKeyUpdateRequest' object"
-      );
-    }
-    res.data = ObjectSerializer.serialize(data.data, "APIKeyUpdateData", "");
-
-    return res;
   }
 
   public constructor() {}

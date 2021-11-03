@@ -9,71 +9,29 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Relationships data for user invitation.
- */
 
 export class UserInvitationRelationships {
   "user": RelationshipToUser;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     user: {
       baseName: "user",
       type: "RelationshipToUser",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return UserInvitationRelationships.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): UserInvitationRelationships {
-    const res = new UserInvitationRelationships();
-
-    if (data.user === undefined) {
-      throw new TypeError(
-        "missing required attribute 'user' on 'UserInvitationRelationships' object"
-      );
-    }
-    res.user = ObjectSerializer.deserialize(
-      data.user,
-      "RelationshipToUser",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UserInvitationRelationships): { [key: string]: any } {
-    const attributeTypes = UserInvitationRelationships.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.user === undefined) {
-      throw new TypeError(
-        "missing required attribute 'user' on 'UserInvitationRelationships' object"
-      );
-    }
-    res.user = ObjectSerializer.serialize(data.user, "RelationshipToUser", "");
-
-    return res;
   }
 
   public constructor() {}

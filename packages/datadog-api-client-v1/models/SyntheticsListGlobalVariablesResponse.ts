@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object containing an array of Synthetic global variables.
- */
 
 export class SyntheticsListGlobalVariablesResponse {
   /**
@@ -23,57 +18,22 @@ export class SyntheticsListGlobalVariablesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     variables: {
       baseName: "variables",
       type: "Array<SyntheticsGlobalVariable>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsListGlobalVariablesResponse {
-    const res = new SyntheticsListGlobalVariablesResponse();
-
-    res.variables = ObjectSerializer.deserialize(
-      data.variables,
-      "Array<SyntheticsGlobalVariable>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsListGlobalVariablesResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsListGlobalVariablesResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.variables = ObjectSerializer.serialize(
-      data.variables,
-      "Array<SyntheticsGlobalVariable>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

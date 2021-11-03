@@ -10,11 +10,6 @@
 
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummary } from "./ProcessSummary";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * List of process summaries.
- */
 
 export class ProcessSummariesResponse {
   /**
@@ -25,69 +20,26 @@ export class ProcessSummariesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<ProcessSummary>",
-      format: "",
     },
     meta: {
       baseName: "meta",
       type: "ProcessSummariesMeta",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return ProcessSummariesResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): ProcessSummariesResponse {
-    const res = new ProcessSummariesResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<ProcessSummary>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.deserialize(
-      data.meta,
-      "ProcessSummariesMeta",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: ProcessSummariesResponse): { [key: string]: any } {
-    const attributeTypes = ProcessSummariesResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<ProcessSummary>",
-      ""
-    );
-
-    res.meta = ObjectSerializer.serialize(
-      data.meta,
-      "ProcessSummariesMeta",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -12,11 +12,6 @@ import { ApiKey } from "./ApiKey";
 import { ApplicationKey } from "./ApplicationKey";
 import { Organization } from "./Organization";
 import { User } from "./User";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Response object for an organization creation.
- */
 
 export class OrganizationCreateResponse {
   "apiKey"?: ApiKey;
@@ -26,79 +21,34 @@ export class OrganizationCreateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     apiKey: {
       baseName: "api_key",
       type: "ApiKey",
-      format: "",
     },
     applicationKey: {
       baseName: "application_key",
       type: "ApplicationKey",
-      format: "",
     },
     org: {
       baseName: "org",
       type: "Organization",
-      format: "",
     },
     user: {
       baseName: "user",
       type: "User",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return OrganizationCreateResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): OrganizationCreateResponse {
-    const res = new OrganizationCreateResponse();
-
-    res.apiKey = ObjectSerializer.deserialize(data.api_key, "ApiKey", "");
-
-    res.applicationKey = ObjectSerializer.deserialize(
-      data.application_key,
-      "ApplicationKey",
-      ""
-    );
-
-    res.org = ObjectSerializer.deserialize(data.org, "Organization", "");
-
-    res.user = ObjectSerializer.deserialize(data.user, "User", "");
-
-    return res;
-  }
-
-  static serialize(data: OrganizationCreateResponse): { [key: string]: any } {
-    const attributeTypes = OrganizationCreateResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.api_key = ObjectSerializer.serialize(data.apiKey, "ApiKey", "");
-
-    res.application_key = ObjectSerializer.serialize(
-      data.applicationKey,
-      "ApplicationKey",
-      ""
-    );
-
-    res.org = ObjectSerializer.serialize(data.org, "Organization", "");
-
-    res.user = ObjectSerializer.serialize(data.user, "User", "");
-
-    return res;
   }
 
   public constructor() {}

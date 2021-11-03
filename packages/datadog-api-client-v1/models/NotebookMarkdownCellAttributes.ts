@@ -9,77 +9,29 @@
  */
 
 import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attributes of a notebook `markdown` cell.
- */
 
 export class NotebookMarkdownCellAttributes {
   "definition": NotebookMarkdownCellDefinition;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     definition: {
       baseName: "definition",
       type: "NotebookMarkdownCellDefinition",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return NotebookMarkdownCellAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): NotebookMarkdownCellAttributes {
-    const res = new NotebookMarkdownCellAttributes();
-
-    if (data.definition === undefined) {
-      throw new TypeError(
-        "missing required attribute 'definition' on 'NotebookMarkdownCellAttributes' object"
-      );
-    }
-    res.definition = ObjectSerializer.deserialize(
-      data.definition,
-      "NotebookMarkdownCellDefinition",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: NotebookMarkdownCellAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes = NotebookMarkdownCellAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.definition === undefined) {
-      throw new TypeError(
-        "missing required attribute 'definition' on 'NotebookMarkdownCellAttributes' object"
-      );
-    }
-    res.definition = ObjectSerializer.serialize(
-      data.definition,
-      "NotebookMarkdownCellDefinition",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { Event } from "./Event";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * An event list response.
- */
 
 export class EventListResponse {
   /**
@@ -27,53 +22,26 @@ export class EventListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     events: {
       baseName: "events",
       type: "Array<Event>",
-      format: "",
     },
     status: {
       baseName: "status",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return EventListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): EventListResponse {
-    const res = new EventListResponse();
-
-    res.events = ObjectSerializer.deserialize(data.events, "Array<Event>", "");
-
-    res.status = ObjectSerializer.deserialize(data.status, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: EventListResponse): { [key: string]: any } {
-    const attributeTypes = EventListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.events = ObjectSerializer.serialize(data.events, "Array<Event>", "");
-
-    res.status = ObjectSerializer.serialize(data.status, "string", "");
-
-    return res;
   }
 
   public constructor() {}

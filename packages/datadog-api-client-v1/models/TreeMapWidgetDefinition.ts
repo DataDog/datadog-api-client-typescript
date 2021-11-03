@@ -13,11 +13,6 @@ import { TreeMapGroupBy } from "./TreeMapGroupBy";
 import { TreeMapSizeBy } from "./TreeMapSizeBy";
 import { TreeMapWidgetDefinitionType } from "./TreeMapWidgetDefinitionType";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
- */
 
 export class TreeMapWidgetDefinition {
   "colorBy": TreeMapColorBy;
@@ -35,187 +30,47 @@ export class TreeMapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     colorBy: {
       baseName: "color_by",
       type: "TreeMapColorBy",
-      format: "",
+      required: true,
     },
     groupBy: {
       baseName: "group_by",
       type: "TreeMapGroupBy",
-      format: "",
+      required: true,
     },
     requests: {
       baseName: "requests",
       type: "Array<TreeMapWidgetRequest>",
-      format: "",
+      required: true,
     },
     sizeBy: {
       baseName: "size_by",
       type: "TreeMapSizeBy",
-      format: "",
+      required: true,
     },
     title: {
       baseName: "title",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "TreeMapWidgetDefinitionType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return TreeMapWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): TreeMapWidgetDefinition {
-    const res = new TreeMapWidgetDefinition();
-
-    if (data.color_by === undefined) {
-      throw new TypeError(
-        "missing required attribute 'color_by' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["user", undefined].includes(data.color_by)) {
-      res.colorBy = data.color_by;
-    } else {
-      const raw = new TreeMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.group_by === undefined) {
-      throw new TypeError(
-        "missing required attribute 'group_by' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["user", "family", "process", undefined].includes(data.group_by)) {
-      res.groupBy = data.group_by;
-    } else {
-      const raw = new TreeMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.deserialize(
-      data.requests,
-      "Array<TreeMapWidgetRequest>",
-      ""
-    );
-
-    if (data.size_by === undefined) {
-      throw new TypeError(
-        "missing required attribute 'size_by' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["pct_cpu", "pct_mem", undefined].includes(data.size_by)) {
-      res.sizeBy = data.size_by;
-    } else {
-      const raw = new TreeMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["treemap", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new TreeMapWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: TreeMapWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = TreeMapWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.colorBy === undefined) {
-      throw new TypeError(
-        "missing required attribute 'color_by' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["user", undefined].includes(data.colorBy)) {
-      res.color_by = data.colorBy;
-    } else {
-      throw TypeError(`invalid enum value ${data.colorBy} for colorBy`);
-    }
-
-    if (data.groupBy === undefined) {
-      throw new TypeError(
-        "missing required attribute 'group_by' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["user", "family", "process", undefined].includes(data.groupBy)) {
-      res.group_by = data.groupBy;
-    } else {
-      throw TypeError(`invalid enum value ${data.groupBy} for groupBy`);
-    }
-
-    if (data.requests === undefined) {
-      throw new TypeError(
-        "missing required attribute 'requests' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    res.requests = ObjectSerializer.serialize(
-      data.requests,
-      "Array<TreeMapWidgetRequest>",
-      ""
-    );
-
-    if (data.sizeBy === undefined) {
-      throw new TypeError(
-        "missing required attribute 'size_by' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["pct_cpu", "pct_mem", undefined].includes(data.sizeBy)) {
-      res.size_by = data.sizeBy;
-    } else {
-      throw TypeError(`invalid enum value ${data.sizeBy} for sizeBy`);
-    }
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'TreeMapWidgetDefinition' object"
-      );
-    }
-    if (["treemap", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

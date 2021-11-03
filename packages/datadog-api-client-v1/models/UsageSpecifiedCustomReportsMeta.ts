@@ -9,68 +9,28 @@
  */
 
 import { UsageSpecifiedCustomReportsPage } from "./UsageSpecifiedCustomReportsPage";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The object containing document metadata.
- */
 
 export class UsageSpecifiedCustomReportsMeta {
   "page"?: UsageSpecifiedCustomReportsPage;
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     page: {
       baseName: "page",
       type: "UsageSpecifiedCustomReportsPage",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageSpecifiedCustomReportsMeta.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): UsageSpecifiedCustomReportsMeta {
-    const res = new UsageSpecifiedCustomReportsMeta();
-
-    res.page = ObjectSerializer.deserialize(
-      data.page,
-      "UsageSpecifiedCustomReportsPage",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageSpecifiedCustomReportsMeta): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      UsageSpecifiedCustomReportsMeta.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.page = ObjectSerializer.serialize(
-      data.page,
-      "UsageSpecifiedCustomReportsPage",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

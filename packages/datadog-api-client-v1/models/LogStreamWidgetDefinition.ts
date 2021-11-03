@@ -13,11 +13,6 @@ import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetMessageDisplay } from "./WidgetMessageDisplay";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
- */
 
 export class LogStreamWidgetDefinition {
   /**
@@ -60,226 +55,71 @@ export class LogStreamWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     columns: {
       baseName: "columns",
       type: "Array<string>",
-      format: "",
     },
     indexes: {
       baseName: "indexes",
       type: "Array<string>",
-      format: "",
     },
     logset: {
       baseName: "logset",
       type: "string",
-      format: "",
     },
     messageDisplay: {
       baseName: "message_display",
       type: "WidgetMessageDisplay",
-      format: "",
     },
     query: {
       baseName: "query",
       type: "string",
-      format: "",
     },
     showDateColumn: {
       baseName: "show_date_column",
       type: "boolean",
-      format: "",
     },
     showMessageColumn: {
       baseName: "show_message_column",
       type: "boolean",
-      format: "",
     },
     sort: {
       baseName: "sort",
       type: "WidgetFieldSort",
-      format: "",
     },
     time: {
       baseName: "time",
       type: "WidgetTime",
-      format: "",
     },
     title: {
       baseName: "title",
       type: "string",
-      format: "",
     },
     titleAlign: {
       baseName: "title_align",
       type: "WidgetTextAlign",
-      format: "",
     },
     titleSize: {
       baseName: "title_size",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "LogStreamWidgetDefinitionType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogStreamWidgetDefinition {
-    const res = new LogStreamWidgetDefinition();
-
-    res.columns = ObjectSerializer.deserialize(
-      data.columns,
-      "Array<string>",
-      ""
-    );
-
-    res.indexes = ObjectSerializer.deserialize(
-      data.indexes,
-      "Array<string>",
-      ""
-    );
-
-    res.logset = ObjectSerializer.deserialize(data.logset, "string", "");
-
-    if (
-      ["inline", "expanded-md", "expanded-lg", undefined].includes(
-        data.message_display
-      )
-    ) {
-      res.messageDisplay = data.message_display;
-    } else {
-      const raw = new LogStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.query = ObjectSerializer.deserialize(data.query, "string", "");
-
-    res.showDateColumn = ObjectSerializer.deserialize(
-      data.show_date_column,
-      "boolean",
-      ""
-    );
-
-    res.showMessageColumn = ObjectSerializer.deserialize(
-      data.show_message_column,
-      "boolean",
-      ""
-    );
-
-    res.sort = ObjectSerializer.deserialize(data.sort, "WidgetFieldSort", "");
-
-    res.time = ObjectSerializer.deserialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.deserialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.title_align)) {
-      res.titleAlign = data.title_align;
-    } else {
-      const raw = new LogStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.titleSize = ObjectSerializer.deserialize(data.title_size, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogStreamWidgetDefinition' object"
-      );
-    }
-    if (["log_stream", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogStreamWidgetDefinition();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogStreamWidgetDefinition): { [key: string]: any } {
-    const attributeTypes = LogStreamWidgetDefinition.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.columns = ObjectSerializer.serialize(data.columns, "Array<string>", "");
-
-    res.indexes = ObjectSerializer.serialize(data.indexes, "Array<string>", "");
-
-    res.logset = ObjectSerializer.serialize(data.logset, "string", "");
-
-    if (
-      ["inline", "expanded-md", "expanded-lg", undefined].includes(
-        data.messageDisplay
-      )
-    ) {
-      res.message_display = data.messageDisplay;
-    } else {
-      throw TypeError(
-        `invalid enum value ${data.messageDisplay} for messageDisplay`
-      );
-    }
-
-    res.query = ObjectSerializer.serialize(data.query, "string", "");
-
-    res.show_date_column = ObjectSerializer.serialize(
-      data.showDateColumn,
-      "boolean",
-      ""
-    );
-
-    res.show_message_column = ObjectSerializer.serialize(
-      data.showMessageColumn,
-      "boolean",
-      ""
-    );
-
-    res.sort = ObjectSerializer.serialize(data.sort, "WidgetFieldSort", "");
-
-    res.time = ObjectSerializer.serialize(data.time, "WidgetTime", "");
-
-    res.title = ObjectSerializer.serialize(data.title, "string", "");
-
-    if (["center", "left", "right", undefined].includes(data.titleAlign)) {
-      res.title_align = data.titleAlign;
-    } else {
-      throw TypeError(`invalid enum value ${data.titleAlign} for titleAlign`);
-    }
-
-    res.title_size = ObjectSerializer.serialize(data.titleSize, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogStreamWidgetDefinition' object"
-      );
-    }
-    if (["log_stream", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

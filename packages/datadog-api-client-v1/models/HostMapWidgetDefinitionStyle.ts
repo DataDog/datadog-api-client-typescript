@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The style to apply to the widget.
- */
-
 export class HostMapWidgetDefinitionStyle {
   /**
    * Max value to use to color the map.
@@ -34,81 +28,34 @@ export class HostMapWidgetDefinitionStyle {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     fillMax: {
       baseName: "fill_max",
       type: "string",
-      format: "",
     },
     fillMin: {
       baseName: "fill_min",
       type: "string",
-      format: "",
     },
     palette: {
       baseName: "palette",
       type: "string",
-      format: "",
     },
     paletteFlip: {
       baseName: "palette_flip",
       type: "boolean",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return HostMapWidgetDefinitionStyle.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): HostMapWidgetDefinitionStyle {
-    const res = new HostMapWidgetDefinitionStyle();
-
-    res.fillMax = ObjectSerializer.deserialize(data.fill_max, "string", "");
-
-    res.fillMin = ObjectSerializer.deserialize(data.fill_min, "string", "");
-
-    res.palette = ObjectSerializer.deserialize(data.palette, "string", "");
-
-    res.paletteFlip = ObjectSerializer.deserialize(
-      data.palette_flip,
-      "boolean",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: HostMapWidgetDefinitionStyle): { [key: string]: any } {
-    const attributeTypes = HostMapWidgetDefinitionStyle.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.fill_max = ObjectSerializer.serialize(data.fillMax, "string", "");
-
-    res.fill_min = ObjectSerializer.serialize(data.fillMin, "string", "");
-
-    res.palette = ObjectSerializer.serialize(data.palette, "string", "");
-
-    res.palette_flip = ObjectSerializer.serialize(
-      data.paletteFlip,
-      "boolean",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

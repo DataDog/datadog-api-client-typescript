@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Description of errors.
- */
-
 export class AWSLogsAsyncError {
   /**
    * Code properties
@@ -26,53 +20,26 @@ export class AWSLogsAsyncError {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     code: {
       baseName: "code",
       type: "string",
-      format: "",
     },
     message: {
       baseName: "message",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return AWSLogsAsyncError.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): AWSLogsAsyncError {
-    const res = new AWSLogsAsyncError();
-
-    res.code = ObjectSerializer.deserialize(data.code, "string", "");
-
-    res.message = ObjectSerializer.deserialize(data.message, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: AWSLogsAsyncError): { [key: string]: any } {
-    const attributeTypes = AWSLogsAsyncError.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.code = ObjectSerializer.serialize(data.code, "string", "");
-
-    res.message = ObjectSerializer.serialize(data.message, "string", "");
-
-    return res;
   }
 
   public constructor() {}

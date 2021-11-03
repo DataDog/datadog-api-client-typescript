@@ -10,11 +10,6 @@
 
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsType } from "./PermissionsType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Permission object.
- */
 
 export class Permission {
   "attributes"?: PermissionAttributes;
@@ -26,90 +21,31 @@ export class Permission {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     attributes: {
       baseName: "attributes",
       type: "PermissionAttributes",
-      format: "",
     },
     id: {
       baseName: "id",
       type: "string",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "PermissionsType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return Permission.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): Permission {
-    const res = new Permission();
-
-    res.attributes = ObjectSerializer.deserialize(
-      data.attributes,
-      "PermissionAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'Permission' object"
-      );
-    }
-    if (["permissions", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new Permission();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: Permission): { [key: string]: any } {
-    const attributeTypes = Permission.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.attributes = ObjectSerializer.serialize(
-      data.attributes,
-      "PermissionAttributes",
-      ""
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "string", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'Permission' object"
-      );
-    }
-    if (["permissions", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

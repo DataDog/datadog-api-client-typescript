@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The incident team's attributes for an update request.
- */
-
 export class IncidentTeamUpdateAttributes {
   /**
    * Name of the incident team.
@@ -22,56 +16,23 @@ export class IncidentTeamUpdateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentTeamUpdateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentTeamUpdateAttributes {
-    const res = new IncidentTeamUpdateAttributes();
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'IncidentTeamUpdateAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: IncidentTeamUpdateAttributes): { [key: string]: any } {
-    const attributeTypes = IncidentTeamUpdateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'IncidentTeamUpdateAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

@@ -10,11 +10,6 @@
 
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A response with one or more service level objective.
- */
 
 export class SLOListResponse {
   /**
@@ -29,78 +24,30 @@ export class SLOListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     data: {
       baseName: "data",
       type: "Array<ServiceLevelObjective>",
-      format: "",
     },
     errors: {
       baseName: "errors",
       type: "Array<string>",
-      format: "",
     },
     metadata: {
       baseName: "metadata",
       type: "SLOListResponseMetadata",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOListResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): SLOListResponse {
-    const res = new SLOListResponse();
-
-    res.data = ObjectSerializer.deserialize(
-      data.data,
-      "Array<ServiceLevelObjective>",
-      ""
-    );
-
-    res.errors = ObjectSerializer.deserialize(data.errors, "Array<string>", "");
-
-    res.metadata = ObjectSerializer.deserialize(
-      data.metadata,
-      "SLOListResponseMetadata",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SLOListResponse): { [key: string]: any } {
-    const attributeTypes = SLOListResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.data = ObjectSerializer.serialize(
-      data.data,
-      "Array<ServiceLevelObjective>",
-      ""
-    );
-
-    res.errors = ObjectSerializer.serialize(data.errors, "Array<string>", "");
-
-    res.metadata = ObjectSerializer.serialize(
-      data.metadata,
-      "SLOListResponseMetadata",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

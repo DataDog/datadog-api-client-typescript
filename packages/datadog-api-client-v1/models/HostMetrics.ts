@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Host Metrics collected.
- */
-
 export class HostMetrics {
   /**
    * The percent of CPU used (everything but idle).
@@ -30,62 +24,36 @@ export class HostMetrics {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     cpu: {
       baseName: "cpu",
       type: "number",
+
       format: "double",
     },
     iowait: {
       baseName: "iowait",
       type: "number",
+
       format: "double",
     },
     load: {
       baseName: "load",
       type: "number",
+
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return HostMetrics.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): HostMetrics {
-    const res = new HostMetrics();
-
-    res.cpu = ObjectSerializer.deserialize(data.cpu, "number", "double");
-
-    res.iowait = ObjectSerializer.deserialize(data.iowait, "number", "double");
-
-    res.load = ObjectSerializer.deserialize(data.load, "number", "double");
-
-    return res;
-  }
-
-  static serialize(data: HostMetrics): { [key: string]: any } {
-    const attributeTypes = HostMetrics.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.cpu = ObjectSerializer.serialize(data.cpu, "number", "double");
-
-    res.iowait = ObjectSerializer.serialize(data.iowait, "number", "double");
-
-    res.load = ObjectSerializer.serialize(data.load, "number", "double");
-
-    return res;
   }
 
   public constructor() {}

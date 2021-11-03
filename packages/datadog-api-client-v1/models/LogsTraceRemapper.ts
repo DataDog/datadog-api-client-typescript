@@ -9,11 +9,6 @@
  */
 
 import { LogsTraceRemapperType } from "./LogsTraceRemapperType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * There are two ways to improve correlation between application traces and logs.    1. Follow the documentation on [how to inject a trace ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default log integrations take care of all the rest of the setup.    2. Use the Trace remapper processor to define a log attribute as its associated trace ID.
- */
 
 export class LogsTraceRemapper {
   /**
@@ -32,99 +27,35 @@ export class LogsTraceRemapper {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
-      format: "",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
     },
     sources: {
       baseName: "sources",
       type: "Array<string>",
-      format: "",
     },
     type: {
       baseName: "type",
       type: "LogsTraceRemapperType",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return LogsTraceRemapper.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): LogsTraceRemapper {
-    const res = new LogsTraceRemapper();
-
-    res.isEnabled = ObjectSerializer.deserialize(
-      data.is_enabled,
-      "boolean",
-      ""
-    );
-
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.sources = ObjectSerializer.deserialize(
-      data.sources,
-      "Array<string>",
-      ""
-    );
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsTraceRemapper' object"
-      );
-    }
-    if (["trace-id-remapper", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new LogsTraceRemapper();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    return res;
-  }
-
-  static serialize(data: LogsTraceRemapper): { [key: string]: any } {
-    const attributeTypes = LogsTraceRemapper.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.is_enabled = ObjectSerializer.serialize(data.isEnabled, "boolean", "");
-
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.sources = ObjectSerializer.serialize(data.sources, "Array<string>", "");
-
-    if (data.type === undefined) {
-      throw new TypeError(
-        "missing required attribute 'type' on 'LogsTraceRemapper' object"
-      );
-    }
-    if (["trace-id-remapper", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    return res;
   }
 
   public constructor() {}

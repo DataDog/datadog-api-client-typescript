@@ -9,11 +9,6 @@
  */
 
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Object with the latest Synthetic API test run.
- */
 
 export class SyntheticsGetAPITestLatestResultsResponse {
   /**
@@ -27,74 +22,28 @@ export class SyntheticsGetAPITestLatestResultsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     lastTimestampFetched: {
       baseName: "last_timestamp_fetched",
       type: "number",
+
       format: "int64",
     },
     results: {
       baseName: "results",
       type: "Array<SyntheticsAPITestResultShort>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsGetAPITestLatestResultsResponse {
-    const res = new SyntheticsGetAPITestLatestResultsResponse();
-
-    res.lastTimestampFetched = ObjectSerializer.deserialize(
-      data.last_timestamp_fetched,
-      "number",
-      "int64"
-    );
-
-    res.results = ObjectSerializer.deserialize(
-      data.results,
-      "Array<SyntheticsAPITestResultShort>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsGetAPITestLatestResultsResponse): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SyntheticsGetAPITestLatestResultsResponse.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.last_timestamp_fetched = ObjectSerializer.serialize(
-      data.lastTimestampFetched,
-      "number",
-      "int64"
-    );
-
-    res.results = ObjectSerializer.serialize(
-      data.results,
-      "Array<SyntheticsAPITestResultShort>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

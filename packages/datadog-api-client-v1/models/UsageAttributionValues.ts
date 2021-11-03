@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Fields in Usage Summary by tag(s).
- */
-
 export class UsageAttributionValues {
   /**
    * The percentage of synthetic API test usage by tag(s).
@@ -170,681 +164,246 @@ export class UsageAttributionValues {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     apiPercentage: {
       baseName: "api_percentage",
       type: "number",
+
       format: "double",
     },
     apiUsage: {
       baseName: "api_usage",
       type: "number",
+
       format: "double",
     },
     apmHostPercentage: {
       baseName: "apm_host_percentage",
       type: "number",
+
       format: "double",
     },
     apmHostUsage: {
       baseName: "apm_host_usage",
       type: "number",
+
       format: "double",
     },
     browserPercentage: {
       baseName: "browser_percentage",
       type: "number",
+
       format: "double",
     },
     browserUsage: {
       baseName: "browser_usage",
       type: "number",
+
       format: "double",
     },
     containerPercentage: {
       baseName: "container_percentage",
       type: "number",
+
       format: "double",
     },
     containerUsage: {
       baseName: "container_usage",
       type: "number",
+
       format: "double",
     },
     cspmContainerPercentage: {
       baseName: "cspm_container_percentage",
       type: "number",
+
       format: "double",
     },
     cspmContainerUsage: {
       baseName: "cspm_container_usage",
       type: "number",
+
       format: "double",
     },
     cspmHostPercentage: {
       baseName: "cspm_host_percentage",
       type: "number",
+
       format: "double",
     },
     cspmHostUsage: {
       baseName: "cspm_host_usage",
       type: "number",
+
       format: "double",
     },
     customTimeseriesPercentage: {
       baseName: "custom_timeseries_percentage",
       type: "number",
+
       format: "double",
     },
     customTimeseriesUsage: {
       baseName: "custom_timeseries_usage",
       type: "number",
+
       format: "double",
     },
     cwsContainerPercentage: {
       baseName: "cws_container_percentage",
       type: "number",
+
       format: "double",
     },
     cwsContainerUsage: {
       baseName: "cws_container_usage",
       type: "number",
+
       format: "double",
     },
     cwsHostPercentage: {
       baseName: "cws_host_percentage",
       type: "number",
+
       format: "double",
     },
     cwsHostUsage: {
       baseName: "cws_host_usage",
       type: "number",
+
       format: "double",
     },
     dbmHostsPercentage: {
       baseName: "dbm_hosts_percentage",
       type: "number",
+
       format: "double",
     },
     dbmHostsUsage: {
       baseName: "dbm_hosts_usage",
       type: "number",
+
       format: "double",
     },
     dbmQueriesPercentage: {
       baseName: "dbm_queries_percentage",
       type: "number",
+
       format: "double",
     },
     dbmQueriesUsage: {
       baseName: "dbm_queries_usage",
       type: "number",
+
       format: "double",
     },
     infraHostPercentage: {
       baseName: "infra_host_percentage",
       type: "number",
+
       format: "double",
     },
     infraHostUsage: {
       baseName: "infra_host_usage",
       type: "number",
+
       format: "double",
     },
     lambdaFunctionsPercentage: {
       baseName: "lambda_functions_percentage",
       type: "number",
+
       format: "double",
     },
     lambdaFunctionsUsage: {
       baseName: "lambda_functions_usage",
       type: "number",
+
       format: "double",
     },
     lambdaInvocationsPercentage: {
       baseName: "lambda_invocations_percentage",
       type: "number",
+
       format: "double",
     },
     lambdaInvocationsUsage: {
       baseName: "lambda_invocations_usage",
       type: "number",
+
       format: "double",
     },
     lambdaPercentage: {
       baseName: "lambda_percentage",
       type: "number",
+
       format: "double",
     },
     lambdaUsage: {
       baseName: "lambda_usage",
       type: "number",
+
       format: "double",
     },
     npmHostPercentage: {
       baseName: "npm_host_percentage",
       type: "number",
+
       format: "double",
     },
     npmHostUsage: {
       baseName: "npm_host_usage",
       type: "number",
+
       format: "double",
     },
     profiledContainerPercentage: {
       baseName: "profiled_container_percentage",
       type: "number",
+
       format: "double",
     },
     profiledContainerUsage: {
       baseName: "profiled_container_usage",
       type: "number",
+
       format: "double",
     },
     profiledHostsPercentage: {
       baseName: "profiled_hosts_percentage",
       type: "number",
+
       format: "double",
     },
     profiledHostsUsage: {
       baseName: "profiled_hosts_usage",
       type: "number",
+
       format: "double",
     },
     snmpPercentage: {
       baseName: "snmp_percentage",
       type: "number",
+
       format: "double",
     },
     snmpUsage: {
       baseName: "snmp_usage",
       type: "number",
+
       format: "double",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageAttributionValues.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): UsageAttributionValues {
-    const res = new UsageAttributionValues();
-
-    res.apiPercentage = ObjectSerializer.deserialize(
-      data.api_percentage,
-      "number",
-      "double"
-    );
-
-    res.apiUsage = ObjectSerializer.deserialize(
-      data.api_usage,
-      "number",
-      "double"
-    );
-
-    res.apmHostPercentage = ObjectSerializer.deserialize(
-      data.apm_host_percentage,
-      "number",
-      "double"
-    );
-
-    res.apmHostUsage = ObjectSerializer.deserialize(
-      data.apm_host_usage,
-      "number",
-      "double"
-    );
-
-    res.browserPercentage = ObjectSerializer.deserialize(
-      data.browser_percentage,
-      "number",
-      "double"
-    );
-
-    res.browserUsage = ObjectSerializer.deserialize(
-      data.browser_usage,
-      "number",
-      "double"
-    );
-
-    res.containerPercentage = ObjectSerializer.deserialize(
-      data.container_percentage,
-      "number",
-      "double"
-    );
-
-    res.containerUsage = ObjectSerializer.deserialize(
-      data.container_usage,
-      "number",
-      "double"
-    );
-
-    res.cspmContainerPercentage = ObjectSerializer.deserialize(
-      data.cspm_container_percentage,
-      "number",
-      "double"
-    );
-
-    res.cspmContainerUsage = ObjectSerializer.deserialize(
-      data.cspm_container_usage,
-      "number",
-      "double"
-    );
-
-    res.cspmHostPercentage = ObjectSerializer.deserialize(
-      data.cspm_host_percentage,
-      "number",
-      "double"
-    );
-
-    res.cspmHostUsage = ObjectSerializer.deserialize(
-      data.cspm_host_usage,
-      "number",
-      "double"
-    );
-
-    res.customTimeseriesPercentage = ObjectSerializer.deserialize(
-      data.custom_timeseries_percentage,
-      "number",
-      "double"
-    );
-
-    res.customTimeseriesUsage = ObjectSerializer.deserialize(
-      data.custom_timeseries_usage,
-      "number",
-      "double"
-    );
-
-    res.cwsContainerPercentage = ObjectSerializer.deserialize(
-      data.cws_container_percentage,
-      "number",
-      "double"
-    );
-
-    res.cwsContainerUsage = ObjectSerializer.deserialize(
-      data.cws_container_usage,
-      "number",
-      "double"
-    );
-
-    res.cwsHostPercentage = ObjectSerializer.deserialize(
-      data.cws_host_percentage,
-      "number",
-      "double"
-    );
-
-    res.cwsHostUsage = ObjectSerializer.deserialize(
-      data.cws_host_usage,
-      "number",
-      "double"
-    );
-
-    res.dbmHostsPercentage = ObjectSerializer.deserialize(
-      data.dbm_hosts_percentage,
-      "number",
-      "double"
-    );
-
-    res.dbmHostsUsage = ObjectSerializer.deserialize(
-      data.dbm_hosts_usage,
-      "number",
-      "double"
-    );
-
-    res.dbmQueriesPercentage = ObjectSerializer.deserialize(
-      data.dbm_queries_percentage,
-      "number",
-      "double"
-    );
-
-    res.dbmQueriesUsage = ObjectSerializer.deserialize(
-      data.dbm_queries_usage,
-      "number",
-      "double"
-    );
-
-    res.infraHostPercentage = ObjectSerializer.deserialize(
-      data.infra_host_percentage,
-      "number",
-      "double"
-    );
-
-    res.infraHostUsage = ObjectSerializer.deserialize(
-      data.infra_host_usage,
-      "number",
-      "double"
-    );
-
-    res.lambdaFunctionsPercentage = ObjectSerializer.deserialize(
-      data.lambda_functions_percentage,
-      "number",
-      "double"
-    );
-
-    res.lambdaFunctionsUsage = ObjectSerializer.deserialize(
-      data.lambda_functions_usage,
-      "number",
-      "double"
-    );
-
-    res.lambdaInvocationsPercentage = ObjectSerializer.deserialize(
-      data.lambda_invocations_percentage,
-      "number",
-      "double"
-    );
-
-    res.lambdaInvocationsUsage = ObjectSerializer.deserialize(
-      data.lambda_invocations_usage,
-      "number",
-      "double"
-    );
-
-    res.lambdaPercentage = ObjectSerializer.deserialize(
-      data.lambda_percentage,
-      "number",
-      "double"
-    );
-
-    res.lambdaUsage = ObjectSerializer.deserialize(
-      data.lambda_usage,
-      "number",
-      "double"
-    );
-
-    res.npmHostPercentage = ObjectSerializer.deserialize(
-      data.npm_host_percentage,
-      "number",
-      "double"
-    );
-
-    res.npmHostUsage = ObjectSerializer.deserialize(
-      data.npm_host_usage,
-      "number",
-      "double"
-    );
-
-    res.profiledContainerPercentage = ObjectSerializer.deserialize(
-      data.profiled_container_percentage,
-      "number",
-      "double"
-    );
-
-    res.profiledContainerUsage = ObjectSerializer.deserialize(
-      data.profiled_container_usage,
-      "number",
-      "double"
-    );
-
-    res.profiledHostsPercentage = ObjectSerializer.deserialize(
-      data.profiled_hosts_percentage,
-      "number",
-      "double"
-    );
-
-    res.profiledHostsUsage = ObjectSerializer.deserialize(
-      data.profiled_hosts_usage,
-      "number",
-      "double"
-    );
-
-    res.snmpPercentage = ObjectSerializer.deserialize(
-      data.snmp_percentage,
-      "number",
-      "double"
-    );
-
-    res.snmpUsage = ObjectSerializer.deserialize(
-      data.snmp_usage,
-      "number",
-      "double"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageAttributionValues): { [key: string]: any } {
-    const attributeTypes = UsageAttributionValues.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.api_percentage = ObjectSerializer.serialize(
-      data.apiPercentage,
-      "number",
-      "double"
-    );
-
-    res.api_usage = ObjectSerializer.serialize(
-      data.apiUsage,
-      "number",
-      "double"
-    );
-
-    res.apm_host_percentage = ObjectSerializer.serialize(
-      data.apmHostPercentage,
-      "number",
-      "double"
-    );
-
-    res.apm_host_usage = ObjectSerializer.serialize(
-      data.apmHostUsage,
-      "number",
-      "double"
-    );
-
-    res.browser_percentage = ObjectSerializer.serialize(
-      data.browserPercentage,
-      "number",
-      "double"
-    );
-
-    res.browser_usage = ObjectSerializer.serialize(
-      data.browserUsage,
-      "number",
-      "double"
-    );
-
-    res.container_percentage = ObjectSerializer.serialize(
-      data.containerPercentage,
-      "number",
-      "double"
-    );
-
-    res.container_usage = ObjectSerializer.serialize(
-      data.containerUsage,
-      "number",
-      "double"
-    );
-
-    res.cspm_container_percentage = ObjectSerializer.serialize(
-      data.cspmContainerPercentage,
-      "number",
-      "double"
-    );
-
-    res.cspm_container_usage = ObjectSerializer.serialize(
-      data.cspmContainerUsage,
-      "number",
-      "double"
-    );
-
-    res.cspm_host_percentage = ObjectSerializer.serialize(
-      data.cspmHostPercentage,
-      "number",
-      "double"
-    );
-
-    res.cspm_host_usage = ObjectSerializer.serialize(
-      data.cspmHostUsage,
-      "number",
-      "double"
-    );
-
-    res.custom_timeseries_percentage = ObjectSerializer.serialize(
-      data.customTimeseriesPercentage,
-      "number",
-      "double"
-    );
-
-    res.custom_timeseries_usage = ObjectSerializer.serialize(
-      data.customTimeseriesUsage,
-      "number",
-      "double"
-    );
-
-    res.cws_container_percentage = ObjectSerializer.serialize(
-      data.cwsContainerPercentage,
-      "number",
-      "double"
-    );
-
-    res.cws_container_usage = ObjectSerializer.serialize(
-      data.cwsContainerUsage,
-      "number",
-      "double"
-    );
-
-    res.cws_host_percentage = ObjectSerializer.serialize(
-      data.cwsHostPercentage,
-      "number",
-      "double"
-    );
-
-    res.cws_host_usage = ObjectSerializer.serialize(
-      data.cwsHostUsage,
-      "number",
-      "double"
-    );
-
-    res.dbm_hosts_percentage = ObjectSerializer.serialize(
-      data.dbmHostsPercentage,
-      "number",
-      "double"
-    );
-
-    res.dbm_hosts_usage = ObjectSerializer.serialize(
-      data.dbmHostsUsage,
-      "number",
-      "double"
-    );
-
-    res.dbm_queries_percentage = ObjectSerializer.serialize(
-      data.dbmQueriesPercentage,
-      "number",
-      "double"
-    );
-
-    res.dbm_queries_usage = ObjectSerializer.serialize(
-      data.dbmQueriesUsage,
-      "number",
-      "double"
-    );
-
-    res.infra_host_percentage = ObjectSerializer.serialize(
-      data.infraHostPercentage,
-      "number",
-      "double"
-    );
-
-    res.infra_host_usage = ObjectSerializer.serialize(
-      data.infraHostUsage,
-      "number",
-      "double"
-    );
-
-    res.lambda_functions_percentage = ObjectSerializer.serialize(
-      data.lambdaFunctionsPercentage,
-      "number",
-      "double"
-    );
-
-    res.lambda_functions_usage = ObjectSerializer.serialize(
-      data.lambdaFunctionsUsage,
-      "number",
-      "double"
-    );
-
-    res.lambda_invocations_percentage = ObjectSerializer.serialize(
-      data.lambdaInvocationsPercentage,
-      "number",
-      "double"
-    );
-
-    res.lambda_invocations_usage = ObjectSerializer.serialize(
-      data.lambdaInvocationsUsage,
-      "number",
-      "double"
-    );
-
-    res.lambda_percentage = ObjectSerializer.serialize(
-      data.lambdaPercentage,
-      "number",
-      "double"
-    );
-
-    res.lambda_usage = ObjectSerializer.serialize(
-      data.lambdaUsage,
-      "number",
-      "double"
-    );
-
-    res.npm_host_percentage = ObjectSerializer.serialize(
-      data.npmHostPercentage,
-      "number",
-      "double"
-    );
-
-    res.npm_host_usage = ObjectSerializer.serialize(
-      data.npmHostUsage,
-      "number",
-      "double"
-    );
-
-    res.profiled_container_percentage = ObjectSerializer.serialize(
-      data.profiledContainerPercentage,
-      "number",
-      "double"
-    );
-
-    res.profiled_container_usage = ObjectSerializer.serialize(
-      data.profiledContainerUsage,
-      "number",
-      "double"
-    );
-
-    res.profiled_hosts_percentage = ObjectSerializer.serialize(
-      data.profiledHostsPercentage,
-      "number",
-      "double"
-    );
-
-    res.profiled_hosts_usage = ObjectSerializer.serialize(
-      data.profiledHostsUsage,
-      "number",
-      "double"
-    );
-
-    res.snmp_percentage = ObjectSerializer.serialize(
-      data.snmpPercentage,
-      "number",
-      "double"
-    );
-
-    res.snmp_usage = ObjectSerializer.serialize(
-      data.snmpUsage,
-      "number",
-      "double"
-    );
-
-    return res;
   }
 
   public constructor() {}

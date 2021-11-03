@@ -270,67 +270,134 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0,
 };
 
-const enumsMap: Set<string> = new Set<string>([
-  "APIKeysSort",
-  "APIKeysType",
-  "ApplicationKeysSort",
-  "ApplicationKeysType",
-  "DashboardType",
-  "IncidentFieldAttributesSingleValueType",
-  "IncidentFieldAttributesValueType",
-  "IncidentIntegrationMetadataType",
-  "IncidentPostmortemType",
-  "IncidentRelatedObject",
-  "IncidentServiceType",
-  "IncidentTeamType",
-  "IncidentTimelineCellMarkdownContentType",
-  "IncidentType",
-  "LogType",
-  "LogsAggregateResponseStatus",
-  "LogsAggregateSortType",
-  "LogsAggregationFunction",
-  "LogsArchiveDestinationAzureType",
-  "LogsArchiveDestinationGCSType",
-  "LogsArchiveDestinationS3Type",
-  "LogsArchiveOrderDefinitionType",
-  "LogsArchiveState",
-  "LogsComputeType",
-  "LogsMetricComputeAggregationType",
-  "LogsMetricResponseComputeAggregationType",
-  "LogsMetricType",
-  "LogsSort",
-  "LogsSortOrder",
-  "MetricCustomSpaceAggregation",
-  "MetricCustomTimeAggregation",
-  "MetricDistinctVolumeType",
-  "MetricIngestedIndexedVolumeType",
-  "MetricTagConfigurationMetricTypes",
-  "MetricTagConfigurationType",
-  "MetricType",
-  "OrganizationsType",
-  "PermissionsType",
-  "ProcessSummaryType",
-  "QuerySortOrder",
-  "RolesSort",
-  "RolesType",
-  "SecurityFilterFilteredDataType",
-  "SecurityFilterType",
-  "SecurityMonitoringFilterAction",
-  "SecurityMonitoringRuleDetectionMethod",
-  "SecurityMonitoringRuleEvaluationWindow",
-  "SecurityMonitoringRuleKeepAlive",
-  "SecurityMonitoringRuleMaxSignalDuration",
-  "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-  "SecurityMonitoringRuleNewValueOptionsLearningDuration",
-  "SecurityMonitoringRuleQueryAggregation",
-  "SecurityMonitoringRuleSeverity",
-  "SecurityMonitoringRuleTypeCreate",
-  "SecurityMonitoringRuleTypeRead",
-  "SecurityMonitoringSignalType",
-  "SecurityMonitoringSignalsSort",
-  "UserInvitationsType",
-  "UsersType",
-]);
+const enumsMap: { [key: string]: any[] } = {
+  APIKeysSort: [
+    "created_at",
+    "-created_at",
+    "last4",
+    "-last4",
+    "modified_at",
+    "-modified_at",
+    "name",
+    "-name",
+  ],
+  APIKeysType: ["api_keys"],
+  ApplicationKeysSort: [
+    "created_at",
+    "-created_at",
+    "last4",
+    "-last4",
+    "name",
+    "-name",
+  ],
+  ApplicationKeysType: ["application_keys"],
+  DashboardType: [
+    "custom_timeboard",
+    "custom_screenboard",
+    "integration_screenboard",
+    "integration_timeboard",
+    "host_timeboard",
+  ],
+  IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
+  IncidentFieldAttributesValueType: [
+    "multiselect",
+    "textarray",
+    "metrictag",
+    "autocomplete",
+  ],
+  IncidentIntegrationMetadataType: ["incident_integrations"],
+  IncidentPostmortemType: ["incident_postmortems"],
+  IncidentRelatedObject: ["users"],
+  IncidentServiceType: ["services"],
+  IncidentTeamType: ["teams"],
+  IncidentTimelineCellMarkdownContentType: ["markdown"],
+  IncidentType: ["incidents"],
+  LogType: ["log"],
+  LogsAggregateResponseStatus: ["done", "timeout"],
+  LogsAggregateSortType: ["alphabetical", "measure"],
+  LogsAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+  ],
+  LogsArchiveDestinationAzureType: ["azure"],
+  LogsArchiveDestinationGCSType: ["gcs"],
+  LogsArchiveDestinationS3Type: ["s3"],
+  LogsArchiveOrderDefinitionType: ["archive_order"],
+  LogsArchiveState: ["UNKNOWN", "WORKING", "FAILING", "WORKING_AUTH_LEGACY"],
+  LogsComputeType: ["timeseries", "total"],
+  LogsMetricComputeAggregationType: ["count", "distribution"],
+  LogsMetricResponseComputeAggregationType: ["count", "distribution"],
+  LogsMetricType: ["logs_metrics"],
+  LogsSort: ["timestamp", "-timestamp"],
+  LogsSortOrder: ["asc", "desc"],
+  MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
+  MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
+  MetricDistinctVolumeType: ["distinct_metric_volumes"],
+  MetricIngestedIndexedVolumeType: ["metric_volumes"],
+  MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
+  MetricTagConfigurationType: ["manage_tags"],
+  MetricType: ["metrics"],
+  OrganizationsType: ["orgs"],
+  PermissionsType: ["permissions"],
+  ProcessSummaryType: ["process"],
+  QuerySortOrder: ["asc", "desc"],
+  RolesSort: [
+    "name",
+    "-name",
+    "modified_at",
+    "-modified_at",
+    "user_count",
+    "-user_count",
+  ],
+  RolesType: ["roles"],
+  SecurityFilterFilteredDataType: ["logs"],
+  SecurityFilterType: ["security_filters"],
+  SecurityMonitoringFilterAction: ["require", "suppress"],
+  SecurityMonitoringRuleDetectionMethod: [
+    "threshold",
+    "new_value",
+    "anomaly_detection",
+  ],
+  SecurityMonitoringRuleEvaluationWindow: [
+    0, 60, 300, 600, 900, 1800, 3600, 7200,
+  ],
+  SecurityMonitoringRuleKeepAlive: [
+    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600,
+  ],
+  SecurityMonitoringRuleMaxSignalDuration: [
+    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
+  ],
+  SecurityMonitoringRuleNewValueOptionsForgetAfter: [1, 2, 7, 14, 21, 28],
+  SecurityMonitoringRuleNewValueOptionsLearningDuration: [0, 1, 7],
+  SecurityMonitoringRuleQueryAggregation: [
+    "count",
+    "cardinality",
+    "sum",
+    "max",
+    "new_value",
+  ],
+  SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
+  SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
+  SecurityMonitoringRuleTypeRead: [
+    "log_detection",
+    "infrastructure_configuration",
+    "workload_security",
+    "cloud_configuration",
+  ],
+  SecurityMonitoringSignalType: ["signal"],
+  SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  UserInvitationsType: ["user_invitations"],
+  UsersType: ["users"],
+};
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
@@ -639,41 +706,6 @@ const oneOfMap: { [index: string]: string[] } = {
 };
 
 export class ObjectSerializer {
-  public static findCorrectType(data: any, expectedType: string) {
-    if (data == undefined) {
-      return expectedType;
-    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-      return expectedType;
-    } else if (expectedType === "Date") {
-      return expectedType;
-    } else {
-      if (enumsMap.has(expectedType)) {
-        return expectedType;
-      }
-
-      if (!typeMap[expectedType]) {
-        return expectedType; // w/e we don't know the type
-      }
-
-      // Check the discriminator
-      const discriminatorProperty = typeMap[expectedType].discriminator;
-      if (discriminatorProperty == null) {
-        return expectedType; // the type does not have a discriminator. use it.
-      } else {
-        if (data[discriminatorProperty]) {
-          const discriminatorType = data[discriminatorProperty];
-          if (typeMap[discriminatorType]) {
-            return discriminatorType; // use the type given in the discriminator
-          } else {
-            return expectedType; // discriminator did not map to a type
-          }
-        } else {
-          return expectedType; // discriminator was not present (or an empty string)
-        }
-      }
-    }
-  }
-
   public static serialize(data: any, type: string, format: string) {
     if (data == undefined) {
       return data;
@@ -714,8 +746,11 @@ export class ObjectSerializer {
         return data.toISOString();
       }
     } else {
-      if (enumsMap.has(type)) {
-        return data;
+      if (enumsMap[type]) {
+        if (enumsMap[type].includes(data)) {
+          return data;
+        }
+        throw new TypeError(`unknown enum value '${data}'`);
       }
       if (oneOfMap[type]) {
         const oneOfs: any[] = [];
@@ -739,18 +774,40 @@ export class ObjectSerializer {
         return oneOfs[0];
       }
 
-      if (!typeMap[type]) {
-        // dont know the type
-        throw new TypeError(`unknown type '${type}'`);
-      }
+      // get the map for the correct type.
+      const attributesMap = typeMap[type].getAttributeTypeMap();
+      const instance: { [index: string]: any } = {};
 
-      return typeMap[type].serialize(data);
+      for (const attributeName in attributesMap) {
+        const attributeObj = attributesMap[attributeName];
+        instance[attributeObj.baseName] = ObjectSerializer.serialize(
+          data[attributeName],
+          attributeObj.type,
+          attributeObj.format
+        );
+
+        // check for required properties
+        if (
+          attributeObj?.required &&
+          instance[attributeObj.baseName] === undefined
+        ) {
+          throw new Error(
+            `missing required property '${attributeObj.baseName}'`
+          );
+        }
+
+        if (
+          enumsMap[attributeObj.type] &&
+          !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])
+        ) {
+          instance.unparsedObject = instance[attributeObj.baseName];
+        }
+      }
+      return instance;
     }
   }
 
-  public static deserialize(data: any, type: string, format: string) {
-    // polymorphism may change the actual type.
-    type = ObjectSerializer.findCorrectType(data, type);
+  public static deserialize(data: any, type: string, format = "") {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -784,8 +841,7 @@ export class ObjectSerializer {
     } else if (type === "Date") {
       return new Date(data);
     } else {
-      if (enumsMap.has(type)) {
-        // is Enum
+      if (enumsMap[type]) {
         return data;
       }
 
@@ -811,7 +867,33 @@ export class ObjectSerializer {
         // dont know the type
         throw new TypeError(`unknown type '${type}'`);
       }
-      return typeMap[type].deserialize(data);
+
+      const instance = new typeMap[type]();
+      const attributesMap = typeMap[type].getAttributeTypeMap();
+
+      for (const attributeName in attributesMap) {
+        const attributeObj = attributesMap[attributeName];
+        instance[attributeName] = ObjectSerializer.deserialize(
+          data[attributeObj.baseName],
+          attributeObj.type,
+          attributeObj.format
+        );
+
+        // check for required properties
+        if (attributeObj?.required && instance[attributeName] == undefined) {
+          throw new Error(`missing required property '${attributeName}'`);
+        }
+
+        // check for enum values
+        if (
+          enumsMap[attributeObj.type] &&
+          !enumsMap[attributeObj.type].includes(instance[attributeName])
+        ) {
+          instance.unparsedObject = instance[attributeName];
+        }
+      }
+
+      return instance;
     }
   }
 

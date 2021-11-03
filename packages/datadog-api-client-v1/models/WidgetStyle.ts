@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Widget style definition.
- */
-
 export class WidgetStyle {
   /**
    * Color palette to apply to the widget.
@@ -22,44 +16,22 @@ export class WidgetStyle {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     palette: {
       baseName: "palette",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return WidgetStyle.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): WidgetStyle {
-    const res = new WidgetStyle();
-
-    res.palette = ObjectSerializer.deserialize(data.palette, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: WidgetStyle): { [key: string]: any } {
-    const attributeTypes = WidgetStyle.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.palette = ObjectSerializer.serialize(data.palette, "string", "");
-
-    return res;
   }
 
   public constructor() {}

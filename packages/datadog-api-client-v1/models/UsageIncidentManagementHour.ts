@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Incident management usage for a given organization for a given hour.
- */
-
 export class UsageIncidentManagementHour {
   /**
    * The hour for the usage.
@@ -26,63 +20,30 @@ export class UsageIncidentManagementHour {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     hour: {
       baseName: "hour",
       type: "Date",
+
       format: "date-time",
     },
     monthlyActiveUsers: {
       baseName: "monthly_active_users",
       type: "number",
+
       format: "int64",
     },
   };
 
   static getAttributeTypeMap() {
     return UsageIncidentManagementHour.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): UsageIncidentManagementHour {
-    const res = new UsageIncidentManagementHour();
-
-    res.hour = ObjectSerializer.deserialize(data.hour, "Date", "date-time");
-
-    res.monthlyActiveUsers = ObjectSerializer.deserialize(
-      data.monthly_active_users,
-      "number",
-      "int64"
-    );
-
-    return res;
-  }
-
-  static serialize(data: UsageIncidentManagementHour): { [key: string]: any } {
-    const attributeTypes = UsageIncidentManagementHour.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.hour = ObjectSerializer.serialize(data.hour, "Date", "date-time");
-
-    res.monthly_active_users = ObjectSerializer.serialize(
-      data.monthlyActiveUsers,
-      "number",
-      "int64"
-    );
-
-    return res;
   }
 
   public constructor() {}

@@ -9,11 +9,6 @@
  */
 
 import { Creator } from "./Creator";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Your Datadog Dashboards.
- */
 
 export class DashboardList {
   "author"?: Creator;
@@ -48,145 +43,59 @@ export class DashboardList {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     author: {
       baseName: "author",
       type: "Creator",
-      format: "",
     },
     created: {
       baseName: "created",
       type: "Date",
+
       format: "date-time",
     },
     dashboardCount: {
       baseName: "dashboard_count",
       type: "number",
+
       format: "int64",
     },
     id: {
       baseName: "id",
       type: "number",
+
       format: "int64",
     },
     isFavorite: {
       baseName: "is_favorite",
       type: "boolean",
-      format: "",
     },
     modified: {
       baseName: "modified",
       type: "Date",
+
       format: "date-time",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DashboardList.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DashboardList {
-    const res = new DashboardList();
-
-    res.author = ObjectSerializer.deserialize(data.author, "Creator", "");
-
-    res.created = ObjectSerializer.deserialize(
-      data.created,
-      "Date",
-      "date-time"
-    );
-
-    res.dashboardCount = ObjectSerializer.deserialize(
-      data.dashboard_count,
-      "number",
-      "int64"
-    );
-
-    res.id = ObjectSerializer.deserialize(data.id, "number", "int64");
-
-    res.isFavorite = ObjectSerializer.deserialize(
-      data.is_favorite,
-      "boolean",
-      ""
-    );
-
-    res.modified = ObjectSerializer.deserialize(
-      data.modified,
-      "Date",
-      "date-time"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'DashboardList' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    res.type = ObjectSerializer.deserialize(data.type, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: DashboardList): { [key: string]: any } {
-    const attributeTypes = DashboardList.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.author = ObjectSerializer.serialize(data.author, "Creator", "");
-
-    res.created = ObjectSerializer.serialize(data.created, "Date", "date-time");
-
-    res.dashboard_count = ObjectSerializer.serialize(
-      data.dashboardCount,
-      "number",
-      "int64"
-    );
-
-    res.id = ObjectSerializer.serialize(data.id, "number", "int64");
-
-    res.is_favorite = ObjectSerializer.serialize(
-      data.isFavorite,
-      "boolean",
-      ""
-    );
-
-    res.modified = ObjectSerializer.serialize(
-      data.modified,
-      "Date",
-      "date-time"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'DashboardList' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    res.type = ObjectSerializer.serialize(data.type, "string", "");
-
-    return res;
   }
 
   public constructor() {}

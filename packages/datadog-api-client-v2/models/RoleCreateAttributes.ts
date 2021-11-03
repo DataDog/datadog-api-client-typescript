@@ -8,12 +8,6 @@
  * Do not edit the class manually.
  */
 
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Attributes of the created role.
- */
-
 export class RoleCreateAttributes {
   /**
    * Creation time of the role.
@@ -30,88 +24,35 @@ export class RoleCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     createdAt: {
       baseName: "created_at",
       type: "Date",
+
       format: "date-time",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
+
       format: "date-time",
     },
     name: {
       baseName: "name",
       type: "string",
-      format: "",
+      required: true,
     },
   };
 
   static getAttributeTypeMap() {
     return RoleCreateAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): RoleCreateAttributes {
-    const res = new RoleCreateAttributes();
-
-    res.createdAt = ObjectSerializer.deserialize(
-      data.created_at,
-      "Date",
-      "date-time"
-    );
-
-    res.modifiedAt = ObjectSerializer.deserialize(
-      data.modified_at,
-      "Date",
-      "date-time"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'RoleCreateAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.deserialize(data.name, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: RoleCreateAttributes): { [key: string]: any } {
-    const attributeTypes = RoleCreateAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.created_at = ObjectSerializer.serialize(
-      data.createdAt,
-      "Date",
-      "date-time"
-    );
-
-    res.modified_at = ObjectSerializer.serialize(
-      data.modifiedAt,
-      "Date",
-      "date-time"
-    );
-
-    if (data.name === undefined) {
-      throw new TypeError(
-        "missing required attribute 'name' on 'RoleCreateAttributes' object"
-      );
-    }
-    res.name = ObjectSerializer.serialize(data.name, "string", "");
-
-    return res;
   }
 
   public constructor() {}

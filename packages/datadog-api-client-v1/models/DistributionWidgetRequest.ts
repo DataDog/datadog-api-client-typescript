@@ -12,11 +12,6 @@ import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Updated distribution widget.
- */
 
 export class DistributionWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -36,206 +31,62 @@ export class DistributionWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     apmStatsQuery: {
       baseName: "apm_stats_query",
       type: "ApmStatsQueryDefinition",
-      format: "",
     },
     eventQuery: {
       baseName: "event_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     logQuery: {
       baseName: "log_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     networkQuery: {
       baseName: "network_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     processQuery: {
       baseName: "process_query",
       type: "ProcessQueryDefinition",
-      format: "",
     },
     profileMetricsQuery: {
       baseName: "profile_metrics_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     q: {
       baseName: "q",
       type: "string",
-      format: "",
     },
     rumQuery: {
       baseName: "rum_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
-      format: "",
     },
     style: {
       baseName: "style",
       type: "WidgetStyle",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return DistributionWidgetRequest.attributeTypeMap;
-  }
-
-  static deserialize(data: { [key: string]: any }): DistributionWidgetRequest {
-    const res = new DistributionWidgetRequest();
-
-    res.apmQuery = ObjectSerializer.deserialize(
-      data.apm_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.apmStatsQuery = ObjectSerializer.deserialize(
-      data.apm_stats_query,
-      "ApmStatsQueryDefinition",
-      ""
-    );
-
-    res.eventQuery = ObjectSerializer.deserialize(
-      data.event_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.logQuery = ObjectSerializer.deserialize(
-      data.log_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.networkQuery = ObjectSerializer.deserialize(
-      data.network_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.processQuery = ObjectSerializer.deserialize(
-      data.process_query,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profileMetricsQuery = ObjectSerializer.deserialize(
-      data.profile_metrics_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.deserialize(data.q, "string", "");
-
-    res.rumQuery = ObjectSerializer.deserialize(
-      data.rum_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.securityQuery = ObjectSerializer.deserialize(
-      data.security_query,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.style = ObjectSerializer.deserialize(data.style, "WidgetStyle", "");
-
-    return res;
-  }
-
-  static serialize(data: DistributionWidgetRequest): { [key: string]: any } {
-    const attributeTypes = DistributionWidgetRequest.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    res.apm_query = ObjectSerializer.serialize(
-      data.apmQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.apm_stats_query = ObjectSerializer.serialize(
-      data.apmStatsQuery,
-      "ApmStatsQueryDefinition",
-      ""
-    );
-
-    res.event_query = ObjectSerializer.serialize(
-      data.eventQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.log_query = ObjectSerializer.serialize(
-      data.logQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.network_query = ObjectSerializer.serialize(
-      data.networkQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.process_query = ObjectSerializer.serialize(
-      data.processQuery,
-      "ProcessQueryDefinition",
-      ""
-    );
-
-    res.profile_metrics_query = ObjectSerializer.serialize(
-      data.profileMetricsQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.q = ObjectSerializer.serialize(data.q, "string", "");
-
-    res.rum_query = ObjectSerializer.serialize(
-      data.rumQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.security_query = ObjectSerializer.serialize(
-      data.securityQuery,
-      "LogQueryDefinition",
-      ""
-    );
-
-    res.style = ObjectSerializer.serialize(data.style, "WidgetStyle", "");
-
-    return res;
   }
 
   public constructor() {}

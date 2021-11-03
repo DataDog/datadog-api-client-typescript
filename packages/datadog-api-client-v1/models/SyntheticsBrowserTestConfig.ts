@@ -12,11 +12,6 @@ import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * Configuration object for a Synthetic browser test.
- */
 
 export class SyntheticsBrowserTestConfig {
   /**
@@ -39,134 +34,40 @@ export class SyntheticsBrowserTestConfig {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
-      format: "",
+      required: true,
     },
     configVariables: {
       baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
-      format: "",
     },
     request: {
       baseName: "request",
       type: "SyntheticsTestRequest",
-      format: "",
+      required: true,
     },
     setCookie: {
       baseName: "setCookie",
       type: "string",
-      format: "",
     },
     variables: {
       baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SyntheticsBrowserTestConfig.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SyntheticsBrowserTestConfig {
-    const res = new SyntheticsBrowserTestConfig();
-
-    if (data.assertions === undefined) {
-      throw new TypeError(
-        "missing required attribute 'assertions' on 'SyntheticsBrowserTestConfig' object"
-      );
-    }
-    res.assertions = ObjectSerializer.deserialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.configVariables = ObjectSerializer.deserialize(
-      data.configVariables,
-      "Array<SyntheticsConfigVariable>",
-      ""
-    );
-
-    if (data.request === undefined) {
-      throw new TypeError(
-        "missing required attribute 'request' on 'SyntheticsBrowserTestConfig' object"
-      );
-    }
-    res.request = ObjectSerializer.deserialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    res.setCookie = ObjectSerializer.deserialize(data.setCookie, "string", "");
-
-    res.variables = ObjectSerializer.deserialize(
-      data.variables,
-      "Array<SyntheticsBrowserVariable>",
-      ""
-    );
-
-    return res;
-  }
-
-  static serialize(data: SyntheticsBrowserTestConfig): { [key: string]: any } {
-    const attributeTypes = SyntheticsBrowserTestConfig.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.assertions === undefined) {
-      throw new TypeError(
-        "missing required attribute 'assertions' on 'SyntheticsBrowserTestConfig' object"
-      );
-    }
-    res.assertions = ObjectSerializer.serialize(
-      data.assertions,
-      "Array<SyntheticsAssertion>",
-      ""
-    );
-
-    res.configVariables = ObjectSerializer.serialize(
-      data.configVariables,
-      "Array<SyntheticsConfigVariable>",
-      ""
-    );
-
-    if (data.request === undefined) {
-      throw new TypeError(
-        "missing required attribute 'request' on 'SyntheticsBrowserTestConfig' object"
-      );
-    }
-    res.request = ObjectSerializer.serialize(
-      data.request,
-      "SyntheticsTestRequest",
-      ""
-    );
-
-    res.setCookie = ObjectSerializer.serialize(data.setCookie, "string", "");
-
-    res.variables = ObjectSerializer.serialize(
-      data.variables,
-      "Array<SyntheticsBrowserVariable>",
-      ""
-    );
-
-    return res;
   }
 
   public constructor() {}

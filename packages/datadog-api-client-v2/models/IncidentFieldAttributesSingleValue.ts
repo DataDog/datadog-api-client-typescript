@@ -9,11 +9,6 @@
  */
 
 import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * A field with a single value selected.
- */
 
 export class IncidentFieldAttributesSingleValue {
   "type"?: IncidentFieldAttributesSingleValueType;
@@ -24,68 +19,26 @@ export class IncidentFieldAttributesSingleValue {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     type: {
       baseName: "type",
       type: "IncidentFieldAttributesSingleValueType",
-      format: "",
     },
     value: {
       baseName: "value",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return IncidentFieldAttributesSingleValue.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): IncidentFieldAttributesSingleValue {
-    const res = new IncidentFieldAttributesSingleValue();
-
-    if (["dropdown", "textbox", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      const raw = new IncidentFieldAttributesSingleValue();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.value = ObjectSerializer.deserialize(data.value, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: IncidentFieldAttributesSingleValue): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      IncidentFieldAttributesSingleValue.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (["dropdown", "textbox", undefined].includes(data.type)) {
-      res.type = data.type;
-    } else {
-      throw TypeError(`invalid enum value ${data.type} for type`);
-    }
-
-    res.value = ObjectSerializer.serialize(data.value, "string", "");
-
-    return res;
   }
 
   public constructor() {}

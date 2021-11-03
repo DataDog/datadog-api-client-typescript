@@ -9,11 +9,6 @@
  */
 
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
-import { ObjectSerializer } from "./ObjectSerializer";
-
-/**
- * The attribute object associated with the SLO correction to be created.
- */
 
 export class SLOCorrectionCreateRequestAttributes {
   "category": SLOCorrectionCategory;
@@ -48,180 +43,58 @@ export class SLOCorrectionCreateRequestAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly discriminator: string | undefined = undefined;
-
   static readonly attributeTypeMap: {
-    [key: string]: { baseName: string; type: string; format: string };
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
   } = {
     category: {
       baseName: "category",
       type: "SLOCorrectionCategory",
-      format: "",
+      required: true,
     },
     description: {
       baseName: "description",
       type: "string",
-      format: "",
     },
     duration: {
       baseName: "duration",
       type: "number",
+
       format: "int64",
     },
     end: {
       baseName: "end",
       type: "number",
+
       format: "int64",
     },
     rrule: {
       baseName: "rrule",
       type: "string",
-      format: "",
     },
     sloId: {
       baseName: "slo_id",
       type: "string",
-      format: "",
+      required: true,
     },
     start: {
       baseName: "start",
       type: "number",
+      required: true,
       format: "int64",
     },
     timezone: {
       baseName: "timezone",
       type: "string",
-      format: "",
     },
   };
 
   static getAttributeTypeMap() {
     return SLOCorrectionCreateRequestAttributes.attributeTypeMap;
-  }
-
-  static deserialize(data: {
-    [key: string]: any;
-  }): SLOCorrectionCreateRequestAttributes {
-    const res = new SLOCorrectionCreateRequestAttributes();
-
-    if (data.category === undefined) {
-      throw new TypeError(
-        "missing required attribute 'category' on 'SLOCorrectionCreateRequestAttributes' object"
-      );
-    }
-    if (
-      [
-        "Scheduled Maintenance",
-        "Outside Business Hours",
-        "Deployment",
-        "Other",
-        undefined,
-      ].includes(data.category)
-    ) {
-      res.category = data.category;
-    } else {
-      const raw = new SLOCorrectionCreateRequestAttributes();
-      raw.unparsedObject = data;
-      return raw;
-    }
-
-    res.description = ObjectSerializer.deserialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.duration = ObjectSerializer.deserialize(
-      data.duration,
-      "number",
-      "int64"
-    );
-
-    res.end = ObjectSerializer.deserialize(data.end, "number", "int64");
-
-    res.rrule = ObjectSerializer.deserialize(data.rrule, "string", "");
-
-    if (data.slo_id === undefined) {
-      throw new TypeError(
-        "missing required attribute 'slo_id' on 'SLOCorrectionCreateRequestAttributes' object"
-      );
-    }
-    res.sloId = ObjectSerializer.deserialize(data.slo_id, "string", "");
-
-    if (data.start === undefined) {
-      throw new TypeError(
-        "missing required attribute 'start' on 'SLOCorrectionCreateRequestAttributes' object"
-      );
-    }
-    res.start = ObjectSerializer.deserialize(data.start, "number", "int64");
-
-    res.timezone = ObjectSerializer.deserialize(data.timezone, "string", "");
-
-    return res;
-  }
-
-  static serialize(data: SLOCorrectionCreateRequestAttributes): {
-    [key: string]: any;
-  } {
-    const attributeTypes =
-      SLOCorrectionCreateRequestAttributes.getAttributeTypeMap();
-    const res: { [index: string]: any } = {};
-    for (const [key, value] of Object.entries(data)) {
-      if (!(key in attributeTypes)) {
-        throw new TypeError(`${key} attribute not in schema`);
-      }
-    }
-    if (data?.unparsedObject !== undefined) {
-      return data.unparsedObject;
-    }
-    if (data.category === undefined) {
-      throw new TypeError(
-        "missing required attribute 'category' on 'SLOCorrectionCreateRequestAttributes' object"
-      );
-    }
-    if (
-      [
-        "Scheduled Maintenance",
-        "Outside Business Hours",
-        "Deployment",
-        "Other",
-        undefined,
-      ].includes(data.category)
-    ) {
-      res.category = data.category;
-    } else {
-      throw TypeError(`invalid enum value ${data.category} for category`);
-    }
-
-    res.description = ObjectSerializer.serialize(
-      data.description,
-      "string",
-      ""
-    );
-
-    res.duration = ObjectSerializer.serialize(data.duration, "number", "int64");
-
-    res.end = ObjectSerializer.serialize(data.end, "number", "int64");
-
-    res.rrule = ObjectSerializer.serialize(data.rrule, "string", "");
-
-    if (data.sloId === undefined) {
-      throw new TypeError(
-        "missing required attribute 'slo_id' on 'SLOCorrectionCreateRequestAttributes' object"
-      );
-    }
-    res.slo_id = ObjectSerializer.serialize(data.sloId, "string", "");
-
-    if (data.start === undefined) {
-      throw new TypeError(
-        "missing required attribute 'start' on 'SLOCorrectionCreateRequestAttributes' object"
-      );
-    }
-    res.start = ObjectSerializer.serialize(data.start, "number", "int64");
-
-    res.timezone = ObjectSerializer.serialize(data.timezone, "string", "");
-
-    return res;
   }
 
   public constructor() {}
