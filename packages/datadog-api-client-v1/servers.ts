@@ -1,30 +1,26 @@
 import { RequestContext, HttpMethod } from "./http/http";
 
-export interface BaseServerConfiguration {
-  makeRequestContext(endpoint: string, httpMethod: HttpMethod): RequestContext;
-}
-
 /**
  *
- * Represents the configuration of a server including its
- * url template and variable configuration based on the url.
+ * Represents the configuration of a server
  *
  */
-export class ServerConfiguration<T extends { [key: string]: string }>
-  implements BaseServerConfiguration
-{
-  public constructor(private url: string, private variableConfiguration: T) {}
+export class BaseServerConfiguration {
+  public constructor(
+    private url: string,
+    private variableConfiguration: { [key: string]: string }
+  ) {}
 
   /**
    * Sets the value of the variables of this server.
    *
    * @param variableConfiguration a partial variable configuration for the variables contained in the url
    */
-  public setVariables(variableConfiguration: Partial<T>) {
+  public setVariables(variableConfiguration: { [key: string]: string }) {
     Object.assign(this.variableConfiguration, variableConfiguration);
   }
 
-  public getConfiguration(): T {
+  public getConfiguration(): { [key: string]: string } {
     return this.variableConfiguration;
   }
 
@@ -52,6 +48,16 @@ export class ServerConfiguration<T extends { [key: string]: string }>
     return new RequestContext(this.getUrl() + endpoint, httpMethod);
   }
 }
+
+/**
+ *
+ * Represents the configuration of a server including its
+ * url template and variable configuration based on the url.
+ *
+ */
+export class ServerConfiguration<
+  T extends { [key: string]: string }
+> extends BaseServerConfiguration {}
 
 export const server1 = new ServerConfiguration<{
   site:
