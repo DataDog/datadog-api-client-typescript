@@ -26,22 +26,22 @@ function relativeTime(iso: boolean): any {
         const unit = m[4];
         switch (unit) {
           case "s":
-            ret.setSeconds(ret.getSeconds() + num);
+            ret.setUTCSeconds(ret.getUTCSeconds() + num);
             break;
           case "m":
-            ret.setMinutes(ret.getMinutes() + num);
+            ret.setUTCMinutes(ret.getUTCMinutes() + num);
             break;
           case "h":
-            ret.setHours(ret.getHours() + num);
+            ret.setUTCHours(ret.getUTCHours() + num);
             break;
           case "d":
-            ret.setDate(ret.getDate() + num);
+            ret.setUTCDate(ret.getUTCDate() + num);
             break;
           case "M":
-            ret.setMonth(ret.getMonth() + num);
+            ret.setUTCMonth(ret.getUTCMonth() + num);
             break;
           case "y":
-            ret.setFullYear(ret.getFullYear() + num);
+            ret.setUTCFullYear(ret.getUTCFullYear() + num);
             break;
         }
       }

@@ -87,9 +87,7 @@ export function createConfiguration(
     const serverConf = server1.getConfiguration();
     server1.setVariables({ site: process.env.DD_SITE } as typeof serverConf);
     for (const op in operationServers) {
-      (operationServers[op][0] as any).setVariables({
-        site: process.env.DD_SITE,
-      });
+      operationServers[op][0].setVariables({ site: process.env.DD_SITE });
     }
   }
 
@@ -134,4 +132,26 @@ export function getServer(
   return endpoint in operationServers
     ? operationServers[endpoint][index]
     : servers[index];
+}
+
+/**
+ * Sets the server variables.
+ *
+ * @param serverVariables key/value object representing the server variables (site, name, protocol, ...)
+ */
+export function setServerVariables(
+  conf: Configuration,
+  serverVariables: { [key: string]: string }
+) {
+  if (conf.baseServer !== undefined) {
+    conf.baseServer.setVariables(serverVariables);
+    return;
+  }
+
+  const index = conf.serverIndex;
+  servers[index].setVariables(serverVariables);
+
+  for (const op in operationServers) {
+    operationServers[op][0].setVariables(serverVariables);
+  }
 }

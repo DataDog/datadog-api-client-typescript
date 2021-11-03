@@ -39,6 +39,20 @@ apiInstance.getMonitor(params).then((data:any) => {
 
 ```
 
+### Changing Server
+
+When talking to a different server, like the `eu` instance, change the server variables:
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+
+const configuration = v1.createConfiguration();
+
+v1.setServerVariables(configuration, {
+  site: "datadoghq.eu"
+});
+```
+
 ### Disable compressed payloads
 
 If you want to disable GZIP compressed responses, set the `compress` flag
