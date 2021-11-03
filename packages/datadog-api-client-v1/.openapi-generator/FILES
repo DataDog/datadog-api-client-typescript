@@ -483,6 +483,8 @@ models/SyntheticsBrowserVariableType.ts
 models/SyntheticsCIBatchMetadata.ts
 models/SyntheticsCIBatchMetadataCI.ts
 models/SyntheticsCIBatchMetadataGit.ts
+models/SyntheticsCIBatchMetadataPipeline.ts
+models/SyntheticsCIBatchMetadataProvider.ts
 models/SyntheticsCITest.ts
 models/SyntheticsCITestBody.ts
 models/SyntheticsCheckType.ts

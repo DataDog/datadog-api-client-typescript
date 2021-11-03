@@ -11,18 +11,14 @@
 import { ObjectSerializer } from "./ObjectSerializer";
 
 /**
- * Git information.
+ * Description of the CI pipeline.
  */
 
-export class SyntheticsCIBatchMetadataGit {
+export class SyntheticsCIBatchMetadataPipeline {
   /**
-   * The branch name.
+   * URL of the pipeline.
    */
-  "branch"?: string;
-  /**
-   * The commit SHA.
-   */
-  "commitSha"?: string;
+  "url"?: string;
 
   "unparsedObject"?: any;
 
@@ -31,36 +27,32 @@ export class SyntheticsCIBatchMetadataGit {
   static readonly attributeTypeMap: {
     [key: string]: { baseName: string; type: string; format: string };
   } = {
-    branch: {
-      baseName: "branch",
-      type: "string",
-      format: "",
-    },
-    commitSha: {
-      baseName: "commitSha",
+    url: {
+      baseName: "url",
       type: "string",
       format: "",
     },
   };
 
   static getAttributeTypeMap() {
-    return SyntheticsCIBatchMetadataGit.attributeTypeMap;
+    return SyntheticsCIBatchMetadataPipeline.attributeTypeMap;
   }
 
   static deserialize(data: {
     [key: string]: any;
-  }): SyntheticsCIBatchMetadataGit {
-    const res = new SyntheticsCIBatchMetadataGit();
+  }): SyntheticsCIBatchMetadataPipeline {
+    const res = new SyntheticsCIBatchMetadataPipeline();
 
-    res.branch = ObjectSerializer.deserialize(data.branch, "string", "");
-
-    res.commitSha = ObjectSerializer.deserialize(data.commitSha, "string", "");
+    res.url = ObjectSerializer.deserialize(data.url, "string", "");
 
     return res;
   }
 
-  static serialize(data: SyntheticsCIBatchMetadataGit): { [key: string]: any } {
-    const attributeTypes = SyntheticsCIBatchMetadataGit.getAttributeTypeMap();
+  static serialize(data: SyntheticsCIBatchMetadataPipeline): {
+    [key: string]: any;
+  } {
+    const attributeTypes =
+      SyntheticsCIBatchMetadataPipeline.getAttributeTypeMap();
     const res: { [index: string]: any } = {};
     for (const [key, value] of Object.entries(data)) {
       if (!(key in attributeTypes)) {
@@ -70,9 +62,7 @@ export class SyntheticsCIBatchMetadataGit {
     if (data?.unparsedObject !== undefined) {
       return data.unparsedObject;
     }
-    res.branch = ObjectSerializer.serialize(data.branch, "string", "");
-
-    res.commitSha = ObjectSerializer.serialize(data.commitSha, "string", "");
+    res.url = ObjectSerializer.serialize(data.url, "string", "");
 
     return res;
   }
