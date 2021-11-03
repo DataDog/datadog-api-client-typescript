@@ -25,13 +25,6 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
 
     'unparsedObject'?:any;
 
-    {{#discriminator}}
-    static readonly discriminator: string | undefined = "{{discriminatorName}}";
-    {{/discriminator}}
-    {{^discriminator}}
-    static readonly discriminator: string | undefined = undefined;
-    {{/discriminator}}
-
     {{^isArray}}
     static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, required?: boolean, format?: string}} = {
         {{#vars}}

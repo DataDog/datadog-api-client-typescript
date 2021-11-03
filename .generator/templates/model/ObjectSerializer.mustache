@@ -57,41 +57,6 @@ let oneOfMap: {[index: string]: string[]} = {
 };
 
 export class ObjectSerializer {
-    public static findCorrectType(data: any, expectedType: string) {
-        if (data == undefined) {
-            return expectedType;
-        } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-            return expectedType;
-        } else if (expectedType === "Date") {
-            return expectedType;
-        } else {
-            if (enumsMap[expectedType]) {
-                return expectedType;
-            }
-
-            if (!typeMap[expectedType]) {
-                return expectedType; // w/e we don't know the type
-            }
-
-            // Check the discriminator
-            let discriminatorProperty = typeMap[expectedType].discriminator;
-            if (discriminatorProperty == null) {
-                return expectedType; // the type does not have a discriminator. use it.
-            } else {
-                if (data[discriminatorProperty]) {
-                    var discriminatorType = data[discriminatorProperty];
-                    if(typeMap[discriminatorType]){
-                        return discriminatorType; // use the type given in the discriminator
-                    } else {
-                        return expectedType; // discriminator did not map to a type
-                    }
-                } else {
-                    return expectedType; // discriminator was not present (or an empty string)
-                }
-            }
-        }
-    }
-
     public static serialize(data: any, type: string, format: string) {
         if (data == undefined) {
             return data;
@@ -154,13 +119,6 @@ export class ObjectSerializer {
                 return oneOfs[0];
             }
 
-            if (!typeMap[type]) { // in case we dont know the type
-                throw new TypeError(`unknown type '${type}'`);
-            }
-
-            // Get the actual type of this object
-            type = this.findCorrectType(data, type);
-
             // get the map for the correct type.
             let attributesMap = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
@@ -183,8 +141,6 @@ export class ObjectSerializer {
     }
 
     public static deserialize(data: any, type: string, format: string = "") {
-        // polymorphism may change the actual type.
-        type = ObjectSerializer.findCorrectType(data, type);
         if (data == undefined) {
             return data;
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
