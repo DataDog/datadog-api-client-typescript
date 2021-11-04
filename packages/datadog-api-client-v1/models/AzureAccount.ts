@@ -10,6 +10,10 @@
 
 export class AzureAccount {
   /**
+   * Silence monitors for expected Azure VM shutdowns.
+   */
+  "automute"?: boolean;
+  /**
    * Your Azure web application ID.
    */
   "clientId"?: string;
@@ -48,6 +52,10 @@ export class AzureAccount {
       format?: string;
     };
   } = {
+    automute: {
+      baseName: "automute",
+      type: "boolean",
+    },
     clientId: {
       baseName: "client_id",
       type: "string",
