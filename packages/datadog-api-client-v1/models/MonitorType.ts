@@ -20,18 +20,16 @@ export type MonitorType =
   | typeof SYNTHETICS_ALERT
   | typeof TRACE_ANALYTICS_ALERT
   | typeof SLO_ALERT
-  | typeof EVENT_V2_ALERT
-  | typeof AUDIT_ALERT;
+  | typeof EVENT_V2_ALERT;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
 export const LOG_ALERT = "log alert";
-export const METRIC_ALERT = "metric alert";
-export const PROCESS_ALERT = "process alert";
-export const QUERY_ALERT = "query alert";
-export const RUM_ALERT = "rum alert";
-export const SERVICE_CHECK = "service check";
-export const SYNTHETICS_ALERT = "synthetics alert";
-export const TRACE_ANALYTICS_ALERT = "trace-analytics alert";
-export const SLO_ALERT = "slo alert";
-export const EVENT_V2_ALERT = "event-v2 alert";
-export const AUDIT_ALERT = "audit alert";
+export const METRIC_ALERT = "process alert";
+export const PROCESS_ALERT = "query alert";
+export const QUERY_ALERT = "rum alert";
+export const RUM_ALERT = "service check";
+export const SERVICE_CHECK = "synthetics alert";
+export const SYNTHETICS_ALERT = "trace-analytics alert";
+export const TRACE_ANALYTICS_ALERT = "slo alert";
+export const SLO_ALERT = "event-v2 alert";
+export const EVENT_V2_ALERT = "audit alert";

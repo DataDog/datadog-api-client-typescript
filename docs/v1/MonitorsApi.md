@@ -94,7 +94,7 @@ The type of monitor chosen from:
 - integration: `query alert` or `service check`
 - live process: `process alert`
 - logs: `log alert`
-- metric: `metric alert`
+- metric: `query alert`
 - network: `service check`
 - outlier: `query alert`
 - process: `service check`
@@ -278,7 +278,7 @@ let params: v1.MonitorsApiCreateMonitorRequest = {
     query: "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
     restrictedRoles: ["restrictedRoles_example"],
     tags: ["tags_example"],
-    type: "metric alert",
+    type: "query alert",
   },
 };
 
@@ -726,7 +726,7 @@ let params: v1.MonitorsApiUpdateMonitorRequest = {
     query: "query_example",
     restrictedRoles: ["restrictedRoles_example"],
     tags: ["tags_example"],
-    type: "metric alert",
+    type: "query alert",
   },
 };
 
@@ -832,7 +832,7 @@ let params: v1.MonitorsApiValidateMonitorRequest = {
     query: "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
     restrictedRoles: ["restrictedRoles_example"],
     tags: ["tags_example"],
-    type: "metric alert",
+    type: "query alert",
   },
 };
 
