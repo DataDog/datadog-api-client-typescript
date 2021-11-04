@@ -50,6 +50,7 @@ export {
   LogsApiAggregateLogsRequest,
   LogsApiListLogsRequest,
   LogsApiListLogsGetRequest,
+  LogsApiSubmitLogRequest,
   ObjectLogsApi as LogsApi,
   LogsArchivesApiAddReadRoleToArchiveRequest,
   LogsArchivesApiCreateLogsArchiveRequest,

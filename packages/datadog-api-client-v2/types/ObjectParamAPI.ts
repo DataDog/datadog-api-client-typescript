@@ -9,6 +9,7 @@ import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateReque
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { ContentEncoding } from "../models/ContentEncoding";
 import { DashboardListAddItemsRequest } from "../models/DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "../models/DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "../models/DashboardListDeleteItemsRequest";
@@ -16,6 +17,7 @@ import { DashboardListDeleteItemsResponse } from "../models/DashboardListDeleteI
 import { DashboardListItems } from "../models/DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "../models/DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "../models/DashboardListUpdateItemsResponse";
+import { HTTPLogItem } from "../models/HTTPLogItem";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
@@ -1283,6 +1285,27 @@ export interface LogsApiListLogsGetRequest {
   pageLimit?: number;
 }
 
+export interface LogsApiSubmitLogRequest {
+  /**
+   * Log to send (JSON format).
+   * @type Array&lt;HTTPLogItem&gt;
+   * @memberof LogsApisubmitLog
+   */
+  body: Array<HTTPLogItem>;
+  /**
+   * HTTP header used to compress the media-type.
+   * @type ContentEncoding
+   * @memberof LogsApisubmitLog
+   */
+  contentEncoding?: ContentEncoding;
+  /**
+   * Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
+   * @type string
+   * @memberof LogsApisubmitLog
+   */
+  ddtags?: string;
+}
+
 export class ObjectLogsApi {
   private api: ObservableLogsApi;
 
@@ -1342,6 +1365,20 @@ export class ObjectLogsApi {
         param.pageLimit,
         options
       )
+      .toPromise();
+  }
+
+  /**
+   * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for processing - 400: Bad request (likely an issue in the payload formatting) - 401: Unauthorized (likely a missing API Key) - 403: Permission issue (likely using an invalid API Key) - 408: Request Timeout, request should be retried after some time - 413: Payload too large (batch is above 5MB uncompressed) - 429: Too Many Requests, request should be retried after some time - 500: Internal Server Error, the server encountered an unexpected condition that prevented it from fulfilling the request, request should be retried after some time - 503: Service Unavailable, the server is not ready to handle the request probably because it is overloaded, request should be retried after some time
+   * Send logs
+   * @param param the request object
+   */
+  public submitLog(
+    param: LogsApiSubmitLogRequest,
+    options?: Configuration
+  ): Promise<any> {
+    return this.api
+      .submitLog(param.body, param.contentEncoding, param.ddtags, options)
       .toPromise();
   }
 }
