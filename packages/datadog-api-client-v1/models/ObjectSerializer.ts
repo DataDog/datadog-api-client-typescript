@@ -635,7 +635,6 @@ const enumsMap: { [key: string]: any[] } = {
     "composite",
     "event alert",
     "log alert",
-    "metric alert",
     "process alert",
     "query alert",
     "rum alert",
