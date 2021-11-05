@@ -64,6 +64,12 @@ export interface PromiseMiddleware {
     post(context: ResponseContext): Promise<ResponseContext>;
 }
 
+/**
+ * A middleware intercepting requests before
+ * they are sent (but after the RequestContext was created)
+ * and before the ResponseContext is unwrapped for debugging purposes.
+ *
+ */
 export class DebugMiddleWare implements Middleware {
     /**
      * Modifies the request before the request is sent.
@@ -73,25 +79,24 @@ export class DebugMiddleWare implements Middleware {
      *
      */
     pre(context: RequestContext): Observable<RequestContext> {
-        let headers_ = context.getHeaders();
-        headers_["DD-API-KEY"] = headers_["DD-API-KEY"].replace(/./g, "x")
-        headers_["DD-APPLICATION-KEY"] = headers_["DD-APPLICATION-KEY"].replace(/./g, "x")
+      const headers_ = context.getHeaders();
+      headers_["DD-API-KEY"] = headers_["DD-API-KEY"].replace(/./g, "x");
+      headers_["DD-APPLICATION-KEY"] = headers_["DD-APPLICATION-KEY"].replace(
+        /./g,
+        "x"
+      );
 
-        const headers = JSON.stringify(headers_, null, 2).replace(/\n/g, '\n\t')
-        const method = context.getHttpMethod().toString();
-        const url = context.getUrl().toString()
-        const body = context.getBody() ? JSON.stringify(context.getBody(), null, 2).replace(/\n/g, '\n\t') : "";
-        const compress = context.getHttpConfig().compress || true;
+      const headers = JSON.stringify(headers_, null, 2).replace(/\n/g, "\n\t");
+      const method = context.getHttpMethod().toString();
+      const url = context.getUrl().toString();
+      const body = context.getBody()
+        ? JSON.stringify(context.getBody(), null, 2).replace(/\n/g, "\n\t")
+        : "";
+      const compress = context.getHttpConfig().compress || true;
 
-        console.debug(`\nRequest:
-        \turl: ${url} +
-        \tmethod: ${method}
-        \theaders: ${headers}
-        \tcompress: ${compress}
-        \tbody: ${body}\n
-        `);
+      console.debug("\nrequest: {\n", `\turl: ${url}\n`, `\tmethod: ${method}\n`, `\theaders: ${headers}\n`, `\tcompress: ${compress}\n`, `\tbody: ${body}\n}\n`);
 
-        return of(context);
+      return of(context);
     }
 
     /**
@@ -101,16 +106,17 @@ export class DebugMiddleWare implements Middleware {
      * @returns an observable of the modified response context
      */
     post(context: ResponseContext): Observable<ResponseContext> {
-        const httpStatusCode = context.httpStatusCode;
-        const headers = JSON.stringify(context.headers, null, 2).replace(/\n/g, '\n\t')
-        const body = context.body ? JSON.stringify(context.body, null, 2).replace(/\n/g, '\n\t') : "";
+      const httpStatusCode = context.httpStatusCode;
+      const headers = JSON.stringify(context.headers, null, 2).replace(
+        /\n/g,
+        "\n\t"
+      );
+      const body = context.body
+        ? JSON.stringify(context.body, null, 2).replace(/\n/g, "\n\t")
+        : "";
 
-        console.debug("Response:");
+      console.debug("response: {\n", `\tstatus: ${httpStatusCode}\n`, `\theaders: ${headers}\n`, `\tbody: ${body}\n}\n`);
 
-        console.debug(`\tstatus: ${httpStatusCode}`);
-        console.debug(`\theaders: ${headers}`);
-        console.debug(`\tbody: ${body}\n`);
-
-        return of(context);
+      return of(context);
     }
-}
+  }
