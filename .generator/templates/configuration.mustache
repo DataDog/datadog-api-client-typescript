@@ -19,6 +19,7 @@ export interface Configuration {
     readonly middleware: Middleware[];
     readonly authMethods: AuthMethods;
     readonly httpConfig: HttpConfiguration;
+    readonly debug: boolean;
 }
 
 
@@ -58,6 +59,10 @@ export interface ConfigurationParameters {
      * Configuration for HTTP transport
      */
     httpConfig?: HttpConfiguration
+    /**
+     * Flag to enable requests tracing
+     */
+    debug?: boolean
 }
 
 /**
@@ -72,6 +77,7 @@ export interface ConfigurationParameters {
  *    - promiseMiddleware: []
  *    - authMethods: {}
  *    - httpConfig: {}
+ *    - debug: false
  *
  * @param conf partial configuration
  */
@@ -101,9 +107,10 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         serverIndex: conf.serverIndex || 0,
         operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
-        middleware: conf.middleware || (process.env.DEBUG ? [ new DebugMiddleWare() ]: []),
+        middleware: conf.middleware || (process.env.DEBUG || conf.debug ? [ new DebugMiddleWare() ] : []),
         authMethods: configureAuthMethods(authMethods),
-        httpConfig: conf.httpConfig || {}
+        httpConfig: conf.httpConfig || {},
+        debug: conf.debug
     };
     if (conf.promiseMiddleware) {
         conf.promiseMiddleware.forEach(
