@@ -55,11 +55,62 @@ export interface PromiseMiddleware {
      *
      */
     pre(context: RequestContext): Promise<RequestContext>;
-        /**
+    /**
      * Modifies the returned response before it is deserialized.
      *
      * @param context ResponseContext of a sent request
      * @returns an observable of the modified response context
      */
     post(context: ResponseContext): Promise<ResponseContext>;
+}
+
+export class DebugMiddleWare implements Middleware {
+    /**
+     * Modifies the request before the request is sent.
+     *
+     * @param context RequestContext of a request which is about to be sent to the server
+     * @returns an observable of the updated request context
+     *
+     */
+    pre(context: RequestContext): Observable<RequestContext> {
+        let headers_ = context.getHeaders();
+        headers_["DD-API-KEY"] = headers_["DD-API-KEY"].replace(/./g, "x")
+        headers_["DD-APPLICATION-KEY"] = headers_["DD-APPLICATION-KEY"].replace(/./g, "x")
+
+        const headers = JSON.stringify(headers, null, 2).replace(/\n/g, '\n\t')
+        const method = context.getHttpMethod().toString();
+        const url = context.getUrl().toString()
+        const body = context.getBody() ? JSON.stringify(context.getBody(), null, 2).replace(/\n/g, '\n\t');
+        const compress = context.getHttpConfig().compress || true;
+
+        console.debug("\nRequest:")
+
+        console.debug(`\turl: ${url}`);
+        console.debug(`\tmethod: ${method}`);
+        console.debug(`\theaders: ${headers}`);
+        console.debug(`\tcompress: ${compress}`);
+        console.debug(`\tbody: ${body}\n`);
+
+        return of(context);
+    }
+
+    /**
+     * Modifies the returned response before it is deserialized.
+     *
+     * @param context ResponseContext of a sent request
+     * @returns an observable of the modified response context
+     */
+    post(context: ResponseContext): Observable<ResponseContext> {
+        const httpStatusCode = context.httpStatusCode;
+        const headers = JSON.stringify(context.headers, null, 2).replace(/\n/g, '\n\t')
+        const body = context.body ? JSON.stringify(context.body, null, 2).replace(/\n/g, '\n\t') : "";
+
+        console.debug("Response:");
+
+        console.debug(`\tstatus: ${httpStatusCode}`);
+        console.debug(`\theaders: ${headers}`);
+        console.debug(`\tbody: ${body}\n`);
+
+        return of(context);
+    }
 }

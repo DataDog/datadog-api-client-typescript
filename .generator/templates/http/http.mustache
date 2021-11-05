@@ -307,6 +307,15 @@ export interface HttpLibrary {
     send(request: RequestContext): Observable<ResponseContext>;
 }
 
+export function wrapperHttpLibrary(httpLibrary: HttpLibrary): HttpLibrary {
+  return {
+    send(request: RequestContext): Observable<ResponseContext> {
+      return from(httpLibrary.send(request));
+    }
+  }
+}
+
+
 export interface PromiseHttpLibrary {
     send(request: RequestContext): Promise<ResponseContext>;
 }

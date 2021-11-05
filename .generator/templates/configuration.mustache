@@ -101,7 +101,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         serverIndex: conf.serverIndex || 0,
         operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
-        middleware: conf.middleware || [],
+        middleware: conf.middleware || (process.env.DEBUG ? [ new DebugMiddleWare() ]: []),
         authMethods: configureAuthMethods(authMethods),
         httpConfig: conf.httpConfig || {}
     };
