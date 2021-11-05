@@ -31,6 +31,9 @@ import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { HTTPLogError } from "./HTTPLogError";
+import { HTTPLogErrors } from "./HTTPLogErrors";
+import { HTTPLogItem } from "./HTTPLogItem";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -291,6 +294,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  ContentEncoding: ["gzip", "deflate"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -433,6 +437,9 @@ const typeMap: { [index: string]: any } = {
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  HTTPLogError: HTTPLogError,
+  HTTPLogErrors: HTTPLogErrors,
+  HTTPLogItem: HTTPLogItem,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,

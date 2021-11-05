@@ -59,6 +59,7 @@ models/ApplicationKeyUpdateData.ts
 models/ApplicationKeyUpdateRequest.ts
 models/ApplicationKeysSort.ts
 models/ApplicationKeysType.ts
+models/ContentEncoding.ts
 models/Creator.ts
 models/DashboardListAddItemsRequest.ts
 models/DashboardListAddItemsResponse.ts
@@ -75,6 +76,9 @@ models/FullAPIKey.ts
 models/FullAPIKeyAttributes.ts
 models/FullApplicationKey.ts
 models/FullApplicationKeyAttributes.ts
+models/HTTPLogError.ts
+models/HTTPLogErrors.ts
+models/HTTPLogItem.ts
 models/IncidentCreateAttributes.ts
 models/IncidentCreateData.ts
 models/IncidentCreateRelationships.ts

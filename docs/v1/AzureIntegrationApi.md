@@ -34,6 +34,7 @@ const apiInstance = new v1.AzureIntegrationApi(configuration);
 let params: v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
   // AzureAccount | Create a Datadog-Azure integration for your Datadog account request body.
   body: {
+    automute: true,
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
     errors: ["*"],
@@ -101,6 +102,7 @@ const apiInstance = new v1.AzureIntegrationApi(configuration);
 let params: v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
   // AzureAccount | Delete a given Datadog-Azure integration request body.
   body: {
+    automute: true,
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
     errors: ["*"],
@@ -220,6 +222,7 @@ const apiInstance = new v1.AzureIntegrationApi(configuration);
 let params: v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
   // AzureAccount | Update a Datadog-Azure integration's host filters request body.
   body: {
+    automute: true,
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
     errors: ["*"],
@@ -289,6 +292,7 @@ const apiInstance = new v1.AzureIntegrationApi(configuration);
 let params: v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
   // AzureAccount | Update a Datadog-Azure integration request body.
   body: {
+    automute: true,
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
     errors: ["*"],
