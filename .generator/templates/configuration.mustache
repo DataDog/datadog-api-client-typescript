@@ -1,5 +1,5 @@
 import { HttpLibrary, HttpConfiguration } from "./http/http{{extensionForDeno}}";
-import { Middleware, PromiseMiddleware, PromiseMiddlewareWrapper } from "./middleware{{extensionForDeno}}";
+import { DebugMiddleWare, Middleware, PromiseMiddleware, PromiseMiddlewareWrapper} from "./middleware{{extensionForDeno}}";
 {{#frameworks}}
 {{#fetch-api}}
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch{{extensionForDeno}}";
@@ -90,6 +90,10 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         }
     }
 
+    if (process.env.DEBUG) {
+        conf.debug = true
+    }
+
     const authMethods = conf.authMethods || {};
     {{#authMethods}}
     {{#isApiKey}}
@@ -107,7 +111,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         serverIndex: conf.serverIndex || 0,
         operationServerIndices: conf.operationServerIndices || {},
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
-        middleware: conf.middleware || (process.env.DEBUG || conf.debug ? [ new DebugMiddleWare() ] : []),
+        middleware: conf.middleware || (conf.debug ? [ new DebugMiddleWare() ] : []),
         authMethods: configureAuthMethods(authMethods),
         httpConfig: conf.httpConfig || {},
         debug: conf.debug
