@@ -80,7 +80,7 @@ export class DebugMiddleWare implements Middleware {
         const headers = JSON.stringify(headers, null, 2).replace(/\n/g, '\n\t')
         const method = context.getHttpMethod().toString();
         const url = context.getUrl().toString()
-        const body = context.getBody() ? JSON.stringify(context.getBody(), null, 2).replace(/\n/g, '\n\t');
+        const body = context.getBody() ? JSON.stringify(context.getBody(), null, 2).replace(/\n/g, '\n\t') : "";
         const compress = context.getHttpConfig().compress || true;
 
         console.debug("\nRequest:")
