@@ -90,10 +90,6 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         }
     }
 
-    if (process.env.DEBUG) {
-        conf.debug = true
-    }
-
     const authMethods = conf.authMethods || {};
     {{#authMethods}}
     {{#isApiKey}}
