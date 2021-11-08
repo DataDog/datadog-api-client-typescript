@@ -4,6 +4,9 @@ import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName
 {{/model}}
 {{/models}}
 
+import log from "loglevel";
+log.setLevel(process.env.DEBUG ? "debug" : "warn");
+
 /* tslint:disable:no-unused-variable */
 let primitives = [
                     "string",
@@ -107,7 +110,7 @@ export class ObjectSerializer {
                     try {
                         oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
                     } catch (e) {
-                        console.debug(`could not serialize ${oneOf} (${e})`)
+                        log.debug(`could not serialize ${oneOf} (${e})`)
                     }
                 }
                 if (oneOfs.length > 1) {
@@ -179,7 +182,7 @@ export class ObjectSerializer {
                             oneOfs.push(d);
                         }
                     } catch (e) {
-                        console.debug(`could not deserialize ${oneOf} (${e})`)
+                        log.debug(`could not deserialize ${oneOf} (${e})`)
                     }
 
                 }

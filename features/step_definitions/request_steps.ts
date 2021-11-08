@@ -9,6 +9,9 @@ import * as datadogApiClient from "../../index";
 import fs from "fs";
 import path from "path";
 
+import log from "loglevel";
+log.setLevel(process.env.DEBUG ? "debug" : "warn");
+
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
 });
@@ -119,9 +122,9 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    console.log(error);
+    log.trace(error);
     if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
-      console.log(this.requestContext.body.text);
+      log.trace(this.requestContext.body.text);
       throw error;
     }
   }

@@ -3,6 +3,9 @@ import path from "path";
 import { getProperty, pathLookup } from "./templating";
 import * as datadogApiClient from "../../index";
 
+import log from "loglevel";
+log.setLevel(process.env.DEBUG ? "debug" : "warn");
+
 interface iOperationParameter {
   name: string;
   source: string;
@@ -87,7 +90,7 @@ function buildUndoFor(
     try {
       await apiInstance[operationName](opts);
     } catch (error) {
-      console.error(`could not undo operation ${operationOrig}: ${error}`);
+        log.error(`could not undo operation ${operationOrig}: ${error}`);
     }
   };
 }
