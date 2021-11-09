@@ -1159,7 +1159,7 @@ export class ObjectDowntimesApi {
   }
 
   /**
-   * Get all downtimes for the specified monitor
+   * Get all active downtimes for the specified monitor.
    * Get all downtimes for a monitor
    * @param param the request object
    */

@@ -331,7 +331,7 @@ apiInstance
 
 > Array<Downtime> listMonitorDowntimes()
 
-Get all downtimes for the specified monitor
+Get all active downtimes for the specified monitor.
 
 ### Example
 
