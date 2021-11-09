@@ -1,5 +1,6 @@
 import { HttpLibrary, HttpConfiguration } from "./http/http";
 import {
+  DebugMiddleWare,
   Middleware,
   PromiseMiddleware,
   PromiseMiddlewareWrapper,
@@ -25,6 +26,7 @@ export interface Configuration {
   readonly middleware: Middleware[];
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
+  readonly debug: boolean | undefined;
 }
 
 /**
@@ -63,6 +65,10 @@ export interface ConfigurationParameters {
    * Configuration for HTTP transport
    */
   httpConfig?: HttpConfiguration;
+  /**
+   * Flag to enable requests tracing
+   */
+  debug?: boolean;
 }
 
 /**
@@ -77,6 +83,7 @@ export interface ConfigurationParameters {
  *    - promiseMiddleware: []
  *    - authMethods: {}
  *    - httpConfig: {}
+ *    - debug: false
  *
  * @param conf partial configuration
  */
@@ -106,9 +113,10 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
-    middleware: conf.middleware || [],
+    middleware: conf.middleware || (conf.debug ? [new DebugMiddleWare()] : []),
     authMethods: configureAuthMethods(authMethods),
     httpConfig: conf.httpConfig || {},
+    debug: conf.debug,
   };
   if (conf.promiseMiddleware) {
     conf.promiseMiddleware.forEach((m) =>
