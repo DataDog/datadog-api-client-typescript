@@ -79,7 +79,7 @@ export class UsageBillableSummaryHour {
       baseName: "ratio_in_month",
       type: "number",
 
-      format: "int64",
+      format: "double",
     },
     startDate: {
       baseName: "start_date",
