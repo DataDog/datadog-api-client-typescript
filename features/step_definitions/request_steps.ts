@@ -123,9 +123,9 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    logger.warn(error);
+    logger.debug(error);
     if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
-      logger.warn(this.requestContext.body.text);
+      logger.debug(this.requestContext.body.text);
       throw error;
     }
   }
