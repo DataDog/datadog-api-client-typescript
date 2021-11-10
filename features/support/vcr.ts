@@ -44,7 +44,7 @@ Before(function (
     mode: RecordMode[process.env.RECORD || "false"],
     recordIfMissing: process.env.RERECORD_FAILED_TESTS === "true", // make sure that we match body exactly
     recordFailedRequests: true, // make sure we can replay responses with 4xx codes
-    logging: false,
+    logging: process.env.DEBUG ? true : false,
     persisterOptions: {
       fs: {
         recordingsDir: recordingsDir,
