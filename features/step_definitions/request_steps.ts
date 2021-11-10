@@ -175,7 +175,9 @@ Then(
 AfterAll( function (this: World) {
   let dd_service = process.env.DD_SERVICE;
   let ci_pipeline_id = process.env.GITHUB_RUN_ID;
-  console.log("\nTest reports:\n")
-  console.log("* View test APM traces and detailed time reports on Datadog (can take a few minutes to become available):")
-  console.log(`* https://app.datadoghq.com/ci/test-runs?query=%40test.service%3A${dd_service}%20%40ci.pipeline.id%3A${ci_pipeline_id}&index=citest\n`)
+  if (dd_service !== undefined && ci_pipeline_id !== undefined) {
+    console.log("\nTest reports:\n")
+    console.log("* View test APM traces and detailed time reports on Datadog (can take a few minutes to become available):")
+    console.log(`* https://app.datadoghq.com/ci/test-runs?query=%40test.service%3A${dd_service}%20%40ci.pipeline.id%3A${ci_pipeline_id}&index=citest\n`)
+  }
 });
