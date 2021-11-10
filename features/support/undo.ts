@@ -92,7 +92,7 @@ function buildUndoFor(
     try {
       await apiInstance[operationName](opts);
     } catch (error) {
-        logger.error(`could not undo operation ${operationOrig}: ${error}`);
+      logger.debug(`could not undo operation ${operationOrig}: ${error}`);
     }
   };
 }
