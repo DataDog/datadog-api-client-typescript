@@ -465,7 +465,9 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
+import { logger } from "../../../index";
 
+/* tslint:disable:no-unused-variable */
 const primitives = [
   "string",
   "boolean",
@@ -1627,7 +1629,7 @@ export class ObjectSerializer {
           try {
             oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
           } catch (e) {
-            console.debug(`could not serialize ${oneOf} (${e})`);
+            logger.debug(`could not serialize ${oneOf} (${e})`);
           }
         }
         if (oneOfs.length > 1) {
@@ -1723,7 +1725,7 @@ export class ObjectSerializer {
               oneOfs.push(d);
             }
           } catch (e) {
-            console.debug(`could not deserialize ${oneOf} (${e})`);
+            logger.debug(`could not deserialize ${oneOf} (${e})`);
           }
         }
         if (oneOfs.length != 1) {
