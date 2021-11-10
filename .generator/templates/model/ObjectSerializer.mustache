@@ -3,9 +3,7 @@
 import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName}} {{/isEnum}} {{/vars}}{{/hasEnums}} } from './{{{ classFilename }}}{{extensionForDeno}}';
 {{/model}}
 {{/models}}
-
-import log from "loglevel";
-log.setLevel(process.env.DEBUG ? "debug" : "warn");
+import { logger } from "../../../index";
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -110,7 +108,7 @@ export class ObjectSerializer {
                     try {
                         oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
                     } catch (e) {
-                        log.debug(`could not serialize ${oneOf} (${e})`)
+                        logger.debug(`could not serialize ${oneOf} (${e})`)
                     }
                 }
                 if (oneOfs.length > 1) {
@@ -182,7 +180,7 @@ export class ObjectSerializer {
                             oneOfs.push(d);
                         }
                     } catch (e) {
-                        log.debug(`could not deserialize ${oneOf} (${e})`)
+                        logger.debug(`could not deserialize ${oneOf} (${e})`)
                     }
 
                 }

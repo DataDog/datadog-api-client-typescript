@@ -10,7 +10,8 @@ import fs from "fs";
 import path from "path";
 
 import log from "loglevel";
-log.setLevel(process.env.DEBUG ? "debug" : "warn");
+const logger = log.getLogger("testing")
+logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
@@ -122,9 +123,9 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    log.trace(error);
+    logger.warn(error);
     if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
-      log.trace(this.requestContext.body.text);
+      logger.warn(this.requestContext.body.text);
       throw error;
     }
   }
