@@ -1,4 +1,4 @@
-import { Given, Then, When } from "@cucumber/cucumber";
+import { Given, Then, When, AfterAll } from "@cucumber/cucumber";
 import { expect } from "chai";
 import { World } from "../support/world";
 
@@ -8,6 +8,10 @@ import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
 import fs from "fs";
 import path from "path";
+
+import log from "loglevel";
+const logger = log.getLogger("testing")
+logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
@@ -119,9 +123,9 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    console.log(error);
+    logger.debug(error);
     if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
-      console.log(this.requestContext.body.text);
+      logger.debug(this.requestContext.body.text);
       throw error;
     }
   }
@@ -167,3 +171,13 @@ Then(
     );
   }
 );
+
+AfterAll( function (this: World) {
+  let dd_service = process.env.DD_SERVICE;
+  let ci_pipeline_id = process.env.GITHUB_RUN_ID;
+  if (dd_service !== undefined && ci_pipeline_id !== undefined) {
+    console.log("\nTest reports:\n")
+    console.log("* View test APM traces and detailed time reports on Datadog (can take a few minutes to become available):")
+    console.log(`* https://app.datadoghq.com/ci/test-runs?query=%40test.service%3A${dd_service}%20%40ci.pipeline.id%3A${ci_pipeline_id}&index=citest\n`)
+  }
+});
