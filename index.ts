@@ -3,7 +3,7 @@ export * as v2 from "./packages/datadog-api-client-v2";
 
 import log from "loglevel";
 
-const logger_ = log.getLogger("packages")
-logger_.setLevel(process.env.DEBUG ? logger_.levels.DEBUG : logger_.levels.INFO);
+const logger = log.noConflict();
+logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
-export const logger = logger_;
+export { logger };
