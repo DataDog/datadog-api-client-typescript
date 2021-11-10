@@ -237,7 +237,7 @@ let params: v1.MonitorsApiCreateMonitorRequest = {
   // Monitor | Create a monitor request body.
   body: {
     message: "message_example",
-    name: "name_example",
+    name: "My monitor",
     options: {
       enableLogsSample: true,
       escalationMessage: "none",
@@ -791,7 +791,7 @@ let params: v1.MonitorsApiValidateMonitorRequest = {
   // Monitor | Monitor request object
   body: {
     message: "message_example",
-    name: "name_example",
+    name: "My monitor",
     options: {
       enableLogsSample: true,
       escalationMessage: "none",

@@ -324,7 +324,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   /**
-   * Get all downtimes for the specified monitor
+   * Get all active downtimes for the specified monitor.
    * Get all downtimes for a monitor
    * @param monitorId The id of the monitor
    */
