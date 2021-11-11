@@ -10,7 +10,7 @@
 
 export class SyntheticsCIBatchMetadataGit {
   /**
-   * The branch name.
+   * Branch name.
    */
   "branch"?: string;
   /**

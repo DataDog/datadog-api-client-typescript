@@ -20,7 +20,7 @@ export class SyntheticsAssertionTarget {
   /**
    * Value used by the operator.
    */
-  "target"?: any;
+  "target": any;
   "type": SyntheticsAssertionType;
 
   "unparsedObject"?: any;
@@ -45,6 +45,7 @@ export class SyntheticsAssertionTarget {
     target: {
       baseName: "target",
       type: "any",
+      required: true,
     },
     type: {
       baseName: "type",
