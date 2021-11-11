@@ -16,7 +16,7 @@ export class UsageNetworkFlowsHour {
   /**
    * Contains the number of netflow events indexed.
    */
-  "indexedEventCount"?: number;
+  "indexedEventsCount"?: number;
 
   "unparsedObject"?: any;
 
@@ -34,8 +34,8 @@ export class UsageNetworkFlowsHour {
 
       format: "date-time",
     },
-    indexedEventCount: {
-      baseName: "indexed_event_count",
+    indexedEventsCount: {
+      baseName: "indexed_events_count",
       type: "number",
 
       format: "int64",
