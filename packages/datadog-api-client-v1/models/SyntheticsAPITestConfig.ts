@@ -15,7 +15,7 @@ import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 
 export class SyntheticsAPITestConfig {
   /**
-   * Array of assertions used for the test.
+   * Array of assertions used for the test. Required for single API tests.
    */
   "assertions"?: Array<SyntheticsAssertion>;
   /**
