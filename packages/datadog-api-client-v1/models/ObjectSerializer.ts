@@ -420,6 +420,8 @@ import { UsageProfilingHour } from "./UsageProfilingHour";
 import { UsageProfilingResponse } from "./UsageProfilingResponse";
 import { UsageRumSessionsHour } from "./UsageRumSessionsHour";
 import { UsageRumSessionsResponse } from "./UsageRumSessionsResponse";
+import { UsageRumUnitsHour } from "./UsageRumUnitsHour";
+import { UsageRumUnitsResponse } from "./UsageRumUnitsResponse";
 import { UsageSDSHour } from "./UsageSDSHour";
 import { UsageSDSResponse } from "./UsageSDSResponse";
 import { UsageSNMPHour } from "./UsageSNMPHour";
@@ -1436,6 +1438,8 @@ const typeMap: { [index: string]: any } = {
   UsageProfilingResponse: UsageProfilingResponse,
   UsageRumSessionsHour: UsageRumSessionsHour,
   UsageRumSessionsResponse: UsageRumSessionsResponse,
+  UsageRumUnitsHour: UsageRumUnitsHour,
+  UsageRumUnitsResponse: UsageRumUnitsResponse,
   UsageSDSHour: UsageSDSHour,
   UsageSDSResponse: UsageSDSResponse,
   UsageSNMPHour: UsageSNMPHour,

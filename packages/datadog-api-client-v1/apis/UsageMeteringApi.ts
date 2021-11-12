@@ -31,6 +31,7 @@ import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
+import { UsageRumUnitsResponse } from "../models/UsageRumUnitsResponse";
 import { UsageSDSResponse } from "../models/UsageSDSResponse";
 import { UsageSNMPResponse } from "../models/UsageSNMPResponse";
 import { UsageSort } from "../models/UsageSort";
@@ -1793,6 +1794,77 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "type",
         ObjectSerializer.serialize(type, "string", "")
+      );
+    }
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
+   * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+   */
+  public async getUsageRumUnits(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'startHr' is not null or undefined
+    if (startHr === null || startHr === undefined) {
+      throw new RequiredError(
+        "Required parameter startHr was null or undefined when calling getUsageRumUnits."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/usage/rum";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "UsageMeteringApi.getUsageRumUnits"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (startHr !== undefined) {
+      requestContext.setQueryParam(
+        "start_hr",
+        ObjectSerializer.serialize(startHr, "Date", "date-time")
+      );
+    }
+    if (endHr !== undefined) {
+      requestContext.setQueryParam(
+        "end_hr",
+        ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
 
@@ -3769,6 +3841,61 @@ export class UsageMeteringApiResponseProcessor {
         "UsageRumSessionsResponse",
         ""
       ) as UsageRumSessionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getUsageRumUnits
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageRumUnits(
+    response: ResponseContext
+  ): Promise<UsageRumUnitsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: UsageRumUnitsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageRumUnitsResponse",
+        ""
+      ) as UsageRumUnitsResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageRumUnitsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageRumUnitsResponse",
+        ""
+      ) as UsageRumUnitsResponse;
       return body;
     }
 

@@ -46,6 +46,18 @@ export class UsageSummaryDateOrg {
    */
   "billableIngestedBytesSum"?: number;
   /**
+   * Shows the sum of all browser lite sessions over all hours in the current date for the given org.
+   */
+  "browserRumLiteSessionCountSum"?: number;
+  /**
+   * Shows the sum of all browser replay sessions over all hours in the current date for the given org.
+   */
+  "browserRumReplaySessionCountSum"?: number;
+  /**
+   * Shows the sum of all browser RUM units over all hours in the current date for the given org.
+   */
+  "browserRumUnitsSum"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for the given org.
    */
   "containerAvg"?: number;
@@ -78,11 +90,11 @@ export class UsageSummaryDateOrg {
    */
   "cwsHostTop99p"?: number;
   /**
-   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
+   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for the given org.
    */
   "dbmHostTop99pSum"?: number;
   /**
-   * Shows the average of all distinct Database Monitoring normalized queries over all hours in the current month for all organizations.
+   * Shows the average of all distinct Database Monitoring normalized queries over all hours in the current month for the given org.
    */
   "dbmQueriesAvgSum"?: number;
   /**
@@ -130,6 +142,10 @@ export class UsageSummaryDateOrg {
    */
   "iotDeviceTop99pSum"?: number;
   /**
+   * Shows the sum of all mobile lite sessions over all hours in the current date for the given org.
+   */
+  "mobileRumLiteSessionCountSum"?: number;
+  /**
    * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for the given org.
    */
   "mobileRumSessionCountAndroidSum"?: number;
@@ -141,6 +157,10 @@ export class UsageSummaryDateOrg {
    * Shows the sum of all mobile RUM Sessions over all hours in the current date for the given org.
    */
   "mobileRumSessionCountSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM units over all hours in the current date for the given org.
+   */
+  "mobileRumUnitsSum"?: number;
   /**
    * The organization name.
    */
@@ -174,11 +194,15 @@ export class UsageSummaryDateOrg {
    */
   "rumTotalSessionCountSum"?: number;
   /**
-   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   * Shows the sum of all browser and mobile RUM units over all hours in the current date for the given org.
+   */
+  "rumUnitsSum"?: number;
+  /**
+   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
   "sdsLogsScannedBytesSum"?: number;
   /**
-   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
   "sdsTotalScannedBytesSum"?: number;
   /**
@@ -262,6 +286,24 @@ export class UsageSummaryDateOrg {
     },
     billableIngestedBytesSum: {
       baseName: "billable_ingested_bytes_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    browserRumLiteSessionCountSum: {
+      baseName: "browser_rum_lite_session_count_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    browserRumReplaySessionCountSum: {
+      baseName: "browser_rum_replay_session_count_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    browserRumUnitsSum: {
+      baseName: "browser_rum_units_sum",
       type: "number",
 
       format: "int64",
@@ -390,6 +432,12 @@ export class UsageSummaryDateOrg {
 
       format: "int64",
     },
+    mobileRumLiteSessionCountSum: {
+      baseName: "mobile_rum_lite_session_count_sum",
+      type: "number",
+
+      format: "int64",
+    },
     mobileRumSessionCountAndroidSum: {
       baseName: "mobile_rum_session_count_android_sum",
       type: "number",
@@ -404,6 +452,12 @@ export class UsageSummaryDateOrg {
     },
     mobileRumSessionCountSum: {
       baseName: "mobile_rum_session_count_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    mobileRumUnitsSum: {
+      baseName: "mobile_rum_units_sum",
       type: "number",
 
       format: "int64",
@@ -448,6 +502,12 @@ export class UsageSummaryDateOrg {
     },
     rumTotalSessionCountSum: {
       baseName: "rum_total_session_count_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    rumUnitsSum: {
+      baseName: "rum_units_sum",
       type: "number",
 
       format: "int64",
