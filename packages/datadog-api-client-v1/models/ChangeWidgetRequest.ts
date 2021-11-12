@@ -8,10 +8,13 @@
  * Do not edit the class manually.
  */
 
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetChangeType } from "./WidgetChangeType";
 import { WidgetCompareTo } from "./WidgetCompareTo";
+import { WidgetFormula } from "./WidgetFormula";
 import { WidgetOrderBy } from "./WidgetOrderBy";
 import { WidgetSort } from "./WidgetSort";
 
@@ -20,6 +23,10 @@ export class ChangeWidgetRequest {
   "changeType"?: WidgetChangeType;
   "compareTo"?: WidgetCompareTo;
   "eventQuery"?: LogQueryDefinition;
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   */
+  "formulas"?: Array<WidgetFormula>;
   /**
    * Whether to show increase as good.
    */
@@ -34,6 +41,11 @@ export class ChangeWidgetRequest {
    * Query definition.
    */
   "q"?: string;
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
   /**
@@ -67,6 +79,10 @@ export class ChangeWidgetRequest {
       baseName: "event_query",
       type: "LogQueryDefinition",
     },
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+    },
     increaseGood: {
       baseName: "increase_good",
       type: "boolean",
@@ -98,6 +114,14 @@ export class ChangeWidgetRequest {
     q: {
       baseName: "q",
       type: "string",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
     rumQuery: {
       baseName: "rum_query",
