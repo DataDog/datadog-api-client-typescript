@@ -26,6 +26,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**listLocations**](SyntheticsApi.md#listLocations)                             | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
 | [**listTests**](SyntheticsApi.md#listTests)                                     | **GET** /api/v1/synthetics/tests                                         | Get the list of all tests                         |
 | [**triggerCITests**](SyntheticsApi.md#triggerCITests)                           | **POST** /api/v1/synthetics/tests/trigger/ci                             | Trigger tests from CI/CD pipelines                |
+| [**triggerTests**](SyntheticsApi.md#triggerTests)                               | **POST** /api/v1/synthetics/tests/trigger                                | Trigger some Synthetics tests                     |
 | [**updateAPITest**](SyntheticsApi.md#updateAPITest)                             | **PUT** /api/v1/synthetics/tests/api/{public_id}                         | Edit an API test                                  |
 | [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest)                     | **PUT** /api/v1/synthetics/tests/browser/{public_id}                     | Edit a browser test                               |
 | [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation)             | **PUT** /api/v1/synthetics/private-locations/{location_id}               | Edit a private location                           |
@@ -1653,6 +1654,84 @@ apiInstance
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **400**     | JSON format is wrong | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **triggerTests**
+
+> SyntheticsTriggerCITestsResponse triggerTests(body)
+
+Trigger a set of Synthetics tests.
+
+### Example
+
+```typescript
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.SyntheticsApi(configuration);
+
+let params: v1.SyntheticsApiTriggerTestsRequest = {
+  // SyntheticsTriggerBody | The identifiers of the tests to trigger.
+  body: {
+    tests: [
+      {
+        metadata: {
+          ci: {
+            pipeline: {
+              url: "url_example",
+            },
+            provider: {
+              name: "name_example",
+            },
+          },
+          git: {
+            branch: "branch_example",
+            commitSha: "commitSha_example",
+          },
+        },
+        publicId: "aaa-aaa-aaa",
+      },
+    ],
+  },
+};
+
+apiInstance
+  .triggerTests(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name     | Type                      | Description                              | Notes |
+| -------- | ------------------------- | ---------------------------------------- | ----- |
+| **body** | **SyntheticsTriggerBody** | The identifiers of the tests to trigger. |
+
+### Return type
+
+**SyntheticsTriggerCITestsResponse**
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

@@ -540,9 +540,11 @@ models/SyntheticsTestRequest.ts
 models/SyntheticsTestRequestCertificate.ts
 models/SyntheticsTestRequestCertificateItem.ts
 models/SyntheticsTiming.ts
+models/SyntheticsTriggerBody.ts
 models/SyntheticsTriggerCITestLocation.ts
 models/SyntheticsTriggerCITestRunResult.ts
 models/SyntheticsTriggerCITestsResponse.ts
+models/SyntheticsTriggerTest.ts
 models/SyntheticsUpdateTestPauseStatusPayload.ts
 models/SyntheticsVariableParser.ts
 models/SyntheticsWarningType.ts

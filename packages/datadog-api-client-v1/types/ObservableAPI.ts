@@ -114,6 +114,7 @@ import { SyntheticsLocations } from "../models/SyntheticsLocations";
 import { SyntheticsPrivateLocation } from "../models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "../models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "../models/SyntheticsTestDetails";
+import { SyntheticsTriggerBody } from "../models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "../models/SyntheticsTriggerCITestsResponse";
 import { SyntheticsUpdateTestPauseStatusPayload } from "../models/SyntheticsUpdateTestPauseStatusPayload";
 import { TagToHosts } from "../models/TagToHosts";
@@ -7167,6 +7168,48 @@ export class ObservableSyntheticsApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.triggerCITests(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Trigger a set of Synthetics tests.
+   * Trigger some Synthetics tests
+   * @param body The identifiers of the tests to trigger.
+   */
+  public triggerTests(
+    body: SyntheticsTriggerBody,
+    _options?: Configuration
+  ): Observable<SyntheticsTriggerCITestsResponse> {
+    const requestContextPromise = this.requestFactory.triggerTests(
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.triggerTests(rsp)
             )
           );
         })

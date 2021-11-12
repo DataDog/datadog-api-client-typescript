@@ -113,6 +113,7 @@ import { SyntheticsLocations } from "../models/SyntheticsLocations";
 import { SyntheticsPrivateLocation } from "../models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "../models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "../models/SyntheticsTestDetails";
+import { SyntheticsTriggerBody } from "../models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "../models/SyntheticsTriggerCITestsResponse";
 import { SyntheticsUpdateTestPauseStatusPayload } from "../models/SyntheticsUpdateTestPauseStatusPayload";
 import { TagToHosts } from "../models/TagToHosts";
@@ -2940,6 +2941,19 @@ export class PromiseSyntheticsApi {
     _options?: Configuration
   ): Promise<SyntheticsTriggerCITestsResponse> {
     const result = this.api.triggerCITests(body, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Trigger a set of Synthetics tests.
+   * Trigger some Synthetics tests
+   * @param body The identifiers of the tests to trigger.
+   */
+  public triggerTests(
+    body: SyntheticsTriggerBody,
+    _options?: Configuration
+  ): Promise<SyntheticsTriggerCITestsResponse> {
+    const result = this.api.triggerTests(body, _options);
     return result.toPromise();
   }
 

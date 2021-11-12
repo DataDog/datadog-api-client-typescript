@@ -113,6 +113,7 @@ import { SyntheticsLocations } from "../models/SyntheticsLocations";
 import { SyntheticsPrivateLocation } from "../models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "../models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "../models/SyntheticsTestDetails";
+import { SyntheticsTriggerBody } from "../models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "../models/SyntheticsTriggerCITestsResponse";
 import { SyntheticsUpdateTestPauseStatusPayload } from "../models/SyntheticsUpdateTestPauseStatusPayload";
 import { TagToHosts } from "../models/TagToHosts";
@@ -4136,6 +4137,15 @@ export interface SyntheticsApiTriggerCITestsRequest {
   body: SyntheticsCITestBody;
 }
 
+export interface SyntheticsApiTriggerTestsRequest {
+  /**
+   * The identifiers of the tests to trigger.
+   * @type SyntheticsTriggerBody
+   * @memberof SyntheticsApitriggerTests
+   */
+  body: SyntheticsTriggerBody;
+}
+
 export interface SyntheticsApiUpdateAPITestRequest {
   /**
    * The public ID of the test to get details from.
@@ -4494,6 +4504,18 @@ export class ObjectSyntheticsApi {
     options?: Configuration
   ): Promise<SyntheticsTriggerCITestsResponse> {
     return this.api.triggerCITests(param.body, options).toPromise();
+  }
+
+  /**
+   * Trigger a set of Synthetics tests.
+   * Trigger some Synthetics tests
+   * @param param the request object
+   */
+  public triggerTests(
+    param: SyntheticsApiTriggerTestsRequest,
+    options?: Configuration
+  ): Promise<SyntheticsTriggerCITestsResponse> {
+    return this.api.triggerTests(param.body, options).toPromise();
   }
 
   /**

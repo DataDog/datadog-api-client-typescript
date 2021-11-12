@@ -352,9 +352,11 @@ import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
 import { SyntheticsTiming } from "./SyntheticsTiming";
+import { SyntheticsTriggerBody } from "./SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
 import { SyntheticsTriggerCITestRunResult } from "./SyntheticsTriggerCITestRunResult";
 import { SyntheticsTriggerCITestsResponse } from "./SyntheticsTriggerCITestsResponse";
+import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
 import { SyntheticsUpdateTestPauseStatusPayload } from "./SyntheticsUpdateTestPauseStatusPayload";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
@@ -1367,9 +1369,11 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
   SyntheticsTiming: SyntheticsTiming,
+  SyntheticsTriggerBody: SyntheticsTriggerBody,
   SyntheticsTriggerCITestLocation: SyntheticsTriggerCITestLocation,
   SyntheticsTriggerCITestRunResult: SyntheticsTriggerCITestRunResult,
   SyntheticsTriggerCITestsResponse: SyntheticsTriggerCITestsResponse,
+  SyntheticsTriggerTest: SyntheticsTriggerTest,
   SyntheticsUpdateTestPauseStatusPayload:
     SyntheticsUpdateTestPauseStatusPayload,
   SyntheticsVariableParser: SyntheticsVariableParser,
