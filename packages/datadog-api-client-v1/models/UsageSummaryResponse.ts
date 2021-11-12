@@ -53,6 +53,18 @@ export class UsageSummaryResponse {
    */
   "billableIngestedBytesAggSum"?: number;
   /**
+   * Shows the sum of all browser lite sessions over all hours in the current months for all organizations.
+   */
+  "browserRumLiteSessionCountAggSum"?: number;
+  /**
+   * Shows the sum of all browser replay sessions over all hours in the current months for all organizations.
+   */
+  "browserRumReplaySessionCountAggSum"?: number;
+  /**
+   * Shows the sum of all browser RUM units over all hours in the current months for all organizations.
+   */
+  "browserRumUnitsAggSum"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current months for all organizations.
    */
   "containerAvgSum"?: number;
@@ -150,6 +162,10 @@ export class UsageSummaryResponse {
   "liveIngestedBytesAggSum"?: number;
   "logsByRetention"?: LogsByRetention;
   /**
+   * Shows the sum of all mobile lite sessions over all hours in the current months for all organizations.
+   */
+  "mobileRumLiteSessionCountAggSum"?: number;
+  /**
    * Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations.
    */
   "mobileRumSessionCountAggSum"?: number;
@@ -161,6 +177,10 @@ export class UsageSummaryResponse {
    * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations.
    */
   "mobileRumSessionCountIosAggSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM units over all hours in the current months for all organizations.
+   */
+  "mobileRumUnitsAggSum"?: number;
   /**
    * Shows the sum of all Network flows indexed over all hours in the current months for all organizations.
    */
@@ -197,6 +217,10 @@ export class UsageSummaryResponse {
    * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations.
    */
   "rumTotalSessionCountAggSum"?: number;
+  /**
+   * Shows the sum of all browser and mobile RUM units over all hours in the current months for all organizations.
+   */
+  "rumUnitsAggSum"?: number;
   /**
    * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
    */
@@ -300,6 +324,24 @@ export class UsageSummaryResponse {
     },
     billableIngestedBytesAggSum: {
       baseName: "billable_ingested_bytes_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    browserRumLiteSessionCountAggSum: {
+      baseName: "browser_rum_lite_session_count_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    browserRumReplaySessionCountAggSum: {
+      baseName: "browser_rum_replay_session_count_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    browserRumUnitsAggSum: {
+      baseName: "browser_rum_units_agg_sum",
       type: "number",
 
       format: "int64",
@@ -452,6 +494,12 @@ export class UsageSummaryResponse {
       baseName: "logs_by_retention",
       type: "LogsByRetention",
     },
+    mobileRumLiteSessionCountAggSum: {
+      baseName: "mobile_rum_lite_session_count_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
     mobileRumSessionCountAggSum: {
       baseName: "mobile_rum_session_count_agg_sum",
       type: "number",
@@ -466,6 +514,12 @@ export class UsageSummaryResponse {
     },
     mobileRumSessionCountIosAggSum: {
       baseName: "mobile_rum_session_count_ios_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    mobileRumUnitsAggSum: {
+      baseName: "mobile_rum_units_agg_sum",
       type: "number",
 
       format: "int64",
@@ -520,6 +574,12 @@ export class UsageSummaryResponse {
     },
     rumTotalSessionCountAggSum: {
       baseName: "rum_total_session_count_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    rumUnitsAggSum: {
+      baseName: "rum_units_agg_sum",
       type: "number",
 
       format: "int64",

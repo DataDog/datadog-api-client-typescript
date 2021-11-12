@@ -140,6 +140,7 @@ import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
+import { UsageRumUnitsResponse } from "../models/UsageRumUnitsResponse";
 import { UsageSDSResponse } from "../models/UsageSDSResponse";
 import { UsageSNMPResponse } from "../models/UsageSNMPResponse";
 import { UsageSort } from "../models/UsageSort";
@@ -5146,6 +5147,21 @@ export interface UsageMeteringApiGetUsageRumSessionsRequest {
   type?: string;
 }
 
+export interface UsageMeteringApiGetUsageRumUnitsRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetUsageRumUnits
+   */
+  startHr: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetUsageRumUnits
+   */
+  endHr?: Date;
+}
+
 export interface UsageMeteringApiGetUsageSDSRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -5674,6 +5690,20 @@ export class ObjectUsageMeteringApi {
   ): Promise<UsageRumSessionsResponse> {
     return this.api
       .getUsageRumSessions(param.startHr, param.endHr, param.type, options)
+      .toPromise();
+  }
+
+  /**
+   * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   * @param param the request object
+   */
+  public getUsageRumUnits(
+    param: UsageMeteringApiGetUsageRumUnitsRequest,
+    options?: Configuration
+  ): Promise<UsageRumUnitsResponse> {
+    return this.api
+      .getUsageRumUnits(param.startHr, param.endHr, options)
       .toPromise();
   }
 

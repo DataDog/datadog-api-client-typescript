@@ -200,6 +200,7 @@ export {
   UsageMeteringApiGetUsageNetworkHostsRequest,
   UsageMeteringApiGetUsageProfilingRequest,
   UsageMeteringApiGetUsageRumSessionsRequest,
+  UsageMeteringApiGetUsageRumUnitsRequest,
   UsageMeteringApiGetUsageSDSRequest,
   UsageMeteringApiGetUsageSNMPRequest,
   UsageMeteringApiGetUsageSummaryRequest,

@@ -141,6 +141,7 @@ import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
+import { UsageRumUnitsResponse } from "../models/UsageRumUnitsResponse";
 import { UsageSDSResponse } from "../models/UsageSDSResponse";
 import { UsageSNMPResponse } from "../models/UsageSNMPResponse";
 import { UsageSort } from "../models/UsageSort";
@@ -8763,6 +8764,51 @@ export class ObservableUsageMeteringApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.getUsageRumSessions(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+   */
+  public getUsageRumUnits(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Observable<UsageRumUnitsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageRumUnits(
+      startHr,
+      endHr,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getUsageRumUnits(rsp)
             )
           );
         })
