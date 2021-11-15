@@ -24,6 +24,7 @@ import { SyntheticsLocations } from "../models/SyntheticsLocations";
 import { SyntheticsPrivateLocation } from "../models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "../models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "../models/SyntheticsTestDetails";
+import { SyntheticsTriggerBody } from "../models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "../models/SyntheticsTriggerCITestsResponse";
 import { SyntheticsUpdateTestPauseStatusPayload } from "../models/SyntheticsUpdateTestPauseStatusPayload";
 
@@ -1377,6 +1378,67 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsCITestBody", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
+   * Trigger a set of Synthetics tests.
+   * Trigger some Synthetics tests
+   * @param body The identifiers of the tests to trigger.
+   */
+  public async triggerTests(
+    body: SyntheticsTriggerBody,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling triggerTests."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/synthetics/tests/trigger";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "SyntheticsApi.triggerTests"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsTriggerBody", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -2853,6 +2915,55 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async triggerCITests(
+    response: ResponseContext
+  ): Promise<SyntheticsTriggerCITestsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SyntheticsTriggerCITestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTriggerCITestsResponse",
+          ""
+        ) as SyntheticsTriggerCITestsResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsTriggerCITestsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SyntheticsTriggerCITestsResponse",
+          ""
+        ) as SyntheticsTriggerCITestsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to triggerTests
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async triggerTests(
     response: ResponseContext
   ): Promise<SyntheticsTriggerCITestsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(

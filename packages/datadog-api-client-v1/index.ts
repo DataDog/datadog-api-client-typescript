@@ -164,6 +164,7 @@ export {
   SyntheticsApiGetSyntheticsCIBatchRequest,
   SyntheticsApiGetTestRequest,
   SyntheticsApiTriggerCITestsRequest,
+  SyntheticsApiTriggerTestsRequest,
   SyntheticsApiUpdateAPITestRequest,
   SyntheticsApiUpdateBrowserTestRequest,
   SyntheticsApiUpdatePrivateLocationRequest,
