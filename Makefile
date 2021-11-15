@@ -1,5 +1,6 @@
 .PHONY: all
 all: .generator .env
+	@rm -rf packages/datadog-api-client-v*/models
 	@docker-compose -f docker-compose.generator.yaml up
 	@pre-commit run --all-files --hook-stage=manual lint || echo "modified files"
 	@mkdir -p docs/v1 docs/v2
