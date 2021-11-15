@@ -43,6 +43,10 @@ export class SyntheticsTestRequest {
    * Host name to perform the test with.
    */
   "host"?: string;
+  /**
+   * Message to send for UDP tests.
+   */
+  "message"?: string;
   "method"?: HTTPMethod;
   /**
    * Determines whether or not to save the response body.
@@ -123,6 +127,10 @@ export class SyntheticsTestRequest {
     },
     host: {
       baseName: "host",
+      type: "string",
+    },
+    message: {
+      baseName: "message",
       type: "string",
     },
     method: {
