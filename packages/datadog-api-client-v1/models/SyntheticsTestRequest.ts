@@ -44,7 +44,7 @@ export class SyntheticsTestRequest {
    */
   "host"?: string;
   /**
-   * Message to send for UDP tests.
+   * Message to send for UDP or WebSocket tests.
    */
   "message"?: string;
   "method"?: HTTPMethod;

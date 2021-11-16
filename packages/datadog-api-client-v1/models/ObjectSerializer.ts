@@ -808,6 +808,7 @@ const enumsMap: { [key: string]: any[] } = {
     "multi",
     "icmp",
     "udp",
+    "websocket",
   ],
   SyntheticsTestDetailsType: ["api", "browser"],
   SyntheticsTestExecutionRule: ["blocking", "non_blocking", "skipped"],
