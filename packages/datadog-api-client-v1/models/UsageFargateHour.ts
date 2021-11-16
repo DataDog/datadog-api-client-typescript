@@ -10,6 +10,10 @@
 
 export class UsageFargateHour {
   /**
+   * The average profiled task count for Fargate Profiling.
+   */
+  "avgProfiledFargateTasks"?: number;
+  /**
    * The hour for the usage.
    */
   "hour"?: Date;
@@ -28,6 +32,12 @@ export class UsageFargateHour {
       format?: string;
     };
   } = {
+    avgProfiledFargateTasks: {
+      baseName: "avg_profiled_fargate_tasks",
+      type: "number",
+
+      format: "int64",
+    },
     hour: {
       baseName: "hour",
       type: "Date",

@@ -29,6 +29,10 @@ export class UsageSummaryResponse {
    */
   "auditLogsLinesIndexedAggSum"?: number;
   /**
+   * Shows the average of all profiled Fargate tasks over all hours in the current months for all organizations.
+   */
+  "avgProfiledFargateTasksSum"?: number;
+  /**
    * Shows the 99th percentile of all AWS hosts over all hours in the current months for all organizations.
    */
   "awsHostTop99pSum"?: number;
@@ -288,6 +292,12 @@ export class UsageSummaryResponse {
     },
     auditLogsLinesIndexedAggSum: {
       baseName: "audit_logs_lines_indexed_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    avgProfiledFargateTasksSum: {
+      baseName: "avg_profiled_fargate_tasks_sum",
       type: "number",
 
       format: "int64",
