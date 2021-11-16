@@ -28,6 +28,10 @@ export class UsageSummaryDate {
    */
   "auditLogsLinesIndexedSum"?: number;
   /**
+   * The average profiled task count for Fargate Profiling.
+   */
+  "avgProfiledFargateTasks"?: number;
+  /**
    * Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.
    */
   "awsHostTop99p"?: number;
@@ -254,6 +258,12 @@ export class UsageSummaryDate {
     },
     auditLogsLinesIndexedSum: {
       baseName: "audit_logs_lines_indexed_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    avgProfiledFargateTasks: {
+      baseName: "avg_profiled_fargate_tasks",
       type: "number",
 
       format: "int64",
