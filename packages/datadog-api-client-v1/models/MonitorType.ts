@@ -21,7 +21,9 @@ export type MonitorType =
   | typeof TRACE_ANALYTICS_ALERT
   | typeof SLO_ALERT
   | typeof EVENT_V2_ALERT
-  | typeof AUDIT_ALERT;
+  | typeof AUDIT_ALERT
+  | typeof METRIC_SLO_ALERT
+  | typeof MONITOR_SLO_ALERT;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
 export const LOG_ALERT = "log alert";
@@ -35,3 +37,5 @@ export const TRACE_ANALYTICS_ALERT = "trace-analytics alert";
 export const SLO_ALERT = "slo alert";
 export const EVENT_V2_ALERT = "event-v2 alert";
 export const AUDIT_ALERT = "audit alert";
+export const METRIC_SLO_ALERT = "metric-slo alert";
+export const MONITOR_SLO_ALERT = "monitor-slo alert";
