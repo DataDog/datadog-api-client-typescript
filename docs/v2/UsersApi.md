@@ -91,6 +91,7 @@ apiInstance
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -169,6 +170,7 @@ apiInstance
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -229,6 +231,7 @@ apiInstance
 | **204**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -288,6 +291,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -347,6 +351,7 @@ apiInstance
 | **200**     | OK for get user      | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -407,6 +412,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -467,6 +473,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -542,6 +549,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -603,6 +611,7 @@ apiInstance
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -678,5 +687,6 @@ apiInstance
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
 | **422**     | Unprocessable Entity | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

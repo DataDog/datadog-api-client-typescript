@@ -119,6 +119,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -178,6 +179,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Dashboards Not Found | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -245,6 +247,7 @@ apiInstance
 | **400**     | Bad Request          | -                |
 | **403**     | Forbidden            | -                |
 | **404**     | Dashboards Not Found | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -304,6 +307,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -365,6 +369,7 @@ apiInstance
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -432,6 +437,7 @@ apiInstance
 | **400**     | Bad Request          | -                |
 | **403**     | Forbidden            | -                |
 | **404**     | Dashboards Not Found | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -545,5 +551,6 @@ apiInstance
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
