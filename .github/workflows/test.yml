@@ -46,9 +46,23 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: |
+          npm install -g @datadog/datadog-ci
+          yarn install --ignore-scripts
+          yarn run build
       - name: Test
-        run: ./run-tests.sh
-        shell: bash
+        run: |
+          yarn run test:junit
+          yarn run jest-test
+      - name: Upload JUnit report
+        if: always()
+        run: datadog-ci junit upload --service datadog-api-client-typescript report.xml
+        env:
+          DD_ENV: ci
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+      - name: Check licenses
+        run: yarn run check-licenses
 
   examples:
     runs-on: ubuntu-latest

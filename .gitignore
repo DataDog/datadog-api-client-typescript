@@ -3,6 +3,7 @@ dist
 node_modules
 package-lock.json
 @rerun.txt
+report.xml
 
 examples
 

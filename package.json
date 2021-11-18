@@ -55,6 +55,7 @@
     "lint:fix": "yarn install --ignore-scripts; eslint packages --ext .ts --fix; prettier --write --ignore-unknown docs packages",
     "prepare": "yarn run build",
     "test": "node bin/dd-cucumber-js features/*/*.feature",
+    "test:junit": "node bin/dd-cucumber-js --format=json features/*/*.feature | node_modules/.bin/cucumber-junit > report.xml",
     "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt",
     "jest-test": "jest --no-cache",
     "jest-coverage": "jest --no-cache --coverage"
@@ -91,6 +92,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "chai": "^4.2.0",
+    "cucumber-junit": "latest",
     "dd-trace": "^1.4.0",
     "eslint": "^7.19.0",
     "eslint-plugin-import": "^2.22.1",
