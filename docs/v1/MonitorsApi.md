@@ -71,6 +71,7 @@ apiInstance
 | **400**     | Bad Request             | -                |
 | **403**     | Forbidden               | -                |
 | **409**     | Deletion conflict error | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -313,11 +314,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -382,6 +384,7 @@ apiInstance
 | **401**     | Authentication error | -                |
 | **403**     | Forbidden            | -                |
 | **404**     | Item not found error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -445,6 +448,7 @@ apiInstance
 | **400**     | Bad Request             | -                |
 | **403**     | Authentication error    | -                |
 | **404**     | Monitor Not Found error | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -520,11 +524,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -588,11 +593,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -656,11 +662,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -769,6 +776,7 @@ apiInstance
 | **401**     | Authentication error    | -                |
 | **403**     | Forbidden               | -                |
 | **404**     | Monitor Not Found error | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -867,10 +875,11 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Invalid JSON | -                |
-| **403**     | Forbidden    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Invalid JSON      | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

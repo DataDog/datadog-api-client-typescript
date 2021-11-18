@@ -67,7 +67,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: text/json
+- **Accept**: text/json, application/json
 
 ### HTTP response details
 
@@ -78,5 +78,6 @@ apiInstance
 | **403**     | Authentication Error | -                |
 | **408**     | Request timeout      | -                |
 | **413**     | Payload too large    | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

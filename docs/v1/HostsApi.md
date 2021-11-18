@@ -66,6 +66,7 @@ apiInstance
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -149,6 +150,7 @@ apiInstance
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -215,6 +217,7 @@ apiInstance
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -274,5 +277,6 @@ apiInstance
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

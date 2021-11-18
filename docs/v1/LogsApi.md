@@ -82,6 +82,7 @@ apiInstance
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -181,5 +182,6 @@ apiInstance
 | ----------- | --------------------------------------------- | ---------------- |
 | **200**     | Response from server (always 200 empty JSON). | -                |
 | **400**     | unexpected error                              | -                |
+| **429**     | Too many requests                             | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

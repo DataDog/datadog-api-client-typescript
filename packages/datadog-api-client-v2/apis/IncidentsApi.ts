@@ -416,6 +416,14 @@ export class IncidentsApiResponseProcessor {
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -479,6 +487,14 @@ export class IncidentsApiResponseProcessor {
         ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -551,6 +567,14 @@ export class IncidentsApiResponseProcessor {
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -622,6 +646,14 @@ export class IncidentsApiResponseProcessor {
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -692,6 +724,14 @@ export class IncidentsApiResponseProcessor {
         ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml

@@ -173,11 +173,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -292,11 +293,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **204**     | OK             | -                |
-| **403**     | Not Authorized | -                |
-| **404**     | Not Found      | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **403**     | Not Authorized    | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -414,10 +416,11 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **404**     | Not Found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -527,10 +530,11 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -603,11 +607,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -676,11 +681,12 @@ apiInstance
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -870,5 +876,6 @@ apiInstance
 | **401**     | Concurrent Modification | -                |
 | **403**     | Not Authorized          | -                |
 | **404**     | Not Found               | -                |
+| **429**     | Too many requests       | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
