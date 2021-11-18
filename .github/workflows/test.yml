@@ -55,11 +55,14 @@ jobs:
         run: |
           yarn run test:junit
           yarn run jest-test
+        env:
+          RECORD: "false"
       - name: Upload JUnit report
         if: always()
         run: datadog-ci junit upload --service datadog-api-client-typescript report.xml
         env:
           DD_ENV: ci
+          DD_TAGS: "runtime.name:node,runtime.version:${{ matrix.node-version}},os.platform:${{ matrix.platform }}"
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
       - name: Check licenses
         run: yarn run check-licenses
