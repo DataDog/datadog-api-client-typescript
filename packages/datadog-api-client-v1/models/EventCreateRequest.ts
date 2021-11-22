@@ -55,7 +55,7 @@ export class EventCreateRequest {
    */
   "text": string;
   /**
-   * The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby library.
+   * The event title.
    */
   "title": string;
   /**
