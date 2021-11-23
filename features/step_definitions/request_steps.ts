@@ -124,6 +124,9 @@ When("the request is sent", async function (this: World) {
     }
   } catch (error) {
     logger.debug(error);
+    if (this.requestContext === undefined) {
+      throw error;
+    }
     if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
       logger.debug(this.requestContext.body.text);
       throw error;
