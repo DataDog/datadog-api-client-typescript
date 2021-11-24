@@ -1,4 +1,4 @@
-import { Before } from "@cucumber/cucumber";
+import { AfterAll, Before } from "@cucumber/cucumber";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 
 import { World } from "./world";
@@ -28,4 +28,14 @@ Before(function (
 ) {
   const parts = gherkinDocument.uri?.split("/") as string[];
   this.apiVersion = parts[parts.length - 2];
+});
+
+AfterAll( function (this: World) {
+  const dd_service = process.env.DD_SERVICE;
+  const ci_pipeline_id = process.env.GITHUB_RUN_ID;
+  if (dd_service !== undefined && ci_pipeline_id !== undefined) {
+    console.log("\nTest reports:\n")
+    console.log("* View test APM traces and detailed time reports on Datadog (can take a few minutes to become available):")
+    console.log(`* https://app.datadoghq.com/ci/test-runs?query=%40test.service%3A${dd_service}%20%40ci.pipeline.id%3A${ci_pipeline_id}&index=citest\n`)
+  }
 });
