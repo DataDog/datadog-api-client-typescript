@@ -1,5 +1,6 @@
 import { Before, AfterAll } from "@cucumber/cucumber";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
+import log from "loglevel";
 
 import tracer from "./tracer";
 import { World } from "./world";
@@ -37,7 +38,8 @@ AfterAll(function (this: World) {
     try {
       (tracer as any)._tracer._exporter._writer.flush();
     } catch (error) {
-      console.log(error);
+      const logger = log.getLogger("testing");
+      logger.error(error);
     }
   }
 
