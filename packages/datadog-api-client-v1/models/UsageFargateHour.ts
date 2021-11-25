@@ -18,6 +18,14 @@ export class UsageFargateHour {
    */
   "hour"?: Date;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * The number of Fargate tasks run.
    */
   "tasksCount"?: number;
@@ -43,6 +51,14 @@ export class UsageFargateHour {
       type: "Date",
 
       format: "date-time",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     tasksCount: {
       baseName: "tasks_count",

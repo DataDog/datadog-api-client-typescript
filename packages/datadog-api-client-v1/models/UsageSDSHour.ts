@@ -18,6 +18,14 @@ export class UsageSDSHour {
    */
   "logsScannedBytes"?: number;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
   "totalScannedBytes"?: number;
@@ -43,6 +51,14 @@ export class UsageSDSHour {
       type: "number",
 
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     totalScannedBytes: {
       baseName: "total_scanned_bytes",
