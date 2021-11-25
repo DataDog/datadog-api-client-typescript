@@ -248,6 +248,7 @@ import { SLOCorrectionCreateRequestAttributes } from "./SLOCorrectionCreateReque
 import { SLOCorrectionListResponse } from "./SLOCorrectionListResponse";
 import { SLOCorrectionResponse } from "./SLOCorrectionResponse";
 import { SLOCorrectionResponseAttributes } from "./SLOCorrectionResponseAttributes";
+import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 import { SLOCorrectionUpdateRequest } from "./SLOCorrectionUpdateRequest";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
@@ -1266,6 +1267,8 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionListResponse: SLOCorrectionListResponse,
   SLOCorrectionResponse: SLOCorrectionResponse,
   SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
+  SLOCorrectionResponseAttributesModifier:
+    SLOCorrectionResponseAttributesModifier,
   SLOCorrectionUpdateData: SLOCorrectionUpdateData,
   SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,

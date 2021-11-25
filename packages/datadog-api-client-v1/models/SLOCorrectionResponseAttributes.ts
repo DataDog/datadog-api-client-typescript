@@ -10,9 +10,14 @@
 
 import { Creator } from "./Creator";
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
+import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
 
 export class SLOCorrectionResponseAttributes {
   "category"?: SLOCorrectionCategory;
+  /**
+   * The epoch timestamp of when the correction was created at
+   */
+  "createdAt"?: number;
   "creator"?: Creator;
   /**
    * Description of the correction being made.
@@ -26,6 +31,11 @@ export class SLOCorrectionResponseAttributes {
    * Ending time of the correction in epoch seconds.
    */
   "end"?: number;
+  /**
+   * The epoch timestamp of when the correction was modified at
+   */
+  "modifiedAt"?: number;
+  "modifier"?: SLOCorrectionResponseAttributesModifier;
   /**
    * Recurrence rules as defined in the iCalendar RFC 5545.
    */
@@ -57,6 +67,12 @@ export class SLOCorrectionResponseAttributes {
       baseName: "category",
       type: "SLOCorrectionCategory",
     },
+    createdAt: {
+      baseName: "created_at",
+      type: "number",
+
+      format: "int64",
+    },
     creator: {
       baseName: "creator",
       type: "Creator",
@@ -76,6 +92,16 @@ export class SLOCorrectionResponseAttributes {
       type: "number",
 
       format: "int64",
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "number",
+
+      format: "int64",
+    },
+    modifier: {
+      baseName: "modifier",
+      type: "SLOCorrectionResponseAttributesModifier",
     },
     rrule: {
       baseName: "rrule",
