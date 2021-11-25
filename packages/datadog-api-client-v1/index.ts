@@ -133,6 +133,7 @@ export {
   ServiceLevelObjectivesApiDeleteSLORequest,
   ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest,
   ServiceLevelObjectivesApiGetSLORequest,
+  ServiceLevelObjectivesApiGetSLOCorrectionsRequest,
   ServiceLevelObjectivesApiGetSLOHistoryRequest,
   ServiceLevelObjectivesApiListSLOsRequest,
   ServiceLevelObjectivesApiUpdateSLORequest,

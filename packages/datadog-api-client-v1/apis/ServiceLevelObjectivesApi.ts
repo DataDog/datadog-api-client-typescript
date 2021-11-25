@@ -9,6 +9,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
 import { SLOBulkDeleteResponse } from "../models/SLOBulkDeleteResponse";
+import { SLOCorrectionListResponse } from "../models/SLOCorrectionListResponse";
 import { SLODeleteResponse } from "../models/SLODeleteResponse";
 import { SLOHistoryResponse } from "../models/SLOHistoryResponse";
 import { SLOListResponse } from "../models/SLOListResponse";
@@ -337,18 +338,80 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   }
 
   /**
+   * Get corrections applied to an SLO
+   * Get Corrections For an SLO
+   * @param sloId The ID of the service level objective object.
+   */
+  public async getSLOCorrections(
+    sloId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'sloId' is not null or undefined
+    if (sloId === null || sloId === undefined) {
+      throw new RequiredError(
+        "Required parameter sloId was null or undefined when calling getSLOCorrections."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/slo/{slo_id}/corrections".replace(
+      "{" + "slo_id" + "}",
+      encodeURIComponent(String(sloId))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "ServiceLevelObjectivesApi.getSLOCorrections"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+
+    // Header Params
+
+    // Form Params
+
+    // Body Params
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
    * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
    * Get an SLO's history
    * @param sloId The ID of the service level objective object.
    * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds.
    * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds.
    * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+   * @param applyCorrection Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
    */
   public async getSLOHistory(
     sloId: string,
     fromTs: number,
     toTs: number,
     target?: number,
+    applyCorrection?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -405,6 +468,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
       requestContext.setQueryParam(
         "target",
         ObjectSerializer.serialize(target, "number", "double")
+      );
+    }
+    if (applyCorrection !== undefined) {
+      requestContext.setQueryParam(
+        "apply_correction",
+        ObjectSerializer.serialize(applyCorrection, "boolean", "")
       );
     }
 
@@ -922,6 +991,77 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         "SLOResponse",
         ""
       ) as SLOResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSLOCorrections
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSLOCorrections(
+    response: ResponseContext
+  ): Promise<SLOCorrectionListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SLOCorrectionListResponse",
+        ""
+      ) as SLOCorrectionListResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SLOCorrectionListResponse",
+        ""
+      ) as SLOCorrectionListResponse;
       return body;
     }
 
