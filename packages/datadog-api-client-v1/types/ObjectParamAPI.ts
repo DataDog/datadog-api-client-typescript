@@ -3434,6 +3434,15 @@ export interface ServiceLevelObjectivesApiGetSLORequest {
   withConfiguredAlertIds?: boolean;
 }
 
+export interface ServiceLevelObjectivesApiGetSLOCorrectionsRequest {
+  /**
+   * The ID of the service level objective object.
+   * @type string
+   * @memberof ServiceLevelObjectivesApigetSLOCorrections
+   */
+  sloId: string;
+}
+
 export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
   /**
    * The ID of the service level objective object.
@@ -3459,6 +3468,12 @@ export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
    * @memberof ServiceLevelObjectivesApigetSLOHistory
    */
   target?: number;
+  /**
+   * Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
+   * @type boolean
+   * @memberof ServiceLevelObjectivesApigetSLOHistory
+   */
+  applyCorrection?: boolean;
 }
 
 export interface ServiceLevelObjectivesApiListSLOsRequest {
@@ -3593,6 +3608,18 @@ export class ObjectServiceLevelObjectivesApi {
   }
 
   /**
+   * Get corrections applied to an SLO
+   * Get Corrections For an SLO
+   * @param param the request object
+   */
+  public getSLOCorrections(
+    param: ServiceLevelObjectivesApiGetSLOCorrectionsRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionListResponse> {
+    return this.api.getSLOCorrections(param.sloId, options).toPromise();
+  }
+
+  /**
    * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
    * Get an SLO's history
    * @param param the request object
@@ -3607,6 +3634,7 @@ export class ObjectServiceLevelObjectivesApi {
         param.fromTs,
         param.toTs,
         param.target,
+        param.applyCorrection,
         options
       )
       .toPromise();

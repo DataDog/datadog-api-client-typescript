@@ -400,6 +400,7 @@ models/SLOCorrectionCreateRequestAttributes.ts
 models/SLOCorrectionListResponse.ts
 models/SLOCorrectionResponse.ts
 models/SLOCorrectionResponseAttributes.ts
+models/SLOCorrectionResponseAttributesModifier.ts
 models/SLOCorrectionType.ts
 models/SLOCorrectionUpdateData.ts
 models/SLOCorrectionUpdateRequest.ts

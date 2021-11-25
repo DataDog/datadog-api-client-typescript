@@ -2377,18 +2377,33 @@ export class PromiseServiceLevelObjectivesApi {
   }
 
   /**
+   * Get corrections applied to an SLO
+   * Get Corrections For an SLO
+   * @param sloId The ID of the service level objective object.
+   */
+  public getSLOCorrections(
+    sloId: string,
+    _options?: Configuration
+  ): Promise<SLOCorrectionListResponse> {
+    const result = this.api.getSLOCorrections(sloId, _options);
+    return result.toPromise();
+  }
+
+  /**
    * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
    * Get an SLO's history
    * @param sloId The ID of the service level objective object.
    * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds.
    * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds.
    * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+   * @param applyCorrection Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
    */
   public getSLOHistory(
     sloId: string,
     fromTs: number,
     toTs: number,
     target?: number,
+    applyCorrection?: boolean,
     _options?: Configuration
   ): Promise<SLOHistoryResponse> {
     const result = this.api.getSLOHistory(
@@ -2396,6 +2411,7 @@ export class PromiseServiceLevelObjectivesApi {
       fromTs,
       toTs,
       target,
+      applyCorrection,
       _options
     );
     return result.toPromise();
