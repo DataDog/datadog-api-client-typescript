@@ -44,6 +44,10 @@ export class MonitorSearchResult {
    */
   "orgId"?: number;
   /**
+   * The monitor query.
+   */
+  "query"?: string;
+  /**
    * The scope(s) to which the downtime applies, e.g. `host:app2`. Provide multiple scopes as a comma-separated list, e.g. `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (i.e. `env:dev AND env:prod`), NOT any of them.
    */
   "scopes"?: Array<string>;
@@ -101,6 +105,10 @@ export class MonitorSearchResult {
       type: "number",
 
       format: "int64",
+    },
+    query: {
+      baseName: "query",
+      type: "string",
     },
     scopes: {
       baseName: "scopes",
