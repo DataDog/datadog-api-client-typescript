@@ -16,7 +16,7 @@ export class SyntheticsBrowserVariable {
    */
   "example"?: string;
   /**
-   * ID for the variable.
+   * ID for the variable. Global variables require an ID.
    */
   "id"?: string;
   /**
