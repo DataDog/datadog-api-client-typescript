@@ -5,13 +5,15 @@ import path from "path";
 import NodeHttpAdapter from "@pollyjs/adapter-node-http";
 import FSPersister from "@pollyjs/persister-fs";
 import { Polly } from "@pollyjs/core";
-import { After, Before } from "@cucumber/cucumber";
+import { After, AfterAll, Before } from "@cucumber/cucumber";
 import { World } from "./world";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 import { MODES } from "@pollyjs/utils";
 
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
+
+let cassettes: string[] = [];
 
 const RecordMode: { [value: string]: any } = {
   true: MODES.RECORD,
@@ -31,9 +33,7 @@ Before(function (
     __dirname,
     `../../cassettes/${this.apiVersion}`
   );
-  const recordingName = `${gherkinDocument.feature?.name as string}/${
-    pickle.name
-  }`;
+  const recordingName = `${gherkinDocument.feature?.name as string}/${pickle.name}`;
   this.polly = new Polly(recordingName, {
     adapters: ["node-http"],
     flushRequestsOnStop: true,
@@ -52,6 +52,9 @@ Before(function (
     },
   });
   const { server } = this.polly;
+
+  // register used cassettes
+  cassettes.push(path.join(recordingsDir, this.polly?.recordingId));
 
   let date: Date;
   const frozen = path.join(
@@ -125,4 +128,41 @@ After(async function (this: World) {
 
 After(async function (this: World) {
   await this.cleanup();
+});
+
+AfterAll(function () {
+  const recordMode = process.env.RECORD || "false";
+  if (recordMode === "false" && process.env.CLEANUP_CASSETTES !== "true") {
+    return;
+  }
+  const cassettesDir = path.resolve(__dirname, "../../cassettes");
+
+  const getAllDirs = function (dirPath: string): string[] {
+    let files = fs.readdirSync(dirPath).map(file => path.join(dirPath, file));
+    let arrayOfFiles = [];
+
+    while (files.length > 0) {
+      const fileName = (files.pop() as string);
+      if (fs.statSync(fileName).isDirectory()) {
+        const children = fs.readdirSync(fileName)
+          .map(file => path.join(fileName, file))
+          .filter(d => fs.statSync(d).isDirectory());
+        if (children.length > 0) {
+          files = files.concat(children);
+        } else {
+          arrayOfFiles.push(fileName);
+        }
+      }
+    }
+
+    return arrayOfFiles
+  }
+
+  const existingCassettes = getAllDirs(cassettesDir);
+  const usedCassettes = new Set(cassettes);
+
+  existingCassettes.filter(c => !usedCassettes.has(c)).forEach(cassette => {
+    console.log(`Removing unused cassette ${cassette}`);
+    fs.rmSync(cassette, { recursive: true });
+  });
 });
