@@ -11,12 +11,11 @@ const apiInstance = new v2.RolesApi(configuration);
 let ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
 // there is a valid "permission" in the system
-let PERMISSION_ID = process.env.PERMISSION_ID as string;
 
 let params: v2.RolesApiAddPermissionToRoleRequest = {
   body: {
     data: {
-      id: PERMISSION_ID,
+      id: "9f53ba50-00a3-2191-1678-eca210194440",
       type: "permissions",
     },
   },

@@ -11,12 +11,11 @@ const apiInstance = new v2.RolesApi(configuration);
 let ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
 // there is a valid "user" in the system
-let USER_DATA_ID = process.env.USER_DATA_ID as string;
 
 let params: v2.RolesApiRemoveUserFromRoleRequest = {
   body: {
     data: {
-      id: USER_DATA_ID,
+      id: "c8b3af54-de75-f62c-8031-23899c4a5fa5",
       type: "users",
     },
   },
