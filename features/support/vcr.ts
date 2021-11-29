@@ -132,7 +132,7 @@ After(async function (this: World) {
 
 AfterAll(function () {
   const recordMode = process.env.RECORD || "false";
-  if (recordMode === "false" && process.env.CLEANUP_CASSETTES !== "true") {
+  if (recordMode !== "false" || process.env.CLEANUP_CASSETTES !== "true") {
     return;
   }
   const cassettesDir = path.resolve(__dirname, "../../cassettes");
