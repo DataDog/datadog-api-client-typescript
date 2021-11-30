@@ -26,7 +26,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**listLocations**](SyntheticsApi.md#listLocations)                             | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
 | [**listTests**](SyntheticsApi.md#listTests)                                     | **GET** /api/v1/synthetics/tests                                         | Get the list of all tests                         |
 | [**triggerCITests**](SyntheticsApi.md#triggerCITests)                           | **POST** /api/v1/synthetics/tests/trigger/ci                             | Trigger tests from CI/CD pipelines                |
-| [**triggerTests**](SyntheticsApi.md#triggerTests)                               | **POST** /api/v1/synthetics/tests/trigger                                | Trigger some Synthetics tests                     |
+| [**triggerTests**](SyntheticsApi.md#triggerTests)                               | **POST** /api/v1/synthetics/tests/trigger                                | Trigger Synthetics tests                          |
 | [**updateAPITest**](SyntheticsApi.md#updateAPITest)                             | **PUT** /api/v1/synthetics/tests/api/{public_id}                         | Edit an API test                                  |
 | [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest)                     | **PUT** /api/v1/synthetics/tests/browser/{public_id}                     | Edit a browser test                               |
 | [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation)             | **PUT** /api/v1/synthetics/private-locations/{location_id}               | Edit a private location                           |
