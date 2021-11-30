@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -348,6 +349,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getSLOCorrections'");
+    if (!_config.unstableOperations["getSLOCorrections"]) {
+      throw new Error("Unstable operation 'getSLOCorrections' is disabled");
+    }
+
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
       throw new RequiredError(
@@ -415,6 +421,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSLOHistory'");
+    if (!_config.unstableOperations["getSLOHistory"]) {
+      throw new Error("Unstable operation 'getSLOHistory' is disabled");
+    }
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {

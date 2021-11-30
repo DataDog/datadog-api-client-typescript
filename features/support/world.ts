@@ -5,6 +5,7 @@ export class World {
 
   public apiVersion = "";
   public authMethods: any = {};
+  public unstableOperations: { [key: string]: boolean } = {};
 
   public apiName?: string;
   public apiInstance?: any;

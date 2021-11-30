@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
 import {Configuration, getServer } from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
+import { logger } from "../../../index";
 {{#platforms}}
 {{#node}}
 import FormData from "form-data";
@@ -41,6 +42,13 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
      */
     public async {{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+        {{#vendorExtensions.x-unstable}}
+
+        logger.warn("Using unstable operation '{{operationId}}'");
+        if (!_config.unstableOperations['{{operationId}}']) {
+            throw new Error("Unstable operation '{{operationId}}' is disabled");
+        }
+        {{/vendorExtensions.x-unstable}}
         {{#allParams}}
 
         {{#required}}
