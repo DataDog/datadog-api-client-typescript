@@ -1,0 +1,49 @@
+name: Run pre-commit checks
+
+on: # yamllint disable-line rule:truthy
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - master
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
+      !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/') &&
+      !contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
+    steps:
+      - name: Get GitHub App token
+        id: get_token
+        uses: tibdex/github-app-token@v1.3.0
+        with:
+          app_id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+          private_key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+          token: ${{ steps.get_token.outputs.token }}
+      - name: Install pre-commit
+        run: python -m pip install pre-commit
+      - name: set PY
+        run: echo "PY=$(python -c 'import hashlib, sys;print(hashlib.sha256(sys.version.encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_ENV
+      - uses: actions/cache@v1
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+      - name: Run pre-commit
+        if: github.event.action != 'closed' && github.event.pull_request.merged != true
+        run: |
+          pre-commit run --hook-stage=manual generate --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.event.pull_request.head.sha }} --show-diff-on-failure --color=always
+      - name: Commit changes
+        if: ${{ failure() }}
+        run: |-
+          git add -A
+          git config user.name "${GIT_AUTHOR_NAME}"
+          git config user.email "${GIT_AUTHOR_EMAIL}"
+          git commit -m "pre-commit fixes"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          exit 1
