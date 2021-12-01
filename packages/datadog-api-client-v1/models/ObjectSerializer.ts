@@ -892,6 +892,8 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_hosts_percentage",
     "dbm_queries_usage",
     "dbm_queries_percentage",
+    "estimated_indexed_logs_usage",
+    "estimated_indexed_logs_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
