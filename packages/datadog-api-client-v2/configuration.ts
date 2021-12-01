@@ -27,6 +27,7 @@ export interface Configuration {
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
+  unstableOperations: { [name: string]: boolean };
 }
 
 /**
@@ -112,6 +113,30 @@ export function createConfiguration(
     baseServer: conf.baseServer,
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
+    unstableOperations: {
+      createIncidentService: false,
+      deleteIncidentService: false,
+      getIncidentService: false,
+      listIncidentServices: false,
+      updateIncidentService: false,
+      createIncidentTeam: false,
+      deleteIncidentTeam: false,
+      getIncidentTeam: false,
+      listIncidentTeams: false,
+      updateIncidentTeam: false,
+      createIncident: false,
+      deleteIncident: false,
+      getIncident: false,
+      listIncidents: false,
+      updateIncident: false,
+      createTagConfiguration: false,
+      deleteTagConfiguration: false,
+      listTagConfigurationByName: false,
+      listTagConfigurations: false,
+      updateTagConfiguration: false,
+      listSecurityMonitoringSignals: false,
+      searchSecurityMonitoringSignals: false,
+    },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     middleware: conf.middleware || (conf.debug ? [new DebugMiddleWare()] : []),
     authMethods: configureAuthMethods(authMethods),
