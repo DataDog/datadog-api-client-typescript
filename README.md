@@ -39,6 +39,16 @@ apiInstance.getMonitor(params).then((data:any) => {
 
 ```
 
+### Unstable Endpoints
+
+This client includes access to Datadog API endpoints while they are in an unstable state and may undergo breaking changes. An extra configuration step is required to enable these endpoints:
+
+```typescript
+configuration.unstableOperations["<operationName>"] = true
+```
+
+where <operationName> is the name of the method used to interact with that endpoint. For example: `listLogIndexes`, or `getLogsIndex`.
+
 ### Changing Server
 
 When talking to a different server, like the `eu` instance, change the server variables:
