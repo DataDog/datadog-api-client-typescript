@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -31,6 +32,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createTagConfiguration'");
+    if (!_config.unstableOperations["createTagConfiguration"]) {
+      throw new Error(
+        "Unstable operation 'createTagConfiguration' is disabled"
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -107,6 +115,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'deleteTagConfiguration'");
+    if (!_config.unstableOperations["deleteTagConfiguration"]) {
+      throw new Error(
+        "Unstable operation 'deleteTagConfiguration' is disabled"
+      );
+    }
+
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
       throw new RequiredError(
@@ -161,6 +176,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listTagConfigurationByName'");
+    if (!_config.unstableOperations["listTagConfigurationByName"]) {
+      throw new Error(
+        "Unstable operation 'listTagConfigurationByName' is disabled"
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -226,6 +248,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listTagConfigurations'");
+    if (!_config.unstableOperations["listTagConfigurations"]) {
+      throw new Error("Unstable operation 'listTagConfigurations' is disabled");
+    }
 
     // Path Params
     const localVarPath = "/api/v2/metrics";
@@ -438,6 +465,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateTagConfiguration'");
+    if (!_config.unstableOperations["updateTagConfiguration"]) {
+      throw new Error(
+        "Unstable operation 'updateTagConfiguration' is disabled"
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {

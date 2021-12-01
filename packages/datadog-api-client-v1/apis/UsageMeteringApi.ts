@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -64,6 +65,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getDailyCustomReports'");
+    if (!_config.unstableOperations["getDailyCustomReports"]) {
+      throw new Error("Unstable operation 'getDailyCustomReports' is disabled");
+    }
 
     // Path Params
     const localVarPath = "/api/v1/daily_custom_reports";
@@ -282,6 +288,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getMonthlyCustomReports'");
+    if (!_config.unstableOperations["getMonthlyCustomReports"]) {
+      throw new Error(
+        "Unstable operation 'getMonthlyCustomReports' is disabled"
+      );
+    }
+
     // Path Params
     const localVarPath = "/api/v1/monthly_custom_reports";
 
@@ -351,6 +364,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getSpecifiedDailyCustomReports'");
+    if (!_config.unstableOperations["getSpecifiedDailyCustomReports"]) {
+      throw new Error(
+        "Unstable operation 'getSpecifiedDailyCustomReports' is disabled"
+      );
+    }
+
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
       throw new RequiredError(
@@ -405,6 +425,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSpecifiedMonthlyCustomReports'");
+    if (!_config.unstableOperations["getSpecifiedMonthlyCustomReports"]) {
+      throw new Error(
+        "Unstable operation 'getSpecifiedMonthlyCustomReports' is disabled"
+      );
+    }
 
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
@@ -541,6 +568,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getUsageAttribution'");
+    if (!_config.unstableOperations["getUsageAttribution"]) {
+      throw new Error("Unstable operation 'getUsageAttribution' is disabled");
+    }
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {

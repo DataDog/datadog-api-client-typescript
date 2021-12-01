@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -27,6 +28,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncident'");
+    if (!_config.unstableOperations["createIncident"]) {
+      throw new Error("Unstable operation 'createIncident' is disabled");
+    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -94,6 +100,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'deleteIncident'");
+    if (!_config.unstableOperations["deleteIncident"]) {
+      throw new Error("Unstable operation 'deleteIncident' is disabled");
+    }
+
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
       throw new RequiredError(
@@ -155,6 +166,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIncident'");
+    if (!_config.unstableOperations["getIncident"]) {
+      throw new Error("Unstable operation 'getIncident' is disabled");
+    }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
@@ -226,6 +242,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'listIncidents'");
+    if (!_config.unstableOperations["listIncidents"]) {
+      throw new Error("Unstable operation 'listIncidents' is disabled");
+    }
+
     // Path Params
     const localVarPath = "/api/v2/incidents";
 
@@ -295,6 +316,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncident'");
+    if (!_config.unstableOperations["updateIncident"]) {
+      throw new Error("Unstable operation 'updateIncident' is disabled");
+    }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {

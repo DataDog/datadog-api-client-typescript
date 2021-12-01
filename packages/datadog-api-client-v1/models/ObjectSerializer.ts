@@ -892,6 +892,8 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_hosts_percentage",
     "dbm_queries_usage",
     "dbm_queries_percentage",
+    "estimated_indexed_logs_usage",
+    "estimated_indexed_logs_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1854,19 +1856,12 @@ export class ObjectSerializer {
    * Parse data from a string according to the given media type
    */
   public static parse(rawData: string, mediaType: string | undefined) {
-    if (mediaType === undefined) {
-      throw new Error("Cannot parse content. No Content-Type defined.");
-    }
-
-    if (mediaType === "application/json" || mediaType === "text/json") {
+    try {
       return JSON.parse(rawData);
+    } catch (error) {
+      logger.debug(`could not parse ${mediaType}: ${error}`);
+      return rawData;
     }
-
-    throw new Error(
-      "The mediaType " +
-        mediaType +
-        " is not supported by ObjectSerializer.parse."
-    );
   }
 }
 

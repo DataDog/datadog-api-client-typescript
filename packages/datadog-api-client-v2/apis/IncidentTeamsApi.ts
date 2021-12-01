@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -27,6 +28,11 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentTeam'");
+    if (!_config.unstableOperations["createIncidentTeam"]) {
+      throw new Error("Unstable operation 'createIncidentTeam' is disabled");
+    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -94,6 +100,11 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'deleteIncidentTeam'");
+    if (!_config.unstableOperations["deleteIncidentTeam"]) {
+      throw new Error("Unstable operation 'deleteIncidentTeam' is disabled");
+    }
+
     // verify required parameter 'teamId' is not null or undefined
     if (teamId === null || teamId === undefined) {
       throw new RequiredError(
@@ -155,6 +166,11 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIncidentTeam'");
+    if (!_config.unstableOperations["getIncidentTeam"]) {
+      throw new Error("Unstable operation 'getIncidentTeam' is disabled");
+    }
 
     // verify required parameter 'teamId' is not null or undefined
     if (teamId === null || teamId === undefined) {
@@ -227,6 +243,11 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentTeams'");
+    if (!_config.unstableOperations["listIncidentTeams"]) {
+      throw new Error("Unstable operation 'listIncidentTeams' is disabled");
+    }
 
     // Path Params
     const localVarPath = "/api/v2/teams";
@@ -303,6 +324,11 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentTeam'");
+    if (!_config.unstableOperations["updateIncidentTeam"]) {
+      throw new Error("Unstable operation 'updateIncidentTeam' is disabled");
+    }
 
     // verify required parameter 'teamId' is not null or undefined
     if (teamId === null || teamId === undefined) {

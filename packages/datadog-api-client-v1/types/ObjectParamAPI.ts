@@ -4536,7 +4536,7 @@ export class ObjectSyntheticsApi {
 
   /**
    * Trigger a set of Synthetics tests.
-   * Trigger some Synthetics tests
+   * Trigger Synthetics tests
    * @param param the request object
    */
   public triggerTests(

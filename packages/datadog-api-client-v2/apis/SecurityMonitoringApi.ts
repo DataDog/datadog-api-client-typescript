@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -536,6 +537,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'listSecurityMonitoringSignals'");
+    if (!_config.unstableOperations["listSecurityMonitoringSignals"]) {
+      throw new Error(
+        "Unstable operation 'listSecurityMonitoringSignals' is disabled"
+      );
+    }
+
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals";
 
@@ -621,6 +629,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'searchSecurityMonitoringSignals'");
+    if (!_config.unstableOperations["searchSecurityMonitoringSignals"]) {
+      throw new Error(
+        "Unstable operation 'searchSecurityMonitoringSignals' is disabled"
+      );
+    }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals/search";

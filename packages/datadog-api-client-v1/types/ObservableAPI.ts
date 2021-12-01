@@ -7220,7 +7220,7 @@ export class ObservableSyntheticsApi {
   }
   /**
    * Trigger a set of Synthetics tests.
-   * Trigger some Synthetics tests
+   * Trigger Synthetics tests
    * @param body The identifiers of the tests to trigger.
    */
   public triggerTests(

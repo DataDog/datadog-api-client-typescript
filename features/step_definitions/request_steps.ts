@@ -29,8 +29,7 @@ Given("an instance of {string} API", function (this: World, apiName: string) {
 Given(
   "operation {string} enabled",
   function (this: World, operationId: string) {
-    // TODO add support for unstable operations
-    // this.configuration().unstableOperations[operationId] = true;
+    this.unstableOperations[operationId.toOperationName()] = true;
   }
 );
 
@@ -91,6 +90,14 @@ When("the request is sent", async function (this: World) {
     (configurationOpts as any)["serverIndex"] = 1;
   }
   const configuration = api.createConfiguration(configurationOpts);
+  for (const operationId in this.unstableOperations) {
+    if (operationId in configuration.unstableOperations) {
+      configuration.unstableOperations[operationId] = this.unstableOperations[operationId];
+    } else {
+      // FIXME throw new Error(`Operation ${operationId} is not unstable`);
+      logger.warn(`Operation ${operationId} is not unstable`);
+    }
+  }
   const apiInstance = new api[`${this.apiName}Api`](configuration);
 
   const undoAction = UndoActions[this.apiVersion][this.operationId];
@@ -123,6 +130,7 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
+    this.response = error.body;
     logger.debug(error);
     if (this.requestContext === undefined) {
       throw error;
