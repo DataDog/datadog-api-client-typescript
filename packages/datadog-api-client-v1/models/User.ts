@@ -8,10 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AccessRole } from "./AccessRole";
-
 export class User {
-  "accessRole"?: AccessRole;
   /**
    * The new disabled status of the user.
    */
@@ -47,10 +44,6 @@ export class User {
       format?: string;
     };
   } = {
-    accessRole: {
-      baseName: "access_role",
-      type: "AccessRole",
-    },
     disabled: {
       baseName: "disabled",
       type: "boolean",
