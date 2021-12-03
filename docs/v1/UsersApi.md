@@ -31,6 +31,7 @@ const apiInstance = new v1.UsersApi(configuration);
 let params: v1.UsersApiCreateUserRequest = {
   // User | User object that needs to be created.
   body: {
+    accessRole: "st",
     disabled: false,
     email: "test@datadoghq.com",
     handle: "test@datadoghq.com",
@@ -277,6 +278,7 @@ let params: v1.UsersApiUpdateUserRequest = {
   userHandle: "test@datadoghq.com",
   // User | Description of the update.
   body: {
+    accessRole: "st",
     disabled: false,
     email: "test@datadoghq.com",
     handle: "test@datadoghq.com",
