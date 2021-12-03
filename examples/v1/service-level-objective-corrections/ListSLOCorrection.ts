@@ -5,6 +5,7 @@
 import { v1 } from "@datadog/datadog-api-client";
 
 const configuration = v1.createConfiguration();
+configuration.unstableOperations["listSLOCorrection"] = true;
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 apiInstance

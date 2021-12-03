@@ -5,6 +5,7 @@
 import { v2 } from "@datadog/datadog-api-client";
 
 const configuration = v2.createConfiguration();
+configuration.unstableOperations["updateIncidentTeam"] = true;
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
 // there is a valid "team" in the system
