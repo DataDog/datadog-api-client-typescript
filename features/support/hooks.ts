@@ -31,7 +31,7 @@ Before(function (
   this.apiVersion = parts[parts.length - 2];
   
   const span = tracer.scope().active() as any;
-  if (span !== undefined) {
+  if (span !== null) {
     const codeowners = JSON.stringify(
       pickle.tags
       .filter((tag) => tag.name.startsWith("@team:"))
