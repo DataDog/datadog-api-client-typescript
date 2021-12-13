@@ -889,7 +889,7 @@ export class ObjectSerializer {
         );
 
         // check for required properties
-        if (attributeObj?.required && instance[attributeName] == undefined) {
+        if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);
         }
 
