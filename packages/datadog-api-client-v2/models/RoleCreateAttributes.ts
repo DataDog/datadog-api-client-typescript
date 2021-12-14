@@ -10,6 +10,10 @@
 
 export class RoleCreateAttributes {
   /**
+   * UUID of the role to clone from.
+   */
+  "cloneFromUuid"?: string;
+  /**
    * Creation time of the role.
    */
   "createdAt"?: Date;
@@ -32,6 +36,10 @@ export class RoleCreateAttributes {
       format?: string;
     };
   } = {
+    cloneFromUuid: {
+      baseName: "clone_from_uuid",
+      type: "string",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",

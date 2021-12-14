@@ -175,6 +175,7 @@ let params: v2.RolesApiCreateRoleRequest = {
   body: {
     data: {
       attributes: {
+        cloneFromUuid: "cloneFromUuid_example",
         name: "developers",
       },
       relationships: {
