@@ -121,6 +121,8 @@ for (const apiVersion of Versions) {
       if (operation["key"] !== undefined) {
         this.fixtures[operation["key"]] = result;
       }
+      
+      await this.sleepAfterRequest();
     });
   }
 }
