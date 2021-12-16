@@ -36,7 +36,7 @@ export class World {
     if (RECORD_MODE === "false" || SLEEP_AFTER_REQUEST <= 0) {
       return Promise.resolve();
     }
-    return new Promise(resolve => setTimeout(resolve, SLEEP_AFTER_REQUEST));
+    return new Promise(resolve => setTimeout(resolve, SLEEP_AFTER_REQUEST * 1000));
   }
 }
 
