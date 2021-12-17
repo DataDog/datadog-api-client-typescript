@@ -1,6 +1,6 @@
 const feature = [
   // NOTE: use bin/dd-cucumber-js to enable dd-trace
-  // process.env.DD_AGENT_HOST ? '--require-module dd-trace/init' : '',
+  // process.env.DD_AGENT_HOST ? '--require-module dd-trace/ci/init' : '',
   '--require-module ts-node/register',
   '--require features/**/*.ts',
   `--format ${process.env.CI || !process.stdout.isTTY ? 'progress' : 'progress-bar'
