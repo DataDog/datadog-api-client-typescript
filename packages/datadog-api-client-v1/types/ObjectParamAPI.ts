@@ -2490,7 +2490,7 @@ export interface MonitorsApiListMonitorsRequest {
    */
   withDowntimes?: boolean;
   /**
-   * Monitor ID offset.
+   * Use this parameter for paginating through large sets of monitors. Start with a value of zero, make a request, set the value to the last ID of result set, and then repeat until the response is empty.
    * @type number
    * @memberof MonitorsApilistMonitors
    */

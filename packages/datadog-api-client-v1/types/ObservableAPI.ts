@@ -4281,7 +4281,7 @@ export class ObservableMonitorsApi {
    * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, &#x60;host:host0&#x60;.
    * @param monitorTags A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, &#x60;service:my-app&#x60;.
    * @param withDowntimes If this argument is set to true, then the returned data includes all current active downtimes for each monitor.
-   * @param idOffset Monitor ID offset.
+   * @param idOffset Use this parameter for paginating through large sets of monitors. Start with a value of zero, make a request, set the value to the last ID of result set, and then repeat until the response is empty.
    * @param page The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
    * @param pageSize The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a &#x60;page_size&#x60; limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument defaults to 100.
    */
