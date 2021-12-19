@@ -206,7 +206,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       configVariables: [
         {
           example: "example_example",
-          id: "id_example",
+          id: "123abcd4-5678-44ab-c234-d56e9999ff22",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
           type: "text",
@@ -401,7 +401,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       configVariables: [
         {
           example: "example_example",
-          id: "id_example",
+          id: "123abcd4-5678-44ab-c234-d56e9999ff22",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
           type: "text",
@@ -1793,7 +1793,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
       configVariables: [
         {
           example: "example_example",
-          id: "id_example",
+          id: "123abcd4-5678-44ab-c234-d56e9999ff22",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
           type: "text",
@@ -1991,7 +1991,7 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
       configVariables: [
         {
           example: "example_example",
-          id: "id_example",
+          id: "123abcd4-5678-44ab-c234-d56e9999ff22",
           name: "VARIABLE_NAME",
           pattern: "pattern_example",
           type: "text",
