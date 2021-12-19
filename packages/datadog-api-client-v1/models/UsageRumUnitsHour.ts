@@ -10,21 +10,9 @@
 
 export class UsageRumUnitsHour {
   /**
-   * Number of browser RUM lite sessions.
-   */
-  "browserRumLiteSessionCount"?: number;
-  /**
-   * Number of browser RUM replay sessions.
-   */
-  "browserRumReplaySessionCount"?: number;
-  /**
    * The number of browser RUM units.
    */
   "browserRumUnits"?: number;
-  /**
-   * Number of mobile RUM lite sessions.
-   */
-  "mobileRumLiteSessionCount"?: number;
   /**
    * The number of mobile RUM units.
    */
@@ -52,26 +40,8 @@ export class UsageRumUnitsHour {
       format?: string;
     };
   } = {
-    browserRumLiteSessionCount: {
-      baseName: "browser_rum_lite_session_count",
-      type: "number",
-
-      format: "int64",
-    },
-    browserRumReplaySessionCount: {
-      baseName: "browser_rum_replay_session_count",
-      type: "number",
-
-      format: "int64",
-    },
     browserRumUnits: {
       baseName: "browser_rum_units",
-      type: "number",
-
-      format: "int64",
-    },
-    mobileRumLiteSessionCount: {
-      baseName: "mobile_rum_lite_session_count",
       type: "number",
 
       format: "int64",
