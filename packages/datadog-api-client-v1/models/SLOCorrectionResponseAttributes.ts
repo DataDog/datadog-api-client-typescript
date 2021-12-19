@@ -37,7 +37,7 @@ export class SLOCorrectionResponseAttributes {
   "modifiedAt"?: number;
   "modifier"?: SLOCorrectionResponseAttributesModifier;
   /**
-   * Recurrence rules as defined in the iCalendar RFC 5545.
+   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
    */
   "rrule"?: string;
   /**
