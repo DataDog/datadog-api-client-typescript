@@ -18,7 +18,7 @@ export class SyntheticsConfigVariable {
   /**
    * ID of the variable for global variables.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Name of the variable.
    */
@@ -46,6 +46,7 @@ export class SyntheticsConfigVariable {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     name: {
       baseName: "name",
