@@ -1,5 +1,5 @@
 /**
- * Create an SLO correction returns "OK" response
+ * Create an SLO correction with rrule returns "OK" response
  */
 
 import { v1 } from "@datadog/datadog-api-client";
@@ -16,10 +16,12 @@ let params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
     data: {
       attributes: {
         category: "Scheduled Maintenance",
-        description: "Example-Create_an_SLO_correction_returns_OK_response",
-        end: new Date(new Date().getTime() + 1 * 3600).getTime(),
+        description:
+          "Example-Create_an_SLO_correction_with_rrule_returns_OK_response",
         sloId: SLO_DATA_0_ID,
         start: new Date().getTime(),
+        duration: 3600,
+        rrule: "FREQ=DAILY;INTERVAL=10;COUNT=5",
         timezone: "UTC",
       },
       type: "correction",

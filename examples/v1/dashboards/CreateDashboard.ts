@@ -1,5 +1,5 @@
 /**
- * Create a new dashboard returns "OK" response
+ * Create a new dashboard with timeseries widget containing style attributes
  */
 
 import { v1 } from "@datadog/datadog-api-client";
@@ -11,33 +11,21 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
     title:
-      "Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics Query",
+      "Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes with timeseries widget",
     widgets: [
       {
         definition: {
           type: "timeseries",
           requests: [
             {
-              profileMetricsQuery: {
-                compute: {
-                  aggregation: "sum",
-                  facet: "@prof_core_cpu_cores",
-                },
-                search: {
-                  query: "runtime:jvm",
-                },
-                groupBy: [
-                  {
-                    facet: "service",
-                    limit: 10,
-                    sort: {
-                      aggregation: "sum",
-                      order: "desc",
-                      facet: "@prof_core_cpu_cores",
-                    },
-                  },
-                ],
+              q: "sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()",
+              onRightYaxis: false,
+              style: {
+                palette: "warm",
+                lineType: "solid",
+                lineWidth: "normal",
               },
+              displayType: "bars",
             },
           ],
         },

@@ -1,5 +1,5 @@
 /**
- * Create an API test returns "OK - Returns the created test details." response
+ * Create an API test with WEBSOCKET subtype returns "OK - Returns the created test details." response
  */
 
 import { v1 } from "@datadog/datadog-api-client";
@@ -13,58 +13,24 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       assertions: [
         {
           operator: "is",
-          property: "{{ PROPERTY }}",
-          target: "text/html",
-          type: "header",
+          target: "message",
+          type: "receivedMessage",
         },
         {
           operator: "lessThan",
           target: 2000,
           type: "responseTime",
         },
-        {
-          operator: "validatesJSONPath",
-          target: {
-            jsonPath: "topKey",
-            operator: "isNot",
-            targetValue: "0",
-          },
-          type: "body",
-        },
       ],
-      configVariables: [
-        {
-          example: "content-type",
-          name: "PROPERTY",
-          pattern: "content-type",
-          type: "text",
-        },
-      ],
+      configVariables: [],
       request: {
-        certificate: {
-          cert: {
-            content: "cert-content",
-            filename: "cert-filename",
-            updatedAt: "2020-10-16T09:23:24.857Z",
-          },
-          key: {
-            content: "key-content",
-            filename: "key-filename",
-            updatedAt: "2020-10-16T09:23:24.857Z",
-          },
-        },
-        headers: {
-          unique:
-            "examplecreateanapitestreturnsokreturnsthecreatedtestdetailsresponse",
-        },
-        method: "GET",
-        timeout: 10,
-        url: "https://datadoghq.com",
+        url: "ws://datadoghq.com",
+        message: "message",
       },
     },
     locations: ["aws:us-east-2"],
-    message: "BDD test payload: synthetics_api_test_payload.json",
-    name: "Example-Create_an_API_test_returns_OK_Returns_the_created_test_details_response",
+    message: "BDD test payload: synthetics_api_test_websocket_payload.json",
+    name: "Example-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response",
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,
@@ -72,7 +38,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       minFailureDuration: 10,
       minLocationFailed: 1,
       monitorName:
-        "Example-Create_an_API_test_returns_OK_Returns_the_created_test_details_response",
+        "Example-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response",
       monitorPriority: 5,
       retry: {
         count: 3,
@@ -80,7 +46,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       },
       tickEvery: 60,
     },
-    subtype: "http",
+    subtype: "websocket",
     tags: ["testing:api"],
     type: "api",
   },

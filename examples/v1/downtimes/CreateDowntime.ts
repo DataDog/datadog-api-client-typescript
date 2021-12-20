@@ -1,5 +1,5 @@
 /**
- * Schedule a downtime returns "OK" response
+ * Schedule a monitor downtime returns "OK" response
  */
 
 import { v1 } from "@datadog/datadog-api-client";
@@ -7,18 +7,16 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
+// there is a valid "monitor" in the system
+let MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
+
 let params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
-    message: "Example-Schedule_a_downtime_returns_OK_response",
+    message: "Example-Schedule_a_monitor_downtime_returns_OK_response",
     start: new Date().getTime(),
     timezone: "Etc/UTC",
-    scope: ["test:examplescheduleadowntimereturnsokresponse"],
-    recurrence: {
-      type: "weeks",
-      period: 1,
-      weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-      untilDate: new Date(new Date().getTime() + 21 * 86400).getTime(),
-    },
+    scope: ["test:examplescheduleamonitordowntimereturnsokresponse"],
+    monitorId: MONITOR_ID,
   },
 };
 

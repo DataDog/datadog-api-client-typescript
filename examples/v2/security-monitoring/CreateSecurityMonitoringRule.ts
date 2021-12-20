@@ -1,5 +1,5 @@
 /**
- * Create a detection rule returns "OK" response
+ * Create a detection rule with type 'workload_security' returns "OK" response
  */
 
 import { v2 } from "@datadog/datadog-api-client";
@@ -9,7 +9,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   body: {
-    name: "Example-Create_a_detection_rule_returns_OK_response",
+    name: "Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response",
     queries: [
       {
         query: "@test:true",
@@ -17,6 +17,10 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         groupByFields: [],
         distinctFields: [],
         metric: "",
+        agentRule: {
+          agentRuleId: "kernel_module_unlink_2",
+          expression: "(open.flags & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC)) > 0)",
+        },
       },
     ],
     filters: [],
@@ -36,6 +40,7 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
     message: "Test rule",
     tags: [],
     isEnabled: true,
+    type: "workload_security",
   },
 };
 

@@ -1,5 +1,5 @@
 /**
- * Get a monitor's details returns "OK" response
+ * Get a synthetics monitor's details
  */
 
 import { v1 } from "@datadog/datadog-api-client";
@@ -7,11 +7,13 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
-// there is a valid "monitor" in the system
-let MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
+// there is a valid "synthetics_api_test" in the system
+let SYNTHETICS_API_TEST_MONITOR_ID = parseInt(
+  process.env.SYNTHETICS_API_TEST_MONITOR_ID as string
+);
 
 let params: v1.MonitorsApiGetMonitorRequest = {
-  monitorId: MONITOR_ID,
+  monitorId: SYNTHETICS_API_TEST_MONITOR_ID,
 };
 
 apiInstance
