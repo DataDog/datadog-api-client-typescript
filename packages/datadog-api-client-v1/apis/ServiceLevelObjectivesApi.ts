@@ -146,7 +146,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
    * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
    * Delete an SLO
    * @param sloId The ID of the service level objective.
-   * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
+   * @param force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
    */
   public async deleteSLO(
     sloId: string,

@@ -133,8 +133,8 @@ Use this to create an outlier monitor using the following query:
 
 Example: `"check".over(tags).last(count).by(group).count_by_status()`
 
-- **`check`** name of the check, e.g. `datadog.agent.up`
-- **`tags`** one or more quoted tags (comma-separated), or "\*". e.g.: `.over("env:prod", "role:db")`; **`over`** cannot be blank.
+- **`check`** name of the check, for example `datadog.agent.up`
+- **`tags`** one or more quoted tags (comma-separated), or "\*". for example: `.over("env:prod", "role:db")`; **`over`** cannot be blank.
 - **`count`** must be at greater than or equal to your max threshold (defined in the `options`). It is limited to 100.
   For example, if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, `count` should be at least 3.
 - **`group`** must be specified for check monitors. Per-check grouping is already explicitly known for some service checks.
@@ -341,7 +341,7 @@ const apiInstance = new v1.MonitorsApi(configuration);
 let params: v1.MonitorsApiDeleteMonitorRequest = {
   // number | The ID of the monitor.
   monitorId: 1,
-  // string | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor). (optional)
+  // string | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor). (optional)
   force: "false",
 };
 
@@ -357,10 +357,10 @@ apiInstance
 
 ### Parameters
 
-| Name          | Type         | Description                                                                                      | Notes                            |
-| ------------- | ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------- |
-| **monitorId** | [**number**] | The ID of the monitor.                                                                           | defaults to undefined            |
-| **force**     | [**string**] | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | (optional) defaults to undefined |
+| Name          | Type         | Description                                                                                             | Notes                            |
+| ------------- | ------------ | ------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **monitorId** | [**number**] | The ID of the monitor.                                                                                  | defaults to undefined            |
+| **force**     | [**string**] | Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor). | (optional) defaults to undefined |
 
 ### Return type
 
@@ -555,7 +555,7 @@ let params: v1.MonitorsApiSearchMonitorGroupsRequest = {
   page: 0,
   // number | Number of monitors to return per page. (optional)
   perPage: 30,
-  // string | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags` (optional)
+  // string | String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags` (optional)
   sort: "sort_example",
 };
 
@@ -576,7 +576,7 @@ apiInstance
 | **query**   | [**string**] | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more. The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors | (optional) defaults to undefined |
 | **page**    | [**number**] | Page to start paginating from.                                                                                                                                                                                                                                                                                                                                                                                                                                           | (optional) defaults to 0         |
 | **perPage** | [**number**] | Number of monitors to return per page.                                                                                                                                                                                                                                                                                                                                                                                                                                   | (optional) defaults to 30        |
-| **sort**    | [**string**] | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                                      | (optional) defaults to undefined |
+| **sort**    | [**string**] | String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                               | (optional) defaults to undefined |
 
 ### Return type
 
@@ -624,7 +624,7 @@ let params: v1.MonitorsApiSearchMonitorsRequest = {
   page: 0,
   // number | Number of monitors to return per page. (optional)
   perPage: 30,
-  // string | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags` (optional)
+  // string | String for sort order, composed of field and sort order separate by a comma, for example `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags` (optional)
   sort: "sort_example",
 };
 
@@ -645,7 +645,7 @@ apiInstance
 | **query**   | [**string**] | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more. The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage/#find-the-monitors | (optional) defaults to undefined |
 | **page**    | [**number**] | Page to start paginating from.                                                                                                                                                                                                                                                                                                                                                                                                                                           | (optional) defaults to 0         |
 | **perPage** | [**number**] | Number of monitors to return per page.                                                                                                                                                                                                                                                                                                                                                                                                                                   | (optional) defaults to 30        |
-| **sort**    | [**string**] | String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                                      | (optional) defaults to undefined |
+| **sort**    | [**string**] | String for sort order, composed of field and sort order separate by a comma, for example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields: _ &#x60;name&#x60; _ &#x60;status&#x60; \* &#x60;tags&#x60;                                                                                                                                                                                                               | (optional) defaults to undefined |
 
 ### Return type
 

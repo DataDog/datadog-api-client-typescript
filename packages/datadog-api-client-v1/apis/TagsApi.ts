@@ -99,7 +99,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
    * This endpoint allows you to remove all user-assigned tags for a single host.
    * Remove host tags
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * @param source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
    */
   public async deleteHostTags(
     hostName: string,
@@ -282,7 +282,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
    * Update host tags
    * @param hostName This endpoint allows you to update/replace all in an integration source with those supplied in the request.
    * @param body Add tags to host
-   * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+   * @param source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
    */
   public async updateHostTags(
     hostName: string,

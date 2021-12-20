@@ -16,7 +16,7 @@ export class SLOThreshold {
    */
   "target": number;
   /**
-   * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
+   * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (for example `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
    */
   "targetDisplay"?: string;
   "timeframe": SLOTimeframe;
