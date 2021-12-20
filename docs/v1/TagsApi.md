@@ -99,7 +99,7 @@ const apiInstance = new v1.TagsApi(configuration);
 let params: v1.TagsApiDeleteHostTagsRequest = {
   // string | This endpoint allows you to remove all user-assigned tags for a single host.
   hostName: "host_name_example",
-  // string | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). (optional)
+  // string | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). (optional)
   source: "source_example",
 };
 
@@ -115,10 +115,10 @@ apiInstance
 
 ### Parameters
 
-| Name         | Type         | Description                                                                                                                                                             | Notes                            |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| **hostName** | [**string**] | This endpoint allows you to remove all user-assigned tags for a single host.                                                                                            | defaults to undefined            |
-| **source**   | [**string**] | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | (optional) defaults to undefined |
+| Name         | Type         | Description                                                                                                                                                                    | Notes                            |
+| ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| **hostName** | [**string**] | This endpoint allows you to remove all user-assigned tags for a single host.                                                                                                   | defaults to undefined            |
+| **source**   | [**string**] | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | (optional) defaults to undefined |
 
 ### Return type
 
@@ -291,7 +291,7 @@ let params: v1.TagsApiUpdateHostTagsRequest = {
     host: "test.host",
     tags: ["environment:production"],
   },
-  // string | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) (optional)
+  // string | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) (optional)
   source: "source_example",
 };
 
@@ -307,11 +307,11 @@ apiInstance
 
 ### Parameters
 
-| Name         | Type         | Description                                                                                                                                                            | Notes                            |
-| ------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| **body**     | **HostTags** | Add tags to host                                                                                                                                                       |
-| **hostName** | [**string**] | This endpoint allows you to update/replace all in an integration source with those supplied in the request.                                                            | defaults to undefined            |
-| **source**   | [**string**] | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | (optional) defaults to undefined |
+| Name         | Type         | Description                                                                                                                                                                   | Notes                            |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **body**     | **HostTags** | Add tags to host                                                                                                                                                              |
+| **hostName** | [**string**] | This endpoint allows you to update/replace all in an integration source with those supplied in the request.                                                                   | defaults to undefined            |
+| **source**   | [**string**] | The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | (optional) defaults to undefined |
 
 ### Return type
 

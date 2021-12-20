@@ -184,7 +184,7 @@ const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 let params: v1.ServiceLevelObjectivesApiDeleteSLORequest = {
   // string | The ID of the service level objective.
   sloId: "slo_id_example",
-  // string | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor). (optional)
+  // string | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor). (optional)
   force: "force_example",
 };
 
@@ -200,10 +200,10 @@ apiInstance
 
 ### Parameters
 
-| Name      | Type         | Description                                                                                      | Notes                            |
-| --------- | ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------- |
-| **sloId** | [**string**] | The ID of the service level objective.                                                           | defaults to undefined            |
-| **force** | [**string**] | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | (optional) defaults to undefined |
+| Name      | Type         | Description                                                                                             | Notes                            |
+| --------- | ------------ | ------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **sloId** | [**string**] | The ID of the service level objective.                                                                  | defaults to undefined            |
+| **force** | [**string**] | Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor). | (optional) defaults to undefined |
 
 ### Return type
 
