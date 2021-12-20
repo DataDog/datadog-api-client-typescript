@@ -57,7 +57,7 @@ Given(
 Given(
   /request contains "([^"]+)" parameter with value (.*)/,
   function (this: World, parameterName: string, value: string) {
-    this.opts[parameterName.toAttributeName()] = JSON.parse(
+    this.opts[parameterName.toAttributeName().toOperationName()] = JSON.parse(
       value.templated(this.fixtures)
     );
   }
