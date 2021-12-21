@@ -80,6 +80,7 @@ const configuration = v1.createConfiguration(configurationOpts);
 ```
 
 ### Enable requests logging
+
 If you want to enable requests logging, set the `debug` flag on your configuration object:
 
 ```typescript
