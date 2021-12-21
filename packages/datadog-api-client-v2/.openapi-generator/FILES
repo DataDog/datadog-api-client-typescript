@@ -278,6 +278,9 @@ models/RelationshipToUsers.ts
 models/ResponseMetaAttributes.ts
 models/Role.ts
 models/RoleAttributes.ts
+models/RoleClone.ts
+models/RoleCloneAttributes.ts
+models/RoleCloneRequest.ts
 models/RoleCreateAttributes.ts
 models/RoleCreateData.ts
 models/RoleCreateRequest.ts

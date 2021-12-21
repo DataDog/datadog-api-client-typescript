@@ -78,6 +78,7 @@ export {
   ObjectProcessesApi as ProcessesApi,
   RolesApiAddPermissionToRoleRequest,
   RolesApiAddUserToRoleRequest,
+  RolesApiCloneRoleRequest,
   RolesApiCreateRoleRequest,
   RolesApiDeleteRoleRequest,
   RolesApiGetRoleRequest,

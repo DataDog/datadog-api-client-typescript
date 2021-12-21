@@ -59,6 +59,7 @@ import { QuerySortOrder } from "../models/QuerySortOrder";
 import { RelationshipToPermission } from "../models/RelationshipToPermission";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RelationshipToUser } from "../models/RelationshipToUser";
+import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
@@ -2092,6 +2093,21 @@ export interface RolesApiAddUserToRoleRequest {
   body: RelationshipToUser;
 }
 
+export interface RolesApiCloneRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   * @memberof RolesApicloneRole
+   */
+  roleId: string;
+  /**
+   *
+   * @type RoleCloneRequest
+   * @memberof RolesApicloneRole
+   */
+  body: RoleCloneRequest;
+}
+
 export interface RolesApiCreateRoleRequest {
   /**
    *
@@ -2274,6 +2290,18 @@ export class ObjectRolesApi {
     return this.api
       .addUserToRole(param.roleId, param.body, options)
       .toPromise();
+  }
+
+  /**
+   * Clone an existing role
+   * Create a new role by cloning an existing role
+   * @param param the request object
+   */
+  public cloneRole(
+    param: RolesApiCloneRoleRequest,
+    options?: Configuration
+  ): Promise<RoleResponse> {
+    return this.api.cloneRole(param.roleId, param.body, options).toPromise();
   }
 
   /**

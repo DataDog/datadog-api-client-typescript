@@ -61,6 +61,7 @@ import { QuerySortOrder } from "../models/QuerySortOrder";
 import { RelationshipToPermission } from "../models/RelationshipToPermission";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RelationshipToUser } from "../models/RelationshipToUser";
+import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
@@ -3107,6 +3108,49 @@ export class ObservableRolesApi {
             map((rsp: ResponseContext) =>
               this.responseProcessor.addUserToRole(rsp)
             )
+          );
+        })
+      );
+  }
+  /**
+   * Clone an existing role
+   * Create a new role by cloning an existing role
+   * @param roleId The ID of the role.
+   * @param body
+   */
+  public cloneRole(
+    roleId: string,
+    body: RoleCloneRequest,
+    _options?: Configuration
+  ): Observable<RoleResponse> {
+    const requestContextPromise = this.requestFactory.cloneRole(
+      roleId,
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) => this.responseProcessor.cloneRole(rsp))
           );
         })
       );
