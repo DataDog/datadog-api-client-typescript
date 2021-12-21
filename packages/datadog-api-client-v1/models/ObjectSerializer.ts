@@ -284,6 +284,10 @@ import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
 import { SlackIntegrationChannel } from "./SlackIntegrationChannel";
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
+import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
+import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
+import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
+import { SunburstWidgetRequest } from "./SunburstWidgetRequest";
 import { SyntheticsAPIStep } from "./SyntheticsAPIStep";
 import { SyntheticsAPITest } from "./SyntheticsAPITest";
 import { SyntheticsAPITestConfig } from "./SyntheticsAPITestConfig";
@@ -686,6 +690,9 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceCheckStatus: [0, 1, 2, 3],
   ServiceMapWidgetDefinitionType: ["servicemap"],
   ServiceSummaryWidgetDefinitionType: ["trace_service"],
+  SunburstWidgetDefinitionType: ["sunburst"],
+  SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
+  SunburstWidgetLegendTableType: ["table", "none"],
   SyntheticsAPIStepSubtype: ["http"],
   SyntheticsAPITestType: ["api"],
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
@@ -1306,6 +1313,10 @@ const typeMap: { [index: string]: any } = {
   ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
   SlackIntegrationChannel: SlackIntegrationChannel,
   SlackIntegrationChannelDisplay: SlackIntegrationChannelDisplay,
+  SunburstWidgetDefinition: SunburstWidgetDefinition,
+  SunburstWidgetLegendInlineAutomatic: SunburstWidgetLegendInlineAutomatic,
+  SunburstWidgetLegendTable: SunburstWidgetLegendTable,
+  SunburstWidgetRequest: SunburstWidgetRequest,
   SyntheticsAPIStep: SyntheticsAPIStep,
   SyntheticsAPITest: SyntheticsAPITest,
   SyntheticsAPITestConfig: SyntheticsAPITestConfig,
@@ -1563,6 +1574,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
   ],
+  SunburstWidgetLegend: [
+    "SunburstWidgetLegendInlineAutomatic",
+    "SunburstWidgetLegendTable",
+  ],
   SyntheticsAssertion: [
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionTarget",
@@ -1592,6 +1607,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ScatterPlotWidgetDefinition",
     "ServiceMapWidgetDefinition",
     "ServiceSummaryWidgetDefinition",
+    "SunburstWidgetDefinition",
     "TableWidgetDefinition",
     "TimeseriesWidgetDefinition",
     "ToplistWidgetDefinition",
