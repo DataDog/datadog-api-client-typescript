@@ -2,20 +2,21 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                               | HTTP request                                   | Description                 |
-| -------------------------------------------------------------------- | ---------------------------------------------- | --------------------------- |
-| [**addPermissionToRole**](RolesApi.md#addPermissionToRole)           | **POST** /api/v2/roles/{role_id}/permissions   | Grant permission to a role  |
-| [**addUserToRole**](RolesApi.md#addUserToRole)                       | **POST** /api/v2/roles/{role_id}/users         | Add a user to a role        |
-| [**createRole**](RolesApi.md#createRole)                             | **POST** /api/v2/roles                         | Create role                 |
-| [**deleteRole**](RolesApi.md#deleteRole)                             | **DELETE** /api/v2/roles/{role_id}             | Delete role                 |
-| [**getRole**](RolesApi.md#getRole)                                   | **GET** /api/v2/roles/{role_id}                | Get a role                  |
-| [**listPermissions**](RolesApi.md#listPermissions)                   | **GET** /api/v2/permissions                    | List permissions            |
-| [**listRolePermissions**](RolesApi.md#listRolePermissions)           | **GET** /api/v2/roles/{role_id}/permissions    | List permissions for a role |
-| [**listRoleUsers**](RolesApi.md#listRoleUsers)                       | **GET** /api/v2/roles/{role_id}/users          | Get all users of a role     |
-| [**listRoles**](RolesApi.md#listRoles)                               | **GET** /api/v2/roles                          | List roles                  |
-| [**removePermissionFromRole**](RolesApi.md#removePermissionFromRole) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission           |
-| [**removeUserFromRole**](RolesApi.md#removeUserFromRole)             | **DELETE** /api/v2/roles/{role_id}/users       | Remove a user from a role   |
-| [**updateRole**](RolesApi.md#updateRole)                             | **PATCH** /api/v2/roles/{role_id}              | Update a role               |
+| Method                                                               | HTTP request                                   | Description                                   |
+| -------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------- |
+| [**addPermissionToRole**](RolesApi.md#addPermissionToRole)           | **POST** /api/v2/roles/{role_id}/permissions   | Grant permission to a role                    |
+| [**addUserToRole**](RolesApi.md#addUserToRole)                       | **POST** /api/v2/roles/{role_id}/users         | Add a user to a role                          |
+| [**cloneRole**](RolesApi.md#cloneRole)                               | **POST** /api/v2/roles/{role_id}/clone         | Create a new role by cloning an existing role |
+| [**createRole**](RolesApi.md#createRole)                             | **POST** /api/v2/roles                         | Create role                                   |
+| [**deleteRole**](RolesApi.md#deleteRole)                             | **DELETE** /api/v2/roles/{role_id}             | Delete role                                   |
+| [**getRole**](RolesApi.md#getRole)                                   | **GET** /api/v2/roles/{role_id}                | Get a role                                    |
+| [**listPermissions**](RolesApi.md#listPermissions)                   | **GET** /api/v2/permissions                    | List permissions                              |
+| [**listRolePermissions**](RolesApi.md#listRolePermissions)           | **GET** /api/v2/roles/{role_id}/permissions    | List permissions for a role                   |
+| [**listRoleUsers**](RolesApi.md#listRoleUsers)                       | **GET** /api/v2/roles/{role_id}/users          | Get all users of a role                       |
+| [**listRoles**](RolesApi.md#listRoles)                               | **GET** /api/v2/roles                          | List roles                                    |
+| [**removePermissionFromRole**](RolesApi.md#removePermissionFromRole) | **DELETE** /api/v2/roles/{role_id}/permissions | Revoke permission                             |
+| [**removeUserFromRole**](RolesApi.md#removeUserFromRole)             | **DELETE** /api/v2/roles/{role_id}/users       | Remove a user from a role                     |
+| [**updateRole**](RolesApi.md#updateRole)                             | **PATCH** /api/v2/roles/{role_id}              | Update a role                                 |
 
 ## **addPermissionToRole**
 
@@ -151,6 +152,78 @@ apiInstance
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **cloneRole**
+
+> RoleResponse cloneRole(body)
+
+Clone an existing role
+
+### Example
+
+```typescript
+import { v2 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v2.createConfiguration();
+const apiInstance = new v2.RolesApi(configuration);
+
+let params: v2.RolesApiCloneRoleRequest = {
+  // string | The ID of the role.
+  roleId: "role_id_example",
+  // RoleCloneRequest
+  body: {
+    data: {
+      attributes: {
+        name: "cloned-role",
+      },
+      type: "roles",
+    },
+  },
+};
+
+apiInstance
+  .cloneRole(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name       | Type                 | Description         | Notes                 |
+| ---------- | -------------------- | ------------------- | --------------------- |
+| **body**   | **RoleCloneRequest** |                     |
+| **roleId** | [**string**]         | The ID of the role. | defaults to undefined |
+
+### Return type
+
+**RoleResponse**
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Not found            | -                |
+| **409**     | Conflict             | -                |
 | **429**     | Too many requests    | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

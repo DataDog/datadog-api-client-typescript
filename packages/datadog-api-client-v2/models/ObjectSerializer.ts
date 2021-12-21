@@ -185,6 +185,9 @@ import { RelationshipToUsers } from "./RelationshipToUsers";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
+import { RoleClone } from "./RoleClone";
+import { RoleCloneAttributes } from "./RoleCloneAttributes";
+import { RoleCloneRequest } from "./RoleCloneRequest";
 import { RoleCreateAttributes } from "./RoleCreateAttributes";
 import { RoleCreateData } from "./RoleCreateData";
 import { RoleCreateRequest } from "./RoleCreateRequest";
@@ -602,6 +605,9 @@ const typeMap: { [index: string]: any } = {
   ResponseMetaAttributes: ResponseMetaAttributes,
   Role: Role,
   RoleAttributes: RoleAttributes,
+  RoleClone: RoleClone,
+  RoleCloneAttributes: RoleCloneAttributes,
+  RoleCloneRequest: RoleCloneRequest,
   RoleCreateAttributes: RoleCreateAttributes,
   RoleCreateData: RoleCreateData,
   RoleCreateRequest: RoleCreateRequest,

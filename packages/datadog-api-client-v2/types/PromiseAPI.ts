@@ -59,6 +59,7 @@ import { QuerySortOrder } from "../models/QuerySortOrder";
 import { RelationshipToPermission } from "../models/RelationshipToPermission";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RelationshipToUser } from "../models/RelationshipToUser";
+import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
@@ -1338,6 +1339,21 @@ export class PromiseRolesApi {
     _options?: Configuration
   ): Promise<UsersResponse> {
     const result = this.api.addUserToRole(roleId, body, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Clone an existing role
+   * Create a new role by cloning an existing role
+   * @param roleId The ID of the role.
+   * @param body
+   */
+  public cloneRole(
+    roleId: string,
+    body: RoleCloneRequest,
+    _options?: Configuration
+  ): Promise<RoleResponse> {
+    const result = this.api.cloneRole(roleId, body, _options);
     return result.toPromise();
   }
 
