@@ -656,6 +656,7 @@ const enumsMap: { [key: string]: any[] } = {
     "slo alert",
     "event-v2 alert",
     "audit alert",
+    "ci-pipelines alert",
   ],
   NoteWidgetDefinitionType: ["note"],
   NotebookCellResourceType: ["notebook_cells"],
