@@ -79,6 +79,18 @@ const configurationOpts = {
 const configuration = v1.createConfiguration(configurationOpts);
 ```
 
+### Enable requests tracing
+If you want to enable requests tracing, set the `debug` flag on your configuration object:
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+const configurationOpts = {
+  debug: true
+};
+
+const configuration = v1.createConfiguration(configurationOpts);
+```
+
 ## Documentation
 
 Documentation for API endpoints can be found under the docs subdirectories, in [v1](/docs/v1/)
