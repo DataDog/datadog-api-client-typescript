@@ -2,6 +2,7 @@
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+import { logger } from "../../../index";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -145,7 +146,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
    * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
    * Delete an SLO
    * @param sloId The ID of the service level objective.
-   * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor).
+   * @param force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
    */
   public async deleteSLO(
     sloId: string,
@@ -348,6 +349,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getSLOCorrections'");
+    if (!_config.unstableOperations["getSLOCorrections"]) {
+      throw new Error("Unstable operation 'getSLOCorrections' is disabled");
+    }
+
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
       throw new RequiredError(
@@ -415,6 +421,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSLOHistory'");
+    if (!_config.unstableOperations["getSLOHistory"]) {
+      throw new Error("Unstable operation 'getSLOHistory' is disabled");
+    }
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {

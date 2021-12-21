@@ -14,7 +14,7 @@ export class UsageHostHour {
    */
   "agentHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported via Alibaba integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through Alibaba integration (and were NOT running the Datadog Agent).
    */
   "alibabaHostCount"?: number;
   /**
@@ -26,11 +26,11 @@ export class UsageHostHour {
    */
   "apmHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported via the AWS integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the AWS integration (and were NOT running the Datadog Agent).
    */
   "awsHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported via Azure integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through Azure integration (and were NOT running the Datadog Agent).
    */
   "azureHostCount"?: number;
   /**
@@ -38,7 +38,7 @@ export class UsageHostHour {
    */
   "containerCount"?: number;
   /**
-   * Contains the total number of hosts that reported via the Google Cloud integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the Google Cloud integration (and were NOT running the Datadog Agent).
    */
   "gcpHostCount"?: number;
   /**
@@ -54,7 +54,7 @@ export class UsageHostHour {
    */
   "hour"?: Date;
   /**
-   * Contains the total number of hosts that reported via the Azure App Services integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the Azure App Services integration (and were NOT running the Datadog Agent).
    */
   "infraAzureAppService"?: number;
   /**
@@ -62,7 +62,7 @@ export class UsageHostHour {
    */
   "opentelemetryHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported via vSphere integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through vSphere integration (and were NOT running the Datadog Agent).
    */
   "vsphereHostCount"?: number;
 

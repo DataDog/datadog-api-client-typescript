@@ -421,10 +421,10 @@
   resolved "https://registry.npmjs.org/@cucumber/tag-expressions/-/tag-expressions-3.0.1.tgz"
   integrity sha512-OGCXaJ1BQXmQ5b9pw+JYsBGumK2/LPZiLmbj1o1JFVeSNs2PY8WPQFSyXrskhrHz5Nd/6lYg7lvGMtFHOncC4w==
 
-"@datadog/native-metrics@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@datadog/native-metrics/-/native-metrics-1.0.1.tgz#709bfe0ead7d6f0b852155f28ed2f9f2e22a080c"
-  integrity sha512-VyaALmSV+5vHamBJEVoQSaU67E1lwYZHrWk8EsinUMvk/P0AWdWv9m3vYPRuhH+bfSyic4UQZkyBbYQFnXP5eg==
+"@datadog/native-metrics@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@datadog/native-metrics/-/native-metrics-1.1.0.tgz#ef860a4cbea81b6e1559b280f5f1f3cd2cc22585"
+  integrity sha512-OSrhoo8U/JB/FltvAp54cgMHCBWEriF/D/ZboBH4Pn7UY/Zu8dkzB6eAWQFJIxQlHjYrAEuNgZPBkaHhS3e0KQ==
   dependencies:
     nan "^2.14.2"
     node-gyp-build "^3.9.0"
@@ -940,10 +940,10 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-14.14.31.tgz"
   integrity sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g==
 
-"@types/node@^10.12.18":
-  version "10.17.54"
-  resolved "https://registry.npmjs.org/@types/node/-/node-10.17.54.tgz"
-  integrity sha512-c8Lm7+hXdSPmWH4B9z/P/xIXhFK3mCQin4yCYMd2p1qpMG5AfgyJuYZ+3q2dT7qLiMMMGMd5dnkFpdqJARlvtQ==
+"@types/node@>=12":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.0.tgz#62797cee3b8b497f6547503b2312254d4fe3c2bb"
+  integrity sha512-eMhwJXc931Ihh4tkU+Y7GiLzT/y/DBNpNtr4yU9O2w3SYBsr9NaOPhQlLKRmoWtI54uNwuo0IOUFQjVOTZYRvw==
 
 "@types/pollyjs__adapter-node-http@^2.0.1":
   version "2.0.1"
@@ -1764,15 +1764,15 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dd-trace@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/dd-trace/-/dd-trace-1.5.1.tgz#b8d146643b52885dde5393d90cc4d3966d781cf9"
-  integrity sha512-ot43V0Uwto4VLnB7mx3wi2r84eXnqrN2CmAsiJf3rzLmJxbK/d/E5jumaBVvcHujdbUl5rqts4olFZK0Vks2sw==
+dd-trace@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/dd-trace/-/dd-trace-1.6.0.tgz#8c6ff7f7f810b635757b343a5019055afc69371c"
+  integrity sha512-8ZrZSwJZAhT2RCBR7AKxWmM/9tAuDzZoN6Z+y8Yo0Ai51VhpZIbKqEkMvz77Tla5j+RUkvUB5VYRphxB+KhsNg==
   dependencies:
-    "@datadog/native-metrics" "^1.0.1"
+    "@datadog/native-metrics" "^1.1.0"
     "@datadog/pprof" "^0.3.0"
     "@datadog/sketches-js" "^1.0.4"
-    "@types/node" "^10.12.18"
+    "@types/node" ">=12"
     crypto-randomuuid "^1.0.0"
     form-data "^3.0.0"
     import-in-the-middle "^1.1.2"

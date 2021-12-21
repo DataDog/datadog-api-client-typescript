@@ -61,6 +61,9 @@ for (const apiVersion of Versions) {
         (configurationOpts as any)["serverIndex"] = 1;
       }
       const configuration = api.createConfiguration(configurationOpts);
+      if (operationName in configuration.unstableOperations) {
+        configuration.unstableOperations[operationName] = true;
+      }
       const apiInstance = new (api as any)[`${apiName}Api`](configuration);
 
       // find undo method
@@ -118,6 +121,8 @@ for (const apiVersion of Versions) {
       if (operation["key"] !== undefined) {
         this.fixtures[operation["key"]] = result;
       }
+      
+      await this.sleepAfterRequest();
     });
   }
 }

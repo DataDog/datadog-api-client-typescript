@@ -1,10 +1,15 @@
 import { setWorldConstructor, setDefaultTimeout } from "@cucumber/cucumber";
 import { Polly } from "@pollyjs/core";
+
+const RECORD_MODE = process.env.RECORD || "false";
+const SLEEP_AFTER_REQUEST = parseInt(process.env.SLEEP_AFTER_REQUEST || "0");
+
 export class World {
   public polly?: Polly;
 
   public apiVersion = "";
   public authMethods: any = {};
+  public unstableOperations: { [key: string]: boolean } = {};
 
   public apiName?: string;
   public apiInstance?: any;
@@ -25,6 +30,13 @@ export class World {
       await clean();
     }
     this.undo = [];
+  }
+
+  async sleepAfterRequest() {
+    if (RECORD_MODE === "false" || SLEEP_AFTER_REQUEST <= 0) {
+      return Promise.resolve();
+    }
+    return new Promise(resolve => setTimeout(resolve, SLEEP_AFTER_REQUEST * 1000));
   }
 }
 

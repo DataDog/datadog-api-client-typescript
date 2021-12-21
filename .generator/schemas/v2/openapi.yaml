@@ -1046,7 +1046,7 @@ components:
       - TEXTBOX
     IncidentFieldAttributesValueType:
       default: multiselect
-      description: Type of the single value field definitions.
+      description: Type of the multiple value field definitions.
       enum:
       - multiselect
       - textarray
@@ -2854,7 +2854,7 @@ components:
         from:
           default: now-15m
           description: The minimum time for the requested logs, supports date math
-            and regular timestamps
+            and regular timestamps (milliseconds).
           example: now-15m
           type: string
         indexes:
@@ -2877,7 +2877,7 @@ components:
         to:
           default: now
           description: The maximum time for the requested logs, supports date math
-            and regular timestamps
+            and regular timestamps (milliseconds).
           example: now
           type: string
       type: object
@@ -4896,7 +4896,7 @@ components:
               format: array
               items:
                 description: The tag associated with the security signal.
-                format: string
+                type: string
             timestamp:
               description: The timestamp of the security signal.
               example: '2019-01-02T09:42:36.320Z'
@@ -9949,7 +9949,7 @@ servers:
   variables:
     site:
       default: datadoghq.com
-      description: The regional site for our customers.
+      description: The regional site for Datadog customers.
       enum:
       - datadoghq.com
       - us3.datadoghq.com
@@ -10009,7 +10009,7 @@ tags:
 
     See the [Archives Page](https://app.datadoghq.com/logs/pipelines/archives)
 
-    for a list of the archives currently configured in our UI.'
+    for a list of the archives currently configured in web UI.'
   externalDocs:
     description: Find out more at
     url: https://docs.datadoghq.com/logs/archives/

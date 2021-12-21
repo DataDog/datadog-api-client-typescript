@@ -26,7 +26,7 @@ export class WidgetAxis {
    */
   "min"?: string;
   /**
-   * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (e.g. `pow2`, `pow0.5` etc.).
+   * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
    */
   "scale"?: string;
 

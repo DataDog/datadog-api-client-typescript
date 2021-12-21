@@ -20,7 +20,7 @@ export class SecurityMonitoringSignalAttributes {
   /**
    * An array of tags associated with the security signal.
    */
-  "tags"?: Array<any>;
+  "tags"?: Array<string>;
   /**
    * The timestamp of the security signal.
    */
@@ -46,9 +46,7 @@ export class SecurityMonitoringSignalAttributes {
     },
     tags: {
       baseName: "tags",
-      type: "Array<any>",
-
-      format: "string",
+      type: "Array<string>",
     },
     timestamp: {
       baseName: "timestamp",

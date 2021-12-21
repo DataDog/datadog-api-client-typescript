@@ -10,7 +10,7 @@
 
 export class LogsQueryFilter {
   /**
-   * The minimum time for the requested logs, supports date math and regular timestamps
+   * The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
    */
   "from"?: string;
   /**
@@ -22,7 +22,7 @@ export class LogsQueryFilter {
    */
   "query"?: string;
   /**
-   * The maximum time for the requested logs, supports date math and regular timestamps
+   * The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
    */
   "to"?: string;
 

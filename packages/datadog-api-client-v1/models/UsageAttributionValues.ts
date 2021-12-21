@@ -98,6 +98,14 @@ export class UsageAttributionValues {
    */
   "dbmQueriesUsage"?: number;
   /**
+   * The percentage of estimated live indexed logs usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIndexedLogsPercentage"?: number;
+  /**
+   * The estimated live indexed logs usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIndexedLogsUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -300,6 +308,18 @@ export class UsageAttributionValues {
     },
     dbmQueriesUsage: {
       baseName: "dbm_queries_usage",
+      type: "number",
+
+      format: "double",
+    },
+    estimatedIndexedLogsPercentage: {
+      baseName: "estimated_indexed_logs_percentage",
+      type: "number",
+
+      format: "double",
+    },
+    estimatedIndexedLogsUsage: {
+      baseName: "estimated_indexed_logs_usage",
       type: "number",
 
       format: "double",

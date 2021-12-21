@@ -27,6 +27,7 @@ export interface Configuration {
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
+  unstableOperations: { [name: string]: boolean };
 }
 
 /**
@@ -112,6 +113,20 @@ export function createConfiguration(
     baseServer: conf.baseServer,
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
+    unstableOperations: {
+      createSLOCorrection: false,
+      deleteSLOCorrection: false,
+      getSLOCorrection: false,
+      listSLOCorrection: false,
+      updateSLOCorrection: false,
+      getSLOCorrections: false,
+      getSLOHistory: false,
+      getDailyCustomReports: false,
+      getMonthlyCustomReports: false,
+      getSpecifiedDailyCustomReports: false,
+      getSpecifiedMonthlyCustomReports: false,
+      getUsageAttribution: false,
+    },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     middleware: conf.middleware || (conf.debug ? [new DebugMiddleWare()] : []),
     authMethods: configureAuthMethods(authMethods),
