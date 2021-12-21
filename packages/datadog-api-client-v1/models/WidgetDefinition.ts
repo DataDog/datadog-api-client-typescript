@@ -32,6 +32,7 @@ import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
+import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
@@ -67,6 +68,7 @@ export type WidgetDefinition =
   | ScatterPlotWidgetDefinition
   | ServiceMapWidgetDefinition
   | ServiceSummaryWidgetDefinition
+  | SunburstWidgetDefinition
   | TableWidgetDefinition
   | TimeseriesWidgetDefinition
   | ToplistWidgetDefinition

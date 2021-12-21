@@ -448,6 +448,14 @@ models/ServiceSummaryWidgetDefinition.ts
 models/ServiceSummaryWidgetDefinitionType.ts
 models/SlackIntegrationChannel.ts
 models/SlackIntegrationChannelDisplay.ts
+models/SunburstWidgetDefinition.ts
+models/SunburstWidgetDefinitionType.ts
+models/SunburstWidgetLegend.ts
+models/SunburstWidgetLegendInlineAutomatic.ts
+models/SunburstWidgetLegendInlineAutomaticType.ts
+models/SunburstWidgetLegendTable.ts
+models/SunburstWidgetLegendTableType.ts
+models/SunburstWidgetRequest.ts
 models/SyntheticsAPIStep.ts
 models/SyntheticsAPIStepSubtype.ts
 models/SyntheticsAPITest.ts
