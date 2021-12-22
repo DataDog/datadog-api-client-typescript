@@ -5,6 +5,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | Method                                                                                                   | HTTP request                                       | Description                                      |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
 | [**getDailyCustomReports**](UsageMeteringApi.md#getDailyCustomReports)                                   | **GET** /api/v1/daily_custom_reports               | Get the list of available daily custom reports   |
+| [**getHourlyUsageAttribution**](UsageMeteringApi.md#getHourlyUsageAttribution)                           | **GET** /api/v1/usage/hourly-attribution           | Get Hourly Usage Attribution                     |
 | [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement)                                   | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
 | [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans)                                             | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
 | [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports)                               | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
@@ -91,6 +92,77 @@ apiInstance
 ### Authorization
 
 [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339, application/json
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **getHourlyUsageAttribution**
+
+> HourlyUsageAttributionResponse getHourlyUsageAttribution()
+
+Get Hourly Usage Attribution.
+
+### Example
+
+```typescript
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.UsageMeteringApi(configuration);
+
+let params: v1.UsageMeteringApiGetHourlyUsageAttributionRequest = {
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+  startHr: new Date("1970-01-01T00:00:00.00Z"),
+  // HourlyUsageAttributionUsageType | Usage type to retrieve.
+  usageType: "api_usage",
+  // Date | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour. (optional)
+  endHr: new Date("1970-01-01T00:00:00.00Z"),
+  // string | List following results with a next_record_id provided in the previous query. (optional)
+  nextRecordId: "next_record_id_example",
+  // string | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags. (optional)
+  tagBreakdownKeys: "tag_breakdown_keys_example",
+};
+
+apiInstance
+  .getHourlyUsageAttribution(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name                 | Type                                | Description                                                                                                           | Notes                            |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **startHr**          | [**Date**]                          | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      | defaults to undefined            |
+| **usageType**        | **HourlyUsageAttributionUsageType** | Usage type to retrieve.                                                                                               | defaults to undefined            |
+| **endHr**            | [**Date**]                          | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | (optional) defaults to undefined |
+| **nextRecordId**     | [**string**]                        | List following results with a next_record_id provided in the previous query.                                          | (optional) defaults to undefined |
+| **tagBreakdownKeys** | [**string**]                        | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  | (optional) defaults to undefined |
+
+### Return type
+
+**HourlyUsageAttributionResponse**
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

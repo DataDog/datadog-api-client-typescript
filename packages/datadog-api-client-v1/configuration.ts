@@ -122,6 +122,7 @@ export function createConfiguration(
       getSLOCorrections: false,
       getSLOHistory: false,
       getDailyCustomReports: false,
+      getHourlyUsageAttribution: false,
       getMonthlyCustomReports: false,
       getSpecifiedDailyCustomReports: false,
       getSpecifiedMonthlyCustomReports: false,
