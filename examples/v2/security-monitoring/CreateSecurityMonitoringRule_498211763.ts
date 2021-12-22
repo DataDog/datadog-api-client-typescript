@@ -17,10 +17,6 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         groupByFields: [],
         distinctFields: [],
         metric: "",
-        agentRule: {
-          agentRuleId: "kernel_module_unlink_2",
-          expression: "(open.flags & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC)) > 0)",
-        },
       },
     ],
     filters: [],

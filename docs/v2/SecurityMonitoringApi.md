@@ -820,10 +820,6 @@ let params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
     },
     queries: [
       {
-        agentRule: {
-          agentRuleId: "etc_shadow",
-          expression: "expression_example",
-        },
         aggregation: "count",
         distinctFields: ["distinctFields_example"],
         groupByFields: ["groupByFields_example"],
