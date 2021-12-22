@@ -13,12 +13,13 @@ let params: v1.DowntimesApiCreateDowntimeRequest = {
     recurrence: {
       period: 1,
       type: "weeks",
-      untilDate: new Date(new Date().getTime() + 21 * 86400).getTime(),
+      untilDate:
+        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000,
       weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     },
     scope: ["*"],
-    start: new Date().getTime(),
-    end: new Date(new Date().getTime() + 1 * 3600).getTime(),
+    start: new Date().getTime() / 1000,
+    end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
     timezone: "Etc/UTC",
   },
 };
