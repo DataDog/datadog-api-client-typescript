@@ -106,7 +106,12 @@ let params: v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
   body: {
     data: {
       attributes: {
-        name: "Application Key for submitting metrics",
+        name: "Application Key for managing dashboards",
+        scopes: [
+          "dashboards_read",
+          "dashboards_write",
+          "dashboards_public_share",
+        ],
       },
       type: "application_keys",
     },
@@ -850,7 +855,12 @@ let params: v2.KeyManagementApiUpdateApplicationKeyRequest = {
   body: {
     data: {
       attributes: {
-        name: "Application Key for submitting metrics",
+        name: "Application Key for managing dashboards",
+        scopes: [
+          "dashboards_read",
+          "dashboards_write",
+          "dashboards_public_share",
+        ],
       },
       id: "00112233-4455-6677-8899-aabbccddeeff",
       type: "application_keys",
@@ -922,7 +932,12 @@ let params: v2.KeyManagementApiUpdateCurrentUserApplicationKeyRequest = {
   body: {
     data: {
       attributes: {
-        name: "Application Key for submitting metrics",
+        name: "Application Key for managing dashboards",
+        scopes: [
+          "dashboards_read",
+          "dashboards_write",
+          "dashboards_public_share",
+        ],
       },
       id: "00112233-4455-6677-8899-aabbccddeeff",
       type: "application_keys",
