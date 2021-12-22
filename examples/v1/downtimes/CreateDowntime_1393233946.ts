@@ -17,8 +17,8 @@ let params: v1.DowntimesApiCreateDowntimeRequest = {
       weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     },
     scope: ["*"],
-    start: new Date().getTime(),
-    end: new Date(new Date().getTime() + 1 * 3600).getTime(),
+    start: new Date().getTime() / 1000,
+    end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
     timezone: "Etc/UTC",
   },
 };
