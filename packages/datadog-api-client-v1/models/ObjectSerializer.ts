@@ -101,6 +101,10 @@ import { HostMuteResponse } from "./HostMuteResponse";
 import { HostMuteSettings } from "./HostMuteSettings";
 import { HostTags } from "./HostTags";
 import { HostTotals } from "./HostTotals";
+import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
+import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
+import { HourlyUsageAttributionPagination } from "./HourlyUsageAttributionPagination";
+import { HourlyUsageAttributionResponse } from "./HourlyUsageAttributionResponse";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
@@ -596,6 +600,22 @@ const enumsMap: { [key: string]: any[] } = {
   HTTPMethod: ["GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"],
   HeatMapWidgetDefinitionType: ["heatmap"],
   HostMapWidgetDefinitionType: ["hostmap"],
+  HourlyUsageAttributionUsageType: [
+    "api_usage",
+    "apm_host_usage",
+    "browser_usage",
+    "container_usage",
+    "custom_timeseries_usage",
+    "fargate_usage",
+    "functions_usage",
+    "indexed_logs_usage",
+    "infra_host_usage",
+    "invocations_usage",
+    "npm_host_usage",
+    "profiled_container_usage",
+    "profiled_host_usage",
+    "snmp_usage",
+  ],
   IFrameWidgetDefinitionType: ["iframe"],
   ImageWidgetDefinitionType: ["image"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
@@ -1128,6 +1148,10 @@ const typeMap: { [index: string]: any } = {
   HostMuteSettings: HostMuteSettings,
   HostTags: HostTags,
   HostTotals: HostTotals,
+  HourlyUsageAttributionBody: HourlyUsageAttributionBody,
+  HourlyUsageAttributionMetadata: HourlyUsageAttributionMetadata,
+  HourlyUsageAttributionPagination: HourlyUsageAttributionPagination,
+  HourlyUsageAttributionResponse: HourlyUsageAttributionResponse,
   IFrameWidgetDefinition: IFrameWidgetDefinition,
   IPPrefixesAPI: IPPrefixesAPI,
   IPPrefixesAPM: IPPrefixesAPM,
