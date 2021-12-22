@@ -16,7 +16,7 @@ let params: v2.KeyManagementApiUpdateCurrentUserApplicationKeyRequest = {
       id: APPLICATION_KEY_DATA_ID,
       type: "application_keys",
       attributes: {
-        name: "Application Key for submitting metrics-updated",
+        name: "Application Key for managing dashboards-updated",
       },
     },
   },
