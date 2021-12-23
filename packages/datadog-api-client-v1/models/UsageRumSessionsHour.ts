@@ -14,6 +14,14 @@ export class UsageRumSessionsHour {
    */
   "hour"?: Date;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * Contains the number of RUM Sessions.
    */
   "sessionCount"?: number;
@@ -41,6 +49,14 @@ export class UsageRumSessionsHour {
       type: "Date",
 
       format: "date-time",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     sessionCount: {
       baseName: "session_count",

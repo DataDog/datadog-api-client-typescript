@@ -188,6 +188,10 @@ export class UsageSummaryDate {
    */
   "profilingHostTop99p"?: number;
   /**
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations.
+   */
+  "rumBrowserAndMobileSessionCount"?: number;
+  /**
    * Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations
    */
   "rumSessionCountSum"?: number;
@@ -496,6 +500,12 @@ export class UsageSummaryDate {
     },
     profilingHostTop99p: {
       baseName: "profiling_host_top99p",
+      type: "number",
+
+      format: "int64",
+    },
+    rumBrowserAndMobileSessionCount: {
+      baseName: "rum_browser_and_mobile_session_count",
       type: "number",
 
       format: "int64",
