@@ -226,7 +226,6 @@ import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
-import { SecurityMonitoringRuntimeAgentRule } from "./SecurityMonitoringRuntimeAgentRule";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
@@ -646,7 +645,6 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleQueryCreate: SecurityMonitoringRuleQueryCreate,
   SecurityMonitoringRuleResponse: SecurityMonitoringRuleResponse,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
-  SecurityMonitoringRuntimeAgentRule: SecurityMonitoringRuntimeAgentRule,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,
   SecurityMonitoringSignalListRequest: SecurityMonitoringSignalListRequest,
