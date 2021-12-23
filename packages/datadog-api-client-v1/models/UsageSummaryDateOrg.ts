@@ -190,6 +190,10 @@ export class UsageSummaryDateOrg {
    */
   "publicId"?: string;
   /**
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org.
+   */
+  "rumBrowserAndMobileSessionCount"?: number;
+  /**
    * Shows the sum of all browser RUM Sessions over all hours in the current date for the given org.
    */
   "rumSessionCountSum"?: number;
@@ -503,6 +507,12 @@ export class UsageSummaryDateOrg {
     publicId: {
       baseName: "public_id",
       type: "string",
+    },
+    rumBrowserAndMobileSessionCount: {
+      baseName: "rum_browser_and_mobile_session_count",
+      type: "number",
+
+      format: "int64",
     },
     rumSessionCountSum: {
       baseName: "rum_session_count_sum",
