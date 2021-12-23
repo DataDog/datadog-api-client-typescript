@@ -38,7 +38,7 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
         {{/vars}}
     };
 
-    static getAttributeTypeMap() {
+    static getAttributeTypeMap(): {[key: string]: {baseName: string, type: string, required?: boolean, format?: string}} {
         {{#parent}}
         return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
         {{/parent}}

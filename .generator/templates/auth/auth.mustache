@@ -18,7 +18,7 @@ export interface SecurityAuthentication {
      *
      * @params context the request context which should use this authentication scheme
      */
-    applySecurityAuthentication(context: RequestContext): void | Promise<void>;
+    applySecurityAuthentication(context: RequestContext): void;
 }
 
 {{#useInversify}}
@@ -80,7 +80,7 @@ export class {{#lambda.pascalcase}}{{name}}{{/lambda.pascalcase}}Authentication 
         return "{{name}}";
     }
 
-    public {{#isBasicBearer}}async {{/isBasicBearer}}applySecurityAuthentication(context: RequestContext) {
+    public {{#isBasicBearer}}async {{/isBasicBearer}}applySecurityAuthentication(context: RequestContext): void {
         {{#isApiKey}}
         context.{{#isKeyInHeader}}setHeaderParam{{/isKeyInHeader}}{{#isKeyInQuery}}setQueryParam{{/isKeyInQuery}}{{#isKeyInCookie}}addCookie{{/isKeyInCookie}}("{{keyParamName}}", this.apiKey);
         {{/isApiKey}}

@@ -147,7 +147,7 @@ export function getServer(conf: Configuration, endpoint: string): BaseServerConf
  *
  * @param serverVariables key/value object representing the server variables (site, name, protocol, ...)
  */
-export function setServerVariables(conf: Configuration, serverVariables: { [key: string]: string }) {
+export function setServerVariables(conf: Configuration, serverVariables: { [key: string]: string }): void {
     if (conf.baseServer !== undefined) {
         conf.baseServer.setVariables(serverVariables);
         return ;
