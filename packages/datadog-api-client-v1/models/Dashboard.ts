@@ -20,6 +20,10 @@ export class Dashboard {
    */
   "authorHandle"?: string;
   /**
+   * Name of the dashboard author.
+   */
+  "authorName"?: string;
+  /**
    * Creation date of the dashboard.
    */
   "createdAt"?: Date;
@@ -82,6 +86,10 @@ export class Dashboard {
   } = {
     authorHandle: {
       baseName: "author_handle",
+      type: "string",
+    },
+    authorName: {
+      baseName: "author_name",
       type: "string",
     },
     createdAt: {
