@@ -294,3 +294,11 @@ export class UnparsedObject {
     }
 }
 
+export type AttributeTypeMapType = {
+    [key: string]: {
+      baseName: string;
+      type: string;
+      required?: boolean;
+      format?: string;
+    };
+}
