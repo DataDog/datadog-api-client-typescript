@@ -206,6 +206,11 @@ models/HostMuteResponse.ts
 models/HostMuteSettings.ts
 models/HostTags.ts
 models/HostTotals.ts
+models/HourlyUsageAttributionBody.ts
+models/HourlyUsageAttributionMetadata.ts
+models/HourlyUsageAttributionPagination.ts
+models/HourlyUsageAttributionResponse.ts
+models/HourlyUsageAttributionUsageType.ts
 models/IFrameWidgetDefinition.ts
 models/IFrameWidgetDefinitionType.ts
 models/IPPrefixesAPI.ts

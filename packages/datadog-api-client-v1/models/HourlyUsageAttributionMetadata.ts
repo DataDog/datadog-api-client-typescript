@@ -8,15 +8,10 @@
  * Do not edit the class manually.
  */
 
-export class ApplicationKeyCreateAttributes {
-  /**
-   * Name of the application key.
-   */
-  "name": string;
-  /**
-   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
-   */
-  "scopes"?: Array<string>;
+import { HourlyUsageAttributionPagination } from "./HourlyUsageAttributionPagination";
+
+export class HourlyUsageAttributionMetadata {
+  "pagination"?: HourlyUsageAttributionPagination;
 
   "unparsedObject"?: any;
 
@@ -28,19 +23,14 @@ export class ApplicationKeyCreateAttributes {
       format?: string;
     };
   } = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
+    pagination: {
+      baseName: "pagination",
+      type: "HourlyUsageAttributionPagination",
     },
   };
 
   static getAttributeTypeMap() {
-    return ApplicationKeyCreateAttributes.attributeTypeMap;
+    return HourlyUsageAttributionMetadata.attributeTypeMap;
   }
 
   public constructor() {}

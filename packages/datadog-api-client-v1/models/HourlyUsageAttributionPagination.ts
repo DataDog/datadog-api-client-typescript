@@ -8,15 +8,11 @@
  * Do not edit the class manually.
  */
 
-export class ApplicationKeyCreateAttributes {
+export class HourlyUsageAttributionPagination {
   /**
-   * Name of the application key.
+   * The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
    */
-  "name": string;
-  /**
-   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
-   */
-  "scopes"?: Array<string>;
+  "nextRecordId"?: string;
 
   "unparsedObject"?: any;
 
@@ -28,19 +24,14 @@ export class ApplicationKeyCreateAttributes {
       format?: string;
     };
   } = {
-    name: {
-      baseName: "name",
+    nextRecordId: {
+      baseName: "next_record_id",
       type: "string",
-      required: true,
-    },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
     },
   };
 
   static getAttributeTypeMap() {
-    return ApplicationKeyCreateAttributes.attributeTypeMap;
+    return HourlyUsageAttributionPagination.attributeTypeMap;
   }
 
   public constructor() {}

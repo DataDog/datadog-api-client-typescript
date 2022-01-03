@@ -50,6 +50,8 @@ import { HostMuteResponse } from "../models/HostMuteResponse";
 import { HostMuteSettings } from "../models/HostMuteSettings";
 import { HostTags } from "../models/HostTags";
 import { HostTotals } from "../models/HostTotals";
+import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
+import { HourlyUsageAttributionUsageType } from "../models/HourlyUsageAttributionUsageType";
 import { IPRanges } from "../models/IPRanges";
 import { IdpResponse } from "../models/IdpResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -7760,6 +7762,60 @@ export class ObservableUsageMeteringApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.getDailyCustomReports(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param usageType Usage type to retrieve.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * @param nextRecordId List following results with a next_record_id provided in the previous query.
+   * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   */
+  public getHourlyUsageAttribution(
+    startHr: Date,
+    usageType: HourlyUsageAttributionUsageType,
+    endHr?: Date,
+    nextRecordId?: string,
+    tagBreakdownKeys?: string,
+    _options?: Configuration
+  ): Observable<HourlyUsageAttributionResponse> {
+    const requestContextPromise = this.requestFactory.getHourlyUsageAttribution(
+      startHr,
+      usageType,
+      endHr,
+      nextRecordId,
+      tagBreakdownKeys,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getHourlyUsageAttribution(rsp)
             )
           );
         })

@@ -12,7 +12,11 @@ export class ApplicationKeyUpdateAttributes {
   /**
    * Name of the application key.
    */
-  "name": string;
+  "name"?: string;
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+   */
+  "scopes"?: Array<string>;
 
   "unparsedObject"?: any;
 
@@ -27,7 +31,10 @@ export class ApplicationKeyUpdateAttributes {
     name: {
       baseName: "name",
       type: "string",
-      required: true,
+    },
+    scopes: {
+      baseName: "scopes",
+      type: "Array<string>",
     },
   };
 

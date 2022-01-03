@@ -214,6 +214,10 @@ export class UsageSummaryResponse {
    */
   "rehydratedIngestedBytesAggSum"?: number;
   /**
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations.
+   */
+  "rumBrowserAndMobileSessionCount"?: number;
+  /**
    * Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations.
    */
   "rumSessionCountAggSum"?: number;
@@ -572,6 +576,12 @@ export class UsageSummaryResponse {
     },
     rehydratedIngestedBytesAggSum: {
       baseName: "rehydrated_ingested_bytes_agg_sum",
+      type: "number",
+
+      format: "int64",
+    },
+    rumBrowserAndMobileSessionCount: {
+      baseName: "rum_browser_and_mobile_session_count",
       type: "number",
 
       format: "int64",

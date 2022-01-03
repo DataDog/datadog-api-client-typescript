@@ -49,6 +49,8 @@ import { HostMuteResponse } from "../models/HostMuteResponse";
 import { HostMuteSettings } from "../models/HostMuteSettings";
 import { HostTags } from "../models/HostTags";
 import { HostTotals } from "../models/HostTotals";
+import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
+import { HourlyUsageAttributionUsageType } from "../models/HourlyUsageAttributionUsageType";
 import { IPRanges } from "../models/IPRanges";
 import { IdpResponse } from "../models/IdpResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -4807,6 +4809,39 @@ export interface UsageMeteringApiGetDailyCustomReportsRequest {
   sort?: UsageSort;
 }
 
+export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetHourlyUsageAttribution
+   */
+  startHr: Date;
+  /**
+   * Usage type to retrieve.
+   * @type HourlyUsageAttributionUsageType
+   * @memberof UsageMeteringApigetHourlyUsageAttribution
+   */
+  usageType: HourlyUsageAttributionUsageType;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * @type Date
+   * @memberof UsageMeteringApigetHourlyUsageAttribution
+   */
+  endHr?: Date;
+  /**
+   * List following results with a next_record_id provided in the previous query.
+   * @type string
+   * @memberof UsageMeteringApigetHourlyUsageAttribution
+   */
+  nextRecordId?: string;
+  /**
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   * @type string
+   * @memberof UsageMeteringApigetHourlyUsageAttribution
+   */
+  tagBreakdownKeys?: string;
+}
+
 export interface UsageMeteringApiGetIncidentManagementRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -5386,6 +5421,27 @@ export class ObjectUsageMeteringApi {
         param.pageNumber,
         param.sortDir,
         param.sort,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   * @param param the request object
+   */
+  public getHourlyUsageAttribution(
+    param: UsageMeteringApiGetHourlyUsageAttributionRequest,
+    options?: Configuration
+  ): Promise<HourlyUsageAttributionResponse> {
+    return this.api
+      .getHourlyUsageAttribution(
+        param.startHr,
+        param.usageType,
+        param.endHr,
+        param.nextRecordId,
+        param.tagBreakdownKeys,
         options
       )
       .toPromise();

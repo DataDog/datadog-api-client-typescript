@@ -9,10 +9,8 @@
  */
 
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
-import { SecurityMonitoringRuntimeAgentRule } from "./SecurityMonitoringRuntimeAgentRule";
 
 export class SecurityMonitoringRuleQueryCreate {
-  "agentRule"?: SecurityMonitoringRuntimeAgentRule;
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
    * Field for which the cardinality is measured. Sent as an array.
@@ -45,10 +43,6 @@ export class SecurityMonitoringRuleQueryCreate {
       format?: string;
     };
   } = {
-    agentRule: {
-      baseName: "agentRule",
-      type: "SecurityMonitoringRuntimeAgentRule",
-    },
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",

@@ -8,15 +8,15 @@
  * Do not edit the class manually.
  */
 
-export class SecurityMonitoringRuntimeAgentRule {
+import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
+import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
+
+export class HourlyUsageAttributionResponse {
+  "metadata"?: HourlyUsageAttributionMetadata;
   /**
-   * The Agent rule ID. Must be unique within the rule.
+   * Get the hourly usage attribution by tag(s).
    */
-  "agentRuleId"?: string;
-  /**
-   * A Runtime Security expression determines what activity should be collected by the Datadog Agent. These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced option.
-   */
-  "expression"?: string;
+  "usage"?: Array<HourlyUsageAttributionBody>;
 
   "unparsedObject"?: any;
 
@@ -28,18 +28,18 @@ export class SecurityMonitoringRuntimeAgentRule {
       format?: string;
     };
   } = {
-    agentRuleId: {
-      baseName: "agentRuleId",
-      type: "string",
+    metadata: {
+      baseName: "metadata",
+      type: "HourlyUsageAttributionMetadata",
     },
-    expression: {
-      baseName: "expression",
-      type: "string",
+    usage: {
+      baseName: "usage",
+      type: "Array<HourlyUsageAttributionBody>",
     },
   };
 
   static getAttributeTypeMap() {
-    return SecurityMonitoringRuntimeAgentRule.attributeTypeMap;
+    return HourlyUsageAttributionResponse.attributeTypeMap;
   }
 
   public constructor() {}

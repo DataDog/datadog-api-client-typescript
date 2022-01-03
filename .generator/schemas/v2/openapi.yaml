@@ -477,8 +477,21 @@ components:
       properties:
         name:
           description: Name of the application key.
-          example: Application Key for submitting metrics
+          example: Application Key for managing dashboards
           type: string
+        scopes:
+          description: Array of scopes to grant the application key. This feature
+            is in private beta, please contact Datadog support to enable scopes for
+            your application keys.
+          example:
+          - dashboards_read
+          - dashboards_write
+          - dashboards_public_share
+          items:
+            description: Name of scope.
+            type: string
+          nullable: true
+          type: array
       required:
       - name
       type: object
@@ -529,10 +542,21 @@ components:
       properties:
         name:
           description: Name of the application key.
-          example: Application Key for submitting metrics
+          example: Application Key for managing dashboards
           type: string
-      required:
-      - name
+        scopes:
+          description: Array of scopes to grant the application key. This feature
+            is in private beta, please contact Datadog support to enable scopes for
+            your application keys.
+          example:
+          - dashboards_read
+          - dashboards_write
+          - dashboards_public_share
+          items:
+            description: Name of scope.
+            type: string
+          nullable: true
+          type: array
       type: object
     ApplicationKeyUpdateData:
       description: Object used to update an application key.
@@ -852,8 +876,21 @@ components:
           type: string
         name:
           description: Name of the application key.
-          example: Application Key for submitting metrics
+          example: Application Key for managing dashboards
           type: string
+        scopes:
+          description: Array of scopes to grant the application key. This feature
+            is in private beta, please contact Datadog support to enable scopes for
+            your application keys.
+          example:
+          - dashboards_read
+          - dashboards_write
+          - dashboards_public_share
+          items:
+            description: Name of scope.
+            type: string
+          nullable: true
+          type: array
       type: object
     HTTPLog:
       description: Structured log message.
@@ -3537,8 +3574,21 @@ components:
           type: string
         name:
           description: Name of the application key.
-          example: Application Key for submitting metrics
+          example: Application Key for managing dashboards
           type: string
+        scopes:
+          description: Array of scopes to grant the application key. This feature
+            is in private beta, please contact Datadog support to enable scopes for
+            your application keys.
+          example:
+          - dashboards_read
+          - dashboards_write
+          - dashboards_public_share
+          items:
+            description: Name of scope.
+            type: string
+          nullable: true
+          type: array
       type: object
     PartialApplicationKeyResponse:
       description: Response for retrieving a partial application key.
@@ -4645,8 +4695,6 @@ components:
     SecurityMonitoringRuleQuery:
       description: Query for matching rule.
       properties:
-        agentRule:
-          $ref: '#/components/schemas/SecurityMonitoringRuntimeAgentRule'
         aggregation:
           $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
         distinctFields:
@@ -4691,8 +4739,6 @@ components:
     SecurityMonitoringRuleQueryCreate:
       description: Query for matching rule.
       properties:
-        agentRule:
-          $ref: '#/components/schemas/SecurityMonitoringRuntimeAgentRule'
         aggregation:
           $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
         distinctFields:
@@ -4874,24 +4920,6 @@ components:
           format: int32
           maximum: 2147483647
           type: integer
-      type: object
-    SecurityMonitoringRuntimeAgentRule:
-      description: The Agent rule.
-      properties:
-        agentRuleId:
-          description: The Agent rule ID. Must be unique within the rule.
-          example: etc_shadow
-          type: string
-        expression:
-          description: 'A Runtime Security expression determines what activity should
-            be collected by the Datadog Agent.
-
-            These logical expressions can use predefined operators and attributes.
-            Tags cannot be used in Runtime
-
-            Security expressions. Instead, allow or deny based on tags under the advanced
-            option.'
-          type: string
       type: object
     SecurityMonitoringSignal:
       description: Object description of a security signal.

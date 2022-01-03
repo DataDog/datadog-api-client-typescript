@@ -178,6 +178,7 @@ export {
   TagsApiUpdateHostTagsRequest,
   ObjectTagsApi as TagsApi,
   UsageMeteringApiGetDailyCustomReportsRequest,
+  UsageMeteringApiGetHourlyUsageAttributionRequest,
   UsageMeteringApiGetIncidentManagementRequest,
   UsageMeteringApiGetIngestedSpansRequest,
   UsageMeteringApiGetMonthlyCustomReportsRequest,

@@ -49,6 +49,8 @@ import { HostMuteResponse } from "../models/HostMuteResponse";
 import { HostMuteSettings } from "../models/HostMuteSettings";
 import { HostTags } from "../models/HostTags";
 import { HostTotals } from "../models/HostTotals";
+import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
+import { HourlyUsageAttributionUsageType } from "../models/HourlyUsageAttributionUsageType";
 import { IPRanges } from "../models/IPRanges";
 import { IdpResponse } from "../models/IdpResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -3174,6 +3176,34 @@ export class PromiseUsageMeteringApi {
       pageNumber,
       sortDir,
       sort,
+      _options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @param usageType Usage type to retrieve.
+   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * @param nextRecordId List following results with a next_record_id provided in the previous query.
+   * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   */
+  public getHourlyUsageAttribution(
+    startHr: Date,
+    usageType: HourlyUsageAttributionUsageType,
+    endHr?: Date,
+    nextRecordId?: string,
+    tagBreakdownKeys?: string,
+    _options?: Configuration
+  ): Promise<HourlyUsageAttributionResponse> {
+    const result = this.api.getHourlyUsageAttribution(
+      startHr,
+      usageType,
+      endHr,
+      nextRecordId,
+      tagBreakdownKeys,
       _options
     );
     return result.toPromise();
