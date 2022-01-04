@@ -11,6 +11,7 @@
 import { SyntheticsAPIStepSubtype } from "./SyntheticsAPIStepSubtype";
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
+import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 
 export class SyntheticsAPIStep {
@@ -35,6 +36,7 @@ export class SyntheticsAPIStep {
    */
   "name"?: string;
   "request"?: SyntheticsTestRequest;
+  "retry"?: SyntheticsTestOptionsRetry;
   "subtype"?: SyntheticsAPIStepSubtype;
 
   "unparsedObject"?: any;
@@ -70,6 +72,10 @@ export class SyntheticsAPIStep {
     request: {
       baseName: "request",
       type: "SyntheticsTestRequest",
+    },
+    retry: {
+      baseName: "retry",
+      type: "SyntheticsTestOptionsRetry",
     },
     subtype: {
       baseName: "subtype",
