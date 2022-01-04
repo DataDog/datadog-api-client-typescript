@@ -303,6 +303,10 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             timeout: 3.14,
             url: "https://example.com",
           },
+          retry: {
+            count: 1,
+            interval: 3.14,
+          },
           subtype: "http",
         },
       ],
@@ -1889,6 +1893,10 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             shouldTrackHops: true,
             timeout: 3.14,
             url: "https://example.com",
+          },
+          retry: {
+            count: 1,
+            interval: 3.14,
           },
           subtype: "http",
         },
