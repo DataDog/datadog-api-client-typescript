@@ -10,6 +10,11 @@
 
 import { LogAttributes } from "./LogAttributes";
 import { LogType } from "./LogType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object description of a log after being processed and stored by Datadog.
+ */
 
 export class Log {
   "attributes"?: LogAttributes;
@@ -21,14 +26,7 @@ export class Log {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "LogAttributes",
@@ -43,7 +41,7 @@ export class Log {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Log.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Query for matching rule.
+ */
 
 export class SecurityMonitoringRuleQuery {
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
@@ -35,14 +40,7 @@ export class SecurityMonitoringRuleQuery {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
@@ -69,7 +67,7 @@ export class SecurityMonitoringRuleQuery {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleQuery.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A response containing the number of analyzed logs for each hour for a given organization.
+ */
 
 export class UsageAnalyzedLogsResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageAnalyzedLogsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageAnalyzedLogsHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAnalyzedLogsResponse.attributeTypeMap;
   }
 

@@ -13,6 +13,11 @@ import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 import { SecurityMonitoringRuleTypeRead } from "./SecurityMonitoringRuleTypeRead";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Rule.
+ */
 
 export class SecurityMonitoringRuleResponse {
   /**
@@ -80,14 +85,7 @@ export class SecurityMonitoringRuleResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
@@ -166,7 +164,7 @@ export class SecurityMonitoringRuleResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleResponse.attributeTypeMap;
   }
 

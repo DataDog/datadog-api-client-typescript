@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Audit logs usage for a given organization for a given hour.
+ */
+
 export class UsageAuditLogsHour {
   /**
    * The hour for the usage.
@@ -28,14 +34,7 @@ export class UsageAuditLogsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -58,7 +57,7 @@ export class UsageAuditLogsHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAuditLogsHour.attributeTypeMap;
   }
 

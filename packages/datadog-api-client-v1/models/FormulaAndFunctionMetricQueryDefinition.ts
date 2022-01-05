@@ -10,6 +10,11 @@
 
 import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
 import { FormulaAndFunctionMetricDataSource } from "./FormulaAndFunctionMetricDataSource";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A formula and functions metrics query.
+ */
 
 export class FormulaAndFunctionMetricQueryDefinition {
   "aggregator"?: FormulaAndFunctionMetricAggregation;
@@ -25,14 +30,7 @@ export class FormulaAndFunctionMetricQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
@@ -54,7 +52,7 @@ export class FormulaAndFunctionMetricQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
   }
 

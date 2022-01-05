@@ -12,6 +12,11 @@ import { FunnelWidgetDefinitionType } from "./FunnelWidgetDefinitionType";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
+ */
 
 export class FunnelWidgetDefinition {
   /**
@@ -32,14 +37,7 @@ export class FunnelWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     requests: {
       baseName: "requests",
       type: "Array<FunnelWidgetRequest>",
@@ -68,7 +66,7 @@ export class FunnelWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelWidgetDefinition.attributeTypeMap;
   }
 

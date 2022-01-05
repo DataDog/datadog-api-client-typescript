@@ -9,27 +9,25 @@
  */
 
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Details about a batch response.
+ */
 
 export class SyntheticsBatchDetails {
   "data"?: SyntheticsBatchDetailsData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SyntheticsBatchDetailsData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBatchDetails.attributeTypeMap;
   }
 

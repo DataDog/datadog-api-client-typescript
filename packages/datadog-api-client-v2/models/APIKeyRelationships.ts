@@ -9,6 +9,11 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Resources related to the API key.
+ */
 
 export class APIKeyRelationships {
   "createdBy"?: RelationshipToUser;
@@ -16,14 +21,7 @@ export class APIKeyRelationships {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdBy: {
       baseName: "created_by",
       type: "RelationshipToUser",
@@ -34,7 +32,7 @@ export class APIKeyRelationships {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyRelationships.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of RUM Sessions recorded for each hour for a given organization.
+ */
+
 export class UsageRumSessionsHour {
   /**
    * The hour for the usage.
@@ -36,14 +42,7 @@ export class UsageRumSessionsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -78,7 +77,7 @@ export class UsageRumSessionsHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageRumSessionsHour.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * X Axis controls for the distribution widget.
+ */
+
 export class DistributionWidgetXAxis {
   /**
    * True includes zero.
@@ -28,14 +34,7 @@ export class DistributionWidgetXAxis {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     includeZero: {
       baseName: "include_zero",
       type: "boolean",
@@ -54,7 +53,7 @@ export class DistributionWidgetXAxis {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DistributionWidgetXAxis.attributeTypeMap;
   }
 

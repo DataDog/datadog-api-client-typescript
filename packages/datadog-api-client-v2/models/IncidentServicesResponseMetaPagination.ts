@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Pagination properties.
+ */
+
 export class IncidentServicesResponseMetaPagination {
   /**
    * The index of the first element in the next page of results. Equal to page size added to the current offset.
@@ -24,14 +30,7 @@ export class IncidentServicesResponseMetaPagination {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     nextOffset: {
       baseName: "next_offset",
       type: "number",
@@ -52,7 +51,7 @@ export class IncidentServicesResponseMetaPagination {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServicesResponseMetaPagination.attributeTypeMap;
   }
 

@@ -9,27 +9,25 @@
  */
 
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object which includes a single metric's tag configuration.
+ */
 
 export class MetricTagConfigurationResponse {
   "data"?: MetricTagConfiguration;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "MetricTagConfiguration",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationResponse.attributeTypeMap;
   }
 

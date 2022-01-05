@@ -9,27 +9,25 @@
  */
 
 import { SLOCorrectionCreateData } from "./SLOCorrectionCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An object that defines a correction to be applied to an SLO.
+ */
 
 export class SLOCorrectionCreateRequest {
   "data"?: SLOCorrectionCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SLOCorrectionCreateData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionCreateRequest.attributeTypeMap;
   }
 

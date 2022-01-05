@@ -9,6 +9,11 @@
  */
 
 import { UsageAttributionValues } from "./UsageAttributionValues";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Usage Summary by tag for a given organization.
+ */
 
 export class UsageAttributionBody {
   /**
@@ -39,14 +44,7 @@ export class UsageAttributionBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     month: {
       baseName: "month",
       type: "Date",
@@ -79,7 +77,7 @@ export class UsageAttributionBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionBody.attributeTypeMap;
   }
 

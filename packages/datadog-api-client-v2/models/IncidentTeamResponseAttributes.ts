@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident team's attributes from a response.
+ */
+
 export class IncidentTeamResponseAttributes {
   /**
    * Timestamp of when the incident team was created.
@@ -24,14 +30,7 @@ export class IncidentTeamResponseAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
       type: "Date",
@@ -50,7 +49,7 @@ export class IncidentTeamResponseAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTeamResponseAttributes.attributeTypeMap;
   }
 

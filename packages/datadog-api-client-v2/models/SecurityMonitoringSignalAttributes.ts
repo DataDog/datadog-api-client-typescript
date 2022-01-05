@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing all signal attributes and their associated values.
+ */
+
 export class SecurityMonitoringSignalAttributes {
   /**
    * A JSON object of attributes in the security signal.
@@ -28,14 +34,7 @@ export class SecurityMonitoringSignalAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
@@ -56,7 +55,7 @@ export class SecurityMonitoringSignalAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalAttributes.attributeTypeMap;
   }
 

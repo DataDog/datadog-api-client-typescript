@@ -9,6 +9,11 @@
  */
 
 import { HTTPLogError } from "./HTTPLogError";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Invalid query performed.
+ */
 
 export class HTTPLogErrors {
   /**
@@ -18,21 +23,14 @@ export class HTTPLogErrors {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
       baseName: "errors",
       type: "Array<HTTPLogError>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HTTPLogErrors.attributeTypeMap;
   }
 

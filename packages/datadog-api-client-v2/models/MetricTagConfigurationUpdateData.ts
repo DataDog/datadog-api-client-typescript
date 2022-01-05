@@ -10,6 +10,11 @@
 
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
 import { MetricTagConfigurationUpdateAttributes } from "./MetricTagConfigurationUpdateAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object for a single tag configuration to be edited.
+ */
 
 export class MetricTagConfigurationUpdateData {
   "attributes"?: MetricTagConfigurationUpdateAttributes;
@@ -21,14 +26,7 @@ export class MetricTagConfigurationUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "MetricTagConfigurationUpdateAttributes",
@@ -45,7 +43,7 @@ export class MetricTagConfigurationUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationUpdateData.attributeTypeMap;
   }
 

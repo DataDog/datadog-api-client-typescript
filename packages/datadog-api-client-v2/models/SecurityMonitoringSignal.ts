@@ -10,6 +10,11 @@
 
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalType } from "./SecurityMonitoringSignalType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object description of a security signal.
+ */
 
 export class SecurityMonitoringSignal {
   "attributes"?: SecurityMonitoringSignalAttributes;
@@ -21,14 +26,7 @@ export class SecurityMonitoringSignal {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "SecurityMonitoringSignalAttributes",
@@ -43,7 +41,7 @@ export class SecurityMonitoringSignal {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignal.attributeTypeMap;
   }
 

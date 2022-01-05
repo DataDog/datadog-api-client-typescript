@@ -9,6 +9,11 @@
  */
 
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Dashboard summary response.
+ */
 
 export class DashboardSummary {
   /**
@@ -18,21 +23,14 @@ export class DashboardSummary {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
       baseName: "dashboards",
       type: "Array<DashboardSummaryDefinition>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardSummary.attributeTypeMap;
   }
 

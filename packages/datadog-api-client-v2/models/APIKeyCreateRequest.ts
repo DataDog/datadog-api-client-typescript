@@ -9,20 +9,18 @@
  */
 
 import { APIKeyCreateData } from "./APIKeyCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request used to create an API key.
+ */
 
 export class APIKeyCreateRequest {
   "data": APIKeyCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "APIKeyCreateData",
@@ -30,7 +28,7 @@ export class APIKeyCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyCreateRequest.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { Host } from "./Host";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with Host information from Datadog.
+ */
 
 export class HostListResponse {
   /**
@@ -26,14 +31,7 @@ export class HostListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hostList: {
       baseName: "host_list",
       type: "Array<Host>",
@@ -52,7 +50,7 @@ export class HostListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostListResponse.attributeTypeMap;
   }
 

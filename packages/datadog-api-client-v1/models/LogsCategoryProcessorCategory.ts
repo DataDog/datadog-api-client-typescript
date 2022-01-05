@@ -9,6 +9,11 @@
  */
 
 import { LogsFilter } from "./LogsFilter";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the logs filter.
+ */
 
 export class LogsCategoryProcessorCategory {
   "filter"?: LogsFilter;
@@ -19,14 +24,7 @@ export class LogsCategoryProcessorCategory {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
       type: "LogsFilter",
@@ -37,7 +35,7 @@ export class LogsCategoryProcessorCategory {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsCategoryProcessorCategory.attributeTypeMap;
   }
 

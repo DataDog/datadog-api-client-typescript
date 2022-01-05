@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The GCS archive's integration destination.
+ */
+
 export class LogsArchiveIntegrationGCS {
   /**
    * A client email.
@@ -20,14 +26,7 @@ export class LogsArchiveIntegrationGCS {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     clientEmail: {
       baseName: "client_email",
       type: "string",
@@ -40,7 +39,7 @@ export class LogsArchiveIntegrationGCS {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveIntegrationGCS.attributeTypeMap;
   }
 

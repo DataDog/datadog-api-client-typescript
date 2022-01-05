@@ -10,6 +10,11 @@
 
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OrganizationsType } from "./OrganizationsType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Organization object.
+ */
 
 export class Organization {
   "attributes"?: OrganizationAttributes;
@@ -21,14 +26,7 @@ export class Organization {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "OrganizationAttributes",
@@ -44,7 +42,7 @@ export class Organization {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Organization.attributeTypeMap;
   }
 

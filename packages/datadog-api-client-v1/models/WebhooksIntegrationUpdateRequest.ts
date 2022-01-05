@@ -9,6 +9,11 @@
  */
 
 import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Update request of a Webhooks integration object.  *All properties are optional.*
+ */
 
 export class WebhooksIntegrationUpdateRequest {
   /**
@@ -31,14 +36,7 @@ export class WebhooksIntegrationUpdateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customHeaders: {
       baseName: "custom_headers",
       type: "string",
@@ -61,7 +59,7 @@ export class WebhooksIntegrationUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WebhooksIntegrationUpdateRequest.attributeTypeMap;
   }
 

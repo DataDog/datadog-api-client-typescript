@@ -9,6 +9,11 @@
  */
 
 import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of active NPM hosts for each hour for a given organization.
+ */
 
 export class UsageNetworkHostsResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageNetworkHostsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageNetworkHostsHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkHostsResponse.attributeTypeMap;
   }
 

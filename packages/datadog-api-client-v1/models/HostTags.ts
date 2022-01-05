@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Set of tags to associate with your host.
+ */
+
 export class HostTags {
   /**
    * Your host name.
@@ -20,14 +26,7 @@ export class HostTags {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     host: {
       baseName: "host",
       type: "string",
@@ -38,7 +37,7 @@ export class HostTags {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostTags.attributeTypeMap;
   }
 

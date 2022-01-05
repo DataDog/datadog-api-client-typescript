@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Client certificate to use when performing the test request.
+ */
 
 export class SyntheticsTestRequestCertificate {
   "cert"?: SyntheticsTestRequestCertificateItem;
@@ -16,14 +21,7 @@ export class SyntheticsTestRequestCertificate {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cert: {
       baseName: "cert",
       type: "SyntheticsTestRequestCertificateItem",
@@ -34,7 +32,7 @@ export class SyntheticsTestRequestCertificate {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequestCertificate.attributeTypeMap;
   }
 

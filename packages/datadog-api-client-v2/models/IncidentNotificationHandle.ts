@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A notification handle that will be notified at incident creation.
+ */
+
 export class IncidentNotificationHandle {
   /**
    * The name of the notified handle.
@@ -20,14 +26,7 @@ export class IncidentNotificationHandle {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     displayName: {
       baseName: "display_name",
       type: "string",
@@ -38,7 +37,7 @@ export class IncidentNotificationHandle {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentNotificationHandle.attributeTypeMap;
   }
 

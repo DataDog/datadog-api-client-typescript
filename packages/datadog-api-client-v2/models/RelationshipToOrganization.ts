@@ -9,20 +9,18 @@
  */
 
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationship to an organization.
+ */
 
 export class RelationshipToOrganization {
   "data": RelationshipToOrganizationData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RelationshipToOrganizationData",
@@ -30,7 +28,7 @@ export class RelationshipToOrganization {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToOrganization.attributeTypeMap;
   }
 

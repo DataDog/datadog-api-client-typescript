@@ -12,6 +12,11 @@ import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook `timeseries` cell.
+ */
 
 export class NotebookTimeseriesCellAttributes {
   "definition": TimeseriesWidgetDefinition;
@@ -21,14 +26,7 @@ export class NotebookTimeseriesCellAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
       type: "TimeseriesWidgetDefinition",
@@ -48,7 +46,7 @@ export class NotebookTimeseriesCellAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookTimeseriesCellAttributes.attributeTypeMap;
   }
 

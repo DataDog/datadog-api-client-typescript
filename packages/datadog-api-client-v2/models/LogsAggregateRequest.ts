@@ -13,6 +13,11 @@ import { LogsCompute } from "./LogsCompute";
 import { LogsGroupBy } from "./LogsGroupBy";
 import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object sent with the request to retrieve a list of logs from your organization.
+ */
 
 export class LogsAggregateRequest {
   /**
@@ -29,14 +34,7 @@ export class LogsAggregateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
       type: "Array<LogsCompute>",
@@ -59,7 +57,7 @@ export class LogsAggregateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateRequest.attributeTypeMap;
   }
 

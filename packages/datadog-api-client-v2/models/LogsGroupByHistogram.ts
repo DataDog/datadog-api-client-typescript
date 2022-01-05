@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
+ */
+
 export class LogsGroupByHistogram {
   /**
    * The bin size of the histogram buckets
@@ -24,14 +30,7 @@ export class LogsGroupByHistogram {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     interval: {
       baseName: "interval",
       type: "number",
@@ -52,7 +51,7 @@ export class LogsGroupByHistogram {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGroupByHistogram.attributeTypeMap;
   }
 

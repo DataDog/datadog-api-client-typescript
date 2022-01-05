@@ -14,6 +14,11 @@ import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
 import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsStepType } from "./SyntheticsStepType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing a step for a Synthetic test.
+ */
 
 export class SyntheticsStepDetail {
   /**
@@ -78,14 +83,7 @@ export class SyntheticsStepDetail {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     browserErrors: {
       baseName: "browserErrors",
       type: "Array<SyntheticsBrowserError>",
@@ -162,7 +160,7 @@ export class SyntheticsStepDetail {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStepDetail.attributeTypeMap;
   }
 

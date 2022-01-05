@@ -13,6 +13,11 @@ import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing a monitor.
+ */
 
 export class Monitor {
   /**
@@ -67,14 +72,7 @@ export class Monitor {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
       type: "Date",
@@ -153,7 +151,7 @@ export class Monitor {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Monitor.attributeTypeMap;
   }
 

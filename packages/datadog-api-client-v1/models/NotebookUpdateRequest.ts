@@ -9,20 +9,18 @@
  */
 
 import { NotebookUpdateData } from "./NotebookUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The description of a notebook update request.
+ */
 
 export class NotebookUpdateRequest {
   "data": NotebookUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "NotebookUpdateData",
@@ -30,7 +28,7 @@ export class NotebookUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookUpdateRequest.attributeTypeMap;
   }
 

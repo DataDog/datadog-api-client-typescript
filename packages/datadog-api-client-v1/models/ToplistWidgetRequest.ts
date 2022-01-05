@@ -15,6 +15,11 @@ import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated top list widget.
+ */
 
 export class ToplistWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -47,14 +52,7 @@ export class ToplistWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -117,7 +115,7 @@ export class ToplistWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ToplistWidgetRequest.attributeTypeMap;
   }
 

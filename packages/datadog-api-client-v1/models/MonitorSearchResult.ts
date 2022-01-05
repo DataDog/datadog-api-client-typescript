@@ -12,6 +12,11 @@ import { Creator } from "./Creator";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Holds search results.
+ */
 
 export class MonitorSearchResult {
   /**
@@ -60,14 +65,7 @@ export class MonitorSearchResult {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     classification: {
       baseName: "classification",
       type: "string",
@@ -128,7 +126,7 @@ export class MonitorSearchResult {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResult.attributeTypeMap;
   }
 

@@ -9,27 +9,25 @@
  */
 
 import { Organization } from "./Organization";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with an organization.
+ */
 
 export class OrganizationResponse {
   "org"?: Organization;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     org: {
       baseName: "org",
       type: "Organization",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationResponse.attributeTypeMap;
   }
 

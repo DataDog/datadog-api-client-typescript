@@ -10,6 +10,11 @@
 
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated host map.
+ */
 
 export class HostMapRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -27,14 +32,7 @@ export class HostMapRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -73,7 +71,7 @@ export class HostMapRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapRequest.attributeTypeMap;
   }
 

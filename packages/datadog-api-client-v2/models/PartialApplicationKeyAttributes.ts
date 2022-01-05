@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of a partial application key.
+ */
+
 export class PartialApplicationKeyAttributes {
   /**
    * Creation date of the application key.
@@ -28,14 +34,7 @@ export class PartialApplicationKeyAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "string",
@@ -54,7 +53,7 @@ export class PartialApplicationKeyAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PartialApplicationKeyAttributes.attributeTypeMap;
   }
 

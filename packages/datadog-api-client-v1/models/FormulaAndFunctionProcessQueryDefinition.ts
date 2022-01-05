@@ -11,6 +11,11 @@
 import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
 import { FormulaAndFunctionProcessQueryDataSource } from "./FormulaAndFunctionProcessQueryDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Process query using formulas and functions.
+ */
 
 export class FormulaAndFunctionProcessQueryDefinition {
   "aggregator"?: FormulaAndFunctionMetricAggregation;
@@ -43,14 +48,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
@@ -94,7 +92,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionProcessQueryDefinition.attributeTypeMap;
   }
 

@@ -13,6 +13,11 @@ import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCr
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Create a new rule.
+ */
 
 export class SecurityMonitoringRuleCreatePayload {
   /**
@@ -52,14 +57,7 @@ export class SecurityMonitoringRuleCreatePayload {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
@@ -108,7 +106,7 @@ export class SecurityMonitoringRuleCreatePayload {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleCreatePayload.attributeTypeMap;
   }
 

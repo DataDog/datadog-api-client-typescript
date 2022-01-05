@@ -9,27 +9,25 @@
  */
 
 import { UsageSpecifiedCustomReportsPage } from "./UsageSpecifiedCustomReportsPage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing document metadata.
+ */
 
 export class UsageSpecifiedCustomReportsMeta {
   "page"?: UsageSpecifiedCustomReportsPage;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
       type: "UsageSpecifiedCustomReportsPage",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSpecifiedCustomReportsMeta.attributeTypeMap;
   }
 

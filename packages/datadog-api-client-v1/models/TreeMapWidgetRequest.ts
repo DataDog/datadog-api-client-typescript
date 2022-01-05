@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An updated treemap widget.
+ */
+
 export class TreeMapWidgetRequest {
   /**
    * The widget metrics query.
@@ -16,21 +22,14 @@ export class TreeMapWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     q: {
       baseName: "q",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TreeMapWidgetRequest.attributeTypeMap;
   }
 

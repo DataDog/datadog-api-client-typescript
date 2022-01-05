@@ -12,6 +12,11 @@ import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { NotebookUpdateCell } from "./NotebookUpdateCell";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The data attributes of a notebook.
+ */
 
 export class NotebookUpdateDataAttributes {
   /**
@@ -28,14 +33,7 @@ export class NotebookUpdateDataAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cells: {
       baseName: "cells",
       type: "Array<NotebookUpdateCell>",
@@ -61,7 +59,7 @@ export class NotebookUpdateDataAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookUpdateDataAttributes.attributeTypeMap;
   }
 

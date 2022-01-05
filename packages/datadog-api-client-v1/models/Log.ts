@@ -9,6 +9,11 @@
  */
 
 import { LogContent } from "./LogContent";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing a log after being processed and stored by Datadog.
+ */
 
 export class Log {
   "content"?: LogContent;
@@ -19,14 +24,7 @@ export class Log {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
       baseName: "content",
       type: "LogContent",
@@ -37,7 +35,7 @@ export class Log {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Log.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsConfigVariableType } from "./SyntheticsConfigVariableType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object defining a variable that can be used in your test configuration.
+ */
 
 export class SyntheticsConfigVariable {
   /**
@@ -31,14 +36,7 @@ export class SyntheticsConfigVariable {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     example: {
       baseName: "example",
       type: "string",
@@ -63,7 +61,7 @@ export class SyntheticsConfigVariable {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsConfigVariable.attributeTypeMap;
   }
 

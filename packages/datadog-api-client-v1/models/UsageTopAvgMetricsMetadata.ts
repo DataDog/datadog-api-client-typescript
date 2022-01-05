@@ -9,6 +9,11 @@
  */
 
 import { UsageAttributionPagination } from "./UsageAttributionPagination";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing document metadata.
+ */
 
 export class UsageTopAvgMetricsMetadata {
   /**
@@ -23,14 +28,7 @@ export class UsageTopAvgMetricsMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     day: {
       baseName: "day",
       type: "Date",
@@ -49,7 +47,7 @@ export class UsageTopAvgMetricsMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTopAvgMetricsMetadata.attributeTypeMap;
   }
 

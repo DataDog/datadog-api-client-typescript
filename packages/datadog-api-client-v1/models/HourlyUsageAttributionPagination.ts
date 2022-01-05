@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The metadata for the current pagination.
+ */
+
 export class HourlyUsageAttributionPagination {
   /**
    * The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
@@ -16,21 +22,14 @@ export class HourlyUsageAttributionPagination {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     nextRecordId: {
       baseName: "next_record_id",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HourlyUsageAttributionPagination.attributeTypeMap;
   }
 

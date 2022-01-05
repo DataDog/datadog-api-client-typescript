@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes used to create an API Key.
+ */
+
 export class APIKeyCreateAttributes {
   /**
    * Name of the API key.
@@ -16,14 +22,7 @@ export class APIKeyCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
@@ -31,7 +30,7 @@ export class APIKeyCreateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyCreateAttributes.attributeTypeMap;
   }
 

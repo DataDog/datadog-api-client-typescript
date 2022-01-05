@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Value of the global variable.
+ */
+
 export class SyntheticsGlobalVariableValue {
   /**
    * Determines if the value of the variable is hidden.
@@ -20,14 +26,7 @@ export class SyntheticsGlobalVariableValue {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     secure: {
       baseName: "secure",
       type: "boolean",
@@ -38,7 +37,7 @@ export class SyntheticsGlobalVariableValue {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariableValue.attributeTypeMap;
   }
 

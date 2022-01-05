@@ -9,20 +9,18 @@
  */
 
 import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request object that includes the metric that you would like to edit the tag configuration on.
+ */
 
 export class MetricTagConfigurationUpdateRequest {
   "data": MetricTagConfigurationUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "MetricTagConfigurationUpdateData",
@@ -30,7 +28,7 @@ export class MetricTagConfigurationUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationUpdateRequest.attributeTypeMap;
   }
 

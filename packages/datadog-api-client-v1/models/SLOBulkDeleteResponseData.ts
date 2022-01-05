@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An array of service level objective objects.
+ */
+
 export class SLOBulkDeleteResponseData {
   /**
    * An array of service level objective object IDs that indicates which objects that were completely deleted.
@@ -20,14 +26,7 @@ export class SLOBulkDeleteResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     deleted: {
       baseName: "deleted",
       type: "Array<string>",
@@ -38,7 +37,7 @@ export class SLOBulkDeleteResponseData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOBulkDeleteResponseData.attributeTypeMap;
   }
 

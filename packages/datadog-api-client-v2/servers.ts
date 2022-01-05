@@ -16,7 +16,7 @@ export class BaseServerConfiguration {
    *
    * @param variableConfiguration a partial variable configuration for the variables contained in the url
    */
-  public setVariables(variableConfiguration: { [key: string]: string }) {
+  public setVariables(variableConfiguration: { [key: string]: string }): void {
     Object.assign(this.variableConfiguration, variableConfiguration);
   }
 

@@ -10,6 +10,11 @@
 
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Widget definition.
+ */
 
 export class ScatterPlotWidgetDefinitionRequests {
   "table"?: ScatterplotTableRequest;
@@ -18,14 +23,7 @@ export class ScatterPlotWidgetDefinitionRequests {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     table: {
       baseName: "table",
       type: "ScatterplotTableRequest",
@@ -40,7 +38,7 @@ export class ScatterPlotWidgetDefinitionRequests {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
   }
 

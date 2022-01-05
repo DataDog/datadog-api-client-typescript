@@ -12,6 +12,11 @@ import { GroupWidgetDefinitionType } from "./GroupWidgetDefinitionType";
 import { Widget } from "./Widget";
 import { WidgetLayoutType } from "./WidgetLayoutType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
+ */
 
 export class GroupWidgetDefinition {
   /**
@@ -40,14 +45,7 @@ export class GroupWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     backgroundColor: {
       baseName: "background_color",
       type: "string",
@@ -85,7 +83,7 @@ export class GroupWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return GroupWidgetDefinition.attributeTypeMap;
   }
 

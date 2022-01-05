@@ -11,6 +11,11 @@
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToUser } from "./RelationshipToUser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident's relationships for an update request.
+ */
 
 export class IncidentUpdateRelationships {
   "commanderUser"?: RelationshipToUser;
@@ -21,14 +26,7 @@ export class IncidentUpdateRelationships {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     commanderUser: {
       baseName: "commander_user",
       type: "RelationshipToUser",
@@ -51,7 +49,7 @@ export class IncidentUpdateRelationships {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentUpdateRelationships.attributeTypeMap;
   }
 

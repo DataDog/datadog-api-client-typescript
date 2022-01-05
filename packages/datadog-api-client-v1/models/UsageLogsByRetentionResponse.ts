@@ -9,6 +9,11 @@
  */
 
 import { UsageLogsByRetentionHour } from "./UsageLogsByRetentionHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the indexed logs usage broken down by retention period for an organization during a given hour.
+ */
 
 export class UsageLogsByRetentionResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageLogsByRetentionResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageLogsByRetentionHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsByRetentionResponse.attributeTypeMap;
   }
 

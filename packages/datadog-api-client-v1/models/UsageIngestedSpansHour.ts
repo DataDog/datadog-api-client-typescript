@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Ingested spans usage for a given organization for a given hour.
+ */
+
 export class UsageIngestedSpansHour {
   /**
    * The hour for the usage.
@@ -20,14 +26,7 @@ export class UsageIngestedSpansHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -42,7 +41,7 @@ export class UsageIngestedSpansHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIngestedSpansHour.attributeTypeMap;
   }
 

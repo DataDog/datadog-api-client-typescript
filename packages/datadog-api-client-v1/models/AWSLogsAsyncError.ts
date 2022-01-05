@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Description of errors.
+ */
+
 export class AWSLogsAsyncError {
   /**
    * Code properties
@@ -20,14 +26,7 @@ export class AWSLogsAsyncError {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
       type: "string",
@@ -38,7 +37,7 @@ export class AWSLogsAsyncError {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsAsyncError.attributeTypeMap;
   }
 

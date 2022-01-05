@@ -10,6 +10,11 @@
 
 import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
 import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Description of the CI provider.
+ */
 
 export class SyntheticsCIBatchMetadataCI {
   "pipeline"?: SyntheticsCIBatchMetadataPipeline;
@@ -17,14 +22,7 @@ export class SyntheticsCIBatchMetadataCI {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     pipeline: {
       baseName: "pipeline",
       type: "SyntheticsCIBatchMetadataPipeline",
@@ -35,7 +33,7 @@ export class SyntheticsCIBatchMetadataCI {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataCI.attributeTypeMap;
   }
 

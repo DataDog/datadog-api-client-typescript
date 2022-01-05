@@ -12,6 +12,11 @@ import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated distribution widget.
+ */
 
 export class DistributionWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -31,14 +36,7 @@ export class DistributionWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -85,7 +83,7 @@ export class DistributionWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DistributionWidgetRequest.attributeTypeMap;
   }
 

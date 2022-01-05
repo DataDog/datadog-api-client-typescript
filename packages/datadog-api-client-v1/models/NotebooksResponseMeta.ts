@@ -9,27 +9,25 @@
  */
 
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Searches metadata returned by the API.
+ */
 
 export class NotebooksResponseMeta {
   "page"?: NotebooksResponsePage;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
       type: "NotebooksResponsePage",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebooksResponseMeta.attributeTypeMap;
   }
 

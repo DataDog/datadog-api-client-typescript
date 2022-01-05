@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Search filters for listing security signals.
+ */
+
 export class SecurityMonitoringSignalListRequestFilter {
   /**
    * The minimum timestamp for requested security signals.
@@ -24,14 +30,7 @@ export class SecurityMonitoringSignalListRequestFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
       type: "Date",
@@ -50,7 +49,7 @@ export class SecurityMonitoringSignalListRequestFilter {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
   }
 

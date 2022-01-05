@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing the options for a Synthetic test as a monitor (for example, renotification).
+ */
+
 export class SyntheticsTestOptionsMonitorOptions {
   /**
    * Time interval before renotifying if the test is still failing (in minutes).
@@ -16,14 +22,7 @@ export class SyntheticsTestOptionsMonitorOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     renotifyInterval: {
       baseName: "renotify_interval",
       type: "number",
@@ -32,7 +31,7 @@ export class SyntheticsTestOptionsMonitorOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Response returned by the AWS Create Account call.
+ */
+
 export class AWSAccountCreateResponse {
   /**
    * AWS external_id.
@@ -16,21 +22,14 @@ export class AWSAccountCreateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     externalId: {
       baseName: "external_id",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountCreateResponse.attributeTypeMap;
   }
 

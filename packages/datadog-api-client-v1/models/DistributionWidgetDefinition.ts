@@ -15,6 +15,11 @@ import { DistributionWidgetYAxis } from "./DistributionWidgetYAxis";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Distribution visualization is another way of showing metrics aggregated across one or several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
+ */
 
 export class DistributionWidgetDefinition {
   /**
@@ -49,14 +54,7 @@ export class DistributionWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     legendSize: {
       baseName: "legend_size",
       type: "string",
@@ -105,7 +103,7 @@ export class DistributionWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DistributionWidgetDefinition.attributeTypeMap;
   }
 

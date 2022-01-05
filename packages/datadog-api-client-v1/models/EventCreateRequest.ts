@@ -10,6 +10,11 @@
 
 import { EventAlertType } from "./EventAlertType";
 import { EventPriority } from "./EventPriority";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object representing an event.
+ */
 
 export class EventCreateRequest {
   /**
@@ -65,14 +70,7 @@ export class EventCreateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregationKey: {
       baseName: "aggregation_key",
       type: "string",
@@ -139,7 +137,7 @@ export class EventCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return EventCreateRequest.attributeTypeMap;
   }
 

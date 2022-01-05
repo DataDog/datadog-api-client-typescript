@@ -18,6 +18,11 @@ import { WidgetEvent } from "./WidgetEvent";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
+ */
 
 export class TimeseriesWidgetDefinition {
   /**
@@ -65,14 +70,7 @@ export class TimeseriesWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -137,7 +135,7 @@ export class TimeseriesWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TimeseriesWidgetDefinition.attributeTypeMap;
   }
 

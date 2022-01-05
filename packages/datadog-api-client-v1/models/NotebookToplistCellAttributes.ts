@@ -12,6 +12,11 @@ import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook `toplist` cell.
+ */
 
 export class NotebookToplistCellAttributes {
   "definition": ToplistWidgetDefinition;
@@ -21,14 +26,7 @@ export class NotebookToplistCellAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
       type: "ToplistWidgetDefinition",
@@ -48,7 +46,7 @@ export class NotebookToplistCellAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookToplistCellAttributes.attributeTypeMap;
   }
 

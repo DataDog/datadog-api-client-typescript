@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An Object of metric units.
+ */
+
 export class SLOHistoryMetricsSeriesMetadataUnit {
   /**
    * The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.
@@ -36,14 +42,7 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
       baseName: "family",
       type: "string",
@@ -74,7 +73,7 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetricsSeriesMetadataUnit.attributeTypeMap;
   }
 

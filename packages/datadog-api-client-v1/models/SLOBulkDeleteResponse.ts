@@ -10,6 +10,11 @@
 
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.
+ */
 
 export class SLOBulkDeleteResponse {
   "data"?: SLOBulkDeleteResponseData;
@@ -20,14 +25,7 @@ export class SLOBulkDeleteResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SLOBulkDeleteResponseData",
@@ -38,7 +36,7 @@ export class SLOBulkDeleteResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOBulkDeleteResponse.attributeTypeMap;
   }
 

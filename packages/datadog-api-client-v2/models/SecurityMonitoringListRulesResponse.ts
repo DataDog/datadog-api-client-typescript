@@ -10,6 +10,11 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of rules.
+ */
 
 export class SecurityMonitoringListRulesResponse {
   /**
@@ -20,14 +25,7 @@ export class SecurityMonitoringListRulesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<SecurityMonitoringRuleResponse>",
@@ -38,7 +36,7 @@ export class SecurityMonitoringListRulesResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringListRulesResponse.attributeTypeMap;
   }
 

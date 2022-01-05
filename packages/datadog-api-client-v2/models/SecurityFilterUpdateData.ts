@@ -10,6 +10,11 @@
 
 import { SecurityFilterType } from "./SecurityFilterType";
 import { SecurityFilterUpdateAttributes } from "./SecurityFilterUpdateAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The new security filter properties.
+ */
 
 export class SecurityFilterUpdateData {
   "attributes": SecurityFilterUpdateAttributes;
@@ -17,14 +22,7 @@ export class SecurityFilterUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "SecurityFilterUpdateAttributes",
@@ -37,7 +35,7 @@ export class SecurityFilterUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterUpdateData.attributeTypeMap;
   }
 

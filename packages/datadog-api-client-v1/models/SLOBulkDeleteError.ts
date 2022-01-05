@@ -9,6 +9,11 @@
  */
 
 import { SLOErrorTimeframe } from "./SLOErrorTimeframe";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the error.
+ */
 
 export class SLOBulkDeleteError {
   /**
@@ -23,14 +28,7 @@ export class SLOBulkDeleteError {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -48,7 +46,7 @@ export class SLOBulkDeleteError {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOBulkDeleteError.attributeTypeMap;
   }
 

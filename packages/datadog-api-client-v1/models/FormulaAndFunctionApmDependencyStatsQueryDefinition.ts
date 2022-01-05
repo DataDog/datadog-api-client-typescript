@@ -10,6 +10,11 @@
 
 import { FormulaAndFunctionApmDependencyStatName } from "./FormulaAndFunctionApmDependencyStatName";
 import { FormulaAndFunctionApmDependencyStatsDataSource } from "./FormulaAndFunctionApmDependencyStatsDataSource";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A formula and functions APM dependency stats query.
+ */
 
 export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   "dataSource": FormulaAndFunctionApmDependencyStatsDataSource;
@@ -49,14 +54,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
       type: "FormulaAndFunctionApmDependencyStatsDataSource",
@@ -106,7 +104,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionApmDependencyStatsQueryDefinition.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+ */
 
 export class DowntimeChild {
   /**
@@ -75,14 +80,7 @@ export class DowntimeChild {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     active: {
       baseName: "active",
       type: "boolean",
@@ -167,7 +165,7 @@ export class DowntimeChild {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DowntimeChild.attributeTypeMap;
   }
 

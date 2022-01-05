@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The hourly usage of timeseries.
+ */
+
 export class UsageTimeseriesHour {
   /**
    * The hour for the usage.
@@ -28,14 +34,7 @@ export class UsageTimeseriesHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -62,7 +61,7 @@ export class UsageTimeseriesHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTimeseriesHour.attributeTypeMap;
   }
 

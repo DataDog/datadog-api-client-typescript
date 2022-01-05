@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of the created user.
+ */
+
 export class UserCreateAttributes {
   /**
    * The email of the user.
@@ -24,14 +30,7 @@ export class UserCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
       type: "string",
@@ -47,7 +46,7 @@ export class UserCreateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserCreateAttributes.attributeTypeMap;
   }
 

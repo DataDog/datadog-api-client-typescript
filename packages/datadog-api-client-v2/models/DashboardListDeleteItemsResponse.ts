@@ -9,6 +9,11 @@
  */
 
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing a list of deleted dashboards.
+ */
 
 export class DashboardListDeleteItemsResponse {
   /**
@@ -18,21 +23,14 @@ export class DashboardListDeleteItemsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     deletedDashboardsFromList: {
       baseName: "deleted_dashboards_from_list",
       type: "Array<DashboardListItemResponse>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListDeleteItemsResponse.attributeTypeMap;
   }
 

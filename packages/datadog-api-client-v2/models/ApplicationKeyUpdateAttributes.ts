@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes used to update an application Key.
+ */
+
 export class ApplicationKeyUpdateAttributes {
   /**
    * Name of the application key.
@@ -20,14 +26,7 @@ export class ApplicationKeyUpdateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
@@ -38,7 +37,7 @@ export class ApplicationKeyUpdateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyUpdateAttributes.attributeTypeMap;
   }
 

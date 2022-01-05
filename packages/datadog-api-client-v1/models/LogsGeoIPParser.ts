@@ -9,6 +9,11 @@
  */
 
 import { LogsGeoIPParserType } from "./LogsGeoIPParserType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.
+ */
 
 export class LogsGeoIPParser {
   /**
@@ -31,14 +36,7 @@ export class LogsGeoIPParser {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
@@ -64,7 +62,7 @@ export class LogsGeoIPParser {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGeoIPParser.attributeTypeMap;
   }
 

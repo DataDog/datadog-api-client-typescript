@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing the metric unit family, scale factor, name, and short name.
+ */
+
 export class MetricsQueryUnit {
   /**
    * Unit family, allows for conversion between units of the same family, for scaling.
@@ -32,14 +38,7 @@ export class MetricsQueryUnit {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
       baseName: "family",
       type: "string",
@@ -64,7 +63,7 @@ export class MetricsQueryUnit {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsQueryUnit.attributeTypeMap;
   }
 

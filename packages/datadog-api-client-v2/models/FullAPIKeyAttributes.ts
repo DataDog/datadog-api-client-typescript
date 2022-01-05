@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of a full API key.
+ */
+
 export class FullAPIKeyAttributes {
   /**
    * Creation date of the API key.
@@ -32,14 +38,7 @@ export class FullAPIKeyAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "string",
@@ -62,7 +61,7 @@ export class FullAPIKeyAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FullAPIKeyAttributes.attributeTypeMap;
   }
 

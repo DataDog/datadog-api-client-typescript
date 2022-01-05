@@ -9,6 +9,11 @@
  */
 
 import { Event } from "./Event";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing an event response.
+ */
 
 export class EventResponse {
   "event"?: Event;
@@ -19,14 +24,7 @@ export class EventResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     event: {
       baseName: "event",
       type: "Event",
@@ -37,7 +35,7 @@ export class EventResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return EventResponse.attributeTypeMap;
   }
 

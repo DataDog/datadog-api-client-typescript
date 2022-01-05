@@ -11,6 +11,11 @@
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The response object with all security signals matching the request and pagination information.
+ */
 
 export class SecurityMonitoringSignalsListResponse {
   /**
@@ -22,14 +27,7 @@ export class SecurityMonitoringSignalsListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<SecurityMonitoringSignal>",
@@ -44,7 +42,7 @@ export class SecurityMonitoringSignalsListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalsListResponse.attributeTypeMap;
   }
 

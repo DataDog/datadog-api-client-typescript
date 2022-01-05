@@ -9,6 +9,11 @@
  */
 
 import { FunnelSource } from "./FunnelSource";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated funnel widget.
+ */
 
 export class FunnelQuery {
   "dataSource": FunnelSource;
@@ -23,14 +28,7 @@ export class FunnelQuery {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
       type: "FunnelSource",
@@ -48,7 +46,7 @@ export class FunnelQuery {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelQuery.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Available prefix information for the Synthetics endpoints.
+ */
+
 export class IPPrefixesSynthetics {
   /**
    * List of IPv4 prefixes.
@@ -28,14 +34,7 @@ export class IPPrefixesSynthetics {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     prefixesIpv4: {
       baseName: "prefixes_ipv4",
       type: "Array<string>",
@@ -54,7 +53,7 @@ export class IPPrefixesSynthetics {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IPPrefixesSynthetics.attributeTypeMap;
   }
 

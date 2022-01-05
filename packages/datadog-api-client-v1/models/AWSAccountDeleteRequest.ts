@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of AWS accounts to delete.
+ */
+
 export class AWSAccountDeleteRequest {
   /**
    * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -24,14 +30,7 @@ export class AWSAccountDeleteRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accessKeyId: {
       baseName: "access_key_id",
       type: "string",
@@ -46,7 +45,7 @@ export class AWSAccountDeleteRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountDeleteRequest.attributeTypeMap;
   }
 

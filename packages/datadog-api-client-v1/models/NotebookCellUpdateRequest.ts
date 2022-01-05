@@ -10,6 +10,11 @@
 
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 import { NotebookCellUpdateRequestAttributes } from "./NotebookCellUpdateRequestAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The description of a notebook cell update request.
+ */
 
 export class NotebookCellUpdateRequest {
   "attributes": NotebookCellUpdateRequestAttributes;
@@ -21,14 +26,7 @@ export class NotebookCellUpdateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "NotebookCellUpdateRequestAttributes",
@@ -46,7 +44,7 @@ export class NotebookCellUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCellUpdateRequest.attributeTypeMap;
   }
 

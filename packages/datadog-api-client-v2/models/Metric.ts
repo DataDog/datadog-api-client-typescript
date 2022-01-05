@@ -9,6 +9,11 @@
  */
 
 import { MetricType } from "./MetricType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object for a single metric tag configuration.
+ */
 
 export class Metric {
   /**
@@ -19,14 +24,7 @@ export class Metric {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -37,7 +35,7 @@ export class Metric {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Metric.attributeTypeMap;
   }
 

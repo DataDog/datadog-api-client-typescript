@@ -10,6 +10,11 @@
 
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of hourly recorded custom metrics for a given organization.
+ */
 
 export class UsageTopAvgMetricsResponse {
   "metadata"?: UsageTopAvgMetricsMetadata;
@@ -20,14 +25,7 @@ export class UsageTopAvgMetricsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
       type: "UsageTopAvgMetricsMetadata",
@@ -38,7 +36,7 @@ export class UsageTopAvgMetricsResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTopAvgMetricsResponse.attributeTypeMap;
   }
 

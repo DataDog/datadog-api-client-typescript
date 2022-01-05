@@ -13,6 +13,11 @@ import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of options associated with your monitor.
+ */
 
 export class MonitorOptions {
   "aggregation"?: MonitorOptionsAggregation;
@@ -105,14 +110,7 @@ export class MonitorOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "MonitorOptionsAggregation",
@@ -231,7 +229,7 @@ export class MonitorOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorOptions.attributeTypeMap;
   }
 

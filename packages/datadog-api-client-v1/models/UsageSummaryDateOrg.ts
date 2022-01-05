@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Global hourly report of all data billed by Datadog for a given organization.
+ */
+
 export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all agent hosts over all hours in the current date for the given org.
@@ -236,14 +242,7 @@ export class UsageSummaryDateOrg {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99p: {
       baseName: "agent_host_top99p",
       type: "number",
@@ -576,7 +575,7 @@ export class UsageSummaryDateOrg {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSummaryDateOrg.attributeTypeMap;
   }
 

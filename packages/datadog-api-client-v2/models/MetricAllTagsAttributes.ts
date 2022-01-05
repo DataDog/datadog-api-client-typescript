@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing the definition of a metric's tags.
+ */
+
 export class MetricAllTagsAttributes {
   /**
    * List of indexed tag value pairs.
@@ -16,21 +22,14 @@ export class MetricAllTagsAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     tags: {
       baseName: "tags",
       type: "Array<string>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricAllTagsAttributes.attributeTypeMap;
   }
 

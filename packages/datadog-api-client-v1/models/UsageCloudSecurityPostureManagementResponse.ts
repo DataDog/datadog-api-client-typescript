@@ -9,6 +9,11 @@
  */
 
 import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The response containing the Cloud Security Posture Management usage for each hour for a given organization.
+ */
 
 export class UsageCloudSecurityPostureManagementResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageCloudSecurityPostureManagementResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageCloudSecurityPostureManagementHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
   }
 

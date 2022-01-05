@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Links attributes.
+ */
+
 export class LogsListResponseLinks {
   /**
    * Link for the next set of results. Note that the request can also be made using the POST endpoint.
@@ -16,21 +22,14 @@ export class LogsListResponseLinks {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
       baseName: "next",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListResponseLinks.attributeTypeMap;
   }
 

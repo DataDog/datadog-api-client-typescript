@@ -9,27 +9,25 @@
  */
 
 import { LogsMetricResponseData } from "./LogsMetricResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The log-based metric object.
+ */
 
 export class LogsMetricResponse {
   "data"?: LogsMetricResponseData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "LogsMetricResponseData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricResponse.attributeTypeMap;
   }
 

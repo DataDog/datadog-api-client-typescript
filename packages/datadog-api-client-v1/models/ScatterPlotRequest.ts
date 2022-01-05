@@ -11,6 +11,11 @@
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { ScatterplotWidgetAggregator } from "./ScatterplotWidgetAggregator";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated scatter plot.
+ */
 
 export class ScatterPlotRequest {
   "aggregator"?: ScatterplotWidgetAggregator;
@@ -29,14 +34,7 @@ export class ScatterPlotRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
       type: "ScatterplotWidgetAggregator",
@@ -79,7 +77,7 @@ export class ScatterPlotRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterPlotRequest.attributeTypeMap;
   }
 

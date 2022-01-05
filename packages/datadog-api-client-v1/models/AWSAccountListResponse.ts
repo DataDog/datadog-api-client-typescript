@@ -9,6 +9,11 @@
  */
 
 import { AWSAccount } from "./AWSAccount";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of enabled AWS accounts.
+ */
 
 export class AWSAccountListResponse {
   /**
@@ -18,21 +23,14 @@ export class AWSAccountListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accounts: {
       baseName: "accounts",
       type: "Array<AWSAccount>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountListResponse.attributeTypeMap;
   }
 

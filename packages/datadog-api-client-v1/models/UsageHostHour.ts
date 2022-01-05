@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of hosts/containers recorded for each hour for a given organization.
+ */
+
 export class UsageHostHour {
   /**
    * Contains the total number of infrastructure hosts reporting during a given hour that were running the Datadog Agent.
@@ -68,14 +74,7 @@ export class UsageHostHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostCount: {
       baseName: "agent_host_count",
       type: "number",
@@ -162,7 +161,7 @@ export class UsageHostHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageHostHour.attributeTypeMap;
   }
 

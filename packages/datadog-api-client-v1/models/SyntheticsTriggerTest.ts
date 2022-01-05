@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Test configuration for Synthetics
+ */
 
 export class SyntheticsTriggerTest {
   "metadata"?: SyntheticsCIBatchMetadata;
@@ -19,14 +24,7 @@ export class SyntheticsTriggerTest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
@@ -38,7 +36,7 @@ export class SyntheticsTriggerTest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerTest.attributeTypeMap;
   }
 

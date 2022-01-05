@@ -11,6 +11,11 @@
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSettings } from "./OrganizationSettings";
 import { OrganizationSubscription } from "./OrganizationSubscription";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Create, edit, and manage organizations.
+ */
 
 export class Organization {
   "billing"?: OrganizationBilling;
@@ -35,14 +40,7 @@ export class Organization {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     billing: {
       baseName: "billing",
       type: "OrganizationBilling",
@@ -73,7 +71,7 @@ export class Organization {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Organization.attributeTypeMap;
   }
 

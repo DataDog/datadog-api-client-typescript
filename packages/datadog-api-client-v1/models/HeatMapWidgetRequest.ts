@@ -12,6 +12,11 @@ import { EventQueryDefinition } from "./EventQueryDefinition";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated heat map widget.
+ */
 
 export class HeatMapWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -30,14 +35,7 @@ export class HeatMapWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -80,7 +78,7 @@ export class HeatMapWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HeatMapWidgetRequest.attributeTypeMap;
   }
 

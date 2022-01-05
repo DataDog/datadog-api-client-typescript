@@ -11,6 +11,11 @@
 import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
 import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing logs usage data broken down by retention period.
+ */
 
 export class LogsByRetention {
   "orgs"?: LogsByRetentionOrgs;
@@ -22,14 +27,7 @@ export class LogsByRetention {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     orgs: {
       baseName: "orgs",
       type: "LogsByRetentionOrgs",
@@ -44,7 +42,7 @@ export class LogsByRetention {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsByRetention.attributeTypeMap;
   }
 

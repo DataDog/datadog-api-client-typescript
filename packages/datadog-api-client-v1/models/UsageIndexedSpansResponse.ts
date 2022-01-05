@@ -9,6 +9,11 @@
  */
 
 import { UsageIndexedSpansHour } from "./UsageIndexedSpansHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A response containing indexed spans usage.
+ */
 
 export class UsageIndexedSpansResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageIndexedSpansResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageIndexedSpansHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIndexedSpansResponse.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { UsageSyntheticsHour } from "./UsageSyntheticsHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of Synthetics API tests run for each hour for a given organization.
+ */
 
 export class UsageSyntheticsResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageSyntheticsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageSyntheticsHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsResponse.attributeTypeMap;
   }
 

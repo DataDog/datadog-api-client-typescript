@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Exclusion filter for the security filter.
+ */
+
 export class SecurityFilterExclusionFilter {
   /**
    * Exclusion filter name.
@@ -20,14 +26,7 @@ export class SecurityFilterExclusionFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
@@ -40,7 +39,7 @@ export class SecurityFilterExclusionFilter {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterExclusionFilter.attributeTypeMap;
   }
 

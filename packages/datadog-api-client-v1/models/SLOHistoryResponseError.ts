@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A list of errors while querying the history data for the service level objective.
+ */
+
 export class SLOHistoryResponseError {
   /**
    * Human readable error.
@@ -16,21 +22,14 @@ export class SLOHistoryResponseError {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponseError.attributeTypeMap;
   }
 

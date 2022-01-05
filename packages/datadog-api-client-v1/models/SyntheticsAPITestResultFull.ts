@@ -11,6 +11,11 @@
 import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object returned describing a API test result.
+ */
 
 export class SyntheticsAPITestResultFull {
   "check"?: SyntheticsAPITestResultFullCheck;
@@ -35,14 +40,7 @@ export class SyntheticsAPITestResultFull {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
       baseName: "check",
       type: "SyntheticsAPITestResultFullCheck",
@@ -77,7 +75,7 @@ export class SyntheticsAPITestResultFull {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultFull.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
+ */
+
 export class LogsExclusionFilter {
   /**
    * Default query is `*`, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
@@ -20,14 +26,7 @@ export class LogsExclusionFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
       type: "string",
@@ -40,7 +39,7 @@ export class LogsExclusionFilter {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsExclusionFilter.attributeTypeMap;
   }
 

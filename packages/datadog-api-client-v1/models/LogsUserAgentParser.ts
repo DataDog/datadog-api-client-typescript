@@ -9,6 +9,11 @@
  */
 
 import { LogsUserAgentParserType } from "./LogsUserAgentParserType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
+ */
 
 export class LogsUserAgentParser {
   /**
@@ -35,14 +40,7 @@ export class LogsUserAgentParser {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
@@ -72,7 +70,7 @@ export class LogsUserAgentParser {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsUserAgentParser.attributeTypeMap;
   }
 

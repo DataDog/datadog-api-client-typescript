@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Define a request certificate.
+ */
+
 export class SyntheticsTestRequestCertificateItem {
   /**
    * Content of the certificate or key.
@@ -24,14 +30,7 @@ export class SyntheticsTestRequestCertificateItem {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
       baseName: "content",
       type: "string",
@@ -46,7 +45,7 @@ export class SyntheticsTestRequestCertificateItem {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequestCertificateItem.attributeTypeMap;
   }
 

@@ -9,20 +9,18 @@
  */
 
 import { RoleCreateData } from "./RoleCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Create a role.
+ */
 
 export class RoleCreateRequest {
   "data": RoleCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RoleCreateData",
@@ -30,7 +28,7 @@ export class RoleCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleCreateRequest.attributeTypeMap;
   }
 

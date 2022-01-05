@@ -9,6 +9,11 @@
  */
 
 import { UsageSNMPHour } from "./UsageSNMPHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of SNMP devices for each hour for a given organization.
+ */
 
 export class UsageSNMPResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageSNMPResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageSNMPHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSNMPResponse.attributeTypeMap;
   }
 

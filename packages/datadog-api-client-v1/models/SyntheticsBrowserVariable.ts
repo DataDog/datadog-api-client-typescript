@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsBrowserVariableType } from "./SyntheticsBrowserVariableType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
+ */
 
 export class SyntheticsBrowserVariable {
   /**
@@ -31,14 +36,7 @@ export class SyntheticsBrowserVariable {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     example: {
       baseName: "example",
       type: "string",
@@ -63,7 +61,7 @@ export class SyntheticsBrowserVariable {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserVariable.attributeTypeMap;
   }
 

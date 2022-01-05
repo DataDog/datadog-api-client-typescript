@@ -9,6 +9,11 @@
  */
 
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A service level objective response containing the requested object.
+ */
 
 export class CheckCanDeleteSLOResponse {
   "data"?: CheckCanDeleteSLOResponseData;
@@ -19,14 +24,7 @@ export class CheckCanDeleteSLOResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "CheckCanDeleteSLOResponseData",
@@ -37,7 +35,7 @@ export class CheckCanDeleteSLOResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteSLOResponse.attributeTypeMap;
   }
 

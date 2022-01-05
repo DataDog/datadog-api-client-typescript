@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Datadog-Azure integrations configured for your organization.
+ */
+
 export class AzureAccount {
   /**
    * Silence monitors for expected Azure VM shutdowns.
@@ -44,14 +50,7 @@ export class AzureAccount {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     automute: {
       baseName: "automute",
       type: "boolean",
@@ -86,7 +85,7 @@ export class AzureAccount {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AzureAccount.attributeTypeMap;
   }
 

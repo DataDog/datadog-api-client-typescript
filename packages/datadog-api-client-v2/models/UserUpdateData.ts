@@ -10,6 +10,11 @@
 
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UsersType } from "./UsersType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object to update a user.
+ */
 
 export class UserUpdateData {
   "attributes": UserUpdateAttributes;
@@ -21,14 +26,7 @@ export class UserUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "UserUpdateAttributes",
@@ -46,7 +44,7 @@ export class UserUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserUpdateData.attributeTypeMap;
   }
 

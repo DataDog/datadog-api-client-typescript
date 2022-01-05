@@ -9,6 +9,11 @@
  */
 
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.
+ */
 
 export class SLOHistoryMetrics {
   "denominator": SLOHistoryMetricsSeries;
@@ -40,14 +45,7 @@ export class SLOHistoryMetrics {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
       baseName: "denominator",
       type: "SLOHistoryMetricsSeries",
@@ -92,7 +90,7 @@ export class SLOHistoryMetrics {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetrics.attributeTypeMap;
   }
 

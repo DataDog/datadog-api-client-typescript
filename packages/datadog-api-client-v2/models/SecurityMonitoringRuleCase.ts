@@ -9,6 +9,11 @@
  */
 
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Case when signal is generated.
+ */
 
 export class SecurityMonitoringRuleCase {
   /**
@@ -27,14 +32,7 @@ export class SecurityMonitoringRuleCase {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     condition: {
       baseName: "condition",
       type: "string",
@@ -53,7 +51,7 @@ export class SecurityMonitoringRuleCase {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleCase.attributeTypeMap;
   }
 

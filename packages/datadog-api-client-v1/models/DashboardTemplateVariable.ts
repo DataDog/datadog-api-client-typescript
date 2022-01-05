@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Template variable.
+ */
+
 export class DashboardTemplateVariable {
   /**
    * The list of values that the template variable drop-down is limited to.
@@ -28,14 +34,7 @@ export class DashboardTemplateVariable {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     availableValues: {
       baseName: "available_values",
       type: "Array<string>",
@@ -55,7 +54,7 @@ export class DashboardTemplateVariable {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardTemplateVariable.attributeTypeMap;
   }
 

@@ -11,6 +11,11 @@
 import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Datadog API key.
+ */
 
 export class FullAPIKey {
   "attributes"?: FullAPIKeyAttributes;
@@ -23,14 +28,7 @@ export class FullAPIKey {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "FullAPIKeyAttributes",
@@ -49,7 +47,7 @@ export class FullAPIKey {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FullAPIKey.attributeTypeMap;
   }
 

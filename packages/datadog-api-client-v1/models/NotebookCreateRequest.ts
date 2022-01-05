@@ -9,20 +9,18 @@
  */
 
 import { NotebookCreateData } from "./NotebookCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The description of a notebook create request.
+ */
 
 export class NotebookCreateRequest {
   "data": NotebookCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "NotebookCreateData",
@@ -30,7 +28,7 @@ export class NotebookCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCreateRequest.attributeTypeMap;
   }
 

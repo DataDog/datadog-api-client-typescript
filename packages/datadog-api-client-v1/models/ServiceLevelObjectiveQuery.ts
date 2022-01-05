@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
+ */
+
 export class ServiceLevelObjectiveQuery {
   /**
    * A Datadog metric query for total (valid) events.
@@ -20,14 +26,7 @@ export class ServiceLevelObjectiveQuery {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
       baseName: "denominator",
       type: "string",
@@ -40,7 +39,7 @@ export class ServiceLevelObjectiveQuery {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceLevelObjectiveQuery.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Search result.
+ */
+
 export class MetricSearchResponseResults {
   /**
    * List of metrics that match the search query.
@@ -16,21 +22,14 @@ export class MetricSearchResponseResults {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     metrics: {
       baseName: "metrics",
       type: "Array<string>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricSearchResponseResults.attributeTypeMap;
   }
 

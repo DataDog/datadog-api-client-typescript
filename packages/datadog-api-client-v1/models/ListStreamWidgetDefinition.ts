@@ -12,6 +12,11 @@ import { ListStreamWidgetDefinitionType } from "./ListStreamWidgetDefinitionType
 import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The list stream visualization displays a table of recent events in your application that match a search criteria using user-defined columns.
+ */
 
 export class ListStreamWidgetDefinition {
   /**
@@ -40,14 +45,7 @@ export class ListStreamWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     legendSize: {
       baseName: "legend_size",
       type: "string",
@@ -84,7 +82,7 @@ export class ListStreamWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamWidgetDefinition.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Git information.
+ */
+
 export class SyntheticsCIBatchMetadataGit {
   /**
    * Branch name.
@@ -20,14 +26,7 @@ export class SyntheticsCIBatchMetadataGit {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     branch: {
       baseName: "branch",
       type: "string",
@@ -38,7 +37,7 @@ export class SyntheticsCIBatchMetadataGit {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataGit.attributeTypeMap;
   }
 

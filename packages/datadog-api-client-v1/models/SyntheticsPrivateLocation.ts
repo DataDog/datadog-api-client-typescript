@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing information about the private location to create.
+ */
 
 export class SyntheticsPrivateLocation {
   /**
@@ -31,14 +36,7 @@ export class SyntheticsPrivateLocation {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
       type: "string",
@@ -64,7 +62,7 @@ export class SyntheticsPrivateLocation {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocation.attributeTypeMap;
   }
 

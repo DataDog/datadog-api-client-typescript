@@ -10,6 +10,11 @@
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident's attributes from a response.
+ */
 
 export class IncidentResponseAttributes {
   /**
@@ -87,14 +92,7 @@ export class IncidentResponseAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
       type: "Date",
@@ -194,7 +192,7 @@ export class IncidentResponseAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentResponseAttributes.attributeTypeMap;
   }
 

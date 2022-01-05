@@ -10,6 +10,11 @@
 
 import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The S3 archive destination.
+ */
 
 export class LogsArchiveDestinationS3 {
   /**
@@ -25,14 +30,7 @@ export class LogsArchiveDestinationS3 {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     bucket: {
       baseName: "bucket",
       type: "string",
@@ -54,7 +52,7 @@ export class LogsArchiveDestinationS3 {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDestinationS3.attributeTypeMap;
   }
 

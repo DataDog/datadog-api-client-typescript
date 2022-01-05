@@ -10,6 +10,11 @@
 
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
 import { SyntheticsTriggerCITestRunResult } from "./SyntheticsTriggerCITestRunResult";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing information about the tests triggered.
+ */
 
 export class SyntheticsTriggerCITestsResponse {
   /**
@@ -31,14 +36,7 @@ export class SyntheticsTriggerCITestsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     batchId: {
       baseName: "batch_id",
       type: "string",
@@ -57,7 +55,7 @@ export class SyntheticsTriggerCITestsResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerCITestsResponse.attributeTypeMap;
   }
 

@@ -11,6 +11,11 @@
 import { SyntheticsAssertionJSONPathOperator } from "./SyntheticsAssertionJSONPathOperator";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An assertion for the `validatesJSONPath` operator.
+ */
 
 export class SyntheticsAssertionJSONPathTarget {
   "operator": SyntheticsAssertionJSONPathOperator;
@@ -23,14 +28,7 @@ export class SyntheticsAssertionJSONPathTarget {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
       baseName: "operator",
       type: "SyntheticsAssertionJSONPathOperator",
@@ -51,7 +49,7 @@ export class SyntheticsAssertionJSONPathTarget {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
   }
 

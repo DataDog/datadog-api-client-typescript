@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing page total count.
+ */
+
 export class UsageCustomReportsPage {
   /**
    * Total page count.
@@ -16,14 +22,7 @@ export class UsageCustomReportsPage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
       type: "number",
@@ -32,7 +31,7 @@ export class UsageCustomReportsPage {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCustomReportsPage.attributeTypeMap;
   }
 

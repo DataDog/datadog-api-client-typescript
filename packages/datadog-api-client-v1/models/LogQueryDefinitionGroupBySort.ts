@@ -9,6 +9,11 @@
  */
 
 import { WidgetSort } from "./WidgetSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Define a sorting method.
+ */
 
 export class LogQueryDefinitionGroupBySort {
   /**
@@ -23,14 +28,7 @@ export class LogQueryDefinitionGroupBySort {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "string",
@@ -47,7 +45,7 @@ export class LogQueryDefinitionGroupBySort {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinitionGroupBySort.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing an array of Synthetic global variables.
+ */
 
 export class SyntheticsListGlobalVariablesResponse {
   /**
@@ -18,21 +23,14 @@ export class SyntheticsListGlobalVariablesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     variables: {
       baseName: "variables",
       type: "Array<SyntheticsGlobalVariable>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
   }
 

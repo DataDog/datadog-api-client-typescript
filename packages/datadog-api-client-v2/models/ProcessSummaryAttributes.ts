@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes for a process summary.
+ */
+
 export class ProcessSummaryAttributes {
   /**
    * Process command line.
@@ -44,14 +50,7 @@ export class ProcessSummaryAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cmdline: {
       baseName: "cmdline",
       type: "string",
@@ -90,7 +89,7 @@ export class ProcessSummaryAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummaryAttributes.attributeTypeMap;
   }
 

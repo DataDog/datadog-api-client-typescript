@@ -10,6 +10,11 @@
 
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummary } from "./ProcessSummary";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of process summaries.
+ */
 
 export class ProcessSummariesResponse {
   /**
@@ -20,14 +25,7 @@ export class ProcessSummariesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<ProcessSummary>",
@@ -38,7 +36,7 @@ export class ProcessSummariesResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummariesResponse.attributeTypeMap;
   }
 

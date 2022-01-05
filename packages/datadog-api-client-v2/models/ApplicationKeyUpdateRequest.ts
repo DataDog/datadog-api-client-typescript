@@ -9,20 +9,18 @@
  */
 
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request used to update an application key.
+ */
 
 export class ApplicationKeyUpdateRequest {
   "data": ApplicationKeyUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "ApplicationKeyUpdateData",
@@ -30,7 +28,7 @@ export class ApplicationKeyUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyUpdateRequest.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing array of IDs of canceled downtimes.
+ */
+
 export class CanceledDowntimesIds {
   /**
    * ID of downtimes that were canceled.
@@ -16,14 +22,7 @@ export class CanceledDowntimesIds {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cancelledIds: {
       baseName: "cancelled_ids",
       type: "Array<number>",
@@ -32,7 +31,7 @@ export class CanceledDowntimesIds {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CanceledDowntimesIds.attributeTypeMap;
   }
 

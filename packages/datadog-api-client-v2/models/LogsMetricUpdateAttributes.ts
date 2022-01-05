@@ -10,6 +10,11 @@
 
 import { LogsMetricFilter } from "./LogsMetricFilter";
 import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The log-based metric properties that will be updated.
+ */
 
 export class LogsMetricUpdateAttributes {
   "filter"?: LogsMetricFilter;
@@ -20,14 +25,7 @@ export class LogsMetricUpdateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
       type: "LogsMetricFilter",
@@ -38,7 +36,7 @@ export class LogsMetricUpdateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricUpdateAttributes.attributeTypeMap;
   }
 

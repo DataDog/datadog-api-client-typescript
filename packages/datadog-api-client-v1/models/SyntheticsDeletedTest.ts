@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing a deleted Synthetic test ID with the associated deletion timestamp.
+ */
+
 export class SyntheticsDeletedTest {
   /**
    * Deletion timestamp of the Synthetic test ID.
@@ -20,14 +26,7 @@ export class SyntheticsDeletedTest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     deletedAt: {
       baseName: "deleted_at",
       type: "Date",
@@ -40,7 +39,7 @@ export class SyntheticsDeletedTest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDeletedTest.attributeTypeMap;
   }
 

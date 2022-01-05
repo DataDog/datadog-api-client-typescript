@@ -9,6 +9,11 @@
  */
 
 import { IFrameWidgetDefinitionType } from "./IFrameWidgetDefinitionType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
+ */
 
 export class IFrameWidgetDefinition {
   "type": IFrameWidgetDefinitionType;
@@ -19,14 +24,7 @@ export class IFrameWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "IFrameWidgetDefinitionType",
@@ -39,7 +37,7 @@ export class IFrameWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IFrameWidgetDefinition.attributeTypeMap;
   }
 

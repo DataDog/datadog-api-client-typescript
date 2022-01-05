@@ -9,6 +9,11 @@
  */
 
 import { UsageDBMHour } from "./UsageDBMHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the Database Monitoring usage for each hour for a given organization.
+ */
 
 export class UsageDBMResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageDBMResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageDBMHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageDBMResponse.attributeTypeMap;
   }
 

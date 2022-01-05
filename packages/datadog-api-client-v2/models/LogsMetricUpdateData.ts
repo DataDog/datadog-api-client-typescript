@@ -10,6 +10,11 @@
 
 import { LogsMetricType } from "./LogsMetricType";
 import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The new log-based metric properties.
+ */
 
 export class LogsMetricUpdateData {
   "attributes": LogsMetricUpdateAttributes;
@@ -17,14 +22,7 @@ export class LogsMetricUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "LogsMetricUpdateAttributes",
@@ -37,7 +35,7 @@ export class LogsMetricUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricUpdateData.attributeTypeMap;
   }
 

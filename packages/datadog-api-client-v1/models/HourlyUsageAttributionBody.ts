@@ -9,6 +9,11 @@
  */
 
 import { HourlyUsageAttributionUsageType } from "./HourlyUsageAttributionUsageType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The usage for one set of tags for one hour.
+ */
 
 export class HourlyUsageAttributionBody {
   /**
@@ -43,14 +48,7 @@ export class HourlyUsageAttributionBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -89,7 +87,7 @@ export class HourlyUsageAttributionBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HourlyUsageAttributionBody.attributeTypeMap;
   }
 

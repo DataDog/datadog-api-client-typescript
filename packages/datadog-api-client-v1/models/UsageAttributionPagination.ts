@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The metadata for the current pagination.
+ */
+
 export class UsageAttributionPagination {
   /**
    * Maximum amount of records to be returned.
@@ -32,14 +38,7 @@ export class UsageAttributionPagination {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     limit: {
       baseName: "limit",
       type: "number",
@@ -68,7 +67,7 @@ export class UsageAttributionPagination {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionPagination.attributeTypeMap;
   }
 

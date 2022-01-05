@@ -9,6 +9,11 @@
  */
 
 import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with hourly report of all data billed by Datadog all organizations.
+ */
 
 export class UsageSummaryDate {
   /**
@@ -234,14 +239,7 @@ export class UsageSummaryDate {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99p: {
       baseName: "agent_host_top99p",
       type: "number",
@@ -572,7 +570,7 @@ export class UsageSummaryDate {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSummaryDate.attributeTypeMap;
   }
 

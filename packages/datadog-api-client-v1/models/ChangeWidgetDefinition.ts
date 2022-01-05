@@ -13,6 +13,11 @@ import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Change graph shows you the change in a value over the time period chosen.
+ */
 
 export class ChangeWidgetDefinition {
   /**
@@ -37,14 +42,7 @@ export class ChangeWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -77,7 +75,7 @@ export class ChangeWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ChangeWidgetDefinition.attributeTypeMap;
   }
 

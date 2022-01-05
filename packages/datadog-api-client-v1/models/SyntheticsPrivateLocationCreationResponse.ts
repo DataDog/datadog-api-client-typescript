@@ -10,6 +10,11 @@
 
 import { SyntheticsPrivateLocation } from "./SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./SyntheticsPrivateLocationCreationResponseResultEncryption";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object that contains the new private location, the public key for result encryption, and the configuration skeleton.
+ */
 
 export class SyntheticsPrivateLocationCreationResponse {
   /**
@@ -21,14 +26,7 @@ export class SyntheticsPrivateLocationCreationResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
       type: "any",
@@ -43,7 +41,7 @@ export class SyntheticsPrivateLocationCreationResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationCreationResponse.attributeTypeMap;
   }
 

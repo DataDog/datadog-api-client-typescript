@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Cancel downtimes according to scope.
+ */
+
 export class CancelDowntimesByScopeRequest {
   /**
    * The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
@@ -16,14 +22,7 @@ export class CancelDowntimesByScopeRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     scope: {
       baseName: "scope",
       type: "string",
@@ -31,7 +30,7 @@ export class CancelDowntimesByScopeRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CancelDowntimesByScopeRequest.attributeTypeMap;
   }
 

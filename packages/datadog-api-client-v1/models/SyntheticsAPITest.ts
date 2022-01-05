@@ -13,6 +13,11 @@ import { SyntheticsAPITestType } from "./SyntheticsAPITestType";
 import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing details about a Synthetic API test.
+ */
 
 export class SyntheticsAPITest {
   "config"?: SyntheticsAPITestConfig;
@@ -47,14 +52,7 @@ export class SyntheticsAPITest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
       type: "SyntheticsAPITestConfig",
@@ -103,7 +101,7 @@ export class SyntheticsAPITest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITest.attributeTypeMap;
   }
 

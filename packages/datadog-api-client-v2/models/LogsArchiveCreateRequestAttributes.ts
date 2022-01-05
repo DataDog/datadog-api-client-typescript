@@ -9,6 +9,11 @@
  */
 
 import { LogsArchiveCreateRequestDestination } from "./LogsArchiveCreateRequestDestination";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes associated with the archive.
+ */
 
 export class LogsArchiveCreateRequestAttributes {
   "destination": LogsArchiveCreateRequestDestination;
@@ -31,14 +36,7 @@ export class LogsArchiveCreateRequestAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     destination: {
       baseName: "destination",
       type: "LogsArchiveCreateRequestDestination",
@@ -64,7 +62,7 @@ export class LogsArchiveCreateRequestAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveCreateRequestAttributes.attributeTypeMap;
   }
 

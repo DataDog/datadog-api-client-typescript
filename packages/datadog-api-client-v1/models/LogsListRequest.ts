@@ -10,6 +10,11 @@
 
 import { LogsListRequestTime } from "./LogsListRequestTime";
 import { LogsSort } from "./LogsSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object to send with the request to retrieve a list of logs from your Organization.
+ */
 
 export class LogsListRequest {
   /**
@@ -33,14 +38,7 @@ export class LogsListRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     index: {
       baseName: "index",
       type: "string",
@@ -70,7 +68,7 @@ export class LogsListRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequest.attributeTypeMap;
   }
 

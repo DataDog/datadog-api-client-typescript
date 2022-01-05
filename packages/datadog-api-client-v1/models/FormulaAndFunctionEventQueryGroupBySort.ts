@@ -10,6 +10,11 @@
 
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 import { QuerySortOrder } from "./QuerySortOrder";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Options for sorting group by results.
+ */
 
 export class FormulaAndFunctionEventQueryGroupBySort {
   "aggregation": FormulaAndFunctionEventAggregation;
@@ -21,14 +26,7 @@ export class FormulaAndFunctionEventQueryGroupBySort {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
@@ -44,7 +42,7 @@ export class FormulaAndFunctionEventQueryGroupBySort {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
   }
 

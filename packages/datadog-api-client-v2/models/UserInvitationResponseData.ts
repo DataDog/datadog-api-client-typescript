@@ -10,6 +10,11 @@
 
 import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
 import { UserInvitationsType } from "./UserInvitationsType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object of a user invitation returned by the API.
+ */
 
 export class UserInvitationResponseData {
   "attributes"?: UserInvitationDataAttributes;
@@ -21,14 +26,7 @@ export class UserInvitationResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "UserInvitationDataAttributes",
@@ -43,7 +41,7 @@ export class UserInvitationResponseData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationResponseData.attributeTypeMap;
   }
 

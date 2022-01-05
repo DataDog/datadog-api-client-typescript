@@ -15,6 +15,11 @@ import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing details about your Synthetic test.
+ */
 
 export class SyntheticsTestDetails {
   "config"?: SyntheticsTestConfig;
@@ -54,14 +59,7 @@ export class SyntheticsTestDetails {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
       type: "SyntheticsTestConfig",
@@ -118,7 +116,7 @@ export class SyntheticsTestDetails {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestDetails.attributeTypeMap;
   }
 

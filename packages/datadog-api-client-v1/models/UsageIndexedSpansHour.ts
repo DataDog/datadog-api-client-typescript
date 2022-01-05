@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The hours of indexed spans usage.
+ */
+
 export class UsageIndexedSpansHour {
   /**
    * The hour for the usage.
@@ -20,14 +26,7 @@ export class UsageIndexedSpansHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -42,7 +41,7 @@ export class UsageIndexedSpansHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIndexedSpansHour.attributeTypeMap;
   }
 

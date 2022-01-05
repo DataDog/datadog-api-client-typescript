@@ -9,20 +9,18 @@
  */
 
 import { RoleClone } from "./RoleClone";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request to create a role by cloning an existing role.
+ */
 
 export class RoleCloneRequest {
   "data": RoleClone;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RoleClone",
@@ -30,7 +28,7 @@ export class RoleCloneRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleCloneRequest.attributeTypeMap;
   }
 

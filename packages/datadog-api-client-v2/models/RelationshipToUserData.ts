@@ -9,6 +9,11 @@
  */
 
 import { UsersType } from "./UsersType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationship to user object.
+ */
 
 export class RelationshipToUserData {
   /**
@@ -19,14 +24,7 @@ export class RelationshipToUserData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -39,7 +37,7 @@ export class RelationshipToUserData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToUserData.attributeTypeMap;
   }
 

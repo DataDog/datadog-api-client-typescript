@@ -9,6 +9,11 @@
  */
 
 import { Log } from "./Log";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object with all logs matching the request and pagination information.
+ */
 
 export class LogsListResponse {
   /**
@@ -26,14 +31,7 @@ export class LogsListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     logs: {
       baseName: "logs",
       type: "Array<Log>",
@@ -48,7 +46,7 @@ export class LogsListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListResponse.attributeTypeMap;
   }
 

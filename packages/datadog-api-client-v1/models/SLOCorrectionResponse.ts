@@ -9,27 +9,25 @@
  */
 
 import { SLOCorrection } from "./SLOCorrection";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The response object of an SLO correction.
+ */
 
 export class SLOCorrectionResponse {
   "data"?: SLOCorrection;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SLOCorrection",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionResponse.attributeTypeMap;
   }
 

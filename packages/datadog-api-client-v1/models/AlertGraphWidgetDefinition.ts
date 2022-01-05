@@ -12,6 +12,11 @@ import { AlertGraphWidgetDefinitionType } from "./AlertGraphWidgetDefinitionType
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 import { WidgetVizType } from "./WidgetVizType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
+ */
 
 export class AlertGraphWidgetDefinition {
   /**
@@ -33,14 +38,7 @@ export class AlertGraphWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     alertId: {
       baseName: "alert_id",
       type: "string",
@@ -74,7 +72,7 @@ export class AlertGraphWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AlertGraphWidgetDefinition.attributeTypeMap;
   }
 

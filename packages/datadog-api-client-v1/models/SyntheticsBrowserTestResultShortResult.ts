@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsDevice } from "./SyntheticsDevice";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with the result of the last browser test run.
+ */
 
 export class SyntheticsBrowserTestResultShortResult {
   "device"?: SyntheticsDevice;
@@ -31,14 +36,7 @@ export class SyntheticsBrowserTestResultShortResult {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
       type: "SyntheticsDevice",
@@ -69,7 +67,7 @@ export class SyntheticsBrowserTestResultShortResult {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
   }
 

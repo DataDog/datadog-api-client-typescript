@@ -9,27 +9,25 @@
  */
 
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Time setting for the widget.
+ */
 
 export class WidgetTime {
   "liveSpan"?: WidgetLiveSpan;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     liveSpan: {
       baseName: "live_span",
       type: "WidgetLiveSpan",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetTime.attributeTypeMap;
   }
 

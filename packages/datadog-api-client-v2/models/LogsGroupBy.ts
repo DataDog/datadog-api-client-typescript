@@ -12,6 +12,11 @@ import { LogsAggregateSort } from "./LogsAggregateSort";
 import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
 import { LogsGroupByMissing } from "./LogsGroupByMissing";
 import { LogsGroupByTotal } from "./LogsGroupByTotal";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A group by rule
+ */
 
 export class LogsGroupBy {
   /**
@@ -29,14 +34,7 @@ export class LogsGroupBy {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
       baseName: "facet",
       type: "string",
@@ -66,7 +64,7 @@ export class LogsGroupBy {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGroupBy.attributeTypeMap;
   }
 

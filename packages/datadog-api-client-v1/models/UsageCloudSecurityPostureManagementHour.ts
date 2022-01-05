@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Cloud Security Posture Management usage for a given organization for a given hour.
+ */
+
 export class UsageCloudSecurityPostureManagementHour {
   /**
    * The total number of Cloud Security Posture Management containers during a given hour.
@@ -32,14 +38,7 @@ export class UsageCloudSecurityPostureManagementHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     containerCount: {
       baseName: "container_count",
       type: "number",
@@ -68,7 +67,7 @@ export class UsageCloudSecurityPostureManagementHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
   }
 

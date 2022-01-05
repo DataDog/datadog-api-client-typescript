@@ -10,6 +10,11 @@
 
 import { UsageAttributionBody } from "./UsageAttributionBody";
 import { UsageAttributionMetadata } from "./UsageAttributionMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the Usage Summary by tag(s).
+ */
 
 export class UsageAttributionResponse {
   "metadata"?: UsageAttributionMetadata;
@@ -20,14 +25,7 @@ export class UsageAttributionResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
       type: "UsageAttributionMetadata",
@@ -38,7 +36,7 @@ export class UsageAttributionResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionResponse.attributeTypeMap;
   }
 
