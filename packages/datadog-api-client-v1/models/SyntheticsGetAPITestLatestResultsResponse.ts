@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with the latest Synthetic API test run.
+ */
 
 export class SyntheticsGetAPITestLatestResultsResponse {
   /**
@@ -22,14 +27,7 @@ export class SyntheticsGetAPITestLatestResultsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     lastTimestampFetched: {
       baseName: "last_timestamp_fetched",
       type: "number",
@@ -42,7 +40,7 @@ export class SyntheticsGetAPITestLatestResultsResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
   }
 

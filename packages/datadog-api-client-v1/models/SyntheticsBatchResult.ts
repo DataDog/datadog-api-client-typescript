@@ -12,6 +12,11 @@ import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsStatus } from "./SyntheticsStatus";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with the results of a Synthetics batch.
+ */
 
 export class SyntheticsBatchResult {
   "device"?: SyntheticsDeviceID;
@@ -45,14 +50,7 @@ export class SyntheticsBatchResult {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
       type: "SyntheticsDeviceID",
@@ -99,7 +97,7 @@ export class SyntheticsBatchResult {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBatchResult.attributeTypeMap;
   }
 

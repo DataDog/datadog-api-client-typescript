@@ -9,6 +9,11 @@
  */
 
 import { WidgetSort } from "./WidgetSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Which column and order to sort by
+ */
 
 export class WidgetFieldSort {
   /**
@@ -19,14 +24,7 @@ export class WidgetFieldSort {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     column: {
       baseName: "column",
       type: "string",
@@ -39,7 +37,7 @@ export class WidgetFieldSort {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetFieldSort.attributeTypeMap;
   }
 

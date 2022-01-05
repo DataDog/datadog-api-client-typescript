@@ -11,6 +11,11 @@
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the extra options for a Synthetic test.
+ */
 
 export class SyntheticsTestOptions {
   /**
@@ -62,14 +67,7 @@ export class SyntheticsTestOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     acceptSelfSigned: {
       baseName: "accept_self_signed",
       type: "boolean",
@@ -132,7 +130,7 @@ export class SyntheticsTestOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptions.attributeTypeMap;
   }
 

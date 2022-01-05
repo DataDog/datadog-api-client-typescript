@@ -9,6 +9,11 @@
  */
 
 import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing hourly usage of timeseries.
+ */
 
 export class UsageTimeseriesResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageTimeseriesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageTimeseriesHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTimeseriesResponse.attributeTypeMap;
   }
 

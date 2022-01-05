@@ -11,6 +11,11 @@
 import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
 import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceType } from "./IncidentServiceType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Incident Service payload for create requests.
+ */
 
 export class IncidentServiceCreateData {
   "attributes"?: IncidentServiceCreateAttributes;
@@ -19,14 +24,7 @@ export class IncidentServiceCreateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "IncidentServiceCreateAttributes",
@@ -42,7 +40,7 @@ export class IncidentServiceCreateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServiceCreateData.attributeTypeMap;
   }
 

@@ -13,6 +13,11 @@ import { WidgetHorizontalAlign } from "./WidgetHorizontalAlign";
 import { WidgetImageSizing } from "./WidgetImageSizing";
 import { WidgetMargin } from "./WidgetMargin";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
+ */
 
 export class ImageWidgetDefinition {
   /**
@@ -39,14 +44,7 @@ export class ImageWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hasBackground: {
       baseName: "has_background",
       type: "boolean",
@@ -87,7 +85,7 @@ export class ImageWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ImageWidgetDefinition.attributeTypeMap;
   }
 

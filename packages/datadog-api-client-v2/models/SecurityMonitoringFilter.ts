@@ -9,6 +9,11 @@
  */
 
 import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The rule's suppression filter.
+ */
 
 export class SecurityMonitoringFilter {
   "action"?: SecurityMonitoringFilterAction;
@@ -19,14 +24,7 @@ export class SecurityMonitoringFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
       baseName: "action",
       type: "SecurityMonitoringFilterAction",
@@ -37,7 +35,7 @@ export class SecurityMonitoringFilter {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringFilter.attributeTypeMap;
   }
 

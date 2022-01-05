@@ -9,6 +9,11 @@
  */
 
 import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Datadog-Webhooks integration.
+ */
 
 export class WebhooksIntegration {
   /**
@@ -31,14 +36,7 @@ export class WebhooksIntegration {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customHeaders: {
       baseName: "custom_headers",
       type: "string",
@@ -63,7 +61,7 @@ export class WebhooksIntegration {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WebhooksIntegration.attributeTypeMap;
   }
 

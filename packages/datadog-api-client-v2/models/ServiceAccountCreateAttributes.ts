@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of the created user.
+ */
+
 export class ServiceAccountCreateAttributes {
   /**
    * The email of the user.
@@ -28,14 +34,7 @@ export class ServiceAccountCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
       type: "string",
@@ -56,7 +55,7 @@ export class ServiceAccountCreateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceAccountCreateAttributes.attributeTypeMap;
   }
 

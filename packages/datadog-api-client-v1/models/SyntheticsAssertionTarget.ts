@@ -10,6 +10,11 @@
 
 import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An assertion which uses a simple target.
+ */
 
 export class SyntheticsAssertionTarget {
   "operator": SyntheticsAssertionOperator;
@@ -25,14 +30,7 @@ export class SyntheticsAssertionTarget {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
       baseName: "operator",
       type: "SyntheticsAssertionOperator",
@@ -54,7 +52,7 @@ export class SyntheticsAssertionTarget {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAssertionTarget.attributeTypeMap;
   }
 

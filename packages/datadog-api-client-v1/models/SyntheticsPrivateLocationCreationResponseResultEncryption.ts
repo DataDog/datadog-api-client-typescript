@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Public key for the result encryption.
+ */
+
 export class SyntheticsPrivateLocationCreationResponseResultEncryption {
   /**
    * Fingerprint for the encryption key.
@@ -20,14 +26,7 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -38,7 +37,7 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
   }
 

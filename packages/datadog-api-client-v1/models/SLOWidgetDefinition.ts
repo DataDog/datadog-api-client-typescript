@@ -12,6 +12,11 @@ import { SLOWidgetDefinitionType } from "./SLOWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTimeWindows } from "./WidgetTimeWindows";
 import { WidgetViewMode } from "./WidgetViewMode";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
+ */
 
 export class SLOWidgetDefinition {
   /**
@@ -48,14 +53,7 @@ export class SLOWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     globalTimeTarget: {
       baseName: "global_time_target",
       type: "string",
@@ -100,7 +98,7 @@ export class SLOWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOWidgetDefinition.attributeTypeMap;
   }
 

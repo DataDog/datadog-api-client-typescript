@@ -11,6 +11,11 @@
 import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Partial Datadog API key.
+ */
 
 export class PartialAPIKey {
   "attributes"?: PartialAPIKeyAttributes;
@@ -23,14 +28,7 @@ export class PartialAPIKey {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "PartialAPIKeyAttributes",
@@ -49,7 +47,7 @@ export class PartialAPIKey {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PartialAPIKey.attributeTypeMap;
   }
 

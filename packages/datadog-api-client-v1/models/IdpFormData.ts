@@ -9,6 +9,11 @@
  */
 
 import { HttpFile } from "../http/http";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the IdP configuration.
+ */
 
 export class IdpFormData {
   /**
@@ -18,14 +23,7 @@ export class IdpFormData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     idpFile: {
       baseName: "idp_file",
       type: "HttpFile",
@@ -34,7 +32,7 @@ export class IdpFormData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IdpFormData.attributeTypeMap;
   }
 

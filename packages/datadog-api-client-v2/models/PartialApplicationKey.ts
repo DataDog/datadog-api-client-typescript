@@ -11,6 +11,11 @@
 import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Partial Datadog application key.
+ */
 
 export class PartialApplicationKey {
   "attributes"?: PartialApplicationKeyAttributes;
@@ -23,14 +28,7 @@ export class PartialApplicationKey {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "PartialApplicationKeyAttributes",
@@ -49,7 +47,7 @@ export class PartialApplicationKey {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PartialApplicationKey.attributeTypeMap;
   }
 

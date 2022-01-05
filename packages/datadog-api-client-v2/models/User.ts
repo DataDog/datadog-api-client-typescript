@@ -11,6 +11,11 @@
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
 import { UsersType } from "./UsersType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * User object returned by the API.
+ */
 
 export class User {
   "attributes"?: UserAttributes;
@@ -23,14 +28,7 @@ export class User {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "UserAttributes",
@@ -49,7 +47,7 @@ export class User {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return User.attributeTypeMap;
   }
 

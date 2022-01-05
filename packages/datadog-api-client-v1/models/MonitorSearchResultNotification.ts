@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A notification triggered by the monitor.
+ */
+
 export class MonitorSearchResultNotification {
   /**
    * The email address that received the notification.
@@ -20,14 +26,7 @@ export class MonitorSearchResultNotification {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
       baseName: "handle",
       type: "string",
@@ -38,7 +37,7 @@ export class MonitorSearchResultNotification {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResultNotification.attributeTypeMap;
   }
 

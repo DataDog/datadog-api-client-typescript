@@ -11,6 +11,11 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing information about multiple users.
+ */
 
 export class UsersResponse {
   /**
@@ -25,14 +30,7 @@ export class UsersResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<User>",
@@ -47,7 +45,7 @@ export class UsersResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsersResponse.attributeTypeMap;
   }
 

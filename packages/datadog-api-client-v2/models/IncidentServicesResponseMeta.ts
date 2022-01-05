@@ -9,27 +9,25 @@
  */
 
 import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The metadata object containing pagination metadata.
+ */
 
 export class IncidentServicesResponseMeta {
   "pagination"?: IncidentServicesResponseMetaPagination;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
       baseName: "pagination",
       type: "IncidentServicesResponseMetaPagination",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServicesResponseMeta.attributeTypeMap;
   }
 

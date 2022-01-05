@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Fields in Usage Summary by tag(s).
+ */
+
 export class UsageAttributionValues {
   /**
    * The percentage of synthetic API test usage by tag(s).
@@ -172,14 +178,7 @@ export class UsageAttributionValues {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apiPercentage: {
       baseName: "api_percentage",
       type: "number",
@@ -422,7 +421,7 @@ export class UsageAttributionValues {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionValues.attributeTypeMap;
   }
 

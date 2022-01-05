@@ -13,6 +13,11 @@ import { SyntheticsBrowserTestType } from "./SyntheticsBrowserTestType";
 import { SyntheticsStep } from "./SyntheticsStep";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing details about a Synthetic browser test.
+ */
 
 export class SyntheticsBrowserTest {
   "config"?: SyntheticsBrowserTestConfig;
@@ -50,14 +55,7 @@ export class SyntheticsBrowserTest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
       type: "SyntheticsBrowserTestConfig",
@@ -107,7 +105,7 @@ export class SyntheticsBrowserTest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTest.attributeTypeMap;
   }
 

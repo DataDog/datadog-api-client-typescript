@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object listing all metric names stored by Datadog since a given time.
+ */
+
 export class MetricsListResponse {
   /**
    * Time when the metrics were active, seconds since the Unix epoch.
@@ -20,14 +26,7 @@ export class MetricsListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
       type: "string",
@@ -38,7 +37,7 @@ export class MetricsListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsListResponse.attributeTypeMap;
   }
 

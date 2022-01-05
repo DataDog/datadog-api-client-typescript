@@ -11,6 +11,11 @@
 import { LogsAggregateResponseStatus } from "./LogsAggregateResponseStatus";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The metadata associated with a request
+ */
 
 export class LogsResponseMetadata {
   /**
@@ -30,14 +35,7 @@ export class LogsResponseMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
       baseName: "elapsed",
       type: "number",
@@ -62,7 +60,7 @@ export class LogsResponseMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsResponseMetadata.attributeTypeMap;
   }
 

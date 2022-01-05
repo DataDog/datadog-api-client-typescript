@@ -10,6 +10,11 @@
 
 import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
+ */
 
 export class SyntheticsGlobalVariableParseTestOptions {
   /**
@@ -21,14 +26,7 @@ export class SyntheticsGlobalVariableParseTestOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
       baseName: "field",
       type: "string",
@@ -45,7 +43,7 @@ export class SyntheticsGlobalVariableParseTestOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariableParseTestOptions.attributeTypeMap;
   }
 

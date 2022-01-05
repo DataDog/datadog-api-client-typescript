@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsTiming } from "./SyntheticsTiming";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Result of the last API test run.
+ */
 
 export class SyntheticsAPITestResultShortResult {
   /**
@@ -19,14 +24,7 @@ export class SyntheticsAPITestResultShortResult {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     passed: {
       baseName: "passed",
       type: "boolean",
@@ -37,7 +35,7 @@ export class SyntheticsAPITestResultShortResult {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultShortResult.attributeTypeMap;
   }
 

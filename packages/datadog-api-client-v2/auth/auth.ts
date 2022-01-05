@@ -14,7 +14,7 @@ export interface SecurityAuthentication {
    *
    * @params context the request context which should use this authentication scheme
    */
-  applySecurityAuthentication(context: RequestContext): void | Promise<void>;
+  applySecurityAuthentication(context: RequestContext): void;
 }
 
 export interface TokenProvider {
@@ -36,7 +36,7 @@ export class AuthZAuthentication implements SecurityAuthentication {
     return "AuthZ";
   }
 
-  public applySecurityAuthentication(context: RequestContext) {
+  public applySecurityAuthentication(context: RequestContext): void {
     context.setHeaderParam("Authorization", "Bearer " + this.accessToken);
   }
 }
@@ -56,7 +56,7 @@ export class ApiKeyAuthAuthentication implements SecurityAuthentication {
     return "apiKeyAuth";
   }
 
-  public applySecurityAuthentication(context: RequestContext) {
+  public applySecurityAuthentication(context: RequestContext): void {
     context.setHeaderParam("DD-API-KEY", this.apiKey);
   }
 }
@@ -76,7 +76,7 @@ export class AppKeyAuthAuthentication implements SecurityAuthentication {
     return "appKeyAuth";
   }
 
-  public applySecurityAuthentication(context: RequestContext) {
+  public applySecurityAuthentication(context: RequestContext): void {
     context.setHeaderParam("DD-APPLICATION-KEY", this.apiKey);
   }
 }

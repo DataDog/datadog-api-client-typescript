@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The counts of monitor groups per different criteria.
+ */
+
 export class MonitorGroupSearchResponseCounts {
   /**
    * Search facets.
@@ -20,14 +26,7 @@ export class MonitorGroupSearchResponseCounts {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
       baseName: "status",
       type: "Array<any>",
@@ -38,7 +37,7 @@ export class MonitorGroupSearchResponseCounts {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorGroupSearchResponseCounts.attributeTypeMap;
   }
 

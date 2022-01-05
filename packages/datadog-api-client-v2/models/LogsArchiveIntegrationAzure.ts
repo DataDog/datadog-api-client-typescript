@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Azure archive's integration destination.
+ */
+
 export class LogsArchiveIntegrationAzure {
   /**
    * A client ID.
@@ -20,14 +26,7 @@ export class LogsArchiveIntegrationAzure {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     clientId: {
       baseName: "client_id",
       type: "string",
@@ -40,7 +39,7 @@ export class LogsArchiveIntegrationAzure {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveIntegrationAzure.attributeTypeMap;
   }
 

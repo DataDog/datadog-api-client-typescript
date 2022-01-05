@@ -9,20 +9,18 @@
  */
 
 import { SunburstWidgetLegendTableType } from "./SunburstWidgetLegendTableType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Configuration of table-based legend.
+ */
 
 export class SunburstWidgetLegendTable {
   "type": SunburstWidgetLegendTableType;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "SunburstWidgetLegendTableType",
@@ -30,7 +28,7 @@ export class SunburstWidgetLegendTable {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetLegendTable.attributeTypeMap;
   }
 

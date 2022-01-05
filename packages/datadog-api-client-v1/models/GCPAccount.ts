@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Your Google Cloud Platform Account.
+ */
+
 export class GCPAccount {
   /**
    * Should be `https://www.googleapis.com/oauth2/v1/certs`.
@@ -64,14 +70,7 @@ export class GCPAccount {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     authProviderX509CertUrl: {
       baseName: "auth_provider_x509_cert_url",
       type: "string",
@@ -126,7 +125,7 @@ export class GCPAccount {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return GCPAccount.attributeTypeMap;
   }
 

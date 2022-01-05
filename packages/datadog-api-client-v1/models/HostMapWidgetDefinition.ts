@@ -14,6 +14,11 @@ import { HostMapWidgetDefinitionType } from "./HostMapWidgetDefinitionType";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetNodeType } from "./WidgetNodeType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
+ */
 
 export class HostMapWidgetDefinition {
   /**
@@ -56,14 +61,7 @@ export class HostMapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -120,7 +118,7 @@ export class HostMapWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapWidgetDefinition.attributeTypeMap;
   }
 

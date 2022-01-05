@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The event query.
+ */
+
 export class EventQueryDefinition {
   /**
    * The query being made on the event.
@@ -20,14 +26,7 @@ export class EventQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     search: {
       baseName: "search",
       type: "string",
@@ -40,7 +39,7 @@ export class EventQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return EventQueryDefinition.attributeTypeMap;
   }
 

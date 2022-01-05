@@ -10,6 +10,11 @@
 
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
 import { ProcessSummaryType } from "./ProcessSummaryType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Process summary object.
+ */
 
 export class ProcessSummary {
   "attributes"?: ProcessSummaryAttributes;
@@ -21,14 +26,7 @@ export class ProcessSummary {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "ProcessSummaryAttributes",
@@ -43,7 +41,7 @@ export class ProcessSummary {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummary.attributeTypeMap;
   }
 

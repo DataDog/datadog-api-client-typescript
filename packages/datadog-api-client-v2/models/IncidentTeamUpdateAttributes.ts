@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident team's attributes for an update request.
+ */
+
 export class IncidentTeamUpdateAttributes {
   /**
    * Name of the incident team.
@@ -16,14 +22,7 @@ export class IncidentTeamUpdateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
@@ -31,7 +30,7 @@ export class IncidentTeamUpdateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTeamUpdateAttributes.attributeTypeMap;
   }
 

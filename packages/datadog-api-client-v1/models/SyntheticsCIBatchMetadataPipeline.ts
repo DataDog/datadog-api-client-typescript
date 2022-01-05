@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Description of the CI pipeline.
+ */
+
 export class SyntheticsCIBatchMetadataPipeline {
   /**
    * URL of the pipeline.
@@ -16,21 +22,14 @@ export class SyntheticsCIBatchMetadataPipeline {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     url: {
       baseName: "url",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataPipeline.attributeTypeMap;
   }
 

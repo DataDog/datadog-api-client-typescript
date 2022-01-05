@@ -13,6 +13,11 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request definition of sunburst widget.
+ */
 
 export class SunburstWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -40,14 +45,7 @@ export class SunburstWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -102,7 +100,7 @@ export class SunburstWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetRequest.attributeTypeMap;
   }
 

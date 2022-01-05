@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Absolute timeframe.
+ */
+
 export class NotebookAbsoluteTime {
   /**
    * The end time.
@@ -24,14 +30,7 @@ export class NotebookAbsoluteTime {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
       baseName: "end",
       type: "Date",
@@ -50,7 +49,7 @@ export class NotebookAbsoluteTime {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookAbsoluteTime.attributeTypeMap;
   }
 

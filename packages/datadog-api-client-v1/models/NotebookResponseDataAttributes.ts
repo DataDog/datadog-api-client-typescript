@@ -13,6 +13,11 @@ import { NotebookCellResponse } from "./NotebookCellResponse";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook.
+ */
 
 export class NotebookResponseDataAttributes {
   "author"?: NotebookAuthor;
@@ -38,14 +43,7 @@ export class NotebookResponseDataAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
       baseName: "author",
       type: "NotebookAuthor",
@@ -87,7 +85,7 @@ export class NotebookResponseDataAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookResponseDataAttributes.attributeTypeMap;
   }
 

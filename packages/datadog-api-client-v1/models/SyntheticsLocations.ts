@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsLocation } from "./SyntheticsLocation";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of Synthetics locations.
+ */
 
 export class SyntheticsLocations {
   /**
@@ -18,21 +23,14 @@ export class SyntheticsLocations {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     locations: {
       baseName: "locations",
       type: "Array<SyntheticsLocation>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsLocations.attributeTypeMap;
   }
 

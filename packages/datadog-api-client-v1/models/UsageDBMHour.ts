@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Database Monitoring usage for a given organization for a given hour.
+ */
+
 export class UsageDBMHour {
   /**
    * The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.
@@ -32,14 +38,7 @@ export class UsageDBMHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dbmHostCount: {
       baseName: "dbm_host_count",
       type: "number",
@@ -68,7 +67,7 @@ export class UsageDBMHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageDBMHour.attributeTypeMap;
   }
 

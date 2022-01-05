@@ -9,6 +9,11 @@
  */
 
 import { LogsMetricComputeAggregationType } from "./LogsMetricComputeAggregationType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The compute rule to compute the log-based metric.
+ */
 
 export class LogsMetricCompute {
   "aggregationType": LogsMetricComputeAggregationType;
@@ -19,14 +24,7 @@ export class LogsMetricCompute {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregationType: {
       baseName: "aggregation_type",
       type: "LogsMetricComputeAggregationType",
@@ -38,7 +36,7 @@ export class LogsMetricCompute {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricCompute.attributeTypeMap;
   }
 

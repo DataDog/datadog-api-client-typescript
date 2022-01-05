@@ -78,7 +78,7 @@ export class RequestContext {
    * Replaces the url set in the constructor with this url.
    *
    */
-  public setUrl(url: string) {
+  public setUrl(url: string): void {
     this.url = new URLParse(url, true);
   }
 
@@ -91,7 +91,7 @@ export class RequestContext {
    *
    * @param body the body of the request
    */
-  public setBody(body: RequestBody) {
+  public setBody(body: RequestBody): void {
     this.body = body;
   }
 
@@ -107,7 +107,7 @@ export class RequestContext {
     return this.body;
   }
 
-  public setQueryParam(name: string, value: string) {
+  public setQueryParam(name: string, value: string): void {
     const queryObj = this.url.query;
     queryObj[name] = value;
     this.url.set("query", queryObj);

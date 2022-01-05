@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Authentication part of the secrets.
+ */
+
 export class SyntheticsPrivateLocationSecretsAuthentication {
   /**
    * Access key for the private location.
@@ -20,14 +26,7 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -38,7 +37,7 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
   }
 

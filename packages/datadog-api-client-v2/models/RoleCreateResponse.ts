@@ -9,27 +9,25 @@
  */
 
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing information about a created role.
+ */
 
 export class RoleCreateResponse {
   "data"?: RoleCreateResponseData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RoleCreateResponseData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleCreateResponse.attributeTypeMap;
   }
 

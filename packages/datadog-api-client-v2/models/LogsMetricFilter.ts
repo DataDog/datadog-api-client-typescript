@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+ */
+
 export class LogsMetricFilter {
   /**
    * The search query - following the log search syntax.
@@ -16,21 +22,14 @@ export class LogsMetricFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricFilter.attributeTypeMap;
   }
 

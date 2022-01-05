@@ -10,6 +10,11 @@
 
 import { LogsByRetention } from "./LogsByRetention";
 import { UsageSummaryDate } from "./UsageSummaryDate";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.
+ */
 
 export class UsageSummaryResponse {
   /**
@@ -268,14 +273,7 @@ export class UsageSummaryResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99pSum: {
       baseName: "agent_host_top99p_sum",
       type: "number",
@@ -658,7 +656,7 @@ export class UsageSummaryResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSummaryResponse.attributeTypeMap;
   }
 

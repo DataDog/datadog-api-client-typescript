@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of the edited user.
+ */
+
 export class UserUpdateAttributes {
   /**
    * If the user is enabled or disabled.
@@ -24,14 +30,7 @@ export class UserUpdateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     disabled: {
       baseName: "disabled",
       type: "boolean",
@@ -46,7 +45,7 @@ export class UserUpdateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserUpdateAttributes.attributeTypeMap;
   }
 

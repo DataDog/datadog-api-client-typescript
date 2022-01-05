@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object for deleting Synthetic tests.
+ */
 
 export class SyntheticsDeleteTestsResponse {
   /**
@@ -18,21 +23,14 @@ export class SyntheticsDeleteTestsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     deletedTests: {
       baseName: "deleted_tests",
       type: "Array<SyntheticsDeletedTest>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDeleteTestsResponse.attributeTypeMap;
   }
 

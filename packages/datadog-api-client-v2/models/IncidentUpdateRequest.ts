@@ -9,20 +9,18 @@
  */
 
 import { IncidentUpdateData } from "./IncidentUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Update request for an incident.
+ */
 
 export class IncidentUpdateRequest {
   "data": IncidentUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "IncidentUpdateData",
@@ -30,7 +28,7 @@ export class IncidentUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentUpdateRequest.attributeTypeMap;
   }
 

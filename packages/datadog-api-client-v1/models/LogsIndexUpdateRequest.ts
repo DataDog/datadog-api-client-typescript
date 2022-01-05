@@ -10,6 +10,11 @@
 
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsFilter } from "./LogsFilter";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object for updating a Datadog Log index.
+ */
 
 export class LogsIndexUpdateRequest {
   /**
@@ -32,14 +37,7 @@ export class LogsIndexUpdateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dailyLimit: {
       baseName: "daily_limit",
       type: "number",
@@ -67,7 +65,7 @@ export class LogsIndexUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsIndexUpdateRequest.attributeTypeMap;
   }
 

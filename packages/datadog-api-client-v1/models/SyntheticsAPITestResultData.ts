@@ -12,6 +12,11 @@ import { SyntheticsErrorCode } from "./SyntheticsErrorCode";
 import { SyntheticsSSLCertificate } from "./SyntheticsSSLCertificate";
 import { SyntheticsTestProcessStatus } from "./SyntheticsTestProcessStatus";
 import { SyntheticsTiming } from "./SyntheticsTiming";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing results for your Synthetic API test.
+ */
 
 export class SyntheticsAPITestResultData {
   "cert"?: SyntheticsSSLCertificate;
@@ -45,14 +50,7 @@ export class SyntheticsAPITestResultData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cert: {
       baseName: "cert",
       type: "SyntheticsSSLCertificate",
@@ -99,7 +97,7 @@ export class SyntheticsAPITestResultData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultData.attributeTypeMap;
   }
 

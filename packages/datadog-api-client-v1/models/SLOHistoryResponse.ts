@@ -10,6 +10,11 @@
 
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A service level objective history response.
+ */
 
 export class SLOHistoryResponse {
   "data"?: SLOHistoryResponseData;
@@ -20,14 +25,7 @@ export class SLOHistoryResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SLOHistoryResponseData",
@@ -38,7 +36,7 @@ export class SLOHistoryResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponse.attributeTypeMap;
   }
 

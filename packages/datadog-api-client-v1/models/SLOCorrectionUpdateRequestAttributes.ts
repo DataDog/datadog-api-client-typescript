@@ -9,6 +9,11 @@
  */
 
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attribute object associated with the SLO correction to be updated.
+ */
 
 export class SLOCorrectionUpdateRequestAttributes {
   "category"?: SLOCorrectionCategory;
@@ -39,14 +44,7 @@ export class SLOCorrectionUpdateRequestAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     category: {
       baseName: "category",
       type: "SLOCorrectionCategory",
@@ -83,7 +81,7 @@ export class SLOCorrectionUpdateRequestAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionUpdateRequestAttributes.attributeTypeMap;
   }
 

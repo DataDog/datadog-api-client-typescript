@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with properties for each aggregated usage type.
+ */
+
 export class UsageBillableSummaryBody {
   /**
    * The total account usage.
@@ -40,14 +46,7 @@ export class UsageBillableSummaryBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountBillableUsage: {
       baseName: "account_billable_usage",
       type: "number",
@@ -90,7 +89,7 @@ export class UsageBillableSummaryBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryBody.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Represent validation endpoint responses.
+ */
+
 export class AuthenticationValidationResponse {
   /**
    * Return `true` if the authentication response is valid.
@@ -16,21 +22,14 @@ export class AuthenticationValidationResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     valid: {
       baseName: "valid",
       type: "boolean",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AuthenticationValidationResponse.attributeTypeMap;
   }
 

@@ -10,6 +10,11 @@
 
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with the results of a single Synthetic API test.
+ */
 
 export class SyntheticsAPITestResultShort {
   /**
@@ -29,14 +34,7 @@ export class SyntheticsAPITestResultShort {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     checkTime: {
       baseName: "check_time",
       type: "number",
@@ -61,7 +59,7 @@ export class SyntheticsAPITestResultShort {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultShort.attributeTypeMap;
   }
 

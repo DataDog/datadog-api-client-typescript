@@ -12,6 +12,11 @@ import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToUsers } from "./RelationshipToUsers";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationships of the user object returned by the API.
+ */
 
 export class UserResponseRelationships {
   "org"?: RelationshipToOrganization;
@@ -21,14 +26,7 @@ export class UserResponseRelationships {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     org: {
       baseName: "org",
       type: "RelationshipToOrganization",
@@ -47,7 +45,7 @@ export class UserResponseRelationships {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserResponseRelationships.attributeTypeMap;
   }
 

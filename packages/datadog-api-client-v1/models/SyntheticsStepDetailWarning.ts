@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsWarningType } from "./SyntheticsWarningType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object collecting warnings for a given step.
+ */
 
 export class SyntheticsStepDetailWarning {
   /**
@@ -19,14 +24,7 @@ export class SyntheticsStepDetailWarning {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
       type: "string",
@@ -39,7 +37,7 @@ export class SyntheticsStepDetailWarning {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStepDetailWarning.attributeTypeMap;
   }
 

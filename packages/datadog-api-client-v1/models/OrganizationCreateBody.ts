@@ -10,6 +10,11 @@
 
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSubscription } from "./OrganizationSubscription";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing an organization to create.
+ */
 
 export class OrganizationCreateBody {
   "billing"?: OrganizationBilling;
@@ -21,14 +26,7 @@ export class OrganizationCreateBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     billing: {
       baseName: "billing",
       type: "OrganizationBilling",
@@ -44,7 +42,7 @@ export class OrganizationCreateBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationCreateBody.attributeTypeMap;
   }
 

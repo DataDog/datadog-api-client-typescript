@@ -13,6 +13,11 @@ import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Query values display the current value of a given metric, APM, or log query.
+ */
 
 export class QueryValueWidgetDefinition {
   /**
@@ -50,14 +55,7 @@ export class QueryValueWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     autoscale: {
       baseName: "autoscale",
       type: "boolean",
@@ -108,7 +106,7 @@ export class QueryValueWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return QueryValueWidgetDefinition.attributeTypeMap;
   }
 

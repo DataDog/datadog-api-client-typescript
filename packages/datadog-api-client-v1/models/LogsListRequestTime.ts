@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Timeframe to retrieve the log from.
+ */
+
 export class LogsListRequestTime {
   /**
    * Minimum timestamp for requested logs.
@@ -24,14 +30,7 @@ export class LogsListRequestTime {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
       type: "Date",
@@ -50,7 +49,7 @@ export class LogsListRequestTime {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequestTime.attributeTypeMap;
   }
 

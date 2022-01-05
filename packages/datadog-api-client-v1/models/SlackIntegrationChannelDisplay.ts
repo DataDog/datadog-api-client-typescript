@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Configuration options for what is shown in an alert event message.
+ */
+
 export class SlackIntegrationChannelDisplay {
   /**
    * Show the main body of the alert event.
@@ -28,14 +34,7 @@ export class SlackIntegrationChannelDisplay {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
       type: "boolean",
@@ -54,7 +53,7 @@ export class SlackIntegrationChannelDisplay {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SlackIntegrationChannelDisplay.attributeTypeMap;
   }
 

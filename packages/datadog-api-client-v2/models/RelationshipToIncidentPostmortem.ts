@@ -9,20 +9,18 @@
  */
 
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A relationship reference for postmortems.
+ */
 
 export class RelationshipToIncidentPostmortem {
   "data": RelationshipToIncidentPostmortemData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RelationshipToIncidentPostmortemData",
@@ -30,7 +28,7 @@ export class RelationshipToIncidentPostmortem {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToIncidentPostmortem.attributeTypeMap;
   }
 

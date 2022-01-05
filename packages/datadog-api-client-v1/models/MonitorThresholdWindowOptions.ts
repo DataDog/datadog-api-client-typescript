@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Alerting time window options.
+ */
+
 export class MonitorThresholdWindowOptions {
   /**
    * Describes how long an anomalous metric must be normal before the alert recovers.
@@ -20,14 +26,7 @@ export class MonitorThresholdWindowOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     recoveryWindow: {
       baseName: "recovery_window",
       type: "string",
@@ -38,7 +37,7 @@ export class MonitorThresholdWindowOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorThresholdWindowOptions.attributeTypeMap;
   }
 

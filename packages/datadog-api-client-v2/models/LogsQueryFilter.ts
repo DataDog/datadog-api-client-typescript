@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The search and filter query settings
+ */
+
 export class LogsQueryFilter {
   /**
    * The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
@@ -28,14 +34,7 @@ export class LogsQueryFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
       type: "string",
@@ -54,7 +53,7 @@ export class LogsQueryFilter {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsQueryFilter.attributeTypeMap;
   }
 

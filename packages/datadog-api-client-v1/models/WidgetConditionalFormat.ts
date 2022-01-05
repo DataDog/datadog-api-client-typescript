@@ -10,6 +10,11 @@
 
 import { WidgetComparator } from "./WidgetComparator";
 import { WidgetPalette } from "./WidgetPalette";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Define a conditional format for the widget.
+ */
 
 export class WidgetConditionalFormat {
   "comparator": WidgetComparator;
@@ -45,14 +50,7 @@ export class WidgetConditionalFormat {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     comparator: {
       baseName: "comparator",
       type: "WidgetComparator",
@@ -95,7 +93,7 @@ export class WidgetConditionalFormat {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetConditionalFormat.attributeTypeMap;
   }
 

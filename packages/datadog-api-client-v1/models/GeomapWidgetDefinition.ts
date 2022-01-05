@@ -15,6 +15,11 @@ import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * This visualization displays a series of values by country on a world map.
+ */
 
 export class GeomapWidgetDefinition {
   /**
@@ -41,14 +46,7 @@ export class GeomapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -91,7 +89,7 @@ export class GeomapWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetDefinition.attributeTypeMap;
   }
 

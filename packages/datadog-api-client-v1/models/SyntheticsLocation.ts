@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Synthetic location that can be used when creating or editing a test.
+ */
+
 export class SyntheticsLocation {
   /**
    * Unique identifier of the location.
@@ -20,14 +26,7 @@ export class SyntheticsLocation {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -38,7 +37,7 @@ export class SyntheticsLocation {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsLocation.attributeTypeMap;
   }
 

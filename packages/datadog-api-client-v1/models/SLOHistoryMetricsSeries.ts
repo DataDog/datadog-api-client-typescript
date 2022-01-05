@@ -9,6 +9,11 @@
  */
 
 import { SLOHistoryMetricsSeriesMetadata } from "./SLOHistoryMetricsSeriesMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A representation of `metric` based SLO time series for the provided queries. This is the same response type from `batch_query` endpoint.
+ */
 
 export class SLOHistoryMetricsSeries {
   /**
@@ -27,14 +32,7 @@ export class SLOHistoryMetricsSeries {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
       baseName: "count",
       type: "number",
@@ -59,7 +57,7 @@ export class SLOHistoryMetricsSeries {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetricsSeries.attributeTypeMap;
   }
 

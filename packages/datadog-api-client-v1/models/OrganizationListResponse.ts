@@ -9,6 +9,11 @@
  */
 
 import { Organization } from "./Organization";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with the list of organizations.
+ */
 
 export class OrganizationListResponse {
   /**
@@ -18,21 +23,14 @@ export class OrganizationListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     orgs: {
       baseName: "orgs",
       type: "Array<Organization>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationListResponse.attributeTypeMap;
   }
 

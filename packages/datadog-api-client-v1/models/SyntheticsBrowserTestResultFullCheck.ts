@@ -9,20 +9,18 @@
  */
 
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the browser test configuration.
+ */
 
 export class SyntheticsBrowserTestResultFullCheck {
   "config": SyntheticsTestConfig;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
       type: "SyntheticsTestConfig",
@@ -30,7 +28,7 @@ export class SyntheticsBrowserTestResultFullCheck {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
   }
 

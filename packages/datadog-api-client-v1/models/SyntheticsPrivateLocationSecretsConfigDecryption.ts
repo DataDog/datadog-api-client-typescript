@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Private key for the private location.
+ */
+
 export class SyntheticsPrivateLocationSecretsConfigDecryption {
   /**
    * Private key for the private location.
@@ -16,21 +22,14 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     key: {
       baseName: "key",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationSecretsConfigDecryption.attributeTypeMap;
   }
 

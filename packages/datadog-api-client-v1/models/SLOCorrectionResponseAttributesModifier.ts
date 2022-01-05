@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Modifier of the object.
+ */
+
 export class SLOCorrectionResponseAttributesModifier {
   /**
    * Email of the Modifier.
@@ -24,14 +30,7 @@ export class SLOCorrectionResponseAttributesModifier {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
       type: "string",
@@ -46,7 +45,7 @@ export class SLOCorrectionResponseAttributesModifier {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionResponseAttributesModifier.attributeTypeMap;
   }
 

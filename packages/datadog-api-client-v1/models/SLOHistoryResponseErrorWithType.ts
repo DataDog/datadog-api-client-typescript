@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An object describing the error with error type and error message.
+ */
+
 export class SLOHistoryResponseErrorWithType {
   /**
    * A message with more details about the error.
@@ -20,14 +26,7 @@ export class SLOHistoryResponseErrorWithType {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     errorMessage: {
       baseName: "error_message",
       type: "string",
@@ -40,7 +39,7 @@ export class SLOHistoryResponseErrorWithType {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponseErrorWithType.attributeTypeMap;
   }
 

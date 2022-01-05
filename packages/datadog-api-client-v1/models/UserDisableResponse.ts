@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Array of user disabled for a given organization.
+ */
+
 export class UserDisableResponse {
   /**
    * Information pertaining to a user disabled for a given organization.
@@ -16,21 +22,14 @@ export class UserDisableResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserDisableResponse.attributeTypeMap;
   }
 

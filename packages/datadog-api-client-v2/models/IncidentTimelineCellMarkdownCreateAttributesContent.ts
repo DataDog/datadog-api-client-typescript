@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Markdown timeline cell contents.
+ */
+
 export class IncidentTimelineCellMarkdownCreateAttributesContent {
   /**
    * The Markdown content of the cell.
@@ -16,21 +22,14 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
       baseName: "content",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
   }
 

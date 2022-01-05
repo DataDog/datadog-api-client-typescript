@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Template variables saved views.
+ */
+
 export class DashboardTemplateVariablePresetValue {
   /**
    * The name of the variable.
@@ -20,14 +26,7 @@ export class DashboardTemplateVariablePresetValue {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
@@ -38,7 +37,7 @@ export class DashboardTemplateVariablePresetValue {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardTemplateVariablePresetValue.attributeTypeMap;
   }
 

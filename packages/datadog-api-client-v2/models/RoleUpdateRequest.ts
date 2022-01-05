@@ -9,20 +9,18 @@
  */
 
 import { RoleUpdateData } from "./RoleUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Update a role.
+ */
 
 export class RoleUpdateRequest {
   "data": RoleUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RoleUpdateData",
@@ -30,7 +28,7 @@ export class RoleUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleUpdateRequest.attributeTypeMap;
   }
 

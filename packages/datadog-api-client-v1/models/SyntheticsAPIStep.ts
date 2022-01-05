@@ -13,6 +13,11 @@ import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The steps used in a Synthetics multistep API test.
+ */
 
 export class SyntheticsAPIStep {
   /**
@@ -41,14 +46,7 @@ export class SyntheticsAPIStep {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
       type: "boolean",
@@ -83,7 +81,7 @@ export class SyntheticsAPIStep {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPIStep.attributeTypeMap;
   }
 

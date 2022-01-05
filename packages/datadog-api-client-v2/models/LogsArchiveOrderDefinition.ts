@@ -10,6 +10,11 @@
 
 import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
 import { LogsArchiveOrderDefinitionType } from "./LogsArchiveOrderDefinitionType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The definition of an archive order.
+ */
 
 export class LogsArchiveOrderDefinition {
   "attributes": LogsArchiveOrderAttributes;
@@ -17,14 +22,7 @@ export class LogsArchiveOrderDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "LogsArchiveOrderAttributes",
@@ -37,7 +35,7 @@ export class LogsArchiveOrderDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveOrderDefinition.attributeTypeMap;
   }
 

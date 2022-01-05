@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A group by rule.
+ */
+
 export class LogsMetricGroupBy {
   /**
    * The path to the value the log-based metric will be aggregated over.
@@ -20,14 +26,7 @@ export class LogsMetricGroupBy {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     path: {
       baseName: "path",
       type: "string",
@@ -39,7 +38,7 @@ export class LogsMetricGroupBy {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricGroupBy.attributeTypeMap;
   }
 

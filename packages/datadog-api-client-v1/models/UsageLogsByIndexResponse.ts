@@ -9,6 +9,11 @@
  */
 
 import { UsageLogsByIndexHour } from "./UsageLogsByIndexHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of indexed logs for each hour and index for a given organization.
+ */
 
 export class UsageLogsByIndexResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageLogsByIndexResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageLogsByIndexHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsByIndexResponse.attributeTypeMap;
   }
 

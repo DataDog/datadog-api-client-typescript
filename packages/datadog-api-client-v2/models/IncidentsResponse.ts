@@ -11,6 +11,11 @@
 import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseIncludedItem } from "./IncidentResponseIncludedItem";
 import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with a list of incidents.
+ */
 
 export class IncidentsResponse {
   /**
@@ -25,14 +30,7 @@ export class IncidentsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<IncidentResponseData>",
@@ -48,7 +46,7 @@ export class IncidentsResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentsResponse.attributeTypeMap;
   }
 

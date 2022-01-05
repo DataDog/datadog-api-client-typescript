@@ -9,6 +9,11 @@
  */
 
 import { ScatterplotDimension } from "./ScatterplotDimension";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Formula to be used in a Scatterplot widget query.
+ */
 
 export class ScatterplotWidgetFormula {
   /**
@@ -23,14 +28,7 @@ export class ScatterplotWidgetFormula {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
       baseName: "alias",
       type: "string",
@@ -47,7 +45,7 @@ export class ScatterplotWidgetFormula {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterplotWidgetFormula.attributeTypeMap;
   }
 

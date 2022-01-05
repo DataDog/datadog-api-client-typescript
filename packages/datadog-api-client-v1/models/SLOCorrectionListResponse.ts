@@ -10,6 +10,11 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOCorrection } from "./SLOCorrection";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A list of  SLO correction objects.
+ */
 
 export class SLOCorrectionListResponse {
   /**
@@ -20,14 +25,7 @@ export class SLOCorrectionListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<SLOCorrection>",
@@ -38,7 +36,7 @@ export class SLOCorrectionListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionListResponse.attributeTypeMap;
   }
 

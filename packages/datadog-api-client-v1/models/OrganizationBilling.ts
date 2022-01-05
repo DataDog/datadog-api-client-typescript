@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A JSON array of billing type.
+ */
+
 export class OrganizationBilling {
   /**
    * The type of billing. Only `parent_billing` is supported.
@@ -16,21 +22,14 @@ export class OrganizationBilling {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationBilling.attributeTypeMap;
   }
 

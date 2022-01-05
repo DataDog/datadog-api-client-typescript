@@ -11,6 +11,11 @@
 import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the Synthetic test request.
+ */
 
 export class SyntheticsTestRequest {
   /**
@@ -83,14 +88,7 @@ export class SyntheticsTestRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     allowInsecure: {
       baseName: "allow_insecure",
       type: "boolean",
@@ -177,7 +175,7 @@ export class SyntheticsTestRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequest.attributeTypeMap;
   }
 

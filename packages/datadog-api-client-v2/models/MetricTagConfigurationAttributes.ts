@@ -10,6 +10,11 @@
 
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricTagConfigurationMetricTypes } from "./MetricTagConfigurationMetricTypes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing the definition of a metric tag configuration attributes.
+ */
 
 export class MetricTagConfigurationAttributes {
   /**
@@ -36,14 +41,7 @@ export class MetricTagConfigurationAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
@@ -74,7 +72,7 @@ export class MetricTagConfigurationAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationAttributes.attributeTypeMap;
   }
 

@@ -12,6 +12,11 @@ import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Test configuration for Synthetics CI
+ */
 
 export class SyntheticsCITest {
   /**
@@ -64,14 +69,7 @@ export class SyntheticsCITest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     allowInsecureCertificates: {
       baseName: "allowInsecureCertificates",
       type: "boolean",
@@ -131,7 +129,7 @@ export class SyntheticsCITest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCITest.attributeTypeMap;
   }
 

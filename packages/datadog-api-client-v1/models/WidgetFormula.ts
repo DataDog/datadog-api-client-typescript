@@ -11,6 +11,11 @@
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Formula to be used in a widget query.
+ */
 
 export class WidgetFormula {
   /**
@@ -30,14 +35,7 @@ export class WidgetFormula {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
       baseName: "alias",
       type: "string",
@@ -61,7 +59,7 @@ export class WidgetFormula {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetFormula.attributeTypeMap;
   }
 

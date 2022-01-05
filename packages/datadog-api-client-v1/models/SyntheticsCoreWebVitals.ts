@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Core Web Vitals attached to a browser test step.
+ */
+
 export class SyntheticsCoreWebVitals {
   /**
    * Cumulative Layout Shift.
@@ -24,14 +30,7 @@ export class SyntheticsCoreWebVitals {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cls: {
       baseName: "cls",
       type: "number",
@@ -50,7 +49,7 @@ export class SyntheticsCoreWebVitals {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCoreWebVitals.attributeTypeMap;
   }
 

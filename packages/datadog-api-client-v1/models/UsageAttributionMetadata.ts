@@ -10,6 +10,11 @@
 
 import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
 import { UsageAttributionPagination } from "./UsageAttributionPagination";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing document metadata.
+ */
 
 export class UsageAttributionMetadata {
   /**
@@ -20,14 +25,7 @@ export class UsageAttributionMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregates: {
       baseName: "aggregates",
       type: "Array<UsageAttributionAggregatesBody>",
@@ -38,7 +36,7 @@ export class UsageAttributionMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionMetadata.attributeTypeMap;
   }
 

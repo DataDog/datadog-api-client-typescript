@@ -9,20 +9,18 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The relationships the incident will have with other resources once created.
+ */
 
 export class IncidentCreateRelationships {
   "commander": RelationshipToUser;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     commander: {
       baseName: "commander",
       type: "RelationshipToUser",
@@ -30,7 +28,7 @@ export class IncidentCreateRelationships {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentCreateRelationships.attributeTypeMap;
   }
 

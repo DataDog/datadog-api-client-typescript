@@ -10,6 +10,11 @@
 
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { PartialApplicationKey } from "./PartialApplicationKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response for retrieving a partial application key.
+ */
 
 export class PartialApplicationKeyResponse {
   "data"?: PartialApplicationKey;
@@ -20,14 +25,7 @@ export class PartialApplicationKeyResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "PartialApplicationKey",
@@ -38,7 +36,7 @@ export class PartialApplicationKeyResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PartialApplicationKeyResponse.attributeTypeMap;
   }
 

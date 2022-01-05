@@ -11,6 +11,11 @@
 import { ServiceMapWidgetDefinitionType } from "./ServiceMapWidgetDefinitionType";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * This widget displays a map of a service to all of the services that call it, and all of the services that it calls.
+ */
 
 export class ServiceMapWidgetDefinition {
   /**
@@ -38,14 +43,7 @@ export class ServiceMapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -79,7 +77,7 @@ export class ServiceMapWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceMapWidgetDefinition.attributeTypeMap;
   }
 

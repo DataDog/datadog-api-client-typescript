@@ -13,6 +13,11 @@ import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRule
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Options on rules.
+ */
 
 export class SecurityMonitoringRuleOptions {
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
@@ -23,14 +28,7 @@ export class SecurityMonitoringRuleOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     detectionMethod: {
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
@@ -53,7 +51,7 @@ export class SecurityMonitoringRuleOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleOptions.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Update request of a custom variable object.  *All properties are optional.*
+ */
+
 export class WebhooksIntegrationCustomVariableUpdateRequest {
   /**
    * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
@@ -24,14 +30,7 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isSecret: {
       baseName: "is_secret",
       type: "boolean",
@@ -46,7 +45,7 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WebhooksIntegrationCustomVariableUpdateRequest.attributeTypeMap;
   }
 

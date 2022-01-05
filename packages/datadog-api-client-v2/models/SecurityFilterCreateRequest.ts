@@ -9,20 +9,18 @@
  */
 
 import { SecurityFilterCreateData } from "./SecurityFilterCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request object that includes the security filter that you would like to create.
+ */
 
 export class SecurityFilterCreateRequest {
   "data": SecurityFilterCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SecurityFilterCreateData",
@@ -30,7 +28,7 @@ export class SecurityFilterCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterCreateRequest.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of a full application key.
+ */
+
 export class FullApplicationKeyAttributes {
   /**
    * Creation date of the application key.
@@ -32,14 +38,7 @@ export class FullApplicationKeyAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "string",
@@ -62,7 +61,7 @@ export class FullApplicationKeyAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FullApplicationKeyAttributes.attributeTypeMap;
   }
 

@@ -175,7 +175,7 @@ export function getServer(
 export function setServerVariables(
   conf: Configuration,
   serverVariables: { [key: string]: string }
-) {
+): void {
   if (conf.baseServer !== undefined) {
     conf.baseServer.setVariables(serverVariables);
     return;

@@ -9,6 +9,11 @@
  */
 
 import { LogsArchiveAttributes } from "./LogsArchiveAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The definition of an archive.
+ */
 
 export class LogsArchiveDefinition {
   "attributes"?: LogsArchiveAttributes;
@@ -23,14 +28,7 @@ export class LogsArchiveDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "LogsArchiveAttributes",
@@ -46,7 +44,7 @@ export class LogsArchiveDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDefinition.attributeTypeMap;
   }
 

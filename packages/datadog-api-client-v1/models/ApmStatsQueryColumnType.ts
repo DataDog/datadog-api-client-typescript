@@ -10,6 +10,11 @@
 
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetSort } from "./WidgetSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Column properties.
+ */
 
 export class ApmStatsQueryColumnType {
   /**
@@ -25,14 +30,7 @@ export class ApmStatsQueryColumnType {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
       baseName: "alias",
       type: "string",
@@ -52,7 +50,7 @@ export class ApmStatsQueryColumnType {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApmStatsQueryColumnType.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { HostMapRequest } from "./HostMapRequest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of definitions.
+ */
 
 export class HostMapWidgetDefinitionRequests {
   "fill"?: HostMapRequest;
@@ -16,14 +21,7 @@ export class HostMapWidgetDefinitionRequests {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     fill: {
       baseName: "fill",
       type: "HostMapRequest",
@@ -34,7 +32,7 @@ export class HostMapWidgetDefinitionRequests {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapWidgetDefinitionRequests.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { AWSNamespace } from "./AWSNamespace";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The objects used to delete an AWS tag filter entry.
+ */
 
 export class AWSTagFilterDeleteRequest {
   /**
@@ -19,14 +24,7 @@ export class AWSTagFilterDeleteRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
       type: "string",
@@ -37,7 +35,7 @@ export class AWSTagFilterDeleteRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilterDeleteRequest.attributeTypeMap;
   }
 

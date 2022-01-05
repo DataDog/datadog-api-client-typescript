@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with the list of muted host for your organization.
+ */
+
 export class HostMuteResponse {
   /**
    * Action applied to the hosts.
@@ -28,14 +34,7 @@ export class HostMuteResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
       baseName: "action",
       type: "string",
@@ -56,7 +55,7 @@ export class HostMuteResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMuteResponse.attributeTypeMap;
   }
 

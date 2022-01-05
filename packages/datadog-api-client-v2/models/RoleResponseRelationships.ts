@@ -9,27 +9,25 @@
  */
 
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationships of the role object returned by the API.
+ */
 
 export class RoleResponseRelationships {
   "permissions"?: RelationshipToPermissions;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     permissions: {
       baseName: "permissions",
       type: "RelationshipToPermissions",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleResponseRelationships.attributeTypeMap;
   }
 

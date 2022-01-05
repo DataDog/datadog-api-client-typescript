@@ -14,6 +14,11 @@ import { WidgetAxis } from "./WidgetAxis";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
+ */
 
 export class ScatterPlotWidgetDefinition {
   /**
@@ -41,14 +46,7 @@ export class ScatterPlotWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     colorByGroups: {
       baseName: "color_by_groups",
       type: "Array<string>",
@@ -93,7 +91,7 @@ export class ScatterPlotWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterPlotWidgetDefinition.attributeTypeMap;
   }
 

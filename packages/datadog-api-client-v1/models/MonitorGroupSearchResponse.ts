@@ -11,6 +11,11 @@
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The response of a monitor group search.
+ */
 
 export class MonitorGroupSearchResponse {
   "counts"?: MonitorGroupSearchResponseCounts;
@@ -22,14 +27,7 @@ export class MonitorGroupSearchResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     counts: {
       baseName: "counts",
       type: "MonitorGroupSearchResponseCounts",
@@ -44,7 +42,7 @@ export class MonitorGroupSearchResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorGroupSearchResponse.attributeTypeMap;
   }
 

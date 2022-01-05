@@ -9,6 +9,11 @@
  */
 
 import { NotebookMarkdownCellDefinitionType } from "./NotebookMarkdownCellDefinitionType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
+ */
 
 export class NotebookMarkdownCellDefinition {
   /**
@@ -19,14 +24,7 @@ export class NotebookMarkdownCellDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     text: {
       baseName: "text",
       type: "string",
@@ -39,7 +37,7 @@ export class NotebookMarkdownCellDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookMarkdownCellDefinition.attributeTypeMap;
   }
 

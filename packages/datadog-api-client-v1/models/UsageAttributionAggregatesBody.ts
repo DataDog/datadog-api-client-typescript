@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing the aggregates.
+ */
+
 export class UsageAttributionAggregatesBody {
   /**
    * The aggregate type.
@@ -24,14 +30,7 @@ export class UsageAttributionAggregatesBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggType: {
       baseName: "agg_type",
       type: "string",
@@ -48,7 +47,7 @@ export class UsageAttributionAggregatesBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionAggregatesBody.attributeTypeMap;
   }
 

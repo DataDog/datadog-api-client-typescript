@@ -9,27 +9,25 @@
  */
 
 import { LogsAPIError } from "./LogsAPIError";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response returned by the Logs API when errors occur.
+ */
 
 export class LogsAPIErrorResponse {
   "error"?: LogsAPIError;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
       type: "LogsAPIError",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAPIErrorResponse.attributeTypeMap;
   }
 

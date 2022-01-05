@@ -13,6 +13,11 @@ import { OrganizationSettingsSaml } from "./OrganizationSettingsSaml";
 import { OrganizationSettingsSamlAutocreateUsersDomains } from "./OrganizationSettingsSamlAutocreateUsersDomains";
 import { OrganizationSettingsSamlIdpInitiatedLogin } from "./OrganizationSettingsSamlIdpInitiatedLogin";
 import { OrganizationSettingsSamlStrictMode } from "./OrganizationSettingsSamlStrictMode";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A JSON array of settings.
+ */
 
 export class OrganizationSettings {
   /**
@@ -43,14 +48,7 @@ export class OrganizationSettings {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     privateWidgetShare: {
       baseName: "private_widget_share",
       type: "boolean",
@@ -93,7 +91,7 @@ export class OrganizationSettings {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSettings.attributeTypeMap;
   }
 

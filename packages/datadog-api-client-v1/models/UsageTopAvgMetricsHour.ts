@@ -9,6 +9,11 @@
  */
 
 import { UsageMetricCategory } from "./UsageMetricCategory";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of hourly recorded custom metrics for a given organization.
+ */
 
 export class UsageTopAvgMetricsHour {
   /**
@@ -27,14 +32,7 @@ export class UsageTopAvgMetricsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     avgMetricHour: {
       baseName: "avg_metric_hour",
       type: "number",
@@ -57,7 +55,7 @@ export class UsageTopAvgMetricsHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTopAvgMetricsHour.attributeTypeMap;
   }
 

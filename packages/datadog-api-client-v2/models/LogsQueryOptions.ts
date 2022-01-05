@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Global query options that are used during the query. Note: You should only supply timezone or time offset but not both otherwise the query will fail.
+ */
+
 export class LogsQueryOptions {
   /**
    * The time offset (in seconds) to apply to the query.
@@ -20,14 +26,7 @@ export class LogsQueryOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     timeOffset: {
       baseName: "timeOffset",
       type: "number",
@@ -40,7 +39,7 @@ export class LogsQueryOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsQueryOptions.attributeTypeMap;
   }
 

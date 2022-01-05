@@ -9,6 +9,11 @@
  */
 
 import { LogsURLParserType } from "./LogsURLParserType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * This processor extracts query parameters and other important parameters from a URL.
+ */
 
 export class LogsURLParser {
   /**
@@ -35,14 +40,7 @@ export class LogsURLParser {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
@@ -72,7 +70,7 @@ export class LogsURLParser {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsURLParser.attributeTypeMap;
   }
 

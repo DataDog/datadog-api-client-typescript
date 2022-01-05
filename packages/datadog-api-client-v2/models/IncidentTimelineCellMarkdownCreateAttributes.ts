@@ -10,6 +10,11 @@
 
 import { IncidentTimelineCellMarkdownContentType } from "./IncidentTimelineCellMarkdownContentType";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Timeline cell data for Markdown timeline cells for a create request.
+ */
 
 export class IncidentTimelineCellMarkdownCreateAttributes {
   "cellType": IncidentTimelineCellMarkdownContentType;
@@ -21,14 +26,7 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cellType: {
       baseName: "cell_type",
       type: "IncidentTimelineCellMarkdownContentType",
@@ -45,7 +43,7 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
   }
 

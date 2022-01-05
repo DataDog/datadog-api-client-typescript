@@ -10,6 +10,11 @@
 
 import { FreeTextWidgetDefinitionType } from "./FreeTextWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
+ */
 
 export class FreeTextWidgetDefinition {
   /**
@@ -29,14 +34,7 @@ export class FreeTextWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     color: {
       baseName: "color",
       type: "string",
@@ -61,7 +59,7 @@ export class FreeTextWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FreeTextWidgetDefinition.attributeTypeMap;
   }
 

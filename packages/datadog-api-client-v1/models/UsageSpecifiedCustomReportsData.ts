@@ -10,6 +10,11 @@
 
 import { UsageReportsType } from "./UsageReportsType";
 import { UsageSpecifiedCustomReportsAttributes } from "./UsageSpecifiedCustomReportsAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing date and type for specified custom reports.
+ */
 
 export class UsageSpecifiedCustomReportsData {
   "attributes"?: UsageSpecifiedCustomReportsAttributes;
@@ -21,14 +26,7 @@ export class UsageSpecifiedCustomReportsData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "UsageSpecifiedCustomReportsAttributes",
@@ -43,7 +41,7 @@ export class UsageSpecifiedCustomReportsData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSpecifiedCustomReportsData.attributeTypeMap;
   }
 

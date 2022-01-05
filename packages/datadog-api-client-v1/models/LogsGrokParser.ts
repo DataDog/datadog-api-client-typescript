@@ -10,6 +10,11 @@
 
 import { LogsGrokParserRules } from "./LogsGrokParserRules";
 import { LogsGrokParserType } from "./LogsGrokParserType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/log_configuration/parsing).
+ */
 
 export class LogsGrokParser {
   "grok": LogsGrokParserRules;
@@ -33,14 +38,7 @@ export class LogsGrokParser {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     grok: {
       baseName: "grok",
       type: "LogsGrokParserRules",
@@ -70,7 +68,7 @@ export class LogsGrokParser {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGrokParser.attributeTypeMap;
   }
 

@@ -9,27 +9,25 @@
  */
 
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Meta attributes.
+ */
 
 export class SecurityMonitoringSignalsListResponseMeta {
   "page"?: SecurityMonitoringSignalsListResponseMetaPage;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
       type: "SecurityMonitoringSignalsListResponseMetaPage",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
   }
 

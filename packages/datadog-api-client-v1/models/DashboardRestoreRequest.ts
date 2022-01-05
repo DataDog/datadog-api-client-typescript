@@ -9,6 +9,11 @@
  */
 
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Dashboard restore request body.
+ */
 
 export class DashboardRestoreRequest {
   /**
@@ -18,14 +23,7 @@ export class DashboardRestoreRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<DashboardBulkActionData>",
@@ -33,7 +31,7 @@ export class DashboardRestoreRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardRestoreRequest.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes associated with the archive order.
+ */
+
 export class LogsArchiveOrderAttributes {
   /**
    * An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array define the overall archives order for Datadog.
@@ -16,14 +22,7 @@ export class LogsArchiveOrderAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     archiveIds: {
       baseName: "archive_ids",
       type: "Array<string>",
@@ -31,7 +30,7 @@ export class LogsArchiveOrderAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveOrderAttributes.attributeTypeMap;
   }
 

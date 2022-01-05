@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The payload accepted for intake.
+ */
+
 export class IntakePayloadAccepted {
   /**
    * The status of the intake payload.
@@ -16,21 +22,14 @@ export class IntakePayloadAccepted {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
       baseName: "status",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IntakePayloadAccepted.attributeTypeMap;
   }
 

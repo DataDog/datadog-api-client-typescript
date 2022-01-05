@@ -9,6 +9,11 @@
  */
 
 import { QuerySortOrder } from "./QuerySortOrder";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Options for limiting results returned.
+ */
 
 export class WidgetFormulaLimit {
   /**
@@ -19,14 +24,7 @@ export class WidgetFormulaLimit {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
       baseName: "count",
       type: "number",
@@ -39,7 +37,7 @@ export class WidgetFormulaLimit {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetFormulaLimit.attributeTypeMap;
   }
 

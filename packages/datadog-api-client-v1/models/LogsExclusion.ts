@@ -9,6 +9,11 @@
  */
 
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Represents the index exclusion filter object from configuration API.
+ */
 
 export class LogsExclusion {
   "filter"?: LogsExclusionFilter;
@@ -23,14 +28,7 @@ export class LogsExclusion {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
       type: "LogsExclusionFilter",
@@ -46,7 +44,7 @@ export class LogsExclusion {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsExclusion.attributeTypeMap;
   }
 

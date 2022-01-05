@@ -9,6 +9,11 @@
  */
 
 import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with aggregated usage types.
+ */
 
 export class UsageBillableSummaryKeys {
   "apmHostSum"?: UsageBillableSummaryBody;
@@ -46,14 +51,7 @@ export class UsageBillableSummaryKeys {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmHostSum: {
       baseName: "apm_host_sum",
       type: "UsageBillableSummaryBody",
@@ -184,7 +182,7 @@ export class UsageBillableSummaryKeys {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryKeys.attributeTypeMap;
   }
 

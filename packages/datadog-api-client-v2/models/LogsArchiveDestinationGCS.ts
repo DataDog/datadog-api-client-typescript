@@ -10,6 +10,11 @@
 
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The GCS archive destination.
+ */
 
 export class LogsArchiveDestinationGCS {
   /**
@@ -25,14 +30,7 @@ export class LogsArchiveDestinationGCS {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     bucket: {
       baseName: "bucket",
       type: "string",
@@ -54,7 +52,7 @@ export class LogsArchiveDestinationGCS {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDestinationGCS.attributeTypeMap;
   }
 

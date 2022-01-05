@@ -9,6 +9,11 @@
  */
 
 import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A field with a single value selected.
+ */
 
 export class IncidentFieldAttributesSingleValue {
   "type"?: IncidentFieldAttributesSingleValueType;
@@ -19,14 +24,7 @@ export class IncidentFieldAttributesSingleValue {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "IncidentFieldAttributesSingleValueType",
@@ -37,7 +35,7 @@ export class IncidentFieldAttributesSingleValue {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentFieldAttributesSingleValue.attributeTypeMap;
   }
 

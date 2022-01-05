@@ -9,6 +9,11 @@
  */
 
 import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with monthly summary of data billed by Datadog.
+ */
 
 export class UsageBillableSummaryResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageBillableSummaryResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageBillableSummaryHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryResponse.attributeTypeMap;
   }
 

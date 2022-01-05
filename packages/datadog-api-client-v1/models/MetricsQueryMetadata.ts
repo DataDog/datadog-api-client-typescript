@@ -9,6 +9,11 @@
  */
 
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing all metric names returned and their associated metadata.
+ */
 
 export class MetricsQueryMetadata {
   /**
@@ -66,14 +71,7 @@ export class MetricsQueryMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggr: {
       baseName: "aggr",
       type: "string",
@@ -140,7 +138,7 @@ export class MetricsQueryMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsQueryMetadata.attributeTypeMap;
   }
 

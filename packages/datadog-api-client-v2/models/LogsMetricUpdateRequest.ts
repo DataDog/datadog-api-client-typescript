@@ -9,20 +9,18 @@
  */
 
 import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The new log-based metric body.
+ */
 
 export class LogsMetricUpdateRequest {
   "data": LogsMetricUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "LogsMetricUpdateData",
@@ -30,7 +28,7 @@ export class LogsMetricUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricUpdateRequest.attributeTypeMap;
   }
 

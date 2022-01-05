@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Wrapper object with the list of monitor IDs.
+ */
+
 export class CheckCanDeleteMonitorResponseData {
   /**
    * An array of of Monitor IDs that can be safely deleted.
@@ -16,14 +22,7 @@ export class CheckCanDeleteMonitorResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     ok: {
       baseName: "ok",
       type: "Array<number>",
@@ -32,7 +31,7 @@ export class CheckCanDeleteMonitorResponseData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteMonitorResponseData.attributeTypeMap;
   }
 

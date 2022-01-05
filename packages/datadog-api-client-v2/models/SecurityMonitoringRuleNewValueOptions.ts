@@ -10,6 +10,11 @@
 
 import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./SecurityMonitoringRuleNewValueOptionsForgetAfter";
 import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./SecurityMonitoringRuleNewValueOptionsLearningDuration";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Options on new value rules.
+ */
 
 export class SecurityMonitoringRuleNewValueOptions {
   "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
@@ -17,14 +22,7 @@ export class SecurityMonitoringRuleNewValueOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     forgetAfter: {
       baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
@@ -35,7 +33,7 @@ export class SecurityMonitoringRuleNewValueOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
   }
 

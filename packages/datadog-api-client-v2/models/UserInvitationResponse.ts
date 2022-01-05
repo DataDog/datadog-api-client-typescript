@@ -9,27 +9,25 @@
  */
 
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * User invitation as returned by the API.
+ */
 
 export class UserInvitationResponse {
   "data"?: UserInvitationResponseData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "UserInvitationResponseData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationResponse.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Search options.
+ */
+
 export class FormulaAndFunctionEventQueryDefinitionSearch {
   /**
    * Events search string.
@@ -16,14 +22,7 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
       type: "string",
@@ -31,7 +30,7 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
   }
 

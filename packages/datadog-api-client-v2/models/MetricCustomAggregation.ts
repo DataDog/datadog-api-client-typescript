@@ -10,6 +10,11 @@
 
 import { MetricCustomSpaceAggregation } from "./MetricCustomSpaceAggregation";
 import { MetricCustomTimeAggregation } from "./MetricCustomTimeAggregation";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A time and space aggregation combination for use in query.
+ */
 
 export class MetricCustomAggregation {
   "space": MetricCustomSpaceAggregation;
@@ -17,14 +22,7 @@ export class MetricCustomAggregation {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     space: {
       baseName: "space",
       type: "MetricCustomSpaceAggregation",
@@ -37,7 +35,7 @@ export class MetricCustomAggregation {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricCustomAggregation.attributeTypeMap;
   }
 

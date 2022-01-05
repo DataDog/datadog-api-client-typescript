@@ -9,27 +9,25 @@
  */
 
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response metadata object.
+ */
 
 export class ProcessSummariesMeta {
   "page"?: ProcessSummariesMetaPage;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
       type: "ProcessSummariesMetaPage",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummariesMeta.attributeTypeMap;
   }
 

@@ -10,6 +10,11 @@
 
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Metadata for the Synthetics tests run.
+ */
 
 export class SyntheticsCIBatchMetadata {
   "ci"?: SyntheticsCIBatchMetadataCI;
@@ -17,14 +22,7 @@ export class SyntheticsCIBatchMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     ci: {
       baseName: "ci",
       type: "SyntheticsCIBatchMetadataCI",
@@ -35,7 +33,7 @@ export class SyntheticsCIBatchMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadata.attributeTypeMap;
   }
 

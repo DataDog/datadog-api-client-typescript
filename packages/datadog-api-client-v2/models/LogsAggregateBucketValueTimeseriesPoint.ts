@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A timeseries point
+ */
+
 export class LogsAggregateBucketValueTimeseriesPoint {
   /**
    * The time value for this point
@@ -20,14 +26,7 @@ export class LogsAggregateBucketValueTimeseriesPoint {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     time: {
       baseName: "time",
       type: "string",
@@ -40,7 +39,7 @@ export class LogsAggregateBucketValueTimeseriesPoint {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
   }
 

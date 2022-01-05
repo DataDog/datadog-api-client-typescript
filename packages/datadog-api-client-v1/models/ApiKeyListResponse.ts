@@ -9,6 +9,11 @@
  */
 
 import { ApiKey } from "./ApiKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of API and application keys available for a given organization.
+ */
 
 export class ApiKeyListResponse {
   /**
@@ -18,21 +23,14 @@ export class ApiKeyListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apiKeys: {
       baseName: "api_keys",
       type: "Array<ApiKey>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApiKeyListResponse.attributeTypeMap;
   }
 

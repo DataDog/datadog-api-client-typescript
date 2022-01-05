@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of Synthetics Browser tests run for each hour for a given organization.
+ */
+
 export class UsageSyntheticsBrowserHour {
   /**
    * Contains the number of Synthetics Browser tests run.
@@ -20,14 +26,7 @@ export class UsageSyntheticsBrowserHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     browserCheckCallsCount: {
       baseName: "browser_check_calls_count",
       type: "number",
@@ -42,7 +41,7 @@ export class UsageSyntheticsBrowserHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsBrowserHour.attributeTypeMap;
   }
 

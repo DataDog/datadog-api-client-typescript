@@ -9,6 +9,11 @@
  */
 
 import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the incident management usage for each hour for a given organization.
+ */
 
 export class UsageIncidentManagementResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageIncidentManagementResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageIncidentManagementHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIncidentManagementResponse.attributeTypeMap;
   }
 

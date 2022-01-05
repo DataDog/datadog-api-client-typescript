@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Sensitive Data Scanner usage for a given organization for a given hour.
+ */
+
 export class UsageSDSHour {
   /**
    * The hour for the usage.
@@ -32,14 +38,7 @@ export class UsageSDSHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
@@ -68,7 +67,7 @@ export class UsageSDSHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSDSHour.attributeTypeMap;
   }
 

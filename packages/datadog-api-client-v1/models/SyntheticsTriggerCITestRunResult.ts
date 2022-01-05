@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Information about a single test run.
+ */
 
 export class SyntheticsTriggerCITestRunResult {
   "device"?: SyntheticsDeviceID;
@@ -27,14 +32,7 @@ export class SyntheticsTriggerCITestRunResult {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
       type: "SyntheticsDeviceID",
@@ -55,7 +53,7 @@ export class SyntheticsTriggerCITestRunResult {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerCITestRunResult.attributeTypeMap;
   }
 

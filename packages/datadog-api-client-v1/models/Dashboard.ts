@@ -13,6 +13,11 @@ import { DashboardReflowType } from "./DashboardReflowType";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { Widget } from "./Widget";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
+ */
 
 export class Dashboard {
   /**
@@ -76,14 +81,7 @@ export class Dashboard {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     authorHandle: {
       baseName: "author_handle",
       type: "string",
@@ -157,7 +155,7 @@ export class Dashboard {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Dashboard.attributeTypeMap;
   }
 

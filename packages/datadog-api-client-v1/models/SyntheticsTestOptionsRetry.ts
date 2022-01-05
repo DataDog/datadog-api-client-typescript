@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the retry strategy to apply to a Synthetic test.
+ */
+
 export class SyntheticsTestOptionsRetry {
   /**
    * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
@@ -20,14 +26,7 @@ export class SyntheticsTestOptionsRetry {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
       baseName: "count",
       type: "number",
@@ -42,7 +41,7 @@ export class SyntheticsTestOptionsRetry {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptionsRetry.attributeTypeMap;
   }
 

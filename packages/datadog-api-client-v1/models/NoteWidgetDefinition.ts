@@ -12,6 +12,11 @@ import { NoteWidgetDefinitionType } from "./NoteWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTickEdge } from "./WidgetTickEdge";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The notes and links widget is similar to free text widget, but allows for more formatting options.
+ */
 
 export class NoteWidgetDefinition {
   /**
@@ -45,14 +50,7 @@ export class NoteWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     backgroundColor: {
       baseName: "background_color",
       type: "string",
@@ -97,7 +95,7 @@ export class NoteWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NoteWidgetDefinition.attributeTypeMap;
   }
 

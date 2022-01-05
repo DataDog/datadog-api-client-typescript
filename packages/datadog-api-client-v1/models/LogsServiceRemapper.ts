@@ -9,6 +9,11 @@
  */
 
 import { LogsServiceRemapperType } from "./LogsServiceRemapperType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Use this processor if you want to assign one or more attributes as the official service.  **Note:** If multiple service remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
+ */
 
 export class LogsServiceRemapper {
   /**
@@ -27,14 +32,7 @@ export class LogsServiceRemapper {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
@@ -55,7 +53,7 @@ export class LogsServiceRemapper {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsServiceRemapper.attributeTypeMap;
   }
 

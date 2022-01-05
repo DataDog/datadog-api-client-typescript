@@ -11,6 +11,11 @@
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsSort } from "./SecurityMonitoringSignalsSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The request for a security signal list.
+ */
 
 export class SecurityMonitoringSignalListRequest {
   "filter"?: SecurityMonitoringSignalListRequestFilter;
@@ -19,14 +24,7 @@ export class SecurityMonitoringSignalListRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
       type: "SecurityMonitoringSignalListRequestFilter",
@@ -41,7 +39,7 @@ export class SecurityMonitoringSignalListRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalListRequest.attributeTypeMap;
   }
 

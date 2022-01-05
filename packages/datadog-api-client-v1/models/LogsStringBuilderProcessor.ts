@@ -9,6 +9,11 @@
  */
 
 import { LogsStringBuilderProcessorType } from "./LogsStringBuilderProcessorType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Use the string builder processor to add a new attribute (without spaces or special characters) to a log with the result of the provided template. This enables aggregation of different attributes or raw strings into a single attribute.  The template is defined by both raw text and blocks with the syntax `%{attribute_path}`.  **Notes**:  - The processor only accepts attributes with values or an array of values in the blocks. - If an attribute cannot be used (object or array of object),   it is replaced by an empty string or the entire operation is skipped depending on your selection. - If the target attribute already exists, it is overwritten by the result of the template. - Results of the template cannot exceed 256 characters.
+ */
 
 export class LogsStringBuilderProcessor {
   /**
@@ -35,14 +40,7 @@ export class LogsStringBuilderProcessor {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
@@ -72,7 +70,7 @@ export class LogsStringBuilderProcessor {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsStringBuilderProcessor.attributeTypeMap;
   }
 

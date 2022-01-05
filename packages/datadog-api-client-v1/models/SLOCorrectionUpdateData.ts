@@ -10,6 +10,11 @@
 
 import { SLOCorrectionType } from "./SLOCorrectionType";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The data object associated with the SLO correction to be updated.
+ */
 
 export class SLOCorrectionUpdateData {
   "attributes"?: SLOCorrectionUpdateRequestAttributes;
@@ -17,14 +22,7 @@ export class SLOCorrectionUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "SLOCorrectionUpdateRequestAttributes",
@@ -35,7 +33,7 @@ export class SLOCorrectionUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionUpdateData.attributeTypeMap;
   }
 

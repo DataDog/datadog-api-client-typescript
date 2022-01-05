@@ -9,6 +9,11 @@
  */
 
 import { UsageLambdaHour } from "./UsageLambdaHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
+ */
 
 export class UsageLambdaResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageLambdaResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageLambdaHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLambdaResponse.attributeTypeMap;
   }
 

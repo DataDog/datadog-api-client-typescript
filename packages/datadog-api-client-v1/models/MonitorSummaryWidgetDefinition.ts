@@ -14,6 +14,11 @@ import { WidgetMonitorSummaryDisplayFormat } from "./WidgetMonitorSummaryDisplay
 import { WidgetMonitorSummarySort } from "./WidgetMonitorSummarySort";
 import { WidgetSummaryType } from "./WidgetSummaryType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
+ */
 
 export class MonitorSummaryWidgetDefinition {
   "colorPreference"?: WidgetColorPreference;
@@ -53,14 +58,7 @@ export class MonitorSummaryWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     colorPreference: {
       baseName: "color_preference",
       type: "WidgetColorPreference",
@@ -121,7 +119,7 @@ export class MonitorSummaryWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSummaryWidgetDefinition.attributeTypeMap;
   }
 

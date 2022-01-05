@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the issuer of a SSL certificate.
+ */
+
 export class SyntheticsSSLCertificateIssuer {
   /**
    * Country Name that issued the certificate.
@@ -36,14 +42,7 @@ export class SyntheticsSSLCertificateIssuer {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     C: {
       baseName: "C",
       type: "string",
@@ -70,7 +69,7 @@ export class SyntheticsSSLCertificateIssuer {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsSSLCertificateIssuer.attributeTypeMap;
   }
 

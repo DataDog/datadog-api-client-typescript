@@ -9,6 +9,11 @@
  */
 
 import { IncidentFieldAttributesValueType } from "./IncidentFieldAttributesValueType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A field with potentially multiple values selected.
+ */
 
 export class IncidentFieldAttributesMultipleValue {
   "type"?: IncidentFieldAttributesValueType;
@@ -19,14 +24,7 @@ export class IncidentFieldAttributesMultipleValue {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "IncidentFieldAttributesValueType",
@@ -37,7 +35,7 @@ export class IncidentFieldAttributesMultipleValue {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentFieldAttributesMultipleValue.attributeTypeMap;
   }
 

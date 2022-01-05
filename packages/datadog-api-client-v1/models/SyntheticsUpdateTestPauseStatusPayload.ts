@@ -9,27 +9,25 @@
  */
 
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object to start or pause an existing Synthetic test.
+ */
 
 export class SyntheticsUpdateTestPauseStatusPayload {
   "newStatus"?: SyntheticsTestPauseStatus;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     newStatus: {
       baseName: "new_status",
       type: "SyntheticsTestPauseStatus",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { AWSTagFilter } from "./AWSTagFilter";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An array of tag filter rules by `namespace` and tag filter string.
+ */
 
 export class AWSTagFilterListResponse {
   /**
@@ -18,21 +23,14 @@ export class AWSTagFilterListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filters: {
       baseName: "filters",
       type: "Array<AWSTagFilter>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilterListResponse.attributeTypeMap;
   }
 

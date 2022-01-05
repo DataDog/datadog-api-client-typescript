@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the creator of the shared element.
+ */
+
 export class Creator {
   /**
    * Email of the creator.
@@ -24,14 +30,7 @@ export class Creator {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
       type: "string",
@@ -46,7 +45,7 @@ export class Creator {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Creator.attributeTypeMap;
   }
 

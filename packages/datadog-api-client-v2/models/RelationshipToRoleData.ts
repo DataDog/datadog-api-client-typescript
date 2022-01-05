@@ -9,6 +9,11 @@
  */
 
 import { RolesType } from "./RolesType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationship to role object.
+ */
 
 export class RelationshipToRoleData {
   /**
@@ -19,14 +24,7 @@ export class RelationshipToRoleData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -37,7 +35,7 @@ export class RelationshipToRoleData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToRoleData.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
+ */
+
 export class UsageRumUnitsHour {
   /**
    * The number of browser RUM units.
@@ -32,14 +38,7 @@ export class UsageRumUnitsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     browserRumUnits: {
       baseName: "browser_rum_units",
       type: "number",
@@ -68,7 +67,7 @@ export class UsageRumUnitsHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageRumUnitsHour.attributeTypeMap;
   }
 

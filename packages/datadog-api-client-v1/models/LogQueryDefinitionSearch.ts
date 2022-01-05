@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The query being made on the logs.
+ */
+
 export class LogQueryDefinitionSearch {
   /**
    * Search value to apply.
@@ -16,14 +22,7 @@ export class LogQueryDefinitionSearch {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
       type: "string",
@@ -31,7 +30,7 @@ export class LogQueryDefinitionSearch {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinitionSearch.attributeTypeMap;
   }
 

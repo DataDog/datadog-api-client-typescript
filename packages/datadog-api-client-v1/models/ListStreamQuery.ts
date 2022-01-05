@@ -9,6 +9,11 @@
  */
 
 import { ListStreamSource } from "./ListStreamSource";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated list stream widget.
+ */
 
 export class ListStreamQuery {
   "dataSource": ListStreamSource;
@@ -23,14 +28,7 @@ export class ListStreamQuery {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
       type: "ListStreamSource",
@@ -47,7 +45,7 @@ export class ListStreamQuery {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamQuery.attributeTypeMap;
   }
 

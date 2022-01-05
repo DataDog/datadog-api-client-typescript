@@ -10,6 +10,11 @@
 
 import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
 import { ApmStatsQueryRowType } from "./ApmStatsQueryRowType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The APM stats query for table and distributions widgets.
+ */
 
 export class ApmStatsQueryDefinition {
   /**
@@ -40,14 +45,7 @@ export class ApmStatsQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
       baseName: "columns",
       type: "Array<ApmStatsQueryColumnType>",
@@ -83,7 +81,7 @@ export class ApmStatsQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApmStatsQueryDefinition.attributeTypeMap;
   }
 

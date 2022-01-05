@@ -9,27 +9,25 @@
  */
 
 import { HourlyUsageAttributionPagination } from "./HourlyUsageAttributionPagination";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing document metadata.
+ */
 
 export class HourlyUsageAttributionMetadata {
   "pagination"?: HourlyUsageAttributionPagination;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
       baseName: "pagination",
       type: "HourlyUsageAttributionPagination",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HourlyUsageAttributionMetadata.attributeTypeMap;
   }
 

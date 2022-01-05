@@ -9,6 +9,11 @@
  */
 
 import { UsageFargateHour } from "./UsageFargateHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of Fargate tasks run and hourly usage.
+ */
 
 export class UsageFargateResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageFargateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageFargateHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageFargateResponse.attributeTypeMap;
   }
 

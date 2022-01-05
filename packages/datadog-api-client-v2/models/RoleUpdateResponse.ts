@@ -9,27 +9,25 @@
  */
 
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing information about an updated role.
+ */
 
 export class RoleUpdateResponse {
   "data"?: RoleUpdateResponseData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "RoleUpdateResponseData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleUpdateResponse.attributeTypeMap;
   }
 

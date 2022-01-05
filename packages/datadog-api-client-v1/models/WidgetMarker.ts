@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Markers allow you to add visual conditional formatting for your graphs.
+ */
+
 export class WidgetMarker {
   /**
    * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
@@ -28,14 +34,7 @@ export class WidgetMarker {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     displayType: {
       baseName: "display_type",
       type: "string",
@@ -55,7 +54,7 @@ export class WidgetMarker {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetMarker.attributeTypeMap;
   }
 

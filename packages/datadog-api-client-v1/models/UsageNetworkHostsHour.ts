@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of active NPM hosts for each hour for a given organization.
+ */
+
 export class UsageNetworkHostsHour {
   /**
    * Contains the number of active NPM hosts.
@@ -20,14 +26,7 @@ export class UsageNetworkHostsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hostCount: {
       baseName: "host_count",
       type: "number",
@@ -42,7 +41,7 @@ export class UsageNetworkHostsHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkHostsHour.attributeTypeMap;
   }
 

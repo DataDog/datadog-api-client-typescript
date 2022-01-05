@@ -719,7 +719,7 @@ const oneOfMap: { [index: string]: string[] } = {
 };
 
 export class ObjectSerializer {
-  public static serialize(data: any, type: string, format: string) {
+  public static serialize(data: any, type: string, format: string): any {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -820,7 +820,7 @@ export class ObjectSerializer {
     }
   }
 
-  public static deserialize(data: any, type: string, format = "") {
+  public static deserialize(data: any, type: string, format = ""): any {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -941,9 +941,13 @@ export class ObjectSerializer {
     let selectedMediaType: string | undefined = undefined;
     let selectedRank = -Infinity;
     for (const mediaType of normalMediaTypes) {
-      if (supportedMediaTypes[mediaType!] > selectedRank) {
+      if (mediaType === undefined) {
+        continue;
+      }
+      const supported = supportedMediaTypes[mediaType];
+      if (supported !== undefined && supported > selectedRank) {
         selectedMediaType = mediaType;
-        selectedRank = supportedMediaTypes[mediaType!];
+        selectedRank = supported;
       }
     }
 
@@ -953,7 +957,7 @@ export class ObjectSerializer {
       );
     }
 
-    return selectedMediaType!;
+    return selectedMediaType;
   }
 
   /**
@@ -974,7 +978,7 @@ export class ObjectSerializer {
   /**
    * Parse data from a string according to the given media type
    */
-  public static parse(rawData: string, mediaType: string | undefined) {
+  public static parse(rawData: string, mediaType: string | undefined): any {
     try {
       return JSON.parse(rawData);
     } catch (error) {
@@ -990,3 +994,12 @@ export class UnparsedObject {
     this.unparsedObject = data;
   }
 }
+
+export type AttributeTypeMap = {
+  [key: string]: {
+    baseName: string;
+    type: string;
+    required?: boolean;
+    format?: string;
+  };
+};

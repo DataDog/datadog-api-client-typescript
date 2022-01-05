@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes required to create a new role by cloning an existing one.
+ */
+
 export class RoleCloneAttributes {
   /**
    * Name of the new role that is cloned.
@@ -16,14 +22,7 @@ export class RoleCloneAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
@@ -31,7 +30,7 @@ export class RoleCloneAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleCloneAttributes.attributeTypeMap;
   }
 

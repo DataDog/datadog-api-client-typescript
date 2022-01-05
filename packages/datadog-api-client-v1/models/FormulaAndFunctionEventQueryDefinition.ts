@@ -12,6 +12,11 @@ import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunct
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
 import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A formula and functions events query.
+ */
 
 export class FormulaAndFunctionEventQueryDefinition {
   "compute": FormulaAndFunctionEventQueryDefinitionCompute;
@@ -32,14 +37,7 @@ export class FormulaAndFunctionEventQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
       type: "FormulaAndFunctionEventQueryDefinitionCompute",
@@ -69,7 +67,7 @@ export class FormulaAndFunctionEventQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
   }
 

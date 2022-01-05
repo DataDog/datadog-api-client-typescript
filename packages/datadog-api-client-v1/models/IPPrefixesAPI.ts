@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Available prefix information for the API endpoints.
+ */
+
 export class IPPrefixesAPI {
   /**
    * List of IPv4 prefixes.
@@ -20,14 +26,7 @@ export class IPPrefixesAPI {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     prefixesIpv4: {
       baseName: "prefixes_ipv4",
       type: "Array<string>",
@@ -38,7 +37,7 @@ export class IPPrefixesAPI {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IPPrefixesAPI.attributeTypeMap;
   }
 

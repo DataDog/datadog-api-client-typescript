@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Hour usage for logs.
+ */
+
 export class UsageLogsHour {
   /**
    * Contains the number of billable log bytes ingested.
@@ -44,14 +50,7 @@ export class UsageLogsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     billableIngestedBytes: {
       baseName: "billable_ingested_bytes",
       type: "number",
@@ -102,7 +101,7 @@ export class UsageLogsHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsHour.attributeTypeMap;
   }
 

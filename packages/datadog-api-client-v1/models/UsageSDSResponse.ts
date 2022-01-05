@@ -9,6 +9,11 @@
  */
 
 import { UsageSDSHour } from "./UsageSDSHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
+ */
 
 export class UsageSDSResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageSDSResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageSDSHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSDSResponse.attributeTypeMap;
   }
 

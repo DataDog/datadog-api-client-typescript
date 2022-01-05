@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the synthetics tests to trigger.
+ */
 
 export class SyntheticsTriggerBody {
   /**
@@ -18,14 +23,7 @@ export class SyntheticsTriggerBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
       type: "Array<SyntheticsTriggerTest>",
@@ -33,7 +31,7 @@ export class SyntheticsTriggerBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerBody.attributeTypeMap;
   }
 

@@ -10,6 +10,11 @@
 
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 import { RolesType } from "./RolesType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Data related to the update of a role.
+ */
 
 export class RoleUpdateData {
   "attributes": RoleUpdateAttributes;
@@ -21,14 +26,7 @@ export class RoleUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "RoleUpdateAttributes",
@@ -46,7 +44,7 @@ export class RoleUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleUpdateData.attributeTypeMap;
   }
 

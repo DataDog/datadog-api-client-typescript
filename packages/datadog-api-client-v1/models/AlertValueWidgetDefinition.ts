@@ -10,6 +10,11 @@
 
 import { AlertValueWidgetDefinitionType } from "./AlertValueWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Alert values are query values showing the current value of the metric in any monitor defined on your system.
+ */
 
 export class AlertValueWidgetDefinition {
   /**
@@ -38,14 +43,7 @@ export class AlertValueWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     alertId: {
       baseName: "alert_id",
       type: "string",
@@ -84,7 +82,7 @@ export class AlertValueWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AlertValueWidgetDefinition.attributeTypeMap;
   }
 

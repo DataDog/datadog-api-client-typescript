@@ -10,6 +10,11 @@
 
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 import { NotebookCellResponseAttributes } from "./NotebookCellResponseAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The description of a notebook cell response.
+ */
 
 export class NotebookCellResponse {
   "attributes": NotebookCellResponseAttributes;
@@ -21,14 +26,7 @@ export class NotebookCellResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "NotebookCellResponseAttributes",
@@ -46,7 +44,7 @@ export class NotebookCellResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCellResponse.attributeTypeMap;
   }
 

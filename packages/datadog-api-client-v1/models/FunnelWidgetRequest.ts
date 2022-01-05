@@ -10,6 +10,11 @@
 
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelRequestType } from "./FunnelRequestType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated funnel widget.
+ */
 
 export class FunnelWidgetRequest {
   "query": FunnelQuery;
@@ -17,14 +22,7 @@ export class FunnelWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
       type: "FunnelQuery",
@@ -37,7 +35,7 @@ export class FunnelWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelWidgetRequest.attributeTypeMap;
   }
 

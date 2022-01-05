@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * API error response.
+ */
+
 export class APIErrorResponse {
   /**
    * A list of errors.
@@ -16,14 +22,7 @@ export class APIErrorResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
       baseName: "errors",
       type: "Array<string>",
@@ -31,7 +30,7 @@ export class APIErrorResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return APIErrorResponse.attributeTypeMap;
   }
 

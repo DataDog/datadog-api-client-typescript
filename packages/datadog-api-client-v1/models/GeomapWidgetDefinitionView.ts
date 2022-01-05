@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The view of the world that the map should render.
+ */
+
 export class GeomapWidgetDefinitionView {
   /**
    * The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
@@ -16,14 +22,7 @@ export class GeomapWidgetDefinitionView {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     focus: {
       baseName: "focus",
       type: "string",
@@ -31,7 +30,7 @@ export class GeomapWidgetDefinitionView {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetDefinitionView.attributeTypeMap;
   }
 

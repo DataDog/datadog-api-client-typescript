@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object to handle basic authentication when performing the test.
+ */
+
 export class SyntheticsBasicAuth {
   /**
    * Password to use for the basic authentication.
@@ -20,14 +26,7 @@ export class SyntheticsBasicAuth {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     password: {
       baseName: "password",
       type: "string",
@@ -40,7 +39,7 @@ export class SyntheticsBasicAuth {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBasicAuth.attributeTypeMap;
   }
 
