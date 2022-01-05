@@ -8,12 +8,17 @@
  * Do not edit the class manually.
  */
 
-export type IncidentFieldAttributesValueType =
-  | typeof MULTISELECT
-  | typeof TEXTARRAY
-  | typeof METRICTAG
-  | typeof AUTOCOMPLETE;
-export const MULTISELECT = "multiselect";
-export const TEXTARRAY = "textarray";
-export const METRICTAG = "metrictag";
-export const AUTOCOMPLETE = "autocomplete";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the multiple value field definitions.
+*/
+
+export type IncidentFieldAttributesValueType = typeof MULTISELECT | typeof TEXTARRAY | typeof METRICTAG | typeof AUTOCOMPLETE ;
+export const MULTISELECT = 'multiselect';
+export const TEXTARRAY = 'textarray';
+export const METRICTAG = 'metrictag';
+export const AUTOCOMPLETE = 'autocomplete';
+
+

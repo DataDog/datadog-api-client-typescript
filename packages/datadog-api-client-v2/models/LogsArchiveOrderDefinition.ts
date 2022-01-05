@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
-import { LogsArchiveOrderDefinitionType } from "./LogsArchiveOrderDefinitionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveOrderAttributes } from './LogsArchiveOrderAttributes';
+import { LogsArchiveOrderDefinitionType } from './LogsArchiveOrderDefinitionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The definition of an archive order.
- */
+* The definition of an archive order.
+*/
 
 export class LogsArchiveOrderDefinition {
-  "attributes": LogsArchiveOrderAttributes;
-  "type": LogsArchiveOrderDefinitionType;
+    'attributes': LogsArchiveOrderAttributes;
+    'type': LogsArchiveOrderDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsArchiveOrderAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LogsArchiveOrderDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "LogsArchiveOrderAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsArchiveOrderDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveOrderDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveOrderDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

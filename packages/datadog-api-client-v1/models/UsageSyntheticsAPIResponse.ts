@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageSyntheticsAPIHour } from "./UsageSyntheticsAPIHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageSyntheticsAPIHour } from './UsageSyntheticsAPIHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of Synthetics API tests run for each hour for a given organization.
- */
+* Response containing the number of Synthetics API tests run for each hour for a given organization.
+*/
 
 export class UsageSyntheticsAPIResponse {
-  /**
-   * Get hourly usage for Synthetics API tests.
-   */
-  "usage"?: Array<UsageSyntheticsAPIHour>;
+    /**
+    * Get hourly usage for Synthetics API tests.
+    */
+    'usage'?: Array<UsageSyntheticsAPIHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSyntheticsAPIHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageSyntheticsAPIHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsAPIResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSyntheticsAPIResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

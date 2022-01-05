@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsMetricType = typeof LOGS_METRICS;
-export const LOGS_METRICS = "logs_metrics";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of the resource. The value should always be logs_metrics.
+*/
+
+export type LogsMetricType = typeof LOGS_METRICS ;
+export const LOGS_METRICS = 'logs_metrics';
+
+

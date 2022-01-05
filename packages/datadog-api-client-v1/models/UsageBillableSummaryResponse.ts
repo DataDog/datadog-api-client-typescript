@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageBillableSummaryHour } from './UsageBillableSummaryHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with monthly summary of data billed by Datadog.
- */
+* Response with monthly summary of data billed by Datadog.
+*/
 
 export class UsageBillableSummaryResponse {
-  /**
-   * An array of objects regarding usage of billable summary.
-   */
-  "usage"?: Array<UsageBillableSummaryHour>;
+    /**
+    * An array of objects regarding usage of billable summary.
+    */
+    'usage'?: Array<UsageBillableSummaryHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageBillableSummaryHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageBillableSummaryHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageBillableSummaryResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

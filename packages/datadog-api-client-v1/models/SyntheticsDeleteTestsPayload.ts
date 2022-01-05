@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
- */
+* A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
+*/
 
 export class SyntheticsDeleteTestsPayload {
-  /**
-   * An array of Synthetic test IDs you want to delete.
-   */
-  "publicIds"?: Array<string>;
+    /**
+    * An array of Synthetic test IDs you want to delete.
+    */
+    'publicIds'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    publicIds: {
-      baseName: "public_ids",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "publicIds": {
+            "baseName": "public_ids",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDeleteTestsPayload.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsDeleteTestsPayload.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

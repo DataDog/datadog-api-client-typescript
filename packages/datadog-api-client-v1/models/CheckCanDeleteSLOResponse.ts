@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { CheckCanDeleteSLOResponseData } from './CheckCanDeleteSLOResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A service level objective response containing the requested object.
- */
+* A service level objective response containing the requested object.
+*/
 
 export class CheckCanDeleteSLOResponse {
-  "data"?: CheckCanDeleteSLOResponseData;
-  /**
-   * A mapping of SLO id to it's current usages.
-   */
-  "errors"?: { [key: string]: string };
+    'data'?: CheckCanDeleteSLOResponseData;
+    /**
+    * A mapping of SLO id to it's current usages.
+    */
+    'errors'?: { [key: string]: string; };
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CheckCanDeleteSLOResponseData",
-    },
-    errors: {
-      baseName: "errors",
-      type: "{ [key: string]: string; }",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "CheckCanDeleteSLOResponseData",
+            
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "{ [key: string]: string; }",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteSLOResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return CheckCanDeleteSLOResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

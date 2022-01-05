@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetLineWidth = typeof NORMAL | typeof THICK | typeof THIN;
-export const NORMAL = "normal";
-export const THICK = "thick";
-export const THIN = "thin";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Width of line displayed.
+*/
+
+export type WidgetLineWidth = typeof NORMAL | typeof THICK | typeof THIN ;
+export const NORMAL = 'normal';
+export const THICK = 'thick';
+export const THIN = 'thin';
+
+

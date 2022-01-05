@@ -8,69 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AlertGraphWidgetDefinition } from "./AlertGraphWidgetDefinition";
-import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
-import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
-import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
-import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
-import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
-import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
-import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
-import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
-import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
-import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
-import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
-import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
-import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
-import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
-import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
-import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
-import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
-import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
-import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
-import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
-import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
-import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
-import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
-import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
-import { TableWidgetDefinition } from "./TableWidgetDefinition";
-import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
-import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
-import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
-import { UnparsedObject } from "./ObjectSerializer";
+import { AlertGraphWidgetDefinition } from './AlertGraphWidgetDefinition';
+import { AlertValueWidgetDefinition } from './AlertValueWidgetDefinition';
+import { ChangeWidgetDefinition } from './ChangeWidgetDefinition';
+import { CheckStatusWidgetDefinition } from './CheckStatusWidgetDefinition';
+import { DistributionWidgetDefinition } from './DistributionWidgetDefinition';
+import { EventStreamWidgetDefinition } from './EventStreamWidgetDefinition';
+import { EventTimelineWidgetDefinition } from './EventTimelineWidgetDefinition';
+import { FreeTextWidgetDefinition } from './FreeTextWidgetDefinition';
+import { FunnelWidgetDefinition } from './FunnelWidgetDefinition';
+import { FunnelWidgetDefinitionType } from './FunnelWidgetDefinitionType';
+import { FunnelWidgetRequest } from './FunnelWidgetRequest';
+import { GeomapWidgetDefinition } from './GeomapWidgetDefinition';
+import { GeomapWidgetDefinitionView } from './GeomapWidgetDefinitionView';
+import { GroupWidgetDefinition } from './GroupWidgetDefinition';
+import { HeatMapWidgetDefinition } from './HeatMapWidgetDefinition';
+import { HostMapWidgetDefinition } from './HostMapWidgetDefinition';
+import { HostMapWidgetDefinitionStyle } from './HostMapWidgetDefinitionStyle';
+import { IFrameWidgetDefinition } from './IFrameWidgetDefinition';
+import { ImageWidgetDefinition } from './ImageWidgetDefinition';
+import { ListStreamWidgetDefinition } from './ListStreamWidgetDefinition';
+import { LogStreamWidgetDefinition } from './LogStreamWidgetDefinition';
+import { MonitorSummaryWidgetDefinition } from './MonitorSummaryWidgetDefinition';
+import { NoteWidgetDefinition } from './NoteWidgetDefinition';
+import { QueryValueWidgetDefinition } from './QueryValueWidgetDefinition';
+import { SLOWidgetDefinition } from './SLOWidgetDefinition';
+import { ScatterPlotWidgetDefinition } from './ScatterPlotWidgetDefinition';
+import { ServiceMapWidgetDefinition } from './ServiceMapWidgetDefinition';
+import { ServiceSummaryWidgetDefinition } from './ServiceSummaryWidgetDefinition';
+import { SunburstWidgetDefinition } from './SunburstWidgetDefinition';
+import { SunburstWidgetLegend } from './SunburstWidgetLegend';
+import { TableWidgetDefinition } from './TableWidgetDefinition';
+import { TableWidgetHasSearchBar } from './TableWidgetHasSearchBar';
+import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
+import { TimeseriesWidgetLegendColumn } from './TimeseriesWidgetLegendColumn';
+import { TimeseriesWidgetLegendLayout } from './TimeseriesWidgetLegendLayout';
+import { ToplistWidgetDefinition } from './ToplistWidgetDefinition';
+import { TreeMapColorBy } from './TreeMapColorBy';
+import { TreeMapGroupBy } from './TreeMapGroupBy';
+import { TreeMapSizeBy } from './TreeMapSizeBy';
+import { TreeMapWidgetDefinition } from './TreeMapWidgetDefinition';
+import { Widget } from './Widget';
+import { WidgetAxis } from './WidgetAxis';
+import { WidgetColorPreference } from './WidgetColorPreference';
+import { WidgetCustomLink } from './WidgetCustomLink';
+import { WidgetEvent } from './WidgetEvent';
+import { WidgetEventSize } from './WidgetEventSize';
+import { WidgetGrouping } from './WidgetGrouping';
+import { WidgetHorizontalAlign } from './WidgetHorizontalAlign';
+import { WidgetImageSizing } from './WidgetImageSizing';
+import { WidgetLayoutType } from './WidgetLayoutType';
+import { WidgetMargin } from './WidgetMargin';
+import { WidgetMarker } from './WidgetMarker';
+import { WidgetMessageDisplay } from './WidgetMessageDisplay';
+import { WidgetMonitorSummarySort } from './WidgetMonitorSummarySort';
+import { WidgetNodeType } from './WidgetNodeType';
+import { WidgetServiceSummaryDisplayFormat } from './WidgetServiceSummaryDisplayFormat';
+import { WidgetSizeFormat } from './WidgetSizeFormat';
+import { WidgetSummaryType } from './WidgetSummaryType';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTickEdge } from './WidgetTickEdge';
+import { WidgetTime } from './WidgetTime';
+import { WidgetTimeWindows } from './WidgetTimeWindows';
+import { WidgetVerticalAlign } from './WidgetVerticalAlign';
+import { WidgetViewMode } from './WidgetViewMode';
+import { WidgetVizType } from './WidgetVizType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
- */
+* [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
+*/
 
-export type WidgetDefinition =
-  | AlertGraphWidgetDefinition
-  | AlertValueWidgetDefinition
-  | ChangeWidgetDefinition
-  | CheckStatusWidgetDefinition
-  | DistributionWidgetDefinition
-  | EventStreamWidgetDefinition
-  | EventTimelineWidgetDefinition
-  | FreeTextWidgetDefinition
-  | FunnelWidgetDefinition
-  | GeomapWidgetDefinition
-  | GroupWidgetDefinition
-  | HeatMapWidgetDefinition
-  | HostMapWidgetDefinition
-  | IFrameWidgetDefinition
-  | ImageWidgetDefinition
-  | ListStreamWidgetDefinition
-  | LogStreamWidgetDefinition
-  | MonitorSummaryWidgetDefinition
-  | NoteWidgetDefinition
-  | QueryValueWidgetDefinition
-  | SLOWidgetDefinition
-  | ScatterPlotWidgetDefinition
-  | ServiceMapWidgetDefinition
-  | ServiceSummaryWidgetDefinition
-  | SunburstWidgetDefinition
-  | TableWidgetDefinition
-  | TimeseriesWidgetDefinition
-  | ToplistWidgetDefinition
-  | TreeMapWidgetDefinition
-  | UnparsedObject;
+export type WidgetDefinition = AlertGraphWidgetDefinition | AlertValueWidgetDefinition | ChangeWidgetDefinition | CheckStatusWidgetDefinition | DistributionWidgetDefinition | EventStreamWidgetDefinition | EventTimelineWidgetDefinition | FreeTextWidgetDefinition | FunnelWidgetDefinition | GeomapWidgetDefinition | GroupWidgetDefinition | HeatMapWidgetDefinition | HostMapWidgetDefinition | IFrameWidgetDefinition | ImageWidgetDefinition | ListStreamWidgetDefinition | LogStreamWidgetDefinition | MonitorSummaryWidgetDefinition | NoteWidgetDefinition | QueryValueWidgetDefinition | SLOWidgetDefinition | ScatterPlotWidgetDefinition | ServiceMapWidgetDefinition | ServiceSummaryWidgetDefinition | SunburstWidgetDefinition | TableWidgetDefinition | TimeseriesWidgetDefinition | ToplistWidgetDefinition | TreeMapWidgetDefinition | UnparsedObject;

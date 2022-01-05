@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * AWS account ID and Lambda ARN.
- */
+* AWS account ID and Lambda ARN.
+*/
 
 export class AWSAccountAndLambdaRequest {
-  /**
-   * Your AWS Account ID without dashes.
-   */
-  "accountId": string;
-  /**
-   * ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
-   */
-  "lambdaArn": string;
+    /**
+    * Your AWS Account ID without dashes.
+    */
+    'accountId': string;
+    /**
+    * ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
+    */
+    'lambdaArn': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
-    },
-    lambdaArn: {
-      baseName: "lambda_arn",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accountId": {
+            "baseName": "account_id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "lambdaArn": {
+            "baseName": "lambda_arn",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountAndLambdaRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSAccountAndLambdaRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

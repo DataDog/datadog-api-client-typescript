@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type TreeMapGroupBy = typeof USER | typeof FAMILY | typeof PROCESS;
-export const USER = "user";
-export const FAMILY = "family";
-export const PROCESS = "process";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The attribute used to group elements in the widget.
+*/
+
+export type TreeMapGroupBy = typeof USER | typeof FAMILY | typeof PROCESS ;
+export const USER = 'user';
+export const FAMILY = 'family';
+export const PROCESS = 'process';
+
+

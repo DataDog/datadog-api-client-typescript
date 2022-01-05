@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
-import { MetricIngestedIndexedVolumeType } from "./MetricIngestedIndexedVolumeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricIngestedIndexedVolumeAttributes } from './MetricIngestedIndexedVolumeAttributes';
+import { MetricIngestedIndexedVolumeType } from './MetricIngestedIndexedVolumeType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a single metric's ingested and indexed volume.
- */
+* Object for a single metric's ingested and indexed volume.
+*/
 
 export class MetricIngestedIndexedVolume {
-  "attributes"?: MetricIngestedIndexedVolumeAttributes;
-  /**
-   * The metric name for this resource.
-   */
-  "id"?: string;
-  "type"?: MetricIngestedIndexedVolumeType;
+    'attributes'?: MetricIngestedIndexedVolumeAttributes;
+    /**
+    * The metric name for this resource.
+    */
+    'id'?: string;
+    'type'?: MetricIngestedIndexedVolumeType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricIngestedIndexedVolumeAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricIngestedIndexedVolumeType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "MetricIngestedIndexedVolumeAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MetricIngestedIndexedVolumeType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricIngestedIndexedVolume.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricIngestedIndexedVolume.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

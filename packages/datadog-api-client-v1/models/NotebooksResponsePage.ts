@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Pagination metadata returned by the API.
- */
+* Pagination metadata returned by the API.
+*/
 
 export class NotebooksResponsePage {
-  /**
-   * The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
-   */
-  "totalCount"?: number;
-  /**
-   * The total number of notebooks returned.
-   */
-  "totalFilteredCount"?: number;
+    /**
+    * The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
+    */
+    'totalCount'?: number;
+    /**
+    * The total number of notebooks returned.
+    */
+    'totalFilteredCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "total_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "totalCount": {
+            "baseName": "total_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "totalFilteredCount": {
+            "baseName": "total_filtered_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebooksResponsePage.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponsePage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

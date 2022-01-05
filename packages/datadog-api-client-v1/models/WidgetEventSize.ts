@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type WidgetEventSize = typeof SMALL | typeof LARGE;
-export const SMALL = "s";
-export const LARGE = "l";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Size to use to display an event.
+*/
+
+export type WidgetEventSize = typeof SMALL | typeof LARGE ;
+export const SMALL = 's';
+export const LARGE = 'l';
+
+

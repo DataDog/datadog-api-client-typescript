@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to handle basic authentication when performing the test.
- */
+* Object to handle basic authentication when performing the test.
+*/
 
 export class SyntheticsBasicAuth {
-  /**
-   * Password to use for the basic authentication.
-   */
-  "password": string;
-  /**
-   * Username to use for the basic authentication.
-   */
-  "username": string;
+    /**
+    * Password to use for the basic authentication.
+    */
+    'password': string;
+    /**
+    * Username to use for the basic authentication.
+    */
+    'username': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    password: {
-      baseName: "password",
-      type: "string",
-      required: true,
-    },
-    username: {
-      baseName: "username",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "password": {
+            "baseName": "password",
+            "type": "string",
+            "required": true,
+            
+        },
+        "username": {
+            "baseName": "username",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuth.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBasicAuth.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

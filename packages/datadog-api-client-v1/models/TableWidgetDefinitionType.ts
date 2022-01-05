@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type TableWidgetDefinitionType = typeof QUERY_TABLE;
-export const QUERY_TABLE = "query_table";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the table widget.
+*/
+
+export type TableWidgetDefinitionType = typeof QUERY_TABLE ;
+export const QUERY_TABLE = 'query_table';
+
+

@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTiming } from "./SyntheticsTiming";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsTiming } from './SyntheticsTiming';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Result of the last API test run.
- */
+* Result of the last API test run.
+*/
 
 export class SyntheticsAPITestResultShortResult {
-  /**
-   * Describes if the test run has passed or failed.
-   */
-  "passed"?: boolean;
-  "timings"?: SyntheticsTiming;
+    /**
+    * Describes if the test run has passed or failed.
+    */
+    'passed'?: boolean;
+    'timings'?: SyntheticsTiming;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    passed: {
-      baseName: "passed",
-      type: "boolean",
-    },
-    timings: {
-      baseName: "timings",
-      type: "SyntheticsTiming",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "passed": {
+            "baseName": "passed",
+            "type": "boolean",
+            
+            
+        },
+        "timings": {
+            "baseName": "timings",
+            "type": "SyntheticsTiming",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultShortResult.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAPITestResultShortResult.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

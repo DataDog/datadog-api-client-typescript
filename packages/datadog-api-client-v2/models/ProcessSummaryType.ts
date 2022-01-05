@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ProcessSummaryType = typeof PROCESS;
-export const PROCESS = "process";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of process summary.
+*/
+
+export type ProcessSummaryType = typeof PROCESS ;
+export const PROCESS = 'process';
+
+

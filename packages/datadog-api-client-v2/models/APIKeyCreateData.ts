@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyCreateAttributes } from "./APIKeyCreateAttributes";
-import { APIKeysType } from "./APIKeysType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyCreateAttributes } from './APIKeyCreateAttributes';
+import { APIKeysType } from './APIKeysType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object used to create an API key.
- */
+* Object used to create an API key.
+*/
 
 export class APIKeyCreateData {
-  "attributes": APIKeyCreateAttributes;
-  "type": APIKeysType;
+    'attributes': APIKeyCreateAttributes;
+    'type': APIKeysType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "APIKeyCreateAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "APIKeysType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "APIKeyCreateAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "APIKeysType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeyCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

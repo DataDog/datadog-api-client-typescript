@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Error returned by the Logs API
- */
+* Error returned by the Logs API
+*/
 
 export class LogsAPIError {
-  /**
-   * Code identifying the error
-   */
-  "code"?: string;
-  /**
-   * Additional error details
-   */
-  "details"?: Array<LogsAPIError>;
-  /**
-   * Error message
-   */
-  "message"?: string;
+    /**
+    * Code identifying the error
+    */
+    'code'?: string;
+    /**
+    * Additional error details
+    */
+    'details'?: Array<LogsAPIError>;
+    /**
+    * Error message
+    */
+    'message'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
-    },
-    details: {
-      baseName: "details",
-      type: "Array<LogsAPIError>",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "code": {
+            "baseName": "code",
+            "type": "string",
+            
+            
+        },
+        "details": {
+            "baseName": "details",
+            "type": "Array<LogsAPIError>",
+            
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAPIError.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsAPIError.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

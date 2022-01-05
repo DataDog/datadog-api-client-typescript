@@ -8,32 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UserInvitationData } from "./UserInvitationData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserInvitationData } from './UserInvitationData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to invite users to join the organization.
- */
+* Object to invite users to join the organization.
+*/
 
 export class UserInvitationsRequest {
-  /**
-   * List of user invitations.
-   */
-  "data": Array<UserInvitationData>;
+    /**
+    * List of user invitations.
+    */
+    'data': Array<UserInvitationData>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UserInvitationData>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<UserInvitationData>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationsRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserInvitationsRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

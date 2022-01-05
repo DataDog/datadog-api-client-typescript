@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
- */
+* Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
+*/
 
 export class OrganizationSettingsSaml {
-  /**
-   * Whether or not SAML is enabled for this organization.
-   */
-  "enabled"?: boolean;
+    /**
+    * Whether or not SAML is enabled for this organization.
+    */
+    'enabled'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "enabled": {
+            "baseName": "enabled",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSaml.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationSettingsSaml.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

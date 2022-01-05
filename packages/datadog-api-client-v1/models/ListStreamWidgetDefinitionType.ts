@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ListStreamWidgetDefinitionType = typeof LIST_STREAM;
-export const LIST_STREAM = "list_stream";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the list stream widget.
+*/
+
+export type ListStreamWidgetDefinitionType = typeof LIST_STREAM ;
+export const LIST_STREAM = 'list_stream';
+
+

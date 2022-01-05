@@ -8,47 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceIncludedItems } from "./IncidentServiceIncludedItems";
-import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
-import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentServiceIncludedItems } from './IncidentServiceIncludedItems';
+import { IncidentServiceResponseData } from './IncidentServiceResponseData';
+import { IncidentServicesResponseMeta } from './IncidentServicesResponseMeta';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with a list of incident service payloads.
- */
+* Response with a list of incident service payloads.
+*/
 
 export class IncidentServicesResponse {
-  /**
-   * An array of incident services.
-   */
-  "data": Array<IncidentServiceResponseData>;
-  /**
-   * Included related resources which the user requested.
-   */
-  "included"?: Array<IncidentServiceIncludedItems>;
-  "meta"?: IncidentServicesResponseMeta;
+    /**
+    * An array of incident services.
+    */
+    'data': Array<IncidentServiceResponseData>;
+    /**
+    * Included related resources which the user requested.
+    */
+    'included'?: Array<IncidentServiceIncludedItems>;
+    'meta'?: IncidentServicesResponseMeta;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentServiceResponseData>",
-      required: true,
-    },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentServiceIncludedItems>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "IncidentServicesResponseMeta",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<IncidentServiceResponseData>",
+            "required": true,
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<IncidentServiceIncludedItems>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "IncidentServicesResponseMeta",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServicesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServicesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

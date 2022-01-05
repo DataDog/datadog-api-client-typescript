@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricFilter } from "./LogsMetricFilter";
-import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricFilter } from './LogsMetricFilter';
+import { LogsMetricGroupBy } from './LogsMetricGroupBy';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The log-based metric properties that will be updated.
- */
+* The log-based metric properties that will be updated.
+*/
 
 export class LogsMetricUpdateAttributes {
-  "filter"?: LogsMetricFilter;
-  /**
-   * The rules for the group by.
-   */
-  "groupBy"?: Array<LogsMetricGroupBy>;
+    'filter'?: LogsMetricFilter;
+    /**
+    * The rules for the group by.
+    */
+    'groupBy'?: Array<LogsMetricGroupBy>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsMetricFilter",
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<LogsMetricGroupBy>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filter": {
+            "baseName": "filter",
+            "type": "LogsMetricFilter",
+            
+            
+        },
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "Array<LogsMetricGroupBy>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricUpdateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricUpdateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

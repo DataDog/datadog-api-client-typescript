@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricSearchResponseResults } from './MetricSearchResponseResults';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing the list of metrics matching the search query.
- */
+* Object containing the list of metrics matching the search query.
+*/
 
 export class MetricSearchResponse {
-  "results"?: MetricSearchResponseResults;
+    'results'?: MetricSearchResponseResults;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    results: {
-      baseName: "results",
-      type: "MetricSearchResponseResults",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "results": {
+            "baseName": "results",
+            "type": "MetricSearchResponseResults",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSearchResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricSearchResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

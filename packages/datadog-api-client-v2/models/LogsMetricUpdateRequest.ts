@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricUpdateData } from './LogsMetricUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The new log-based metric body.
- */
+* The new log-based metric body.
+*/
 
 export class LogsMetricUpdateRequest {
-  "data": LogsMetricUpdateData;
+    'data': LogsMetricUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LogsMetricUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "LogsMetricUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

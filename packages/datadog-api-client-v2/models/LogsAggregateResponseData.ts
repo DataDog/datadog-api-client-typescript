@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucket } from "./LogsAggregateBucket";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAggregateBucket } from './LogsAggregateBucket';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The query results
- */
+* The query results
+*/
 
 export class LogsAggregateResponseData {
-  /**
-   * The list of matching buckets, one item per bucket
-   */
-  "buckets"?: Array<LogsAggregateBucket>;
+    /**
+    * The list of matching buckets, one item per bucket
+    */
+    'buckets'?: Array<LogsAggregateBucket>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    buckets: {
-      baseName: "buckets",
-      type: "Array<LogsAggregateBucket>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "buckets": {
+            "baseName": "buckets",
+            "type": "Array<LogsAggregateBucket>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsAggregateResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

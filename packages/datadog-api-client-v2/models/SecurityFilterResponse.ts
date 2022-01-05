@@ -8,34 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilter } from "./SecurityFilter";
-import { SecurityFilterMeta } from "./SecurityFilterMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityFilter } from './SecurityFilter';
+import { SecurityFilterMeta } from './SecurityFilterMeta';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response object which includes a single security filter.
- */
+* Response object which includes a single security filter.
+*/
 
 export class SecurityFilterResponse {
-  "data"?: SecurityFilter;
-  "meta"?: SecurityFilterMeta;
+    'data'?: SecurityFilter;
+    'meta'?: SecurityFilterMeta;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityFilter",
-    },
-    meta: {
-      baseName: "meta",
-      type: "SecurityFilterMeta",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SecurityFilter",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "SecurityFilterMeta",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

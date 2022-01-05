@@ -8,62 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { WebhooksIntegrationEncoding } from './WebhooksIntegrationEncoding';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Datadog-Webhooks integration.
- */
+* Datadog-Webhooks integration.
+*/
 
 export class WebhooksIntegration {
-  /**
-   * If `null`, uses no header. If given a JSON payload, these will be headers attached to your webhook.
-   */
-  "customHeaders"?: string;
-  "encodeAs"?: WebhooksIntegrationEncoding;
-  /**
-   * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
-   */
-  "name": string;
-  /**
-   * If `null`, uses the default payload. If given a JSON payload, the webhook returns the payload specified by the given payload. [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
-   */
-  "payload"?: string;
-  /**
-   * URL of the webhook.
-   */
-  "url": string;
+    /**
+    * If `null`, uses no header. If given a JSON payload, these will be headers attached to your webhook.
+    */
+    'customHeaders'?: string;
+    'encodeAs'?: WebhooksIntegrationEncoding;
+    /**
+    * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
+    */
+    'name': string;
+    /**
+    * If `null`, uses the default payload. If given a JSON payload, the webhook returns the payload specified by the given payload. [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
+    */
+    'payload'?: string;
+    /**
+    * URL of the webhook.
+    */
+    'url': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    customHeaders: {
-      baseName: "custom_headers",
-      type: "string",
-    },
-    encodeAs: {
-      baseName: "encode_as",
-      type: "WebhooksIntegrationEncoding",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    payload: {
-      baseName: "payload",
-      type: "string",
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "customHeaders": {
+            "baseName": "custom_headers",
+            "type": "string",
+            
+            
+        },
+        "encodeAs": {
+            "baseName": "encode_as",
+            "type": "WebhooksIntegrationEncoding",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "payload": {
+            "baseName": "payload",
+            "type": "string",
+            
+            
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegration.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WebhooksIntegration.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

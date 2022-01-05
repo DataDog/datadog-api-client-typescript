@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object containing information about the pages of the list of SLOs.
- */
+* The object containing information about the pages of the list of SLOs.
+*/
 
 export class SLOListResponseMetadataPage {
-  /**
-   * The total number of resources that could be retrieved ignoring the parameters and filters in the request.
-   */
-  "totalCount"?: number;
-  /**
-   * The total number of resources that match the parameters and filters in the request. This attribute can be used by a client to determine the total number of pages.
-   */
-  "totalFilteredCount"?: number;
+    /**
+    * The total number of resources that could be retrieved ignoring the parameters and filters in the request.
+    */
+    'totalCount'?: number;
+    /**
+    * The total number of resources that match the parameters and filters in the request. This attribute can be used by a client to determine the total number of pages.
+    */
+    'totalFilteredCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "total_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "totalCount": {
+            "baseName": "total_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "totalFilteredCount": {
+            "baseName": "total_filtered_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOListResponseMetadataPage.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListResponseMetadataPage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,31 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The incident team's attributes for a create request.
- */
+* The incident team's attributes for a create request.
+*/
 
 export class IncidentTeamCreateAttributes {
-  /**
-   * Name of the incident team.
-   */
-  "name": string;
+    /**
+    * Name of the incident team.
+    */
+    'name': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamCreateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentTeamCreateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

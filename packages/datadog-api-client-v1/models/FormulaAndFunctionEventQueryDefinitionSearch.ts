@@ -8,31 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Search options.
- */
+* Search options.
+*/
 
 export class FormulaAndFunctionEventQueryDefinitionSearch {
-  /**
-   * Events search string.
-   */
-  "query": string;
+    /**
+    * Events search string.
+    */
+    'query': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

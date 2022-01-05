@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsersType } from './UsersType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationship to user object.
- */
+* Relationship to user object.
+*/
 
 export class RelationshipToUserData {
-  /**
-   * A unique identifier that represents the user.
-   */
-  "id": string;
-  "type": UsersType;
+    /**
+    * A unique identifier that represents the user.
+    */
+    'id': string;
+    'type': UsersType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsersType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToUserData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToUserData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

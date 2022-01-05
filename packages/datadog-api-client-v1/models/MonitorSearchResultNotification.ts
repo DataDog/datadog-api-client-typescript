@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A notification triggered by the monitor.
- */
+* A notification triggered by the monitor.
+*/
 
 export class MonitorSearchResultNotification {
-  /**
-   * The email address that received the notification.
-   */
-  "handle"?: string;
-  /**
-   * The username receiving the notification
-   */
-  "name"?: string;
+    /**
+    * The email address that received the notification.
+    */
+    'handle'?: string;
+    /**
+    * The username receiving the notification
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "handle": {
+            "baseName": "handle",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResultNotification.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorSearchResultNotification.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

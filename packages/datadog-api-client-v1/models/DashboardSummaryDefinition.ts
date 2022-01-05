@@ -8,96 +8,114 @@
  * Do not edit the class manually.
  */
 
-import { DashboardLayoutType } from "./DashboardLayoutType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardLayoutType } from './DashboardLayoutType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Dashboard definition.
- */
+* Dashboard definition.
+*/
 
 export class DashboardSummaryDefinition {
-  /**
-   * Identifier of the dashboard author.
-   */
-  "authorHandle"?: string;
-  /**
-   * Creation date of the dashboard.
-   */
-  "createdAt"?: Date;
-  /**
-   * Description of the dashboard.
-   */
-  "description"?: string;
-  /**
-   * Dashboard identifier.
-   */
-  "id"?: string;
-  /**
-   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
-   */
-  "isReadOnly"?: boolean;
-  "layoutType"?: DashboardLayoutType;
-  /**
-   * Modification date of the dashboard.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * Title of the dashboard.
-   */
-  "title"?: string;
-  /**
-   * URL of the dashboard.
-   */
-  "url"?: string;
+    /**
+    * Identifier of the dashboard author.
+    */
+    'authorHandle'?: string;
+    /**
+    * Creation date of the dashboard.
+    */
+    'createdAt'?: Date;
+    /**
+    * Description of the dashboard.
+    */
+    'description'?: string;
+    /**
+    * Dashboard identifier.
+    */
+    'id'?: string;
+    /**
+    * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
+    */
+    'isReadOnly'?: boolean;
+    'layoutType'?: DashboardLayoutType;
+    /**
+    * Modification date of the dashboard.
+    */
+    'modifiedAt'?: Date;
+    /**
+    * Title of the dashboard.
+    */
+    'title'?: string;
+    /**
+    * URL of the dashboard.
+    */
+    'url'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    authorHandle: {
-      baseName: "author_handle",
-      type: "string",
-    },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "authorHandle": {
+            "baseName": "author_handle",
+            "type": "string",
+            
+            
+        },
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "isReadOnly": {
+            "baseName": "is_read_only",
+            "type": "boolean",
+            
+            
+        },
+        "layoutType": {
+            "baseName": "layout_type",
+            "type": "DashboardLayoutType",
+            
+            
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    isReadOnly: {
-      baseName: "is_read_only",
-      type: "boolean",
-    },
-    layoutType: {
-      baseName: "layout_type",
-      type: "DashboardLayoutType",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardSummaryDefinition.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardSummaryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

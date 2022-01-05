@@ -8,71 +8,84 @@
  * Do not edit the class manually.
  */
 
-import { LogsUserAgentParserType } from "./LogsUserAgentParserType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsUserAgentParserType } from './LogsUserAgentParserType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
- */
+* The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
+*/
 
 export class LogsUserAgentParser {
-  /**
-   * Whether or not the processor is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
-   * Define if the source attribute is URL encoded or not.
-   */
-  "isEncoded"?: boolean;
-  /**
-   * Name of the processor.
-   */
-  "name"?: string;
-  /**
-   * Array of source attributes.
-   */
-  "sources": Array<string>;
-  /**
-   * Name of the parent attribute that contains all the extracted details from the `sources`.
-   */
-  "target": string;
-  "type": LogsUserAgentParserType;
+    /**
+    * Whether or not the processor is enabled.
+    */
+    'isEnabled'?: boolean;
+    /**
+    * Define if the source attribute is URL encoded or not.
+    */
+    'isEncoded'?: boolean;
+    /**
+    * Name of the processor.
+    */
+    'name'?: string;
+    /**
+    * Array of source attributes.
+    */
+    'sources': Array<string>;
+    /**
+    * Name of the parent attribute that contains all the extracted details from the `sources`.
+    */
+    'target': string;
+    'type': LogsUserAgentParserType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
-    },
-    isEncoded: {
-      baseName: "is_encoded",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    sources: {
-      baseName: "sources",
-      type: "Array<string>",
-      required: true,
-    },
-    target: {
-      baseName: "target",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LogsUserAgentParserType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "isEnabled": {
+            "baseName": "is_enabled",
+            "type": "boolean",
+            
+            
+        },
+        "isEncoded": {
+            "baseName": "is_encoded",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "sources": {
+            "baseName": "sources",
+            "type": "Array<string>",
+            "required": true,
+            
+        },
+        "target": {
+            "baseName": "target",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsUserAgentParserType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsUserAgentParser.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsUserAgentParser.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

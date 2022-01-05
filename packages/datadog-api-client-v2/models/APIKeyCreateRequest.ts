@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyCreateData } from "./APIKeyCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyCreateData } from './APIKeyCreateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request used to create an API key.
- */
+* Request used to create an API key.
+*/
 
 export class APIKeyCreateRequest {
-  "data": APIKeyCreateData;
+    'data': APIKeyCreateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "APIKeyCreateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "APIKeyCreateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeyCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

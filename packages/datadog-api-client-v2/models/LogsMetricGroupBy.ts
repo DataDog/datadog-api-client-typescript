@@ -8,39 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A group by rule.
- */
+* A group by rule.
+*/
 
 export class LogsMetricGroupBy {
-  /**
-   * The path to the value the log-based metric will be aggregated over.
-   */
-  "path": string;
-  /**
-   * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
-   */
-  "tagName"?: string;
+    /**
+    * The path to the value the log-based metric will be aggregated over.
+    */
+    'path': string;
+    /**
+    * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+    */
+    'tagName'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    path: {
-      baseName: "path",
-      type: "string",
-      required: true,
-    },
-    tagName: {
-      baseName: "tag_name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "path": {
+            "baseName": "path",
+            "type": "string",
+            "required": true,
+            
+        },
+        "tagName": {
+            "baseName": "tag_name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricGroupBy.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricGroupBy.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,44 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
-import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsGlobalVariableParseTestOptionsType } from './SyntheticsGlobalVariableParseTestOptionsType';
+import { SyntheticsVariableParser } from './SyntheticsVariableParser';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
- */
+* Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
+*/
 
 export class SyntheticsGlobalVariableParseTestOptions {
-  /**
-   * When type is `http_header`, name of the header to use to extract the value.
-   */
-  "field"?: string;
-  "parser": SyntheticsVariableParser;
-  "type": SyntheticsGlobalVariableParseTestOptionsType;
+    /**
+    * When type is `http_header`, name of the header to use to extract the value.
+    */
+    'field'?: string;
+    'parser': SyntheticsVariableParser;
+    'type': SyntheticsGlobalVariableParseTestOptionsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
-    },
-    parser: {
-      baseName: "parser",
-      type: "SyntheticsVariableParser",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsGlobalVariableParseTestOptionsType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "field": {
+            "baseName": "field",
+            "type": "string",
+            
+            
+        },
+        "parser": {
+            "baseName": "parser",
+            "type": "SyntheticsVariableParser",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsGlobalVariableParseTestOptionsType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableParseTestOptions.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsGlobalVariableParseTestOptions.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

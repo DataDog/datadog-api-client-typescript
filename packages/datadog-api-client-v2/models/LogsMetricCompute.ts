@@ -8,37 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricComputeAggregationType } from "./LogsMetricComputeAggregationType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricComputeAggregationType } from './LogsMetricComputeAggregationType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The compute rule to compute the log-based metric.
- */
+* The compute rule to compute the log-based metric.
+*/
 
 export class LogsMetricCompute {
-  "aggregationType": LogsMetricComputeAggregationType;
-  /**
-   * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\").
-   */
-  "path"?: string;
+    'aggregationType': LogsMetricComputeAggregationType;
+    /**
+    * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\").
+    */
+    'path'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationType: {
-      baseName: "aggregation_type",
-      type: "LogsMetricComputeAggregationType",
-      required: true,
-    },
-    path: {
-      baseName: "path",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregationType": {
+            "baseName": "aggregation_type",
+            "type": "LogsMetricComputeAggregationType",
+            "required": true,
+            
+        },
+        "path": {
+            "baseName": "path",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCompute.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricCompute.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

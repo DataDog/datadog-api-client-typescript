@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { MetricAllTags } from "./MetricAllTags";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricAllTags } from './MetricAllTags';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response object that includes a single metric's indexed tags.
- */
+* Response object that includes a single metric's indexed tags.
+*/
 
 export class MetricAllTagsResponse {
-  "data"?: MetricAllTags;
+    'data'?: MetricAllTags;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricAllTags",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "MetricAllTags",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricAllTagsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricAllTagsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

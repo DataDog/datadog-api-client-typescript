@@ -8,92 +8,114 @@
  * Do not edit the class manually.
  */
 
-import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
-import { ScatterPlotWidgetDefinitionType } from "./ScatterPlotWidgetDefinitionType";
-import { WidgetAxis } from "./WidgetAxis";
-import { WidgetCustomLink } from "./WidgetCustomLink";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ScatterPlotWidgetDefinitionRequests } from './ScatterPlotWidgetDefinitionRequests';
+import { ScatterPlotWidgetDefinitionType } from './ScatterPlotWidgetDefinitionType';
+import { WidgetAxis } from './WidgetAxis';
+import { WidgetCustomLink } from './WidgetCustomLink';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
- */
+* The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
+*/
 
 export class ScatterPlotWidgetDefinition {
-  /**
-   * List of groups used for colors.
-   */
-  "colorByGroups"?: Array<string>;
-  /**
-   * List of custom links.
-   */
-  "customLinks"?: Array<WidgetCustomLink>;
-  "requests": ScatterPlotWidgetDefinitionRequests;
-  "time"?: WidgetTime;
-  /**
-   * Title of your widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": ScatterPlotWidgetDefinitionType;
-  "xaxis"?: WidgetAxis;
-  "yaxis"?: WidgetAxis;
+    /**
+    * List of groups used for colors.
+    */
+    'colorByGroups'?: Array<string>;
+    /**
+    * List of custom links.
+    */
+    'customLinks'?: Array<WidgetCustomLink>;
+    'requests': ScatterPlotWidgetDefinitionRequests;
+    'time'?: WidgetTime;
+    /**
+    * Title of your widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': ScatterPlotWidgetDefinitionType;
+    'xaxis'?: WidgetAxis;
+    'yaxis'?: WidgetAxis;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    colorByGroups: {
-      baseName: "color_by_groups",
-      type: "Array<string>",
-    },
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
-    },
-    requests: {
-      baseName: "requests",
-      type: "ScatterPlotWidgetDefinitionRequests",
-      required: true,
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "ScatterPlotWidgetDefinitionType",
-      required: true,
-    },
-    xaxis: {
-      baseName: "xaxis",
-      type: "WidgetAxis",
-    },
-    yaxis: {
-      baseName: "yaxis",
-      type: "WidgetAxis",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "colorByGroups": {
+            "baseName": "color_by_groups",
+            "type": "Array<string>",
+            
+            
+        },
+        "customLinks": {
+            "baseName": "custom_links",
+            "type": "Array<WidgetCustomLink>",
+            
+            
+        },
+        "requests": {
+            "baseName": "requests",
+            "type": "ScatterPlotWidgetDefinitionRequests",
+            "required": true,
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "ScatterPlotWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "xaxis": {
+            "baseName": "xaxis",
+            "type": "WidgetAxis",
+            
+            
+        },
+        "yaxis": {
+            "baseName": "yaxis",
+            "type": "WidgetAxis",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ScatterPlotWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

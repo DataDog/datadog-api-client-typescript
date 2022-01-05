@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IncidentTimelineCellMarkdownContentType = typeof MARKDOWN;
-export const MARKDOWN = "markdown";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the Markdown timeline cell.
+*/
+
+export type IncidentTimelineCellMarkdownContentType = typeof MARKDOWN ;
+export const MARKDOWN = 'markdown';
+
+

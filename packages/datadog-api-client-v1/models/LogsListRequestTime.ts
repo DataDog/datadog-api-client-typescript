@@ -8,50 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Timeframe to retrieve the log from.
- */
+* Timeframe to retrieve the log from.
+*/
 
 export class LogsListRequestTime {
-  /**
-   * Minimum timestamp for requested logs.
-   */
-  "from": Date;
-  /**
-   * Timezone can be specified both as an offset (for example \"UTC+03:00\") or a regional zone (for example \"Europe/Paris\").
-   */
-  "timezone"?: string;
-  /**
-   * Maximum timestamp for requested logs.
-   */
-  "to": Date;
+    /**
+    * Minimum timestamp for requested logs.
+    */
+    'from': Date;
+    /**
+    * Timezone can be specified both as an offset (for example \"UTC+03:00\") or a regional zone (for example \"Europe/Paris\").
+    */
+    'timezone'?: string;
+    /**
+    * Maximum timestamp for requested logs.
+    */
+    'to': Date;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "Date",
-      required: true,
-      format: "date-time",
-    },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
-    },
-    to: {
-      baseName: "to",
-      type: "Date",
-      required: true,
-      format: "date-time",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "from": {
+            "baseName": "from",
+            "type": "Date",
+            "required": true,
+            "format": "date-time",
+        },
+        "timezone": {
+            "baseName": "timezone",
+            "type": "string",
+            
+            
+        },
+        "to": {
+            "baseName": "to",
+            "type": "Date",
+            "required": true,
+            "format": "date-time",
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListRequestTime.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsListRequestTime.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

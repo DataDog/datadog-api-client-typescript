@@ -8,71 +8,85 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterExclusionFilter } from "./SecurityFilterExclusionFilter";
-import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityFilterExclusionFilter } from './SecurityFilterExclusionFilter';
+import { SecurityFilterFilteredDataType } from './SecurityFilterFilteredDataType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The security filters properties to be updated.
- */
+* The security filters properties to be updated.
+*/
 
 export class SecurityFilterUpdateAttributes {
-  /**
-   * Exclusion filters to exclude some logs from the security filter.
-   */
-  "exclusionFilters"?: Array<SecurityFilterExclusionFilter>;
-  "filteredDataType"?: SecurityFilterFilteredDataType;
-  /**
-   * Whether the security filter is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
-   * The name of the security filter.
-   */
-  "name"?: string;
-  /**
-   * The query of the security filter.
-   */
-  "query"?: string;
-  /**
-   * The version of the security filter to update.
-   */
-  "version"?: number;
+    /**
+    * Exclusion filters to exclude some logs from the security filter.
+    */
+    'exclusionFilters'?: Array<SecurityFilterExclusionFilter>;
+    'filteredDataType'?: SecurityFilterFilteredDataType;
+    /**
+    * Whether the security filter is enabled.
+    */
+    'isEnabled'?: boolean;
+    /**
+    * The name of the security filter.
+    */
+    'name'?: string;
+    /**
+    * The query of the security filter.
+    */
+    'query'?: string;
+    /**
+    * The version of the security filter to update.
+    */
+    'version'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    exclusionFilters: {
-      baseName: "exclusion_filters",
-      type: "Array<SecurityFilterExclusionFilter>",
-    },
-    filteredDataType: {
-      baseName: "filtered_data_type",
-      type: "SecurityFilterFilteredDataType",
-    },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-    version: {
-      baseName: "version",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "exclusionFilters": {
+            "baseName": "exclusion_filters",
+            "type": "Array<SecurityFilterExclusionFilter>",
+            
+            
+        },
+        "filteredDataType": {
+            "baseName": "filtered_data_type",
+            "type": "SecurityFilterFilteredDataType",
+            
+            
+        },
+        "isEnabled": {
+            "baseName": "is_enabled",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        },
+        "version": {
+            "baseName": "version",
+            "type": "number",
+            
+            "format": "int32",
+        }    };
 
-      format: "int32",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterUpdateAttributes.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

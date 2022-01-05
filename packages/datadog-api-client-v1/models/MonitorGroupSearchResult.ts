@@ -8,82 +8,94 @@
  * Do not edit the class manually.
  */
 
-import { MonitorOverallStates } from "./MonitorOverallStates";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MonitorOverallStates } from './MonitorOverallStates';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A single monitor group search result.
- */
+* A single monitor group search result.
+*/
 
 export class MonitorGroupSearchResult {
-  /**
-   * The name of the group.
-   */
-  "group"?: string;
-  /**
-   * The list of tags of the monitor group.
-   */
-  "groupTags"?: Array<string>;
-  /**
-   * Latest timestamp the monitor group was in NO_DATA state.
-   */
-  "lastNodataTs"?: number;
-  /**
-   * Latest timestamp the monitor group triggered.
-   */
-  "lastTriggeredTs"?: number;
-  /**
-   * The ID of the monitor.
-   */
-  "monitorId"?: number;
-  /**
-   * The name of the monitor.
-   */
-  "monitorName"?: string;
-  "status"?: MonitorOverallStates;
+    /**
+    * The name of the group.
+    */
+    'group'?: string;
+    /**
+    * The list of tags of the monitor group.
+    */
+    'groupTags'?: Array<string>;
+    /**
+    * Latest timestamp the monitor group was in NO_DATA state.
+    */
+    'lastNodataTs'?: number;
+    /**
+    * Latest timestamp the monitor group triggered.
+    */
+    'lastTriggeredTs'?: number;
+    /**
+    * The ID of the monitor.
+    */
+    'monitorId'?: number;
+    /**
+    * The name of the monitor.
+    */
+    'monitorName'?: string;
+    'status'?: MonitorOverallStates;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    group: {
-      baseName: "group",
-      type: "string",
-    },
-    groupTags: {
-      baseName: "group_tags",
-      type: "Array<string>",
-    },
-    lastNodataTs: {
-      baseName: "last_nodata_ts",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "group": {
+            "baseName": "group",
+            "type": "string",
+            
+            
+        },
+        "groupTags": {
+            "baseName": "group_tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "lastNodataTs": {
+            "baseName": "last_nodata_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "lastTriggeredTs": {
+            "baseName": "last_triggered_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "monitorId": {
+            "baseName": "monitor_id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "monitorName": {
+            "baseName": "monitor_name",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "MonitorOverallStates",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    lastTriggeredTs: {
-      baseName: "last_triggered_ts",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorGroupSearchResult.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    monitorId: {
-      baseName: "monitor_id",
-      type: "number",
-
-      format: "int64",
-    },
-    monitorName: {
-      baseName: "monitor_name",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "MonitorOverallStates",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorGroupSearchResult.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

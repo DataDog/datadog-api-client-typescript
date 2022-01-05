@@ -8,51 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregationFunction } from "./LogsAggregationFunction";
-import { LogsComputeType } from "./LogsComputeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAggregationFunction } from './LogsAggregationFunction';
+import { LogsComputeType } from './LogsComputeType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A compute rule to compute metrics or timeseries
- */
+* A compute rule to compute metrics or timeseries
+*/
 
 export class LogsCompute {
-  "aggregation": LogsAggregationFunction;
-  /**
-   * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points
-   */
-  "interval"?: string;
-  /**
-   * The metric to use
-   */
-  "metric"?: string;
-  "type"?: LogsComputeType;
+    'aggregation': LogsAggregationFunction;
+    /**
+    * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points
+    */
+    'interval'?: string;
+    /**
+    * The metric to use
+    */
+    'metric'?: string;
+    'type'?: LogsComputeType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "LogsAggregationFunction",
-      required: true,
-    },
-    interval: {
-      baseName: "interval",
-      type: "string",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "LogsComputeType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "LogsAggregationFunction",
+            "required": true,
+            
+        },
+        "interval": {
+            "baseName": "interval",
+            "type": "string",
+            
+            
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsComputeType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsCompute.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsCompute.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

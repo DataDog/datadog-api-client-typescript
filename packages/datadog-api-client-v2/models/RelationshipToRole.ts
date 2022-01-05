@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToRoleData } from "./RelationshipToRoleData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToRoleData } from './RelationshipToRoleData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationship to role.
- */
+* Relationship to role.
+*/
 
 export class RelationshipToRole {
-  "data"?: RelationshipToRoleData;
+    'data'?: RelationshipToRoleData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToRoleData",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "RelationshipToRoleData",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToRole.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToRole.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

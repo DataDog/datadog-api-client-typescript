@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The number of analyzed logs for each hour for a given organization.
- */
+* The number of analyzed logs for each hour for a given organization.
+*/
 
 export class UsageAnalyzedLogsHour {
-  /**
-   * Contains the number of analyzed logs.
-   */
-  "analyzedLogs"?: number;
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
+    /**
+    * Contains the number of analyzed logs.
+    */
+    'analyzedLogs'?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    analyzedLogs: {
-      baseName: "analyzed_logs",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "analyzedLogs": {
+            "baseName": "analyzed_logs",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        }    };
 
-      format: "int64",
-    },
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageAnalyzedLogsHour.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAnalyzedLogsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

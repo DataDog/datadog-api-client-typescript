@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
-import { UsageAttributionPagination } from "./UsageAttributionPagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageAttributionAggregatesBody } from './UsageAttributionAggregatesBody';
+import { UsageAttributionPagination } from './UsageAttributionPagination';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object containing document metadata.
- */
+* The object containing document metadata.
+*/
 
 export class UsageAttributionMetadata {
-  /**
-   * An array of available aggregates.
-   */
-  "aggregates"?: Array<UsageAttributionAggregatesBody>;
-  "pagination"?: UsageAttributionPagination;
+    /**
+    * An array of available aggregates.
+    */
+    'aggregates'?: Array<UsageAttributionAggregatesBody>;
+    'pagination'?: UsageAttributionPagination;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregates: {
-      baseName: "aggregates",
-      type: "Array<UsageAttributionAggregatesBody>",
-    },
-    pagination: {
-      baseName: "pagination",
-      type: "UsageAttributionPagination",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregates": {
+            "baseName": "aggregates",
+            "type": "Array<UsageAttributionAggregatesBody>",
+            
+            
+        },
+        "pagination": {
+            "baseName": "pagination",
+            "type": "UsageAttributionPagination",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionMetadata.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageAttributionMetadata.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

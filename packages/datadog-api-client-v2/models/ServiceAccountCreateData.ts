@@ -8,42 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
-import { UserRelationships } from "./UserRelationships";
-import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ServiceAccountCreateAttributes } from './ServiceAccountCreateAttributes';
+import { UserRelationships } from './UserRelationships';
+import { UsersType } from './UsersType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to create a service account User.
- */
+* Object to create a service account User.
+*/
 
 export class ServiceAccountCreateData {
-  "attributes": ServiceAccountCreateAttributes;
-  "relationships"?: UserRelationships;
-  "type": UsersType;
+    'attributes': ServiceAccountCreateAttributes;
+    'relationships'?: UserRelationships;
+    'type': UsersType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceAccountCreateAttributes",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "UserRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "ServiceAccountCreateAttributes",
+            "required": true,
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "UserRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsersType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ServiceAccountCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

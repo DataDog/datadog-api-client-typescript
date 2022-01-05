@@ -8,32 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { Series } from "./Series";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Series } from './Series';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The metrics' payload.
- */
+* The metrics' payload.
+*/
 
 export class MetricsPayload {
-  /**
-   * A list of time series to submit to Datadog.
-   */
-  "series": Array<Series>;
+    /**
+    * A list of time series to submit to Datadog.
+    */
+    'series': Array<Series>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    series: {
-      baseName: "series",
-      type: "Array<Series>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "series": {
+            "baseName": "series",
+            "type": "Array<Series>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsPayload.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricsPayload.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

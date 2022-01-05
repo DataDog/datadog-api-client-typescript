@@ -8,33 +8,41 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToUser } from './RelationshipToUser';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Resources related to the API key.
- */
+* Resources related to the API key.
+*/
 
 export class APIKeyRelationships {
-  "createdBy"?: RelationshipToUser;
-  "modifiedBy"?: RelationshipToUser;
+    'createdBy'?: RelationshipToUser;
+    'modifiedBy'?: RelationshipToUser;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdBy: {
-      baseName: "created_by",
-      type: "RelationshipToUser",
-    },
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "RelationshipToUser",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdBy": {
+            "baseName": "created_by",
+            "type": "RelationshipToUser",
+            
+            
+        },
+        "modifiedBy": {
+            "baseName": "modified_by",
+            "type": "RelationshipToUser",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeyRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

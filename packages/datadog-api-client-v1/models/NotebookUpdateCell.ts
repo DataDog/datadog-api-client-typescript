@@ -8,15 +8,15 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCellCreateRequest } from "./NotebookCellCreateRequest";
-import { NotebookCellUpdateRequest } from "./NotebookCellUpdateRequest";
-import { UnparsedObject } from "./ObjectSerializer";
+import { NotebookCellCreateRequest } from './NotebookCellCreateRequest';
+import { NotebookCellResourceType } from './NotebookCellResourceType';
+import { NotebookCellUpdateRequest } from './NotebookCellUpdateRequest';
+import { NotebookCellUpdateRequestAttributes } from './NotebookCellUpdateRequestAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updating a notebook can either insert new cell(s) or update existing cell(s) by including the cell `id`. To delete existing cell(s), simply omit it from the list of cells.
- */
+* Updating a notebook can either insert new cell(s) or update existing cell(s) by including the cell `id`. To delete existing cell(s), simply omit it from the list of cells.
+*/
 
-export type NotebookUpdateCell =
-  | NotebookCellCreateRequest
-  | NotebookCellUpdateRequest
-  | UnparsedObject;
+export type NotebookUpdateCell = NotebookCellCreateRequest | NotebookCellUpdateRequest | UnparsedObject;

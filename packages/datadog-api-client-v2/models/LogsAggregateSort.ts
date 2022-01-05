@@ -8,48 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateSortType } from "./LogsAggregateSortType";
-import { LogsAggregationFunction } from "./LogsAggregationFunction";
-import { LogsSortOrder } from "./LogsSortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAggregateSortType } from './LogsAggregateSortType';
+import { LogsAggregationFunction } from './LogsAggregationFunction';
+import { LogsSortOrder } from './LogsSortOrder';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A sort rule
- */
+* A sort rule
+*/
 
 export class LogsAggregateSort {
-  "aggregation"?: LogsAggregationFunction;
-  /**
-   * The metric to sort by (only used for `type=measure`)
-   */
-  "metric"?: string;
-  "order"?: LogsSortOrder;
-  "type"?: LogsAggregateSortType;
+    'aggregation'?: LogsAggregationFunction;
+    /**
+    * The metric to sort by (only used for `type=measure`)
+    */
+    'metric'?: string;
+    'order'?: LogsSortOrder;
+    'type'?: LogsAggregateSortType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "LogsAggregationFunction",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-    },
-    order: {
-      baseName: "order",
-      type: "LogsSortOrder",
-    },
-    type: {
-      baseName: "type",
-      type: "LogsAggregateSortType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "LogsAggregationFunction",
+            
+            
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            
+            
+        },
+        "order": {
+            "baseName": "order",
+            "type": "LogsSortOrder",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsAggregateSortType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateSort.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsAggregateSort.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

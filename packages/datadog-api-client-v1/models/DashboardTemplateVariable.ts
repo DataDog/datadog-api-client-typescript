@@ -8,55 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Template variable.
- */
+* Template variable.
+*/
 
 export class DashboardTemplateVariable {
-  /**
-   * The list of values that the template variable drop-down is limited to.
-   */
-  "availableValues"?: Array<string>;
-  /**
-   * The default value for the template variable on dashboard load.
-   */
-  "_default"?: string;
-  /**
-   * The name of the variable.
-   */
-  "name": string;
-  /**
-   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
-   */
-  "prefix"?: string;
+    /**
+    * The list of values that the template variable drop-down is limited to.
+    */
+    'availableValues'?: Array<string>;
+    /**
+    * The default value for the template variable on dashboard load.
+    */
+    '_default'?: string;
+    /**
+    * The name of the variable.
+    */
+    'name': string;
+    /**
+    * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+    */
+    'prefix'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    availableValues: {
-      baseName: "available_values",
-      type: "Array<string>",
-    },
-    _default: {
-      baseName: "default",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "availableValues": {
+            "baseName": "available_values",
+            "type": "Array<string>",
+            
+            
+        },
+        "_default": {
+            "baseName": "default",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "prefix": {
+            "baseName": "prefix",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardTemplateVariable.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardTemplateVariable.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

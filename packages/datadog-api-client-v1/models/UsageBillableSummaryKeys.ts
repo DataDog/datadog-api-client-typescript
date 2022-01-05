@@ -8,183 +8,251 @@
  * Do not edit the class manually.
  */
 
-import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageBillableSummaryBody } from './UsageBillableSummaryBody';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with aggregated usage types.
- */
+* Response with aggregated usage types.
+*/
 
 export class UsageBillableSummaryKeys {
-  "apmHostSum"?: UsageBillableSummaryBody;
-  "apmHostTop99p"?: UsageBillableSummaryBody;
-  "apmTraceSearchSum"?: UsageBillableSummaryBody;
-  "fargateContainerAverage"?: UsageBillableSummaryBody;
-  "infraContainerSum"?: UsageBillableSummaryBody;
-  "infraHostSum"?: UsageBillableSummaryBody;
-  "infraHostTop99p"?: UsageBillableSummaryBody;
-  "iotTop99p"?: UsageBillableSummaryBody;
-  "lambdaFunctionAverage"?: UsageBillableSummaryBody;
-  "logsIndexed15daySum"?: UsageBillableSummaryBody;
-  "logsIndexed180daySum"?: UsageBillableSummaryBody;
-  "logsIndexed30daySum"?: UsageBillableSummaryBody;
-  "logsIndexed3daySum"?: UsageBillableSummaryBody;
-  "logsIndexed45daySum"?: UsageBillableSummaryBody;
-  "logsIndexed60daySum"?: UsageBillableSummaryBody;
-  "logsIndexed7daySum"?: UsageBillableSummaryBody;
-  "logsIndexed90daySum"?: UsageBillableSummaryBody;
-  "logsIndexedCustomRetentionSum"?: UsageBillableSummaryBody;
-  "logsIndexedSum"?: UsageBillableSummaryBody;
-  "logsIngestedSum"?: UsageBillableSummaryBody;
-  "networkDeviceTop99p"?: UsageBillableSummaryBody;
-  "npmFlowSum"?: UsageBillableSummaryBody;
-  "npmHostSum"?: UsageBillableSummaryBody;
-  "npmHostTop99p"?: UsageBillableSummaryBody;
-  "profContainerSum"?: UsageBillableSummaryBody;
-  "profHostTop99p"?: UsageBillableSummaryBody;
-  "rumSum"?: UsageBillableSummaryBody;
-  "serverlessInvocationSum"?: UsageBillableSummaryBody;
-  "siemSum"?: UsageBillableSummaryBody;
-  "syntheticsApiTestsSum"?: UsageBillableSummaryBody;
-  "syntheticsBrowserChecksSum"?: UsageBillableSummaryBody;
-  "timeseriesAverage"?: UsageBillableSummaryBody;
+    'apmHostSum'?: UsageBillableSummaryBody;
+    'apmHostTop99p'?: UsageBillableSummaryBody;
+    'apmTraceSearchSum'?: UsageBillableSummaryBody;
+    'fargateContainerAverage'?: UsageBillableSummaryBody;
+    'infraContainerSum'?: UsageBillableSummaryBody;
+    'infraHostSum'?: UsageBillableSummaryBody;
+    'infraHostTop99p'?: UsageBillableSummaryBody;
+    'iotTop99p'?: UsageBillableSummaryBody;
+    'lambdaFunctionAverage'?: UsageBillableSummaryBody;
+    'logsIndexed15daySum'?: UsageBillableSummaryBody;
+    'logsIndexed180daySum'?: UsageBillableSummaryBody;
+    'logsIndexed30daySum'?: UsageBillableSummaryBody;
+    'logsIndexed3daySum'?: UsageBillableSummaryBody;
+    'logsIndexed45daySum'?: UsageBillableSummaryBody;
+    'logsIndexed60daySum'?: UsageBillableSummaryBody;
+    'logsIndexed7daySum'?: UsageBillableSummaryBody;
+    'logsIndexed90daySum'?: UsageBillableSummaryBody;
+    'logsIndexedCustomRetentionSum'?: UsageBillableSummaryBody;
+    'logsIndexedSum'?: UsageBillableSummaryBody;
+    'logsIngestedSum'?: UsageBillableSummaryBody;
+    'networkDeviceTop99p'?: UsageBillableSummaryBody;
+    'npmFlowSum'?: UsageBillableSummaryBody;
+    'npmHostSum'?: UsageBillableSummaryBody;
+    'npmHostTop99p'?: UsageBillableSummaryBody;
+    'profContainerSum'?: UsageBillableSummaryBody;
+    'profHostTop99p'?: UsageBillableSummaryBody;
+    'rumSum'?: UsageBillableSummaryBody;
+    'serverlessInvocationSum'?: UsageBillableSummaryBody;
+    'siemSum'?: UsageBillableSummaryBody;
+    'syntheticsApiTestsSum'?: UsageBillableSummaryBody;
+    'syntheticsBrowserChecksSum'?: UsageBillableSummaryBody;
+    'timeseriesAverage'?: UsageBillableSummaryBody;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    apmHostSum: {
-      baseName: "apm_host_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    apmHostTop99p: {
-      baseName: "apm_host_top99p",
-      type: "UsageBillableSummaryBody",
-    },
-    apmTraceSearchSum: {
-      baseName: "apm_trace_search_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    fargateContainerAverage: {
-      baseName: "fargate_container_average",
-      type: "UsageBillableSummaryBody",
-    },
-    infraContainerSum: {
-      baseName: "infra_container_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    infraHostSum: {
-      baseName: "infra_host_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    infraHostTop99p: {
-      baseName: "infra_host_top99p",
-      type: "UsageBillableSummaryBody",
-    },
-    iotTop99p: {
-      baseName: "iot_top99p",
-      type: "UsageBillableSummaryBody",
-    },
-    lambdaFunctionAverage: {
-      baseName: "lambda_function_average",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed15daySum: {
-      baseName: "logs_indexed_15day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed180daySum: {
-      baseName: "logs_indexed_180day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed30daySum: {
-      baseName: "logs_indexed_30day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed3daySum: {
-      baseName: "logs_indexed_3day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed45daySum: {
-      baseName: "logs_indexed_45day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed60daySum: {
-      baseName: "logs_indexed_60day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed7daySum: {
-      baseName: "logs_indexed_7day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexed90daySum: {
-      baseName: "logs_indexed_90day_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexedCustomRetentionSum: {
-      baseName: "logs_indexed_custom_retention_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIndexedSum: {
-      baseName: "logs_indexed_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    logsIngestedSum: {
-      baseName: "logs_ingested_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    networkDeviceTop99p: {
-      baseName: "network_device_top99p",
-      type: "UsageBillableSummaryBody",
-    },
-    npmFlowSum: {
-      baseName: "npm_flow_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    npmHostSum: {
-      baseName: "npm_host_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    npmHostTop99p: {
-      baseName: "npm_host_top99p",
-      type: "UsageBillableSummaryBody",
-    },
-    profContainerSum: {
-      baseName: "prof_container_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    profHostTop99p: {
-      baseName: "prof_host_top99p",
-      type: "UsageBillableSummaryBody",
-    },
-    rumSum: {
-      baseName: "rum_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    serverlessInvocationSum: {
-      baseName: "serverless_invocation_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    siemSum: {
-      baseName: "siem_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    syntheticsApiTestsSum: {
-      baseName: "synthetics_api_tests_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    syntheticsBrowserChecksSum: {
-      baseName: "synthetics_browser_checks_sum",
-      type: "UsageBillableSummaryBody",
-    },
-    timeseriesAverage: {
-      baseName: "timeseries_average",
-      type: "UsageBillableSummaryBody",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "apmHostSum": {
+            "baseName": "apm_host_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "apmHostTop99p": {
+            "baseName": "apm_host_top99p",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "apmTraceSearchSum": {
+            "baseName": "apm_trace_search_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "fargateContainerAverage": {
+            "baseName": "fargate_container_average",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "infraContainerSum": {
+            "baseName": "infra_container_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "infraHostSum": {
+            "baseName": "infra_host_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "infraHostTop99p": {
+            "baseName": "infra_host_top99p",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "iotTop99p": {
+            "baseName": "iot_top99p",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "lambdaFunctionAverage": {
+            "baseName": "lambda_function_average",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed15daySum": {
+            "baseName": "logs_indexed_15day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed180daySum": {
+            "baseName": "logs_indexed_180day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed30daySum": {
+            "baseName": "logs_indexed_30day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed3daySum": {
+            "baseName": "logs_indexed_3day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed45daySum": {
+            "baseName": "logs_indexed_45day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed60daySum": {
+            "baseName": "logs_indexed_60day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed7daySum": {
+            "baseName": "logs_indexed_7day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexed90daySum": {
+            "baseName": "logs_indexed_90day_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexedCustomRetentionSum": {
+            "baseName": "logs_indexed_custom_retention_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIndexedSum": {
+            "baseName": "logs_indexed_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "logsIngestedSum": {
+            "baseName": "logs_ingested_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "networkDeviceTop99p": {
+            "baseName": "network_device_top99p",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "npmFlowSum": {
+            "baseName": "npm_flow_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "npmHostSum": {
+            "baseName": "npm_host_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "npmHostTop99p": {
+            "baseName": "npm_host_top99p",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "profContainerSum": {
+            "baseName": "prof_container_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "profHostTop99p": {
+            "baseName": "prof_host_top99p",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "rumSum": {
+            "baseName": "rum_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "serverlessInvocationSum": {
+            "baseName": "serverless_invocation_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "siemSum": {
+            "baseName": "siem_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "syntheticsApiTestsSum": {
+            "baseName": "synthetics_api_tests_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "syntheticsBrowserChecksSum": {
+            "baseName": "synthetics_browser_checks_sum",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        },
+        "timeseriesAverage": {
+            "baseName": "timeseries_average",
+            "type": "UsageBillableSummaryBody",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryKeys.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageBillableSummaryKeys.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

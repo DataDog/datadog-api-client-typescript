@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { DashboardListItemResponse } from "./DashboardListItemResponse";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardListItemResponse } from './DashboardListItemResponse';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing a list of added dashboards.
- */
+* Response containing a list of added dashboards.
+*/
 
 export class DashboardListAddItemsResponse {
-  /**
-   * List of dashboards added to the dashboard list.
-   */
-  "addedDashboardsToList"?: Array<DashboardListItemResponse>;
+    /**
+    * List of dashboards added to the dashboard list.
+    */
+    'addedDashboardsToList'?: Array<DashboardListItemResponse>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    addedDashboardsToList: {
-      baseName: "added_dashboards_to_list",
-      type: "Array<DashboardListItemResponse>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "addedDashboardsToList": {
+            "baseName": "added_dashboards_to_list",
+            "type": "Array<DashboardListItemResponse>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListAddItemsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardListAddItemsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

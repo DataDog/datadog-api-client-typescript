@@ -8,90 +8,108 @@
  * Do not edit the class manually.
  */
 
-import { GeomapWidgetDefinitionStyle } from "./GeomapWidgetDefinitionStyle";
-import { GeomapWidgetDefinitionType } from "./GeomapWidgetDefinitionType";
-import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
-import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
-import { WidgetCustomLink } from "./WidgetCustomLink";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { GeomapWidgetDefinitionStyle } from './GeomapWidgetDefinitionStyle';
+import { GeomapWidgetDefinitionType } from './GeomapWidgetDefinitionType';
+import { GeomapWidgetDefinitionView } from './GeomapWidgetDefinitionView';
+import { GeomapWidgetRequest } from './GeomapWidgetRequest';
+import { WidgetCustomLink } from './WidgetCustomLink';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * This visualization displays a series of values by country on a world map.
- */
+* This visualization displays a series of values by country on a world map.
+*/
 
 export class GeomapWidgetDefinition {
-  /**
-   * A list of custom links.
-   */
-  "customLinks"?: Array<WidgetCustomLink>;
-  /**
-   * Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.  See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) for information about building the `REQUEST_SCHEMA`.
-   */
-  "requests": Array<GeomapWidgetRequest>;
-  "style": GeomapWidgetDefinitionStyle;
-  "time"?: WidgetTime;
-  /**
-   * The title of your widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * The size of the title.
-   */
-  "titleSize"?: string;
-  "type": GeomapWidgetDefinitionType;
-  "view": GeomapWidgetDefinitionView;
+    /**
+    * A list of custom links.
+    */
+    'customLinks'?: Array<WidgetCustomLink>;
+    /**
+    * Array of one request object to display in the widget. The request must contain a `group-by` tag whose value is a country ISO code.  See the [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) for information about building the `REQUEST_SCHEMA`.
+    */
+    'requests': Array<GeomapWidgetRequest>;
+    'style': GeomapWidgetDefinitionStyle;
+    'time'?: WidgetTime;
+    /**
+    * The title of your widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * The size of the title.
+    */
+    'titleSize'?: string;
+    'type': GeomapWidgetDefinitionType;
+    'view': GeomapWidgetDefinitionView;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
-    },
-    requests: {
-      baseName: "requests",
-      type: "Array<GeomapWidgetRequest>",
-      required: true,
-    },
-    style: {
-      baseName: "style",
-      type: "GeomapWidgetDefinitionStyle",
-      required: true,
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "GeomapWidgetDefinitionType",
-      required: true,
-    },
-    view: {
-      baseName: "view",
-      type: "GeomapWidgetDefinitionView",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "customLinks": {
+            "baseName": "custom_links",
+            "type": "Array<WidgetCustomLink>",
+            
+            
+        },
+        "requests": {
+            "baseName": "requests",
+            "type": "Array<GeomapWidgetRequest>",
+            "required": true,
+            
+        },
+        "style": {
+            "baseName": "style",
+            "type": "GeomapWidgetDefinitionStyle",
+            "required": true,
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "GeomapWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "view": {
+            "baseName": "view",
+            "type": "GeomapWidgetDefinitionView",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return GeomapWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

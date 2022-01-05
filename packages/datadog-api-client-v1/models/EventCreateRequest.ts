@@ -8,138 +8,162 @@
  * Do not edit the class manually.
  */
 
-import { EventAlertType } from "./EventAlertType";
-import { EventPriority } from "./EventPriority";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { EventAlertType } from './EventAlertType';
+import { EventPriority } from './EventPriority';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object representing an event.
- */
+* Object representing an event.
+*/
 
 export class EventCreateRequest {
-  /**
-   * An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream.
-   */
-  "aggregationKey"?: string;
-  "alertType"?: EventAlertType;
-  /**
-   * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events no older than 7 days.
-   */
-  "dateHappened"?: number;
-  /**
-   * A device name.
-   */
-  "deviceName"?: string;
-  /**
-   * Host name to associate with the event. Any tags associated with the host are also applied to this event.
-   */
-  "host"?: string;
-  /**
-   * Integer ID of the event.
-   */
-  "id"?: number;
-  /**
-   * Payload of the event.
-   */
-  "payload"?: string;
-  "priority"?: EventPriority;
-  /**
-   * ID of the parent event. Must be sent as an integer (that is no quotes).
-   */
-  "relatedEventId"?: number;
-  /**
-   * The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
-   */
-  "sourceTypeName"?: string;
-  /**
-   * A list of tags to apply to the event.
-   */
-  "tags"?: Array<string>;
-  /**
-   * The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown in the event text, start the text block with `%%% \\n` and end the text block with `\\n %%%`. Use `msg_text` with the Datadog Ruby library.
-   */
-  "text": string;
-  /**
-   * The event title.
-   */
-  "title": string;
-  /**
-   * URL of the event.
-   */
-  "url"?: string;
+    /**
+    * An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key, all events using that key are grouped together in the Event Stream.
+    */
+    'aggregationKey'?: string;
+    'alertType'?: EventAlertType;
+    /**
+    * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events no older than 7 days.
+    */
+    'dateHappened'?: number;
+    /**
+    * A device name.
+    */
+    'deviceName'?: string;
+    /**
+    * Host name to associate with the event. Any tags associated with the host are also applied to this event.
+    */
+    'host'?: string;
+    /**
+    * Integer ID of the event.
+    */
+    'id'?: number;
+    /**
+    * Payload of the event.
+    */
+    'payload'?: string;
+    'priority'?: EventPriority;
+    /**
+    * ID of the parent event. Must be sent as an integer (that is no quotes).
+    */
+    'relatedEventId'?: number;
+    /**
+    * The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+    */
+    'sourceTypeName'?: string;
+    /**
+    * A list of tags to apply to the event.
+    */
+    'tags'?: Array<string>;
+    /**
+    * The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown in the event text, start the text block with `%%% \\n` and end the text block with `\\n %%%`. Use `msg_text` with the Datadog Ruby library.
+    */
+    'text': string;
+    /**
+    * The event title.
+    */
+    'title': string;
+    /**
+    * URL of the event.
+    */
+    'url'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationKey: {
-      baseName: "aggregation_key",
-      type: "string",
-    },
-    alertType: {
-      baseName: "alert_type",
-      type: "EventAlertType",
-    },
-    dateHappened: {
-      baseName: "date_happened",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregationKey": {
+            "baseName": "aggregation_key",
+            "type": "string",
+            
+            
+        },
+        "alertType": {
+            "baseName": "alert_type",
+            "type": "EventAlertType",
+            
+            
+        },
+        "dateHappened": {
+            "baseName": "date_happened",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "deviceName": {
+            "baseName": "device_name",
+            "type": "string",
+            
+            
+        },
+        "host": {
+            "baseName": "host",
+            "type": "string",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "payload": {
+            "baseName": "payload",
+            "type": "string",
+            
+            
+        },
+        "priority": {
+            "baseName": "priority",
+            "type": "EventPriority",
+            
+            
+        },
+        "relatedEventId": {
+            "baseName": "related_event_id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "sourceTypeName": {
+            "baseName": "source_type_name",
+            "type": "string",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "text": {
+            "baseName": "text",
+            "type": "string",
+            "required": true,
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            "required": true,
+            
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    deviceName: {
-      baseName: "device_name",
-      type: "string",
-    },
-    host: {
-      baseName: "host",
-      type: "string",
-    },
-    id: {
-      baseName: "id",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return EventCreateRequest.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    payload: {
-      baseName: "payload",
-      type: "string",
-    },
-    priority: {
-      baseName: "priority",
-      type: "EventPriority",
-    },
-    relatedEventId: {
-      baseName: "related_event_id",
-      type: "number",
-
-      format: "int64",
-    },
-    sourceTypeName: {
-      baseName: "source_type_name",
-      type: "string",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    text: {
-      baseName: "text",
-      type: "string",
-      required: true,
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

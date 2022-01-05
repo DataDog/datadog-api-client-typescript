@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type MonitorRenotifyStatusType =
-  | typeof ALERT
-  | typeof WARN
-  | typeof NO_DATA;
-export const ALERT = "alert";
-export const WARN = "warn";
-export const NO_DATA = "no data";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The different statuses for which renotification is supported.
+*/
+
+export type MonitorRenotifyStatusType = typeof ALERT | typeof WARN | typeof NO_DATA ;
+export const ALERT = 'alert';
+export const WARN = 'warn';
+export const NO_DATA = 'no data';
+
+

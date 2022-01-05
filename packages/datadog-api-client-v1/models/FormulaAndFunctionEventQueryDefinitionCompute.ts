@@ -8,47 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionEventAggregation } from './FormulaAndFunctionEventAggregation';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Compute options.
- */
+* Compute options.
+*/
 
 export class FormulaAndFunctionEventQueryDefinitionCompute {
-  "aggregation": FormulaAndFunctionEventAggregation;
-  /**
-   * A time interval in milliseconds.
-   */
-  "interval"?: number;
-  /**
-   * Measurable attribute to compute.
-   */
-  "metric"?: string;
+    'aggregation': FormulaAndFunctionEventAggregation;
+    /**
+    * A time interval in milliseconds.
+    */
+    'interval'?: number;
+    /**
+    * Measurable attribute to compute.
+    */
+    'metric'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "FormulaAndFunctionEventAggregation",
-      required: true,
-    },
-    interval: {
-      baseName: "interval",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "FormulaAndFunctionEventAggregation",
+            "required": true,
+            
+        },
+        "interval": {
+            "baseName": "interval",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { IFrameWidgetDefinitionType } from "./IFrameWidgetDefinitionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IFrameWidgetDefinitionType } from './IFrameWidgetDefinitionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
- */
+* The iframe widget allows you to embed a portion of any other web page on your dashboard. Only available on FREE layout dashboards.
+*/
 
 export class IFrameWidgetDefinition {
-  "type": IFrameWidgetDefinitionType;
-  /**
-   * URL of the iframe.
-   */
-  "url": string;
+    'type': IFrameWidgetDefinitionType;
+    /**
+    * URL of the iframe.
+    */
+    'url': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "IFrameWidgetDefinitionType",
-      required: true,
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "type": {
+            "baseName": "type",
+            "type": "IFrameWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IFrameWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IFrameWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

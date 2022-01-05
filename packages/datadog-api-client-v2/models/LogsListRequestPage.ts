@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Paging attributes for listing logs.
- */
+* Paging attributes for listing logs.
+*/
 
 export class LogsListRequestPage {
-  /**
-   * List following results with a cursor provided in the previous query.
-   */
-  "cursor"?: string;
-  /**
-   * Maximum number of logs in the response.
-   */
-  "limit"?: number;
+    /**
+    * List following results with a cursor provided in the previous query.
+    */
+    'cursor'?: string;
+    /**
+    * Maximum number of logs in the response.
+    */
+    'limit'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cursor": {
+            "baseName": "cursor",
+            "type": "string",
+            
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int32",
+        }    };
 
-      format: "int32",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsListRequestPage.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

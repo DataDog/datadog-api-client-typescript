@@ -8,68 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Number of Fargate tasks run and hourly usage.
- */
+* Number of Fargate tasks run and hourly usage.
+*/
 
 export class UsageFargateHour {
-  /**
-   * The average profiled task count for Fargate Profiling.
-   */
-  "avgProfiledFargateTasks"?: number;
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * The organization name.
-   */
-  "orgName"?: string;
-  /**
-   * The organization public ID.
-   */
-  "publicId"?: string;
-  /**
-   * The number of Fargate tasks run.
-   */
-  "tasksCount"?: number;
+    /**
+    * The average profiled task count for Fargate Profiling.
+    */
+    'avgProfiledFargateTasks'?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * The organization name.
+    */
+    'orgName'?: string;
+    /**
+    * The organization public ID.
+    */
+    'publicId'?: string;
+    /**
+    * The number of Fargate tasks run.
+    */
+    'tasksCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    avgProfiledFargateTasks: {
-      baseName: "avg_profiled_fargate_tasks",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "avgProfiledFargateTasks": {
+            "baseName": "avg_profiled_fargate_tasks",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "orgName": {
+            "baseName": "org_name",
+            "type": "string",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        },
+        "tasksCount": {
+            "baseName": "tasks_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageFargateHour.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-    tasksCount: {
-      baseName: "tasks_count",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageFargateHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

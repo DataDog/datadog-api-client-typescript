@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { UsageCustomReportsAttributes } from "./UsageCustomReportsAttributes";
-import { UsageReportsType } from "./UsageReportsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageCustomReportsAttributes } from './UsageCustomReportsAttributes';
+import { UsageReportsType } from './UsageReportsType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response containing the date and type for custom reports.
- */
+* The response containing the date and type for custom reports.
+*/
 
 export class UsageCustomReportsData {
-  "attributes"?: UsageCustomReportsAttributes;
-  /**
-   * The date for specified custom reports.
-   */
-  "id"?: string;
-  "type"?: UsageReportsType;
+    'attributes'?: UsageCustomReportsAttributes;
+    /**
+    * The date for specified custom reports.
+    */
+    'id'?: string;
+    'type'?: UsageReportsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UsageCustomReportsAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "UsageReportsType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "UsageCustomReportsAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsageReportsType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCustomReportsData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

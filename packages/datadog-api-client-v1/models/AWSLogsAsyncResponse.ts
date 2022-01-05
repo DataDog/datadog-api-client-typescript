@@ -8,39 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AWSLogsAsyncError } from './AWSLogsAsyncError';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A list of all Datadog-AWS logs integrations available in your Datadog organization.
- */
+* A list of all Datadog-AWS logs integrations available in your Datadog organization.
+*/
 
 export class AWSLogsAsyncResponse {
-  /**
-   * List of errors.
-   */
-  "errors"?: Array<AWSLogsAsyncError>;
-  /**
-   * Status of the properties.
-   */
-  "status"?: string;
+    /**
+    * List of errors.
+    */
+    'errors'?: Array<AWSLogsAsyncError>;
+    /**
+    * Status of the properties.
+    */
+    'status'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<AWSLogsAsyncError>",
-    },
-    status: {
-      baseName: "status",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "errors": {
+            "baseName": "errors",
+            "type": "Array<AWSLogsAsyncError>",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsAsyncResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSLogsAsyncResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { IncidentPostmortemType } from "./IncidentPostmortemType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentPostmortemType } from './IncidentPostmortemType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The postmortem relationship data.
- */
+* The postmortem relationship data.
+*/
 
 export class RelationshipToIncidentPostmortemData {
-  /**
-   * A unique identifier that represents the postmortem.
-   */
-  "id": string;
-  "type": IncidentPostmortemType;
+    /**
+    * A unique identifier that represents the postmortem.
+    */
+    'id': string;
+    'type': IncidentPostmortemType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentPostmortemType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentPostmortemType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentPostmortemData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToIncidentPostmortemData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

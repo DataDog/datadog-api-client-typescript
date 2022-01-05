@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsArchiveDestinationAzureType = typeof AZURE;
-export const AZURE = "azure";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the Azure archive destination.
+*/
+
+export type LogsArchiveDestinationAzureType = typeof AZURE ;
+export const AZURE = 'azure';
+
+

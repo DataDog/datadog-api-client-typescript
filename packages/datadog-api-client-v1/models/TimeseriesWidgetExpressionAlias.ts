@@ -8,39 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Define an expression alias.
- */
+* Define an expression alias.
+*/
 
 export class TimeseriesWidgetExpressionAlias {
-  /**
-   * Expression alias.
-   */
-  "aliasName"?: string;
-  /**
-   * Expression name.
-   */
-  "expression": string;
+    /**
+    * Expression alias.
+    */
+    'aliasName'?: string;
+    /**
+    * Expression name.
+    */
+    'expression': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aliasName: {
-      baseName: "alias_name",
-      type: "string",
-    },
-    expression: {
-      baseName: "expression",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aliasName": {
+            "baseName": "alias_name",
+            "type": "string",
+            
+            
+        },
+        "expression": {
+            "baseName": "expression",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesWidgetExpressionAlias.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return TimeseriesWidgetExpressionAlias.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

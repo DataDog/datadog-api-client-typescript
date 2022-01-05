@@ -8,62 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsStepType } from "./SyntheticsStepType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsStepType } from './SyntheticsStepType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The steps used in a Synthetics browser test.
- */
+* The steps used in a Synthetics browser test.
+*/
 
 export class SyntheticsStep {
-  /**
-   * A boolean set to allow this step to fail.
-   */
-  "allowFailure"?: boolean;
-  /**
-   * The name of the step.
-   */
-  "name"?: string;
-  /**
-   * The parameters of the step.
-   */
-  "params"?: any;
-  /**
-   * The time before declaring a step failed.
-   */
-  "timeout"?: number;
-  "type"?: SyntheticsStepType;
+    /**
+    * A boolean set to allow this step to fail.
+    */
+    'allowFailure'?: boolean;
+    /**
+    * The name of the step.
+    */
+    'name'?: string;
+    /**
+    * The parameters of the step.
+    */
+    'params'?: any;
+    /**
+    * The time before declaring a step failed.
+    */
+    'timeout'?: number;
+    'type'?: SyntheticsStepType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    allowFailure: {
-      baseName: "allowFailure",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    params: {
-      baseName: "params",
-      type: "any",
-    },
-    timeout: {
-      baseName: "timeout",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "allowFailure": {
+            "baseName": "allowFailure",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "params": {
+            "baseName": "params",
+            "type": "any",
+            
+            
+        },
+        "timeout": {
+            "baseName": "timeout",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsStepType",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsStepType",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsStep.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsStep.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

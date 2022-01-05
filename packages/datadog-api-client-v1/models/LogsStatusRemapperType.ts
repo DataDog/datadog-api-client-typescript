@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsStatusRemapperType = typeof STATUS_REMAPPER;
-export const STATUS_REMAPPER = "status-remapper";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs status remapper.
+*/
+
+export type LogsStatusRemapperType = typeof STATUS_REMAPPER ;
+export const STATUS_REMAPPER = 'status-remapper';
+
+

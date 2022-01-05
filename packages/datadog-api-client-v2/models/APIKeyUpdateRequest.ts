@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyUpdateData } from "./APIKeyUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyUpdateData } from './APIKeyUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request used to update an API key.
- */
+* Request used to update an API key.
+*/
 
 export class APIKeyUpdateRequest {
-  "data": APIKeyUpdateData;
+    'data': APIKeyUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "APIKeyUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "APIKeyUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeyUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

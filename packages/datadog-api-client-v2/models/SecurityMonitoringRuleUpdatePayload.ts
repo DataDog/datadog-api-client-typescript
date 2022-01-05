@@ -8,105 +8,127 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
-import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
-import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringFilter } from './SecurityMonitoringFilter';
+import { SecurityMonitoringRuleCase } from './SecurityMonitoringRuleCase';
+import { SecurityMonitoringRuleOptions } from './SecurityMonitoringRuleOptions';
+import { SecurityMonitoringRuleQuery } from './SecurityMonitoringRuleQuery';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Update an existing rule.
- */
+* Update an existing rule.
+*/
 
 export class SecurityMonitoringRuleUpdatePayload {
-  /**
-   * Cases for generating signals.
-   */
-  "cases"?: Array<SecurityMonitoringRuleCase>;
-  /**
-   * Additional queries to filter matched events before they are processed.
-   */
-  "filters"?: Array<SecurityMonitoringFilter>;
-  /**
-   * Whether the notifications include the triggering group-by values in their title.
-   */
-  "hasExtendedTitle"?: boolean;
-  /**
-   * Whether the rule is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
-   * Message for generated signals.
-   */
-  "message"?: string;
-  /**
-   * Name of the rule.
-   */
-  "name"?: string;
-  "options"?: SecurityMonitoringRuleOptions;
-  /**
-   * Queries for selecting logs which are part of the rule.
-   */
-  "queries"?: Array<SecurityMonitoringRuleQuery>;
-  /**
-   * Tags for generated signals.
-   */
-  "tags"?: Array<string>;
-  /**
-   * The version of the rule being updated.
-   */
-  "version"?: number;
+    /**
+    * Cases for generating signals.
+    */
+    'cases'?: Array<SecurityMonitoringRuleCase>;
+    /**
+    * Additional queries to filter matched events before they are processed.
+    */
+    'filters'?: Array<SecurityMonitoringFilter>;
+    /**
+    * Whether the notifications include the triggering group-by values in their title.
+    */
+    'hasExtendedTitle'?: boolean;
+    /**
+    * Whether the rule is enabled.
+    */
+    'isEnabled'?: boolean;
+    /**
+    * Message for generated signals.
+    */
+    'message'?: string;
+    /**
+    * Name of the rule.
+    */
+    'name'?: string;
+    'options'?: SecurityMonitoringRuleOptions;
+    /**
+    * Queries for selecting logs which are part of the rule.
+    */
+    'queries'?: Array<SecurityMonitoringRuleQuery>;
+    /**
+    * Tags for generated signals.
+    */
+    'tags'?: Array<string>;
+    /**
+    * The version of the rule being updated.
+    */
+    'version'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cases: {
-      baseName: "cases",
-      type: "Array<SecurityMonitoringRuleCase>",
-    },
-    filters: {
-      baseName: "filters",
-      type: "Array<SecurityMonitoringFilter>",
-    },
-    hasExtendedTitle: {
-      baseName: "hasExtendedTitle",
-      type: "boolean",
-    },
-    isEnabled: {
-      baseName: "isEnabled",
-      type: "boolean",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    options: {
-      baseName: "options",
-      type: "SecurityMonitoringRuleOptions",
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<SecurityMonitoringRuleQuery>",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    version: {
-      baseName: "version",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cases": {
+            "baseName": "cases",
+            "type": "Array<SecurityMonitoringRuleCase>",
+            
+            
+        },
+        "filters": {
+            "baseName": "filters",
+            "type": "Array<SecurityMonitoringFilter>",
+            
+            
+        },
+        "hasExtendedTitle": {
+            "baseName": "hasExtendedTitle",
+            "type": "boolean",
+            
+            
+        },
+        "isEnabled": {
+            "baseName": "isEnabled",
+            "type": "boolean",
+            
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "options": {
+            "baseName": "options",
+            "type": "SecurityMonitoringRuleOptions",
+            
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<SecurityMonitoringRuleQuery>",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "version": {
+            "baseName": "version",
+            "type": "number",
+            
+            "format": "int32",
+        }    };
 
-      format: "int32",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

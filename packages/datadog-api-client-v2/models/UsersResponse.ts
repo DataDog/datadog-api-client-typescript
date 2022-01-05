@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
-import { User } from "./User";
-import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ResponseMetaAttributes } from './ResponseMetaAttributes';
+import { User } from './User';
+import { UserResponseIncludedItem } from './UserResponseIncludedItem';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing information about multiple users.
- */
+* Response containing information about multiple users.
+*/
 
 export class UsersResponse {
-  /**
-   * Array of returned users.
-   */
-  "data"?: Array<User>;
-  /**
-   * Array of objects related to the users.
-   */
-  "included"?: Array<UserResponseIncludedItem>;
-  "meta"?: ResponseMetaAttributes;
+    /**
+    * Array of returned users.
+    */
+    'data'?: Array<User>;
+    /**
+    * Array of objects related to the users.
+    */
+    'included'?: Array<UserResponseIncludedItem>;
+    'meta'?: ResponseMetaAttributes;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<User>",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<UserResponseIncludedItem>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ResponseMetaAttributes",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<User>",
+            
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<UserResponseIncludedItem>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "ResponseMetaAttributes",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsersResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsersResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

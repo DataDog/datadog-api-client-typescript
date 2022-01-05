@@ -8,62 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsConfigVariableType } from "./SyntheticsConfigVariableType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsConfigVariableType } from './SyntheticsConfigVariableType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object defining a variable that can be used in your test configuration.
- */
+* Object defining a variable that can be used in your test configuration.
+*/
 
 export class SyntheticsConfigVariable {
-  /**
-   * Example for the variable.
-   */
-  "example"?: string;
-  /**
-   * ID of the variable for global variables.
-   */
-  "id"?: string;
-  /**
-   * Name of the variable.
-   */
-  "name": string;
-  /**
-   * Pattern of the variable.
-   */
-  "pattern"?: string;
-  "type": SyntheticsConfigVariableType;
+    /**
+    * Example for the variable.
+    */
+    'example'?: string;
+    /**
+    * ID of the variable for global variables.
+    */
+    'id'?: string;
+    /**
+    * Name of the variable.
+    */
+    'name': string;
+    /**
+    * Pattern of the variable.
+    */
+    'pattern'?: string;
+    'type': SyntheticsConfigVariableType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    example: {
-      baseName: "example",
-      type: "string",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    pattern: {
-      baseName: "pattern",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsConfigVariableType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "example": {
+            "baseName": "example",
+            "type": "string",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "pattern": {
+            "baseName": "pattern",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsConfigVariableType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsConfigVariable.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsConfigVariable.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

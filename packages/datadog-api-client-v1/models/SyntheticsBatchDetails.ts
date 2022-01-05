@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBatchDetailsData } from './SyntheticsBatchDetailsData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Details about a batch response.
- */
+* Details about a batch response.
+*/
 
 export class SyntheticsBatchDetails {
-  "data"?: SyntheticsBatchDetailsData;
+    'data'?: SyntheticsBatchDetailsData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsBatchDetailsData",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SyntheticsBatchDetailsData",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBatchDetails.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBatchDetails.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

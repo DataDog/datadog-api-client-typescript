@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCreateData } from "./NotebookCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookCreateData } from './NotebookCreateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The description of a notebook create request.
- */
+* The description of a notebook create request.
+*/
 
 export class NotebookCreateRequest {
-  "data": NotebookCreateData;
+    'data': NotebookCreateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NotebookCreateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "NotebookCreateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

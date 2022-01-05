@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Exclusion filter for the security filter.
- */
+* Exclusion filter for the security filter.
+*/
 
 export class SecurityFilterExclusionFilter {
-  /**
-   * Exclusion filter name.
-   */
-  "name": string;
-  /**
-   * Exclusion filter query. Logs that match this query are excluded from the security filter.
-   */
-  "query": string;
+    /**
+    * Exclusion filter name.
+    */
+    'name': string;
+    /**
+    * Exclusion filter query. Logs that match this query are excluded from the security filter.
+    */
+    'query': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterExclusionFilter.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterExclusionFilter.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

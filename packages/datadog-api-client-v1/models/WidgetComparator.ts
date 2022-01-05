@@ -8,12 +8,17 @@
  * Do not edit the class manually.
  */
 
-export type WidgetComparator =
-  | typeof GREATER_THAN
-  | typeof GREATER_THAN_OR_EQUAL_TO
-  | typeof LESS_THAN
-  | typeof LESS_THAN_OR_EQUAL_TO;
-export const GREATER_THAN = ">";
-export const GREATER_THAN_OR_EQUAL_TO = ">=";
-export const LESS_THAN = "<";
-export const LESS_THAN_OR_EQUAL_TO = "<=";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Comparator to apply.
+*/
+
+export type WidgetComparator = typeof GREATER_THAN | typeof GREATER_THAN_OR_EQUAL_TO | typeof LESS_THAN | typeof LESS_THAN_OR_EQUAL_TO ;
+export const GREATER_THAN = '>';
+export const GREATER_THAN_OR_EQUAL_TO = '>=';
+export const LESS_THAN = '<';
+export const LESS_THAN_OR_EQUAL_TO = '<=';
+
+

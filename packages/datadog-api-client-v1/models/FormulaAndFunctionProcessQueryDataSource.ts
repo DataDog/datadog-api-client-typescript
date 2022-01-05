@@ -8,8 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type FormulaAndFunctionProcessQueryDataSource =
-  | typeof PROCESS
-  | typeof CONTAINER;
-export const PROCESS = "process";
-export const CONTAINER = "container";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Data sources that rely on the process backend.
+*/
+
+export type FormulaAndFunctionProcessQueryDataSource = typeof PROCESS | typeof CONTAINER ;
+export const PROCESS = 'process';
+export const CONTAINER = 'container';
+
+

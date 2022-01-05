@@ -8,48 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object containing the aggregates.
- */
+* The object containing the aggregates.
+*/
 
 export class UsageAttributionAggregatesBody {
-  /**
-   * The aggregate type.
-   */
-  "aggType"?: string;
-  /**
-   * The field.
-   */
-  "field"?: string;
-  /**
-   * The value for a given field.
-   */
-  "value"?: number;
+    /**
+    * The aggregate type.
+    */
+    'aggType'?: string;
+    /**
+    * The field.
+    */
+    'field'?: string;
+    /**
+    * The value for a given field.
+    */
+    'value'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggType: {
-      baseName: "agg_type",
-      type: "string",
-    },
-    field: {
-      baseName: "field",
-      type: "string",
-    },
-    value: {
-      baseName: "value",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggType": {
+            "baseName": "agg_type",
+            "type": "string",
+            
+            
+        },
+        "field": {
+            "baseName": "field",
+            "type": "string",
+            
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "number",
+            
+            "format": "double",
+        }    };
 
-      format: "double",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageAttributionAggregatesBody.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionAggregatesBody.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

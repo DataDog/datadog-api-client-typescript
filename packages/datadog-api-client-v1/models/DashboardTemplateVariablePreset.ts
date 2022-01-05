@@ -8,39 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardTemplateVariablePresetValue } from './DashboardTemplateVariablePresetValue';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Template variables saved views.
- */
+* Template variables saved views.
+*/
 
 export class DashboardTemplateVariablePreset {
-  /**
-   * The name of the variable.
-   */
-  "name"?: string;
-  /**
-   * List of variables.
-   */
-  "templateVariables"?: Array<DashboardTemplateVariablePresetValue>;
+    /**
+    * The name of the variable.
+    */
+    'name'?: string;
+    /**
+    * List of variables.
+    */
+    'templateVariables'?: Array<DashboardTemplateVariablePresetValue>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "Array<DashboardTemplateVariablePresetValue>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "templateVariables": {
+            "baseName": "template_variables",
+            "type": "Array<DashboardTemplateVariablePresetValue>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardTemplateVariablePreset.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardTemplateVariablePreset.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

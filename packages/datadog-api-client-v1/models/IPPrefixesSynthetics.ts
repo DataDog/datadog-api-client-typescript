@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Available prefix information for the Synthetics endpoints.
- */
+* Available prefix information for the Synthetics endpoints.
+*/
 
 export class IPPrefixesSynthetics {
-  /**
-   * List of IPv4 prefixes.
-   */
-  "prefixesIpv4"?: Array<string>;
-  /**
-   * List of IPv4 prefixes by location.
-   */
-  "prefixesIpv4ByLocation"?: { [key: string]: Array<string> };
-  /**
-   * List of IPv6 prefixes.
-   */
-  "prefixesIpv6"?: Array<string>;
-  /**
-   * List of IPv6 prefixes by location.
-   */
-  "prefixesIpv6ByLocation"?: { [key: string]: Array<string> };
+    /**
+    * List of IPv4 prefixes.
+    */
+    'prefixesIpv4'?: Array<string>;
+    /**
+    * List of IPv4 prefixes by location.
+    */
+    'prefixesIpv4ByLocation'?: { [key: string]: Array<string>; };
+    /**
+    * List of IPv6 prefixes.
+    */
+    'prefixesIpv6'?: Array<string>;
+    /**
+    * List of IPv6 prefixes by location.
+    */
+    'prefixesIpv6ByLocation'?: { [key: string]: Array<string>; };
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    prefixesIpv4: {
-      baseName: "prefixes_ipv4",
-      type: "Array<string>",
-    },
-    prefixesIpv4ByLocation: {
-      baseName: "prefixes_ipv4_by_location",
-      type: "{ [key: string]: Array<string>; }",
-    },
-    prefixesIpv6: {
-      baseName: "prefixes_ipv6",
-      type: "Array<string>",
-    },
-    prefixesIpv6ByLocation: {
-      baseName: "prefixes_ipv6_by_location",
-      type: "{ [key: string]: Array<string>; }",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "prefixesIpv4": {
+            "baseName": "prefixes_ipv4",
+            "type": "Array<string>",
+            
+            
+        },
+        "prefixesIpv4ByLocation": {
+            "baseName": "prefixes_ipv4_by_location",
+            "type": "{ [key: string]: Array<string>; }",
+            
+            
+        },
+        "prefixesIpv6": {
+            "baseName": "prefixes_ipv6",
+            "type": "Array<string>",
+            
+            
+        },
+        "prefixesIpv6ByLocation": {
+            "baseName": "prefixes_ipv6_by_location",
+            "type": "{ [key: string]: Array<string>; }",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesSynthetics.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IPPrefixesSynthetics.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,52 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Host Metrics collected.
- */
+* Host Metrics collected.
+*/
 
 export class HostMetrics {
-  /**
-   * The percent of CPU used (everything but idle).
-   */
-  "cpu"?: number;
-  /**
-   * The percent of CPU spent waiting on the IO (not reported for all platforms).
-   */
-  "iowait"?: number;
-  /**
-   * The system load over the last 15 minutes.
-   */
-  "load"?: number;
+    /**
+    * The percent of CPU used (everything but idle).
+    */
+    'cpu'?: number;
+    /**
+    * The percent of CPU spent waiting on the IO (not reported for all platforms).
+    */
+    'iowait'?: number;
+    /**
+    * The system load over the last 15 minutes.
+    */
+    'load'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cpu: {
-      baseName: "cpu",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cpu": {
+            "baseName": "cpu",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "iowait": {
+            "baseName": "iowait",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "load": {
+            "baseName": "load",
+            "type": "number",
+            
+            "format": "double",
+        }    };
 
-      format: "double",
-    },
-    iowait: {
-      baseName: "iowait",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostMetrics.attributeTypeMap;
+    }
 
-      format: "double",
-    },
-    load: {
-      baseName: "load",
-      type: "number",
-
-      format: "double",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMetrics.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

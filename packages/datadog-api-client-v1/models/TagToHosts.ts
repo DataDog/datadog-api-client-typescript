@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * In this object, the key is the tag, the value is a list of host names that are reporting that tag.
- */
+* In this object, the key is the tag, the value is a list of host names that are reporting that tag.
+*/
 
 export class TagToHosts {
-  /**
-   * A list of tags to apply to the host.
-   */
-  "tags"?: { [key: string]: Array<string> };
+    /**
+    * A list of tags to apply to the host.
+    */
+    'tags'?: { [key: string]: Array<string>; };
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    tags: {
-      baseName: "tags",
-      type: "{ [key: string]: Array<string>; }",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "tags": {
+            "baseName": "tags",
+            "type": "{ [key: string]: Array<string>; }",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TagToHosts.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return TagToHosts.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

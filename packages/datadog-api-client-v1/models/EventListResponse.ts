@@ -8,39 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { Event } from "./Event";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Event } from './Event';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An event list response.
- */
+* An event list response.
+*/
 
 export class EventListResponse {
-  /**
-   * An array of events.
-   */
-  "events"?: Array<Event>;
-  /**
-   * A status.
-   */
-  "status"?: string;
+    /**
+    * An array of events.
+    */
+    'events'?: Array<Event>;
+    /**
+    * A status.
+    */
+    'status'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    events: {
-      baseName: "events",
-      type: "Array<Event>",
-    },
-    status: {
-      baseName: "status",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "events": {
+            "baseName": "events",
+            "type": "Array<Event>",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return EventListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

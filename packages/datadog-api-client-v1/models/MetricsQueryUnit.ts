@@ -8,64 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing the metric unit family, scale factor, name, and short name.
- */
+* Object containing the metric unit family, scale factor, name, and short name.
+*/
 
 export class MetricsQueryUnit {
-  /**
-   * Unit family, allows for conversion between units of the same family, for scaling.
-   */
-  "family"?: string;
-  /**
-   * Unit name
-   */
-  "name"?: string;
-  /**
-   * Plural form of the unit name.
-   */
-  "plural"?: string;
-  /**
-   * Factor for scaling between units of the same family.
-   */
-  "scaleFactor"?: number;
-  /**
-   * Abbreviation of the unit.
-   */
-  "shortName"?: string;
+    /**
+    * Unit family, allows for conversion between units of the same family, for scaling.
+    */
+    'family'?: string;
+    /**
+    * Unit name
+    */
+    'name'?: string;
+    /**
+    * Plural form of the unit name.
+    */
+    'plural'?: string;
+    /**
+    * Factor for scaling between units of the same family.
+    */
+    'scaleFactor'?: number;
+    /**
+    * Abbreviation of the unit.
+    */
+    'shortName'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    family: {
-      baseName: "family",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    plural: {
-      baseName: "plural",
-      type: "string",
-    },
-    scaleFactor: {
-      baseName: "scale_factor",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "family": {
+            "baseName": "family",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "plural": {
+            "baseName": "plural",
+            "type": "string",
+            
+            
+        },
+        "scaleFactor": {
+            "baseName": "scale_factor",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "shortName": {
+            "baseName": "short_name",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "double",
-    },
-    shortName: {
-      baseName: "short_name",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricsQueryUnit.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsQueryUnit.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

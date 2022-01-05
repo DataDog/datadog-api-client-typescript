@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The counts of monitors per different criteria.
- */
+* The counts of monitors per different criteria.
+*/
 
 export class MonitorSearchResponseCounts {
-  /**
-   * Search facets.
-   */
-  "muted"?: Array<any>;
-  /**
-   * Search facets.
-   */
-  "status"?: Array<any>;
-  /**
-   * Search facets.
-   */
-  "tag"?: Array<any>;
-  /**
-   * Search facets.
-   */
-  "type"?: Array<any>;
+    /**
+    * Search facets.
+    */
+    'muted'?: Array<any>;
+    /**
+    * Search facets.
+    */
+    'status'?: Array<any>;
+    /**
+    * Search facets.
+    */
+    'tag'?: Array<any>;
+    /**
+    * Search facets.
+    */
+    'type'?: Array<any>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    muted: {
-      baseName: "muted",
-      type: "Array<any>",
-    },
-    status: {
-      baseName: "status",
-      type: "Array<any>",
-    },
-    tag: {
-      baseName: "tag",
-      type: "Array<any>",
-    },
-    type: {
-      baseName: "type",
-      type: "Array<any>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "muted": {
+            "baseName": "muted",
+            "type": "Array<any>",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "Array<any>",
+            
+            
+        },
+        "tag": {
+            "baseName": "tag",
+            "type": "Array<any>",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "Array<any>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResponseCounts.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorSearchResponseCounts.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

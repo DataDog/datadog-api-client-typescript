@@ -8,45 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { UserUpdateAttributes } from "./UserUpdateAttributes";
-import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserUpdateAttributes } from './UserUpdateAttributes';
+import { UsersType } from './UsersType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to update a user.
- */
+* Object to update a user.
+*/
 
 export class UserUpdateData {
-  "attributes": UserUpdateAttributes;
-  /**
-   * ID of the user.
-   */
-  "id": string;
-  "type": UsersType;
+    'attributes': UserUpdateAttributes;
+    /**
+    * ID of the user.
+    */
+    'id': string;
+    'type': UsersType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserUpdateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "UserUpdateAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsersType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserUpdateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

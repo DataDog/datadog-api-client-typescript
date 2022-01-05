@@ -8,50 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of the role.
- */
+* Attributes of the role.
+*/
 
 export class RoleUpdateAttributes {
-  /**
-   * Creation time of the role.
-   */
-  "createdAt"?: Date;
-  /**
-   * Time of last role modification.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * Name of the role.
-   */
-  "name"?: string;
+    /**
+    * Creation time of the role.
+    */
+    'createdAt'?: Date;
+    /**
+    * Time of last role modification.
+    */
+    'modifiedAt'?: Date;
+    /**
+    * Name of the role.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleUpdateAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

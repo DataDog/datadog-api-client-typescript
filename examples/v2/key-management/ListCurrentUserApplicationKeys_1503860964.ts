@@ -10,8 +10,6 @@ const apiInstance = new v2.KeyManagementApi(configuration);
 apiInstance
   .listCurrentUserApplicationKeys()
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

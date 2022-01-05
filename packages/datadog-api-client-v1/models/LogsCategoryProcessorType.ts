@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsCategoryProcessorType = typeof CATEGORY_PROCESSOR;
-export const CATEGORY_PROCESSOR = "category-processor";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs category processor.
+*/
+
+export type LogsCategoryProcessorType = typeof CATEGORY_PROCESSOR ;
+export const CATEGORY_PROCESSOR = 'category-processor';
+
+

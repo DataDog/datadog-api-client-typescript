@@ -8,48 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyRelationships } from "./APIKeyRelationships";
-import { APIKeysType } from "./APIKeysType";
-import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyRelationships } from './APIKeyRelationships';
+import { APIKeysType } from './APIKeysType';
+import { FullAPIKeyAttributes } from './FullAPIKeyAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Datadog API key.
- */
+* Datadog API key.
+*/
 
 export class FullAPIKey {
-  "attributes"?: FullAPIKeyAttributes;
-  /**
-   * ID of the API key.
-   */
-  "id"?: string;
-  "relationships"?: APIKeyRelationships;
-  "type"?: APIKeysType;
+    'attributes'?: FullAPIKeyAttributes;
+    /**
+    * ID of the API key.
+    */
+    'id'?: string;
+    'relationships'?: APIKeyRelationships;
+    'type'?: APIKeysType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FullAPIKeyAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "APIKeyRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "APIKeysType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "FullAPIKeyAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "APIKeyRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "APIKeysType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullAPIKey.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FullAPIKey.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

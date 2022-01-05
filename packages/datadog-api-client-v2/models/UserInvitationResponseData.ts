@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
-import { UserInvitationsType } from "./UserInvitationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserInvitationDataAttributes } from './UserInvitationDataAttributes';
+import { UserInvitationsType } from './UserInvitationsType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object of a user invitation returned by the API.
- */
+* Object of a user invitation returned by the API.
+*/
 
 export class UserInvitationResponseData {
-  "attributes"?: UserInvitationDataAttributes;
-  /**
-   * ID of the user invitation.
-   */
-  "id"?: string;
-  "type"?: UserInvitationsType;
+    'attributes'?: UserInvitationDataAttributes;
+    /**
+    * ID of the user invitation.
+    */
+    'id'?: string;
+    'type'?: UserInvitationsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserInvitationDataAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "UserInvitationsType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "UserInvitationDataAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UserInvitationsType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserInvitationResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

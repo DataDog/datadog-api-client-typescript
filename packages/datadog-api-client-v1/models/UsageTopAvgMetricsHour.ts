@@ -8,56 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { UsageMetricCategory } from "./UsageMetricCategory";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageMetricCategory } from './UsageMetricCategory';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Number of hourly recorded custom metrics for a given organization.
- */
+* Number of hourly recorded custom metrics for a given organization.
+*/
 
 export class UsageTopAvgMetricsHour {
-  /**
-   * Average number of timeseries per hour in which the metric occurs.
-   */
-  "avgMetricHour"?: number;
-  /**
-   * Maximum number of timeseries per hour in which the metric occurs.
-   */
-  "maxMetricHour"?: number;
-  "metricCategory"?: UsageMetricCategory;
-  /**
-   * Contains the custom metric name.
-   */
-  "metricName"?: string;
+    /**
+    * Average number of timeseries per hour in which the metric occurs.
+    */
+    'avgMetricHour'?: number;
+    /**
+    * Maximum number of timeseries per hour in which the metric occurs.
+    */
+    'maxMetricHour'?: number;
+    'metricCategory'?: UsageMetricCategory;
+    /**
+    * Contains the custom metric name.
+    */
+    'metricName'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    avgMetricHour: {
-      baseName: "avg_metric_hour",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "avgMetricHour": {
+            "baseName": "avg_metric_hour",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "maxMetricHour": {
+            "baseName": "max_metric_hour",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "metricCategory": {
+            "baseName": "metric_category",
+            "type": "UsageMetricCategory",
+            
+            
+        },
+        "metricName": {
+            "baseName": "metric_name",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    maxMetricHour: {
-      baseName: "max_metric_hour",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageTopAvgMetricsHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    metricCategory: {
-      baseName: "metric_category",
-      type: "UsageMetricCategory",
-    },
-    metricName: {
-      baseName: "metric_name",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTopAvgMetricsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

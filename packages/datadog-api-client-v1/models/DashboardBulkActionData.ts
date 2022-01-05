@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { DashboardResourceType } from "./DashboardResourceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardResourceType } from './DashboardResourceType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Dashboard bulk action request data.
- */
+* Dashboard bulk action request data.
+*/
 
 export class DashboardBulkActionData {
-  /**
-   * Dashboard resource ID.
-   */
-  "id": string;
-  "type": DashboardResourceType;
+    /**
+    * Dashboard resource ID.
+    */
+    'id': string;
+    'type': DashboardResourceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "DashboardResourceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "DashboardResourceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardBulkActionData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardBulkActionData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

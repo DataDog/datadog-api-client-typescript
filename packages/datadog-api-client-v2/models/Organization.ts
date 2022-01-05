@@ -8,43 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { OrganizationAttributes } from "./OrganizationAttributes";
-import { OrganizationsType } from "./OrganizationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { OrganizationAttributes } from './OrganizationAttributes';
+import { OrganizationsType } from './OrganizationsType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Organization object.
- */
+* Organization object.
+*/
 
 export class Organization {
-  "attributes"?: OrganizationAttributes;
-  /**
-   * ID of the organization.
-   */
-  "id"?: string;
-  "type": OrganizationsType;
+    'attributes'?: OrganizationAttributes;
+    /**
+    * ID of the organization.
+    */
+    'id'?: string;
+    'type': OrganizationsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrganizationAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "OrganizationsType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "OrganizationAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "OrganizationsType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Organization.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Organization.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

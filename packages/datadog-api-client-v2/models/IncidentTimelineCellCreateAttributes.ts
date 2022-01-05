@@ -8,13 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
-import { UnparsedObject } from "./ObjectSerializer";
+import { IncidentTimelineCellMarkdownContentType } from './IncidentTimelineCellMarkdownContentType';
+import { IncidentTimelineCellMarkdownCreateAttributes } from './IncidentTimelineCellMarkdownCreateAttributes';
+import { IncidentTimelineCellMarkdownCreateAttributesContent } from './IncidentTimelineCellMarkdownCreateAttributesContent';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The timeline cell's attributes for a create request.
- */
+* The timeline cell's attributes for a create request.
+*/
 
-export type IncidentTimelineCellCreateAttributes =
-  | IncidentTimelineCellMarkdownCreateAttributes
-  | UnparsedObject;
+export type IncidentTimelineCellCreateAttributes = IncidentTimelineCellMarkdownCreateAttributes | UnparsedObject;

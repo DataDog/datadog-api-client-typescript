@@ -8,52 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
- */
+* Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
+*/
 
 export class LogsGroupByHistogram {
-  /**
-   * The bin size of the histogram buckets
-   */
-  "interval": number;
-  /**
-   * The maximum value for the measure used in the histogram (values greater than this one are filtered out)
-   */
-  "max": number;
-  /**
-   * The minimum value for the measure used in the histogram (values smaller than this one are filtered out)
-   */
-  "min": number;
+    /**
+    * The bin size of the histogram buckets
+    */
+    'interval': number;
+    /**
+    * The maximum value for the measure used in the histogram (values greater than this one are filtered out)
+    */
+    'max': number;
+    /**
+    * The minimum value for the measure used in the histogram (values smaller than this one are filtered out)
+    */
+    'min': number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    interval: {
-      baseName: "interval",
-      type: "number",
-      required: true,
-      format: "double",
-    },
-    max: {
-      baseName: "max",
-      type: "number",
-      required: true,
-      format: "double",
-    },
-    min: {
-      baseName: "min",
-      type: "number",
-      required: true,
-      format: "double",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "interval": {
+            "baseName": "interval",
+            "type": "number",
+            "required": true,
+            "format": "double",
+        },
+        "max": {
+            "baseName": "max",
+            "type": "number",
+            "required": true,
+            "format": "double",
+        },
+        "min": {
+            "baseName": "min",
+            "type": "number",
+            "required": true,
+            "format": "double",
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGroupByHistogram.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsGroupByHistogram.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

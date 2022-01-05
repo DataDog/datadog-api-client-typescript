@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SunburstWidgetLegendTableType = typeof TABLE | typeof NONE;
-export const TABLE = "table";
-export const NONE = "none";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Whether or not to show a table legend.
+*/
+
+export type SunburstWidgetLegendTableType = typeof TABLE | typeof NONE ;
+export const TABLE = 'table';
+export const NONE = 'none';
+
+

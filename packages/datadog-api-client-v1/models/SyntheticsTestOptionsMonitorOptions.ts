@@ -8,32 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing the options for a Synthetic test as a monitor (for example, renotification).
- */
+* Object containing the options for a Synthetic test as a monitor (for example, renotification).
+*/
 
 export class SyntheticsTestOptionsMonitorOptions {
-  /**
-   * Time interval before renotifying if the test is still failing (in minutes).
-   */
-  "renotifyInterval"?: number;
+    /**
+    * Time interval before renotifying if the test is still failing (in minutes).
+    */
+    'renotifyInterval'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    renotifyInterval: {
-      baseName: "renotify_interval",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "renotifyInterval": {
+            "baseName": "renotify_interval",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

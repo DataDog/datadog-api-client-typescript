@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
-import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
-import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
+import { ScatterplotWidgetFormula } from './ScatterplotWidgetFormula';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Scatterplot request containing formulas and functions.
- */
+* Scatterplot request containing formulas and functions.
+*/
 
 export class ScatterplotTableRequest {
-  /**
-   * List of Scatterplot formulas that operate on queries. **This feature is currently in beta.**
-   */
-  "formulas"?: Array<ScatterplotWidgetFormula>;
-  /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-   */
-  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
+    /**
+    * List of Scatterplot formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<ScatterplotWidgetFormula>;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    formulas: {
-      baseName: "formulas",
-      type: "Array<ScatterplotWidgetFormula>",
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<FormulaAndFunctionQueryDefinition>",
-    },
-    responseFormat: {
-      baseName: "response_format",
-      type: "FormulaAndFunctionResponseFormat",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "formulas": {
+            "baseName": "formulas",
+            "type": "Array<ScatterplotWidgetFormula>",
+            
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            
+            
+        },
+        "responseFormat": {
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterplotTableRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ScatterplotTableRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

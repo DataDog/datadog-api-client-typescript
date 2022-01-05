@@ -8,12 +8,17 @@
  * Do not edit the class manually.
  */
 
-export type MetricCustomSpaceAggregation =
-  | typeof AVG
-  | typeof MAX
-  | typeof MIN
-  | typeof SUM;
-export const AVG = "avg";
-export const MAX = "max";
-export const MIN = "min";
-export const SUM = "sum";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* A space aggregation for use in query.
+*/
+
+export type MetricCustomSpaceAggregation = typeof AVG | typeof MAX | typeof MIN | typeof SUM ;
+export const AVG = 'avg';
+export const MAX = 'max';
+export const MIN = 'min';
+export const SUM = 'sum';
+
+

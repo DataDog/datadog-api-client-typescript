@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { MetricCustomSpaceAggregation } from "./MetricCustomSpaceAggregation";
-import { MetricCustomTimeAggregation } from "./MetricCustomTimeAggregation";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricCustomSpaceAggregation } from './MetricCustomSpaceAggregation';
+import { MetricCustomTimeAggregation } from './MetricCustomTimeAggregation';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A time and space aggregation combination for use in query.
- */
+* A time and space aggregation combination for use in query.
+*/
 
 export class MetricCustomAggregation {
-  "space": MetricCustomSpaceAggregation;
-  "time": MetricCustomTimeAggregation;
+    'space': MetricCustomSpaceAggregation;
+    'time': MetricCustomTimeAggregation;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    space: {
-      baseName: "space",
-      type: "MetricCustomSpaceAggregation",
-      required: true,
-    },
-    time: {
-      baseName: "time",
-      type: "MetricCustomTimeAggregation",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "space": {
+            "baseName": "space",
+            "type": "MetricCustomSpaceAggregation",
+            "required": true,
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "MetricCustomTimeAggregation",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricCustomAggregation.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricCustomAggregation.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

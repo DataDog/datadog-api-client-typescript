@@ -8,46 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToOrganization } from "./RelationshipToOrganization";
-import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
-import { RelationshipToRoles } from "./RelationshipToRoles";
-import { RelationshipToUsers } from "./RelationshipToUsers";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToOrganization } from './RelationshipToOrganization';
+import { RelationshipToOrganizations } from './RelationshipToOrganizations';
+import { RelationshipToRoles } from './RelationshipToRoles';
+import { RelationshipToUsers } from './RelationshipToUsers';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationships of the user object returned by the API.
- */
+* Relationships of the user object returned by the API.
+*/
 
 export class UserResponseRelationships {
-  "org"?: RelationshipToOrganization;
-  "otherOrgs"?: RelationshipToOrganizations;
-  "otherUsers"?: RelationshipToUsers;
-  "roles"?: RelationshipToRoles;
+    'org'?: RelationshipToOrganization;
+    'otherOrgs'?: RelationshipToOrganizations;
+    'otherUsers'?: RelationshipToUsers;
+    'roles'?: RelationshipToRoles;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    org: {
-      baseName: "org",
-      type: "RelationshipToOrganization",
-    },
-    otherOrgs: {
-      baseName: "other_orgs",
-      type: "RelationshipToOrganizations",
-    },
-    otherUsers: {
-      baseName: "other_users",
-      type: "RelationshipToUsers",
-    },
-    roles: {
-      baseName: "roles",
-      type: "RelationshipToRoles",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "org": {
+            "baseName": "org",
+            "type": "RelationshipToOrganization",
+            
+            
+        },
+        "otherOrgs": {
+            "baseName": "other_orgs",
+            "type": "RelationshipToOrganizations",
+            
+            
+        },
+        "otherUsers": {
+            "baseName": "other_users",
+            "type": "RelationshipToUsers",
+            
+            
+        },
+        "roles": {
+            "baseName": "roles",
+            "type": "RelationshipToRoles",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserResponseRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserResponseRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

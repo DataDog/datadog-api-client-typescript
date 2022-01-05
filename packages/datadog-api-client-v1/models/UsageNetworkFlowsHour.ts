@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Number of netflow events indexed for each hour for a given organization.
- */
+* Number of netflow events indexed for each hour for a given organization.
+*/
 
 export class UsageNetworkFlowsHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * Contains the number of netflow events indexed.
-   */
-  "indexedEventsCount"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * Contains the number of netflow events indexed.
+    */
+    'indexedEventsCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "indexedEventsCount": {
+            "baseName": "indexed_events_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    indexedEventsCount: {
-      baseName: "indexed_events_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageNetworkFlowsHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageNetworkFlowsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

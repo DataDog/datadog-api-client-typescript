@@ -8,46 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { ListStreamSource } from "./ListStreamSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ListStreamSource } from './ListStreamSource';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated list stream widget.
- */
+* Updated list stream widget.
+*/
 
 export class ListStreamQuery {
-  "dataSource": ListStreamSource;
-  /**
-   * List of indexes.
-   */
-  "indexes"?: Array<string>;
-  /**
-   * Widget query.
-   */
-  "queryString": string;
+    'dataSource': ListStreamSource;
+    /**
+    * List of indexes.
+    */
+    'indexes'?: Array<string>;
+    /**
+    * Widget query.
+    */
+    'queryString': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "ListStreamSource",
-      required: true,
-    },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
-    },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "dataSource": {
+            "baseName": "data_source",
+            "type": "ListStreamSource",
+            "required": true,
+            
+        },
+        "indexes": {
+            "baseName": "indexes",
+            "type": "Array<string>",
+            
+            
+        },
+        "queryString": {
+            "baseName": "query_string",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamQuery.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ListStreamQuery.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

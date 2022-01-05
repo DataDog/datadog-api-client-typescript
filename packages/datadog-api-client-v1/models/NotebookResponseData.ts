@@ -8,46 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { NotebookResourceType } from "./NotebookResourceType";
-import { NotebookResponseDataAttributes } from "./NotebookResponseDataAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookResourceType } from './NotebookResourceType';
+import { NotebookResponseDataAttributes } from './NotebookResponseDataAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The data for a notebook.
- */
+* The data for a notebook.
+*/
 
 export class NotebookResponseData {
-  "attributes": NotebookResponseDataAttributes;
-  /**
-   * Unique notebook ID, assigned when you create the notebook.
-   */
-  "id": number;
-  "type": NotebookResourceType;
+    'attributes': NotebookResponseDataAttributes;
+    /**
+    * Unique notebook ID, assigned when you create the notebook.
+    */
+    'id': number;
+    'type': NotebookResourceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NotebookResponseDataAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    type: {
-      baseName: "type",
-      type: "NotebookResourceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "NotebookResponseDataAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "number",
+            "required": true,
+            "format": "int64",
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NotebookResourceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

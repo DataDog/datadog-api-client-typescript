@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * X Axis controls for the distribution widget.
- */
+* X Axis controls for the distribution widget.
+*/
 
 export class DistributionWidgetXAxis {
-  /**
-   * True includes zero.
-   */
-  "includeZero"?: boolean;
-  /**
-   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
-   */
-  "max"?: string;
-  /**
-   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
-   */
-  "min"?: string;
-  /**
-   * Specifies the scale type. Possible values are `linear`.
-   */
-  "scale"?: string;
+    /**
+    * True includes zero.
+    */
+    'includeZero'?: boolean;
+    /**
+    * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    */
+    'max'?: string;
+    /**
+    * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
+    */
+    'min'?: string;
+    /**
+    * Specifies the scale type. Possible values are `linear`.
+    */
+    'scale'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    includeZero: {
-      baseName: "include_zero",
-      type: "boolean",
-    },
-    max: {
-      baseName: "max",
-      type: "string",
-    },
-    min: {
-      baseName: "min",
-      type: "string",
-    },
-    scale: {
-      baseName: "scale",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "includeZero": {
+            "baseName": "include_zero",
+            "type": "boolean",
+            
+            
+        },
+        "max": {
+            "baseName": "max",
+            "type": "string",
+            
+            
+        },
+        "min": {
+            "baseName": "min",
+            "type": "string",
+            
+            
+        },
+        "scale": {
+            "baseName": "scale",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetXAxis.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DistributionWidgetXAxis.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

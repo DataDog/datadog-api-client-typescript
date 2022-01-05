@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type UserInvitationsType = typeof USER_INVITATIONS;
-export const USER_INVITATIONS = "user_invitations";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* User invitations type.
+*/
+
+export type UserInvitationsType = typeof USER_INVITATIONS ;
+export const USER_INVITATIONS = 'user_invitations';
+
+

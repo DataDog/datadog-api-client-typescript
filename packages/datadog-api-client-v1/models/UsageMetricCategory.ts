@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type UsageMetricCategory = typeof STANDARD | typeof CUSTOM;
-export const STANDARD = "standard";
-export const CUSTOM = "custom";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Contains the metric category.
+*/
+
+export type UsageMetricCategory = typeof STANDARD | typeof CUSTOM ;
+export const STANDARD = 'standard';
+export const CUSTOM = 'custom';
+
+

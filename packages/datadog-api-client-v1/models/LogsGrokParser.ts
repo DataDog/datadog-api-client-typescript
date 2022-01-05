@@ -8,69 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { LogsGrokParserRules } from "./LogsGrokParserRules";
-import { LogsGrokParserType } from "./LogsGrokParserType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsGrokParserRules } from './LogsGrokParserRules';
+import { LogsGrokParserType } from './LogsGrokParserType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/log_configuration/parsing).
- */
+* Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings). For more information, see the [parsing section](https://docs.datadoghq.com/logs/log_configuration/parsing).
+*/
 
 export class LogsGrokParser {
-  "grok": LogsGrokParserRules;
-  /**
-   * Whether or not the processor is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
-   * Name of the processor.
-   */
-  "name"?: string;
-  /**
-   * List of sample logs to test this grok parser.
-   */
-  "samples"?: Array<string>;
-  /**
-   * Name of the log attribute to parse.
-   */
-  "source": string;
-  "type": LogsGrokParserType;
+    'grok': LogsGrokParserRules;
+    /**
+    * Whether or not the processor is enabled.
+    */
+    'isEnabled'?: boolean;
+    /**
+    * Name of the processor.
+    */
+    'name'?: string;
+    /**
+    * List of sample logs to test this grok parser.
+    */
+    'samples'?: Array<string>;
+    /**
+    * Name of the log attribute to parse.
+    */
+    'source': string;
+    'type': LogsGrokParserType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    grok: {
-      baseName: "grok",
-      type: "LogsGrokParserRules",
-      required: true,
-    },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    samples: {
-      baseName: "samples",
-      type: "Array<string>",
-    },
-    source: {
-      baseName: "source",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LogsGrokParserType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "grok": {
+            "baseName": "grok",
+            "type": "LogsGrokParserRules",
+            "required": true,
+            
+        },
+        "isEnabled": {
+            "baseName": "is_enabled",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "samples": {
+            "baseName": "samples",
+            "type": "Array<string>",
+            
+            
+        },
+        "source": {
+            "baseName": "source",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsGrokParserType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGrokParser.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsGrokParser.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

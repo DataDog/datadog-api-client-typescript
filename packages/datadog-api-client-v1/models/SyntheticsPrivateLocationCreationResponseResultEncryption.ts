@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Public key for the result encryption.
- */
+* Public key for the result encryption.
+*/
 
 export class SyntheticsPrivateLocationCreationResponseResultEncryption {
-  /**
-   * Fingerprint for the encryption key.
-   */
-  "id"?: string;
-  /**
-   * Public key for result encryption.
-   */
-  "key"?: string;
+    /**
+    * Fingerprint for the encryption key.
+    */
+    'id'?: string;
+    /**
+    * Public key for result encryption.
+    */
+    'key'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "key": {
+            "baseName": "key",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

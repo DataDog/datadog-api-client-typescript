@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type EventPriority = typeof NORMAL | typeof LOW;
-export const NORMAL = "normal";
-export const LOW = "low";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The priority of the event. For example, `normal` or `low`.
+*/
+
+export type EventPriority = typeof NORMAL | typeof LOW ;
+export const NORMAL = 'normal';
+export const LOW = 'low';
+
+

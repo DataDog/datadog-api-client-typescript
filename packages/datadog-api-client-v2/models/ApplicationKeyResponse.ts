@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
-import { FullApplicationKey } from "./FullApplicationKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApplicationKeyResponseIncludedItem } from './ApplicationKeyResponseIncludedItem';
+import { FullApplicationKey } from './FullApplicationKey';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response for retrieving an application key.
- */
+* Response for retrieving an application key.
+*/
 
 export class ApplicationKeyResponse {
-  "data"?: FullApplicationKey;
-  /**
-   * Array of objects related to the application key.
-   */
-  "included"?: Array<ApplicationKeyResponseIncludedItem>;
+    'data'?: FullApplicationKey;
+    /**
+    * Array of objects related to the application key.
+    */
+    'included'?: Array<ApplicationKeyResponseIncludedItem>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FullApplicationKey",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<ApplicationKeyResponseIncludedItem>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "FullApplicationKey",
+            
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<ApplicationKeyResponseIncludedItem>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKeyResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

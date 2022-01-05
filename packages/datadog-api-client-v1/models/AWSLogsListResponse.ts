@@ -8,47 +8,57 @@
  * Do not edit the class manually.
  */
 
-import { AWSLogsLambda } from "./AWSLogsLambda";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AWSLogsLambda } from './AWSLogsLambda';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A list of all Datadog-AWS logs integrations available in your Datadog organization.
- */
+* A list of all Datadog-AWS logs integrations available in your Datadog organization.
+*/
 
 export class AWSLogsListResponse {
-  /**
-   * Your AWS Account ID without dashes.
-   */
-  "accountId"?: string;
-  /**
-   * List of ARNs configured in your Datadog account.
-   */
-  "lambdas"?: Array<AWSLogsLambda>;
-  /**
-   * Array of services IDs.
-   */
-  "services"?: Array<string>;
+    /**
+    * Your AWS Account ID without dashes.
+    */
+    'accountId'?: string;
+    /**
+    * List of ARNs configured in your Datadog account.
+    */
+    'lambdas'?: Array<AWSLogsLambda>;
+    /**
+    * Array of services IDs.
+    */
+    'services'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-    },
-    lambdas: {
-      baseName: "lambdas",
-      type: "Array<AWSLogsLambda>",
-    },
-    services: {
-      baseName: "services",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accountId": {
+            "baseName": "account_id",
+            "type": "string",
+            
+            
+        },
+        "lambdas": {
+            "baseName": "lambdas",
+            "type": "Array<AWSLogsLambda>",
+            
+            
+        },
+        "services": {
+            "baseName": "services",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSLogsListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

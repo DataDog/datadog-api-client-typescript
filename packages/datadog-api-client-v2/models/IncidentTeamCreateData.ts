@@ -8,41 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { IncidentTeamCreateAttributes } from "./IncidentTeamCreateAttributes";
-import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
-import { IncidentTeamType } from "./IncidentTeamType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentTeamCreateAttributes } from './IncidentTeamCreateAttributes';
+import { IncidentTeamRelationships } from './IncidentTeamRelationships';
+import { IncidentTeamType } from './IncidentTeamType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Incident Team data for a create request.
- */
+* Incident Team data for a create request.
+*/
 
 export class IncidentTeamCreateData {
-  "attributes"?: IncidentTeamCreateAttributes;
-  "relationships"?: IncidentTeamRelationships;
-  "type": IncidentTeamType;
+    'attributes'?: IncidentTeamCreateAttributes;
+    'relationships'?: IncidentTeamRelationships;
+    'type': IncidentTeamType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTeamCreateAttributes",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTeamRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentTeamType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "IncidentTeamCreateAttributes",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "IncidentTeamRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentTeamType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentTeamCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

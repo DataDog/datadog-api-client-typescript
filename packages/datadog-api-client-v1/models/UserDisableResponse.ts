@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Array of user disabled for a given organization.
- */
+* Array of user disabled for a given organization.
+*/
 
 export class UserDisableResponse {
-  /**
-   * Information pertaining to a user disabled for a given organization.
-   */
-  "message"?: string;
+    /**
+    * Information pertaining to a user disabled for a given organization.
+    */
+    'message'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserDisableResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserDisableResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

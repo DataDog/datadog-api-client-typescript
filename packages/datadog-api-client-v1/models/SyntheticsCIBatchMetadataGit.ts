@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Git information.
- */
+* Git information.
+*/
 
 export class SyntheticsCIBatchMetadataGit {
-  /**
-   * Branch name.
-   */
-  "branch"?: string;
-  /**
-   * The commit SHA.
-   */
-  "commitSha"?: string;
+    /**
+    * Branch name.
+    */
+    'branch'?: string;
+    /**
+    * The commit SHA.
+    */
+    'commitSha'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    branch: {
-      baseName: "branch",
-      type: "string",
-    },
-    commitSha: {
-      baseName: "commitSha",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "branch": {
+            "baseName": "branch",
+            "type": "string",
+            
+            
+        },
+        "commitSha": {
+            "baseName": "commitSha",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataGit.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsCIBatchMetadataGit.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

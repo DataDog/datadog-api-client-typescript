@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Widget style definition.
- */
+* Widget style definition.
+*/
 
 export class WidgetStyle {
-  /**
-   * Color palette to apply to the widget.
-   */
-  "palette"?: string;
+    /**
+    * Color palette to apply to the widget.
+    */
+    'palette'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    palette: {
-      baseName: "palette",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "palette": {
+            "baseName": "palette",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetStyle.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetStyle.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

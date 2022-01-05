@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ResponseMetaAttributes } from './ResponseMetaAttributes';
+import { SecurityMonitoringRuleResponse } from './SecurityMonitoringRuleResponse';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of rules.
- */
+* List of rules.
+*/
 
 export class SecurityMonitoringListRulesResponse {
-  /**
-   * Array containing the list of rules.
-   */
-  "data"?: Array<SecurityMonitoringRuleResponse>;
-  "meta"?: ResponseMetaAttributes;
+    /**
+    * Array containing the list of rules.
+    */
+    'data'?: Array<SecurityMonitoringRuleResponse>;
+    'meta'?: ResponseMetaAttributes;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringRuleResponse>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ResponseMetaAttributes",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<SecurityMonitoringRuleResponse>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "ResponseMetaAttributes",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringListRulesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringListRulesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOListResponseMetadataPage } from './SLOListResponseMetadataPage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The metadata object containing additional information about the list of SLOs.
- */
+* The metadata object containing additional information about the list of SLOs.
+*/
 
 export class SLOListResponseMetadata {
-  "page"?: SLOListResponseMetadataPage;
+    'page'?: SLOListResponseMetadataPage;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SLOListResponseMetadataPage",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "SLOListResponseMetadataPage",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListResponseMetadata.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOListResponseMetadata.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsGlobalVariable } from './SyntheticsGlobalVariable';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing an array of Synthetic global variables.
- */
+* Object containing an array of Synthetic global variables.
+*/
 
 export class SyntheticsListGlobalVariablesResponse {
-  /**
-   * Array of Synthetic global variables.
-   */
-  "variables"?: Array<SyntheticsGlobalVariable>;
+    /**
+    * Array of Synthetic global variables.
+    */
+    'variables'?: Array<SyntheticsGlobalVariable>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    variables: {
-      baseName: "variables",
-      type: "Array<SyntheticsGlobalVariable>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "variables": {
+            "baseName": "variables",
+            "type": "Array<SyntheticsGlobalVariable>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

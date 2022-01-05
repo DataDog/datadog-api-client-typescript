@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SunburstWidgetDefinitionType = typeof SUNBURST;
-export const SUNBURST = "sunburst";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the Sunburst widget.
+*/
+
+export type SunburstWidgetDefinitionType = typeof SUNBURST ;
+export const SUNBURST = 'sunburst';
+
+

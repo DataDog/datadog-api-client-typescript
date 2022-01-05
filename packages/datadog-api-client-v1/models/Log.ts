@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { LogContent } from "./LogContent";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogContent } from './LogContent';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing a log after being processed and stored by Datadog.
- */
+* Object describing a log after being processed and stored by Datadog.
+*/
 
 export class Log {
-  "content"?: LogContent;
-  /**
-   * Unique ID of the Log.
-   */
-  "id"?: string;
+    'content'?: LogContent;
+    /**
+    * Unique ID of the Log.
+    */
+    'id'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "LogContent",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "content": {
+            "baseName": "content",
+            "type": "LogContent",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Log.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Log.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SLOResponseData } from "./SLOResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOResponseData } from './SLOResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A service level objective response containing a single service level objective.
- */
+* A service level objective response containing a single service level objective.
+*/
 
 export class SLOResponse {
-  "data"?: SLOResponseData;
-  /**
-   * An array of error messages. Each endpoint documents how/whether this field is used.
-   */
-  "errors"?: Array<string>;
+    'data'?: SLOResponseData;
+    /**
+    * An array of error messages. Each endpoint documents how/whether this field is used.
+    */
+    'errors'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOResponseData",
-    },
-    errors: {
-      baseName: "errors",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SLOResponseData",
+            
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,17 +8,17 @@
  * Do not edit the class manually.
  */
 
-import { Organization } from "./Organization";
-import { Permission } from "./Permission";
-import { Role } from "./Role";
-import { UnparsedObject } from "./ObjectSerializer";
+import { Organization } from './Organization';
+import { Permission } from './Permission';
+import { Role } from './Role';
+import { RoleAttributes } from './RoleAttributes';
+import { RoleResponseRelationships } from './RoleResponseRelationships';
+import { RolesType } from './RolesType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An object related to a user.
- */
+* An object related to a user.
+*/
 
-export type UserResponseIncludedItem =
-  | Organization
-  | Permission
-  | Role
-  | UnparsedObject;
+export type UserResponseIncludedItem = Organization | Permission | Role | UnparsedObject;

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { NotebooksResponsePage } from "./NotebooksResponsePage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebooksResponsePage } from './NotebooksResponsePage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Searches metadata returned by the API.
- */
+* Searches metadata returned by the API.
+*/
 
 export class NotebooksResponseMeta {
-  "page"?: NotebooksResponsePage;
+    'page'?: NotebooksResponsePage;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "NotebooksResponsePage",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "NotebooksResponsePage",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponseMeta.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebooksResponseMeta.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

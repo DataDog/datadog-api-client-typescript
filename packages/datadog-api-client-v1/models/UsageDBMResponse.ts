@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageDBMHour } from "./UsageDBMHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageDBMHour } from './UsageDBMHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the Database Monitoring usage for each hour for a given organization.
- */
+* Response containing the Database Monitoring usage for each hour for a given organization.
+*/
 
 export class UsageDBMResponse {
-  /**
-   * Get hourly usage for Database Monitoring
-   */
-  "usage"?: Array<UsageDBMHour>;
+    /**
+    * Get hourly usage for Database Monitoring
+    */
+    'usage'?: Array<UsageDBMHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageDBMHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageDBMHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageDBMResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageDBMResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

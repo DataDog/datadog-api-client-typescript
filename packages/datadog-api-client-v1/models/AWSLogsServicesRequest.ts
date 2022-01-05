@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A list of current AWS services for which Datadog offers automatic log collection.
- */
+* A list of current AWS services for which Datadog offers automatic log collection.
+*/
 
 export class AWSLogsServicesRequest {
-  /**
-   * Your AWS Account ID without dashes.
-   */
-  "accountId": string;
-  /**
-   * Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
-   */
-  "services": Array<string>;
+    /**
+    * Your AWS Account ID without dashes.
+    */
+    'accountId': string;
+    /**
+    * Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
+    */
+    'services': Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
-    },
-    services: {
-      baseName: "services",
-      type: "Array<string>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accountId": {
+            "baseName": "account_id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "services": {
+            "baseName": "services",
+            "type": "Array<string>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsServicesRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSLogsServicesRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

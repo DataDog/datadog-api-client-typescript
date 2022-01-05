@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageCloudSecurityPostureManagementHour } from './UsageCloudSecurityPostureManagementHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response containing the Cloud Security Posture Management usage for each hour for a given organization.
- */
+* The response containing the Cloud Security Posture Management usage for each hour for a given organization.
+*/
 
 export class UsageCloudSecurityPostureManagementResponse {
-  /**
-   * Get hourly usage for Cloud Security Posture Management.
-   */
-  "usage"?: Array<UsageCloudSecurityPostureManagementHour>;
+    /**
+    * Get hourly usage for Cloud Security Posture Management.
+    */
+    'usage'?: Array<UsageCloudSecurityPostureManagementHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageCloudSecurityPostureManagementHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageCloudSecurityPostureManagementHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

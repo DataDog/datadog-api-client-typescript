@@ -8,73 +8,88 @@
  * Do not edit the class manually.
  */
 
-import { AlertGraphWidgetDefinitionType } from "./AlertGraphWidgetDefinitionType";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { WidgetVizType } from "./WidgetVizType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AlertGraphWidgetDefinitionType } from './AlertGraphWidgetDefinitionType';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { WidgetVizType } from './WidgetVizType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
- */
+* Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
+*/
 
 export class AlertGraphWidgetDefinition {
-  /**
-   * ID of the alert to use in the widget.
-   */
-  "alertId": string;
-  "time"?: WidgetTime;
-  /**
-   * The title of the widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": AlertGraphWidgetDefinitionType;
-  "vizType": WidgetVizType;
+    /**
+    * ID of the alert to use in the widget.
+    */
+    'alertId': string;
+    'time'?: WidgetTime;
+    /**
+    * The title of the widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': AlertGraphWidgetDefinitionType;
+    'vizType': WidgetVizType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    alertId: {
-      baseName: "alert_id",
-      type: "string",
-      required: true,
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "AlertGraphWidgetDefinitionType",
-      required: true,
-    },
-    vizType: {
-      baseName: "viz_type",
-      type: "WidgetVizType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "alertId": {
+            "baseName": "alert_id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "AlertGraphWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "vizType": {
+            "baseName": "viz_type",
+            "type": "WidgetVizType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AlertGraphWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AlertGraphWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

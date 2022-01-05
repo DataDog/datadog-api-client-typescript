@@ -9,16 +9,15 @@ const apiInstance = new v1.SnapshotsApi(configuration);
 
 let params: v1.SnapshotsApiGetGraphSnapshotRequest = {
   metricQuery: "avg:system.load.1{*}",
-  start: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
-  end: new Date().getTime() / 1000,
-  title: "System load",
+start: new Date(new Date().getTime() / 1000 + -1*86400).getTime() / 1000,
+end: new Date().getTime() / 1000,
+title: "System load",
+
 };
 
 apiInstance
   .getGraphSnapshot(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

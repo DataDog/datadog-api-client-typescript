@@ -9,42 +9,45 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 // there is a valid "monitor" in the system
 
+
+
 let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title: "Example-Create_a_new_dashboard_with_alert_value_widget",
-    description: "",
-    widgets: [
-      {
-        layout: {
-          x: 0,
-          y: 0,
-          width: 15,
-          height: 8,
-        },
-        definition: {
-          title: "",
-          titleSize: "16",
-          titleAlign: "left",
-          type: "alert_value",
-          alertId: "1",
-          unit: "auto",
-          textAlign: "left",
-          precision: 2,
-        },
-      },
-    ],
-    templateVariables: [],
-    layoutType: "free",
-    isReadOnly: false,
-    notifyList: [],
-  },
+title: "Example-Create_a_new_dashboard_with_alert_value_widget",
+description: "",
+widgets: [
+{
+layout: {
+x: 0,
+y: 0,
+width: 15,
+height: 8,
+},
+definition: {
+title: "",
+titleSize: "16",
+titleAlign: "left",
+type: "alert_value",
+alertId: "1",
+unit: "auto",
+textAlign: "left",
+precision: 2,
+},
+},
+],
+templateVariables: [
+],
+layoutType: "free",
+isReadOnly: false,
+notifyList: [
+],
+},
+  
 };
 
 apiInstance
   .createDashboard(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

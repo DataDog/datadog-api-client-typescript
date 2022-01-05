@@ -8,15 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
-import { NotebookRelativeTime } from "./NotebookRelativeTime";
-import { UnparsedObject } from "./ObjectSerializer";
+import { NotebookAbsoluteTime } from './NotebookAbsoluteTime';
+import { NotebookRelativeTime } from './NotebookRelativeTime';
+import { WidgetLiveSpan } from './WidgetLiveSpan';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Notebook global timeframe.
- */
+* Notebook global timeframe.
+*/
 
-export type NotebookGlobalTime =
-  | NotebookAbsoluteTime
-  | NotebookRelativeTime
-  | UnparsedObject;
+export type NotebookGlobalTime = NotebookAbsoluteTime | NotebookRelativeTime | UnparsedObject;

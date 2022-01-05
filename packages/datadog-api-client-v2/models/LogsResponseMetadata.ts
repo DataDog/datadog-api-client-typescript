@@ -8,61 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateResponseStatus } from "./LogsAggregateResponseStatus";
-import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
-import { LogsWarning } from "./LogsWarning";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAggregateResponseStatus } from './LogsAggregateResponseStatus';
+import { LogsResponseMetadataPage } from './LogsResponseMetadataPage';
+import { LogsWarning } from './LogsWarning';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The metadata associated with a request
- */
+* The metadata associated with a request
+*/
 
 export class LogsResponseMetadata {
-  /**
-   * The time elapsed in milliseconds
-   */
-  "elapsed"?: number;
-  "page"?: LogsResponseMetadataPage;
-  /**
-   * The identifier of the request
-   */
-  "requestId"?: string;
-  "status"?: LogsAggregateResponseStatus;
-  /**
-   * A list of warnings (non fatal errors) encountered, partial results might be returned if warnings are present in the response.
-   */
-  "warnings"?: Array<LogsWarning>;
+    /**
+    * The time elapsed in milliseconds
+    */
+    'elapsed'?: number;
+    'page'?: LogsResponseMetadataPage;
+    /**
+    * The identifier of the request
+    */
+    'requestId'?: string;
+    'status'?: LogsAggregateResponseStatus;
+    /**
+    * A list of warnings (non fatal errors) encountered, partial results might be returned if warnings are present in the response.
+    */
+    'warnings'?: Array<LogsWarning>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    elapsed: {
-      baseName: "elapsed",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "elapsed": {
+            "baseName": "elapsed",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "page": {
+            "baseName": "page",
+            "type": "LogsResponseMetadataPage",
+            
+            
+        },
+        "requestId": {
+            "baseName": "request_id",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "LogsAggregateResponseStatus",
+            
+            
+        },
+        "warnings": {
+            "baseName": "warnings",
+            "type": "Array<LogsWarning>",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    page: {
-      baseName: "page",
-      type: "LogsResponseMetadataPage",
-    },
-    requestId: {
-      baseName: "request_id",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "LogsAggregateResponseStatus",
-    },
-    warnings: {
-      baseName: "warnings",
-      type: "Array<LogsWarning>",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsResponseMetadata.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

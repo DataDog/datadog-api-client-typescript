@@ -8,44 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { IncidentTimelineCellMarkdownContentType } from "./IncidentTimelineCellMarkdownContentType";
-import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentTimelineCellMarkdownContentType } from './IncidentTimelineCellMarkdownContentType';
+import { IncidentTimelineCellMarkdownCreateAttributesContent } from './IncidentTimelineCellMarkdownCreateAttributesContent';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Timeline cell data for Markdown timeline cells for a create request.
- */
+* Timeline cell data for Markdown timeline cells for a create request.
+*/
 
 export class IncidentTimelineCellMarkdownCreateAttributes {
-  "cellType": IncidentTimelineCellMarkdownContentType;
-  "content": IncidentTimelineCellMarkdownCreateAttributesContent;
-  /**
-   * A flag indicating whether the timeline cell is important and should be highlighted.
-   */
-  "important"?: boolean;
+    'cellType': IncidentTimelineCellMarkdownContentType;
+    'content': IncidentTimelineCellMarkdownCreateAttributesContent;
+    /**
+    * A flag indicating whether the timeline cell is important and should be highlighted.
+    */
+    'important'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cellType: {
-      baseName: "cell_type",
-      type: "IncidentTimelineCellMarkdownContentType",
-      required: true,
-    },
-    content: {
-      baseName: "content",
-      type: "IncidentTimelineCellMarkdownCreateAttributesContent",
-      required: true,
-    },
-    important: {
-      baseName: "important",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cellType": {
+            "baseName": "cell_type",
+            "type": "IncidentTimelineCellMarkdownContentType",
+            "required": true,
+            
+        },
+        "content": {
+            "baseName": "content",
+            "type": "IncidentTimelineCellMarkdownCreateAttributesContent",
+            "required": true,
+            
+        },
+        "important": {
+            "baseName": "important",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

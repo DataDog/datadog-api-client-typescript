@@ -8,37 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveCreateRequestAttributes } from "./LogsArchiveCreateRequestAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveCreateRequestAttributes } from './LogsArchiveCreateRequestAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The definition of an archive.
- */
+* The definition of an archive.
+*/
 
 export class LogsArchiveCreateRequestDefinition {
-  "attributes"?: LogsArchiveCreateRequestAttributes;
-  /**
-   * The type of the resource. The value should always be archives.
-   */
-  "type": string;
+    'attributes'?: LogsArchiveCreateRequestAttributes;
+    /**
+    * The type of the resource. The value should always be archives.
+    */
+    'type': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsArchiveCreateRequestAttributes",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "LogsArchiveCreateRequestAttributes",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveCreateRequestDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveCreateRequestDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

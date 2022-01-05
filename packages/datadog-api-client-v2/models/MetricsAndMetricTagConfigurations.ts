@@ -8,15 +8,15 @@
  * Do not edit the class manually.
  */
 
-import { Metric } from "./Metric";
-import { MetricTagConfiguration } from "./MetricTagConfiguration";
-import { UnparsedObject } from "./ObjectSerializer";
+import { Metric } from './Metric';
+import { MetricTagConfiguration } from './MetricTagConfiguration';
+import { MetricTagConfigurationAttributes } from './MetricTagConfigurationAttributes';
+import { MetricTagConfigurationType } from './MetricTagConfigurationType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a metrics and metric tag configurations.
- */
+* Object for a metrics and metric tag configurations.
+*/
 
-export type MetricsAndMetricTagConfigurations =
-  | Metric
-  | MetricTagConfiguration
-  | UnparsedObject;
+export type MetricsAndMetricTagConfigurations = Metric | MetricTagConfiguration | UnparsedObject;

@@ -8,37 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsGlobalVariableParserType } from './SyntheticsGlobalVariableParserType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Details of the parser to use for the global variable.
- */
+* Details of the parser to use for the global variable.
+*/
 
 export class SyntheticsVariableParser {
-  "type": SyntheticsGlobalVariableParserType;
-  /**
-   * Regex or JSON path used for the parser. Not used with type `raw`.
-   */
-  "value"?: string;
+    'type': SyntheticsGlobalVariableParserType;
+    /**
+    * Regex or JSON path used for the parser. Not used with type `raw`.
+    */
+    'value'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "SyntheticsGlobalVariableParserType",
-      required: true,
-    },
-    value: {
-      baseName: "value",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsGlobalVariableParserType",
+            "required": true,
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsVariableParser.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsVariableParser.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

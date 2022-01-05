@@ -8,45 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCellResourceType } from "./NotebookCellResourceType";
-import { NotebookCellUpdateRequestAttributes } from "./NotebookCellUpdateRequestAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookCellResourceType } from './NotebookCellResourceType';
+import { NotebookCellUpdateRequestAttributes } from './NotebookCellUpdateRequestAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The description of a notebook cell update request.
- */
+* The description of a notebook cell update request.
+*/
 
 export class NotebookCellUpdateRequest {
-  "attributes": NotebookCellUpdateRequestAttributes;
-  /**
-   * Notebook cell ID.
-   */
-  "id": string;
-  "type": NotebookCellResourceType;
+    'attributes': NotebookCellUpdateRequestAttributes;
+    /**
+    * Notebook cell ID.
+    */
+    'id': string;
+    'type': NotebookCellResourceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NotebookCellUpdateRequestAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "NotebookCellResourceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "NotebookCellUpdateRequestAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NotebookCellResourceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCellUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookCellUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

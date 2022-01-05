@@ -8,31 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * PagerDuty service object name.
- */
+* PagerDuty service object name.
+*/
 
 export class PagerDutyServiceName {
-  /**
-   * Your service name associated service key in PagerDuty.
-   */
-  "serviceName": string;
+    /**
+    * Your service name associated service key in PagerDuty.
+    */
+    'serviceName': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "serviceName": {
+            "baseName": "service_name",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PagerDutyServiceName.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return PagerDutyServiceName.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

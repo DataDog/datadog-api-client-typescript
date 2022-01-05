@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
-import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOBulkDeleteError } from './SLOBulkDeleteError';
+import { SLOBulkDeleteResponseData } from './SLOBulkDeleteResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.
- */
+* The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.
+*/
 
 export class SLOBulkDeleteResponse {
-  "data"?: SLOBulkDeleteResponseData;
-  /**
-   * Array of errors object returned.
-   */
-  "errors"?: Array<SLOBulkDeleteError>;
+    'data'?: SLOBulkDeleteResponseData;
+    /**
+    * Array of errors object returned.
+    */
+    'errors'?: Array<SLOBulkDeleteError>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOBulkDeleteResponseData",
-    },
-    errors: {
-      baseName: "errors",
-      type: "Array<SLOBulkDeleteError>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SLOBulkDeleteResponseData",
+            
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "Array<SLOBulkDeleteError>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOBulkDeleteResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

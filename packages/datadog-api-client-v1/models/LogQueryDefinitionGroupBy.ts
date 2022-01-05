@@ -8,47 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogQueryDefinitionGroupBySort } from './LogQueryDefinitionGroupBySort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Defined items in the group.
- */
+* Defined items in the group.
+*/
 
 export class LogQueryDefinitionGroupBy {
-  /**
-   * Facet name.
-   */
-  "facet": string;
-  /**
-   * Maximum number of items in the group.
-   */
-  "limit"?: number;
-  "sort"?: LogQueryDefinitionGroupBySort;
+    /**
+    * Facet name.
+    */
+    'facet': string;
+    /**
+    * Maximum number of items in the group.
+    */
+    'limit'?: number;
+    'sort'?: LogQueryDefinitionGroupBySort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "facet": {
+            "baseName": "facet",
+            "type": "string",
+            "required": true,
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "sort": {
+            "baseName": "sort",
+            "type": "LogQueryDefinitionGroupBySort",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    sort: {
-      baseName: "sort",
-      type: "LogQueryDefinitionGroupBySort",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogQueryDefinitionGroupBy.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogQueryDefinitionGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

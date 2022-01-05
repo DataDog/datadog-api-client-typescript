@@ -8,78 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { LogsFilter } from "./LogsFilter";
-import { LogsProcessor } from "./LogsProcessor";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsFilter } from './LogsFilter';
+import { LogsProcessor } from './LogsProcessor';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
- */
+* Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
+*/
 
 export class LogsPipeline {
-  "filter"?: LogsFilter;
-  /**
-   * ID of the pipeline.
-   */
-  "id"?: string;
-  /**
-   * Whether or not the pipeline is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
-   * Whether or not the pipeline can be edited.
-   */
-  "isReadOnly"?: boolean;
-  /**
-   * Name of the pipeline.
-   */
-  "name": string;
-  /**
-   * Ordered list of processors in this pipeline.
-   */
-  "processors"?: Array<LogsProcessor>;
-  /**
-   * Type of pipeline.
-   */
-  "type"?: string;
+    'filter'?: LogsFilter;
+    /**
+    * ID of the pipeline.
+    */
+    'id'?: string;
+    /**
+    * Whether or not the pipeline is enabled.
+    */
+    'isEnabled'?: boolean;
+    /**
+    * Whether or not the pipeline can be edited.
+    */
+    'isReadOnly'?: boolean;
+    /**
+    * Name of the pipeline.
+    */
+    'name': string;
+    /**
+    * Ordered list of processors in this pipeline.
+    */
+    'processors'?: Array<LogsProcessor>;
+    /**
+    * Type of pipeline.
+    */
+    'type'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsFilter",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
-    },
-    isReadOnly: {
-      baseName: "is_read_only",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    processors: {
-      baseName: "processors",
-      type: "Array<LogsProcessor>",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filter": {
+            "baseName": "filter",
+            "type": "LogsFilter",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "isEnabled": {
+            "baseName": "is_enabled",
+            "type": "boolean",
+            
+            
+        },
+        "isReadOnly": {
+            "baseName": "is_read_only",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "processors": {
+            "baseName": "processors",
+            "type": "Array<LogsProcessor>",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsPipeline.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsPipeline.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

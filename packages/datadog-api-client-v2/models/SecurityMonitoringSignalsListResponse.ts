@@ -8,43 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
-import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
-import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringSignal } from './SecurityMonitoringSignal';
+import { SecurityMonitoringSignalsListResponseLinks } from './SecurityMonitoringSignalsListResponseLinks';
+import { SecurityMonitoringSignalsListResponseMeta } from './SecurityMonitoringSignalsListResponseMeta';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response object with all security signals matching the request and pagination information.
- */
+* The response object with all security signals matching the request and pagination information.
+*/
 
 export class SecurityMonitoringSignalsListResponse {
-  /**
-   * An array of security signals matching the request.
-   */
-  "data"?: Array<SecurityMonitoringSignal>;
-  "links"?: SecurityMonitoringSignalsListResponseLinks;
-  "meta"?: SecurityMonitoringSignalsListResponseMeta;
+    /**
+    * An array of security signals matching the request.
+    */
+    'data'?: Array<SecurityMonitoringSignal>;
+    'links'?: SecurityMonitoringSignalsListResponseLinks;
+    'meta'?: SecurityMonitoringSignalsListResponseMeta;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringSignal>",
-    },
-    links: {
-      baseName: "links",
-      type: "SecurityMonitoringSignalsListResponseLinks",
-    },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringSignalsListResponseMeta",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<SecurityMonitoringSignal>",
+            
+            
+        },
+        "links": {
+            "baseName": "links",
+            "type": "SecurityMonitoringSignalsListResponseLinks",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "SecurityMonitoringSignalsListResponseMeta",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalsListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringSignalsListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Authentication part of the secrets.
- */
+* Authentication part of the secrets.
+*/
 
 export class SyntheticsPrivateLocationSecretsAuthentication {
-  /**
-   * Access key for the private location.
-   */
-  "id"?: string;
-  /**
-   * Secret access key for the private location.
-   */
-  "key"?: string;
+    /**
+    * Access key for the private location.
+    */
+    'id'?: string;
+    /**
+    * Secret access key for the private location.
+    */
+    'key'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "key": {
+            "baseName": "key",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

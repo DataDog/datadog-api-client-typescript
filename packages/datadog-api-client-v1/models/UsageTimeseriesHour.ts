@@ -8,62 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The hourly usage of timeseries.
- */
+* The hourly usage of timeseries.
+*/
 
 export class UsageTimeseriesHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
-   */
-  "numCustomInputTimeseries"?: number;
-  /**
-   * Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
-   */
-  "numCustomOutputTimeseries"?: number;
-  /**
-   * Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
-   */
-  "numCustomTimeseries"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
+    */
+    'numCustomInputTimeseries'?: number;
+    /**
+    * Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
+    */
+    'numCustomOutputTimeseries'?: number;
+    /**
+    * Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
+    */
+    'numCustomTimeseries'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "numCustomInputTimeseries": {
+            "baseName": "num_custom_input_timeseries",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "numCustomOutputTimeseries": {
+            "baseName": "num_custom_output_timeseries",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "numCustomTimeseries": {
+            "baseName": "num_custom_timeseries",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    numCustomInputTimeseries: {
-      baseName: "num_custom_input_timeseries",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageTimeseriesHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    numCustomOutputTimeseries: {
-      baseName: "num_custom_output_timeseries",
-      type: "number",
-
-      format: "int64",
-    },
-    numCustomTimeseries: {
-      baseName: "num_custom_timeseries",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTimeseriesHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

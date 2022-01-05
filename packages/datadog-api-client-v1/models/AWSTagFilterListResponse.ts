@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { AWSTagFilter } from "./AWSTagFilter";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AWSTagFilter } from './AWSTagFilter';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An array of tag filter rules by `namespace` and tag filter string.
- */
+* An array of tag filter rules by `namespace` and tag filter string.
+*/
 
 export class AWSTagFilterListResponse {
-  /**
-   * An array of tag filters.
-   */
-  "filters"?: Array<AWSTagFilter>;
+    /**
+    * An array of tag filters.
+    */
+    'filters'?: Array<AWSTagFilter>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<AWSTagFilter>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filters": {
+            "baseName": "filters",
+            "type": "Array<AWSTagFilter>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilterListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSTagFilterListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,57 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserErrorType } from "./SyntheticsBrowserErrorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBrowserErrorType } from './SyntheticsBrowserErrorType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Error response object for a browser test.
- */
+* Error response object for a browser test.
+*/
 
 export class SyntheticsBrowserError {
-  /**
-   * Description of the error.
-   */
-  "description": string;
-  /**
-   * Name of the error.
-   */
-  "name": string;
-  /**
-   * Status Code of the error.
-   */
-  "status"?: number;
-  "type": SyntheticsBrowserErrorType;
+    /**
+    * Description of the error.
+    */
+    'description': string;
+    /**
+    * Name of the error.
+    */
+    'name': string;
+    /**
+    * Status Code of the error.
+    */
+    'status'?: number;
+    'type': SyntheticsBrowserErrorType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    status: {
-      baseName: "status",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            "required": true,
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsBrowserErrorType",
+            "required": true,
+            
+        }    };
 
-      format: "int64",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBrowserErrorType",
-      required: true,
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBrowserError.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserError.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,60 +8,71 @@
  * Do not edit the class manually.
  */
 
-import { NotebookGlobalTime } from "./NotebookGlobalTime";
-import { NotebookMetadata } from "./NotebookMetadata";
-import { NotebookStatus } from "./NotebookStatus";
-import { NotebookUpdateCell } from "./NotebookUpdateCell";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookGlobalTime } from './NotebookGlobalTime';
+import { NotebookMetadata } from './NotebookMetadata';
+import { NotebookStatus } from './NotebookStatus';
+import { NotebookUpdateCell } from './NotebookUpdateCell';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The data attributes of a notebook.
- */
+* The data attributes of a notebook.
+*/
 
 export class NotebookUpdateDataAttributes {
-  /**
-   * List of cells to display in the notebook.
-   */
-  "cells": Array<NotebookUpdateCell>;
-  "metadata"?: NotebookMetadata;
-  /**
-   * The name of the notebook.
-   */
-  "name": string;
-  "status"?: NotebookStatus;
-  "time": NotebookGlobalTime;
+    /**
+    * List of cells to display in the notebook.
+    */
+    'cells': Array<NotebookUpdateCell>;
+    'metadata'?: NotebookMetadata;
+    /**
+    * The name of the notebook.
+    */
+    'name': string;
+    'status'?: NotebookStatus;
+    'time': NotebookGlobalTime;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cells: {
-      baseName: "cells",
-      type: "Array<NotebookUpdateCell>",
-      required: true,
-    },
-    metadata: {
-      baseName: "metadata",
-      type: "NotebookMetadata",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    status: {
-      baseName: "status",
-      type: "NotebookStatus",
-    },
-    time: {
-      baseName: "time",
-      type: "NotebookGlobalTime",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cells": {
+            "baseName": "cells",
+            "type": "Array<NotebookUpdateCell>",
+            "required": true,
+            
+        },
+        "metadata": {
+            "baseName": "metadata",
+            "type": "NotebookMetadata",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "NotebookStatus",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "NotebookGlobalTime",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookUpdateDataAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookUpdateDataAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

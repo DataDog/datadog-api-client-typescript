@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The list of current AWS services for which Datadog offers automatic log collection.
- */
+* The list of current AWS services for which Datadog offers automatic log collection.
+*/
 
 export class AWSLogsListServicesResponse {
-  /**
-   * Key value in returned object.
-   */
-  "id"?: string;
-  /**
-   * Name of service available for configuration with Datadog logs.
-   */
-  "label"?: string;
+    /**
+    * Key value in returned object.
+    */
+    'id'?: string;
+    /**
+    * Name of service available for configuration with Datadog logs.
+    */
+    'label'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    label: {
-      baseName: "label",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "label": {
+            "baseName": "label",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsListServicesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSLogsListServicesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

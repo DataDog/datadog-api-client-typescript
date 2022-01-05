@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type WidgetLayoutType = typeof ORDERED;
-export const ORDERED = "ordered";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Layout type of the group.
+*/
+
+export type WidgetLayoutType = typeof ORDERED ;
+export const ORDERED = 'ordered';
+
+

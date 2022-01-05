@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The search and filter query settings
- */
+* The search and filter query settings
+*/
 
 export class LogsQueryFilter {
-  /**
-   * The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
-   */
-  "from"?: string;
-  /**
-   * For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.
-   */
-  "indexes"?: Array<string>;
-  /**
-   * The search query - following the log search syntax.
-   */
-  "query"?: string;
-  /**
-   * The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
-   */
-  "to"?: string;
+    /**
+    * The minimum time for the requested logs, supports date math and regular timestamps (milliseconds).
+    */
+    'from'?: string;
+    /**
+    * For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all indexes.
+    */
+    'indexes'?: Array<string>;
+    /**
+    * The search query - following the log search syntax.
+    */
+    'query'?: string;
+    /**
+    * The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
+    */
+    'to'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "string",
-    },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-    to: {
-      baseName: "to",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "from": {
+            "baseName": "from",
+            "type": "string",
+            
+            
+        },
+        "indexes": {
+            "baseName": "indexes",
+            "type": "Array<string>",
+            
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        },
+        "to": {
+            "baseName": "to",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryFilter.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsQueryFilter.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

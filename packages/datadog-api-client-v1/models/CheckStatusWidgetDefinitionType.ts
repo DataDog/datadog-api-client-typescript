@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type CheckStatusWidgetDefinitionType = typeof CHECK_STATUS;
-export const CHECK_STATUS = "check_status";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the check status widget.
+*/
+
+export type CheckStatusWidgetDefinitionType = typeof CHECK_STATUS ;
+export const CHECK_STATUS = 'check_status';
+
+

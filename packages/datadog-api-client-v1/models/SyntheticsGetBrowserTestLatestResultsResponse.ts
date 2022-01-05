@@ -8,41 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBrowserTestResultShort } from './SyntheticsBrowserTestResultShort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object with the latest Synthetic browser test run.
- */
+* Object with the latest Synthetic browser test run.
+*/
 
 export class SyntheticsGetBrowserTestLatestResultsResponse {
-  /**
-   * Timestamp of the latest browser test run.
-   */
-  "lastTimestampFetched"?: number;
-  /**
-   * Result of the latest browser test run.
-   */
-  "results"?: Array<SyntheticsBrowserTestResultShort>;
+    /**
+    * Timestamp of the latest browser test run.
+    */
+    'lastTimestampFetched'?: number;
+    /**
+    * Result of the latest browser test run.
+    */
+    'results'?: Array<SyntheticsBrowserTestResultShort>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    lastTimestampFetched: {
-      baseName: "last_timestamp_fetched",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "lastTimestampFetched": {
+            "baseName": "last_timestamp_fetched",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "results": {
+            "baseName": "results",
+            "type": "Array<SyntheticsBrowserTestResultShort>",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    results: {
-      baseName: "results",
-      type: "Array<SyntheticsBrowserTestResultShort>",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

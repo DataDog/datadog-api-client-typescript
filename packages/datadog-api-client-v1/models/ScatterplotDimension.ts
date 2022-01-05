@@ -8,12 +8,17 @@
  * Do not edit the class manually.
  */
 
-export type ScatterplotDimension =
-  | typeof X
-  | typeof Y
-  | typeof RADIUS
-  | typeof COLOR;
-export const X = "x";
-export const Y = "y";
-export const RADIUS = "radius";
-export const COLOR = "color";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Dimension of the Scatterplot.
+*/
+
+export type ScatterplotDimension = typeof X | typeof Y | typeof RADIUS | typeof COLOR ;
+export const X = 'x';
+export const Y = 'y';
+export const RADIUS = 'radius';
+export const COLOR = 'color';
+
+

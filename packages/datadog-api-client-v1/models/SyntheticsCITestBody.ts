@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsCITest } from "./SyntheticsCITest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsCITest } from './SyntheticsCITest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the synthetics tests to trigger.
- */
+* Object describing the synthetics tests to trigger.
+*/
 
 export class SyntheticsCITestBody {
-  /**
-   * Individual synthetics test.
-   */
-  "tests"?: Array<SyntheticsCITest>;
+    /**
+    * Individual synthetics test.
+    */
+    'tests'?: Array<SyntheticsCITest>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    tests: {
-      baseName: "tests",
-      type: "Array<SyntheticsCITest>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "tests": {
+            "baseName": "tests",
+            "type": "Array<SyntheticsCITest>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCITestBody.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsCITestBody.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

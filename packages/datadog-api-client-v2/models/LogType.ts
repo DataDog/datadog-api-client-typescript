@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogType = typeof LOG;
-export const LOG = "log";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the event.
+*/
+
+export type LogType = typeof LOG ;
+export const LOG = 'log';
+
+

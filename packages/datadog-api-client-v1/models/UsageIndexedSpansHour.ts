@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The hours of indexed spans usage.
- */
+* The hours of indexed spans usage.
+*/
 
 export class UsageIndexedSpansHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * Contains the number of spans indexed.
-   */
-  "indexedEventsCount"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * Contains the number of spans indexed.
+    */
+    'indexedEventsCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "indexedEventsCount": {
+            "baseName": "indexed_events_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    indexedEventsCount: {
-      baseName: "indexed_events_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIndexedSpansHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIndexedSpansHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

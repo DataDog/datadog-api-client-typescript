@@ -8,156 +8,185 @@
  * Do not edit the class manually.
  */
 
-import { DashboardLayoutType } from "./DashboardLayoutType";
-import { DashboardReflowType } from "./DashboardReflowType";
-import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
-import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
-import { Widget } from "./Widget";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardLayoutType } from './DashboardLayoutType';
+import { DashboardReflowType } from './DashboardReflowType';
+import { DashboardTemplateVariable } from './DashboardTemplateVariable';
+import { DashboardTemplateVariablePreset } from './DashboardTemplateVariablePreset';
+import { Widget } from './Widget';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
- */
+* A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
+*/
 
 export class Dashboard {
-  /**
-   * Identifier of the dashboard author.
-   */
-  "authorHandle"?: string;
-  /**
-   * Name of the dashboard author.
-   */
-  "authorName"?: string;
-  /**
-   * Creation date of the dashboard.
-   */
-  "createdAt"?: Date;
-  /**
-   * Description of the dashboard.
-   */
-  "description"?: string;
-  /**
-   * ID of the dashboard.
-   */
-  "id"?: string;
-  /**
-   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
-   */
-  "isReadOnly"?: boolean;
-  "layoutType": DashboardLayoutType;
-  /**
-   * Modification date of the dashboard.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * List of handles of users to notify when changes are made to this dashboard.
-   */
-  "notifyList"?: Array<string>;
-  "reflowType"?: DashboardReflowType;
-  /**
-   * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
-   */
-  "restrictedRoles"?: Array<string>;
-  /**
-   * Array of template variables saved views.
-   */
-  "templateVariablePresets"?: Array<DashboardTemplateVariablePreset>;
-  /**
-   * List of template variables for this dashboard.
-   */
-  "templateVariables"?: Array<DashboardTemplateVariable>;
-  /**
-   * Title of the dashboard.
-   */
-  "title": string;
-  /**
-   * The URL of the dashboard.
-   */
-  "url"?: string;
-  /**
-   * List of widgets to display on the dashboard.
-   */
-  "widgets": Array<Widget>;
+    /**
+    * Identifier of the dashboard author.
+    */
+    'authorHandle'?: string;
+    /**
+    * Name of the dashboard author.
+    */
+    'authorName'?: string;
+    /**
+    * Creation date of the dashboard.
+    */
+    'createdAt'?: Date;
+    /**
+    * Description of the dashboard.
+    */
+    'description'?: string;
+    /**
+    * ID of the dashboard.
+    */
+    'id'?: string;
+    /**
+    * Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
+    */
+    'isReadOnly'?: boolean;
+    'layoutType': DashboardLayoutType;
+    /**
+    * Modification date of the dashboard.
+    */
+    'modifiedAt'?: Date;
+    /**
+    * List of handles of users to notify when changes are made to this dashboard.
+    */
+    'notifyList'?: Array<string>;
+    'reflowType'?: DashboardReflowType;
+    /**
+    * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
+    */
+    'restrictedRoles'?: Array<string>;
+    /**
+    * Array of template variables saved views.
+    */
+    'templateVariablePresets'?: Array<DashboardTemplateVariablePreset>;
+    /**
+    * List of template variables for this dashboard.
+    */
+    'templateVariables'?: Array<DashboardTemplateVariable>;
+    /**
+    * Title of the dashboard.
+    */
+    'title': string;
+    /**
+    * The URL of the dashboard.
+    */
+    'url'?: string;
+    /**
+    * List of widgets to display on the dashboard.
+    */
+    'widgets': Array<Widget>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    authorHandle: {
-      baseName: "author_handle",
-      type: "string",
-    },
-    authorName: {
-      baseName: "author_name",
-      type: "string",
-    },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "authorHandle": {
+            "baseName": "author_handle",
+            "type": "string",
+            
+            
+        },
+        "authorName": {
+            "baseName": "author_name",
+            "type": "string",
+            
+            
+        },
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "isReadOnly": {
+            "baseName": "is_read_only",
+            "type": "boolean",
+            
+            
+        },
+        "layoutType": {
+            "baseName": "layout_type",
+            "type": "DashboardLayoutType",
+            "required": true,
+            
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "notifyList": {
+            "baseName": "notify_list",
+            "type": "Array<string>",
+            
+            
+        },
+        "reflowType": {
+            "baseName": "reflow_type",
+            "type": "DashboardReflowType",
+            
+            
+        },
+        "restrictedRoles": {
+            "baseName": "restricted_roles",
+            "type": "Array<string>",
+            
+            
+        },
+        "templateVariablePresets": {
+            "baseName": "template_variable_presets",
+            "type": "Array<DashboardTemplateVariablePreset>",
+            
+            
+        },
+        "templateVariables": {
+            "baseName": "template_variables",
+            "type": "Array<DashboardTemplateVariable>",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            "required": true,
+            
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            
+            
+        },
+        "widgets": {
+            "baseName": "widgets",
+            "type": "Array<Widget>",
+            "required": true,
+            
+        }    };
 
-      format: "date-time",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    isReadOnly: {
-      baseName: "is_read_only",
-      type: "boolean",
-    },
-    layoutType: {
-      baseName: "layout_type",
-      type: "DashboardLayoutType",
-      required: true,
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Dashboard.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    notifyList: {
-      baseName: "notify_list",
-      type: "Array<string>",
-    },
-    reflowType: {
-      baseName: "reflow_type",
-      type: "DashboardReflowType",
-    },
-    restrictedRoles: {
-      baseName: "restricted_roles",
-      type: "Array<string>",
-    },
-    templateVariablePresets: {
-      baseName: "template_variable_presets",
-      type: "Array<DashboardTemplateVariablePreset>",
-    },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "Array<DashboardTemplateVariable>",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-    },
-    widgets: {
-      baseName: "widgets",
-      type: "Array<Widget>",
-      required: true,
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Dashboard.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

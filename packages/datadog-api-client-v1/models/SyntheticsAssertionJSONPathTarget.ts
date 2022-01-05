@@ -8,50 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAssertionJSONPathOperator } from "./SyntheticsAssertionJSONPathOperator";
-import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
-import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsAssertionJSONPathOperator } from './SyntheticsAssertionJSONPathOperator';
+import { SyntheticsAssertionJSONPathTargetTarget } from './SyntheticsAssertionJSONPathTargetTarget';
+import { SyntheticsAssertionType } from './SyntheticsAssertionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An assertion for the `validatesJSONPath` operator.
- */
+* An assertion for the `validatesJSONPath` operator.
+*/
 
 export class SyntheticsAssertionJSONPathTarget {
-  "operator": SyntheticsAssertionJSONPathOperator;
-  /**
-   * The associated assertion property.
-   */
-  "property"?: string;
-  "target"?: SyntheticsAssertionJSONPathTargetTarget;
-  "type": SyntheticsAssertionType;
+    'operator': SyntheticsAssertionJSONPathOperator;
+    /**
+    * The associated assertion property.
+    */
+    'property'?: string;
+    'target'?: SyntheticsAssertionJSONPathTargetTarget;
+    'type': SyntheticsAssertionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsAssertionJSONPathOperator",
-      required: true,
-    },
-    property: {
-      baseName: "property",
-      type: "string",
-    },
-    target: {
-      baseName: "target",
-      type: "SyntheticsAssertionJSONPathTargetTarget",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsAssertionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "operator": {
+            "baseName": "operator",
+            "type": "SyntheticsAssertionJSONPathOperator",
+            "required": true,
+            
+        },
+        "property": {
+            "baseName": "property",
+            "type": "string",
+            
+            
+        },
+        "target": {
+            "baseName": "target",
+            "type": "SyntheticsAssertionJSONPathTargetTarget",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsAssertionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,44 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricCompute } from "./LogsMetricCompute";
-import { LogsMetricFilter } from "./LogsMetricFilter";
-import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricCompute } from './LogsMetricCompute';
+import { LogsMetricFilter } from './LogsMetricFilter';
+import { LogsMetricGroupBy } from './LogsMetricGroupBy';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object describing the Datadog log-based metric to create.
- */
+* The object describing the Datadog log-based metric to create.
+*/
 
 export class LogsMetricCreateAttributes {
-  "compute": LogsMetricCompute;
-  "filter"?: LogsMetricFilter;
-  /**
-   * The rules for the group by.
-   */
-  "groupBy"?: Array<LogsMetricGroupBy>;
+    'compute': LogsMetricCompute;
+    'filter'?: LogsMetricFilter;
+    /**
+    * The rules for the group by.
+    */
+    'groupBy'?: Array<LogsMetricGroupBy>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "LogsMetricCompute",
-      required: true,
-    },
-    filter: {
-      baseName: "filter",
-      type: "LogsMetricFilter",
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<LogsMetricGroupBy>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "compute": {
+            "baseName": "compute",
+            "type": "LogsMetricCompute",
+            "required": true,
+            
+        },
+        "filter": {
+            "baseName": "filter",
+            "type": "LogsMetricFilter",
+            
+            
+        },
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "Array<LogsMetricGroupBy>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCreateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricCreateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

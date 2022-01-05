@@ -8,96 +8,118 @@
  * Do not edit the class manually.
  */
 
-import { NoteWidgetDefinitionType } from "./NoteWidgetDefinitionType";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTickEdge } from "./WidgetTickEdge";
-import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NoteWidgetDefinitionType } from './NoteWidgetDefinitionType';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTickEdge } from './WidgetTickEdge';
+import { WidgetVerticalAlign } from './WidgetVerticalAlign';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The notes and links widget is similar to free text widget, but allows for more formatting options.
- */
+* The notes and links widget is similar to free text widget, but allows for more formatting options.
+*/
 
 export class NoteWidgetDefinition {
-  /**
-   * Background color of the note.
-   */
-  "backgroundColor"?: string;
-  /**
-   * Content of the note.
-   */
-  "content": string;
-  /**
-   * Size of the text.
-   */
-  "fontSize"?: string;
-  /**
-   * Whether to add padding or not.
-   */
-  "hasPadding"?: boolean;
-  /**
-   * Whether to show a tick or not.
-   */
-  "showTick"?: boolean;
-  "textAlign"?: WidgetTextAlign;
-  "tickEdge"?: WidgetTickEdge;
-  /**
-   * Where to position the tick on an edge.
-   */
-  "tickPos"?: string;
-  "type": NoteWidgetDefinitionType;
-  "verticalAlign"?: WidgetVerticalAlign;
+    /**
+    * Background color of the note.
+    */
+    'backgroundColor'?: string;
+    /**
+    * Content of the note.
+    */
+    'content': string;
+    /**
+    * Size of the text.
+    */
+    'fontSize'?: string;
+    /**
+    * Whether to add padding or not.
+    */
+    'hasPadding'?: boolean;
+    /**
+    * Whether to show a tick or not.
+    */
+    'showTick'?: boolean;
+    'textAlign'?: WidgetTextAlign;
+    'tickEdge'?: WidgetTickEdge;
+    /**
+    * Where to position the tick on an edge.
+    */
+    'tickPos'?: string;
+    'type': NoteWidgetDefinitionType;
+    'verticalAlign'?: WidgetVerticalAlign;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    backgroundColor: {
-      baseName: "background_color",
-      type: "string",
-    },
-    content: {
-      baseName: "content",
-      type: "string",
-      required: true,
-    },
-    fontSize: {
-      baseName: "font_size",
-      type: "string",
-    },
-    hasPadding: {
-      baseName: "has_padding",
-      type: "boolean",
-    },
-    showTick: {
-      baseName: "show_tick",
-      type: "boolean",
-    },
-    textAlign: {
-      baseName: "text_align",
-      type: "WidgetTextAlign",
-    },
-    tickEdge: {
-      baseName: "tick_edge",
-      type: "WidgetTickEdge",
-    },
-    tickPos: {
-      baseName: "tick_pos",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "NoteWidgetDefinitionType",
-      required: true,
-    },
-    verticalAlign: {
-      baseName: "vertical_align",
-      type: "WidgetVerticalAlign",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "backgroundColor": {
+            "baseName": "background_color",
+            "type": "string",
+            
+            
+        },
+        "content": {
+            "baseName": "content",
+            "type": "string",
+            "required": true,
+            
+        },
+        "fontSize": {
+            "baseName": "font_size",
+            "type": "string",
+            
+            
+        },
+        "hasPadding": {
+            "baseName": "has_padding",
+            "type": "boolean",
+            
+            
+        },
+        "showTick": {
+            "baseName": "show_tick",
+            "type": "boolean",
+            
+            
+        },
+        "textAlign": {
+            "baseName": "text_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "tickEdge": {
+            "baseName": "tick_edge",
+            "type": "WidgetTickEdge",
+            
+            
+        },
+        "tickPos": {
+            "baseName": "tick_pos",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NoteWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "verticalAlign": {
+            "baseName": "vertical_align",
+            "type": "WidgetVerticalAlign",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NoteWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NoteWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

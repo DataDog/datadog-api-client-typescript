@@ -8,88 +8,103 @@
  * Do not edit the class manually.
  */
 
-import { SLOThreshold } from "./SLOThreshold";
-import { SLOType } from "./SLOType";
-import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOThreshold } from './SLOThreshold';
+import { SLOType } from './SLOType';
+import { ServiceLevelObjectiveQuery } from './ServiceLevelObjectiveQuery';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
- */
+* A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
+*/
 
 export class ServiceLevelObjectiveRequest {
-  /**
-   * A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
-   */
-  "description"?: string;
-  /**
-   * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.
-   */
-  "groups"?: Array<string>;
-  /**
-   * A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.
-   */
-  "monitorIds"?: Array<number>;
-  /**
-   * The name of the service level objective object.
-   */
-  "name": string;
-  "query"?: ServiceLevelObjectiveQuery;
-  /**
-   * A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
-   */
-  "tags"?: Array<string>;
-  /**
-   * The thresholds (timeframes and associated targets) for this service level objective object.
-   */
-  "thresholds": Array<SLOThreshold>;
-  "type": SLOType;
+    /**
+    * A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.
+    */
+    'description'?: string;
+    /**
+    * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.
+    */
+    'groups'?: Array<string>;
+    /**
+    * A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.
+    */
+    'monitorIds'?: Array<number>;
+    /**
+    * The name of the service level objective object.
+    */
+    'name': string;
+    'query'?: ServiceLevelObjectiveQuery;
+    /**
+    * A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
+    */
+    'tags'?: Array<string>;
+    /**
+    * The thresholds (timeframes and associated targets) for this service level objective object.
+    */
+    'thresholds': Array<SLOThreshold>;
+    'type': SLOType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    groups: {
-      baseName: "groups",
-      type: "Array<string>",
-    },
-    monitorIds: {
-      baseName: "monitor_ids",
-      type: "Array<number>",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            
+            
+        },
+        "groups": {
+            "baseName": "groups",
+            "type": "Array<string>",
+            
+            
+        },
+        "monitorIds": {
+            "baseName": "monitor_ids",
+            "type": "Array<number>",
+            
+            "format": "int64",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "ServiceLevelObjectiveQuery",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "thresholds": {
+            "baseName": "thresholds",
+            "type": "Array<SLOThreshold>",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SLOType",
+            "required": true,
+            
+        }    };
 
-      format: "int64",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    query: {
-      baseName: "query",
-      type: "ServiceLevelObjectiveQuery",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    thresholds: {
-      baseName: "thresholds",
-      type: "Array<SLOThreshold>",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "SLOType",
-      required: true,
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ServiceLevelObjectiveRequest.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjectiveRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

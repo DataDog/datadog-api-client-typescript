@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsTestPauseStatus = typeof LIVE | typeof PAUSED;
-export const LIVE = "live";
-export const PAUSED = "paused";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+*/
+
+export type SyntheticsTestPauseStatus = typeof LIVE | typeof PAUSED ;
+export const LIVE = 'live';
+export const PAUSED = 'paused';
+
+

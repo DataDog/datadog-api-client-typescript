@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type LogsAggregateResponseStatus = typeof DONE | typeof TIMEOUT;
-export const DONE = "done";
-export const TIMEOUT = "timeout";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The status of the response
+*/
+
+export type LogsAggregateResponseStatus = typeof DONE | typeof TIMEOUT ;
+export const DONE = 'done';
+export const TIMEOUT = 'timeout';
+
+

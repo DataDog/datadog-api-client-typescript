@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { FunnelQuery } from "./FunnelQuery";
-import { FunnelRequestType } from "./FunnelRequestType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FunnelQuery } from './FunnelQuery';
+import { FunnelRequestType } from './FunnelRequestType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated funnel widget.
- */
+* Updated funnel widget.
+*/
 
 export class FunnelWidgetRequest {
-  "query": FunnelQuery;
-  "requestType": FunnelRequestType;
+    'query': FunnelQuery;
+    'requestType': FunnelRequestType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "FunnelQuery",
-      required: true,
-    },
-    requestType: {
-      baseName: "request_type",
-      type: "FunnelRequestType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "query": {
+            "baseName": "query",
+            "type": "FunnelQuery",
+            "required": true,
+            
+        },
+        "requestType": {
+            "baseName": "request_type",
+            "type": "FunnelRequestType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FunnelWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

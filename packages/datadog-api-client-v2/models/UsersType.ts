@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type UsersType = typeof USERS;
-export const USERS = "users";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Users resource type.
+*/
+
+export type UsersType = typeof USERS ;
+export const USERS = 'users';
+
+

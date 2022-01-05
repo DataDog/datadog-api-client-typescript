@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsTraceRemapperType = typeof TRACE_ID_REMAPPER;
-export const TRACE_ID_REMAPPER = "trace-id-remapper";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs trace remapper.
+*/
+
+export type LogsTraceRemapperType = typeof TRACE_ID_REMAPPER ;
+export const TRACE_ID_REMAPPER = 'trace-id-remapper';
+
+

@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SLOType = typeof METRIC | typeof MONITOR;
-export const METRIC = "metric";
-export const MONITOR = "monitor";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of the service level objective.
+*/
+
+export type SLOType = typeof METRIC | typeof MONITOR ;
+export const METRIC = 'metric';
+export const MONITOR = 'monitor';
+
+

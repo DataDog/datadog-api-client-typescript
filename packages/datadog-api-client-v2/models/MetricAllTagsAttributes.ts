@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing the definition of a metric's tags.
- */
+* Object containing the definition of a metric's tags.
+*/
 
 export class MetricAllTagsAttributes {
-  /**
-   * List of indexed tag value pairs.
-   */
-  "tags"?: Array<string>;
+    /**
+    * List of indexed tag value pairs.
+    */
+    'tags'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricAllTagsAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricAllTagsAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

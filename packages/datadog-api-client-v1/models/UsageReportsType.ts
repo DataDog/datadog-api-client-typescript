@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type UsageReportsType = typeof REPORTS;
-export const REPORTS = "reports";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of reports.
+*/
+
+export type UsageReportsType = typeof REPORTS ;
+export const REPORTS = 'reports';
+
+

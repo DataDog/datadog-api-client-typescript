@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { AWSNamespace } from "./AWSNamespace";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AWSNamespace } from './AWSNamespace';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A tag filter.
- */
+* A tag filter.
+*/
 
 export class AWSTagFilter {
-  "namespace"?: AWSNamespace;
-  /**
-   * The tag filter string.
-   */
-  "tagFilterStr"?: string;
+    'namespace'?: AWSNamespace;
+    /**
+    * The tag filter string.
+    */
+    'tagFilterStr'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    namespace: {
-      baseName: "namespace",
-      type: "AWSNamespace",
-    },
-    tagFilterStr: {
-      baseName: "tag_filter_str",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "namespace": {
+            "baseName": "namespace",
+            "type": "AWSNamespace",
+            
+            
+        },
+        "tagFilterStr": {
+            "baseName": "tag_filter_str",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilter.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSTagFilter.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

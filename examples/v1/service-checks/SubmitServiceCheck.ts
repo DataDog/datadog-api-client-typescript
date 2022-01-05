@@ -9,20 +9,21 @@ const apiInstance = new v1.ServiceChecksApi(configuration);
 
 let params: v1.ServiceChecksApiSubmitServiceCheckRequest = {
   body: [
-    {
-      check: "app.ok",
-      hostName: "host",
-      status: 0,
-      tags: ["test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse"],
-    },
-  ],
+{
+check: "app.ok",
+hostName: "host",
+status: 0,
+tags: [
+"test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse",
+],
+},
+],
+  
 };
 
 apiInstance
   .submitServiceCheck(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

@@ -8,43 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { PermissionAttributes } from "./PermissionAttributes";
-import { PermissionsType } from "./PermissionsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { PermissionAttributes } from './PermissionAttributes';
+import { PermissionsType } from './PermissionsType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Permission object.
- */
+* Permission object.
+*/
 
 export class Permission {
-  "attributes"?: PermissionAttributes;
-  /**
-   * ID of the permission.
-   */
-  "id"?: string;
-  "type": PermissionsType;
+    'attributes'?: PermissionAttributes;
+    /**
+    * ID of the permission.
+    */
+    'id'?: string;
+    'type': PermissionsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PermissionAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "PermissionsType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "PermissionAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "PermissionsType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Permission.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Permission.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

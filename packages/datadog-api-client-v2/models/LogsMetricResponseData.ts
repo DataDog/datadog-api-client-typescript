@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricResponseAttributes } from "./LogsMetricResponseAttributes";
-import { LogsMetricType } from "./LogsMetricType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricResponseAttributes } from './LogsMetricResponseAttributes';
+import { LogsMetricType } from './LogsMetricType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The log-based metric properties.
- */
+* The log-based metric properties.
+*/
 
 export class LogsMetricResponseData {
-  "attributes"?: LogsMetricResponseAttributes;
-  /**
-   * The name of the log-based metric.
-   */
-  "id"?: string;
-  "type"?: LogsMetricType;
+    'attributes'?: LogsMetricResponseAttributes;
+    /**
+    * The name of the log-based metric.
+    */
+    'id'?: string;
+    'type'?: LogsMetricType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsMetricResponseAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "LogsMetricType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "LogsMetricResponseAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsMetricType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

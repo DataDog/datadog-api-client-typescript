@@ -9,16 +9,15 @@ const apiInstance = new v1.WebhooksIntegrationApi(configuration);
 
 let params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationRequest = {
   body: {
-    name: "Example-Create_a_webhooks_integration_returns_OK_response",
-    url: "https://example.com/webhook",
-  },
+name: "Example-Create_a_webhooks_integration_returns_OK_response",
+url: "https://example.com/webhook",
+},
+  
 };
 
 apiInstance
   .createWebhooksIntegration(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

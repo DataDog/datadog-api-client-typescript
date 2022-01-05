@@ -8,52 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
-import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
-import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
-import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
-import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringRuleDetectionMethod } from './SecurityMonitoringRuleDetectionMethod';
+import { SecurityMonitoringRuleEvaluationWindow } from './SecurityMonitoringRuleEvaluationWindow';
+import { SecurityMonitoringRuleKeepAlive } from './SecurityMonitoringRuleKeepAlive';
+import { SecurityMonitoringRuleMaxSignalDuration } from './SecurityMonitoringRuleMaxSignalDuration';
+import { SecurityMonitoringRuleNewValueOptions } from './SecurityMonitoringRuleNewValueOptions';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Options on rules.
- */
+* Options on rules.
+*/
 
 export class SecurityMonitoringRuleOptions {
-  "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
-  "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
-  "keepAlive"?: SecurityMonitoringRuleKeepAlive;
-  "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
-  "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
+    'detectionMethod'?: SecurityMonitoringRuleDetectionMethod;
+    'evaluationWindow'?: SecurityMonitoringRuleEvaluationWindow;
+    'keepAlive'?: SecurityMonitoringRuleKeepAlive;
+    'maxSignalDuration'?: SecurityMonitoringRuleMaxSignalDuration;
+    'newValueOptions'?: SecurityMonitoringRuleNewValueOptions;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    detectionMethod: {
-      baseName: "detectionMethod",
-      type: "SecurityMonitoringRuleDetectionMethod",
-    },
-    evaluationWindow: {
-      baseName: "evaluationWindow",
-      type: "SecurityMonitoringRuleEvaluationWindow",
-    },
-    keepAlive: {
-      baseName: "keepAlive",
-      type: "SecurityMonitoringRuleKeepAlive",
-    },
-    maxSignalDuration: {
-      baseName: "maxSignalDuration",
-      type: "SecurityMonitoringRuleMaxSignalDuration",
-    },
-    newValueOptions: {
-      baseName: "newValueOptions",
-      type: "SecurityMonitoringRuleNewValueOptions",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "detectionMethod": {
+            "baseName": "detectionMethod",
+            "type": "SecurityMonitoringRuleDetectionMethod",
+            
+            
+        },
+        "evaluationWindow": {
+            "baseName": "evaluationWindow",
+            "type": "SecurityMonitoringRuleEvaluationWindow",
+            
+            
+        },
+        "keepAlive": {
+            "baseName": "keepAlive",
+            "type": "SecurityMonitoringRuleKeepAlive",
+            
+            
+        },
+        "maxSignalDuration": {
+            "baseName": "maxSignalDuration",
+            "type": "SecurityMonitoringRuleMaxSignalDuration",
+            
+            
+        },
+        "newValueOptions": {
+            "baseName": "newValueOptions",
+            "type": "SecurityMonitoringRuleNewValueOptions",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleOptions.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringRuleOptions.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

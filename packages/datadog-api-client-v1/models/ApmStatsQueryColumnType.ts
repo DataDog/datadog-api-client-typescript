@@ -8,51 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
-import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { TableWidgetCellDisplayMode } from './TableWidgetCellDisplayMode';
+import { WidgetSort } from './WidgetSort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Column properties.
- */
+* Column properties.
+*/
 
 export class ApmStatsQueryColumnType {
-  /**
-   * A user-assigned alias for the column.
-   */
-  "alias"?: string;
-  "cellDisplayMode"?: TableWidgetCellDisplayMode;
-  /**
-   * Column name.
-   */
-  "name": string;
-  "order"?: WidgetSort;
+    /**
+    * A user-assigned alias for the column.
+    */
+    'alias'?: string;
+    'cellDisplayMode'?: TableWidgetCellDisplayMode;
+    /**
+    * Column name.
+    */
+    'name': string;
+    'order'?: WidgetSort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    alias: {
-      baseName: "alias",
-      type: "string",
-    },
-    cellDisplayMode: {
-      baseName: "cell_display_mode",
-      type: "TableWidgetCellDisplayMode",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "alias": {
+            "baseName": "alias",
+            "type": "string",
+            
+            
+        },
+        "cellDisplayMode": {
+            "baseName": "cell_display_mode",
+            "type": "TableWidgetCellDisplayMode",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "order": {
+            "baseName": "order",
+            "type": "WidgetSort",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApmStatsQueryColumnType.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApmStatsQueryColumnType.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

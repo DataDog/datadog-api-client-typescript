@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageNetworkFlowsHour } from './UsageNetworkFlowsHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of netflow events indexed for each hour for a given organization.
- */
+* Response containing the number of netflow events indexed for each hour for a given organization.
+*/
 
 export class UsageNetworkFlowsResponse {
-  /**
-   * Get hourly usage for Network Flows.
-   */
-  "usage"?: Array<UsageNetworkFlowsHour>;
+    /**
+    * Get hourly usage for Network Flows.
+    */
+    'usage'?: Array<UsageNetworkFlowsHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageNetworkFlowsHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageNetworkFlowsHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageNetworkFlowsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageNetworkFlowsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,82 +8,102 @@
  * Do not edit the class manually.
  */
 
-import { IPPrefixesAPI } from "./IPPrefixesAPI";
-import { IPPrefixesAPM } from "./IPPrefixesAPM";
-import { IPPrefixesAgents } from "./IPPrefixesAgents";
-import { IPPrefixesLogs } from "./IPPrefixesLogs";
-import { IPPrefixesProcess } from "./IPPrefixesProcess";
-import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
-import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IPPrefixesAPI } from './IPPrefixesAPI';
+import { IPPrefixesAPM } from './IPPrefixesAPM';
+import { IPPrefixesAgents } from './IPPrefixesAgents';
+import { IPPrefixesLogs } from './IPPrefixesLogs';
+import { IPPrefixesProcess } from './IPPrefixesProcess';
+import { IPPrefixesSynthetics } from './IPPrefixesSynthetics';
+import { IPPrefixesWebhooks } from './IPPrefixesWebhooks';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * IP ranges.
- */
+* IP ranges.
+*/
 
 export class IPRanges {
-  "agents"?: IPPrefixesAgents;
-  "api"?: IPPrefixesAPI;
-  "apm"?: IPPrefixesAPM;
-  "logs"?: IPPrefixesLogs;
-  /**
-   * Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
-   */
-  "modified"?: string;
-  "process"?: IPPrefixesProcess;
-  "synthetics"?: IPPrefixesSynthetics;
-  /**
-   * Version of the IP list.
-   */
-  "version"?: number;
-  "webhooks"?: IPPrefixesWebhooks;
+    'agents'?: IPPrefixesAgents;
+    'api'?: IPPrefixesAPI;
+    'apm'?: IPPrefixesAPM;
+    'logs'?: IPPrefixesLogs;
+    /**
+    * Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
+    */
+    'modified'?: string;
+    'process'?: IPPrefixesProcess;
+    'synthetics'?: IPPrefixesSynthetics;
+    /**
+    * Version of the IP list.
+    */
+    'version'?: number;
+    'webhooks'?: IPPrefixesWebhooks;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    agents: {
-      baseName: "agents",
-      type: "IPPrefixesAgents",
-    },
-    api: {
-      baseName: "api",
-      type: "IPPrefixesAPI",
-    },
-    apm: {
-      baseName: "apm",
-      type: "IPPrefixesAPM",
-    },
-    logs: {
-      baseName: "logs",
-      type: "IPPrefixesLogs",
-    },
-    modified: {
-      baseName: "modified",
-      type: "string",
-    },
-    process: {
-      baseName: "process",
-      type: "IPPrefixesProcess",
-    },
-    synthetics: {
-      baseName: "synthetics",
-      type: "IPPrefixesSynthetics",
-    },
-    version: {
-      baseName: "version",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "agents": {
+            "baseName": "agents",
+            "type": "IPPrefixesAgents",
+            
+            
+        },
+        "api": {
+            "baseName": "api",
+            "type": "IPPrefixesAPI",
+            
+            
+        },
+        "apm": {
+            "baseName": "apm",
+            "type": "IPPrefixesAPM",
+            
+            
+        },
+        "logs": {
+            "baseName": "logs",
+            "type": "IPPrefixesLogs",
+            
+            
+        },
+        "modified": {
+            "baseName": "modified",
+            "type": "string",
+            
+            
+        },
+        "process": {
+            "baseName": "process",
+            "type": "IPPrefixesProcess",
+            
+            
+        },
+        "synthetics": {
+            "baseName": "synthetics",
+            "type": "IPPrefixesSynthetics",
+            
+            
+        },
+        "version": {
+            "baseName": "version",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "webhooks": {
+            "baseName": "webhooks",
+            "type": "IPPrefixesWebhooks",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    webhooks: {
-      baseName: "webhooks",
-      type: "IPPrefixesWebhooks",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IPRanges.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPRanges.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

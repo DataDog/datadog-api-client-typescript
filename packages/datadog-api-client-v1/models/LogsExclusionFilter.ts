@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
- */
+* Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
+*/
 
 export class LogsExclusionFilter {
-  /**
-   * Default query is `*`, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
-   */
-  "query"?: string;
-  /**
-   * Sample rate to apply to logs going through this exclusion filter, a value of 1.0 excludes all logs matching the query.
-   */
-  "sampleRate": number;
+    /**
+    * Default query is `*`, meaning all logs flowing in the index would be excluded. Scope down exclusion filter to only a subset of logs with a log query.
+    */
+    'query'?: string;
+    /**
+    * Sample rate to apply to logs going through this exclusion filter, a value of 1.0 excludes all logs matching the query.
+    */
+    'sampleRate': number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-    sampleRate: {
-      baseName: "sample_rate",
-      type: "number",
-      required: true,
-      format: "double",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        },
+        "sampleRate": {
+            "baseName": "sample_rate",
+            "type": "number",
+            "required": true,
+            "format": "double",
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsExclusionFilter.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsExclusionFilter.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

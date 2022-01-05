@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type MetricTagConfigurationType = typeof MANAGE_TAGS;
-export const MANAGE_TAGS = "manage_tags";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The metric tag configuration resource type.
+*/
+
+export type MetricTagConfigurationType = typeof MANAGE_TAGS ;
+export const MANAGE_TAGS = 'manage_tags';
+
+

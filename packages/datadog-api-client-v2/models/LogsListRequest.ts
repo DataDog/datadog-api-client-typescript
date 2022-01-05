@@ -8,46 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { LogsListRequestPage } from "./LogsListRequestPage";
-import { LogsQueryFilter } from "./LogsQueryFilter";
-import { LogsQueryOptions } from "./LogsQueryOptions";
-import { LogsSort } from "./LogsSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsListRequestPage } from './LogsListRequestPage';
+import { LogsQueryFilter } from './LogsQueryFilter';
+import { LogsQueryOptions } from './LogsQueryOptions';
+import { LogsSort } from './LogsSort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The request for a logs list.
- */
+* The request for a logs list.
+*/
 
 export class LogsListRequest {
-  "filter"?: LogsQueryFilter;
-  "options"?: LogsQueryOptions;
-  "page"?: LogsListRequestPage;
-  "sort"?: LogsSort;
+    'filter'?: LogsQueryFilter;
+    'options'?: LogsQueryOptions;
+    'page'?: LogsListRequestPage;
+    'sort'?: LogsSort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsQueryFilter",
-    },
-    options: {
-      baseName: "options",
-      type: "LogsQueryOptions",
-    },
-    page: {
-      baseName: "page",
-      type: "LogsListRequestPage",
-    },
-    sort: {
-      baseName: "sort",
-      type: "LogsSort",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filter": {
+            "baseName": "filter",
+            "type": "LogsQueryFilter",
+            
+            
+        },
+        "options": {
+            "baseName": "options",
+            "type": "LogsQueryOptions",
+            
+            
+        },
+        "page": {
+            "baseName": "page",
+            "type": "LogsListRequestPage",
+            
+            
+        },
+        "sort": {
+            "baseName": "sort",
+            "type": "LogsSort",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsListRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

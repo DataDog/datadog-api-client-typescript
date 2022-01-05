@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { HTTPLogError } from "./HTTPLogError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HTTPLogError } from './HTTPLogError';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Invalid query performed.
- */
+* Invalid query performed.
+*/
 
 export class HTTPLogErrors {
-  /**
-   * Structured errors.
-   */
-  "errors"?: Array<HTTPLogError>;
+    /**
+    * Structured errors.
+    */
+    'errors'?: Array<HTTPLogError>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<HTTPLogError>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "errors": {
+            "baseName": "errors",
+            "type": "Array<HTTPLogError>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPLogErrors.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HTTPLogErrors.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

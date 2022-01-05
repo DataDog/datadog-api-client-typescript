@@ -8,60 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { FreeTextWidgetDefinitionType } from "./FreeTextWidgetDefinitionType";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FreeTextWidgetDefinitionType } from './FreeTextWidgetDefinitionType';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
- */
+* Free text is a widget that allows you to add headings to your screenboard. Commonly used to state the overall purpose of the dashboard. Only available on FREE layout dashboards.
+*/
 
 export class FreeTextWidgetDefinition {
-  /**
-   * Color of the text.
-   */
-  "color"?: string;
-  /**
-   * Size of the text.
-   */
-  "fontSize"?: string;
-  /**
-   * Text to display.
-   */
-  "text": string;
-  "textAlign"?: WidgetTextAlign;
-  "type": FreeTextWidgetDefinitionType;
+    /**
+    * Color of the text.
+    */
+    'color'?: string;
+    /**
+    * Size of the text.
+    */
+    'fontSize'?: string;
+    /**
+    * Text to display.
+    */
+    'text': string;
+    'textAlign'?: WidgetTextAlign;
+    'type': FreeTextWidgetDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    color: {
-      baseName: "color",
-      type: "string",
-    },
-    fontSize: {
-      baseName: "font_size",
-      type: "string",
-    },
-    text: {
-      baseName: "text",
-      type: "string",
-      required: true,
-    },
-    textAlign: {
-      baseName: "text_align",
-      type: "WidgetTextAlign",
-    },
-    type: {
-      baseName: "type",
-      type: "FreeTextWidgetDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "color": {
+            "baseName": "color",
+            "type": "string",
+            
+            
+        },
+        "fontSize": {
+            "baseName": "font_size",
+            "type": "string",
+            
+            
+        },
+        "text": {
+            "baseName": "text",
+            "type": "string",
+            "required": true,
+            
+        },
+        "textAlign": {
+            "baseName": "text_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "FreeTextWidgetDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FreeTextWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FreeTextWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

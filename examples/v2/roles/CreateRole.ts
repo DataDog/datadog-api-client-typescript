@@ -9,20 +9,19 @@ const apiInstance = new v2.RolesApi(configuration);
 
 let params: v2.RolesApiCreateRoleRequest = {
   body: {
-    data: {
-      type: "roles",
-      attributes: {
-        name: "Example-Create_role_returns_OK_response",
-      },
-    },
-  },
+data: {
+type: "roles",
+attributes: {
+name: "Example-Create_role_returns_OK_response",
+},
+},
+},
+  
 };
 
 apiInstance
   .createRole(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

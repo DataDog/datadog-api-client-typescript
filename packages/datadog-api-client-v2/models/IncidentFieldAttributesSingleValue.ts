@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentFieldAttributesSingleValueType } from './IncidentFieldAttributesSingleValueType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A field with a single value selected.
- */
+* A field with a single value selected.
+*/
 
 export class IncidentFieldAttributesSingleValue {
-  "type"?: IncidentFieldAttributesSingleValueType;
-  /**
-   * The single value selected for this field.
-   */
-  "value"?: string;
+    'type'?: IncidentFieldAttributesSingleValueType;
+    /**
+    * The single value selected for this field.
+    */
+    'value'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "IncidentFieldAttributesSingleValueType",
-    },
-    value: {
-      baseName: "value",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "type": {
+            "baseName": "type",
+            "type": "IncidentFieldAttributesSingleValueType",
+            
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentFieldAttributesSingleValue.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentFieldAttributesSingleValue.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

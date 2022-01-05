@@ -8,65 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SLOTimeframe } from "./SLOTimeframe";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOTimeframe } from './SLOTimeframe';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * SLO thresholds (target and optionally warning) for a single time window.
- */
+* SLO thresholds (target and optionally warning) for a single time window.
+*/
 
 export class SLOThreshold {
-  /**
-   * The target value for the service level indicator within the corresponding timeframe.
-   */
-  "target": number;
-  /**
-   * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (for example `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
-   */
-  "targetDisplay"?: string;
-  "timeframe": SLOTimeframe;
-  /**
-   * The warning value for the service level objective.
-   */
-  "warning"?: number;
-  /**
-   * A string representation of the warning target (see the description of the `target_display` field for details).  Included in service level objective responses if a warning target exists. Ignored in create/update requests.
-   */
-  "warningDisplay"?: string;
+    /**
+    * The target value for the service level indicator within the corresponding timeframe.
+    */
+    'target': number;
+    /**
+    * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (for example `98.00`).  Always included in service level objective responses. Ignored in create/update requests.
+    */
+    'targetDisplay'?: string;
+    'timeframe': SLOTimeframe;
+    /**
+    * The warning value for the service level objective.
+    */
+    'warning'?: number;
+    /**
+    * A string representation of the warning target (see the description of the `target_display` field for details).  Included in service level objective responses if a warning target exists. Ignored in create/update requests.
+    */
+    'warningDisplay'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    target: {
-      baseName: "target",
-      type: "number",
-      required: true,
-      format: "double",
-    },
-    targetDisplay: {
-      baseName: "target_display",
-      type: "string",
-    },
-    timeframe: {
-      baseName: "timeframe",
-      type: "SLOTimeframe",
-      required: true,
-    },
-    warning: {
-      baseName: "warning",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "target": {
+            "baseName": "target",
+            "type": "number",
+            "required": true,
+            "format": "double",
+        },
+        "targetDisplay": {
+            "baseName": "target_display",
+            "type": "string",
+            
+            
+        },
+        "timeframe": {
+            "baseName": "timeframe",
+            "type": "SLOTimeframe",
+            "required": true,
+            
+        },
+        "warning": {
+            "baseName": "warning",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "warningDisplay": {
+            "baseName": "warning_display",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "double",
-    },
-    warningDisplay: {
-      baseName: "warning_display",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOThreshold.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOThreshold.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

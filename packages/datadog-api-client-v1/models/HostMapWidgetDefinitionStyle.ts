@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The style to apply to the widget.
- */
+* The style to apply to the widget.
+*/
 
 export class HostMapWidgetDefinitionStyle {
-  /**
-   * Max value to use to color the map.
-   */
-  "fillMax"?: string;
-  /**
-   * Min value to use to color the map.
-   */
-  "fillMin"?: string;
-  /**
-   * Color palette to apply to the widget.
-   */
-  "palette"?: string;
-  /**
-   * Whether to flip the palette tones.
-   */
-  "paletteFlip"?: boolean;
+    /**
+    * Max value to use to color the map.
+    */
+    'fillMax'?: string;
+    /**
+    * Min value to use to color the map.
+    */
+    'fillMin'?: string;
+    /**
+    * Color palette to apply to the widget.
+    */
+    'palette'?: string;
+    /**
+    * Whether to flip the palette tones.
+    */
+    'paletteFlip'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    fillMax: {
-      baseName: "fill_max",
-      type: "string",
-    },
-    fillMin: {
-      baseName: "fill_min",
-      type: "string",
-    },
-    palette: {
-      baseName: "palette",
-      type: "string",
-    },
-    paletteFlip: {
-      baseName: "palette_flip",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "fillMax": {
+            "baseName": "fill_max",
+            "type": "string",
+            
+            
+        },
+        "fillMin": {
+            "baseName": "fill_min",
+            "type": "string",
+            
+            
+        },
+        "palette": {
+            "baseName": "palette",
+            "type": "string",
+            
+            
+        },
+        "paletteFlip": {
+            "baseName": "palette_flip",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionStyle.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostMapWidgetDefinitionStyle.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

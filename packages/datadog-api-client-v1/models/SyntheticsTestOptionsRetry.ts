@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the retry strategy to apply to a Synthetic test.
- */
+* Object describing the retry strategy to apply to a Synthetic test.
+*/
 
 export class SyntheticsTestOptionsRetry {
-  /**
-   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
-   */
-  "count"?: number;
-  /**
-   * Time interval between retries (in milliseconds). Defaults to 300ms.
-   */
-  "interval"?: number;
+    /**
+    * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
+    */
+    'count'?: number;
+    /**
+    * Time interval between retries (in milliseconds). Defaults to 300ms.
+    */
+    'interval'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "count": {
+            "baseName": "count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "interval": {
+            "baseName": "interval",
+            "type": "number",
+            
+            "format": "double",
+        }    };
 
-      format: "int64",
-    },
-    interval: {
-      baseName: "interval",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTestOptionsRetry.attributeTypeMap;
+    }
 
-      format: "double",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsRetry.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

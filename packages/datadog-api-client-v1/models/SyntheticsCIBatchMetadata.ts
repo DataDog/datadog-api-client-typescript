@@ -8,34 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
-import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsCIBatchMetadataCI } from './SyntheticsCIBatchMetadataCI';
+import { SyntheticsCIBatchMetadataGit } from './SyntheticsCIBatchMetadataGit';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Metadata for the Synthetics tests run.
- */
+* Metadata for the Synthetics tests run.
+*/
 
 export class SyntheticsCIBatchMetadata {
-  "ci"?: SyntheticsCIBatchMetadataCI;
-  "git"?: SyntheticsCIBatchMetadataGit;
+    'ci'?: SyntheticsCIBatchMetadataCI;
+    'git'?: SyntheticsCIBatchMetadataGit;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    ci: {
-      baseName: "ci",
-      type: "SyntheticsCIBatchMetadataCI",
-    },
-    git: {
-      baseName: "git",
-      type: "SyntheticsCIBatchMetadataGit",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "ci": {
+            "baseName": "ci",
+            "type": "SyntheticsCIBatchMetadataCI",
+            
+            
+        },
+        "git": {
+            "baseName": "git",
+            "type": "SyntheticsCIBatchMetadataGit",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadata.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsCIBatchMetadata.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

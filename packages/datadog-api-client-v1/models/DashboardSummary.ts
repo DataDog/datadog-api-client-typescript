@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardSummaryDefinition } from './DashboardSummaryDefinition';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Dashboard summary response.
- */
+* Dashboard summary response.
+*/
 
 export class DashboardSummary {
-  /**
-   * List of dashboard definitions.
-   */
-  "dashboards"?: Array<DashboardSummaryDefinition>;
+    /**
+    * List of dashboard definitions.
+    */
+    'dashboards'?: Array<DashboardSummaryDefinition>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardSummaryDefinition>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "dashboards": {
+            "baseName": "dashboards",
+            "type": "Array<DashboardSummaryDefinition>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardSummary.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardSummary.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

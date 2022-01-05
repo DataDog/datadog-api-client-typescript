@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { LogAttributes } from "./LogAttributes";
-import { LogType } from "./LogType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogAttributes } from './LogAttributes';
+import { LogType } from './LogType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object description of a log after being processed and stored by Datadog.
- */
+* Object description of a log after being processed and stored by Datadog.
+*/
 
 export class Log {
-  "attributes"?: LogAttributes;
-  /**
-   * Unique ID of the Log.
-   */
-  "id"?: string;
-  "type"?: LogType;
+    'attributes'?: LogAttributes;
+    /**
+    * Unique ID of the Log.
+    */
+    'id'?: string;
+    'type'?: LogType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "LogType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "LogAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Log.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Log.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

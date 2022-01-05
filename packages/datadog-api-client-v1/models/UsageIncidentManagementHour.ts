@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Incident management usage for a given organization for a given hour.
- */
+* Incident management usage for a given organization for a given hour.
+*/
 
 export class UsageIncidentManagementHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * Contains the total number monthly active users from the start of the given hour's month until the given hour.
-   */
-  "monthlyActiveUsers"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * Contains the total number monthly active users from the start of the given hour's month until the given hour.
+    */
+    'monthlyActiveUsers'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "monthlyActiveUsers": {
+            "baseName": "monthly_active_users",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    monthlyActiveUsers: {
-      baseName: "monthly_active_users",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIncidentManagementHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIncidentManagementHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

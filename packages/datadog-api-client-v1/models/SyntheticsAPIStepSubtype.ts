@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsAPIStepSubtype = typeof HTTP;
-export const HTTP = "http";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+*/
+
+export type SyntheticsAPIStepSubtype = typeof HTTP ;
+export const HTTP = 'http';
+
+

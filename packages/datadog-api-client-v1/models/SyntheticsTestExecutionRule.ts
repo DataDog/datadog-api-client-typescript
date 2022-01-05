@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsTestExecutionRule =
-  | typeof BLOCKING
-  | typeof NON_BLOCKING
-  | typeof SKIPPED;
-export const BLOCKING = "blocking";
-export const NON_BLOCKING = "non_blocking";
-export const SKIPPED = "skipped";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Execution rule for a Synthetics test.
+*/
+
+export type SyntheticsTestExecutionRule = typeof BLOCKING | typeof NON_BLOCKING | typeof SKIPPED ;
+export const BLOCKING = 'blocking';
+export const NON_BLOCKING = 'non_blocking';
+export const SKIPPED = 'skipped';
+
+

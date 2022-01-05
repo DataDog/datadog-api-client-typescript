@@ -8,11 +8,15 @@
  * Do not edit the class manually.
  */
 
-import { User } from "./User";
-import { UnparsedObject } from "./ObjectSerializer";
+import { User } from './User';
+import { UserAttributes } from './UserAttributes';
+import { UserResponseRelationships } from './UserResponseRelationships';
+import { UsersType } from './UsersType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An object related to an incident that is included in the response.
- */
+* An object related to an incident that is included in the response.
+*/
 
 export type IncidentResponseIncludedItem = User | UnparsedObject;

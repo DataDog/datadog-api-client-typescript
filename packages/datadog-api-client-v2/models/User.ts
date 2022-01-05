@@ -8,48 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { UserAttributes } from "./UserAttributes";
-import { UserResponseRelationships } from "./UserResponseRelationships";
-import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserAttributes } from './UserAttributes';
+import { UserResponseRelationships } from './UserResponseRelationships';
+import { UsersType } from './UsersType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * User object returned by the API.
- */
+* User object returned by the API.
+*/
 
 export class User {
-  "attributes"?: UserAttributes;
-  /**
-   * ID of the user.
-   */
-  "id"?: string;
-  "relationships"?: UserResponseRelationships;
-  "type"?: UsersType;
+    'attributes'?: UserAttributes;
+    /**
+    * ID of the user.
+    */
+    'id'?: string;
+    'relationships'?: UserResponseRelationships;
+    'type'?: UsersType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "UserResponseRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "UserAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "UserResponseRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsersType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return User.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return User.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

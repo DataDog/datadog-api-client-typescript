@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Synthetics location.
- */
+* Synthetics location.
+*/
 
 export class SyntheticsTriggerCITestLocation {
-  /**
-   * Unique identifier of the location.
-   */
-  "id"?: number;
-  /**
-   * Name of the location.
-   */
-  "name"?: string;
+    /**
+    * Unique identifier of the location.
+    */
+    'id'?: number;
+    /**
+    * Name of the location.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTriggerCITestLocation.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerCITestLocation.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

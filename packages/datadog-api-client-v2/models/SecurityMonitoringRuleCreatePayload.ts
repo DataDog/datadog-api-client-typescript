@@ -8,107 +8,125 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
-import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
-import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
-import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringFilter } from './SecurityMonitoringFilter';
+import { SecurityMonitoringRuleCaseCreate } from './SecurityMonitoringRuleCaseCreate';
+import { SecurityMonitoringRuleOptions } from './SecurityMonitoringRuleOptions';
+import { SecurityMonitoringRuleQueryCreate } from './SecurityMonitoringRuleQueryCreate';
+import { SecurityMonitoringRuleTypeCreate } from './SecurityMonitoringRuleTypeCreate';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Create a new rule.
- */
+* Create a new rule.
+*/
 
 export class SecurityMonitoringRuleCreatePayload {
-  /**
-   * Cases for generating signals.
-   */
-  "cases": Array<SecurityMonitoringRuleCaseCreate>;
-  /**
-   * Additional queries to filter matched events before they are processed.
-   */
-  "filters"?: Array<SecurityMonitoringFilter>;
-  /**
-   * Whether the notifications include the triggering group-by values in their title.
-   */
-  "hasExtendedTitle"?: boolean;
-  /**
-   * Whether the rule is enabled.
-   */
-  "isEnabled": boolean;
-  /**
-   * Message for generated signals.
-   */
-  "message": string;
-  /**
-   * The name of the rule.
-   */
-  "name": string;
-  "options": SecurityMonitoringRuleOptions;
-  /**
-   * Queries for selecting logs which are part of the rule.
-   */
-  "queries": Array<SecurityMonitoringRuleQueryCreate>;
-  /**
-   * Tags for generated signals.
-   */
-  "tags"?: Array<string>;
-  "type"?: SecurityMonitoringRuleTypeCreate;
+    /**
+    * Cases for generating signals.
+    */
+    'cases': Array<SecurityMonitoringRuleCaseCreate>;
+    /**
+    * Additional queries to filter matched events before they are processed.
+    */
+    'filters'?: Array<SecurityMonitoringFilter>;
+    /**
+    * Whether the notifications include the triggering group-by values in their title.
+    */
+    'hasExtendedTitle'?: boolean;
+    /**
+    * Whether the rule is enabled.
+    */
+    'isEnabled': boolean;
+    /**
+    * Message for generated signals.
+    */
+    'message': string;
+    /**
+    * The name of the rule.
+    */
+    'name': string;
+    'options': SecurityMonitoringRuleOptions;
+    /**
+    * Queries for selecting logs which are part of the rule.
+    */
+    'queries': Array<SecurityMonitoringRuleQueryCreate>;
+    /**
+    * Tags for generated signals.
+    */
+    'tags'?: Array<string>;
+    'type'?: SecurityMonitoringRuleTypeCreate;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cases: {
-      baseName: "cases",
-      type: "Array<SecurityMonitoringRuleCaseCreate>",
-      required: true,
-    },
-    filters: {
-      baseName: "filters",
-      type: "Array<SecurityMonitoringFilter>",
-    },
-    hasExtendedTitle: {
-      baseName: "hasExtendedTitle",
-      type: "boolean",
-    },
-    isEnabled: {
-      baseName: "isEnabled",
-      type: "boolean",
-      required: true,
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    options: {
-      baseName: "options",
-      type: "SecurityMonitoringRuleOptions",
-      required: true,
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<SecurityMonitoringRuleQueryCreate>",
-      required: true,
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringRuleTypeCreate",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cases": {
+            "baseName": "cases",
+            "type": "Array<SecurityMonitoringRuleCaseCreate>",
+            "required": true,
+            
+        },
+        "filters": {
+            "baseName": "filters",
+            "type": "Array<SecurityMonitoringFilter>",
+            
+            
+        },
+        "hasExtendedTitle": {
+            "baseName": "hasExtendedTitle",
+            "type": "boolean",
+            
+            
+        },
+        "isEnabled": {
+            "baseName": "isEnabled",
+            "type": "boolean",
+            "required": true,
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            "required": true,
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "options": {
+            "baseName": "options",
+            "type": "SecurityMonitoringRuleOptions",
+            "required": true,
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<SecurityMonitoringRuleQueryCreate>",
+            "required": true,
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SecurityMonitoringRuleTypeCreate",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleCreatePayload.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringRuleCreatePayload.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

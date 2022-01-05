@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
-import { MetricType } from "./MetricType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricAllTagsAttributes } from './MetricAllTagsAttributes';
+import { MetricType } from './MetricType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a single metric's indexed tags.
- */
+* Object for a single metric's indexed tags.
+*/
 
 export class MetricAllTags {
-  "attributes"?: MetricAllTagsAttributes;
-  /**
-   * The metric name for this resource.
-   */
-  "id"?: string;
-  "type"?: MetricType;
+    'attributes'?: MetricAllTagsAttributes;
+    /**
+    * The metric name for this resource.
+    */
+    'id'?: string;
+    'type'?: MetricType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricAllTagsAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "MetricAllTagsAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MetricType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricAllTags.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricAllTags.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -2,31 +2,31 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                           | HTTP request               | Description            |
-| ---------------------------------------------------------------- | -------------------------- | ---------------------- |
-| [**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check
+
 
 ## **submitServiceCheck**
-
 > IntakePayloadAccepted submitServiceCheck(body)
 
 Submit a list of Service Checks.
 
 **Notes**:
-
 - A valid API key is required.
 - Service checks can be submitted up to 10 minutes in the past.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceChecksApi(configuration);
 
-let params: v1.ServiceChecksApiSubmitServiceCheckRequest = {
+let params:v1.ServiceChecksApiSubmitServiceCheckRequest = {
   // Array<ServiceCheck> | Service Check request body.
   body: [
     {
@@ -34,27 +34,26 @@ let params: v1.ServiceChecksApiSubmitServiceCheckRequest = {
       hostName: "app.host1",
       message: "app is running",
       status: 0,
-      tags: ["environment:test"],
+      tags: [
+        "environment:test",
+      ],
       timestamp: 1,
     },
   ],
 };
 
-apiInstance
-  .submitServiceCheck(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.submitServiceCheck(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                    | Description                 | Notes |
-| -------- | ----------------------- | --------------------------- | ----- |
-| **body** | **Array<ServiceCheck>** | Service Check request body. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Array<ServiceCheck>**| Service Check request body. |
+
 
 ### Return type
 
@@ -66,18 +65,19 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: text/json, application/json
+ - **Content-Type**: application/json
+ - **Accept**: text/json, application/json
+
 
 ### HTTP response details
-
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **202**     | Payload accepted     | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
-| **408**     | Request timeout      | -                |
-| **413**     | Payload too large    | -                |
-| **429**     | Too many requests    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Payload accepted |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication Error |  -  |
+**408** | Request timeout |  -  |
+**413** | Payload too large |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+

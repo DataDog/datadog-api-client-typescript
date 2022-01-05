@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Has one property enabled (boolean).
- */
+* Has one property enabled (boolean).
+*/
 
 export class OrganizationSettingsSamlStrictMode {
-  /**
-   * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Learn more on the [SAML Strict documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).
-   */
-  "enabled"?: boolean;
+    /**
+    * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Learn more on the [SAML Strict documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).
+    */
+    'enabled'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "enabled": {
+            "baseName": "enabled",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlStrictMode.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationSettingsSamlStrictMode.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

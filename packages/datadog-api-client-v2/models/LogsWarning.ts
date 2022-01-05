@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A warning message indicating something that went wrong with the query
- */
+* A warning message indicating something that went wrong with the query
+*/
 
 export class LogsWarning {
-  /**
-   * A unique code for this type of warning
-   */
-  "code"?: string;
-  /**
-   * A detailed explanation of this specific warning
-   */
-  "detail"?: string;
-  /**
-   * A short human-readable summary of the warning
-   */
-  "title"?: string;
+    /**
+    * A unique code for this type of warning
+    */
+    'code'?: string;
+    /**
+    * A detailed explanation of this specific warning
+    */
+    'detail'?: string;
+    /**
+    * A short human-readable summary of the warning
+    */
+    'title'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
-    },
-    detail: {
-      baseName: "detail",
-      type: "string",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "code": {
+            "baseName": "code",
+            "type": "string",
+            
+            
+        },
+        "detail": {
+            "baseName": "detail",
+            "type": "string",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsWarning.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsWarning.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

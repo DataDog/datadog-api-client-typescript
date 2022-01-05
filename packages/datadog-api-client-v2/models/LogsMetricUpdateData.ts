@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricType } from "./LogsMetricType";
-import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricType } from './LogsMetricType';
+import { LogsMetricUpdateAttributes } from './LogsMetricUpdateAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The new log-based metric properties.
- */
+* The new log-based metric properties.
+*/
 
 export class LogsMetricUpdateData {
-  "attributes": LogsMetricUpdateAttributes;
-  "type": LogsMetricType;
+    'attributes': LogsMetricUpdateAttributes;
+    'type': LogsMetricType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsMetricUpdateAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LogsMetricType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "LogsMetricUpdateAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsMetricType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricUpdateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricUpdateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

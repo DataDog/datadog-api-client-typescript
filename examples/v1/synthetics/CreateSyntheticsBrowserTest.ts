@@ -9,50 +9,56 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 
 let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   body: {
-    config: {
-      assertions: [],
-      configVariables: [
-        {
-          example: "content-type",
-          name: "PROPERTY",
-          pattern: "content-type",
-          type: "text",
-        },
-      ],
-      request: {
-        method: "GET",
-        url: "https://datadoghq.com",
-      },
-      setCookie: "name:test",
-    },
-    locations: ["aws:us-east-2"],
-    message: "Test message",
-    name: "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
-    options: {
-      acceptSelfSigned: false,
-      allowInsecure: true,
-      deviceIds: ["tablet"],
-      disableCors: true,
-      followRedirects: true,
-      minFailureDuration: 10,
-      minLocationFailed: 1,
-      noScreenshot: true,
-      retry: {
-        count: 3,
-        interval: 10,
-      },
-      tickEvery: 300,
-    },
-    tags: ["testing:browser"],
-    type: "browser",
-  },
+config: {
+assertions: [
+],
+configVariables: [
+{
+example: "content-type",
+name: "PROPERTY",
+pattern: "content-type",
+type: "text",
+},
+],
+request: {
+method: "GET",
+url: "https://datadoghq.com",
+},
+setCookie: "name:test",
+},
+locations: [
+"aws:us-east-2",
+],
+message: "Test message",
+name: "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
+options: {
+acceptSelfSigned: false,
+allowInsecure: true,
+deviceIds: [
+"tablet",
+],
+disableCors: true,
+followRedirects: true,
+minFailureDuration: 10,
+minLocationFailed: 1,
+noScreenshot: true,
+retry: {
+count: 3,
+interval: 10,
+},
+tickEvery: 300,
+},
+tags: [
+"testing:browser",
+],
+type: "browser",
+},
+  
 };
 
 apiInstance
   .createSyntheticsBrowserTest(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

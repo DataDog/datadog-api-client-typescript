@@ -8,70 +8,82 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveDestinationAzureType } from "./LogsArchiveDestinationAzureType";
-import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveDestinationAzureType } from './LogsArchiveDestinationAzureType';
+import { LogsArchiveIntegrationAzure } from './LogsArchiveIntegrationAzure';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The Azure archive destination.
- */
+* The Azure archive destination.
+*/
 
 export class LogsArchiveDestinationAzure {
-  /**
-   * The container where the archive will be stored.
-   */
-  "container": string;
-  "integration": LogsArchiveIntegrationAzure;
-  /**
-   * The archive path.
-   */
-  "path"?: string;
-  /**
-   * The region where the archive will be stored.
-   */
-  "region"?: string;
-  /**
-   * The associated storage account.
-   */
-  "storageAccount": string;
-  "type": LogsArchiveDestinationAzureType;
+    /**
+    * The container where the archive will be stored.
+    */
+    'container': string;
+    'integration': LogsArchiveIntegrationAzure;
+    /**
+    * The archive path.
+    */
+    'path'?: string;
+    /**
+    * The region where the archive will be stored.
+    */
+    'region'?: string;
+    /**
+    * The associated storage account.
+    */
+    'storageAccount': string;
+    'type': LogsArchiveDestinationAzureType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    container: {
-      baseName: "container",
-      type: "string",
-      required: true,
-    },
-    integration: {
-      baseName: "integration",
-      type: "LogsArchiveIntegrationAzure",
-      required: true,
-    },
-    path: {
-      baseName: "path",
-      type: "string",
-    },
-    region: {
-      baseName: "region",
-      type: "string",
-    },
-    storageAccount: {
-      baseName: "storage_account",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LogsArchiveDestinationAzureType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "container": {
+            "baseName": "container",
+            "type": "string",
+            "required": true,
+            
+        },
+        "integration": {
+            "baseName": "integration",
+            "type": "LogsArchiveIntegrationAzure",
+            "required": true,
+            
+        },
+        "path": {
+            "baseName": "path",
+            "type": "string",
+            
+            
+        },
+        "region": {
+            "baseName": "region",
+            "type": "string",
+            
+            
+        },
+        "storageAccount": {
+            "baseName": "storage_account",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsArchiveDestinationAzureType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationAzure.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveDestinationAzure.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

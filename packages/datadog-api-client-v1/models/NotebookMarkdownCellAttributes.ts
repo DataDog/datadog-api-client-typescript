@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookMarkdownCellDefinition } from './NotebookMarkdownCellDefinition';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes of a notebook `markdown` cell.
- */
+* The attributes of a notebook `markdown` cell.
+*/
 
 export class NotebookMarkdownCellAttributes {
-  "definition": NotebookMarkdownCellDefinition;
+    'definition': NotebookMarkdownCellDefinition;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "NotebookMarkdownCellDefinition",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "definition": {
+            "baseName": "definition",
+            "type": "NotebookMarkdownCellDefinition",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMarkdownCellAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookMarkdownCellAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

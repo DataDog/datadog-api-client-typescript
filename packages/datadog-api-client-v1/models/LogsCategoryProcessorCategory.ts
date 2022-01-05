@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { LogsFilter } from "./LogsFilter";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsFilter } from './LogsFilter';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the logs filter.
- */
+* Object describing the logs filter.
+*/
 
 export class LogsCategoryProcessorCategory {
-  "filter"?: LogsFilter;
-  /**
-   * Value to assign to the target attribute.
-   */
-  "name"?: string;
+    'filter'?: LogsFilter;
+    /**
+    * Value to assign to the target attribute.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsFilter",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filter": {
+            "baseName": "filter",
+            "type": "LogsFilter",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsCategoryProcessorCategory.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsCategoryProcessorCategory.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

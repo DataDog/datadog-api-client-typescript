@@ -8,152 +8,176 @@
  * Do not edit the class manually.
  */
 
-import { Creator } from "./Creator";
-import { MonitorOptions } from "./MonitorOptions";
-import { MonitorOverallStates } from "./MonitorOverallStates";
-import { MonitorState } from "./MonitorState";
-import { MonitorType } from "./MonitorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Creator } from './Creator';
+import { MonitorOptions } from './MonitorOptions';
+import { MonitorOverallStates } from './MonitorOverallStates';
+import { MonitorState } from './MonitorState';
+import { MonitorType } from './MonitorType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing a monitor.
- */
+* Object describing a monitor.
+*/
 
 export class Monitor {
-  /**
-   * Timestamp of the monitor creation.
-   */
-  "created"?: Date;
-  "creator"?: Creator;
-  /**
-   * Whether or not the monitor is deleted. (Always `null`)
-   */
-  "deleted"?: Date;
-  /**
-   * ID of this monitor.
-   */
-  "id"?: number;
-  /**
-   * A message to include with notifications for this monitor.
-   */
-  "message"?: string;
-  /**
-   * Last timestamp when the monitor was edited.
-   */
-  "modified"?: Date;
-  /**
-   * Whether or not the monitor is broken down on different groups.
-   */
-  "multi"?: boolean;
-  /**
-   * The monitor name.
-   */
-  "name"?: string;
-  "options"?: MonitorOptions;
-  "overallState"?: MonitorOverallStates;
-  /**
-   * Integer from 1 (high) to 5 (low) indicating alert severity.
-   */
-  "priority"?: number;
-  /**
-   * The monitor query.
-   */
-  "query": string;
-  /**
-   * A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
-   */
-  "restrictedRoles"?: Array<string>;
-  "state"?: MonitorState;
-  /**
-   * Tags associated to your monitor.
-   */
-  "tags"?: Array<string>;
-  "type": MonitorType;
+    /**
+    * Timestamp of the monitor creation.
+    */
+    'created'?: Date;
+    'creator'?: Creator;
+    /**
+    * Whether or not the monitor is deleted. (Always `null`)
+    */
+    'deleted'?: Date;
+    /**
+    * ID of this monitor.
+    */
+    'id'?: number;
+    /**
+    * A message to include with notifications for this monitor.
+    */
+    'message'?: string;
+    /**
+    * Last timestamp when the monitor was edited.
+    */
+    'modified'?: Date;
+    /**
+    * Whether or not the monitor is broken down on different groups.
+    */
+    'multi'?: boolean;
+    /**
+    * The monitor name.
+    */
+    'name'?: string;
+    'options'?: MonitorOptions;
+    'overallState'?: MonitorOverallStates;
+    /**
+    * Integer from 1 (high) to 5 (low) indicating alert severity.
+    */
+    'priority'?: number;
+    /**
+    * The monitor query.
+    */
+    'query': string;
+    /**
+    * A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
+    */
+    'restrictedRoles'?: Array<string>;
+    'state'?: MonitorState;
+    /**
+    * Tags associated to your monitor.
+    */
+    'tags'?: Array<string>;
+    'type': MonitorType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    created: {
-      baseName: "created",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "created": {
+            "baseName": "created",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "creator": {
+            "baseName": "creator",
+            "type": "Creator",
+            
+            
+        },
+        "deleted": {
+            "baseName": "deleted",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "id": {
+            "baseName": "id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        },
+        "modified": {
+            "baseName": "modified",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "multi": {
+            "baseName": "multi",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "options": {
+            "baseName": "options",
+            "type": "MonitorOptions",
+            
+            
+        },
+        "overallState": {
+            "baseName": "overall_state",
+            "type": "MonitorOverallStates",
+            
+            
+        },
+        "priority": {
+            "baseName": "priority",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            "required": true,
+            
+        },
+        "restrictedRoles": {
+            "baseName": "restricted_roles",
+            "type": "Array<string>",
+            
+            
+        },
+        "state": {
+            "baseName": "state",
+            "type": "MonitorState",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MonitorType",
+            "required": true,
+            
+        }    };
 
-      format: "date-time",
-    },
-    creator: {
-      baseName: "creator",
-      type: "Creator",
-    },
-    deleted: {
-      baseName: "deleted",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Monitor.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    id: {
-      baseName: "id",
-      type: "number",
-
-      format: "int64",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-
-      format: "date-time",
-    },
-    multi: {
-      baseName: "multi",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    options: {
-      baseName: "options",
-      type: "MonitorOptions",
-    },
-    overallState: {
-      baseName: "overall_state",
-      type: "MonitorOverallStates",
-    },
-    priority: {
-      baseName: "priority",
-      type: "number",
-
-      format: "int64",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
-    restrictedRoles: {
-      baseName: "restricted_roles",
-      type: "Array<string>",
-    },
-    state: {
-      baseName: "state",
-      type: "MonitorState",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    type: {
-      baseName: "type",
-      type: "MonitorType",
-      required: true,
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Monitor.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

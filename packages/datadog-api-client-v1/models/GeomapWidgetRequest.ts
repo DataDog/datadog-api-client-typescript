@@ -8,70 +8,88 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
-import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
-import { LogQueryDefinition } from "./LogQueryDefinition";
-import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
+import { LogQueryDefinition } from './LogQueryDefinition';
+import { WidgetFormula } from './WidgetFormula';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An updated geomap widget.
- */
+* An updated geomap widget.
+*/
 
 export class GeomapWidgetRequest {
-  /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
-   */
-  "formulas"?: Array<WidgetFormula>;
-  "logQuery"?: LogQueryDefinition;
-  /**
-   * The widget metrics query.
-   */
-  "q"?: string;
-  /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-   */
-  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
-  "rumQuery"?: LogQueryDefinition;
-  "securityQuery"?: LogQueryDefinition;
+    /**
+    * List of formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<WidgetFormula>;
+    'logQuery'?: LogQueryDefinition;
+    /**
+    * The widget metrics query.
+    */
+    'q'?: string;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
+    'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    formulas: {
-      baseName: "formulas",
-      type: "Array<WidgetFormula>",
-    },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
-    },
-    q: {
-      baseName: "q",
-      type: "string",
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<FormulaAndFunctionQueryDefinition>",
-    },
-    responseFormat: {
-      baseName: "response_format",
-      type: "FormulaAndFunctionResponseFormat",
-    },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
-    },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "formulas": {
+            "baseName": "formulas",
+            "type": "Array<WidgetFormula>",
+            
+            
+        },
+        "logQuery": {
+            "baseName": "log_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            
+            
+        },
+        "responseFormat": {
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
+            
+            
+        },
+        "rumQuery": {
+            "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "securityQuery": {
+            "baseName": "security_query",
+            "type": "LogQueryDefinition",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return GeomapWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

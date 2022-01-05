@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
- */
+* Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
+*/
 
 export class WidgetCustomLink {
-  /**
-   * The flag for toggling context menu link visibility.
-   */
-  "isHidden"?: boolean;
-  /**
-   * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-   */
-  "label"?: string;
-  /**
-   * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-   */
-  "link"?: string;
-  /**
-   * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-   */
-  "overrideLabel"?: string;
+    /**
+    * The flag for toggling context menu link visibility.
+    */
+    'isHidden'?: boolean;
+    /**
+    * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+    */
+    'label'?: string;
+    /**
+    * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+    */
+    'link'?: string;
+    /**
+    * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+    */
+    'overrideLabel'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    isHidden: {
-      baseName: "is_hidden",
-      type: "boolean",
-    },
-    label: {
-      baseName: "label",
-      type: "string",
-    },
-    link: {
-      baseName: "link",
-      type: "string",
-    },
-    overrideLabel: {
-      baseName: "override_label",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "isHidden": {
+            "baseName": "is_hidden",
+            "type": "boolean",
+            
+            
+        },
+        "label": {
+            "baseName": "label",
+            "type": "string",
+            
+            
+        },
+        "link": {
+            "baseName": "link",
+            "type": "string",
+            
+            
+        },
+        "overrideLabel": {
+            "baseName": "override_label",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetCustomLink.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetCustomLink.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

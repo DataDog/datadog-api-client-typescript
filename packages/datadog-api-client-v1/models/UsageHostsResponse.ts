@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageHostHour } from "./UsageHostHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageHostHour } from './UsageHostHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Host usage response.
- */
+* Host usage response.
+*/
 
 export class UsageHostsResponse {
-  /**
-   * An array of objects related to host usage.
-   */
-  "usage"?: Array<UsageHostHour>;
+    /**
+    * An array of objects related to host usage.
+    */
+    'usage'?: Array<UsageHostHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageHostHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageHostHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageHostsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageHostsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,32 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToIncidentIntegrationMetadataData } from './RelationshipToIncidentIntegrationMetadataData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A relationship reference for multiple integration metadata objects.
- */
+* A relationship reference for multiple integration metadata objects.
+*/
 
 export class RelationshipToIncidentIntegrationMetadatas {
-  /**
-   * The integration metadata relationship array
-   */
-  "data": Array<RelationshipToIncidentIntegrationMetadataData>;
+    /**
+    * The integration metadata relationship array
+    */
+    'data': Array<RelationshipToIncidentIntegrationMetadataData>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipToIncidentIntegrationMetadataData>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<RelationshipToIncidentIntegrationMetadataData>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
-import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HourlyUsageAttributionBody } from './HourlyUsageAttributionBody';
+import { HourlyUsageAttributionMetadata } from './HourlyUsageAttributionMetadata';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the hourly usage attribution by tag(s).
- */
+* Response containing the hourly usage attribution by tag(s).
+*/
 
 export class HourlyUsageAttributionResponse {
-  "metadata"?: HourlyUsageAttributionMetadata;
-  /**
-   * Get the hourly usage attribution by tag(s).
-   */
-  "usage"?: Array<HourlyUsageAttributionBody>;
+    'metadata'?: HourlyUsageAttributionMetadata;
+    /**
+    * Get the hourly usage attribution by tag(s).
+    */
+    'usage'?: Array<HourlyUsageAttributionBody>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "HourlyUsageAttributionMetadata",
-    },
-    usage: {
-      baseName: "usage",
-      type: "Array<HourlyUsageAttributionBody>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "metadata": {
+            "baseName": "metadata",
+            "type": "HourlyUsageAttributionMetadata",
+            
+            
+        },
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<HourlyUsageAttributionBody>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HourlyUsageAttributionResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,84 +8,100 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
-import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
-import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsGlobalVariableAttributes } from './SyntheticsGlobalVariableAttributes';
+import { SyntheticsGlobalVariableParseTestOptions } from './SyntheticsGlobalVariableParseTestOptions';
+import { SyntheticsGlobalVariableValue } from './SyntheticsGlobalVariableValue';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Synthetics global variable.
- */
+* Synthetics global variable.
+*/
 
 export class SyntheticsGlobalVariable {
-  "attributes"?: SyntheticsGlobalVariableAttributes;
-  /**
-   * Description of the global variable.
-   */
-  "description": string;
-  /**
-   * Unique identifier of the global variable.
-   */
-  "id"?: string;
-  /**
-   * Name of the global variable.
-   */
-  "name": string;
-  "parseTestOptions"?: SyntheticsGlobalVariableParseTestOptions;
-  /**
-   * A Synthetic test ID to use as a test to generate the variable value.
-   */
-  "parseTestPublicId"?: string;
-  /**
-   * Tags of the global variable.
-   */
-  "tags": Array<string>;
-  "value": SyntheticsGlobalVariableValue;
+    'attributes'?: SyntheticsGlobalVariableAttributes;
+    /**
+    * Description of the global variable.
+    */
+    'description': string;
+    /**
+    * Unique identifier of the global variable.
+    */
+    'id'?: string;
+    /**
+    * Name of the global variable.
+    */
+    'name': string;
+    'parseTestOptions'?: SyntheticsGlobalVariableParseTestOptions;
+    /**
+    * A Synthetic test ID to use as a test to generate the variable value.
+    */
+    'parseTestPublicId'?: string;
+    /**
+    * Tags of the global variable.
+    */
+    'tags': Array<string>;
+    'value': SyntheticsGlobalVariableValue;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsGlobalVariableAttributes",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    parseTestOptions: {
-      baseName: "parse_test_options",
-      type: "SyntheticsGlobalVariableParseTestOptions",
-    },
-    parseTestPublicId: {
-      baseName: "parse_test_public_id",
-      type: "string",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
-    },
-    value: {
-      baseName: "value",
-      type: "SyntheticsGlobalVariableValue",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "SyntheticsGlobalVariableAttributes",
+            
+            
+        },
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "parseTestOptions": {
+            "baseName": "parse_test_options",
+            "type": "SyntheticsGlobalVariableParseTestOptions",
+            
+            
+        },
+        "parseTestPublicId": {
+            "baseName": "parse_test_public_id",
+            "type": "string",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            "required": true,
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "SyntheticsGlobalVariableValue",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariable.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsGlobalVariable.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

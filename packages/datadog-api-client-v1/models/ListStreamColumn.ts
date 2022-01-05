@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { ListStreamColumnWidth } from "./ListStreamColumnWidth";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ListStreamColumnWidth } from './ListStreamColumnWidth';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Widget column.
- */
+* Widget column.
+*/
 
 export class ListStreamColumn {
-  /**
-   * Widget column field.
-   */
-  "field": string;
-  "width": ListStreamColumnWidth;
+    /**
+    * Widget column field.
+    */
+    'field': string;
+    'width': ListStreamColumnWidth;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
-      required: true,
-    },
-    width: {
-      baseName: "width",
-      type: "ListStreamColumnWidth",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "field": {
+            "baseName": "field",
+            "type": "string",
+            "required": true,
+            
+        },
+        "width": {
+            "baseName": "width",
+            "type": "ListStreamColumnWidth",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamColumn.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ListStreamColumn.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

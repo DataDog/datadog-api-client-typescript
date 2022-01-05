@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { RoleCloneAttributes } from "./RoleCloneAttributes";
-import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RoleCloneAttributes } from './RoleCloneAttributes';
+import { RolesType } from './RolesType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Data for the clone role request.
- */
+* Data for the clone role request.
+*/
 
 export class RoleClone {
-  "attributes": RoleCloneAttributes;
-  "type": RolesType;
+    'attributes': RoleCloneAttributes;
+    'type': RolesType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoleCloneAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "RoleCloneAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "RolesType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleClone.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleClone.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

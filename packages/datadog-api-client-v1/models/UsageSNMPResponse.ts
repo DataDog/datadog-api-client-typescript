@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageSNMPHour } from "./UsageSNMPHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageSNMPHour } from './UsageSNMPHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of SNMP devices for each hour for a given organization.
- */
+* Response containing the number of SNMP devices for each hour for a given organization.
+*/
 
 export class UsageSNMPResponse {
-  /**
-   * Get hourly usage for SNMP devices.
-   */
-  "usage"?: Array<UsageSNMPHour>;
+    /**
+    * Get hourly usage for SNMP devices.
+    */
+    'usage'?: Array<UsageSNMPHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSNMPHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageSNMPHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSNMPResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSNMPResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

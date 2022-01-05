@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type AlertGraphWidgetDefinitionType = typeof ALERT_GRAPH;
-export const ALERT_GRAPH = "alert_graph";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the alert graph widget.
+*/
+
+export type AlertGraphWidgetDefinitionType = typeof ALERT_GRAPH ;
+export const ALERT_GRAPH = 'alert_graph';
+
+

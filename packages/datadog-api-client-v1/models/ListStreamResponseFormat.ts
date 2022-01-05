@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ListStreamResponseFormat = typeof EVENT_LIST;
-export const EVENT_LIST = "event_list";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Widget response format.
+*/
+
+export type ListStreamResponseFormat = typeof EVENT_LIST ;
+export const EVENT_LIST = 'event_list';
+
+

@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityFilterUpdateData } from './SecurityFilterUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The new security filter body.
- */
+* The new security filter body.
+*/
 
 export class SecurityFilterUpdateRequest {
-  "data": SecurityFilterUpdateData;
+    'data': SecurityFilterUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityFilterUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SecurityFilterUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

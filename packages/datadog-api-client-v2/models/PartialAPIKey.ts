@@ -8,48 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyRelationships } from "./APIKeyRelationships";
-import { APIKeysType } from "./APIKeysType";
-import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyRelationships } from './APIKeyRelationships';
+import { APIKeysType } from './APIKeysType';
+import { PartialAPIKeyAttributes } from './PartialAPIKeyAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Partial Datadog API key.
- */
+* Partial Datadog API key.
+*/
 
 export class PartialAPIKey {
-  "attributes"?: PartialAPIKeyAttributes;
-  /**
-   * ID of the API key.
-   */
-  "id"?: string;
-  "relationships"?: APIKeyRelationships;
-  "type"?: APIKeysType;
+    'attributes'?: PartialAPIKeyAttributes;
+    /**
+    * ID of the API key.
+    */
+    'id'?: string;
+    'relationships'?: APIKeyRelationships;
+    'type'?: APIKeysType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PartialAPIKeyAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "APIKeyRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "APIKeysType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "PartialAPIKeyAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "APIKeyRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "APIKeysType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialAPIKey.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return PartialAPIKey.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

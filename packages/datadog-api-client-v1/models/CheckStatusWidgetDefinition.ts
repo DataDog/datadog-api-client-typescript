@@ -8,97 +8,118 @@
  * Do not edit the class manually.
  */
 
-import { CheckStatusWidgetDefinitionType } from "./CheckStatusWidgetDefinitionType";
-import { WidgetGrouping } from "./WidgetGrouping";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { CheckStatusWidgetDefinitionType } from './CheckStatusWidgetDefinitionType';
+import { WidgetGrouping } from './WidgetGrouping';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Check status shows the current status or number of results for any check performed.
- */
+* Check status shows the current status or number of results for any check performed.
+*/
 
 export class CheckStatusWidgetDefinition {
-  /**
-   * Name of the check to use in the widget.
-   */
-  "check": string;
-  /**
-   * Group reporting a single check.
-   */
-  "group"?: string;
-  /**
-   * List of tag prefixes to group by in the case of a cluster check.
-   */
-  "groupBy"?: Array<string>;
-  "grouping": WidgetGrouping;
-  /**
-   * List of tags used to filter the groups reporting a cluster check.
-   */
-  "tags"?: Array<string>;
-  "time"?: WidgetTime;
-  /**
-   * Title of the widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": CheckStatusWidgetDefinitionType;
+    /**
+    * Name of the check to use in the widget.
+    */
+    'check': string;
+    /**
+    * Group reporting a single check.
+    */
+    'group'?: string;
+    /**
+    * List of tag prefixes to group by in the case of a cluster check.
+    */
+    'groupBy'?: Array<string>;
+    'grouping': WidgetGrouping;
+    /**
+    * List of tags used to filter the groups reporting a cluster check.
+    */
+    'tags'?: Array<string>;
+    'time'?: WidgetTime;
+    /**
+    * Title of the widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': CheckStatusWidgetDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    check: {
-      baseName: "check",
-      type: "string",
-      required: true,
-    },
-    group: {
-      baseName: "group",
-      type: "string",
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
-    },
-    grouping: {
-      baseName: "grouping",
-      type: "WidgetGrouping",
-      required: true,
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "CheckStatusWidgetDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "check": {
+            "baseName": "check",
+            "type": "string",
+            "required": true,
+            
+        },
+        "group": {
+            "baseName": "group",
+            "type": "string",
+            
+            
+        },
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "Array<string>",
+            
+            
+        },
+        "grouping": {
+            "baseName": "grouping",
+            "type": "WidgetGrouping",
+            "required": true,
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "CheckStatusWidgetDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckStatusWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return CheckStatusWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

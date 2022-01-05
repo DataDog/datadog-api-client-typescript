@@ -8,47 +8,57 @@
  * Do not edit the class manually.
  */
 
-import { Log } from "./Log";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Log } from './Log';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response object with all logs matching the request and pagination information.
- */
+* Response object with all logs matching the request and pagination information.
+*/
 
 export class LogsListResponse {
-  /**
-   * Array of logs matching the request and the `nextLogId` if sent.
-   */
-  "logs"?: Array<Log>;
-  /**
-   * Hash identifier of the next log to return in the list. This parameter is used for the pagination feature.
-   */
-  "nextLogId"?: string;
-  /**
-   * Status of the response.
-   */
-  "status"?: string;
+    /**
+    * Array of logs matching the request and the `nextLogId` if sent.
+    */
+    'logs'?: Array<Log>;
+    /**
+    * Hash identifier of the next log to return in the list. This parameter is used for the pagination feature.
+    */
+    'nextLogId'?: string;
+    /**
+    * Status of the response.
+    */
+    'status'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    logs: {
-      baseName: "logs",
-      type: "Array<Log>",
-    },
-    nextLogId: {
-      baseName: "nextLogId",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "logs": {
+            "baseName": "logs",
+            "type": "Array<Log>",
+            
+            
+        },
+        "nextLogId": {
+            "baseName": "nextLogId",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

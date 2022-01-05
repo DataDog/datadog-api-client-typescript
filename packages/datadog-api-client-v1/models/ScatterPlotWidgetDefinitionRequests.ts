@@ -8,39 +8,49 @@
  * Do not edit the class manually.
  */
 
-import { ScatterPlotRequest } from "./ScatterPlotRequest";
-import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ScatterPlotRequest } from './ScatterPlotRequest';
+import { ScatterplotTableRequest } from './ScatterplotTableRequest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Widget definition.
- */
+* Widget definition.
+*/
 
 export class ScatterPlotWidgetDefinitionRequests {
-  "table"?: ScatterplotTableRequest;
-  "x"?: ScatterPlotRequest;
-  "y"?: ScatterPlotRequest;
+    'table'?: ScatterplotTableRequest;
+    'x'?: ScatterPlotRequest;
+    'y'?: ScatterPlotRequest;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    table: {
-      baseName: "table",
-      type: "ScatterplotTableRequest",
-    },
-    x: {
-      baseName: "x",
-      type: "ScatterPlotRequest",
-    },
-    y: {
-      baseName: "y",
-      type: "ScatterPlotRequest",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "table": {
+            "baseName": "table",
+            "type": "ScatterplotTableRequest",
+            
+            
+        },
+        "x": {
+            "baseName": "x",
+            "type": "ScatterPlotRequest",
+            
+            
+        },
+        "y": {
+            "baseName": "y",
+            "type": "ScatterPlotRequest",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Subscription definition.
- */
+* Subscription definition.
+*/
 
 export class OrganizationSubscription {
-  /**
-   * The subscription type. Types available are `trial`, `free`, and `pro`.
-   */
-  "type"?: string;
+    /**
+    * The subscription type. Types available are `trial`, `free`, and `pro`.
+    */
+    'type'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "type": {
+            "baseName": "type",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSubscription.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationSubscription.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

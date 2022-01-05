@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsLocation } from "./SyntheticsLocation";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsLocation } from './SyntheticsLocation';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of Synthetics locations.
- */
+* List of Synthetics locations.
+*/
 
 export class SyntheticsLocations {
-  /**
-   * List of Synthetics locations.
-   */
-  "locations"?: Array<SyntheticsLocation>;
+    /**
+    * List of Synthetics locations.
+    */
+    'locations'?: Array<SyntheticsLocation>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    locations: {
-      baseName: "locations",
-      type: "Array<SyntheticsLocation>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "locations": {
+            "baseName": "locations",
+            "type": "Array<SyntheticsLocation>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsLocations.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsLocations.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

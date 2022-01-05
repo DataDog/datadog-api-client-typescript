@@ -8,40 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
-import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
-import { SecurityMonitoringSignalsSort } from "./SecurityMonitoringSignalsSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringSignalListRequestFilter } from './SecurityMonitoringSignalListRequestFilter';
+import { SecurityMonitoringSignalListRequestPage } from './SecurityMonitoringSignalListRequestPage';
+import { SecurityMonitoringSignalsSort } from './SecurityMonitoringSignalsSort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The request for a security signal list.
- */
+* The request for a security signal list.
+*/
 
 export class SecurityMonitoringSignalListRequest {
-  "filter"?: SecurityMonitoringSignalListRequestFilter;
-  "page"?: SecurityMonitoringSignalListRequestPage;
-  "sort"?: SecurityMonitoringSignalsSort;
+    'filter'?: SecurityMonitoringSignalListRequestFilter;
+    'page'?: SecurityMonitoringSignalListRequestPage;
+    'sort'?: SecurityMonitoringSignalsSort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "SecurityMonitoringSignalListRequestFilter",
-    },
-    page: {
-      baseName: "page",
-      type: "SecurityMonitoringSignalListRequestPage",
-    },
-    sort: {
-      baseName: "sort",
-      type: "SecurityMonitoringSignalsSort",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filter": {
+            "baseName": "filter",
+            "type": "SecurityMonitoringSignalListRequestFilter",
+            
+            
+        },
+        "page": {
+            "baseName": "page",
+            "type": "SecurityMonitoringSignalListRequestPage",
+            
+            
+        },
+        "sort": {
+            "baseName": "sort",
+            "type": "SecurityMonitoringSignalsSort",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringSignalListRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveOrderDefinition } from "./LogsArchiveOrderDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveOrderDefinition } from './LogsArchiveOrderDefinition';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A ordered list of archive IDs.
- */
+* A ordered list of archive IDs.
+*/
 
 export class LogsArchiveOrder {
-  "data"?: LogsArchiveOrderDefinition;
+    'data'?: LogsArchiveOrderDefinition;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LogsArchiveOrderDefinition",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "LogsArchiveOrderDefinition",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveOrder.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveOrder.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

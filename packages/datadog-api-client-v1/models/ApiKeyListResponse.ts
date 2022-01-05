@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { ApiKey } from "./ApiKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApiKey } from './ApiKey';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of API and application keys available for a given organization.
- */
+* List of API and application keys available for a given organization.
+*/
 
 export class ApiKeyListResponse {
-  /**
-   * Array of API keys.
-   */
-  "apiKeys"?: Array<ApiKey>;
+    /**
+    * Array of API keys.
+    */
+    'apiKeys'?: Array<ApiKey>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKeys: {
-      baseName: "api_keys",
-      type: "Array<ApiKey>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "apiKeys": {
+            "baseName": "api_keys",
+            "type": "Array<ApiKey>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApiKeyListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApiKeyListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

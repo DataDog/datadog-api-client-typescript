@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
-import { FullAPIKey } from "./FullAPIKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyResponseIncludedItem } from './APIKeyResponseIncludedItem';
+import { FullAPIKey } from './FullAPIKey';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response for retrieving an API key.
- */
+* Response for retrieving an API key.
+*/
 
 export class APIKeyResponse {
-  "data"?: FullAPIKey;
-  /**
-   * Array of objects related to the API key.
-   */
-  "included"?: Array<APIKeyResponseIncludedItem>;
+    'data'?: FullAPIKey;
+    /**
+    * Array of objects related to the API key.
+    */
+    'included'?: Array<APIKeyResponseIncludedItem>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FullAPIKey",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<APIKeyResponseIncludedItem>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "FullAPIKey",
+            
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<APIKeyResponseIncludedItem>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeyResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

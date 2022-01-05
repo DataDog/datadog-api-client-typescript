@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type WidgetChangeType = typeof ABSOLUTE | typeof RELATIVE;
-export const ABSOLUTE = "absolute";
-export const RELATIVE = "relative";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Show the absolute or the relative change.
+*/
+
+export type WidgetChangeType = typeof ABSOLUTE | typeof RELATIVE ;
+export const ABSOLUTE = 'absolute';
+export const RELATIVE = 'relative';
+
+

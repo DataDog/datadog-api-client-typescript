@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCreateDataAttributes } from "./NotebookCreateDataAttributes";
-import { NotebookResourceType } from "./NotebookResourceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookCreateDataAttributes } from './NotebookCreateDataAttributes';
+import { NotebookResourceType } from './NotebookResourceType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The data for a notebook create request.
- */
+* The data for a notebook create request.
+*/
 
 export class NotebookCreateData {
-  "attributes": NotebookCreateDataAttributes;
-  "type": NotebookResourceType;
+    'attributes': NotebookCreateDataAttributes;
+    'type': NotebookResourceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NotebookCreateDataAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "NotebookResourceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "NotebookCreateDataAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NotebookResourceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsArchiveOrderDefinitionType = typeof ARCHIVE_ORDER;
-export const ARCHIVE_ORDER = "archive_order";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the archive order definition.
+*/
+
+export type LogsArchiveOrderDefinitionType = typeof ARCHIVE_ORDER ;
+export const ARCHIVE_ORDER = 'archive_order';
+
+

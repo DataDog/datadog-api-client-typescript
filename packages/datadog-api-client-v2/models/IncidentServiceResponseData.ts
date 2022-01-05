@@ -8,50 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
-import { IncidentServiceResponseAttributes } from "./IncidentServiceResponseAttributes";
-import { IncidentServiceType } from "./IncidentServiceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentServiceRelationships } from './IncidentServiceRelationships';
+import { IncidentServiceResponseAttributes } from './IncidentServiceResponseAttributes';
+import { IncidentServiceType } from './IncidentServiceType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Incident Service data from responses.
- */
+* Incident Service data from responses.
+*/
 
 export class IncidentServiceResponseData {
-  "attributes"?: IncidentServiceResponseAttributes;
-  /**
-   * The incident service's ID.
-   */
-  "id": string;
-  "relationships"?: IncidentServiceRelationships;
-  "type": IncidentServiceType;
+    'attributes'?: IncidentServiceResponseAttributes;
+    /**
+    * The incident service's ID.
+    */
+    'id': string;
+    'relationships'?: IncidentServiceRelationships;
+    'type': IncidentServiceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentServiceResponseAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentServiceRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentServiceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "IncidentServiceResponseAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "IncidentServiceRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentServiceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServiceResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

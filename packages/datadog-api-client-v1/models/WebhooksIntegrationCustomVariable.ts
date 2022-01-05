@@ -8,49 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Custom variable for Webhook integration.
- */
+* Custom variable for Webhook integration.
+*/
 
 export class WebhooksIntegrationCustomVariable {
-  /**
-   * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
-   */
-  "isSecret": boolean;
-  /**
-   * The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
-   */
-  "name": string;
-  /**
-   * Value of the custom variable.
-   */
-  "value": string;
+    /**
+    * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
+    */
+    'isSecret': boolean;
+    /**
+    * The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
+    */
+    'name': string;
+    /**
+    * Value of the custom variable.
+    */
+    'value': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    isSecret: {
-      baseName: "is_secret",
-      type: "boolean",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "isSecret": {
+            "baseName": "is_secret",
+            "type": "boolean",
+            "required": true,
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationCustomVariable.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WebhooksIntegrationCustomVariable.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

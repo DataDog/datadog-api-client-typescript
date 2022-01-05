@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of errors.
- */
+* List of errors.
+*/
 
 export class HTTPLogError {
-  /**
-   * Error message.
-   */
-  "detail"?: string;
-  /**
-   * Error code.
-   */
-  "status"?: string;
-  /**
-   * Error title.
-   */
-  "title"?: string;
+    /**
+    * Error message.
+    */
+    'detail'?: string;
+    /**
+    * Error code.
+    */
+    'status'?: string;
+    /**
+    * Error title.
+    */
+    'title'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    detail: {
-      baseName: "detail",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "string",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "detail": {
+            "baseName": "detail",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "string",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPLogError.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HTTPLogError.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

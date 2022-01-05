@@ -8,68 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { TreeMapColorBy } from "./TreeMapColorBy";
-import { TreeMapGroupBy } from "./TreeMapGroupBy";
-import { TreeMapSizeBy } from "./TreeMapSizeBy";
-import { TreeMapWidgetDefinitionType } from "./TreeMapWidgetDefinitionType";
-import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { TreeMapColorBy } from './TreeMapColorBy';
+import { TreeMapGroupBy } from './TreeMapGroupBy';
+import { TreeMapSizeBy } from './TreeMapSizeBy';
+import { TreeMapWidgetDefinitionType } from './TreeMapWidgetDefinitionType';
+import { TreeMapWidgetRequest } from './TreeMapWidgetRequest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
- */
+* The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
+*/
 
 export class TreeMapWidgetDefinition {
-  "colorBy": TreeMapColorBy;
-  "groupBy": TreeMapGroupBy;
-  /**
-   * List of top list widget requests.
-   */
-  "requests": Array<TreeMapWidgetRequest>;
-  "sizeBy": TreeMapSizeBy;
-  /**
-   * Title of your widget.
-   */
-  "title"?: string;
-  "type": TreeMapWidgetDefinitionType;
+    'colorBy': TreeMapColorBy;
+    'groupBy': TreeMapGroupBy;
+    /**
+    * List of top list widget requests.
+    */
+    'requests': Array<TreeMapWidgetRequest>;
+    'sizeBy': TreeMapSizeBy;
+    /**
+    * Title of your widget.
+    */
+    'title'?: string;
+    'type': TreeMapWidgetDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    colorBy: {
-      baseName: "color_by",
-      type: "TreeMapColorBy",
-      required: true,
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "TreeMapGroupBy",
-      required: true,
-    },
-    requests: {
-      baseName: "requests",
-      type: "Array<TreeMapWidgetRequest>",
-      required: true,
-    },
-    sizeBy: {
-      baseName: "size_by",
-      type: "TreeMapSizeBy",
-      required: true,
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "TreeMapWidgetDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "colorBy": {
+            "baseName": "color_by",
+            "type": "TreeMapColorBy",
+            "required": true,
+            
+        },
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "TreeMapGroupBy",
+            "required": true,
+            
+        },
+        "requests": {
+            "baseName": "requests",
+            "type": "Array<TreeMapWidgetRequest>",
+            "required": true,
+            
+        },
+        "sizeBy": {
+            "baseName": "size_by",
+            "type": "TreeMapSizeBy",
+            "required": true,
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "TreeMapWidgetDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TreeMapWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return TreeMapWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

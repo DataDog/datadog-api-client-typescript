@@ -8,76 +8,90 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultData";
-import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
-import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBrowserTestResultData } from './SyntheticsBrowserTestResultData';
+import { SyntheticsBrowserTestResultFullCheck } from './SyntheticsBrowserTestResultFullCheck';
+import { SyntheticsTestMonitorStatus } from './SyntheticsTestMonitorStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object returned describing a browser test result.
- */
+* Object returned describing a browser test result.
+*/
 
 export class SyntheticsBrowserTestResultFull {
-  "check"?: SyntheticsBrowserTestResultFullCheck;
-  /**
-   * When the browser test was conducted.
-   */
-  "checkTime"?: number;
-  /**
-   * Version of the browser test used.
-   */
-  "checkVersion"?: number;
-  /**
-   * Location from which the browser test was performed.
-   */
-  "probeDc"?: string;
-  "result"?: SyntheticsBrowserTestResultData;
-  /**
-   * ID of the browser test result.
-   */
-  "resultId"?: string;
-  "status"?: SyntheticsTestMonitorStatus;
+    'check'?: SyntheticsBrowserTestResultFullCheck;
+    /**
+    * When the browser test was conducted.
+    */
+    'checkTime'?: number;
+    /**
+    * Version of the browser test used.
+    */
+    'checkVersion'?: number;
+    /**
+    * Location from which the browser test was performed.
+    */
+    'probeDc'?: string;
+    'result'?: SyntheticsBrowserTestResultData;
+    /**
+    * ID of the browser test result.
+    */
+    'resultId'?: string;
+    'status'?: SyntheticsTestMonitorStatus;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    check: {
-      baseName: "check",
-      type: "SyntheticsBrowserTestResultFullCheck",
-    },
-    checkTime: {
-      baseName: "check_time",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "check": {
+            "baseName": "check",
+            "type": "SyntheticsBrowserTestResultFullCheck",
+            
+            
+        },
+        "checkTime": {
+            "baseName": "check_time",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "checkVersion": {
+            "baseName": "check_version",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "probeDc": {
+            "baseName": "probe_dc",
+            "type": "string",
+            
+            
+        },
+        "result": {
+            "baseName": "result",
+            "type": "SyntheticsBrowserTestResultData",
+            
+            
+        },
+        "resultId": {
+            "baseName": "result_id",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SyntheticsTestMonitorStatus",
+            
+            
+        }    };
 
-      format: "double",
-    },
-    checkVersion: {
-      baseName: "check_version",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBrowserTestResultFull.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    probeDc: {
-      baseName: "probe_dc",
-      type: "string",
-    },
-    result: {
-      baseName: "result",
-      type: "SyntheticsBrowserTestResultData",
-    },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "SyntheticsTestMonitorStatus",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultFull.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

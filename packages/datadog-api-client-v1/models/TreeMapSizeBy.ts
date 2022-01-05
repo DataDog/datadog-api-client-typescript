@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type TreeMapSizeBy = typeof PCT_CPU | typeof PCT_MEM;
-export const PCT_CPU = "pct_cpu";
-export const PCT_MEM = "pct_mem";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The attribute used to determine size in the widget.
+*/
+
+export type TreeMapSizeBy = typeof PCT_CPU | typeof PCT_MEM ;
+export const PCT_CPU = 'pct_cpu';
+export const PCT_MEM = 'pct_mem';
+
+

@@ -8,8 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsGlobalVariableParseTestOptionsType =
-  | typeof HTTP_BODY
-  | typeof HTTP_HEADER;
-export const HTTP_BODY = "http_body";
-export const HTTP_HEADER = "http_header";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Property of the Synthetics Test Response to use for a Synthetics global variable.
+*/
+
+export type SyntheticsGlobalVariableParseTestOptionsType = typeof HTTP_BODY | typeof HTTP_HEADER ;
+export const HTTP_BODY = 'http_body';
+export const HTTP_HEADER = 'http_header';
+
+

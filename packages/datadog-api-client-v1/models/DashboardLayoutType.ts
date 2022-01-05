@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type DashboardLayoutType = typeof ORDERED | typeof FREE;
-export const ORDERED = "ordered";
-export const FREE = "free";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Layout type of the dashboard.
+*/
+
+export type DashboardLayoutType = typeof ORDERED | typeof FREE ;
+export const ORDERED = 'ordered';
+export const FREE = 'free';
+
+

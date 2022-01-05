@@ -9,15 +9,14 @@ configuration.unstableOperations["getHourlyUsageAttribution"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 let params: v1.UsageMeteringApiGetHourlyUsageAttributionRequest = {
-  startHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
-  usageType: "infra_host_usage",
+  startHr: new Date(new Date().getTime() / 1000 + -3*86400),
+usageType: "infra_host_usage",
+
 };
 
 apiInstance
   .getHourlyUsageAttribution(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

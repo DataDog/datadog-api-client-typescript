@@ -8,65 +8,78 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateSort } from "./LogsAggregateSort";
-import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
-import { LogsGroupByMissing } from "./LogsGroupByMissing";
-import { LogsGroupByTotal } from "./LogsGroupByTotal";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAggregateSort } from './LogsAggregateSort';
+import { LogsGroupByHistogram } from './LogsGroupByHistogram';
+import { LogsGroupByMissing } from './LogsGroupByMissing';
+import { LogsGroupByTotal } from './LogsGroupByTotal';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A group by rule
- */
+* A group by rule
+*/
 
 export class LogsGroupBy {
-  /**
-   * The name of the facet to use (required)
-   */
-  "facet": string;
-  "histogram"?: LogsGroupByHistogram;
-  /**
-   * The maximum buckets to return for this group by
-   */
-  "limit"?: number;
-  "missing"?: LogsGroupByMissing;
-  "sort"?: LogsAggregateSort;
-  "total"?: LogsGroupByTotal;
+    /**
+    * The name of the facet to use (required)
+    */
+    'facet': string;
+    'histogram'?: LogsGroupByHistogram;
+    /**
+    * The maximum buckets to return for this group by
+    */
+    'limit'?: number;
+    'missing'?: LogsGroupByMissing;
+    'sort'?: LogsAggregateSort;
+    'total'?: LogsGroupByTotal;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
-    },
-    histogram: {
-      baseName: "histogram",
-      type: "LogsGroupByHistogram",
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "facet": {
+            "baseName": "facet",
+            "type": "string",
+            "required": true,
+            
+        },
+        "histogram": {
+            "baseName": "histogram",
+            "type": "LogsGroupByHistogram",
+            
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "missing": {
+            "baseName": "missing",
+            "type": "LogsGroupByMissing",
+            
+            
+        },
+        "sort": {
+            "baseName": "sort",
+            "type": "LogsAggregateSort",
+            
+            
+        },
+        "total": {
+            "baseName": "total",
+            "type": "LogsGroupByTotal",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    missing: {
-      baseName: "missing",
-      type: "LogsGroupByMissing",
-    },
-    sort: {
-      baseName: "sort",
-      type: "LogsAggregateSort",
-    },
-    total: {
-      baseName: "total",
-      type: "LogsGroupByTotal",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsGroupBy.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

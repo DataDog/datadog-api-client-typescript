@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ApplicationKeysType = typeof APPLICATION_KEYS;
-export const APPLICATION_KEYS = "application_keys";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Application Keys resource type.
+*/
+
+export type ApplicationKeysType = typeof APPLICATION_KEYS ;
+export const APPLICATION_KEYS = 'application_keys';
+
+

@@ -8,35 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SLOCorrectionCreateRequestAttributes } from "./SLOCorrectionCreateRequestAttributes";
-import { SLOCorrectionType } from "./SLOCorrectionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOCorrectionCreateRequestAttributes } from './SLOCorrectionCreateRequestAttributes';
+import { SLOCorrectionType } from './SLOCorrectionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The data object associated with the SLO correction to be created.
- */
+* The data object associated with the SLO correction to be created.
+*/
 
 export class SLOCorrectionCreateData {
-  "attributes"?: SLOCorrectionCreateRequestAttributes;
-  "type": SLOCorrectionType;
+    'attributes'?: SLOCorrectionCreateRequestAttributes;
+    'type': SLOCorrectionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SLOCorrectionCreateRequestAttributes",
-    },
-    type: {
-      baseName: "type",
-      type: "SLOCorrectionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "SLOCorrectionCreateRequestAttributes",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SLOCorrectionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrectionCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

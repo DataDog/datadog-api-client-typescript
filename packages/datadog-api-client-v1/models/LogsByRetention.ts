@@ -8,43 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
-import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
-import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsByRetentionMonthlyUsage } from './LogsByRetentionMonthlyUsage';
+import { LogsByRetentionOrgs } from './LogsByRetentionOrgs';
+import { LogsRetentionAggSumUsage } from './LogsRetentionAggSumUsage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing logs usage data broken down by retention period.
- */
+* Object containing logs usage data broken down by retention period.
+*/
 
 export class LogsByRetention {
-  "orgs"?: LogsByRetentionOrgs;
-  /**
-   * Aggregated index logs usage for each retention period with usage.
-   */
-  "usage"?: Array<LogsRetentionAggSumUsage>;
-  "usageByMonth"?: LogsByRetentionMonthlyUsage;
+    'orgs'?: LogsByRetentionOrgs;
+    /**
+    * Aggregated index logs usage for each retention period with usage.
+    */
+    'usage'?: Array<LogsRetentionAggSumUsage>;
+    'usageByMonth'?: LogsByRetentionMonthlyUsage;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    orgs: {
-      baseName: "orgs",
-      type: "LogsByRetentionOrgs",
-    },
-    usage: {
-      baseName: "usage",
-      type: "Array<LogsRetentionAggSumUsage>",
-    },
-    usageByMonth: {
-      baseName: "usage_by_month",
-      type: "LogsByRetentionMonthlyUsage",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "orgs": {
+            "baseName": "orgs",
+            "type": "LogsByRetentionOrgs",
+            
+            
+        },
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<LogsRetentionAggSumUsage>",
+            
+            
+        },
+        "usageByMonth": {
+            "baseName": "usage_by_month",
+            "type": "LogsByRetentionMonthlyUsage",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetention.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsByRetention.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

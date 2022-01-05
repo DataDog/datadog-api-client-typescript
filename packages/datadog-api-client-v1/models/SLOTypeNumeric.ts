@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SLOTypeNumeric = typeof MONITOR | typeof METRIC;
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* A numeric representation of the type of the service level objective (`0` for monitor, `1` for metric). Always included in service level objective responses. Ignored in create/update requests.
+*/
+
+export type SLOTypeNumeric = typeof MONITOR | typeof METRIC ;
 export const MONITOR = 0;
 export const METRIC = 1;
+
+

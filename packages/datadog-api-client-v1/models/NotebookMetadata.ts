@@ -8,44 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { NotebookMetadataType } from "./NotebookMetadataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookMetadataType } from './NotebookMetadataType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Metadata associated with the notebook.
- */
+* Metadata associated with the notebook.
+*/
 
 export class NotebookMetadata {
-  /**
-   * Whether or not the notebook is a template.
-   */
-  "isTemplate"?: boolean;
-  /**
-   * Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
-   */
-  "takeSnapshots"?: boolean;
-  "type"?: NotebookMetadataType;
+    /**
+    * Whether or not the notebook is a template.
+    */
+    'isTemplate'?: boolean;
+    /**
+    * Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
+    */
+    'takeSnapshots'?: boolean;
+    'type'?: NotebookMetadataType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    isTemplate: {
-      baseName: "is_template",
-      type: "boolean",
-    },
-    takeSnapshots: {
-      baseName: "take_snapshots",
-      type: "boolean",
-    },
-    type: {
-      baseName: "type",
-      type: "NotebookMetadataType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "isTemplate": {
+            "baseName": "is_template",
+            "type": "boolean",
+            
+            
+        },
+        "takeSnapshots": {
+            "baseName": "take_snapshots",
+            "type": "boolean",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NotebookMetadataType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMetadata.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookMetadata.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
-import { SecurityFilterType } from "./SecurityFilterType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityFilterCreateAttributes } from './SecurityFilterCreateAttributes';
+import { SecurityFilterType } from './SecurityFilterType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a single security filter.
- */
+* Object for a single security filter.
+*/
 
 export class SecurityFilterCreateData {
-  "attributes": SecurityFilterCreateAttributes;
-  "type": SecurityFilterType;
+    'attributes': SecurityFilterCreateAttributes;
+    'type': SecurityFilterType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityFilterCreateAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "SecurityFilterType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "SecurityFilterCreateAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SecurityFilterType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

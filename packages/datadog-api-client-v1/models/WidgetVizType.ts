@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type WidgetVizType = typeof TIMESERIES | typeof TOPLIST;
-export const TIMESERIES = "timeseries";
-export const TOPLIST = "toplist";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Whether to display the Alert Graph as a timeseries or a top list.
+*/
+
+export type WidgetVizType = typeof TIMESERIES | typeof TOPLIST ;
+export const TIMESERIES = 'timeseries';
+export const TOPLIST = 'toplist';
+
+

@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of a partial API key.
- */
+* Attributes of a partial API key.
+*/
 
 export class PartialAPIKeyAttributes {
-  /**
-   * Creation date of the API key.
-   */
-  "createdAt"?: string;
-  /**
-   * The last four characters of the API key.
-   */
-  "last4"?: string;
-  /**
-   * Date the API key was last modified.
-   */
-  "modifiedAt"?: string;
-  /**
-   * Name of the API key.
-   */
-  "name"?: string;
+    /**
+    * Creation date of the API key.
+    */
+    'createdAt'?: string;
+    /**
+    * The last four characters of the API key.
+    */
+    'last4'?: string;
+    /**
+    * Date the API key was last modified.
+    */
+    'modifiedAt'?: string;
+    /**
+    * Name of the API key.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "string",
-    },
-    last4: {
-      baseName: "last4",
-      type: "string",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "string",
+            
+            
+        },
+        "last4": {
+            "baseName": "last4",
+            "type": "string",
+            
+            
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialAPIKeyAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return PartialAPIKeyAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

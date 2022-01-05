@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A timeseries point
- */
+* A timeseries point
+*/
 
 export class LogsAggregateBucketValueTimeseriesPoint {
-  /**
-   * The time value for this point
-   */
-  "time"?: string;
-  /**
-   * The value for this point
-   */
-  "value"?: number;
+    /**
+    * The time value for this point
+    */
+    'time'?: string;
+    /**
+    * The value for this point
+    */
+    'value'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    time: {
-      baseName: "time",
-      type: "string",
-    },
-    value: {
-      baseName: "value",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "time": {
+            "baseName": "time",
+            "type": "string",
+            
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "number",
+            
+            "format": "double",
+        }    };
 
-      format: "double",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

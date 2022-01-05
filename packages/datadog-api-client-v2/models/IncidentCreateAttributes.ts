@@ -8,67 +8,79 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
-import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
-import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentFieldAttributes } from './IncidentFieldAttributes';
+import { IncidentNotificationHandle } from './IncidentNotificationHandle';
+import { IncidentTimelineCellCreateAttributes } from './IncidentTimelineCellCreateAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The incident's attributes for a create request.
- */
+* The incident's attributes for a create request.
+*/
 
 export class IncidentCreateAttributes {
-  /**
-   * A flag indicating whether the incident caused customer impact.
-   */
-  "customerImpacted": boolean;
-  /**
-   * A condensed view of the user-defined fields for which to create initial selections.
-   */
-  "fields"?: { [key: string]: IncidentFieldAttributes };
-  /**
-   * An array of initial timeline cells to be placed at the beginning of the incident timeline.
-   */
-  "initialCells"?: Array<IncidentTimelineCellCreateAttributes>;
-  /**
-   * Notification handles that will be notified of the incident at creation.
-   */
-  "notificationHandles"?: Array<IncidentNotificationHandle>;
-  /**
-   * The title of the incident, which summarizes what happened.
-   */
-  "title": string;
+    /**
+    * A flag indicating whether the incident caused customer impact.
+    */
+    'customerImpacted': boolean;
+    /**
+    * A condensed view of the user-defined fields for which to create initial selections.
+    */
+    'fields'?: { [key: string]: IncidentFieldAttributes; };
+    /**
+    * An array of initial timeline cells to be placed at the beginning of the incident timeline.
+    */
+    'initialCells'?: Array<IncidentTimelineCellCreateAttributes>;
+    /**
+    * Notification handles that will be notified of the incident at creation.
+    */
+    'notificationHandles'?: Array<IncidentNotificationHandle>;
+    /**
+    * The title of the incident, which summarizes what happened.
+    */
+    'title': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    customerImpacted: {
-      baseName: "customer_impacted",
-      type: "boolean",
-      required: true,
-    },
-    fields: {
-      baseName: "fields",
-      type: "{ [key: string]: IncidentFieldAttributes; }",
-    },
-    initialCells: {
-      baseName: "initial_cells",
-      type: "Array<IncidentTimelineCellCreateAttributes>",
-    },
-    notificationHandles: {
-      baseName: "notification_handles",
-      type: "Array<IncidentNotificationHandle>",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "customerImpacted": {
+            "baseName": "customer_impacted",
+            "type": "boolean",
+            "required": true,
+            
+        },
+        "fields": {
+            "baseName": "fields",
+            "type": "{ [key: string]: IncidentFieldAttributes; }",
+            
+            
+        },
+        "initialCells": {
+            "baseName": "initial_cells",
+            "type": "Array<IncidentTimelineCellCreateAttributes>",
+            
+            
+        },
+        "notificationHandles": {
+            "baseName": "notification_handles",
+            "type": "Array<IncidentNotificationHandle>",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentCreateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentCreateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

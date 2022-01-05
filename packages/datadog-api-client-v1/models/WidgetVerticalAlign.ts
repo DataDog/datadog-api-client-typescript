@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetVerticalAlign = typeof CENTER | typeof TOP | typeof BOTTOM;
-export const CENTER = "center";
-export const TOP = "top";
-export const BOTTOM = "bottom";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Vertical alignment.
+*/
+
+export type WidgetVerticalAlign = typeof CENTER | typeof TOP | typeof BOTTOM ;
+export const CENTER = 'center';
+export const TOP = 'top';
+export const BOTTOM = 'bottom';
+
+

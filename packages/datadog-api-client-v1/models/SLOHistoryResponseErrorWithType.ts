@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An object describing the error with error type and error message.
- */
+* An object describing the error with error type and error message.
+*/
 
 export class SLOHistoryResponseErrorWithType {
-  /**
-   * A message with more details about the error.
-   */
-  "errorMessage": string;
-  /**
-   * Type of the error.
-   */
-  "errorType": string;
+    /**
+    * A message with more details about the error.
+    */
+    'errorMessage': string;
+    /**
+    * Type of the error.
+    */
+    'errorType': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
-      required: true,
-    },
-    errorType: {
-      baseName: "error_type",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "errorMessage": {
+            "baseName": "error_message",
+            "type": "string",
+            "required": true,
+            
+        },
+        "errorType": {
+            "baseName": "error_type",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryResponseErrorWithType.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOHistoryResponseErrorWithType.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

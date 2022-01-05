@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Datadog API key.
- */
+* Datadog API key.
+*/
 
 export class ApiKey {
-  /**
-   * Date of creation of the API key.
-   */
-  "created"?: string;
-  /**
-   * Datadog user handle that created the API key.
-   */
-  "createdBy"?: string;
-  /**
-   * API key.
-   */
-  "key"?: string;
-  /**
-   * Name of your API key.
-   */
-  "name"?: string;
+    /**
+    * Date of creation of the API key.
+    */
+    'created'?: string;
+    /**
+    * Datadog user handle that created the API key.
+    */
+    'createdBy'?: string;
+    /**
+    * API key.
+    */
+    'key'?: string;
+    /**
+    * Name of your API key.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    created: {
-      baseName: "created",
-      type: "string",
-    },
-    createdBy: {
-      baseName: "created_by",
-      type: "string",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "created": {
+            "baseName": "created",
+            "type": "string",
+            
+            
+        },
+        "createdBy": {
+            "baseName": "created_by",
+            "type": "string",
+            
+            
+        },
+        "key": {
+            "baseName": "key",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApiKey.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApiKey.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

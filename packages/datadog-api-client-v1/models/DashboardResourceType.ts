@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type DashboardResourceType = typeof DASHBOARD;
-export const DASHBOARD = "dashboard";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Dashboard resource type.
+*/
+
+export type DashboardResourceType = typeof DASHBOARD ;
+export const DASHBOARD = 'dashboard';
+
+

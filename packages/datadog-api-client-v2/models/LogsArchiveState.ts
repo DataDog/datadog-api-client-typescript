@@ -8,12 +8,17 @@
  * Do not edit the class manually.
  */
 
-export type LogsArchiveState =
-  | typeof UNKNOWN
-  | typeof WORKING
-  | typeof FAILING
-  | typeof WORKING_AUTH_LEGACY;
-export const UNKNOWN = "UNKNOWN";
-export const WORKING = "WORKING";
-export const FAILING = "FAILING";
-export const WORKING_AUTH_LEGACY = "WORKING_AUTH_LEGACY";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The state of the archive.
+*/
+
+export type LogsArchiveState = typeof UNKNOWN | typeof WORKING | typeof FAILING | typeof WORKING_AUTH_LEGACY ;
+export const UNKNOWN = 'UNKNOWN';
+export const WORKING = 'WORKING';
+export const FAILING = 'FAILING';
+export const WORKING_AUTH_LEGACY = 'WORKING_AUTH_LEGACY';
+
+

@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { NotebookMarkdownCellDefinitionType } from "./NotebookMarkdownCellDefinitionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookMarkdownCellDefinitionType } from './NotebookMarkdownCellDefinitionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
- */
+* Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
+*/
 
 export class NotebookMarkdownCellDefinition {
-  /**
-   * The markdown content.
-   */
-  "text": string;
-  "type": NotebookMarkdownCellDefinitionType;
+    /**
+    * The markdown content.
+    */
+    'text': string;
+    'type': NotebookMarkdownCellDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    text: {
-      baseName: "text",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "NotebookMarkdownCellDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "text": {
+            "baseName": "text",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NotebookMarkdownCellDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMarkdownCellDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookMarkdownCellDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

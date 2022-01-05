@@ -8,106 +8,129 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserTestConfig } from "./SyntheticsBrowserTestConfig";
-import { SyntheticsBrowserTestType } from "./SyntheticsBrowserTestType";
-import { SyntheticsStep } from "./SyntheticsStep";
-import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
-import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBrowserTestConfig } from './SyntheticsBrowserTestConfig';
+import { SyntheticsBrowserTestType } from './SyntheticsBrowserTestType';
+import { SyntheticsStep } from './SyntheticsStep';
+import { SyntheticsTestOptions } from './SyntheticsTestOptions';
+import { SyntheticsTestPauseStatus } from './SyntheticsTestPauseStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing details about a Synthetic browser test.
- */
+* Object containing details about a Synthetic browser test.
+*/
 
 export class SyntheticsBrowserTest {
-  "config"?: SyntheticsBrowserTestConfig;
-  /**
-   * Array of locations used to run the test.
-   */
-  "locations"?: Array<string>;
-  /**
-   * Notification message associated with the test. Message can either be text or an empty string.
-   */
-  "message": string;
-  /**
-   * The associated monitor ID.
-   */
-  "monitorId"?: number;
-  /**
-   * Name of the test.
-   */
-  "name"?: string;
-  "options"?: SyntheticsTestOptions;
-  /**
-   * The public ID of the test.
-   */
-  "publicId"?: string;
-  "status"?: SyntheticsTestPauseStatus;
-  /**
-   * The steps of the test.
-   */
-  "steps"?: Array<SyntheticsStep>;
-  /**
-   * Array of tags attached to the test.
-   */
-  "tags"?: Array<string>;
-  "type"?: SyntheticsBrowserTestType;
+    'config'?: SyntheticsBrowserTestConfig;
+    /**
+    * Array of locations used to run the test.
+    */
+    'locations'?: Array<string>;
+    /**
+    * Notification message associated with the test. Message can either be text or an empty string.
+    */
+    'message': string;
+    /**
+    * The associated monitor ID.
+    */
+    'monitorId'?: number;
+    /**
+    * Name of the test.
+    */
+    'name'?: string;
+    'options'?: SyntheticsTestOptions;
+    /**
+    * The public ID of the test.
+    */
+    'publicId'?: string;
+    'status'?: SyntheticsTestPauseStatus;
+    /**
+    * The steps of the test.
+    */
+    'steps'?: Array<SyntheticsStep>;
+    /**
+    * Array of tags attached to the test.
+    */
+    'tags'?: Array<string>;
+    'type'?: SyntheticsBrowserTestType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "SyntheticsBrowserTestConfig",
-    },
-    locations: {
-      baseName: "locations",
-      type: "Array<string>",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
-    },
-    monitorId: {
-      baseName: "monitor_id",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "config": {
+            "baseName": "config",
+            "type": "SyntheticsBrowserTestConfig",
+            
+            
+        },
+        "locations": {
+            "baseName": "locations",
+            "type": "Array<string>",
+            
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            "required": true,
+            
+        },
+        "monitorId": {
+            "baseName": "monitor_id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "options": {
+            "baseName": "options",
+            "type": "SyntheticsTestOptions",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SyntheticsTestPauseStatus",
+            
+            
+        },
+        "steps": {
+            "baseName": "steps",
+            "type": "Array<SyntheticsStep>",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsBrowserTestType",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    options: {
-      baseName: "options",
-      type: "SyntheticsTestOptions",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "SyntheticsTestPauseStatus",
-    },
-    steps: {
-      baseName: "steps",
-      type: "Array<SyntheticsStep>",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBrowserTestType",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBrowserTest.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTest.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

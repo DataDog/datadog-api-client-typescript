@@ -8,46 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { ListStreamColumn } from "./ListStreamColumn";
-import { ListStreamQuery } from "./ListStreamQuery";
-import { ListStreamResponseFormat } from "./ListStreamResponseFormat";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ListStreamColumn } from './ListStreamColumn';
+import { ListStreamQuery } from './ListStreamQuery';
+import { ListStreamResponseFormat } from './ListStreamResponseFormat';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated list stream widget.
- */
+* Updated list stream widget.
+*/
 
 export class ListStreamWidgetRequest {
-  /**
-   * Widget columns.
-   */
-  "columns": Array<ListStreamColumn>;
-  "query": ListStreamQuery;
-  "responseFormat": ListStreamResponseFormat;
+    /**
+    * Widget columns.
+    */
+    'columns': Array<ListStreamColumn>;
+    'query': ListStreamQuery;
+    'responseFormat': ListStreamResponseFormat;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<ListStreamColumn>",
-      required: true,
-    },
-    query: {
-      baseName: "query",
-      type: "ListStreamQuery",
-      required: true,
-    },
-    responseFormat: {
-      baseName: "response_format",
-      type: "ListStreamResponseFormat",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "columns": {
+            "baseName": "columns",
+            "type": "Array<ListStreamColumn>",
+            "required": true,
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "ListStreamQuery",
+            "required": true,
+            
+        },
+        "responseFormat": {
+            "baseName": "response_format",
+            "type": "ListStreamResponseFormat",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ListStreamWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

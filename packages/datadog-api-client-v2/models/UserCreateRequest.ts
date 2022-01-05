@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { UserCreateData } from "./UserCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserCreateData } from './UserCreateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Create a user.
- */
+* Create a user.
+*/
 
 export class UserCreateRequest {
-  "data": UserCreateData;
+    'data': UserCreateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UserCreateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "UserCreateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

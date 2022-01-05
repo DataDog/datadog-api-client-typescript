@@ -8,130 +8,168 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
-import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
-import { LogQueryDefinition } from "./LogQueryDefinition";
-import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
-import { WidgetDisplayType } from "./WidgetDisplayType";
-import { WidgetFormula } from "./WidgetFormula";
-import { WidgetRequestStyle } from "./WidgetRequestStyle";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
+import { LogQueryDefinition } from './LogQueryDefinition';
+import { ProcessQueryDefinition } from './ProcessQueryDefinition';
+import { TimeseriesWidgetExpressionAlias } from './TimeseriesWidgetExpressionAlias';
+import { WidgetDisplayType } from './WidgetDisplayType';
+import { WidgetFormula } from './WidgetFormula';
+import { WidgetRequestStyle } from './WidgetRequestStyle';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated timeseries widget.
- */
+* Updated timeseries widget.
+*/
 
 export class TimeseriesWidgetRequest {
-  "apmQuery"?: LogQueryDefinition;
-  "auditQuery"?: LogQueryDefinition;
-  "displayType"?: WidgetDisplayType;
-  "eventQuery"?: LogQueryDefinition;
-  /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
-   */
-  "formulas"?: Array<WidgetFormula>;
-  "logQuery"?: LogQueryDefinition;
-  /**
-   * Used to define expression aliases.
-   */
-  "metadata"?: Array<TimeseriesWidgetExpressionAlias>;
-  "networkQuery"?: LogQueryDefinition;
-  /**
-   * Whether or not to display a second y-axis on the right.
-   */
-  "onRightYaxis"?: boolean;
-  "processQuery"?: ProcessQueryDefinition;
-  "profileMetricsQuery"?: LogQueryDefinition;
-  /**
-   * Widget query.
-   */
-  "q"?: string;
-  /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-   */
-  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
-  "rumQuery"?: LogQueryDefinition;
-  "securityQuery"?: LogQueryDefinition;
-  "style"?: WidgetRequestStyle;
+    'apmQuery'?: LogQueryDefinition;
+    'auditQuery'?: LogQueryDefinition;
+    'displayType'?: WidgetDisplayType;
+    'eventQuery'?: LogQueryDefinition;
+    /**
+    * List of formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<WidgetFormula>;
+    'logQuery'?: LogQueryDefinition;
+    /**
+    * Used to define expression aliases.
+    */
+    'metadata'?: Array<TimeseriesWidgetExpressionAlias>;
+    'networkQuery'?: LogQueryDefinition;
+    /**
+    * Whether or not to display a second y-axis on the right.
+    */
+    'onRightYaxis'?: boolean;
+    'processQuery'?: ProcessQueryDefinition;
+    'profileMetricsQuery'?: LogQueryDefinition;
+    /**
+    * Widget query.
+    */
+    'q'?: string;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
+    'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
+    'style'?: WidgetRequestStyle;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    apmQuery: {
-      baseName: "apm_query",
-      type: "LogQueryDefinition",
-    },
-    auditQuery: {
-      baseName: "audit_query",
-      type: "LogQueryDefinition",
-    },
-    displayType: {
-      baseName: "display_type",
-      type: "WidgetDisplayType",
-    },
-    eventQuery: {
-      baseName: "event_query",
-      type: "LogQueryDefinition",
-    },
-    formulas: {
-      baseName: "formulas",
-      type: "Array<WidgetFormula>",
-    },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
-    },
-    metadata: {
-      baseName: "metadata",
-      type: "Array<TimeseriesWidgetExpressionAlias>",
-    },
-    networkQuery: {
-      baseName: "network_query",
-      type: "LogQueryDefinition",
-    },
-    onRightYaxis: {
-      baseName: "on_right_yaxis",
-      type: "boolean",
-    },
-    processQuery: {
-      baseName: "process_query",
-      type: "ProcessQueryDefinition",
-    },
-    profileMetricsQuery: {
-      baseName: "profile_metrics_query",
-      type: "LogQueryDefinition",
-    },
-    q: {
-      baseName: "q",
-      type: "string",
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<FormulaAndFunctionQueryDefinition>",
-    },
-    responseFormat: {
-      baseName: "response_format",
-      type: "FormulaAndFunctionResponseFormat",
-    },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
-    },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
-    },
-    style: {
-      baseName: "style",
-      type: "WidgetRequestStyle",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "apmQuery": {
+            "baseName": "apm_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "auditQuery": {
+            "baseName": "audit_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "displayType": {
+            "baseName": "display_type",
+            "type": "WidgetDisplayType",
+            
+            
+        },
+        "eventQuery": {
+            "baseName": "event_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "formulas": {
+            "baseName": "formulas",
+            "type": "Array<WidgetFormula>",
+            
+            
+        },
+        "logQuery": {
+            "baseName": "log_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "metadata": {
+            "baseName": "metadata",
+            "type": "Array<TimeseriesWidgetExpressionAlias>",
+            
+            
+        },
+        "networkQuery": {
+            "baseName": "network_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "onRightYaxis": {
+            "baseName": "on_right_yaxis",
+            "type": "boolean",
+            
+            
+        },
+        "processQuery": {
+            "baseName": "process_query",
+            "type": "ProcessQueryDefinition",
+            
+            
+        },
+        "profileMetricsQuery": {
+            "baseName": "profile_metrics_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            
+            
+        },
+        "responseFormat": {
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
+            
+            
+        },
+        "rumQuery": {
+            "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "securityQuery": {
+            "baseName": "security_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "style": {
+            "baseName": "style",
+            "type": "WidgetRequestStyle",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return TimeseriesWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

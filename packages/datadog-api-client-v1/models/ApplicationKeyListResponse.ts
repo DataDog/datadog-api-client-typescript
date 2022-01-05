@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKey } from "./ApplicationKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApplicationKey } from './ApplicationKey';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An application key response.
- */
+* An application key response.
+*/
 
 export class ApplicationKeyListResponse {
-  /**
-   * Array of application keys.
-   */
-  "applicationKeys"?: Array<ApplicationKey>;
+    /**
+    * Array of application keys.
+    */
+    'applicationKeys'?: Array<ApplicationKey>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    applicationKeys: {
-      baseName: "application_keys",
-      type: "Array<ApplicationKey>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "applicationKeys": {
+            "baseName": "application_keys",
+            "type": "Array<ApplicationKey>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKeyListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,42 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { UserCreateAttributes } from "./UserCreateAttributes";
-import { UserRelationships } from "./UserRelationships";
-import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserCreateAttributes } from './UserCreateAttributes';
+import { UserRelationships } from './UserRelationships';
+import { UsersType } from './UsersType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to create a user.
- */
+* Object to create a user.
+*/
 
 export class UserCreateData {
-  "attributes": UserCreateAttributes;
-  "relationships"?: UserRelationships;
-  "type": UsersType;
+    'attributes': UserCreateAttributes;
+    'relationships'?: UserRelationships;
+    'type': UsersType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserCreateAttributes",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "UserRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "UserCreateAttributes",
+            "required": true,
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "UserRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsersType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

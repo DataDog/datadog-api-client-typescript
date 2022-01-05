@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type HostMapWidgetDefinitionType = typeof HOSTMAP;
-export const HOSTMAP = "hostmap";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the host map widget.
+*/
+
+export type HostMapWidgetDefinitionType = typeof HOSTMAP ;
+export const HOSTMAP = 'hostmap';
+
+

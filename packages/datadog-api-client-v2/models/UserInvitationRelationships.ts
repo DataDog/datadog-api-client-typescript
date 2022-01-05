@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToUser } from './RelationshipToUser';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationships data for user invitation.
- */
+* Relationships data for user invitation.
+*/
 
 export class UserInvitationRelationships {
-  "user": RelationshipToUser;
+    'user': RelationshipToUser;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "RelationshipToUser",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "user": {
+            "baseName": "user",
+            "type": "RelationshipToUser",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserInvitationRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

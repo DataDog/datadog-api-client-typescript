@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricResponseComputeAggregationType } from "./LogsMetricResponseComputeAggregationType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricResponseComputeAggregationType } from './LogsMetricResponseComputeAggregationType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The compute rule to compute the log-based metric.
- */
+* The compute rule to compute the log-based metric.
+*/
 
 export class LogsMetricResponseCompute {
-  "aggregationType"?: LogsMetricResponseComputeAggregationType;
-  /**
-   * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\").
-   */
-  "path"?: string;
+    'aggregationType'?: LogsMetricResponseComputeAggregationType;
+    /**
+    * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\").
+    */
+    'path'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationType: {
-      baseName: "aggregation_type",
-      type: "LogsMetricResponseComputeAggregationType",
-    },
-    path: {
-      baseName: "path",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregationType": {
+            "baseName": "aggregation_type",
+            "type": "LogsMetricResponseComputeAggregationType",
+            
+            
+        },
+        "path": {
+            "baseName": "path",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricResponseCompute.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricResponseCompute.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

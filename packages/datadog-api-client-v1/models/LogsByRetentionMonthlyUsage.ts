@@ -8,41 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsRetentionSumUsage } from './LogsRetentionSumUsage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing a summary of indexed logs usage by retention period for a single month.
- */
+* Object containing a summary of indexed logs usage by retention period for a single month.
+*/
 
 export class LogsByRetentionMonthlyUsage {
-  /**
-   * The month for the usage.
-   */
-  "date"?: string;
-  /**
-   * Indexed logs usage for each active retention for the month.
-   */
-  "usage"?: Array<LogsRetentionSumUsage>;
+    /**
+    * The month for the usage.
+    */
+    'date'?: string;
+    /**
+    * Indexed logs usage for each active retention for the month.
+    */
+    'usage'?: Array<LogsRetentionSumUsage>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    date: {
-      baseName: "date",
-      type: "string",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "date": {
+            "baseName": "date",
+            "type": "string",
+            
+            "format": "datetime",
+        },
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<LogsRetentionSumUsage>",
+            
+            
+        }    };
 
-      format: "datetime",
-    },
-    usage: {
-      baseName: "usage",
-      type: "Array<LogsRetentionSumUsage>",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsByRetentionMonthlyUsage.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetentionMonthlyUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

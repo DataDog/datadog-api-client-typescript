@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageTimeseriesHour } from './UsageTimeseriesHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing hourly usage of timeseries.
- */
+* Response containing hourly usage of timeseries.
+*/
 
 export class UsageTimeseriesResponse {
-  /**
-   * An array of objects regarding hourly usage of timeseries.
-   */
-  "usage"?: Array<UsageTimeseriesHour>;
+    /**
+    * An array of objects regarding hourly usage of timeseries.
+    */
+    'usage'?: Array<UsageTimeseriesHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageTimeseriesHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageTimeseriesHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTimeseriesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageTimeseriesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

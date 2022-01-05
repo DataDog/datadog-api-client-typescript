@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageNetworkHostsHour } from './UsageNetworkHostsHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of active NPM hosts for each hour for a given organization.
- */
+* Response containing the number of active NPM hosts for each hour for a given organization.
+*/
 
 export class UsageNetworkHostsResponse {
-  /**
-   * Get hourly usage for NPM hosts.
-   */
-  "usage"?: Array<UsageNetworkHostsHour>;
+    /**
+    * Get hourly usage for NPM hosts.
+    */
+    'usage'?: Array<UsageNetworkHostsHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageNetworkHostsHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageNetworkHostsHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageNetworkHostsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageNetworkHostsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

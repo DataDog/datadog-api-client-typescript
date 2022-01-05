@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Description of errors.
- */
+* Description of errors.
+*/
 
 export class AWSLogsAsyncError {
-  /**
-   * Code properties
-   */
-  "code"?: string;
-  /**
-   * Message content.
-   */
-  "message"?: string;
+    /**
+    * Code properties
+    */
+    'code'?: string;
+    /**
+    * Message content.
+    */
+    'message'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "code": {
+            "baseName": "code",
+            "type": "string",
+            
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsAsyncError.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSLogsAsyncError.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

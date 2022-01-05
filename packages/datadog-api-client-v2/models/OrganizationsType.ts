@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type OrganizationsType = typeof ORGS;
-export const ORGS = "orgs";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Organizations resource type.
+*/
+
+export type OrganizationsType = typeof ORGS ;
+export const ORGS = 'orgs';
+
+

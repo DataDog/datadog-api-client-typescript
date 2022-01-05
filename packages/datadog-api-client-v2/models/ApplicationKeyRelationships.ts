@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToUser } from './RelationshipToUser';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Resources related to the application key.
- */
+* Resources related to the application key.
+*/
 
 export class ApplicationKeyRelationships {
-  "ownedBy"?: RelationshipToUser;
+    'ownedBy'?: RelationshipToUser;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    ownedBy: {
-      baseName: "owned_by",
-      type: "RelationshipToUser",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "ownedBy": {
+            "baseName": "owned_by",
+            "type": "RelationshipToUser",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKeyRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

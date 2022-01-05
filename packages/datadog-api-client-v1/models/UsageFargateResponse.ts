@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageFargateHour } from "./UsageFargateHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageFargateHour } from './UsageFargateHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of Fargate tasks run and hourly usage.
- */
+* Response containing the number of Fargate tasks run and hourly usage.
+*/
 
 export class UsageFargateResponse {
-  /**
-   * Array with the number of hourly Fargate tasks recorded for a given organization.
-   */
-  "usage"?: Array<UsageFargateHour>;
+    /**
+    * Array with the number of hourly Fargate tasks recorded for a given organization.
+    */
+    'usage'?: Array<UsageFargateHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageFargateHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageFargateHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageFargateResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageFargateResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

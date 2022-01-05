@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsPipelineProcessorType = typeof PIPELINE;
-export const PIPELINE = "pipeline";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs pipeline processor.
+*/
+
+export type LogsPipelineProcessorType = typeof PIPELINE ;
+export const PIPELINE = 'pipeline';
+
+

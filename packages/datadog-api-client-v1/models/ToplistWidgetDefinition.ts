@@ -8,76 +8,92 @@
  * Do not edit the class manually.
  */
 
-import { ToplistWidgetDefinitionType } from "./ToplistWidgetDefinitionType";
-import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
-import { WidgetCustomLink } from "./WidgetCustomLink";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ToplistWidgetDefinitionType } from './ToplistWidgetDefinitionType';
+import { ToplistWidgetRequest } from './ToplistWidgetRequest';
+import { WidgetCustomLink } from './WidgetCustomLink';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
- */
+* The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
+*/
 
 export class ToplistWidgetDefinition {
-  /**
-   * List of custom links.
-   */
-  "customLinks"?: Array<WidgetCustomLink>;
-  /**
-   * List of top list widget requests.
-   */
-  "requests": Array<ToplistWidgetRequest>;
-  "time"?: WidgetTime;
-  /**
-   * Title of your widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": ToplistWidgetDefinitionType;
+    /**
+    * List of custom links.
+    */
+    'customLinks'?: Array<WidgetCustomLink>;
+    /**
+    * List of top list widget requests.
+    */
+    'requests': Array<ToplistWidgetRequest>;
+    'time'?: WidgetTime;
+    /**
+    * Title of your widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': ToplistWidgetDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
-    },
-    requests: {
-      baseName: "requests",
-      type: "Array<ToplistWidgetRequest>",
-      required: true,
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "customLinks": {
+            "baseName": "custom_links",
+            "type": "Array<WidgetCustomLink>",
+            
+            
+        },
+        "requests": {
+            "baseName": "requests",
+            "type": "Array<ToplistWidgetRequest>",
+            "required": true,
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "ToplistWidgetDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ToplistWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

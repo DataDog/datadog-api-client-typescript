@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS;
-export const INCIDENT_INTEGRATIONS = "incident_integrations";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Integration metadata resource type.
+*/
+
+export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS ;
+export const INCIDENT_INTEGRATIONS = 'incident_integrations';
+
+

@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The Markdown timeline cell contents.
- */
+* The Markdown timeline cell contents.
+*/
 
 export class IncidentTimelineCellMarkdownCreateAttributesContent {
-  /**
-   * The Markdown content of the cell.
-   */
-  "content"?: string;
+    /**
+    * The Markdown content of the cell.
+    */
+    'content'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "content": {
+            "baseName": "content",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

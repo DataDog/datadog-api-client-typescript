@@ -8,150 +8,190 @@
  * Do not edit the class manually.
  */
 
-import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
-import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
-import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
-import { LogQueryDefinition } from "./LogQueryDefinition";
-import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
-import { WidgetAggregator } from "./WidgetAggregator";
-import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
-import { WidgetFormula } from "./WidgetFormula";
-import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApmStatsQueryDefinition } from './ApmStatsQueryDefinition';
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
+import { LogQueryDefinition } from './LogQueryDefinition';
+import { ProcessQueryDefinition } from './ProcessQueryDefinition';
+import { TableWidgetCellDisplayMode } from './TableWidgetCellDisplayMode';
+import { WidgetAggregator } from './WidgetAggregator';
+import { WidgetConditionalFormat } from './WidgetConditionalFormat';
+import { WidgetFormula } from './WidgetFormula';
+import { WidgetSort } from './WidgetSort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated table widget.
- */
+* Updated table widget.
+*/
 
 export class TableWidgetRequest {
-  "aggregator"?: WidgetAggregator;
-  /**
-   * The column name (defaults to the metric name).
-   */
-  "alias"?: string;
-  "apmQuery"?: LogQueryDefinition;
-  "apmStatsQuery"?: ApmStatsQueryDefinition;
-  /**
-   * A list of display modes for each table cell.
-   */
-  "cellDisplayMode"?: Array<TableWidgetCellDisplayMode>;
-  /**
-   * List of conditional formats.
-   */
-  "conditionalFormats"?: Array<WidgetConditionalFormat>;
-  "eventQuery"?: LogQueryDefinition;
-  /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
-   */
-  "formulas"?: Array<WidgetFormula>;
-  /**
-   * For metric queries, the number of lines to show in the table. Only one request should have this property.
-   */
-  "limit"?: number;
-  "logQuery"?: LogQueryDefinition;
-  "networkQuery"?: LogQueryDefinition;
-  "order"?: WidgetSort;
-  "processQuery"?: ProcessQueryDefinition;
-  "profileMetricsQuery"?: LogQueryDefinition;
-  /**
-   * Query definition.
-   */
-  "q"?: string;
-  /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-   */
-  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
-  "rumQuery"?: LogQueryDefinition;
-  "securityQuery"?: LogQueryDefinition;
+    'aggregator'?: WidgetAggregator;
+    /**
+    * The column name (defaults to the metric name).
+    */
+    'alias'?: string;
+    'apmQuery'?: LogQueryDefinition;
+    'apmStatsQuery'?: ApmStatsQueryDefinition;
+    /**
+    * A list of display modes for each table cell.
+    */
+    'cellDisplayMode'?: Array<TableWidgetCellDisplayMode>;
+    /**
+    * List of conditional formats.
+    */
+    'conditionalFormats'?: Array<WidgetConditionalFormat>;
+    'eventQuery'?: LogQueryDefinition;
+    /**
+    * List of formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<WidgetFormula>;
+    /**
+    * For metric queries, the number of lines to show in the table. Only one request should have this property.
+    */
+    'limit'?: number;
+    'logQuery'?: LogQueryDefinition;
+    'networkQuery'?: LogQueryDefinition;
+    'order'?: WidgetSort;
+    'processQuery'?: ProcessQueryDefinition;
+    'profileMetricsQuery'?: LogQueryDefinition;
+    /**
+    * Query definition.
+    */
+    'q'?: string;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
+    'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregator: {
-      baseName: "aggregator",
-      type: "WidgetAggregator",
-    },
-    alias: {
-      baseName: "alias",
-      type: "string",
-    },
-    apmQuery: {
-      baseName: "apm_query",
-      type: "LogQueryDefinition",
-    },
-    apmStatsQuery: {
-      baseName: "apm_stats_query",
-      type: "ApmStatsQueryDefinition",
-    },
-    cellDisplayMode: {
-      baseName: "cell_display_mode",
-      type: "Array<TableWidgetCellDisplayMode>",
-    },
-    conditionalFormats: {
-      baseName: "conditional_formats",
-      type: "Array<WidgetConditionalFormat>",
-    },
-    eventQuery: {
-      baseName: "event_query",
-      type: "LogQueryDefinition",
-    },
-    formulas: {
-      baseName: "formulas",
-      type: "Array<WidgetFormula>",
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregator": {
+            "baseName": "aggregator",
+            "type": "WidgetAggregator",
+            
+            
+        },
+        "alias": {
+            "baseName": "alias",
+            "type": "string",
+            
+            
+        },
+        "apmQuery": {
+            "baseName": "apm_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "apmStatsQuery": {
+            "baseName": "apm_stats_query",
+            "type": "ApmStatsQueryDefinition",
+            
+            
+        },
+        "cellDisplayMode": {
+            "baseName": "cell_display_mode",
+            "type": "Array<TableWidgetCellDisplayMode>",
+            
+            
+        },
+        "conditionalFormats": {
+            "baseName": "conditional_formats",
+            "type": "Array<WidgetConditionalFormat>",
+            
+            
+        },
+        "eventQuery": {
+            "baseName": "event_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "formulas": {
+            "baseName": "formulas",
+            "type": "Array<WidgetFormula>",
+            
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "logQuery": {
+            "baseName": "log_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "networkQuery": {
+            "baseName": "network_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "order": {
+            "baseName": "order",
+            "type": "WidgetSort",
+            
+            
+        },
+        "processQuery": {
+            "baseName": "process_query",
+            "type": "ProcessQueryDefinition",
+            
+            
+        },
+        "profileMetricsQuery": {
+            "baseName": "profile_metrics_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            
+            
+        },
+        "responseFormat": {
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
+            
+            
+        },
+        "rumQuery": {
+            "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "securityQuery": {
+            "baseName": "security_query",
+            "type": "LogQueryDefinition",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
-    },
-    networkQuery: {
-      baseName: "network_query",
-      type: "LogQueryDefinition",
-    },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-    },
-    processQuery: {
-      baseName: "process_query",
-      type: "ProcessQueryDefinition",
-    },
-    profileMetricsQuery: {
-      baseName: "profile_metrics_query",
-      type: "LogQueryDefinition",
-    },
-    q: {
-      baseName: "q",
-      type: "string",
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<FormulaAndFunctionQueryDefinition>",
-    },
-    responseFormat: {
-      baseName: "response_format",
-      type: "FormulaAndFunctionResponseFormat",
-    },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
-    },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return TableWidgetRequest.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TableWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

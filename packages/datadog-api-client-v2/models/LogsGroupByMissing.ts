@@ -8,10 +8,11 @@
  * Do not edit the class manually.
  */
 
-import { UnparsedObject } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The value to use for logs that don't have the facet used to group by
- */
+* The value to use for logs that don't have the facet used to group by
+*/
 
 export type LogsGroupByMissing = number | string | UnparsedObject;

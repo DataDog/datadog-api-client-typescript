@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An array of service level objective objects.
- */
+* An array of service level objective objects.
+*/
 
 export class CheckCanDeleteSLOResponseData {
-  /**
-   * An array of of SLO IDs that can be safely deleted.
-   */
-  "ok"?: Array<string>;
+    /**
+    * An array of of SLO IDs that can be safely deleted.
+    */
+    'ok'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    ok: {
-      baseName: "ok",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "ok": {
+            "baseName": "ok",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteSLOResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return CheckCanDeleteSLOResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

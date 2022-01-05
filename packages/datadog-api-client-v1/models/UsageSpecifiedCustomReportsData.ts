@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { UsageReportsType } from "./UsageReportsType";
-import { UsageSpecifiedCustomReportsAttributes } from "./UsageSpecifiedCustomReportsAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageReportsType } from './UsageReportsType';
+import { UsageSpecifiedCustomReportsAttributes } from './UsageSpecifiedCustomReportsAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing date and type for specified custom reports.
- */
+* Response containing date and type for specified custom reports.
+*/
 
 export class UsageSpecifiedCustomReportsData {
-  "attributes"?: UsageSpecifiedCustomReportsAttributes;
-  /**
-   * The date for specified custom reports.
-   */
-  "id"?: string;
-  "type"?: UsageReportsType;
+    'attributes'?: UsageSpecifiedCustomReportsAttributes;
+    /**
+    * The date for specified custom reports.
+    */
+    'id'?: string;
+    'type'?: UsageReportsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UsageSpecifiedCustomReportsAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "UsageReportsType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "UsageSpecifiedCustomReportsAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UsageReportsType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSpecifiedCustomReportsData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSpecifiedCustomReportsData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

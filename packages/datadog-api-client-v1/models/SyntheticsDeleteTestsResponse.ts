@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsDeletedTest } from './SyntheticsDeletedTest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response object for deleting Synthetic tests.
- */
+* Response object for deleting Synthetic tests.
+*/
 
 export class SyntheticsDeleteTestsResponse {
-  /**
-   * Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp.
-   */
-  "deletedTests"?: Array<SyntheticsDeletedTest>;
+    /**
+    * Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp.
+    */
+    'deletedTests'?: Array<SyntheticsDeletedTest>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedTests: {
-      baseName: "deleted_tests",
-      type: "Array<SyntheticsDeletedTest>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "deletedTests": {
+            "baseName": "deleted_tests",
+            "type": "Array<SyntheticsDeletedTest>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDeleteTestsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsDeleteTestsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

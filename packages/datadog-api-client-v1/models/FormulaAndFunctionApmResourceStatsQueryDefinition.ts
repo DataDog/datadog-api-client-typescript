@@ -8,103 +8,122 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionApmResourceStatName } from "./FormulaAndFunctionApmResourceStatName";
-import { FormulaAndFunctionApmResourceStatsDataSource } from "./FormulaAndFunctionApmResourceStatsDataSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionApmResourceStatName } from './FormulaAndFunctionApmResourceStatName';
+import { FormulaAndFunctionApmResourceStatsDataSource } from './FormulaAndFunctionApmResourceStatsDataSource';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * APM resource stats query using formulas and functions.
- */
+* APM resource stats query using formulas and functions.
+*/
 
 export class FormulaAndFunctionApmResourceStatsQueryDefinition {
-  "dataSource": FormulaAndFunctionApmResourceStatsDataSource;
-  /**
-   * APM environment.
-   */
-  "env": string;
-  /**
-   * Array of fields to group results by.
-   */
-  "groupBy"?: Array<string>;
-  /**
-   * Name of this query to use in formulas.
-   */
-  "name": string;
-  /**
-   * Name of operation on service.
-   */
-  "operationName"?: string;
-  /**
-   * Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
-   */
-  "primaryTagName"?: string;
-  /**
-   * Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.
-   */
-  "primaryTagValue"?: string;
-  /**
-   * APM resource name.
-   */
-  "resourceName"?: string;
-  /**
-   * APM service name.
-   */
-  "service": string;
-  "stat": FormulaAndFunctionApmResourceStatName;
+    'dataSource': FormulaAndFunctionApmResourceStatsDataSource;
+    /**
+    * APM environment.
+    */
+    'env': string;
+    /**
+    * Array of fields to group results by.
+    */
+    'groupBy'?: Array<string>;
+    /**
+    * Name of this query to use in formulas.
+    */
+    'name': string;
+    /**
+    * Name of operation on service.
+    */
+    'operationName'?: string;
+    /**
+    * Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
+    */
+    'primaryTagName'?: string;
+    /**
+    * Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.
+    */
+    'primaryTagValue'?: string;
+    /**
+    * APM resource name.
+    */
+    'resourceName'?: string;
+    /**
+    * APM service name.
+    */
+    'service': string;
+    'stat': FormulaAndFunctionApmResourceStatName;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "FormulaAndFunctionApmResourceStatsDataSource",
-      required: true,
-    },
-    env: {
-      baseName: "env",
-      type: "string",
-      required: true,
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    operationName: {
-      baseName: "operation_name",
-      type: "string",
-    },
-    primaryTagName: {
-      baseName: "primary_tag_name",
-      type: "string",
-    },
-    primaryTagValue: {
-      baseName: "primary_tag_value",
-      type: "string",
-    },
-    resourceName: {
-      baseName: "resource_name",
-      type: "string",
-    },
-    service: {
-      baseName: "service",
-      type: "string",
-      required: true,
-    },
-    stat: {
-      baseName: "stat",
-      type: "FormulaAndFunctionApmResourceStatName",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "dataSource": {
+            "baseName": "data_source",
+            "type": "FormulaAndFunctionApmResourceStatsDataSource",
+            "required": true,
+            
+        },
+        "env": {
+            "baseName": "env",
+            "type": "string",
+            "required": true,
+            
+        },
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "Array<string>",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "operationName": {
+            "baseName": "operation_name",
+            "type": "string",
+            
+            
+        },
+        "primaryTagName": {
+            "baseName": "primary_tag_name",
+            "type": "string",
+            
+            
+        },
+        "primaryTagValue": {
+            "baseName": "primary_tag_value",
+            "type": "string",
+            
+            
+        },
+        "resourceName": {
+            "baseName": "resource_name",
+            "type": "string",
+            
+            
+        },
+        "service": {
+            "baseName": "service",
+            "type": "string",
+            "required": true,
+            
+        },
+        "stat": {
+            "baseName": "stat",
+            "type": "FormulaAndFunctionApmResourceStatName",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionApmResourceStatsQueryDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionApmResourceStatsQueryDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

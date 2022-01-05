@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsBrowserTestType = typeof BROWSER;
-export const BROWSER = "browser";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the Synthetic test, `browser`.
+*/
+
+export type SyntheticsBrowserTestType = typeof BROWSER ;
+export const BROWSER = 'browser';
+
+

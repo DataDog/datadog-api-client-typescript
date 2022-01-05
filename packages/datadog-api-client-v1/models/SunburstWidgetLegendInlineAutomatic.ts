@@ -8,45 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { SunburstWidgetLegendInlineAutomaticType } from "./SunburstWidgetLegendInlineAutomaticType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SunburstWidgetLegendInlineAutomaticType } from './SunburstWidgetLegendInlineAutomaticType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Configuration of inline or automatic legends.
- */
+* Configuration of inline or automatic legends.
+*/
 
 export class SunburstWidgetLegendInlineAutomatic {
-  /**
-   * Whether to hide the percentages of the groups.
-   */
-  "hidePercent"?: boolean;
-  /**
-   * Whether to hide the values of the groups.
-   */
-  "hideValue"?: boolean;
-  "type": SunburstWidgetLegendInlineAutomaticType;
+    /**
+    * Whether to hide the percentages of the groups.
+    */
+    'hidePercent'?: boolean;
+    /**
+    * Whether to hide the values of the groups.
+    */
+    'hideValue'?: boolean;
+    'type': SunburstWidgetLegendInlineAutomaticType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hidePercent: {
-      baseName: "hide_percent",
-      type: "boolean",
-    },
-    hideValue: {
-      baseName: "hide_value",
-      type: "boolean",
-    },
-    type: {
-      baseName: "type",
-      type: "SunburstWidgetLegendInlineAutomaticType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hidePercent": {
+            "baseName": "hide_percent",
+            "type": "boolean",
+            
+            
+        },
+        "hideValue": {
+            "baseName": "hide_value",
+            "type": "boolean",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SunburstWidgetLegendInlineAutomaticType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

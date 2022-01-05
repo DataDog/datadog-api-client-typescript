@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Represent validation endpoint responses.
- */
+* Represent validation endpoint responses.
+*/
 
 export class AuthenticationValidationResponse {
-  /**
-   * Return `true` if the authentication response is valid.
-   */
-  "valid"?: boolean;
+    /**
+    * Return `true` if the authentication response is valid.
+    */
+    'valid'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    valid: {
-      baseName: "valid",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "valid": {
+            "baseName": "valid",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthenticationValidationResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AuthenticationValidationResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

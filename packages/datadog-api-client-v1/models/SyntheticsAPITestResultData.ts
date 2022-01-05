@@ -8,98 +8,118 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsErrorCode } from "./SyntheticsErrorCode";
-import { SyntheticsSSLCertificate } from "./SyntheticsSSLCertificate";
-import { SyntheticsTestProcessStatus } from "./SyntheticsTestProcessStatus";
-import { SyntheticsTiming } from "./SyntheticsTiming";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsErrorCode } from './SyntheticsErrorCode';
+import { SyntheticsSSLCertificate } from './SyntheticsSSLCertificate';
+import { SyntheticsTestProcessStatus } from './SyntheticsTestProcessStatus';
+import { SyntheticsTiming } from './SyntheticsTiming';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing results for your Synthetic API test.
- */
+* Object containing results for your Synthetic API test.
+*/
 
 export class SyntheticsAPITestResultData {
-  "cert"?: SyntheticsSSLCertificate;
-  "errorCode"?: SyntheticsErrorCode;
-  /**
-   * The API test error message.
-   */
-  "errorMessage"?: string;
-  "eventType"?: SyntheticsTestProcessStatus;
-  /**
-   * The API test HTTP status code.
-   */
-  "httpStatusCode"?: number;
-  /**
-   * Request header object used for the API test.
-   */
-  "requestHeaders"?: { [key: string]: any };
-  /**
-   * Response body returned for the API test.
-   */
-  "responseBody"?: string;
-  /**
-   * Response headers returned for the API test.
-   */
-  "responseHeaders"?: { [key: string]: any };
-  /**
-   * Global size in byte of the API test response.
-   */
-  "responseSize"?: number;
-  "timings"?: SyntheticsTiming;
+    'cert'?: SyntheticsSSLCertificate;
+    'errorCode'?: SyntheticsErrorCode;
+    /**
+    * The API test error message.
+    */
+    'errorMessage'?: string;
+    'eventType'?: SyntheticsTestProcessStatus;
+    /**
+    * The API test HTTP status code.
+    */
+    'httpStatusCode'?: number;
+    /**
+    * Request header object used for the API test.
+    */
+    'requestHeaders'?: { [key: string]: any; };
+    /**
+    * Response body returned for the API test.
+    */
+    'responseBody'?: string;
+    /**
+    * Response headers returned for the API test.
+    */
+    'responseHeaders'?: { [key: string]: any; };
+    /**
+    * Global size in byte of the API test response.
+    */
+    'responseSize'?: number;
+    'timings'?: SyntheticsTiming;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cert: {
-      baseName: "cert",
-      type: "SyntheticsSSLCertificate",
-    },
-    errorCode: {
-      baseName: "errorCode",
-      type: "SyntheticsErrorCode",
-    },
-    errorMessage: {
-      baseName: "errorMessage",
-      type: "string",
-    },
-    eventType: {
-      baseName: "eventType",
-      type: "SyntheticsTestProcessStatus",
-    },
-    httpStatusCode: {
-      baseName: "httpStatusCode",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cert": {
+            "baseName": "cert",
+            "type": "SyntheticsSSLCertificate",
+            
+            
+        },
+        "errorCode": {
+            "baseName": "errorCode",
+            "type": "SyntheticsErrorCode",
+            
+            
+        },
+        "errorMessage": {
+            "baseName": "errorMessage",
+            "type": "string",
+            
+            
+        },
+        "eventType": {
+            "baseName": "eventType",
+            "type": "SyntheticsTestProcessStatus",
+            
+            
+        },
+        "httpStatusCode": {
+            "baseName": "httpStatusCode",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "requestHeaders": {
+            "baseName": "requestHeaders",
+            "type": "{ [key: string]: any; }",
+            
+            
+        },
+        "responseBody": {
+            "baseName": "responseBody",
+            "type": "string",
+            
+            
+        },
+        "responseHeaders": {
+            "baseName": "responseHeaders",
+            "type": "{ [key: string]: any; }",
+            
+            
+        },
+        "responseSize": {
+            "baseName": "responseSize",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "timings": {
+            "baseName": "timings",
+            "type": "SyntheticsTiming",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    requestHeaders: {
-      baseName: "requestHeaders",
-      type: "{ [key: string]: any; }",
-    },
-    responseBody: {
-      baseName: "responseBody",
-      type: "string",
-    },
-    responseHeaders: {
-      baseName: "responseHeaders",
-      type: "{ [key: string]: any; }",
-    },
-    responseSize: {
-      baseName: "responseSize",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAPITestResultData.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    timings: {
-      baseName: "timings",
-      type: "SyntheticsTiming",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultData.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

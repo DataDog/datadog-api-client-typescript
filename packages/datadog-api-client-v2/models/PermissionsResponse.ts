@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { Permission } from "./Permission";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Permission } from './Permission';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Payload with API-returned permissions.
- */
+* Payload with API-returned permissions.
+*/
 
 export class PermissionsResponse {
-  /**
-   * Array of permissions.
-   */
-  "data"?: Array<Permission>;
+    /**
+    * Array of permissions.
+    */
+    'data'?: Array<Permission>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Permission>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<Permission>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PermissionsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return PermissionsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A notification handle that will be notified at incident creation.
- */
+* A notification handle that will be notified at incident creation.
+*/
 
 export class IncidentNotificationHandle {
-  /**
-   * The name of the notified handle.
-   */
-  "displayName"?: string;
-  /**
-   * The email address used for the notification.
-   */
-  "handle"?: string;
+    /**
+    * The name of the notified handle.
+    */
+    'displayName'?: string;
+    /**
+    * The email address used for the notification.
+    */
+    'handle'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
-    },
-    handle: {
-      baseName: "handle",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "displayName": {
+            "baseName": "display_name",
+            "type": "string",
+            
+            
+        },
+        "handle": {
+            "baseName": "handle",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentNotificationHandle.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

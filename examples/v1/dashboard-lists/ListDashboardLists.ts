@@ -10,8 +10,6 @@ const apiInstance = new v1.DashboardListsApi(configuration);
 apiInstance
   .listDashboardLists()
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

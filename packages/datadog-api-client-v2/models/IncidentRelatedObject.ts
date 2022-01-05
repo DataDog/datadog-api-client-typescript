@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IncidentRelatedObject = typeof USERS;
-export const USERS = "users";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Object related to an incident.
+*/
+
+export type IncidentRelatedObject = typeof USERS ;
+export const USERS = 'users';
+
+

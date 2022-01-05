@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RoleClone } from "./RoleClone";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RoleClone } from './RoleClone';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request to create a role by cloning an existing role.
- */
+* Request to create a role by cloning an existing role.
+*/
 
 export class RoleCloneRequest {
-  "data": RoleClone;
+    'data': RoleClone;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RoleClone",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "RoleClone",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCloneRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleCloneRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

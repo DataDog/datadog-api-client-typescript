@@ -8,80 +8,98 @@
  * Do not edit the class manually.
  */
 
-import { EventStreamWidgetDefinitionType } from "./EventStreamWidgetDefinitionType";
-import { WidgetEventSize } from "./WidgetEventSize";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { EventStreamWidgetDefinitionType } from './EventStreamWidgetDefinitionType';
+import { WidgetEventSize } from './WidgetEventSize';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
- */
+* The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
+*/
 
 export class EventStreamWidgetDefinition {
-  "eventSize"?: WidgetEventSize;
-  /**
-   * Query to filter the event stream with.
-   */
-  "query": string;
-  /**
-   * The execution method for multi-value filters. Can be either and or or.
-   */
-  "tagsExecution"?: string;
-  "time"?: WidgetTime;
-  /**
-   * Title of the widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": EventStreamWidgetDefinitionType;
+    'eventSize'?: WidgetEventSize;
+    /**
+    * Query to filter the event stream with.
+    */
+    'query': string;
+    /**
+    * The execution method for multi-value filters. Can be either and or or.
+    */
+    'tagsExecution'?: string;
+    'time'?: WidgetTime;
+    /**
+    * Title of the widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': EventStreamWidgetDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    eventSize: {
-      baseName: "event_size",
-      type: "WidgetEventSize",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "EventStreamWidgetDefinitionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "eventSize": {
+            "baseName": "event_size",
+            "type": "WidgetEventSize",
+            
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            "required": true,
+            
+        },
+        "tagsExecution": {
+            "baseName": "tags_execution",
+            "type": "string",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "EventStreamWidgetDefinitionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventStreamWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return EventStreamWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,34 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./SecurityMonitoringRuleNewValueOptionsForgetAfter";
-import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./SecurityMonitoringRuleNewValueOptionsLearningDuration";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from './SecurityMonitoringRuleNewValueOptionsForgetAfter';
+import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from './SecurityMonitoringRuleNewValueOptionsLearningDuration';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Options on new value rules.
- */
+* Options on new value rules.
+*/
 
 export class SecurityMonitoringRuleNewValueOptions {
-  "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
-  "learningDuration"?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
+    'forgetAfter'?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
+    'learningDuration'?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    forgetAfter: {
-      baseName: "forgetAfter",
-      type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-    },
-    learningDuration: {
-      baseName: "learningDuration",
-      type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "forgetAfter": {
+            "baseName": "forgetAfter",
+            "type": "SecurityMonitoringRuleNewValueOptionsForgetAfter",
+            
+            
+        },
+        "learningDuration": {
+            "baseName": "learningDuration",
+            "type": "SecurityMonitoringRuleNewValueOptionsLearningDuration",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

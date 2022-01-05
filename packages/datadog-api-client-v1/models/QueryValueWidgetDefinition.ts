@@ -8,107 +8,129 @@
  * Do not edit the class manually.
  */
 
-import { QueryValueWidgetDefinitionType } from "./QueryValueWidgetDefinitionType";
-import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
-import { WidgetCustomLink } from "./WidgetCustomLink";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { QueryValueWidgetDefinitionType } from './QueryValueWidgetDefinitionType';
+import { QueryValueWidgetRequest } from './QueryValueWidgetRequest';
+import { WidgetCustomLink } from './WidgetCustomLink';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTime } from './WidgetTime';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Query values display the current value of a given metric, APM, or log query.
- */
+* Query values display the current value of a given metric, APM, or log query.
+*/
 
 export class QueryValueWidgetDefinition {
-  /**
-   * Whether to use auto-scaling or not.
-   */
-  "autoscale"?: boolean;
-  /**
-   * List of custom links.
-   */
-  "customLinks"?: Array<WidgetCustomLink>;
-  /**
-   * Display a unit of your choice on the widget.
-   */
-  "customUnit"?: string;
-  /**
-   * Number of decimals to show. If not defined, the widget uses the raw value.
-   */
-  "precision"?: number;
-  /**
-   * Widget definition.
-   */
-  "requests": Array<QueryValueWidgetRequest>;
-  "textAlign"?: WidgetTextAlign;
-  "time"?: WidgetTime;
-  /**
-   * Title of your widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": QueryValueWidgetDefinitionType;
+    /**
+    * Whether to use auto-scaling or not.
+    */
+    'autoscale'?: boolean;
+    /**
+    * List of custom links.
+    */
+    'customLinks'?: Array<WidgetCustomLink>;
+    /**
+    * Display a unit of your choice on the widget.
+    */
+    'customUnit'?: string;
+    /**
+    * Number of decimals to show. If not defined, the widget uses the raw value.
+    */
+    'precision'?: number;
+    /**
+    * Widget definition.
+    */
+    'requests': Array<QueryValueWidgetRequest>;
+    'textAlign'?: WidgetTextAlign;
+    'time'?: WidgetTime;
+    /**
+    * Title of your widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': QueryValueWidgetDefinitionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    autoscale: {
-      baseName: "autoscale",
-      type: "boolean",
-    },
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
-    },
-    customUnit: {
-      baseName: "custom_unit",
-      type: "string",
-    },
-    precision: {
-      baseName: "precision",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "autoscale": {
+            "baseName": "autoscale",
+            "type": "boolean",
+            
+            
+        },
+        "customLinks": {
+            "baseName": "custom_links",
+            "type": "Array<WidgetCustomLink>",
+            
+            
+        },
+        "customUnit": {
+            "baseName": "custom_unit",
+            "type": "string",
+            
+            
+        },
+        "precision": {
+            "baseName": "precision",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "requests": {
+            "baseName": "requests",
+            "type": "Array<QueryValueWidgetRequest>",
+            "required": true,
+            
+        },
+        "textAlign": {
+            "baseName": "text_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "WidgetTime",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "QueryValueWidgetDefinitionType",
+            "required": true,
+            
+        }    };
 
-      format: "int64",
-    },
-    requests: {
-      baseName: "requests",
-      type: "Array<QueryValueWidgetRequest>",
-      required: true,
-    },
-    textAlign: {
-      baseName: "text_align",
-      type: "WidgetTextAlign",
-    },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "QueryValueWidgetDefinitionType",
-      required: true,
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return QueryValueWidgetDefinition.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return QueryValueWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

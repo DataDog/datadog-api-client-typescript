@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageIoTHour } from "./UsageIoTHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageIoTHour } from './UsageIoTHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the IoT usage for each hour for a given organization.
- */
+* Response containing the IoT usage for each hour for a given organization.
+*/
 
 export class UsageIoTResponse {
-  /**
-   * Get hourly usage for IoT.
-   */
-  "usage"?: Array<UsageIoTHour>;
+    /**
+    * Get hourly usage for IoT.
+    */
+    'usage'?: Array<UsageIoTHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIoTHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageIoTHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIoTResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIoTResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

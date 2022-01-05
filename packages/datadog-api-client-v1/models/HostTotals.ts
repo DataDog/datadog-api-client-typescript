@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Total number of host currently monitored by Datadog.
- */
+* Total number of host currently monitored by Datadog.
+*/
 
 export class HostTotals {
-  /**
-   * Total number of active host (UP and ???) reporting to Datadog.
-   */
-  "totalActive"?: number;
-  /**
-   * Number of host that are UP and reporting to Datadog.
-   */
-  "totalUp"?: number;
+    /**
+    * Total number of active host (UP and ???) reporting to Datadog.
+    */
+    'totalActive'?: number;
+    /**
+    * Number of host that are UP and reporting to Datadog.
+    */
+    'totalUp'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    totalActive: {
-      baseName: "total_active",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "totalActive": {
+            "baseName": "total_active",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "totalUp": {
+            "baseName": "total_up",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    totalUp: {
-      baseName: "total_up",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostTotals.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostTotals.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

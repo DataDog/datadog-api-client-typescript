@@ -8,68 +8,84 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringRuleQueryAggregation } from './SecurityMonitoringRuleQueryAggregation';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Query for matching rule.
- */
+* Query for matching rule.
+*/
 
 export class SecurityMonitoringRuleQuery {
-  "aggregation"?: SecurityMonitoringRuleQueryAggregation;
-  /**
-   * Field for which the cardinality is measured. Sent as an array.
-   */
-  "distinctFields"?: Array<string>;
-  /**
-   * Fields to group by.
-   */
-  "groupByFields"?: Array<string>;
-  /**
-   * The target field to aggregate over when using the sum or max aggregations.
-   */
-  "metric"?: string;
-  /**
-   * Name of the query.
-   */
-  "name"?: string;
-  /**
-   * Query to run on logs.
-   */
-  "query"?: string;
+    'aggregation'?: SecurityMonitoringRuleQueryAggregation;
+    /**
+    * Field for which the cardinality is measured. Sent as an array.
+    */
+    'distinctFields'?: Array<string>;
+    /**
+    * Fields to group by.
+    */
+    'groupByFields'?: Array<string>;
+    /**
+    * The target field to aggregate over when using the sum or max aggregations.
+    */
+    'metric'?: string;
+    /**
+    * Name of the query.
+    */
+    'name'?: string;
+    /**
+    * Query to run on logs.
+    */
+    'query'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "SecurityMonitoringRuleQueryAggregation",
-    },
-    distinctFields: {
-      baseName: "distinctFields",
-      type: "Array<string>",
-    },
-    groupByFields: {
-      baseName: "groupByFields",
-      type: "Array<string>",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "SecurityMonitoringRuleQueryAggregation",
+            
+            
+        },
+        "distinctFields": {
+            "baseName": "distinctFields",
+            "type": "Array<string>",
+            
+            
+        },
+        "groupByFields": {
+            "baseName": "groupByFields",
+            "type": "Array<string>",
+            
+            
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleQuery.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringRuleQuery.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

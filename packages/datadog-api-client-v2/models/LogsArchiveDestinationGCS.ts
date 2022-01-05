@@ -8,53 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
-import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveDestinationGCSType } from './LogsArchiveDestinationGCSType';
+import { LogsArchiveIntegrationGCS } from './LogsArchiveIntegrationGCS';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The GCS archive destination.
- */
+* The GCS archive destination.
+*/
 
 export class LogsArchiveDestinationGCS {
-  /**
-   * The bucket where the archive will be stored.
-   */
-  "bucket": string;
-  "integration": LogsArchiveIntegrationGCS;
-  /**
-   * The archive path.
-   */
-  "path"?: string;
-  "type": LogsArchiveDestinationGCSType;
+    /**
+    * The bucket where the archive will be stored.
+    */
+    'bucket': string;
+    'integration': LogsArchiveIntegrationGCS;
+    /**
+    * The archive path.
+    */
+    'path'?: string;
+    'type': LogsArchiveDestinationGCSType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    bucket: {
-      baseName: "bucket",
-      type: "string",
-      required: true,
-    },
-    integration: {
-      baseName: "integration",
-      type: "LogsArchiveIntegrationGCS",
-      required: true,
-    },
-    path: {
-      baseName: "path",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "LogsArchiveDestinationGCSType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "bucket": {
+            "baseName": "bucket",
+            "type": "string",
+            "required": true,
+            
+        },
+        "integration": {
+            "baseName": "integration",
+            "type": "LogsArchiveIntegrationGCS",
+            "required": true,
+            
+        },
+        "path": {
+            "baseName": "path",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsArchiveDestinationGCSType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationGCS.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveDestinationGCS.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

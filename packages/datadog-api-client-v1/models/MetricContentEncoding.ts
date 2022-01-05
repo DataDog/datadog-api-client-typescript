@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type MetricContentEncoding = typeof DEFLATE;
-export const DEFLATE = "deflate";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* HTTP header used to compress the media-type.
+*/
+
+export type MetricContentEncoding = typeof DEFLATE ;
+export const DEFLATE = 'deflate';
+
+

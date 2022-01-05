@@ -8,41 +8,31 @@
  * Do not edit the class manually.
  */
 
-import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
-import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
-import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
-import { LogsDateRemapper } from "./LogsDateRemapper";
-import { LogsGeoIPParser } from "./LogsGeoIPParser";
-import { LogsGrokParser } from "./LogsGrokParser";
-import { LogsLookupProcessor } from "./LogsLookupProcessor";
-import { LogsMessageRemapper } from "./LogsMessageRemapper";
-import { LogsPipelineProcessor } from "./LogsPipelineProcessor";
-import { LogsServiceRemapper } from "./LogsServiceRemapper";
-import { LogsStatusRemapper } from "./LogsStatusRemapper";
-import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
-import { LogsTraceRemapper } from "./LogsTraceRemapper";
-import { LogsURLParser } from "./LogsURLParser";
-import { LogsUserAgentParser } from "./LogsUserAgentParser";
-import { UnparsedObject } from "./ObjectSerializer";
+import { LogsArithmeticProcessor } from './LogsArithmeticProcessor';
+import { LogsAttributeRemapper } from './LogsAttributeRemapper';
+import { LogsCategoryProcessor } from './LogsCategoryProcessor';
+import { LogsCategoryProcessorCategory } from './LogsCategoryProcessorCategory';
+import { LogsDateRemapper } from './LogsDateRemapper';
+import { LogsFilter } from './LogsFilter';
+import { LogsGeoIPParser } from './LogsGeoIPParser';
+import { LogsGrokParser } from './LogsGrokParser';
+import { LogsGrokParserRules } from './LogsGrokParserRules';
+import { LogsLookupProcessor } from './LogsLookupProcessor';
+import { LogsMessageRemapper } from './LogsMessageRemapper';
+import { LogsPipelineProcessor } from './LogsPipelineProcessor';
+import { LogsServiceRemapper } from './LogsServiceRemapper';
+import { LogsStatusRemapper } from './LogsStatusRemapper';
+import { LogsStringBuilderProcessor } from './LogsStringBuilderProcessor';
+import { LogsTraceRemapper } from './LogsTraceRemapper';
+import { LogsTraceRemapperType } from './LogsTraceRemapperType';
+import { LogsURLParser } from './LogsURLParser';
+import { LogsUserAgentParser } from './LogsUserAgentParser';
+import { TargetFormatType } from './TargetFormatType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Definition of a logs processor.
- */
+* Definition of a logs processor.
+*/
 
-export type LogsProcessor =
-  | LogsArithmeticProcessor
-  | LogsAttributeRemapper
-  | LogsCategoryProcessor
-  | LogsDateRemapper
-  | LogsGeoIPParser
-  | LogsGrokParser
-  | LogsLookupProcessor
-  | LogsMessageRemapper
-  | LogsPipelineProcessor
-  | LogsServiceRemapper
-  | LogsStatusRemapper
-  | LogsStringBuilderProcessor
-  | LogsTraceRemapper
-  | LogsURLParser
-  | LogsUserAgentParser
-  | UnparsedObject;
+export type LogsProcessor = LogsArithmeticProcessor | LogsAttributeRemapper | LogsCategoryProcessor | LogsDateRemapper | LogsGeoIPParser | LogsGrokParser | LogsLookupProcessor | LogsMessageRemapper | LogsPipelineProcessor | LogsServiceRemapper | LogsStatusRemapper | LogsStringBuilderProcessor | LogsTraceRemapper | LogsURLParser | LogsUserAgentParser | UnparsedObject;

@@ -8,34 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsPrivateLocationSecretsAuthentication } from "./SyntheticsPrivateLocationSecretsAuthentication";
-import { SyntheticsPrivateLocationSecretsConfigDecryption } from "./SyntheticsPrivateLocationSecretsConfigDecryption";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsPrivateLocationSecretsAuthentication } from './SyntheticsPrivateLocationSecretsAuthentication';
+import { SyntheticsPrivateLocationSecretsConfigDecryption } from './SyntheticsPrivateLocationSecretsConfigDecryption';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Secrets for the private location. Only present in the response when creating the private location.
- */
+* Secrets for the private location. Only present in the response when creating the private location.
+*/
 
 export class SyntheticsPrivateLocationSecrets {
-  "authentication"?: SyntheticsPrivateLocationSecretsAuthentication;
-  "configDecryption"?: SyntheticsPrivateLocationSecretsConfigDecryption;
+    'authentication'?: SyntheticsPrivateLocationSecretsAuthentication;
+    'configDecryption'?: SyntheticsPrivateLocationSecretsConfigDecryption;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    authentication: {
-      baseName: "authentication",
-      type: "SyntheticsPrivateLocationSecretsAuthentication",
-    },
-    configDecryption: {
-      baseName: "config_decryption",
-      type: "SyntheticsPrivateLocationSecretsConfigDecryption",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "authentication": {
+            "baseName": "authentication",
+            "type": "SyntheticsPrivateLocationSecretsAuthentication",
+            
+            
+        },
+        "configDecryption": {
+            "baseName": "config_decryption",
+            "type": "SyntheticsPrivateLocationSecretsConfigDecryption",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationSecrets.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsPrivateLocationSecrets.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

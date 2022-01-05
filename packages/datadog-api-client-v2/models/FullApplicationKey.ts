@@ -8,48 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
-import { ApplicationKeysType } from "./ApplicationKeysType";
-import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApplicationKeyRelationships } from './ApplicationKeyRelationships';
+import { ApplicationKeysType } from './ApplicationKeysType';
+import { FullApplicationKeyAttributes } from './FullApplicationKeyAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Datadog application key.
- */
+* Datadog application key.
+*/
 
 export class FullApplicationKey {
-  "attributes"?: FullApplicationKeyAttributes;
-  /**
-   * ID of the application key.
-   */
-  "id"?: string;
-  "relationships"?: ApplicationKeyRelationships;
-  "type"?: ApplicationKeysType;
+    'attributes'?: FullApplicationKeyAttributes;
+    /**
+    * ID of the application key.
+    */
+    'id'?: string;
+    'relationships'?: ApplicationKeyRelationships;
+    'type'?: ApplicationKeysType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FullApplicationKeyAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "ApplicationKeyRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "ApplicationKeysType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "FullApplicationKeyAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "ApplicationKeyRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "ApplicationKeysType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullApplicationKey.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FullApplicationKey.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

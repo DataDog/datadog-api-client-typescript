@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsURLParserType = typeof URL_PARSER;
-export const URL_PARSER = "url-parser";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs URL parser.
+*/
+
+export type LogsURLParserType = typeof URL_PARSER ;
+export const URL_PARSER = 'url-parser';
+
+

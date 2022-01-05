@@ -9,25 +9,29 @@ const apiInstance = new v1.MetricsApi(configuration);
 
 let params: v1.MetricsApiSubmitMetricsRequest = {
   body: {
-    series: [
-      {
-        metric: "system.load.1",
-        type: "gauge",
-        points: [[new Date().getTime() / 1000, 1.1]],
-        tags: [
-          "test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse",
-        ],
-      },
-    ],
-  },
+series: [
+{
+metric: "system.load.1",
+type: "gauge",
+points: [
+[
+new Date().getTime() / 1000,
+1.1,
+],
+],
+tags: [
+"test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse",
+],
+},
+],
+},
   contentEncoding: "deflate",
+
 };
 
 apiInstance
   .submitMetrics(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

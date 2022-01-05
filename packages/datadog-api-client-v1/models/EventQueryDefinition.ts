@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The event query.
- */
+* The event query.
+*/
 
 export class EventQueryDefinition {
-  /**
-   * The query being made on the event.
-   */
-  "search": string;
-  /**
-   * The execution method for multi-value filters. Can be either and or or.
-   */
-  "tagsExecution": string;
+    /**
+    * The query being made on the event.
+    */
+    'search': string;
+    /**
+    * The execution method for multi-value filters. Can be either and or or.
+    */
+    'tagsExecution': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    search: {
-      baseName: "search",
-      type: "string",
-      required: true,
-    },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "search": {
+            "baseName": "search",
+            "type": "string",
+            "required": true,
+            
+        },
+        "tagsExecution": {
+            "baseName": "tags_execution",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventQueryDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return EventQueryDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

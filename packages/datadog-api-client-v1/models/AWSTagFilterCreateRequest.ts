@@ -8,44 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { AWSNamespace } from "./AWSNamespace";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AWSNamespace } from './AWSNamespace';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The objects used to set an AWS tag filter.
- */
+* The objects used to set an AWS tag filter.
+*/
 
 export class AWSTagFilterCreateRequest {
-  /**
-   * Your AWS Account ID without dashes.
-   */
-  "accountId"?: string;
-  "namespace"?: AWSNamespace;
-  /**
-   * The tag filter string.
-   */
-  "tagFilterStr"?: string;
+    /**
+    * Your AWS Account ID without dashes.
+    */
+    'accountId'?: string;
+    'namespace'?: AWSNamespace;
+    /**
+    * The tag filter string.
+    */
+    'tagFilterStr'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-    },
-    namespace: {
-      baseName: "namespace",
-      type: "AWSNamespace",
-    },
-    tagFilterStr: {
-      baseName: "tag_filter_str",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accountId": {
+            "baseName": "account_id",
+            "type": "string",
+            
+            
+        },
+        "namespace": {
+            "baseName": "namespace",
+            "type": "AWSNamespace",
+            
+            
+        },
+        "tagFilterStr": {
+            "baseName": "tag_filter_str",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilterCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSTagFilterCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

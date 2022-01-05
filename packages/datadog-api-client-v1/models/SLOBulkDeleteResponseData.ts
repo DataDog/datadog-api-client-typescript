@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An array of service level objective objects.
- */
+* An array of service level objective objects.
+*/
 
 export class SLOBulkDeleteResponseData {
-  /**
-   * An array of service level objective object IDs that indicates which objects that were completely deleted.
-   */
-  "deleted"?: Array<string>;
-  /**
-   * An array of service level objective object IDs that indicates which objects that were modified (objects for which at least one threshold was deleted, but that were not completely deleted).
-   */
-  "updated"?: Array<string>;
+    /**
+    * An array of service level objective object IDs that indicates which objects that were completely deleted.
+    */
+    'deleted'?: Array<string>;
+    /**
+    * An array of service level objective object IDs that indicates which objects that were modified (objects for which at least one threshold was deleted, but that were not completely deleted).
+    */
+    'updated'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    deleted: {
-      baseName: "deleted",
-      type: "Array<string>",
-    },
-    updated: {
-      baseName: "updated",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "deleted": {
+            "baseName": "deleted",
+            "type": "Array<string>",
+            
+            
+        },
+        "updated": {
+            "baseName": "updated",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOBulkDeleteResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

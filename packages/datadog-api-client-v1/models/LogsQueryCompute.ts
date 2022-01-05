@@ -8,49 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Define computation for a log query.
- */
+* Define computation for a log query.
+*/
 
 export class LogsQueryCompute {
-  /**
-   * The aggregation method.
-   */
-  "aggregation": string;
-  /**
-   * Facet name.
-   */
-  "facet"?: string;
-  /**
-   * Define a time interval in seconds.
-   */
-  "interval"?: number;
+    /**
+    * The aggregation method.
+    */
+    'aggregation': string;
+    /**
+    * Facet name.
+    */
+    'facet'?: string;
+    /**
+    * Define a time interval in seconds.
+    */
+    'interval'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "string",
-      required: true,
-    },
-    facet: {
-      baseName: "facet",
-      type: "string",
-    },
-    interval: {
-      baseName: "interval",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "string",
+            "required": true,
+            
+        },
+        "facet": {
+            "baseName": "facet",
+            "type": "string",
+            
+            
+        },
+        "interval": {
+            "baseName": "interval",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsQueryCompute.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

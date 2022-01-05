@@ -8,45 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
-import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RoleUpdateAttributes } from './RoleUpdateAttributes';
+import { RolesType } from './RolesType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Data related to the update of a role.
- */
+* Data related to the update of a role.
+*/
 
 export class RoleUpdateData {
-  "attributes": RoleUpdateAttributes;
-  /**
-   * ID of the role.
-   */
-  "id": string;
-  "type": RolesType;
+    'attributes': RoleUpdateAttributes;
+    /**
+    * ID of the role.
+    */
+    'id': string;
+    'type': RolesType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoleUpdateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "RoleUpdateAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "RolesType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleUpdateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

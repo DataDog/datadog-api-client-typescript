@@ -8,99 +8,121 @@
  * Do not edit the class manually.
  */
 
-import { SLOWidgetDefinitionType } from "./SLOWidgetDefinitionType";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { WidgetTimeWindows } from "./WidgetTimeWindows";
-import { WidgetViewMode } from "./WidgetViewMode";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOWidgetDefinitionType } from './SLOWidgetDefinitionType';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { WidgetTimeWindows } from './WidgetTimeWindows';
+import { WidgetViewMode } from './WidgetViewMode';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
- */
+* Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
+*/
 
 export class SLOWidgetDefinition {
-  /**
-   * Defined global time target.
-   */
-  "globalTimeTarget"?: string;
-  /**
-   * Defined error budget.
-   */
-  "showErrorBudget"?: boolean;
-  /**
-   * ID of the SLO displayed.
-   */
-  "sloId"?: string;
-  /**
-   * Times being monitored.
-   */
-  "timeWindows"?: Array<WidgetTimeWindows>;
-  /**
-   * Title of the widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  /**
-   * Size of the title.
-   */
-  "titleSize"?: string;
-  "type": SLOWidgetDefinitionType;
-  "viewMode"?: WidgetViewMode;
-  /**
-   * Type of view displayed by the widget.
-   */
-  "viewType": string;
+    /**
+    * Defined global time target.
+    */
+    'globalTimeTarget'?: string;
+    /**
+    * Defined error budget.
+    */
+    'showErrorBudget'?: boolean;
+    /**
+    * ID of the SLO displayed.
+    */
+    'sloId'?: string;
+    /**
+    * Times being monitored.
+    */
+    'timeWindows'?: Array<WidgetTimeWindows>;
+    /**
+    * Title of the widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    /**
+    * Size of the title.
+    */
+    'titleSize'?: string;
+    'type': SLOWidgetDefinitionType;
+    'viewMode'?: WidgetViewMode;
+    /**
+    * Type of view displayed by the widget.
+    */
+    'viewType': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    globalTimeTarget: {
-      baseName: "global_time_target",
-      type: "string",
-    },
-    showErrorBudget: {
-      baseName: "show_error_budget",
-      type: "boolean",
-    },
-    sloId: {
-      baseName: "slo_id",
-      type: "string",
-    },
-    timeWindows: {
-      baseName: "time_windows",
-      type: "Array<WidgetTimeWindows>",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "SLOWidgetDefinitionType",
-      required: true,
-    },
-    viewMode: {
-      baseName: "view_mode",
-      type: "WidgetViewMode",
-    },
-    viewType: {
-      baseName: "view_type",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "globalTimeTarget": {
+            "baseName": "global_time_target",
+            "type": "string",
+            
+            
+        },
+        "showErrorBudget": {
+            "baseName": "show_error_budget",
+            "type": "boolean",
+            
+            
+        },
+        "sloId": {
+            "baseName": "slo_id",
+            "type": "string",
+            
+            
+        },
+        "timeWindows": {
+            "baseName": "time_windows",
+            "type": "Array<WidgetTimeWindows>",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "titleSize": {
+            "baseName": "title_size",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SLOWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "viewMode": {
+            "baseName": "view_mode",
+            "type": "WidgetViewMode",
+            
+            
+        },
+        "viewType": {
+            "baseName": "view_type",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { HourlyUsageAttributionPagination } from "./HourlyUsageAttributionPagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HourlyUsageAttributionPagination } from './HourlyUsageAttributionPagination';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object containing document metadata.
- */
+* The object containing document metadata.
+*/
 
 export class HourlyUsageAttributionMetadata {
-  "pagination"?: HourlyUsageAttributionPagination;
+    'pagination'?: HourlyUsageAttributionPagination;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "HourlyUsageAttributionPagination",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "pagination": {
+            "baseName": "pagination",
+            "type": "HourlyUsageAttributionPagination",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionMetadata.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HourlyUsageAttributionMetadata.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

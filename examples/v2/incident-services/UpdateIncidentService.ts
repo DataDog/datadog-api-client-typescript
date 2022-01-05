@@ -11,23 +11,24 @@ const apiInstance = new v2.IncidentServicesApi(configuration);
 // there is a valid "service" in the system
 let SERVICE_DATA_ID = process.env.SERVICE_DATA_ID as string;
 
+
+
 let params: v2.IncidentServicesApiUpdateIncidentServiceRequest = {
   body: {
-    data: {
-      type: "services",
-      attributes: {
-        name: "service name-updated",
-      },
-    },
-  },
+data: {
+type: "services",
+attributes: {
+name: "service name-updated",
+},
+},
+},
   serviceId: SERVICE_DATA_ID,
+
 };
 
 apiInstance
   .updateIncidentService(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

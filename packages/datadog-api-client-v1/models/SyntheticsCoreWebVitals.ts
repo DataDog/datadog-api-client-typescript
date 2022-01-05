@@ -8,50 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Core Web Vitals attached to a browser test step.
- */
+* Core Web Vitals attached to a browser test step.
+*/
 
 export class SyntheticsCoreWebVitals {
-  /**
-   * Cumulative Layout Shift.
-   */
-  "cls"?: number;
-  /**
-   * Largest Contentful Paint in milliseconds.
-   */
-  "lcp"?: number;
-  /**
-   * URL attached to the metrics.
-   */
-  "url"?: string;
+    /**
+    * Cumulative Layout Shift.
+    */
+    'cls'?: number;
+    /**
+    * Largest Contentful Paint in milliseconds.
+    */
+    'lcp'?: number;
+    /**
+    * URL attached to the metrics.
+    */
+    'url'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cls: {
-      baseName: "cls",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cls": {
+            "baseName": "cls",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "lcp": {
+            "baseName": "lcp",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    lcp: {
-      baseName: "lcp",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsCoreWebVitals.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCoreWebVitals.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

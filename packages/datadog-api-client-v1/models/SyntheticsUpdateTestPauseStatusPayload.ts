@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsTestPauseStatus } from './SyntheticsTestPauseStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to start or pause an existing Synthetic test.
- */
+* Object to start or pause an existing Synthetic test.
+*/
 
 export class SyntheticsUpdateTestPauseStatusPayload {
-  "newStatus"?: SyntheticsTestPauseStatus;
+    'newStatus'?: SyntheticsTestPauseStatus;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    newStatus: {
-      baseName: "new_status",
-      type: "SyntheticsTestPauseStatus",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "newStatus": {
+            "baseName": "new_status",
+            "type": "SyntheticsTestPauseStatus",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

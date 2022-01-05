@@ -8,52 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Pagination properties.
- */
+* Pagination properties.
+*/
 
 export class IncidentServicesResponseMetaPagination {
-  /**
-   * The index of the first element in the next page of results. Equal to page size added to the current offset.
-   */
-  "nextOffset"?: number;
-  /**
-   * The index of the first element in the results.
-   */
-  "offset"?: number;
-  /**
-   * Maximum size of pages to return.
-   */
-  "size"?: number;
+    /**
+    * The index of the first element in the next page of results. Equal to page size added to the current offset.
+    */
+    'nextOffset'?: number;
+    /**
+    * The index of the first element in the results.
+    */
+    'offset'?: number;
+    /**
+    * Maximum size of pages to return.
+    */
+    'size'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    nextOffset: {
-      baseName: "next_offset",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "nextOffset": {
+            "baseName": "next_offset",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "offset": {
+            "baseName": "offset",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "size": {
+            "baseName": "size",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    offset: {
-      baseName: "offset",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServicesResponseMetaPagination.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    size: {
-      baseName: "size",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServicesResponseMetaPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

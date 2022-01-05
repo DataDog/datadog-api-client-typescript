@@ -8,33 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from "../http/http";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the IdP configuration.
- */
+* Object describing the IdP configuration.
+*/
 
 export class IdpFormData {
-  /**
-   * The path to the XML metadata file you wish to upload.
-   */
-  "idpFile": HttpFile;
+    /**
+    * The path to the XML metadata file you wish to upload.
+    */
+    'idpFile': HttpFile;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    idpFile: {
-      baseName: "idp_file",
-      type: "HttpFile",
-      required: true,
-      format: "binary",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "idpFile": {
+            "baseName": "idp_file",
+            "type": "HttpFile",
+            "required": true,
+            "format": "binary",
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IdpFormData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IdpFormData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

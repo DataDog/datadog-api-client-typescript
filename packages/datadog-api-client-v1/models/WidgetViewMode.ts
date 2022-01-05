@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetViewMode = typeof OVERALL | typeof COMPONENT | typeof BOTH;
-export const OVERALL = "overall";
-export const COMPONENT = "component";
-export const BOTH = "both";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Define how you want the SLO to be displayed.
+*/
+
+export type WidgetViewMode = typeof OVERALL | typeof COMPONENT | typeof BOTH ;
+export const OVERALL = 'overall';
+export const COMPONENT = 'component';
+export const BOTH = 'both';
+
+

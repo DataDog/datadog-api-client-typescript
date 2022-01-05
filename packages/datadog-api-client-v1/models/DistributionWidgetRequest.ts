@@ -8,84 +8,110 @@
  * Do not edit the class manually.
  */
 
-import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
-import { LogQueryDefinition } from "./LogQueryDefinition";
-import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { WidgetStyle } from "./WidgetStyle";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApmStatsQueryDefinition } from './ApmStatsQueryDefinition';
+import { LogQueryDefinition } from './LogQueryDefinition';
+import { ProcessQueryDefinition } from './ProcessQueryDefinition';
+import { WidgetStyle } from './WidgetStyle';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated distribution widget.
- */
+* Updated distribution widget.
+*/
 
 export class DistributionWidgetRequest {
-  "apmQuery"?: LogQueryDefinition;
-  "apmStatsQuery"?: ApmStatsQueryDefinition;
-  "eventQuery"?: LogQueryDefinition;
-  "logQuery"?: LogQueryDefinition;
-  "networkQuery"?: LogQueryDefinition;
-  "processQuery"?: ProcessQueryDefinition;
-  "profileMetricsQuery"?: LogQueryDefinition;
-  /**
-   * Widget query.
-   */
-  "q"?: string;
-  "rumQuery"?: LogQueryDefinition;
-  "securityQuery"?: LogQueryDefinition;
-  "style"?: WidgetStyle;
+    'apmQuery'?: LogQueryDefinition;
+    'apmStatsQuery'?: ApmStatsQueryDefinition;
+    'eventQuery'?: LogQueryDefinition;
+    'logQuery'?: LogQueryDefinition;
+    'networkQuery'?: LogQueryDefinition;
+    'processQuery'?: ProcessQueryDefinition;
+    'profileMetricsQuery'?: LogQueryDefinition;
+    /**
+    * Widget query.
+    */
+    'q'?: string;
+    'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
+    'style'?: WidgetStyle;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    apmQuery: {
-      baseName: "apm_query",
-      type: "LogQueryDefinition",
-    },
-    apmStatsQuery: {
-      baseName: "apm_stats_query",
-      type: "ApmStatsQueryDefinition",
-    },
-    eventQuery: {
-      baseName: "event_query",
-      type: "LogQueryDefinition",
-    },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
-    },
-    networkQuery: {
-      baseName: "network_query",
-      type: "LogQueryDefinition",
-    },
-    processQuery: {
-      baseName: "process_query",
-      type: "ProcessQueryDefinition",
-    },
-    profileMetricsQuery: {
-      baseName: "profile_metrics_query",
-      type: "LogQueryDefinition",
-    },
-    q: {
-      baseName: "q",
-      type: "string",
-    },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
-    },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
-    },
-    style: {
-      baseName: "style",
-      type: "WidgetStyle",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "apmQuery": {
+            "baseName": "apm_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "apmStatsQuery": {
+            "baseName": "apm_stats_query",
+            "type": "ApmStatsQueryDefinition",
+            
+            
+        },
+        "eventQuery": {
+            "baseName": "event_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "logQuery": {
+            "baseName": "log_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "networkQuery": {
+            "baseName": "network_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "processQuery": {
+            "baseName": "process_query",
+            "type": "ProcessQueryDefinition",
+            
+            
+        },
+        "profileMetricsQuery": {
+            "baseName": "profile_metrics_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            
+            
+        },
+        "rumQuery": {
+            "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "securityQuery": {
+            "baseName": "security_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "style": {
+            "baseName": "style",
+            "type": "WidgetStyle",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DistributionWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

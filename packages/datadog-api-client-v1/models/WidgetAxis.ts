@@ -8,62 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Axis controls for the widget.
- */
+* Axis controls for the widget.
+*/
 
 export class WidgetAxis {
-  /**
-   * True includes zero.
-   */
-  "includeZero"?: boolean;
-  /**
-   * The label of the axis to display on the graph.
-   */
-  "label"?: string;
-  /**
-   * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
-   */
-  "max"?: string;
-  /**
-   * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
-   */
-  "min"?: string;
-  /**
-   * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
-   */
-  "scale"?: string;
+    /**
+    * True includes zero.
+    */
+    'includeZero'?: boolean;
+    /**
+    * The label of the axis to display on the graph.
+    */
+    'label'?: string;
+    /**
+    * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
+    */
+    'max'?: string;
+    /**
+    * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
+    */
+    'min'?: string;
+    /**
+    * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
+    */
+    'scale'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    includeZero: {
-      baseName: "include_zero",
-      type: "boolean",
-    },
-    label: {
-      baseName: "label",
-      type: "string",
-    },
-    max: {
-      baseName: "max",
-      type: "string",
-    },
-    min: {
-      baseName: "min",
-      type: "string",
-    },
-    scale: {
-      baseName: "scale",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "includeZero": {
+            "baseName": "include_zero",
+            "type": "boolean",
+            
+            
+        },
+        "label": {
+            "baseName": "label",
+            "type": "string",
+            
+            
+        },
+        "max": {
+            "baseName": "max",
+            "type": "string",
+            
+            
+        },
+        "min": {
+            "baseName": "min",
+            "type": "string",
+            
+            
+        },
+        "scale": {
+            "baseName": "scale",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetAxis.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetAxis.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

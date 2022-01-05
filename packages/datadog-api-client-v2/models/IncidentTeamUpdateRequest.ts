@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { IncidentTeamUpdateData } from "./IncidentTeamUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentTeamUpdateData } from './IncidentTeamUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Update request with an incident team payload.
- */
+* Update request with an incident team payload.
+*/
 
 export class IncidentTeamUpdateRequest {
-  "data": IncidentTeamUpdateData;
+    'data': IncidentTeamUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentTeamUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "IncidentTeamUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentTeamUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

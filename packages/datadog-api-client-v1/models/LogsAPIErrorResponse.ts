@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { LogsAPIError } from "./LogsAPIError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAPIError } from './LogsAPIError';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response returned by the Logs API when errors occur.
- */
+* Response returned by the Logs API when errors occur.
+*/
 
 export class LogsAPIErrorResponse {
-  "error"?: LogsAPIError;
+    'error'?: LogsAPIError;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "LogsAPIError",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "error": {
+            "baseName": "error",
+            "type": "LogsAPIError",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAPIErrorResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsAPIErrorResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

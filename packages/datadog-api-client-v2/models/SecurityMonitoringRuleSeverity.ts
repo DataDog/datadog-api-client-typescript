@@ -8,14 +8,18 @@
  * Do not edit the class manually.
  */
 
-export type SecurityMonitoringRuleSeverity =
-  | typeof INFO
-  | typeof LOW
-  | typeof MEDIUM
-  | typeof HIGH
-  | typeof CRITICAL;
-export const INFO = "info";
-export const LOW = "low";
-export const MEDIUM = "medium";
-export const HIGH = "high";
-export const CRITICAL = "critical";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Severity of the Security Signal.
+*/
+
+export type SecurityMonitoringRuleSeverity = typeof INFO | typeof LOW | typeof MEDIUM | typeof HIGH | typeof CRITICAL ;
+export const INFO = 'info';
+export const LOW = 'low';
+export const MEDIUM = 'medium';
+export const HIGH = 'high';
+export const CRITICAL = 'critical';
+
+

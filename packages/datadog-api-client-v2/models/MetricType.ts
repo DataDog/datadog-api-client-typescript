@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type MetricType = typeof METRICS;
-export const METRICS = "metrics";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The metric resource type.
+*/
+
+export type MetricType = typeof METRICS ;
+export const METRICS = 'metrics';
+
+

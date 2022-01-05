@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
- */
+* A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator to be used because this will sum up all request counts instead of averaging them, or taking the max or min of all of those requests.
+*/
 
 export class ServiceLevelObjectiveQuery {
-  /**
-   * A Datadog metric query for total (valid) events.
-   */
-  "denominator": string;
-  /**
-   * A Datadog metric query for good events.
-   */
-  "numerator": string;
+    /**
+    * A Datadog metric query for total (valid) events.
+    */
+    'denominator': string;
+    /**
+    * A Datadog metric query for good events.
+    */
+    'numerator': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    denominator: {
-      baseName: "denominator",
-      type: "string",
-      required: true,
-    },
-    numerator: {
-      baseName: "numerator",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "denominator": {
+            "baseName": "denominator",
+            "type": "string",
+            "required": true,
+            
+        },
+        "numerator": {
+            "baseName": "numerator",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjectiveQuery.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ServiceLevelObjectiveQuery.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * IoT usage for a given organization for a given hour.
- */
+* IoT usage for a given organization for a given hour.
+*/
 
 export class UsageIoTHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * The total number of IoT devices during a given hour.
-   */
-  "iotDeviceCount"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * The total number of IoT devices during a given hour.
+    */
+    'iotDeviceCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "iotDeviceCount": {
+            "baseName": "iot_device_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    iotDeviceCount: {
-      baseName: "iot_device_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIoTHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIoTHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,68 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The metadata for the current pagination.
- */
+* The metadata for the current pagination.
+*/
 
 export class UsageAttributionPagination {
-  /**
-   * Maximum amount of records to be returned.
-   */
-  "limit"?: number;
-  /**
-   * Records to be skipped before beginning to return.
-   */
-  "offset"?: number;
-  /**
-   * Direction to sort by.
-   */
-  "sortDirection"?: string;
-  /**
-   * Field to sort by.
-   */
-  "sortName"?: string;
-  /**
-   * Total number of records.
-   */
-  "totalNumberOfRecords"?: number;
+    /**
+    * Maximum amount of records to be returned.
+    */
+    'limit'?: number;
+    /**
+    * Records to be skipped before beginning to return.
+    */
+    'offset'?: number;
+    /**
+    * Direction to sort by.
+    */
+    'sortDirection'?: string;
+    /**
+    * Field to sort by.
+    */
+    'sortName'?: string;
+    /**
+    * Total number of records.
+    */
+    'totalNumberOfRecords'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "offset": {
+            "baseName": "offset",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "sortDirection": {
+            "baseName": "sort_direction",
+            "type": "string",
+            
+            
+        },
+        "sortName": {
+            "baseName": "sort_name",
+            "type": "string",
+            
+            
+        },
+        "totalNumberOfRecords": {
+            "baseName": "total_number_of_records",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    offset: {
-      baseName: "offset",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageAttributionPagination.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    sortDirection: {
-      baseName: "sort_direction",
-      type: "string",
-    },
-    sortName: {
-      baseName: "sort_name",
-      type: "string",
-    },
-    totalNumberOfRecords: {
-      baseName: "total_number_of_records",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

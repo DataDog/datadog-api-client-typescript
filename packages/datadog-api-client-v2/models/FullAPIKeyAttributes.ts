@@ -8,62 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of a full API key.
- */
+* Attributes of a full API key.
+*/
 
 export class FullAPIKeyAttributes {
-  /**
-   * Creation date of the API key.
-   */
-  "createdAt"?: string;
-  /**
-   * The API key.
-   */
-  "key"?: string;
-  /**
-   * The last four characters of the API key.
-   */
-  "last4"?: string;
-  /**
-   * Date the API key was last modified.
-   */
-  "modifiedAt"?: string;
-  /**
-   * Name of the API key.
-   */
-  "name"?: string;
+    /**
+    * Creation date of the API key.
+    */
+    'createdAt'?: string;
+    /**
+    * The API key.
+    */
+    'key'?: string;
+    /**
+    * The last four characters of the API key.
+    */
+    'last4'?: string;
+    /**
+    * Date the API key was last modified.
+    */
+    'modifiedAt'?: string;
+    /**
+    * Name of the API key.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "string",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
-    },
-    last4: {
-      baseName: "last4",
-      type: "string",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "string",
+            
+            
+        },
+        "key": {
+            "baseName": "key",
+            "type": "string",
+            
+            
+        },
+        "last4": {
+            "baseName": "last4",
+            "type": "string",
+            
+            
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullAPIKeyAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FullAPIKeyAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

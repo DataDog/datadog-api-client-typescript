@@ -8,50 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Search filters for listing security signals.
- */
+* Search filters for listing security signals.
+*/
 
 export class SecurityMonitoringSignalListRequestFilter {
-  /**
-   * The minimum timestamp for requested security signals.
-   */
-  "from"?: Date;
-  /**
-   * Search query for listing security signals.
-   */
-  "query"?: string;
-  /**
-   * The maximum timestamp for requested security signals.
-   */
-  "to"?: Date;
+    /**
+    * The minimum timestamp for requested security signals.
+    */
+    'from'?: Date;
+    /**
+    * Search query for listing security signals.
+    */
+    'query'?: string;
+    /**
+    * The maximum timestamp for requested security signals.
+    */
+    'to'?: Date;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "from": {
+            "baseName": "from",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        },
+        "to": {
+            "baseName": "to",
+            "type": "Date",
+            
+            "format": "date-time",
+        }    };
 
-      format: "date-time",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-    to: {
-      baseName: "to",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

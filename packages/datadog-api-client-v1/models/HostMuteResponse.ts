@@ -8,56 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with the list of muted host for your organization.
- */
+* Response with the list of muted host for your organization.
+*/
 
 export class HostMuteResponse {
-  /**
-   * Action applied to the hosts.
-   */
-  "action"?: string;
-  /**
-   * POSIX timestamp in seconds when the host is unmuted.
-   */
-  "end"?: number;
-  /**
-   * The host name.
-   */
-  "hostname"?: string;
-  /**
-   * Message associated with the mute.
-   */
-  "message"?: string;
+    /**
+    * Action applied to the hosts.
+    */
+    'action'?: string;
+    /**
+    * POSIX timestamp in seconds when the host is unmuted.
+    */
+    'end'?: number;
+    /**
+    * The host name.
+    */
+    'hostname'?: string;
+    /**
+    * Message associated with the mute.
+    */
+    'message'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "string",
-    },
-    end: {
-      baseName: "end",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "action": {
+            "baseName": "action",
+            "type": "string",
+            
+            
+        },
+        "end": {
+            "baseName": "end",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hostname": {
+            "baseName": "hostname",
+            "type": "string",
+            
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    hostname: {
-      baseName: "hostname",
-      type: "string",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostMuteResponse.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMuteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

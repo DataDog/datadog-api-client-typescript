@@ -8,60 +8,73 @@
  * Do not edit the class manually.
  */
 
-import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
-import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
-import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { TableWidgetCellDisplayMode } from './TableWidgetCellDisplayMode';
+import { WidgetConditionalFormat } from './WidgetConditionalFormat';
+import { WidgetFormulaLimit } from './WidgetFormulaLimit';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Formula to be used in a widget query.
- */
+* Formula to be used in a widget query.
+*/
 
 export class WidgetFormula {
-  /**
-   * Expression alias.
-   */
-  "alias"?: string;
-  "cellDisplayMode"?: TableWidgetCellDisplayMode;
-  /**
-   * List of conditional formats.
-   */
-  "conditionalFormats"?: Array<WidgetConditionalFormat>;
-  /**
-   * String expression built from queries, formulas, and functions.
-   */
-  "formula": string;
-  "limit"?: WidgetFormulaLimit;
+    /**
+    * Expression alias.
+    */
+    'alias'?: string;
+    'cellDisplayMode'?: TableWidgetCellDisplayMode;
+    /**
+    * List of conditional formats.
+    */
+    'conditionalFormats'?: Array<WidgetConditionalFormat>;
+    /**
+    * String expression built from queries, formulas, and functions.
+    */
+    'formula': string;
+    'limit'?: WidgetFormulaLimit;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    alias: {
-      baseName: "alias",
-      type: "string",
-    },
-    cellDisplayMode: {
-      baseName: "cell_display_mode",
-      type: "TableWidgetCellDisplayMode",
-    },
-    conditionalFormats: {
-      baseName: "conditional_formats",
-      type: "Array<WidgetConditionalFormat>",
-    },
-    formula: {
-      baseName: "formula",
-      type: "string",
-      required: true,
-    },
-    limit: {
-      baseName: "limit",
-      type: "WidgetFormulaLimit",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "alias": {
+            "baseName": "alias",
+            "type": "string",
+            
+            
+        },
+        "cellDisplayMode": {
+            "baseName": "cell_display_mode",
+            "type": "TableWidgetCellDisplayMode",
+            
+            
+        },
+        "conditionalFormats": {
+            "baseName": "conditional_formats",
+            "type": "Array<WidgetConditionalFormat>",
+            
+            
+        },
+        "formula": {
+            "baseName": "formula",
+            "type": "string",
+            "required": true,
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "WidgetFormulaLimit",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormula.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetFormula.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

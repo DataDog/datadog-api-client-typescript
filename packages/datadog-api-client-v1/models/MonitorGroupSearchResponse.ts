@@ -8,43 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
-import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
-import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MonitorGroupSearchResponseCounts } from './MonitorGroupSearchResponseCounts';
+import { MonitorGroupSearchResult } from './MonitorGroupSearchResult';
+import { MonitorSearchResponseMetadata } from './MonitorSearchResponseMetadata';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response of a monitor group search.
- */
+* The response of a monitor group search.
+*/
 
 export class MonitorGroupSearchResponse {
-  "counts"?: MonitorGroupSearchResponseCounts;
-  /**
-   * The list of found monitor groups.
-   */
-  "groups"?: Array<MonitorGroupSearchResult>;
-  "metadata"?: MonitorSearchResponseMetadata;
+    'counts'?: MonitorGroupSearchResponseCounts;
+    /**
+    * The list of found monitor groups.
+    */
+    'groups'?: Array<MonitorGroupSearchResult>;
+    'metadata'?: MonitorSearchResponseMetadata;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    counts: {
-      baseName: "counts",
-      type: "MonitorGroupSearchResponseCounts",
-    },
-    groups: {
-      baseName: "groups",
-      type: "Array<MonitorGroupSearchResult>",
-    },
-    metadata: {
-      baseName: "metadata",
-      type: "MonitorSearchResponseMetadata",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "counts": {
+            "baseName": "counts",
+            "type": "MonitorGroupSearchResponseCounts",
+            
+            
+        },
+        "groups": {
+            "baseName": "groups",
+            "type": "Array<MonitorGroupSearchResult>",
+            
+            
+        },
+        "metadata": {
+            "baseName": "metadata",
+            "type": "MonitorSearchResponseMetadata",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorGroupSearchResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorGroupSearchResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

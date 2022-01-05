@@ -8,68 +8,81 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
-import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
-import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
-import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionEventQueryDefinitionCompute } from './FormulaAndFunctionEventQueryDefinitionCompute';
+import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFunctionEventQueryDefinitionSearch';
+import { FormulaAndFunctionEventQueryGroupBy } from './FormulaAndFunctionEventQueryGroupBy';
+import { FormulaAndFunctionEventsDataSource } from './FormulaAndFunctionEventsDataSource';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A formula and functions events query.
- */
+* A formula and functions events query.
+*/
 
 export class FormulaAndFunctionEventQueryDefinition {
-  "compute": FormulaAndFunctionEventQueryDefinitionCompute;
-  "dataSource": FormulaAndFunctionEventsDataSource;
-  /**
-   * Group by options.
-   */
-  "groupBy"?: Array<FormulaAndFunctionEventQueryGroupBy>;
-  /**
-   * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-   */
-  "indexes"?: Array<string>;
-  /**
-   * Name of the query for use in formulas.
-   */
-  "name": string;
-  "search"?: FormulaAndFunctionEventQueryDefinitionSearch;
+    'compute': FormulaAndFunctionEventQueryDefinitionCompute;
+    'dataSource': FormulaAndFunctionEventsDataSource;
+    /**
+    * Group by options.
+    */
+    'groupBy'?: Array<FormulaAndFunctionEventQueryGroupBy>;
+    /**
+    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
+    */
+    'indexes'?: Array<string>;
+    /**
+    * Name of the query for use in formulas.
+    */
+    'name': string;
+    'search'?: FormulaAndFunctionEventQueryDefinitionSearch;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "FormulaAndFunctionEventQueryDefinitionCompute",
-      required: true,
-    },
-    dataSource: {
-      baseName: "data_source",
-      type: "FormulaAndFunctionEventsDataSource",
-      required: true,
-    },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<FormulaAndFunctionEventQueryGroupBy>",
-    },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    search: {
-      baseName: "search",
-      type: "FormulaAndFunctionEventQueryDefinitionSearch",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "compute": {
+            "baseName": "compute",
+            "type": "FormulaAndFunctionEventQueryDefinitionCompute",
+            "required": true,
+            
+        },
+        "dataSource": {
+            "baseName": "data_source",
+            "type": "FormulaAndFunctionEventsDataSource",
+            "required": true,
+            
+        },
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "Array<FormulaAndFunctionEventQueryGroupBy>",
+            
+            
+        },
+        "indexes": {
+            "baseName": "indexes",
+            "type": "Array<string>",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "search": {
+            "baseName": "search",
+            "type": "FormulaAndFunctionEventQueryDefinitionSearch",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

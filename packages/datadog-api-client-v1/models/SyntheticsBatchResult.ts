@@ -8,98 +8,118 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { SyntheticsStatus } from "./SyntheticsStatus";
-import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
-import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsDeviceID } from './SyntheticsDeviceID';
+import { SyntheticsStatus } from './SyntheticsStatus';
+import { SyntheticsTestDetailsType } from './SyntheticsTestDetailsType';
+import { SyntheticsTestExecutionRule } from './SyntheticsTestExecutionRule';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object with the results of a Synthetics batch.
- */
+* Object with the results of a Synthetics batch.
+*/
 
 export class SyntheticsBatchResult {
-  "device"?: SyntheticsDeviceID;
-  /**
-   * Total duration in millisecond of the test.
-   */
-  "duration"?: number;
-  "executionRule"?: SyntheticsTestExecutionRule;
-  /**
-   * Name of the location.
-   */
-  "location"?: string;
-  /**
-   * The ID of the result to get.
-   */
-  "resultId"?: string;
-  /**
-   * Total duration in millisecond of the test.
-   */
-  "retries"?: number;
-  "status"?: SyntheticsStatus;
-  /**
-   * Name of the test.
-   */
-  "testName"?: string;
-  /**
-   * The public ID of the Synthetic test.
-   */
-  "testPublicId"?: string;
-  "testType"?: SyntheticsTestDetailsType;
+    'device'?: SyntheticsDeviceID;
+    /**
+    * Total duration in millisecond of the test.
+    */
+    'duration'?: number;
+    'executionRule'?: SyntheticsTestExecutionRule;
+    /**
+    * Name of the location.
+    */
+    'location'?: string;
+    /**
+    * The ID of the result to get.
+    */
+    'resultId'?: string;
+    /**
+    * Total duration in millisecond of the test.
+    */
+    'retries'?: number;
+    'status'?: SyntheticsStatus;
+    /**
+    * Name of the test.
+    */
+    'testName'?: string;
+    /**
+    * The public ID of the Synthetic test.
+    */
+    'testPublicId'?: string;
+    'testType'?: SyntheticsTestDetailsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    device: {
-      baseName: "device",
-      type: "SyntheticsDeviceID",
-    },
-    duration: {
-      baseName: "duration",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "device": {
+            "baseName": "device",
+            "type": "SyntheticsDeviceID",
+            
+            
+        },
+        "duration": {
+            "baseName": "duration",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "executionRule": {
+            "baseName": "execution_rule",
+            "type": "SyntheticsTestExecutionRule",
+            
+            
+        },
+        "location": {
+            "baseName": "location",
+            "type": "string",
+            
+            
+        },
+        "resultId": {
+            "baseName": "result_id",
+            "type": "string",
+            
+            
+        },
+        "retries": {
+            "baseName": "retries",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SyntheticsStatus",
+            
+            
+        },
+        "testName": {
+            "baseName": "test_name",
+            "type": "string",
+            
+            
+        },
+        "testPublicId": {
+            "baseName": "test_public_id",
+            "type": "string",
+            
+            
+        },
+        "testType": {
+            "baseName": "test_type",
+            "type": "SyntheticsTestDetailsType",
+            
+            
+        }    };
 
-      format: "double",
-    },
-    executionRule: {
-      baseName: "execution_rule",
-      type: "SyntheticsTestExecutionRule",
-    },
-    location: {
-      baseName: "location",
-      type: "string",
-    },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
-    },
-    retries: {
-      baseName: "retries",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBatchResult.attributeTypeMap;
+    }
 
-      format: "double",
-    },
-    status: {
-      baseName: "status",
-      type: "SyntheticsStatus",
-    },
-    testName: {
-      baseName: "test_name",
-      type: "string",
-    },
-    testPublicId: {
-      baseName: "test_public_id",
-      type: "string",
-    },
-    testType: {
-      baseName: "test_type",
-      type: "SyntheticsTestDetailsType",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBatchResult.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

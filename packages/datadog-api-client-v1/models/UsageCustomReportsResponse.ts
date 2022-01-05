@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { UsageCustomReportsData } from "./UsageCustomReportsData";
-import { UsageCustomReportsMeta } from "./UsageCustomReportsMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageCustomReportsData } from './UsageCustomReportsData';
+import { UsageCustomReportsMeta } from './UsageCustomReportsMeta';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing available custom reports.
- */
+* Response containing available custom reports.
+*/
 
 export class UsageCustomReportsResponse {
-  /**
-   * An array of available custom reports.
-   */
-  "data"?: Array<UsageCustomReportsData>;
-  "meta"?: UsageCustomReportsMeta;
+    /**
+    * An array of available custom reports.
+    */
+    'data'?: Array<UsageCustomReportsData>;
+    'meta'?: UsageCustomReportsMeta;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UsageCustomReportsData>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "UsageCustomReportsMeta",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<UsageCustomReportsData>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "UsageCustomReportsMeta",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCustomReportsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

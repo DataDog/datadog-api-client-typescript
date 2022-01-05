@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { NotebooksResponseData } from "./NotebooksResponseData";
-import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebooksResponseData } from './NotebooksResponseData';
+import { NotebooksResponseMeta } from './NotebooksResponseMeta';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Notebooks get all response.
- */
+* Notebooks get all response.
+*/
 
 export class NotebooksResponse {
-  /**
-   * List of notebook definitions.
-   */
-  "data"?: Array<NotebooksResponseData>;
-  "meta"?: NotebooksResponseMeta;
+    /**
+    * List of notebook definitions.
+    */
+    'data'?: Array<NotebooksResponseData>;
+    'meta'?: NotebooksResponseMeta;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<NotebooksResponseData>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "NotebooksResponseMeta",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<NotebooksResponseData>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "NotebooksResponseMeta",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebooksResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributesValueType } from "./IncidentFieldAttributesValueType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentFieldAttributesValueType } from './IncidentFieldAttributesValueType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A field with potentially multiple values selected.
- */
+* A field with potentially multiple values selected.
+*/
 
 export class IncidentFieldAttributesMultipleValue {
-  "type"?: IncidentFieldAttributesValueType;
-  /**
-   * The multiple values selected for this field.
-   */
-  "value"?: Array<string>;
+    'type'?: IncidentFieldAttributesValueType;
+    /**
+    * The multiple values selected for this field.
+    */
+    'value'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "IncidentFieldAttributesValueType",
-    },
-    value: {
-      baseName: "value",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "type": {
+            "baseName": "type",
+            "type": "IncidentFieldAttributesValueType",
+            
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentFieldAttributesMultipleValue.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentFieldAttributesMultipleValue.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

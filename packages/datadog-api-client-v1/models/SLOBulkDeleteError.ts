@@ -8,47 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { SLOErrorTimeframe } from "./SLOErrorTimeframe";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOErrorTimeframe } from './SLOErrorTimeframe';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the error.
- */
+* Object describing the error.
+*/
 
 export class SLOBulkDeleteError {
-  /**
-   * The ID of the service level objective object associated with this error.
-   */
-  "id": string;
-  /**
-   * The error message.
-   */
-  "message": string;
-  "timeframe": SLOErrorTimeframe;
+    /**
+    * The ID of the service level objective object associated with this error.
+    */
+    'id': string;
+    /**
+    * The error message.
+    */
+    'message': string;
+    'timeframe': SLOErrorTimeframe;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
-    },
-    timeframe: {
-      baseName: "timeframe",
-      type: "SLOErrorTimeframe",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            "required": true,
+            
+        },
+        "timeframe": {
+            "baseName": "timeframe",
+            "type": "SLOErrorTimeframe",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteError.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOBulkDeleteError.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

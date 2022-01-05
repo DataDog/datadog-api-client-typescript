@@ -8,93 +8,104 @@
  * Do not edit the class manually.
  */
 
-import { Creator } from "./Creator";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Creator } from './Creator';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Your Datadog Dashboards.
- */
+* Your Datadog Dashboards.
+*/
 
 export class DashboardList {
-  "author"?: Creator;
-  /**
-   * Date of creation of the dashboard list.
-   */
-  "created"?: Date;
-  /**
-   * The number of dashboards in the list.
-   */
-  "dashboardCount"?: number;
-  /**
-   * The ID of the dashboard list.
-   */
-  "id"?: number;
-  /**
-   * Whether or not the list is in the favorites.
-   */
-  "isFavorite"?: boolean;
-  /**
-   * Date of last edition of the dashboard list.
-   */
-  "modified"?: Date;
-  /**
-   * The name of the dashboard list.
-   */
-  "name": string;
-  /**
-   * The type of dashboard list.
-   */
-  "type"?: string;
+    'author'?: Creator;
+    /**
+    * Date of creation of the dashboard list.
+    */
+    'created'?: Date;
+    /**
+    * The number of dashboards in the list.
+    */
+    'dashboardCount'?: number;
+    /**
+    * The ID of the dashboard list.
+    */
+    'id'?: number;
+    /**
+    * Whether or not the list is in the favorites.
+    */
+    'isFavorite'?: boolean;
+    /**
+    * Date of last edition of the dashboard list.
+    */
+    'modified'?: Date;
+    /**
+    * The name of the dashboard list.
+    */
+    'name': string;
+    /**
+    * The type of dashboard list.
+    */
+    'type'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "Creator",
-    },
-    created: {
-      baseName: "created",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "author": {
+            "baseName": "author",
+            "type": "Creator",
+            
+            
+        },
+        "created": {
+            "baseName": "created",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "dashboardCount": {
+            "baseName": "dashboard_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "id": {
+            "baseName": "id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "isFavorite": {
+            "baseName": "is_favorite",
+            "type": "boolean",
+            
+            
+        },
+        "modified": {
+            "baseName": "modified",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    dashboardCount: {
-      baseName: "dashboard_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardList.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    id: {
-      baseName: "id",
-      type: "number",
-
-      format: "int64",
-    },
-    isFavorite: {
-      baseName: "is_favorite",
-      type: "boolean",
-    },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardList.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

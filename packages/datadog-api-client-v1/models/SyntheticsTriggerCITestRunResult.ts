@@ -8,54 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsDeviceID } from './SyntheticsDeviceID';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Information about a single test run.
- */
+* Information about a single test run.
+*/
 
 export class SyntheticsTriggerCITestRunResult {
-  "device"?: SyntheticsDeviceID;
-  /**
-   * The location ID of the test run.
-   */
-  "location"?: number;
-  /**
-   * The public ID of the Synthetics test.
-   */
-  "publicId"?: string;
-  /**
-   * ID of the result.
-   */
-  "resultId"?: string;
+    'device'?: SyntheticsDeviceID;
+    /**
+    * The location ID of the test run.
+    */
+    'location'?: number;
+    /**
+    * The public ID of the Synthetics test.
+    */
+    'publicId'?: string;
+    /**
+    * ID of the result.
+    */
+    'resultId'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    device: {
-      baseName: "device",
-      type: "SyntheticsDeviceID",
-    },
-    location: {
-      baseName: "location",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "device": {
+            "baseName": "device",
+            "type": "SyntheticsDeviceID",
+            
+            
+        },
+        "location": {
+            "baseName": "location",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        },
+        "resultId": {
+            "baseName": "result_id",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTriggerCITestRunResult.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerCITestRunResult.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,41 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
-import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
-import { IncidentServiceType } from "./IncidentServiceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentServiceCreateAttributes } from './IncidentServiceCreateAttributes';
+import { IncidentServiceRelationships } from './IncidentServiceRelationships';
+import { IncidentServiceType } from './IncidentServiceType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Incident Service payload for create requests.
- */
+* Incident Service payload for create requests.
+*/
 
 export class IncidentServiceCreateData {
-  "attributes"?: IncidentServiceCreateAttributes;
-  "relationships"?: IncidentServiceRelationships;
-  "type": IncidentServiceType;
+    'attributes'?: IncidentServiceCreateAttributes;
+    'relationships'?: IncidentServiceRelationships;
+    'type': IncidentServiceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentServiceCreateAttributes",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentServiceRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentServiceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "IncidentServiceCreateAttributes",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "IncidentServiceRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentServiceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServiceCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageIncidentManagementHour } from './UsageIncidentManagementHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the incident management usage for each hour for a given organization.
- */
+* Response containing the incident management usage for each hour for a given organization.
+*/
 
 export class UsageIncidentManagementResponse {
-  /**
-   * Get hourly usage for incident management.
-   */
-  "usage"?: Array<UsageIncidentManagementHour>;
+    /**
+    * Get hourly usage for incident management.
+    */
+    'usage'?: Array<UsageIncidentManagementHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIncidentManagementHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageIncidentManagementHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIncidentManagementResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIncidentManagementResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

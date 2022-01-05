@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsDateRemapperType = typeof DATE_REMAPPER;
-export const DATE_REMAPPER = "date-remapper";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs date remapper.
+*/
+
+export type LogsDateRemapperType = typeof DATE_REMAPPER ;
+export const DATE_REMAPPER = 'date-remapper';
+
+

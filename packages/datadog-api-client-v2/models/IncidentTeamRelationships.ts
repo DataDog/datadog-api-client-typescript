@@ -8,33 +8,41 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToUser } from './RelationshipToUser';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The incident team's relationships.
- */
+* The incident team's relationships.
+*/
 
 export class IncidentTeamRelationships {
-  "createdBy"?: RelationshipToUser;
-  "lastModifiedBy"?: RelationshipToUser;
+    'createdBy'?: RelationshipToUser;
+    'lastModifiedBy'?: RelationshipToUser;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdBy: {
-      baseName: "created_by",
-      type: "RelationshipToUser",
-    },
-    lastModifiedBy: {
-      baseName: "last_modified_by",
-      type: "RelationshipToUser",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdBy": {
+            "baseName": "created_by",
+            "type": "RelationshipToUser",
+            
+            
+        },
+        "lastModifiedBy": {
+            "baseName": "last_modified_by",
+            "type": "RelationshipToUser",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentTeamRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

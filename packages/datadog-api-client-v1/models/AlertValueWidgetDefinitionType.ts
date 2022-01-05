@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type AlertValueWidgetDefinitionType = typeof ALERT_VALUE;
-export const ALERT_VALUE = "alert_value";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the alert value widget.
+*/
+
+export type AlertValueWidgetDefinitionType = typeof ALERT_VALUE ;
+export const ALERT_VALUE = 'alert_value';
+
+

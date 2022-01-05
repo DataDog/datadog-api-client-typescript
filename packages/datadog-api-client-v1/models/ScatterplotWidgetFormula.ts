@@ -8,46 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { ScatterplotDimension } from "./ScatterplotDimension";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ScatterplotDimension } from './ScatterplotDimension';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Formula to be used in a Scatterplot widget query.
- */
+* Formula to be used in a Scatterplot widget query.
+*/
 
 export class ScatterplotWidgetFormula {
-  /**
-   * Expression alias.
-   */
-  "alias"?: string;
-  "dimension": ScatterplotDimension;
-  /**
-   * String expression built from queries, formulas, and functions.
-   */
-  "formula": string;
+    /**
+    * Expression alias.
+    */
+    'alias'?: string;
+    'dimension': ScatterplotDimension;
+    /**
+    * String expression built from queries, formulas, and functions.
+    */
+    'formula': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    alias: {
-      baseName: "alias",
-      type: "string",
-    },
-    dimension: {
-      baseName: "dimension",
-      type: "ScatterplotDimension",
-      required: true,
-    },
-    formula: {
-      baseName: "formula",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "alias": {
+            "baseName": "alias",
+            "type": "string",
+            
+            
+        },
+        "dimension": {
+            "baseName": "dimension",
+            "type": "ScatterplotDimension",
+            "required": true,
+            
+        },
+        "formula": {
+            "baseName": "formula",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterplotWidgetFormula.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ScatterplotWidgetFormula.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Type of aggregation performed in the monitor query.
- */
+* Type of aggregation performed in the monitor query.
+*/
 
 export class MonitorOptionsAggregation {
-  /**
-   * Group to break down the monitor on.
-   */
-  "groupBy"?: string;
-  /**
-   * Metric name used in the monitor.
-   */
-  "metric"?: string;
-  /**
-   * Metric type used in the monitor.
-   */
-  "type"?: string;
+    /**
+    * Group to break down the monitor on.
+    */
+    'groupBy'?: string;
+    /**
+    * Metric name used in the monitor.
+    */
+    'metric'?: string;
+    /**
+    * Metric type used in the monitor.
+    */
+    'type'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    groupBy: {
-      baseName: "group_by",
-      type: "string",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "groupBy": {
+            "baseName": "group_by",
+            "type": "string",
+            
+            
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorOptionsAggregation.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorOptionsAggregation.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

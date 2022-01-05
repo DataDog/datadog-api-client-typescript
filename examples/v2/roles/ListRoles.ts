@@ -10,15 +10,16 @@ const apiInstance = new v2.RolesApi(configuration);
 // there is a valid "role" in the system
 let ROLE_DATA_ATTRIBUTES_NAME = process.env.ROLE_DATA_ATTRIBUTES_NAME as string;
 
+
+
 let params: v2.RolesApiListRolesRequest = {
   filter: ROLE_DATA_ATTRIBUTES_NAME,
+
 };
 
 apiInstance
   .listRoles(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

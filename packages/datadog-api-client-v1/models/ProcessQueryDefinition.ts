@@ -8,57 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The process query to use in the widget.
- */
+* The process query to use in the widget.
+*/
 
 export class ProcessQueryDefinition {
-  /**
-   * List of processes.
-   */
-  "filterBy"?: Array<string>;
-  /**
-   * Max number of items in the filter list.
-   */
-  "limit"?: number;
-  /**
-   * Your chosen metric.
-   */
-  "metric": string;
-  /**
-   * Your chosen search term.
-   */
-  "searchBy"?: string;
+    /**
+    * List of processes.
+    */
+    'filterBy'?: Array<string>;
+    /**
+    * Max number of items in the filter list.
+    */
+    'limit'?: number;
+    /**
+    * Your chosen metric.
+    */
+    'metric': string;
+    /**
+    * Your chosen search term.
+    */
+    'searchBy'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    filterBy: {
-      baseName: "filter_by",
-      type: "Array<string>",
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "filterBy": {
+            "baseName": "filter_by",
+            "type": "Array<string>",
+            
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            "required": true,
+            
+        },
+        "searchBy": {
+            "baseName": "search_by",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-      required: true,
-    },
-    searchBy: {
-      baseName: "search_by",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ProcessQueryDefinition.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

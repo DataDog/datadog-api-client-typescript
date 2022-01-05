@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Set of tags to associate with your host.
- */
+* Set of tags to associate with your host.
+*/
 
 export class HostTags {
-  /**
-   * Your host name.
-   */
-  "host"?: string;
-  /**
-   * A list of tags to apply to the host.
-   */
-  "tags"?: Array<string>;
+    /**
+    * Your host name.
+    */
+    'host'?: string;
+    /**
+    * A list of tags to apply to the host.
+    */
+    'tags'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    host: {
-      baseName: "host",
-      type: "string",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "host": {
+            "baseName": "host",
+            "type": "string",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostTags.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostTags.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RoleCreateResponseData } from "./RoleCreateResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RoleCreateResponseData } from './RoleCreateResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing information about a created role.
- */
+* Response containing information about a created role.
+*/
 
 export class RoleCreateResponse {
-  "data"?: RoleCreateResponseData;
+    'data'?: RoleCreateResponseData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RoleCreateResponseData",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "RoleCreateResponseData",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleCreateResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

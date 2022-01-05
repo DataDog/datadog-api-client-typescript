@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type WidgetSort = typeof ASCENDING | typeof DESCENDING;
-export const ASCENDING = "asc";
-export const DESCENDING = "desc";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Widget sorting methods.
+*/
+
+export type WidgetSort = typeof ASCENDING | typeof DESCENDING ;
+export const ASCENDING = 'asc';
+export const DESCENDING = 'desc';
+
+

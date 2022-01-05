@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IFrameWidgetDefinitionType = typeof IFRAME;
-export const IFRAME = "iframe";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the iframe widget.
+*/
+
+export type IFrameWidgetDefinitionType = typeof IFRAME ;
+export const IFRAME = 'iframe';
+
+

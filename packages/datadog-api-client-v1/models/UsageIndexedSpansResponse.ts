@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageIndexedSpansHour } from "./UsageIndexedSpansHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageIndexedSpansHour } from './UsageIndexedSpansHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A response containing indexed spans usage.
- */
+* A response containing indexed spans usage.
+*/
 
 export class UsageIndexedSpansResponse {
-  /**
-   * Array with the number of hourly traces indexed for a given organization.
-   */
-  "usage"?: Array<UsageIndexedSpansHour>;
+    /**
+    * Array with the number of hourly traces indexed for a given organization.
+    */
+    'usage'?: Array<UsageIndexedSpansHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIndexedSpansHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageIndexedSpansHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIndexedSpansResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIndexedSpansResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

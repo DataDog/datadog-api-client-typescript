@@ -8,50 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
-import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
-import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToIncidentIntegrationMetadatas } from './RelationshipToIncidentIntegrationMetadatas';
+import { RelationshipToIncidentPostmortem } from './RelationshipToIncidentPostmortem';
+import { RelationshipToUser } from './RelationshipToUser';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The incident's relationships for an update request.
- */
+* The incident's relationships for an update request.
+*/
 
 export class IncidentUpdateRelationships {
-  "commanderUser"?: RelationshipToUser;
-  "createdByUser"?: RelationshipToUser;
-  "integrations"?: RelationshipToIncidentIntegrationMetadatas;
-  "lastModifiedByUser"?: RelationshipToUser;
-  "postmortem"?: RelationshipToIncidentPostmortem;
+    'commanderUser'?: RelationshipToUser;
+    'createdByUser'?: RelationshipToUser;
+    'integrations'?: RelationshipToIncidentIntegrationMetadatas;
+    'lastModifiedByUser'?: RelationshipToUser;
+    'postmortem'?: RelationshipToIncidentPostmortem;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "RelationshipToUser",
-    },
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
-    },
-    integrations: {
-      baseName: "integrations",
-      type: "RelationshipToIncidentIntegrationMetadatas",
-    },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
-    },
-    postmortem: {
-      baseName: "postmortem",
-      type: "RelationshipToIncidentPostmortem",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "commanderUser": {
+            "baseName": "commander_user",
+            "type": "RelationshipToUser",
+            
+            
+        },
+        "createdByUser": {
+            "baseName": "created_by_user",
+            "type": "RelationshipToUser",
+            
+            
+        },
+        "integrations": {
+            "baseName": "integrations",
+            "type": "RelationshipToIncidentIntegrationMetadatas",
+            
+            
+        },
+        "lastModifiedByUser": {
+            "baseName": "last_modified_by_user",
+            "type": "RelationshipToUser",
+            
+            
+        },
+        "postmortem": {
+            "baseName": "postmortem",
+            "type": "RelationshipToIncidentPostmortem",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentUpdateRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentUpdateRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

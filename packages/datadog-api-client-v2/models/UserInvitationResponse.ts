@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { UserInvitationResponseData } from "./UserInvitationResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserInvitationResponseData } from './UserInvitationResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * User invitation as returned by the API.
- */
+* User invitation as returned by the API.
+*/
 
 export class UserInvitationResponse {
-  "data"?: UserInvitationResponseData;
+    'data'?: UserInvitationResponseData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UserInvitationResponseData",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "UserInvitationResponseData",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserInvitationResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

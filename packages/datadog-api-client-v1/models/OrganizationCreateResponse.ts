@@ -8,46 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { ApiKey } from "./ApiKey";
-import { ApplicationKey } from "./ApplicationKey";
-import { Organization } from "./Organization";
-import { User } from "./User";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApiKey } from './ApiKey';
+import { ApplicationKey } from './ApplicationKey';
+import { Organization } from './Organization';
+import { User } from './User';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response object for an organization creation.
- */
+* Response object for an organization creation.
+*/
 
 export class OrganizationCreateResponse {
-  "apiKey"?: ApiKey;
-  "applicationKey"?: ApplicationKey;
-  "org"?: Organization;
-  "user"?: User;
+    'apiKey'?: ApiKey;
+    'applicationKey'?: ApplicationKey;
+    'org'?: Organization;
+    'user'?: User;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "ApiKey",
-    },
-    applicationKey: {
-      baseName: "application_key",
-      type: "ApplicationKey",
-    },
-    org: {
-      baseName: "org",
-      type: "Organization",
-    },
-    user: {
-      baseName: "user",
-      type: "User",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "apiKey": {
+            "baseName": "api_key",
+            "type": "ApiKey",
+            
+            
+        },
+        "applicationKey": {
+            "baseName": "application_key",
+            "type": "ApplicationKey",
+            
+            
+        },
+        "org": {
+            "baseName": "org",
+            "type": "Organization",
+            
+            
+        },
+        "user": {
+            "baseName": "user",
+            "type": "User",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationCreateResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationCreateResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

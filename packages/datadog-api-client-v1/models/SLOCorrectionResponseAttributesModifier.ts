@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Modifier of the object.
- */
+* Modifier of the object.
+*/
 
 export class SLOCorrectionResponseAttributesModifier {
-  /**
-   * Email of the Modifier.
-   */
-  "email"?: string;
-  /**
-   * Handle of the Modifier.
-   */
-  "handle"?: string;
-  /**
-   * Name of the Modifier.
-   */
-  "name"?: string;
+    /**
+    * Email of the Modifier.
+    */
+    'email'?: string;
+    /**
+    * Handle of the Modifier.
+    */
+    'handle'?: string;
+    /**
+    * Name of the Modifier.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
-    },
-    handle: {
-      baseName: "handle",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "email": {
+            "baseName": "email",
+            "type": "string",
+            
+            
+        },
+        "handle": {
+            "baseName": "handle",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionResponseAttributesModifier.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrectionResponseAttributesModifier.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

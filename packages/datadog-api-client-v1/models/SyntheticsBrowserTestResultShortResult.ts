@@ -8,68 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDevice } from "./SyntheticsDevice";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsDevice } from './SyntheticsDevice';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object with the result of the last browser test run.
- */
+* Object with the result of the last browser test run.
+*/
 
 export class SyntheticsBrowserTestResultShortResult {
-  "device"?: SyntheticsDevice;
-  /**
-   * Length in second of the browser test run.
-   */
-  "duration"?: number;
-  /**
-   * Amount of errors collected for a single browser test run.
-   */
-  "errorCount"?: number;
-  /**
-   * Amount of browser test steps completed before failing.
-   */
-  "stepCountCompleted"?: number;
-  /**
-   * Total amount of browser test steps.
-   */
-  "stepCountTotal"?: number;
+    'device'?: SyntheticsDevice;
+    /**
+    * Length in second of the browser test run.
+    */
+    'duration'?: number;
+    /**
+    * Amount of errors collected for a single browser test run.
+    */
+    'errorCount'?: number;
+    /**
+    * Amount of browser test steps completed before failing.
+    */
+    'stepCountCompleted'?: number;
+    /**
+    * Total amount of browser test steps.
+    */
+    'stepCountTotal'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    device: {
-      baseName: "device",
-      type: "SyntheticsDevice",
-    },
-    duration: {
-      baseName: "duration",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "device": {
+            "baseName": "device",
+            "type": "SyntheticsDevice",
+            
+            
+        },
+        "duration": {
+            "baseName": "duration",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "errorCount": {
+            "baseName": "errorCount",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "stepCountCompleted": {
+            "baseName": "stepCountCompleted",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "stepCountTotal": {
+            "baseName": "stepCountTotal",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "double",
-    },
-    errorCount: {
-      baseName: "errorCount",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    stepCountCompleted: {
-      baseName: "stepCountCompleted",
-      type: "number",
-
-      format: "int64",
-    },
-    stepCountTotal: {
-      baseName: "stepCountTotal",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

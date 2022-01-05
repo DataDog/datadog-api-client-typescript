@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type ContentEncoding = typeof GZIP | typeof DEFLATE;
-export const GZIP = "gzip";
-export const DEFLATE = "deflate";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* HTTP header used to compress the media-type.
+*/
+
+export type ContentEncoding = typeof GZIP | typeof DEFLATE ;
+export const GZIP = 'gzip';
+export const DEFLATE = 'deflate';
+
+

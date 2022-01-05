@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type FunnelRequestType = typeof FUNNEL;
-export const FUNNEL = "funnel";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Widget request type.
+*/
+
+export type FunnelRequestType = typeof FUNNEL ;
+export const FUNNEL = 'funnel';
+
+

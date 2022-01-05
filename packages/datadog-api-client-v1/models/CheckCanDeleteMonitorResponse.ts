@@ -8,37 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { CheckCanDeleteMonitorResponseData } from './CheckCanDeleteMonitorResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response of monitor IDs that can or can't be safely deleted.
- */
+* Response of monitor IDs that can or can't be safely deleted.
+*/
 
 export class CheckCanDeleteMonitorResponse {
-  "data": CheckCanDeleteMonitorResponseData;
-  /**
-   * A mapping of Monitor ID to strings denoting where it's used.
-   */
-  "errors"?: { [key: string]: Array<string> };
+    'data': CheckCanDeleteMonitorResponseData;
+    /**
+    * A mapping of Monitor ID to strings denoting where it's used.
+    */
+    'errors'?: { [key: string]: Array<string>; };
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CheckCanDeleteMonitorResponseData",
-      required: true,
-    },
-    errors: {
-      baseName: "errors",
-      type: "{ [key: string]: Array<string>; }",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "CheckCanDeleteMonitorResponseData",
+            "required": true,
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "{ [key: string]: Array<string>; }",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteMonitorResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return CheckCanDeleteMonitorResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

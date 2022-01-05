@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsLookupProcessorType = typeof LOOKUP_PROCESSOR;
-export const LOOKUP_PROCESSOR = "lookup-processor";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs lookup processor.
+*/
+
+export type LogsLookupProcessorType = typeof LOOKUP_PROCESSOR ;
+export const LOOKUP_PROCESSOR = 'lookup-processor';
+
+

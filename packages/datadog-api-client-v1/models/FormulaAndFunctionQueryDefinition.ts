@@ -8,21 +8,22 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
-import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
-import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
-import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
-import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
-import { UnparsedObject } from "./ObjectSerializer";
+import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from './FormulaAndFunctionApmDependencyStatsQueryDefinition';
+import { FormulaAndFunctionApmResourceStatName } from './FormulaAndFunctionApmResourceStatName';
+import { FormulaAndFunctionApmResourceStatsDataSource } from './FormulaAndFunctionApmResourceStatsDataSource';
+import { FormulaAndFunctionApmResourceStatsQueryDefinition } from './FormulaAndFunctionApmResourceStatsQueryDefinition';
+import { FormulaAndFunctionEventQueryDefinition } from './FormulaAndFunctionEventQueryDefinition';
+import { FormulaAndFunctionEventQueryDefinitionCompute } from './FormulaAndFunctionEventQueryDefinitionCompute';
+import { FormulaAndFunctionEventQueryDefinitionSearch } from './FormulaAndFunctionEventQueryDefinitionSearch';
+import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricAggregation';
+import { FormulaAndFunctionMetricQueryDefinition } from './FormulaAndFunctionMetricQueryDefinition';
+import { FormulaAndFunctionProcessQueryDefinition } from './FormulaAndFunctionProcessQueryDefinition';
+import { QuerySortOrder } from './QuerySortOrder';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A formula and function query.
- */
+* A formula and function query.
+*/
 
-export type FormulaAndFunctionQueryDefinition =
-  | FormulaAndFunctionApmDependencyStatsQueryDefinition
-  | FormulaAndFunctionApmResourceStatsQueryDefinition
-  | FormulaAndFunctionEventQueryDefinition
-  | FormulaAndFunctionMetricQueryDefinition
-  | FormulaAndFunctionProcessQueryDefinition
-  | UnparsedObject;
+export type FormulaAndFunctionQueryDefinition = FormulaAndFunctionApmDependencyStatsQueryDefinition | FormulaAndFunctionApmResourceStatsQueryDefinition | FormulaAndFunctionEventQueryDefinition | FormulaAndFunctionMetricQueryDefinition | FormulaAndFunctionProcessQueryDefinition | UnparsedObject;

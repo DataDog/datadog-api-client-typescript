@@ -8,68 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Cloud Security Posture Management usage for a given organization for a given hour.
- */
+* Cloud Security Posture Management usage for a given organization for a given hour.
+*/
 
 export class UsageCloudSecurityPostureManagementHour {
-  /**
-   * The total number of Cloud Security Posture Management containers during a given hour.
-   */
-  "containerCount"?: number;
-  /**
-   * The total number of Cloud Security Posture Management hosts during a given hour.
-   */
-  "hostCount"?: number;
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * The organization name.
-   */
-  "orgName"?: string;
-  /**
-   * The organization public ID.
-   */
-  "publicId"?: string;
+    /**
+    * The total number of Cloud Security Posture Management containers during a given hour.
+    */
+    'containerCount'?: number;
+    /**
+    * The total number of Cloud Security Posture Management hosts during a given hour.
+    */
+    'hostCount'?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * The organization name.
+    */
+    'orgName'?: string;
+    /**
+    * The organization public ID.
+    */
+    'publicId'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    containerCount: {
-      baseName: "container_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "containerCount": {
+            "baseName": "container_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hostCount": {
+            "baseName": "host_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "orgName": {
+            "baseName": "org_name",
+            "type": "string",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    hostCount: {
-      baseName: "host_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    hour: {
-      baseName: "hour",
-      type: "Date",
-
-      format: "date-time",
-    },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

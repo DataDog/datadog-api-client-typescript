@@ -11,27 +11,28 @@ const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 // there is a valid "slo" in the system
 let SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 
+
+
 let params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
   body: {
-    data: {
-      attributes: {
-        category: "Scheduled Maintenance",
-        description: "Example-Create_an_SLO_correction_returns_OK_response",
-        end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
-        sloId: SLO_DATA_0_ID,
-        start: new Date().getTime() / 1000,
-        timezone: "UTC",
-      },
-      type: "correction",
-    },
-  },
+data: {
+attributes: {
+category: "Scheduled Maintenance",
+description: "Example-Create_an_SLO_correction_returns_OK_response",
+end: new Date(new Date().getTime() / 1000 + 1*3600).getTime() / 1000,
+sloId: SLO_DATA_0_ID,
+start: new Date().getTime() / 1000,
+timezone: "UTC",
+},
+type: "correction",
+},
+},
+  
 };
 
 apiInstance
   .createSLOCorrection(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

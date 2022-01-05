@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsStatus = typeof PASSED | typeof skipped | typeof failed;
-export const PASSED = "passed";
-export const skipped = "skipped";
-export const failed = "failed";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Determines whether or not the batch has passed, failed, or is in progress.
+*/
+
+export type SyntheticsStatus = typeof PASSED | typeof skipped | typeof failed ;
+export const PASSED = 'passed';
+export const skipped = 'skipped';
+export const failed = 'failed';
+
+

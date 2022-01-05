@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentServicesResponseMetaPagination } from './IncidentServicesResponseMetaPagination';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The metadata object containing pagination metadata.
- */
+* The metadata object containing pagination metadata.
+*/
 
 export class IncidentServicesResponseMeta {
-  "pagination"?: IncidentServicesResponseMetaPagination;
+    'pagination'?: IncidentServicesResponseMetaPagination;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "IncidentServicesResponseMetaPagination",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "pagination": {
+            "baseName": "pagination",
+            "type": "IncidentServicesResponseMetaPagination",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServicesResponseMeta.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServicesResponseMeta.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

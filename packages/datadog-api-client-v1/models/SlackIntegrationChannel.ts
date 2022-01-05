@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SlackIntegrationChannelDisplay } from './SlackIntegrationChannelDisplay';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The Slack channel configuration.
- */
+* The Slack channel configuration.
+*/
 
 export class SlackIntegrationChannel {
-  "display"?: SlackIntegrationChannelDisplay;
-  /**
-   * Your channel name.
-   */
-  "name"?: string;
+    'display'?: SlackIntegrationChannelDisplay;
+    /**
+    * Your channel name.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    display: {
-      baseName: "display",
-      type: "SlackIntegrationChannelDisplay",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "display": {
+            "baseName": "display",
+            "type": "SlackIntegrationChannelDisplay",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationChannel.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SlackIntegrationChannel.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

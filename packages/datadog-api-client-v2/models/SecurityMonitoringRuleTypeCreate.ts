@@ -8,8 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SecurityMonitoringRuleTypeCreate =
-  | typeof LOG_DETECTION
-  | typeof WORKLOAD_SECURITY;
-export const LOG_DETECTION = "log_detection";
-export const WORKLOAD_SECURITY = "workload_security";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The rule type.
+*/
+
+export type SecurityMonitoringRuleTypeCreate = typeof LOG_DETECTION | typeof WORKLOAD_SECURITY ;
+export const LOG_DETECTION = 'log_detection';
+export const WORKLOAD_SECURITY = 'workload_security';
+
+

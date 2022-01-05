@@ -8,15 +8,12 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucketValueTimeseriesPoint } from "./LogsAggregateBucketValueTimeseriesPoint";
-import { UnparsedObject } from "./ObjectSerializer";
+import { LogsAggregateBucketValueTimeseriesPoint } from './LogsAggregateBucketValueTimeseriesPoint';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A bucket value, can be either a timeseries or a single value
- */
+* A bucket value, can be either a timeseries or a single value
+*/
 
-export type LogsAggregateBucketValue =
-  | Array<LogsAggregateBucketValueTimeseriesPoint>
-  | number
-  | string
-  | UnparsedObject;
+export type LogsAggregateBucketValue = Array<LogsAggregateBucketValueTimeseriesPoint> | number | string | UnparsedObject;

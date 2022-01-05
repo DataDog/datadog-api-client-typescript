@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type TableWidgetCellDisplayMode = typeof NUMBER | typeof BAR;
-export const NUMBER = "number";
-export const BAR = "bar";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Define a display mode for the table cell.
+*/
+
+export type TableWidgetCellDisplayMode = typeof NUMBER | typeof BAR ;
+export const NUMBER = 'number';
+export const BAR = 'bar';
+
+

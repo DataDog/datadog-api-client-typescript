@@ -8,50 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { IncidentType } from "./IncidentType";
-import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
-import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentType } from './IncidentType';
+import { IncidentUpdateAttributes } from './IncidentUpdateAttributes';
+import { IncidentUpdateRelationships } from './IncidentUpdateRelationships';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Incident data for an update request.
- */
+* Incident data for an update request.
+*/
 
 export class IncidentUpdateData {
-  "attributes"?: IncidentUpdateAttributes;
-  /**
-   * The team's ID.
-   */
-  "id": string;
-  "relationships"?: IncidentUpdateRelationships;
-  "type": IncidentType;
+    'attributes'?: IncidentUpdateAttributes;
+    /**
+    * The team's ID.
+    */
+    'id': string;
+    'relationships'?: IncidentUpdateRelationships;
+    'type': IncidentType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentUpdateAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentUpdateRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "IncidentUpdateAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "IncidentUpdateRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentUpdateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentUpdateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

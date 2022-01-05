@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ServiceMapWidgetDefinitionType = typeof SERVICEMAP;
-export const SERVICEMAP = "servicemap";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the service map widget.
+*/
+
+export type ServiceMapWidgetDefinitionType = typeof SERVICEMAP ;
+export const SERVICEMAP = 'servicemap';
+
+

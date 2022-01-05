@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type LogsComputeType = typeof TIMESERIES | typeof TOTAL;
-export const TIMESERIES = "timeseries";
-export const TOTAL = "total";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of compute
+*/
+
+export type LogsComputeType = typeof TIMESERIES | typeof TOTAL ;
+export const TIMESERIES = 'timeseries';
+export const TOTAL = 'total';
+
+

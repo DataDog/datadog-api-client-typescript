@@ -8,68 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Cloud Workload Security usage for a given organization for a given hour.
- */
+* Cloud Workload Security usage for a given organization for a given hour.
+*/
 
 export class UsageCWSHour {
-  /**
-   * The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
-   */
-  "cwsContainerCount"?: number;
-  /**
-   * The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.
-   */
-  "cwsHostCount"?: number;
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * The organization name.
-   */
-  "orgName"?: string;
-  /**
-   * The organization public ID.
-   */
-  "publicId"?: string;
+    /**
+    * The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
+    */
+    'cwsContainerCount'?: number;
+    /**
+    * The total number of Cloud Workload Security host hours from the start of the given hour’s month until the given hour.
+    */
+    'cwsHostCount'?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * The organization name.
+    */
+    'orgName'?: string;
+    /**
+    * The organization public ID.
+    */
+    'publicId'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cwsContainerCount: {
-      baseName: "cws_container_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cwsContainerCount": {
+            "baseName": "cws_container_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "cwsHostCount": {
+            "baseName": "cws_host_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "orgName": {
+            "baseName": "org_name",
+            "type": "string",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    cwsHostCount: {
-      baseName: "cws_host_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCWSHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    hour: {
-      baseName: "hour",
-      type: "Date",
-
-      format: "date-time",
-    },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCWSHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

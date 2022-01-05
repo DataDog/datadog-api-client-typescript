@@ -8,60 +8,72 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
-import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsAPITestResultShortResult } from './SyntheticsAPITestResultShortResult';
+import { SyntheticsTestMonitorStatus } from './SyntheticsTestMonitorStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object with the results of a single Synthetic API test.
- */
+* Object with the results of a single Synthetic API test.
+*/
 
 export class SyntheticsAPITestResultShort {
-  /**
-   * Last time the API test was performed.
-   */
-  "checkTime"?: number;
-  /**
-   * Location from which the API test was performed.
-   */
-  "probeDc"?: string;
-  "result"?: SyntheticsAPITestResultShortResult;
-  /**
-   * ID of the API test result.
-   */
-  "resultId"?: string;
-  "status"?: SyntheticsTestMonitorStatus;
+    /**
+    * Last time the API test was performed.
+    */
+    'checkTime'?: number;
+    /**
+    * Location from which the API test was performed.
+    */
+    'probeDc'?: string;
+    'result'?: SyntheticsAPITestResultShortResult;
+    /**
+    * ID of the API test result.
+    */
+    'resultId'?: string;
+    'status'?: SyntheticsTestMonitorStatus;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    checkTime: {
-      baseName: "check_time",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "checkTime": {
+            "baseName": "check_time",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "probeDc": {
+            "baseName": "probe_dc",
+            "type": "string",
+            
+            
+        },
+        "result": {
+            "baseName": "result",
+            "type": "SyntheticsAPITestResultShortResult",
+            
+            
+        },
+        "resultId": {
+            "baseName": "result_id",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SyntheticsTestMonitorStatus",
+            
+            
+        }    };
 
-      format: "double",
-    },
-    probeDc: {
-      baseName: "probe_dc",
-      type: "string",
-    },
-    result: {
-      baseName: "result",
-      type: "SyntheticsAPITestResultShortResult",
-    },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "SyntheticsTestMonitorStatus",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAPITestResultShort.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultShort.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

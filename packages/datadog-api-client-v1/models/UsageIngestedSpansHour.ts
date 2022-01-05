@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Ingested spans usage for a given organization for a given hour.
- */
+* Ingested spans usage for a given organization for a given hour.
+*/
 
 export class UsageIngestedSpansHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * Contains the total number of bytes ingested during a given hour.
-   */
-  "ingestedEventsBytes"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * Contains the total number of bytes ingested during a given hour.
+    */
+    'ingestedEventsBytes'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "ingestedEventsBytes": {
+            "baseName": "ingested_events_bytes",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    ingestedEventsBytes: {
-      baseName: "ingested_events_bytes",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageIngestedSpansHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIngestedSpansHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

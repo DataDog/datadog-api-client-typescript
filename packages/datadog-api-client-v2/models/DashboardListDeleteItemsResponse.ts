@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { DashboardListItemResponse } from "./DashboardListItemResponse";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardListItemResponse } from './DashboardListItemResponse';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing a list of deleted dashboards.
- */
+* Response containing a list of deleted dashboards.
+*/
 
 export class DashboardListDeleteItemsResponse {
-  /**
-   * List of dashboards deleted from the dashboard list.
-   */
-  "deletedDashboardsFromList"?: Array<DashboardListItemResponse>;
+    /**
+    * List of dashboards deleted from the dashboard list.
+    */
+    'deletedDashboardsFromList'?: Array<DashboardListItemResponse>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedDashboardsFromList: {
-      baseName: "deleted_dashboards_from_list",
-      type: "Array<DashboardListItemResponse>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "deletedDashboardsFromList": {
+            "baseName": "deleted_dashboards_from_list",
+            "type": "Array<DashboardListItemResponse>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListDeleteItemsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardListDeleteItemsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

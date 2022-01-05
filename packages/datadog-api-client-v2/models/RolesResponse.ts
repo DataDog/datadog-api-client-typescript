@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
-import { Role } from "./Role";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ResponseMetaAttributes } from './ResponseMetaAttributes';
+import { Role } from './Role';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing information about multiple roles.
- */
+* Response containing information about multiple roles.
+*/
 
 export class RolesResponse {
-  /**
-   * Array of returned roles.
-   */
-  "data"?: Array<Role>;
-  "meta"?: ResponseMetaAttributes;
+    /**
+    * Array of returned roles.
+    */
+    'data'?: Array<Role>;
+    'meta'?: ResponseMetaAttributes;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Role>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ResponseMetaAttributes",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<Role>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "ResponseMetaAttributes",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RolesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RolesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

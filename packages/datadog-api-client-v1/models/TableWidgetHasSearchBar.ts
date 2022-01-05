@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type TableWidgetHasSearchBar =
-  | typeof ALWAYS
-  | typeof NEVER
-  | typeof AUTO;
-export const ALWAYS = "always";
-export const NEVER = "never";
-export const AUTO = "auto";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Controls the display of the search bar.
+*/
+
+export type TableWidgetHasSearchBar = typeof ALWAYS | typeof NEVER | typeof AUTO ;
+export const ALWAYS = 'always';
+export const NEVER = 'never';
+export const AUTO = 'auto';
+
+

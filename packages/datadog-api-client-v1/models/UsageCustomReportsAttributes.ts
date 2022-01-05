@@ -8,64 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response containing attributes for custom reports.
- */
+* The response containing attributes for custom reports.
+*/
 
 export class UsageCustomReportsAttributes {
-  /**
-   * The date the specified custom report was computed.
-   */
-  "computedOn"?: string;
-  /**
-   * The ending date of custom report.
-   */
-  "endDate"?: string;
-  /**
-   * size
-   */
-  "size"?: number;
-  /**
-   * The starting date of custom report.
-   */
-  "startDate"?: string;
-  /**
-   * A list of tags to apply to custom reports.
-   */
-  "tags"?: Array<string>;
+    /**
+    * The date the specified custom report was computed.
+    */
+    'computedOn'?: string;
+    /**
+    * The ending date of custom report.
+    */
+    'endDate'?: string;
+    /**
+    * size
+    */
+    'size'?: number;
+    /**
+    * The starting date of custom report.
+    */
+    'startDate'?: string;
+    /**
+    * A list of tags to apply to custom reports.
+    */
+    'tags'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    computedOn: {
-      baseName: "computed_on",
-      type: "string",
-    },
-    endDate: {
-      baseName: "end_date",
-      type: "string",
-    },
-    size: {
-      baseName: "size",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "computedOn": {
+            "baseName": "computed_on",
+            "type": "string",
+            
+            
+        },
+        "endDate": {
+            "baseName": "end_date",
+            "type": "string",
+            
+            
+        },
+        "size": {
+            "baseName": "size",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "startDate": {
+            "baseName": "start_date",
+            "type": "string",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    startDate: {
-      baseName: "start_date",
-      type: "string",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCustomReportsAttributes.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

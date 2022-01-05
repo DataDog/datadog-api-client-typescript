@@ -8,49 +8,60 @@
  * Do not edit the class manually.
  */
 
-import { RoleCreateAttributes } from "./RoleCreateAttributes";
-import { RoleResponseRelationships } from "./RoleResponseRelationships";
-import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RoleCreateAttributes } from './RoleCreateAttributes';
+import { RoleResponseRelationships } from './RoleResponseRelationships';
+import { RolesType } from './RolesType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Role object returned by the API.
- */
+* Role object returned by the API.
+*/
 
 export class RoleCreateResponseData {
-  "attributes"?: RoleCreateAttributes;
-  /**
-   * ID of the role.
-   */
-  "id"?: string;
-  "relationships"?: RoleResponseRelationships;
-  "type": RolesType;
+    'attributes'?: RoleCreateAttributes;
+    /**
+    * ID of the role.
+    */
+    'id'?: string;
+    'relationships'?: RoleResponseRelationships;
+    'type': RolesType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoleCreateAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "RoleResponseRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "RoleCreateAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "RoleResponseRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "RolesType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateResponseData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleCreateResponseData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

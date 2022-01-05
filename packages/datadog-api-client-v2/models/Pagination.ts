@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Pagination object.
- */
+* Pagination object.
+*/
 
 export class Pagination {
-  /**
-   * Total count.
-   */
-  "totalCount"?: number;
-  /**
-   * Total count of elements matched by the filter.
-   */
-  "totalFilteredCount"?: number;
+    /**
+    * Total count.
+    */
+    'totalCount'?: number;
+    /**
+    * Total count of elements matched by the filter.
+    */
+    'totalFilteredCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "total_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "totalCount": {
+            "baseName": "total_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "totalFilteredCount": {
+            "baseName": "total_filtered_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Pagination.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Pagination.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringSignalsListResponseMetaPage } from './SecurityMonitoringSignalsListResponseMetaPage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Meta attributes.
- */
+* Meta attributes.
+*/
 
 export class SecurityMonitoringSignalsListResponseMeta {
-  "page"?: SecurityMonitoringSignalsListResponseMetaPage;
+    'page'?: SecurityMonitoringSignalsListResponseMetaPage;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SecurityMonitoringSignalsListResponseMetaPage",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "SecurityMonitoringSignalsListResponseMetaPage",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { UsageCustomReportsPage } from "./UsageCustomReportsPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageCustomReportsPage } from './UsageCustomReportsPage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object containing document metadata.
- */
+* The object containing document metadata.
+*/
 
 export class UsageCustomReportsMeta {
-  "page"?: UsageCustomReportsPage;
+    'page'?: UsageCustomReportsPage;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "UsageCustomReportsPage",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "UsageCustomReportsPage",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsMeta.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCustomReportsMeta.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

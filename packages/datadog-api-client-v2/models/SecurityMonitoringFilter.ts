@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringFilterAction } from './SecurityMonitoringFilterAction';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The rule's suppression filter.
- */
+* The rule's suppression filter.
+*/
 
 export class SecurityMonitoringFilter {
-  "action"?: SecurityMonitoringFilterAction;
-  /**
-   * Query for selecting logs to apply the filtering action.
-   */
-  "query"?: string;
+    'action'?: SecurityMonitoringFilterAction;
+    /**
+    * Query for selecting logs to apply the filtering action.
+    */
+    'query'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "SecurityMonitoringFilterAction",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "action": {
+            "baseName": "action",
+            "type": "SecurityMonitoringFilterAction",
+            
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringFilter.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringFilter.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

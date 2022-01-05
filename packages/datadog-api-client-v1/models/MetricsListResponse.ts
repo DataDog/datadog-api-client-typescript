@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object listing all metric names stored by Datadog since a given time.
- */
+* Object listing all metric names stored by Datadog since a given time.
+*/
 
 export class MetricsListResponse {
-  /**
-   * Time when the metrics were active, seconds since the Unix epoch.
-   */
-  "from"?: string;
-  /**
-   * List of metric names.
-   */
-  "metrics"?: Array<string>;
+    /**
+    * Time when the metrics were active, seconds since the Unix epoch.
+    */
+    'from'?: string;
+    /**
+    * List of metric names.
+    */
+    'metrics'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "string",
-    },
-    metrics: {
-      baseName: "metrics",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "from": {
+            "baseName": "from",
+            "type": "string",
+            
+            
+        },
+        "metrics": {
+            "baseName": "metrics",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricsListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type ListStreamColumnWidth = typeof AUTO | typeof COMPACT | typeof FULL;
-export const AUTO = "auto";
-export const COMPACT = "compact";
-export const FULL = "full";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Widget column width.
+*/
+
+export type ListStreamColumnWidth = typeof AUTO | typeof COMPACT | typeof FULL ;
+export const AUTO = 'auto';
+export const COMPACT = 'compact';
+export const FULL = 'full';
+
+

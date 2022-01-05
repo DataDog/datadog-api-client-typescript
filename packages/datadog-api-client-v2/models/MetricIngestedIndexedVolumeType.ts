@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type MetricIngestedIndexedVolumeType = typeof METRIC_VOLUMES;
-export const METRIC_VOLUMES = "metric_volumes";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The metric ingested and indexed volume type.
+*/
+
+export type MetricIngestedIndexedVolumeType = typeof METRIC_VOLUMES ;
+export const METRIC_VOLUMES = 'metric_volumes';
+
+

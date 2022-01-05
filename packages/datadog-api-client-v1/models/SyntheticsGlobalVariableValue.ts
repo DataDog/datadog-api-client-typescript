@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Value of the global variable.
- */
+* Value of the global variable.
+*/
 
 export class SyntheticsGlobalVariableValue {
-  /**
-   * Determines if the value of the variable is hidden.
-   */
-  "secure"?: boolean;
-  /**
-   * Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the `secure` property.
-   */
-  "value"?: string;
+    /**
+    * Determines if the value of the variable is hidden.
+    */
+    'secure'?: boolean;
+    /**
+    * Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the `secure` property.
+    */
+    'value'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    secure: {
-      baseName: "secure",
-      type: "boolean",
-    },
-    value: {
-      baseName: "value",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "secure": {
+            "baseName": "secure",
+            "type": "boolean",
+            
+            
+        },
+        "value": {
+            "baseName": "value",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableValue.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsGlobalVariableValue.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,131 +8,153 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
-import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsDeviceID } from './SyntheticsDeviceID';
+import { SyntheticsTestOptionsMonitorOptions } from './SyntheticsTestOptionsMonitorOptions';
+import { SyntheticsTestOptionsRetry } from './SyntheticsTestOptionsRetry';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the extra options for a Synthetic test.
- */
+* Object describing the extra options for a Synthetic test.
+*/
 
 export class SyntheticsTestOptions {
-  /**
-   * For SSL test, whether or not the test should allow self signed certificates.
-   */
-  "acceptSelfSigned"?: boolean;
-  /**
-   * Allows loading insecure content for an HTTP request.
-   */
-  "allowInsecure"?: boolean;
-  /**
-   * For browser test, array with the different device IDs used to run the test.
-   */
-  "deviceIds"?: Array<SyntheticsDeviceID>;
-  /**
-   * Whether or not to disable CORS mechanism.
-   */
-  "disableCors"?: boolean;
-  /**
-   * For API HTTP test, whether or not the test should follow redirects.
-   */
-  "followRedirects"?: boolean;
-  /**
-   * Minimum amount of time in failure required to trigger an alert.
-   */
-  "minFailureDuration"?: number;
-  /**
-   * Minimum number of locations in failure required to trigger an alert.
-   */
-  "minLocationFailed"?: number;
-  /**
-   * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-   */
-  "monitorName"?: string;
-  "monitorOptions"?: SyntheticsTestOptionsMonitorOptions;
-  /**
-   * Integer from 1 (high) to 5 (low) indicating alert severity.
-   */
-  "monitorPriority"?: number;
-  /**
-   * Prevents saving screenshots of the steps.
-   */
-  "noScreenshot"?: boolean;
-  "retry"?: SyntheticsTestOptionsRetry;
-  /**
-   * The frequency at which to run the Synthetic test (in seconds).
-   */
-  "tickEvery"?: number;
+    /**
+    * For SSL test, whether or not the test should allow self signed certificates.
+    */
+    'acceptSelfSigned'?: boolean;
+    /**
+    * Allows loading insecure content for an HTTP request.
+    */
+    'allowInsecure'?: boolean;
+    /**
+    * For browser test, array with the different device IDs used to run the test.
+    */
+    'deviceIds'?: Array<SyntheticsDeviceID>;
+    /**
+    * Whether or not to disable CORS mechanism.
+    */
+    'disableCors'?: boolean;
+    /**
+    * For API HTTP test, whether or not the test should follow redirects.
+    */
+    'followRedirects'?: boolean;
+    /**
+    * Minimum amount of time in failure required to trigger an alert.
+    */
+    'minFailureDuration'?: number;
+    /**
+    * Minimum number of locations in failure required to trigger an alert.
+    */
+    'minLocationFailed'?: number;
+    /**
+    * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+    */
+    'monitorName'?: string;
+    'monitorOptions'?: SyntheticsTestOptionsMonitorOptions;
+    /**
+    * Integer from 1 (high) to 5 (low) indicating alert severity.
+    */
+    'monitorPriority'?: number;
+    /**
+    * Prevents saving screenshots of the steps.
+    */
+    'noScreenshot'?: boolean;
+    'retry'?: SyntheticsTestOptionsRetry;
+    /**
+    * The frequency at which to run the Synthetic test (in seconds).
+    */
+    'tickEvery'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    acceptSelfSigned: {
-      baseName: "accept_self_signed",
-      type: "boolean",
-    },
-    allowInsecure: {
-      baseName: "allow_insecure",
-      type: "boolean",
-    },
-    deviceIds: {
-      baseName: "device_ids",
-      type: "Array<SyntheticsDeviceID>",
-    },
-    disableCors: {
-      baseName: "disableCors",
-      type: "boolean",
-    },
-    followRedirects: {
-      baseName: "follow_redirects",
-      type: "boolean",
-    },
-    minFailureDuration: {
-      baseName: "min_failure_duration",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "acceptSelfSigned": {
+            "baseName": "accept_self_signed",
+            "type": "boolean",
+            
+            
+        },
+        "allowInsecure": {
+            "baseName": "allow_insecure",
+            "type": "boolean",
+            
+            
+        },
+        "deviceIds": {
+            "baseName": "device_ids",
+            "type": "Array<SyntheticsDeviceID>",
+            
+            
+        },
+        "disableCors": {
+            "baseName": "disableCors",
+            "type": "boolean",
+            
+            
+        },
+        "followRedirects": {
+            "baseName": "follow_redirects",
+            "type": "boolean",
+            
+            
+        },
+        "minFailureDuration": {
+            "baseName": "min_failure_duration",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "minLocationFailed": {
+            "baseName": "min_location_failed",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "monitorName": {
+            "baseName": "monitor_name",
+            "type": "string",
+            
+            
+        },
+        "monitorOptions": {
+            "baseName": "monitor_options",
+            "type": "SyntheticsTestOptionsMonitorOptions",
+            
+            
+        },
+        "monitorPriority": {
+            "baseName": "monitor_priority",
+            "type": "number",
+            
+            "format": "int32",
+        },
+        "noScreenshot": {
+            "baseName": "noScreenshot",
+            "type": "boolean",
+            
+            
+        },
+        "retry": {
+            "baseName": "retry",
+            "type": "SyntheticsTestOptionsRetry",
+            
+            
+        },
+        "tickEvery": {
+            "baseName": "tick_every",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    minLocationFailed: {
-      baseName: "min_location_failed",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTestOptions.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    monitorName: {
-      baseName: "monitor_name",
-      type: "string",
-    },
-    monitorOptions: {
-      baseName: "monitor_options",
-      type: "SyntheticsTestOptionsMonitorOptions",
-    },
-    monitorPriority: {
-      baseName: "monitor_priority",
-      type: "number",
-
-      format: "int32",
-    },
-    noScreenshot: {
-      baseName: "noScreenshot",
-      type: "boolean",
-    },
-    retry: {
-      baseName: "retry",
-      type: "SyntheticsTestOptionsRetry",
-    },
-    tickEvery: {
-      baseName: "tick_every",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

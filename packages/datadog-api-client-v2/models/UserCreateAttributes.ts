@@ -8,47 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of the created user.
- */
+* Attributes of the created user.
+*/
 
 export class UserCreateAttributes {
-  /**
-   * The email of the user.
-   */
-  "email": string;
-  /**
-   * The name of the user.
-   */
-  "name"?: string;
-  /**
-   * The title of the user.
-   */
-  "title"?: string;
+    /**
+    * The email of the user.
+    */
+    'email': string;
+    /**
+    * The name of the user.
+    */
+    'name'?: string;
+    /**
+    * The title of the user.
+    */
+    'title'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "email": {
+            "baseName": "email",
+            "type": "string",
+            "required": true,
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserCreateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

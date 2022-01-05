@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageLogsHour } from "./UsageLogsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageLogsHour } from './UsageLogsHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of logs for each hour.
- */
+* Response containing the number of logs for each hour.
+*/
 
 export class UsageLogsResponse {
-  /**
-   * An array of objects regarding hourly usage of logs.
-   */
-  "usage"?: Array<UsageLogsHour>;
+    /**
+    * An array of objects regarding hourly usage of logs.
+    */
+    'usage'?: Array<UsageLogsHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageLogsHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageLogsHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageLogsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

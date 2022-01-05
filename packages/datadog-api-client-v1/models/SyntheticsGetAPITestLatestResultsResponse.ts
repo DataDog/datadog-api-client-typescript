@@ -8,41 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsAPITestResultShort } from './SyntheticsAPITestResultShort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object with the latest Synthetic API test run.
- */
+* Object with the latest Synthetic API test run.
+*/
 
 export class SyntheticsGetAPITestLatestResultsResponse {
-  /**
-   * Timestamp of the latest API test run.
-   */
-  "lastTimestampFetched"?: number;
-  /**
-   * Result of the latest API test run.
-   */
-  "results"?: Array<SyntheticsAPITestResultShort>;
+    /**
+    * Timestamp of the latest API test run.
+    */
+    'lastTimestampFetched'?: number;
+    /**
+    * Result of the latest API test run.
+    */
+    'results'?: Array<SyntheticsAPITestResultShort>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    lastTimestampFetched: {
-      baseName: "last_timestamp_fetched",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "lastTimestampFetched": {
+            "baseName": "last_timestamp_fetched",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "results": {
+            "baseName": "results",
+            "type": "Array<SyntheticsAPITestResultShort>",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    results: {
-      baseName: "results",
-      type: "Array<SyntheticsAPITestResultShort>",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

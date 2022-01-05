@@ -9,21 +9,20 @@ const apiInstance = new v2.UsersApi(configuration);
 
 let params: v2.UsersApiCreateUserRequest = {
   body: {
-    data: {
-      type: "users",
-      attributes: {
-        name: "Datadog API Client Python",
-        email: "Example-Create_a_user_returns_OK_response@datadoghq.com",
-      },
-    },
-  },
+data: {
+type: "users",
+attributes: {
+name: "Datadog API Client Python",
+email: "Example-Create_a_user_returns_OK_response@datadoghq.com",
+},
+},
+},
+  
 };
 
 apiInstance
   .createUser(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

@@ -8,32 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing the definition of a metric's distinct volume.
- */
+* Object containing the definition of a metric's distinct volume.
+*/
 
 export class MetricDistinctVolumeAttributes {
-  /**
-   * Distinct volume for the given metric.
-   */
-  "distinctVolume"?: number;
+    /**
+    * Distinct volume for the given metric.
+    */
+    'distinctVolume'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    distinctVolume: {
-      baseName: "distinct_volume",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "distinctVolume": {
+            "baseName": "distinct_volume",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricDistinctVolumeAttributes.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricDistinctVolumeAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,15 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
-import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
-import { UnparsedObject } from "./ObjectSerializer";
+import { IncidentFieldAttributesMultipleValue } from './IncidentFieldAttributesMultipleValue';
+import { IncidentFieldAttributesSingleValue } from './IncidentFieldAttributesSingleValue';
+import { IncidentFieldAttributesValueType } from './IncidentFieldAttributesValueType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Dynamic fields for which selections can be made, with field names as keys.
- */
+* Dynamic fields for which selections can be made, with field names as keys.
+*/
 
-export type IncidentFieldAttributes =
-  | IncidentFieldAttributesMultipleValue
-  | IncidentFieldAttributesSingleValue
-  | UnparsedObject;
+export type IncidentFieldAttributes = IncidentFieldAttributesMultipleValue | IncidentFieldAttributesSingleValue | UnparsedObject;

@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing how to split the graph to display multiple visualizations per request.
- */
+* Object describing how to split the graph to display multiple visualizations per request.
+*/
 
 export class NotebookSplitBy {
-  /**
-   * Keys to split on.
-   */
-  "keys": Array<string>;
-  /**
-   * Tags to split on.
-   */
-  "tags": Array<string>;
+    /**
+    * Keys to split on.
+    */
+    'keys': Array<string>;
+    /**
+    * Tags to split on.
+    */
+    'tags': Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    keys: {
-      baseName: "keys",
-      type: "Array<string>",
-      required: true,
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "keys": {
+            "baseName": "keys",
+            "type": "Array<string>",
+            "required": true,
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookSplitBy.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookSplitBy.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

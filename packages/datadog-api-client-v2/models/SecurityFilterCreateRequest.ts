@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterCreateData } from "./SecurityFilterCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityFilterCreateData } from './SecurityFilterCreateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request object that includes the security filter that you would like to create.
- */
+* Request object that includes the security filter that you would like to create.
+*/
 
 export class SecurityFilterCreateRequest {
-  "data": SecurityFilterCreateData;
+    'data': SecurityFilterCreateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityFilterCreateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SecurityFilterCreateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

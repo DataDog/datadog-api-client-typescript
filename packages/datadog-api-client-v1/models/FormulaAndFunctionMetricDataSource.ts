@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type FormulaAndFunctionMetricDataSource = typeof METRICS;
-export const METRICS = "metrics";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Data source for metrics queries.
+*/
+
+export type FormulaAndFunctionMetricDataSource = typeof METRICS ;
+export const METRICS = 'metrics';
+
+

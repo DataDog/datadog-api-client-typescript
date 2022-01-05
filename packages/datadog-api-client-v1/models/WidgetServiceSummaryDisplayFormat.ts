@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetServiceSummaryDisplayFormat =
-  | typeof ONE_COLUMN
-  | typeof TWO_COLUMN
-  | typeof THREE_COLUMN;
-export const ONE_COLUMN = "one_column";
-export const TWO_COLUMN = "two_column";
-export const THREE_COLUMN = "three_column";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Number of columns to display.
+*/
+
+export type WidgetServiceSummaryDisplayFormat = typeof ONE_COLUMN | typeof TWO_COLUMN | typeof THREE_COLUMN ;
+export const ONE_COLUMN = 'one_column';
+export const TWO_COLUMN = 'two_column';
+export const THREE_COLUMN = 'three_column';
+
+

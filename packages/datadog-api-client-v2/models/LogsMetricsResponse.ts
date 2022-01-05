@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricResponseData } from "./LogsMetricResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricResponseData } from './LogsMetricResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * All the available log-based metric objects.
- */
+* All the available log-based metric objects.
+*/
 
 export class LogsMetricsResponse {
-  /**
-   * A list of log-based metric objects.
-   */
-  "data"?: Array<LogsMetricResponseData>;
+    /**
+    * A list of log-based metric objects.
+    */
+    'data'?: Array<LogsMetricResponseData>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<LogsMetricResponseData>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<LogsMetricResponseData>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

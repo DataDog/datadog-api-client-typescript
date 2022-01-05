@@ -8,86 +8,106 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Datadog-Azure integrations configured for your organization.
- */
+* Datadog-Azure integrations configured for your organization.
+*/
 
 export class AzureAccount {
-  /**
-   * Silence monitors for expected Azure VM shutdowns.
-   */
-  "automute"?: boolean;
-  /**
-   * Your Azure web application ID.
-   */
-  "clientId"?: string;
-  /**
-   * Your Azure web application secret key.
-   */
-  "clientSecret"?: string;
-  /**
-   * Errors in your configuration.
-   */
-  "errors"?: Array<string>;
-  /**
-   * Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-   */
-  "hostFilters"?: string;
-  /**
-   * Your New Azure web application ID.
-   */
-  "newClientId"?: string;
-  /**
-   * Your New Azure Active Directory ID.
-   */
-  "newTenantName"?: string;
-  /**
-   * Your Azure Active Directory ID.
-   */
-  "tenantName"?: string;
+    /**
+    * Silence monitors for expected Azure VM shutdowns.
+    */
+    'automute'?: boolean;
+    /**
+    * Your Azure web application ID.
+    */
+    'clientId'?: string;
+    /**
+    * Your Azure web application secret key.
+    */
+    'clientSecret'?: string;
+    /**
+    * Errors in your configuration.
+    */
+    'errors'?: Array<string>;
+    /**
+    * Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+    */
+    'hostFilters'?: string;
+    /**
+    * Your New Azure web application ID.
+    */
+    'newClientId'?: string;
+    /**
+    * Your New Azure Active Directory ID.
+    */
+    'newTenantName'?: string;
+    /**
+    * Your Azure Active Directory ID.
+    */
+    'tenantName'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    automute: {
-      baseName: "automute",
-      type: "boolean",
-    },
-    clientId: {
-      baseName: "client_id",
-      type: "string",
-    },
-    clientSecret: {
-      baseName: "client_secret",
-      type: "string",
-    },
-    errors: {
-      baseName: "errors",
-      type: "Array<string>",
-    },
-    hostFilters: {
-      baseName: "host_filters",
-      type: "string",
-    },
-    newClientId: {
-      baseName: "new_client_id",
-      type: "string",
-    },
-    newTenantName: {
-      baseName: "new_tenant_name",
-      type: "string",
-    },
-    tenantName: {
-      baseName: "tenant_name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "automute": {
+            "baseName": "automute",
+            "type": "boolean",
+            
+            
+        },
+        "clientId": {
+            "baseName": "client_id",
+            "type": "string",
+            
+            
+        },
+        "clientSecret": {
+            "baseName": "client_secret",
+            "type": "string",
+            
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "Array<string>",
+            
+            
+        },
+        "hostFilters": {
+            "baseName": "host_filters",
+            "type": "string",
+            
+            
+        },
+        "newClientId": {
+            "baseName": "new_client_id",
+            "type": "string",
+            
+            
+        },
+        "newTenantName": {
+            "baseName": "new_tenant_name",
+            "type": "string",
+            
+            
+        },
+        "tenantName": {
+            "baseName": "tenant_name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AzureAccount.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AzureAccount.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

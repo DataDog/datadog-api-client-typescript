@@ -8,37 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsCIBatchMetadata } from './SyntheticsCIBatchMetadata';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Test configuration for Synthetics
- */
+* Test configuration for Synthetics
+*/
 
 export class SyntheticsTriggerTest {
-  "metadata"?: SyntheticsCIBatchMetadata;
-  /**
-   * The public ID of the Synthetics test to trigger.
-   */
-  "publicId": string;
+    'metadata'?: SyntheticsCIBatchMetadata;
+    /**
+    * The public ID of the Synthetics test to trigger.
+    */
+    'publicId': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "SyntheticsCIBatchMetadata",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "metadata": {
+            "baseName": "metadata",
+            "type": "SyntheticsCIBatchMetadata",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerTest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTriggerTest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

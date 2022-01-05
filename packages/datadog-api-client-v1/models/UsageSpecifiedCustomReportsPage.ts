@@ -8,32 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object containing page total count for specified ID.
- */
+* The object containing page total count for specified ID.
+*/
 
 export class UsageSpecifiedCustomReportsPage {
-  /**
-   * Total page count.
-   */
-  "totalCount"?: number;
+    /**
+    * Total page count.
+    */
+    'totalCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "total_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "totalCount": {
+            "baseName": "total_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSpecifiedCustomReportsPage.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSpecifiedCustomReportsPage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

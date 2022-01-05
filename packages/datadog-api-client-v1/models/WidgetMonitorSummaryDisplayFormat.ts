@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetMonitorSummaryDisplayFormat =
-  | typeof COUNTS
-  | typeof COUNTS_AND_LIST
-  | typeof LIST;
-export const COUNTS = "counts";
-export const COUNTS_AND_LIST = "countsAndList";
-export const LIST = "list";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* What to display on the widget.
+*/
+
+export type WidgetMonitorSummaryDisplayFormat = typeof COUNTS | typeof COUNTS_AND_LIST | typeof LIST ;
+export const COUNTS = 'counts';
+export const COUNTS_AND_LIST = 'countsAndList';
+export const LIST = 'list';
+
+

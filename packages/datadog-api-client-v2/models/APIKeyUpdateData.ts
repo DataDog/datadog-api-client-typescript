@@ -8,45 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
-import { APIKeysType } from "./APIKeysType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyUpdateAttributes } from './APIKeyUpdateAttributes';
+import { APIKeysType } from './APIKeysType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object used to update an API key.
- */
+* Object used to update an API key.
+*/
 
 export class APIKeyUpdateData {
-  "attributes": APIKeyUpdateAttributes;
-  /**
-   * ID of the API key.
-   */
-  "id": string;
-  "type": APIKeysType;
+    'attributes': APIKeyUpdateAttributes;
+    /**
+    * ID of the API key.
+    */
+    'id': string;
+    'type': APIKeysType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "APIKeyUpdateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "APIKeysType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "APIKeyUpdateAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "APIKeysType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyUpdateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeyUpdateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

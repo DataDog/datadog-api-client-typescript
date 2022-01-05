@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveDefinition } from './LogsArchiveDefinition';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The logs archive.
- */
+* The logs archive.
+*/
 
 export class LogsArchive {
-  "data"?: LogsArchiveDefinition;
+    'data'?: LogsArchiveDefinition;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LogsArchiveDefinition",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "LogsArchiveDefinition",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchive.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchive.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

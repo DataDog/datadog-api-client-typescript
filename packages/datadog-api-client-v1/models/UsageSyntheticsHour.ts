@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The number of synthetics tests run for each hour for a given organization.
- */
+* The number of synthetics tests run for each hour for a given organization.
+*/
 
 export class UsageSyntheticsHour {
-  /**
-   * Contains the number of Synthetics API tests run.
-   */
-  "checkCallsCount"?: number;
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
+    /**
+    * Contains the number of Synthetics API tests run.
+    */
+    'checkCallsCount'?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    checkCallsCount: {
-      baseName: "check_calls_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "checkCallsCount": {
+            "baseName": "check_calls_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        }    };
 
-      format: "int64",
-    },
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSyntheticsHour.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

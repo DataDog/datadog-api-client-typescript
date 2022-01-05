@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IncidentServiceType = typeof SERVICES;
-export const SERVICES = "services";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Incident service resource type.
+*/
+
+export type IncidentServiceType = typeof SERVICES ;
+export const SERVICES = 'services';
+
+

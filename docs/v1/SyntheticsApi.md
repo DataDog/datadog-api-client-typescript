@@ -2,56 +2,59 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                          | HTTP request                                                             | Description                                       |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------- |
-| [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable)               | **POST** /api/v1/synthetics/variables                                    | Create a global variable                          |
-| [**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation)             | **POST** /api/v1/synthetics/private-locations                            | Create a private location                         |
-| [**createSyntheticsAPITest**](SyntheticsApi.md#createSyntheticsAPITest)         | **POST** /api/v1/synthetics/tests/api                                    | Create an API test                                |
-| [**createSyntheticsBrowserTest**](SyntheticsApi.md#createSyntheticsBrowserTest) | **POST** /api/v1/synthetics/tests/browser                                | Create a browser test                             |
-| [**deleteGlobalVariable**](SyntheticsApi.md#deleteGlobalVariable)               | **DELETE** /api/v1/synthetics/variables/{variable_id}                    | Delete a global variable                          |
-| [**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation)             | **DELETE** /api/v1/synthetics/private-locations/{location_id}            | Delete a private location                         |
-| [**deleteTests**](SyntheticsApi.md#deleteTests)                                 | **POST** /api/v1/synthetics/tests/delete                                 | Delete tests                                      |
-| [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable)                   | **PUT** /api/v1/synthetics/variables/{variable_id}                       | Edit a global variable                            |
-| [**getAPITest**](SyntheticsApi.md#getAPITest)                                   | **GET** /api/v1/synthetics/tests/api/{public_id}                         | Get an API test                                   |
-| [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults)         | **GET** /api/v1/synthetics/tests/{public_id}/results                     | Get an API test&#39;s latest results summaries    |
-| [**getAPITestResult**](SyntheticsApi.md#getAPITestResult)                       | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id}         | Get an API test result                            |
-| [**getBrowserTest**](SyntheticsApi.md#getBrowserTest)                           | **GET** /api/v1/synthetics/tests/browser/{public_id}                     | Get a browser test                                |
-| [**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results             | Get a browser test&#39;s latest results summaries |
-| [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult)               | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result                         |
-| [**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable)                     | **GET** /api/v1/synthetics/variables/{variable_id}                       | Get a global variable                             |
-| [**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation)                   | **GET** /api/v1/synthetics/private-locations/{location_id}               | Get a private location                            |
-| [**getSyntheticsCIBatch**](SyntheticsApi.md#getSyntheticsCIBatch)               | **GET** /api/v1/synthetics/ci/batch/{batch_id}                           | Get details of batch                              |
-| [**getTest**](SyntheticsApi.md#getTest)                                         | **GET** /api/v1/synthetics/tests/{public_id}                             | Get a test configuration                          |
-| [**listGlobalVariables**](SyntheticsApi.md#listGlobalVariables)                 | **GET** /api/v1/synthetics/variables                                     | Get all global variables                          |
-| [**listLocations**](SyntheticsApi.md#listLocations)                             | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
-| [**listTests**](SyntheticsApi.md#listTests)                                     | **GET** /api/v1/synthetics/tests                                         | Get the list of all tests                         |
-| [**triggerCITests**](SyntheticsApi.md#triggerCITests)                           | **POST** /api/v1/synthetics/tests/trigger/ci                             | Trigger tests from CI/CD pipelines                |
-| [**triggerTests**](SyntheticsApi.md#triggerTests)                               | **POST** /api/v1/synthetics/tests/trigger                                | Trigger Synthetics tests                          |
-| [**updateAPITest**](SyntheticsApi.md#updateAPITest)                             | **PUT** /api/v1/synthetics/tests/api/{public_id}                         | Edit an API test                                  |
-| [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest)                     | **PUT** /api/v1/synthetics/tests/browser/{public_id}                     | Edit a browser test                               |
-| [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation)             | **PUT** /api/v1/synthetics/private-locations/{location_id}               | Edit a private location                           |
-| [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus)             | **PUT** /api/v1/synthetics/tests/{public_id}/status                      | Pause or start a test                             |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
+[**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation) | **POST** /api/v1/synthetics/private-locations | Create a private location
+[**createSyntheticsAPITest**](SyntheticsApi.md#createSyntheticsAPITest) | **POST** /api/v1/synthetics/tests/api | Create an API test
+[**createSyntheticsBrowserTest**](SyntheticsApi.md#createSyntheticsBrowserTest) | **POST** /api/v1/synthetics/tests/browser | Create a browser test
+[**deleteGlobalVariable**](SyntheticsApi.md#deleteGlobalVariable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
+[**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
+[**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
+[**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+[**getAPITest**](SyntheticsApi.md#getAPITest) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
+[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get an API test&#39;s latest results summaries
+[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get an API test result
+[**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a browser test
+[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get a browser test&#39;s latest results summaries
+[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result
+[**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
+[**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
+[**getSyntheticsCIBatch**](SyntheticsApi.md#getSyntheticsCIBatch) | **GET** /api/v1/synthetics/ci/batch/{batch_id} | Get details of batch
+[**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
+[**listGlobalVariables**](SyntheticsApi.md#listGlobalVariables) | **GET** /api/v1/synthetics/variables | Get all global variables
+[**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
+[**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
+[**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines
+[**triggerTests**](SyntheticsApi.md#triggerTests) | **POST** /api/v1/synthetics/tests/trigger | Trigger Synthetics tests
+[**updateAPITest**](SyntheticsApi.md#updateAPITest) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
+[**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
+[**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
+[**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
+
 
 ## **createGlobalVariable**
-
 > SyntheticsGlobalVariable createGlobalVariable(body)
 
 Create a Synthetics global variable.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiCreateGlobalVariableRequest = {
+let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
   // SyntheticsGlobalVariable | Details of the global variable to create.
   body: {
     attributes: {
-      restrictedRoles: ["restrictedRoles_example"],
+      restrictedRoles: [
+        "restrictedRoles_example",
+      ],
     },
     description: "Example description",
     name: "MY_VARIABLE",
@@ -64,7 +67,10 @@ let params: v1.SyntheticsApiCreateGlobalVariableRequest = {
       type: "http_body",
     },
     parseTestPublicId: "abc-def-123",
-    tags: ["team:front", "test:workflow-1"],
+    tags: [
+      "team:front",
+      "test:workflow-1",
+    ],
     value: {
       secure: true,
       value: "example-value",
@@ -72,21 +78,18 @@ let params: v1.SyntheticsApiCreateGlobalVariableRequest = {
   },
 };
 
-apiInstance
-  .createGlobalVariable(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.createGlobalVariable(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                         | Description                               | Notes |
-| -------- | ---------------------------- | ----------------------------------------- | ----- |
-| **body** | **SyntheticsGlobalVariable** | Details of the global variable to create. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsGlobalVariable**| Details of the global variable to create. |
+
 
 ### Return type
 
@@ -98,59 +101,58 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **400**     | Invalid request   | -                |
-| **403**     | Forbidden         | -                |
-| **429**     | Too many requests | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Invalid request |  -  |
+**403** | Forbidden |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **createPrivateLocation**
-
 > SyntheticsPrivateLocationCreationResponse createPrivateLocation(body)
 
 Create a new Synthetics private location.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiCreatePrivateLocationRequest = {
+let params:v1.SyntheticsApiCreatePrivateLocationRequest = {
   // SyntheticsPrivateLocation | Details of the private location to create.
   body: {
     description: "Description of private location",
     name: "New private location",
-    tags: ["team:front"],
+    tags: [
+      "team:front",
+    ],
   },
 };
 
-apiInstance
-  .createPrivateLocation(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.createPrivateLocation(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                          | Description                                | Notes |
-| -------- | ----------------------------- | ------------------------------------------ | ----- |
-| **body** | **SyntheticsPrivateLocation** | Details of the private location to create. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsPrivateLocation**| Details of the private location to create. |
+
 
 ### Return type
 
@@ -162,46 +164,46 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                      | Response headers |
-| ----------- | ------------------------------------------------ | ---------------- |
-| **200**     | OK                                               | -                |
-| **402**     | Quota reached for private locations              | -                |
-| **404**     | Private locations are not activated for the user | -                |
-| **429**     | Too many requests                                | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**402** | Quota reached for private locations |  -  |
+**404** | Private locations are not activated for the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **createSyntheticsAPITest**
-
 > SyntheticsAPITest createSyntheticsAPITest(body)
 
 Create a Synthetic API test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
+let params:v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   // SyntheticsAPITest | Details of the test to create.
   body: {
     config: {
       assertions: [
         {
-          operator: "contains",
-          property: "property_example",
-          target: null,
-          type: "statusCode",
-        },
+    operator: "contains",
+    property: "property_example",
+    target: null,
+    type: "statusCode",
+  },
       ],
       configVariables: [
         {
@@ -235,7 +237,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         dnsServerPort: 1,
         followRedirects: true,
         headers: {
-          key: "key_example",
+          "key": "key_example",
         },
         host: "host_example",
         message: "message_example",
@@ -252,7 +254,8 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       steps: [
         {
           allowFailure: true,
-          assertions: [],
+          assertions: [
+          ],
           extractedValues: [
             {
               field: "content-type",
@@ -289,7 +292,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             dnsServerPort: 1,
             followRedirects: true,
             headers: {
-              key: "key_example",
+              "key": "key_example",
             },
             host: "host_example",
             message: "message_example",
@@ -311,13 +314,17 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         },
       ],
     },
-    locations: ["aws:eu-west-3"],
+    locations: [
+      "aws:eu-west-3",
+    ],
     message: "Notification message",
     name: "Test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
-      deviceIds: ["laptop_large"],
+      deviceIds: [
+        "laptop_large",
+      ],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 1,
@@ -336,26 +343,25 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     status: "live",
     subtype: "http",
-    tags: ["env:production"],
+    tags: [
+      "env:production",
+    ],
     type: "api",
   },
 };
 
-apiInstance
-  .createSyntheticsAPITest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.createSyntheticsAPITest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                  | Description                    | Notes |
-| -------- | --------------------- | ------------------------------ | ----- |
-| **body** | **SyntheticsAPITest** | Details of the test to create. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsAPITest**| Details of the test to create. |
+
 
 ### Return type
 
@@ -367,41 +373,42 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                              | Response headers |
-| ----------- | ---------------------------------------- | ---------------- |
-| **200**     | OK - Returns the created test details.   | -                |
-| **400**     | - JSON format is wrong - Creation failed | -                |
-| **402**     | Test quota is reached                    | -                |
-| **403**     | Forbidden                                | -                |
-| **429**     | Too many requests                        | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK - Returns the created test details. |  -  |
+**400** | - JSON format is wrong - Creation failed |  -  |
+**402** | Test quota is reached |  -  |
+**403** | Forbidden |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **createSyntheticsBrowserTest**
-
 > SyntheticsBrowserTest createSyntheticsBrowserTest(body)
 
 Create a Synthetic browser test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
+let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   // SyntheticsBrowserTest | Details of the test to create.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -434,7 +441,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         dnsServerPort: 1,
         followRedirects: true,
         headers: {
-          key: "key_example",
+          "key": "key_example",
         },
         host: "host_example",
         message: "message_example",
@@ -459,13 +466,17 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         },
       ],
     },
-    locations: ["locations_example"],
+    locations: [
+      "locations_example",
+    ],
     message: "",
     name: "name_example",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
-      deviceIds: ["laptop_large"],
+      deviceIds: [
+        "laptop_large",
+      ],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 1,
@@ -492,26 +503,25 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         type: "assertElementContent",
       },
     ],
-    tags: ["tags_example"],
+    tags: [
+      "tags_example",
+    ],
     type: "browser",
   },
 };
 
-apiInstance
-  .createSyntheticsBrowserTest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.createSyntheticsBrowserTest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                      | Description                    | Notes |
-| -------- | ------------------------- | ------------------------------ | ----- |
-| **body** | **SyntheticsBrowserTest** | Details of the test to create. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsBrowserTest**| Details of the test to create. |
+
 
 ### Return type
 
@@ -523,56 +533,53 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                              | Response headers |
-| ----------- | ---------------------------------------- | ---------------- |
-| **200**     | OK - Returns the created test details.   | -                |
-| **400**     | - JSON format is wrong - Creation failed | -                |
-| **402**     | Test quota is reached                    | -                |
-| **403**     | Forbidden                                | -                |
-| **429**     | Too many requests                        | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK - Returns the created test details. |  -  |
+**400** | - JSON format is wrong - Creation failed |  -  |
+**402** | Test quota is reached |  -  |
+**403** | Forbidden |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **deleteGlobalVariable**
-
 > void deleteGlobalVariable()
 
 Delete a Synthetics global variable.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiDeleteGlobalVariableRequest = {
+let params:v1.SyntheticsApiDeleteGlobalVariableRequest = {
   // string | The ID of the global variable.
   variableId: "variable_id_example",
 };
 
-apiInstance
-  .deleteGlobalVariable(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.deleteGlobalVariable(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name           | Type         | Description                    | Notes                 |
-| -------------- | ------------ | ------------------------------ | --------------------- |
-| **variableId** | [**string**] | The ID of the global variable. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variableId** | [**string**] | The ID of the global variable. | defaults to undefined
+
 
 ### Return type
 
@@ -584,56 +591,53 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | JSON format is wrong | -                |
-| **403**     | Forbidden            | -                |
-| **404**     | Not found            | -                |
-| **429**     | Too many requests    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | JSON format is wrong |  -  |
+**403** | Forbidden |  -  |
+**404** | Not found |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **deletePrivateLocation**
-
 > void deletePrivateLocation()
 
 Delete a Synthetics private location.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiDeletePrivateLocationRequest = {
+let params:v1.SyntheticsApiDeletePrivateLocationRequest = {
   // string | The ID of the private location.
   locationId: "location_id_example",
 };
 
-apiInstance
-  .deletePrivateLocation(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.deletePrivateLocation(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name           | Type         | Description                     | Notes                 |
-| -------------- | ------------ | ------------------------------- | --------------------- |
-| **locationId** | [**string**] | The ID of the private location. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationId** | [**string**] | The ID of the private location. | defaults to undefined
+
 
 ### Return type
 
@@ -645,56 +649,54 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                          | Response headers |
-| ----------- | ------------------------------------------------------------------------------------ | ---------------- |
-| **204**     | OK                                                                                   | -                |
-| **404**     | - Private locations are not activated for the user - Private location does not exist | -                |
-| **429**     | Too many requests                                                                    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | OK |  -  |
+**404** | - Private locations are not activated for the user - Private location does not exist |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **deleteTests**
-
 > SyntheticsDeleteTestsResponse deleteTests(body)
 
 Delete multiple Synthetic tests by ID.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiDeleteTestsRequest = {
+let params:v1.SyntheticsApiDeleteTestsRequest = {
   // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
   body: {
-    publicIds: [],
+    publicIds: [
+    ],
   },
 };
 
-apiInstance
-  .deleteTests(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.deleteTests(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                             | Description                                          | Notes |
-| -------- | -------------------------------- | ---------------------------------------------------- | ----- |
-| **body** | **SyntheticsDeleteTestsPayload** | Public ID list of the Synthetic tests to be deleted. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsDeleteTestsPayload**| Public ID list of the Synthetic tests to be deleted. |
+
 
 ### Return type
 
@@ -706,43 +708,45 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                                                                                            | Response headers |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| **200**     | OK.                                                                                                                                                    | -                |
-| **400**     | - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user | -                |
-| **403**     | Forbidden                                                                                                                                              | -                |
-| **404**     | - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user                                                                    | -                |
-| **429**     | Too many requests                                                                                                                                      | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK. |  -  |
+**400** | - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user |  -  |
+**403** | Forbidden |  -  |
+**404** | - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **editGlobalVariable**
-
 > SyntheticsGlobalVariable editGlobalVariable(body)
 
 Edit a Synthetics global variable.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiEditGlobalVariableRequest = {
+let params:v1.SyntheticsApiEditGlobalVariableRequest = {
   // string | The ID of the global variable.
   variableId: "variable_id_example",
   // SyntheticsGlobalVariable | Details of the global variable to update.
   body: {
     attributes: {
-      restrictedRoles: ["restrictedRoles_example"],
+      restrictedRoles: [
+        "restrictedRoles_example",
+      ],
     },
     description: "Example description",
     name: "MY_VARIABLE",
@@ -755,7 +759,10 @@ let params: v1.SyntheticsApiEditGlobalVariableRequest = {
       type: "http_body",
     },
     parseTestPublicId: "abc-def-123",
-    tags: ["team:front", "test:workflow-1"],
+    tags: [
+      "team:front",
+      "test:workflow-1",
+    ],
     value: {
       secure: true,
       value: "example-value",
@@ -763,22 +770,19 @@ let params: v1.SyntheticsApiEditGlobalVariableRequest = {
   },
 };
 
-apiInstance
-  .editGlobalVariable(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.editGlobalVariable(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name           | Type                         | Description                               | Notes                 |
-| -------------- | ---------------------------- | ----------------------------------------- | --------------------- |
-| **body**       | **SyntheticsGlobalVariable** | Details of the global variable to update. |
-| **variableId** | [**string**]                 | The ID of the global variable.            | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsGlobalVariable**| Details of the global variable to update. |
+ **variableId** | [**string**] | The ID of the global variable. | defaults to undefined
+
 
 ### Return type
 
@@ -790,22 +794,21 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **400**     | Invalid request   | -                |
-| **403**     | Forbidden         | -                |
-| **429**     | Too many requests | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Invalid request |  -  |
+**403** | Forbidden |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getAPITest**
-
 > SyntheticsAPITest getAPITest()
 
 Get the detailed configuration associated with
@@ -813,33 +816,31 @@ a Synthetic API test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetAPITestRequest = {
+let params:v1.SyntheticsApiGetAPITestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance
-  .getAPITest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getAPITest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type         | Description                                    | Notes                 |
-| ------------ | ------------ | ---------------------------------------------- | --------------------- |
-| **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined
+
 
 ### Return type
 
@@ -851,36 +852,36 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                          | Response headers |
-| ----------- | ------------------------------------------------------------------------------------ | ---------------- |
-| **200**     | OK                                                                                   | -                |
-| **403**     | Forbidden                                                                            | -                |
-| **404**     | - Synthetic Monitoring is not activated for the user - Test is not owned by the user | -                |
-| **429**     | Too many requests                                                                    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic Monitoring is not activated for the user - Test is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getAPITestLatestResults**
-
 > SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults()
 
 Get the last 50 test results summaries for a given Synthetics API test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetAPITestLatestResultsRequest = {
+let params:v1.SyntheticsApiGetAPITestLatestResultsRequest = {
   // string | The public ID of the test for which to search results for.
   publicId: "public_id_example",
   // number | Timestamp in milliseconds from which to start querying results. (optional)
@@ -888,27 +889,26 @@ let params: v1.SyntheticsApiGetAPITestLatestResultsRequest = {
   // number | Timestamp in milliseconds up to which to query results. (optional)
   toTs: 1,
   // Array<string> | Locations for which to query results. (optional)
-  probeDc: ["probe_dc_example"],
+  probeDc: [
+    "probe_dc_example",
+  ],
 };
 
-apiInstance
-  .getAPITestLatestResults(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getAPITestLatestResults(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type                    | Description                                                     | Notes                            |
-| ------------ | ----------------------- | --------------------------------------------------------------- | -------------------------------- |
-| **publicId** | [**string**]            | The public ID of the test for which to search results for.      | defaults to undefined            |
-| **fromTs**   | [**number**]            | Timestamp in milliseconds from which to start querying results. | (optional) defaults to undefined |
-| **toTs**     | [**number**]            | Timestamp in milliseconds up to which to query results.         | (optional) defaults to undefined |
-| **probeDc**  | **Array&lt;string&gt;** | Locations for which to query results.                           | (optional) defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the test for which to search results for. | defaults to undefined
+ **fromTs** | [**number**] | Timestamp in milliseconds from which to start querying results. | (optional) defaults to undefined
+ **toTs** | [**number**] | Timestamp in milliseconds up to which to query results. | (optional) defaults to undefined
+ **probeDc** | **Array&lt;string&gt;** | Locations for which to query results. | (optional) defaults to undefined
+
 
 ### Return type
 
@@ -920,58 +920,55 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                               | Response headers |
-| ----------- | ------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                        | -                |
-| **403**     | Forbidden                                                                 | -                |
-| **404**     | - Synthetic is not activated for the user - Test is not owned by the user | -                |
-| **429**     | Too many requests                                                         | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getAPITestResult**
-
 > SyntheticsAPITestResultFull getAPITestResult()
 
 Get a specific full result from a given (API) Synthetic test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetAPITestResultRequest = {
+let params:v1.SyntheticsApiGetAPITestResultRequest = {
   // string | The public ID of the API test to which the target result belongs.
   publicId: "public_id_example",
   // string | The ID of the result to get.
   resultId: "result_id_example",
 };
 
-apiInstance
-  .getAPITestResult(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getAPITestResult(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type         | Description                                                       | Notes                 |
-| ------------ | ------------ | ----------------------------------------------------------------- | --------------------- |
-| **publicId** | [**string**] | The public ID of the API test to which the target result belongs. | defaults to undefined |
-| **resultId** | [**string**] | The ID of the result to get.                                      | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the API test to which the target result belongs. | defaults to undefined
+ **resultId** | [**string**] | The ID of the result to get. | defaults to undefined
+
 
 ### Return type
 
@@ -983,22 +980,21 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                         | Response headers |
-| ----------- | ----------------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                                  | -                |
-| **403**     | Forbidden                                                                           | -                |
-| **404**     | - Synthetic is not activated for the user - Test or result is not owned by the user | -                |
-| **429**     | Too many requests                                                                   | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test or result is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getBrowserTest**
-
 > SyntheticsBrowserTest getBrowserTest()
 
 Get the detailed configuration (including steps) associated with
@@ -1006,33 +1002,31 @@ a Synthetic browser test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetBrowserTestRequest = {
+let params:v1.SyntheticsApiGetBrowserTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance
-  .getBrowserTest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getBrowserTest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type         | Description                                    | Notes                 |
-| ------------ | ------------ | ---------------------------------------------- | --------------------- |
-| **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined
+
 
 ### Return type
 
@@ -1044,36 +1038,36 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                               | Response headers |
-| ----------- | ------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                        | -                |
-| **403**     | Forbidden                                                                 | -                |
-| **404**     | - Synthetic is not activated for the user - Test is not owned by the user | -                |
-| **429**     | Too many requests                                                         | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getBrowserTestLatestResults**
-
 > SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults()
 
 Get the last 50 test results summaries for a given Synthetics Browser test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
+let params:v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
   // string | The public ID of the browser test for which to search results for.
   publicId: "public_id_example",
   // number | Timestamp in milliseconds from which to start querying results. (optional)
@@ -1081,27 +1075,26 @@ let params: v1.SyntheticsApiGetBrowserTestLatestResultsRequest = {
   // number | Timestamp in milliseconds up to which to query results. (optional)
   toTs: 1,
   // Array<string> | Locations for which to query results. (optional)
-  probeDc: ["probe_dc_example"],
+  probeDc: [
+    "probe_dc_example",
+  ],
 };
 
-apiInstance
-  .getBrowserTestLatestResults(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getBrowserTestLatestResults(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type                    | Description                                                        | Notes                            |
-| ------------ | ----------------------- | ------------------------------------------------------------------ | -------------------------------- |
-| **publicId** | [**string**]            | The public ID of the browser test for which to search results for. | defaults to undefined            |
-| **fromTs**   | [**number**]            | Timestamp in milliseconds from which to start querying results.    | (optional) defaults to undefined |
-| **toTs**     | [**number**]            | Timestamp in milliseconds up to which to query results.            | (optional) defaults to undefined |
-| **probeDc**  | **Array&lt;string&gt;** | Locations for which to query results.                              | (optional) defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the browser test for which to search results for. | defaults to undefined
+ **fromTs** | [**number**] | Timestamp in milliseconds from which to start querying results. | (optional) defaults to undefined
+ **toTs** | [**number**] | Timestamp in milliseconds up to which to query results. | (optional) defaults to undefined
+ **probeDc** | **Array&lt;string&gt;** | Locations for which to query results. | (optional) defaults to undefined
+
 
 ### Return type
 
@@ -1113,58 +1106,55 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                               | Response headers |
-| ----------- | ------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                        | -                |
-| **403**     | forbidden                                                                 | -                |
-| **404**     | - Synthetic is not activated for the user - Test is not owned by the user | -                |
-| **429**     | Too many requests                                                         | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getBrowserTestResult**
-
 > SyntheticsBrowserTestResultFull getBrowserTestResult()
 
 Get a specific full result from a given (browser) Synthetic test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetBrowserTestResultRequest = {
+let params:v1.SyntheticsApiGetBrowserTestResultRequest = {
   // string | The public ID of the browser test to which the target result belongs.
   publicId: "public_id_example",
   // string | The ID of the result to get.
   resultId: "result_id_example",
 };
 
-apiInstance
-  .getBrowserTestResult(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getBrowserTestResult(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type         | Description                                                           | Notes                 |
-| ------------ | ------------ | --------------------------------------------------------------------- | --------------------- |
-| **publicId** | [**string**] | The public ID of the browser test to which the target result belongs. | defaults to undefined |
-| **resultId** | [**string**] | The ID of the result to get.                                          | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the browser test to which the target result belongs. | defaults to undefined
+ **resultId** | [**string**] | The ID of the result to get. | defaults to undefined
+
 
 ### Return type
 
@@ -1176,55 +1166,52 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                         | Response headers |
-| ----------- | ----------------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                                  | -                |
-| **403**     | Forbidden                                                                           | -                |
-| **404**     | - Synthetic is not activated for the user - Test or result is not owned by the user | -                |
-| **429**     | Too many requests                                                                   | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test or result is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getGlobalVariable**
-
 > SyntheticsGlobalVariable getGlobalVariable()
 
 Get the detailed configuration of a global variable.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetGlobalVariableRequest = {
+let params:v1.SyntheticsApiGetGlobalVariableRequest = {
   // string | The ID of the global variable.
   variableId: "variable_id_example",
 };
 
-apiInstance
-  .getGlobalVariable(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getGlobalVariable(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name           | Type         | Description                    | Notes                 |
-| -------------- | ------------ | ------------------------------ | --------------------- |
-| **variableId** | [**string**] | The ID of the global variable. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variableId** | [**string**] | The ID of the global variable. | defaults to undefined
+
 
 ### Return type
 
@@ -1236,55 +1223,52 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Forbidden         | -                |
-| **404**     | Not found         | -                |
-| **429**     | Too many requests | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | Not found |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getPrivateLocation**
-
 > SyntheticsPrivateLocation getPrivateLocation()
 
 Get a Synthetics private location.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetPrivateLocationRequest = {
+let params:v1.SyntheticsApiGetPrivateLocationRequest = {
   // string | The ID of the private location.
   locationId: "location_id_example",
 };
 
-apiInstance
-  .getPrivateLocation(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getPrivateLocation(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name           | Type         | Description                     | Notes                 |
-| -------------- | ------------ | ------------------------------- | --------------------- |
-| **locationId** | [**string**] | The ID of the private location. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationId** | [**string**] | The ID of the private location. | defaults to undefined
+
 
 ### Return type
 
@@ -1296,54 +1280,51 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                                    | Response headers |
-| ----------- | ---------------------------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                                             | -                |
-| **404**     | - Synthetic private locations are not activated for the user - Private location does not exist | -                |
-| **429**     | Too many requests                                                                              | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | - Synthetic private locations are not activated for the user - Private location does not exist |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getSyntheticsCIBatch**
-
 > SyntheticsBatchDetails getSyntheticsCIBatch()
 
 Get a batch's updated details.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetSyntheticsCIBatchRequest = {
+let params:v1.SyntheticsApiGetSyntheticsCIBatchRequest = {
   // string | The ID of the batch.
   batchId: "batch_id_example",
 };
 
-apiInstance
-  .getSyntheticsCIBatch(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getSyntheticsCIBatch(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name        | Type         | Description          | Notes                 |
-| ----------- | ------------ | -------------------- | --------------------- |
-| **batchId** | [**string**] | The ID of the batch. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchId** | [**string**] | The ID of the batch. | defaults to undefined
+
 
 ### Return type
 
@@ -1355,54 +1336,51 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description           | Response headers |
-| ----------- | --------------------- | ---------------- |
-| **200**     | OK                    | -                |
-| **404**     | Batch does not exist. | -                |
-| **429**     | Too many requests     | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Batch does not exist. |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **getTest**
-
 > SyntheticsTestDetails getTest()
 
 Get the detailed configuration associated with a Synthetics test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiGetTestRequest = {
+let params:v1.SyntheticsApiGetTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance
-  .getTest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.getTest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type         | Description                                    | Notes                 |
-| ------------ | ------------ | ---------------------------------------------- | --------------------- |
-| **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined
+
 
 ### Return type
 
@@ -1414,48 +1392,45 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                               | Response headers |
-| ----------- | ------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                        | -                |
-| **403**     | Forbidden                                                                 | -                |
-| **404**     | - Synthetic is not activated for the user - Test is not owned by the user | -                |
-| **429**     | Too many requests                                                         | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listGlobalVariables**
-
 > SyntheticsListGlobalVariablesResponse listGlobalVariables()
 
 Get the list of all Synthetics global variables.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-apiInstance
-  .listGlobalVariables()
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+
+apiInstance.listGlobalVariables().then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
 
-### Parameters
 
+### Parameters
 This endpoint does not need any parameter.
+
 
 ### Return type
 
@@ -1467,21 +1442,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Forbidden         | -                |
-| **429**     | Too many requests | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Forbidden |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listLocations**
-
 > SyntheticsLocations listLocations()
 
 Get the list of public and private locations available for Synthetic
@@ -1489,26 +1463,24 @@ tests. No arguments required.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-apiInstance
-  .listLocations()
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+
+apiInstance.listLocations().then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
 
-### Parameters
 
+### Parameters
 This endpoint does not need any parameter.
+
 
 ### Return type
 
@@ -1520,46 +1492,43 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **429**     | Too many requests | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **listTests**
-
 > SyntheticsListTestsResponse listTests()
 
 Get the list of all Synthetic tests.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-apiInstance
-  .listTests()
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+
+apiInstance.listTests().then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
 
-### Parameters
 
+### Parameters
 This endpoint does not need any parameter.
+
 
 ### Return type
 
@@ -1571,36 +1540,36 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                   | Response headers |
-| ----------- | --------------------------------------------- | ---------------- |
-| **200**     | OK - Returns the list of all Synthetic tests. | -                |
-| **403**     | Forbidden                                     | -                |
-| **404**     | Synthetics is not activated for the user.     | -                |
-| **429**     | Too many requests                             | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK - Returns the list of all Synthetic tests. |  -  |
+**403** | Forbidden |  -  |
+**404** | Synthetics is not activated for the user. |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **triggerCITests**
-
 > SyntheticsTriggerCITestsResponse triggerCITests(body)
 
 Trigger a set of Synthetics tests for continuous integration.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiTriggerCITestsRequest = {
+let params:v1.SyntheticsApiTriggerCITestsRequest = {
   // SyntheticsCITestBody | Details of the test to trigger.
   body: {
     tests: [
@@ -1613,12 +1582,16 @@ let params: v1.SyntheticsApiTriggerCITestsRequest = {
         body: "body_example",
         bodyType: "bodyType_example",
         cookies: "cookies_example",
-        deviceIds: ["laptop_large"],
+        deviceIds: [
+          "laptop_large",
+        ],
         followRedirects: true,
         headers: {
-          key: "key_example",
+          "key": "key_example",
         },
-        locations: ["locations_example"],
+        locations: [
+          "locations_example",
+        ],
         metadata: {
           ci: {
             pipeline: {
@@ -1640,28 +1613,25 @@ let params: v1.SyntheticsApiTriggerCITestsRequest = {
         },
         startUrl: "startUrl_example",
         variables: {
-          key: "key_example",
+          "key": "key_example",
         },
       },
     ],
   },
 };
 
-apiInstance
-  .triggerCITests(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.triggerCITests(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                     | Description                     | Notes |
-| -------- | ------------------------ | ------------------------------- | ----- |
-| **body** | **SyntheticsCITestBody** | Details of the test to trigger. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsCITestBody**| Details of the test to trigger. |
+
 
 ### Return type
 
@@ -1673,35 +1643,35 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | JSON format is wrong | -                |
-| **429**     | Too many requests    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | JSON format is wrong |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **triggerTests**
-
 > SyntheticsTriggerCITestsResponse triggerTests(body)
 
 Trigger a set of Synthetics tests.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiTriggerTestsRequest = {
+let params:v1.SyntheticsApiTriggerTestsRequest = {
   // SyntheticsTriggerBody | The identifiers of the tests to trigger.
   body: {
     tests: [
@@ -1726,21 +1696,18 @@ let params: v1.SyntheticsApiTriggerTestsRequest = {
   },
 };
 
-apiInstance
-  .triggerTests(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.triggerTests(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                      | Description                              | Notes |
-| -------- | ------------------------- | ---------------------------------------- | ----- |
-| **body** | **SyntheticsTriggerBody** | The identifiers of the tests to trigger. |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsTriggerBody**| The identifiers of the tests to trigger. |
+
 
 ### Return type
 
@@ -1752,35 +1719,35 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **400**     | Bad Request       | -                |
-| **429**     | Too many requests | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **updateAPITest**
-
 > SyntheticsAPITest updateAPITest(body)
 
 Edit the configuration of a Synthetic API test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiUpdateAPITestRequest = {
+let params:v1.SyntheticsApiUpdateAPITestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
   // SyntheticsAPITest | New test details to be saved.
@@ -1788,11 +1755,11 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
     config: {
       assertions: [
         {
-          operator: "contains",
-          property: "property_example",
-          target: null,
-          type: "statusCode",
-        },
+    operator: "contains",
+    property: "property_example",
+    target: null,
+    type: "statusCode",
+  },
       ],
       configVariables: [
         {
@@ -1826,7 +1793,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         dnsServerPort: 1,
         followRedirects: true,
         headers: {
-          key: "key_example",
+          "key": "key_example",
         },
         host: "host_example",
         message: "message_example",
@@ -1843,7 +1810,8 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
       steps: [
         {
           allowFailure: true,
-          assertions: [],
+          assertions: [
+          ],
           extractedValues: [
             {
               field: "content-type",
@@ -1880,7 +1848,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             dnsServerPort: 1,
             followRedirects: true,
             headers: {
-              key: "key_example",
+              "key": "key_example",
             },
             host: "host_example",
             message: "message_example",
@@ -1902,13 +1870,17 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         },
       ],
     },
-    locations: ["aws:eu-west-3"],
+    locations: [
+      "aws:eu-west-3",
+    ],
     message: "Notification message",
     name: "Test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
-      deviceIds: ["laptop_large"],
+      deviceIds: [
+        "laptop_large",
+      ],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 1,
@@ -1927,27 +1899,26 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
     },
     status: "live",
     subtype: "http",
-    tags: ["env:production"],
+    tags: [
+      "env:production",
+    ],
     type: "api",
   },
 };
 
-apiInstance
-  .updateAPITest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.updateAPITest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type                  | Description                                    | Notes                 |
-| ------------ | --------------------- | ---------------------------------------------- | --------------------- |
-| **body**     | **SyntheticsAPITest** | New test details to be saved.                  |
-| **publicId** | [**string**]          | The public ID of the test to get details from. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsAPITest**| New test details to be saved. |
+ **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined
+
 
 ### Return type
 
@@ -1959,43 +1930,44 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                                                    | Response headers |
-| ----------- | -------------------------------------------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                                                             | -                |
-| **400**     | - JSON format is wrong - Updating sub-type is forbidden                                                        | -                |
-| **403**     | Forbidden                                                                                                      | -                |
-| **404**     | - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found | -                |
-| **429**     | Too many requests                                                                                              | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | - JSON format is wrong - Updating sub-type is forbidden |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **updateBrowserTest**
-
 > SyntheticsBrowserTest updateBrowserTest(body)
 
 Edit the configuration of a Synthetic browser test.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
+let params:v1.SyntheticsApiUpdateBrowserTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
   // SyntheticsBrowserTest | New test details to be saved.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -2028,7 +2000,7 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         dnsServerPort: 1,
         followRedirects: true,
         headers: {
-          key: "key_example",
+          "key": "key_example",
         },
         host: "host_example",
         message: "message_example",
@@ -2053,13 +2025,17 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         },
       ],
     },
-    locations: ["locations_example"],
+    locations: [
+      "locations_example",
+    ],
     message: "",
     name: "name_example",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
-      deviceIds: ["laptop_large"],
+      deviceIds: [
+        "laptop_large",
+      ],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 1,
@@ -2086,27 +2062,26 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         type: "assertElementContent",
       },
     ],
-    tags: ["tags_example"],
+    tags: [
+      "tags_example",
+    ],
     type: "browser",
   },
 };
 
-apiInstance
-  .updateBrowserTest(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.updateBrowserTest(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type                      | Description                                    | Notes                 |
-| ------------ | ------------------------- | ---------------------------------------------- | --------------------- |
-| **body**     | **SyntheticsBrowserTest** | New test details to be saved.                  |
-| **publicId** | [**string**]              | The public ID of the test to get details from. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsBrowserTest**| New test details to be saved. |
+ **publicId** | [**string**] | The public ID of the test to get details from. | defaults to undefined
+
 
 ### Return type
 
@@ -2118,63 +2093,62 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                                                    | Response headers |
-| ----------- | -------------------------------------------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK                                                                                                             | -                |
-| **400**     | - JSON format is wrong - Updating sub-type is forbidden                                                        | -                |
-| **403**     | Forbidden                                                                                                      | -                |
-| **404**     | - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found | -                |
-| **429**     | Too many requests                                                                                              | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | - JSON format is wrong - Updating sub-type is forbidden |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **updatePrivateLocation**
-
 > SyntheticsPrivateLocation updatePrivateLocation(body)
 
 Edit a Synthetics private location.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiUpdatePrivateLocationRequest = {
+let params:v1.SyntheticsApiUpdatePrivateLocationRequest = {
   // string | The ID of the private location.
   locationId: "location_id_example",
   // SyntheticsPrivateLocation | Details of the private location to be updated.
   body: {
     description: "Description of private location",
     name: "New private location",
-    tags: ["team:front"],
+    tags: [
+      "team:front",
+    ],
   },
 };
 
-apiInstance
-  .updatePrivateLocation(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.updatePrivateLocation(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name           | Type                          | Description                                    | Notes                 |
-| -------------- | ----------------------------- | ---------------------------------------------- | --------------------- |
-| **body**       | **SyntheticsPrivateLocation** | Details of the private location to be updated. |
-| **locationId** | [**string**]                  | The ID of the private location.                | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsPrivateLocation**| Details of the private location to be updated. |
+ **locationId** | [**string**] | The ID of the private location. | defaults to undefined
+
 
 ### Return type
 
@@ -2186,35 +2160,35 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                                          | Response headers |
-| ----------- | ------------------------------------------------------------------------------------ | ---------------- |
-| **200**     | OK                                                                                   | -                |
-| **404**     | - Private locations are not activated for the user - Private location does not exist | -                |
-| **429**     | Too many requests                                                                    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | - Private locations are not activated for the user - Private location does not exist |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **updateTestPauseStatus**
-
 > boolean updateTestPauseStatus(body)
 
 Pause or start a Synthetics test by changing the status.
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiUpdateTestPauseStatusRequest = {
+let params:v1.SyntheticsApiUpdateTestPauseStatusRequest = {
   // string | The public ID of the Synthetic test to update.
   publicId: "public_id_example",
   // SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
@@ -2223,22 +2197,19 @@ let params: v1.SyntheticsApiUpdateTestPauseStatusRequest = {
   },
 };
 
-apiInstance
-  .updateTestPauseStatus(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.updateTestPauseStatus(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name         | Type                                       | Description                                    | Notes                 |
-| ------------ | ------------------------------------------ | ---------------------------------------------- | --------------------- |
-| **body**     | **SyntheticsUpdateTestPauseStatusPayload** | Status to set the given Synthetic test to.     |
-| **publicId** | [**string**]                               | The public ID of the Synthetic test to update. | defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **SyntheticsUpdateTestPauseStatusPayload**| Status to set the given Synthetic test to. |
+ **publicId** | [**string**] | The public ID of the Synthetic test to update. | defaults to undefined
+
 
 ### Return type
 
@@ -2250,17 +2221,18 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                                               | Response headers |
-| ----------- | ------------------------------------------------------------------------- | ---------------- |
-| **200**     | OK - Returns a boolean indicating if the update was successful.           | -                |
-| **400**     | JSON format is wrong.                                                     | -                |
-| **403**     | Forbidden                                                                 | -                |
-| **404**     | - Synthetic is not activated for the user - Test is not owned by the user | -                |
-| **429**     | Too many requests                                                         | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK - Returns a boolean indicating if the update was successful. |  -  |
+**400** | JSON format is wrong. |  -  |
+**403** | Forbidden |  -  |
+**404** | - Synthetic is not activated for the user - Test is not owned by the user |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+

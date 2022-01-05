@@ -8,52 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
- */
+* Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
+*/
 
 export class UsageLambdaHour {
-  /**
-   * Contains the number of different functions for each region and AWS account.
-   */
-  "funcCount"?: number;
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * Contains the sum of invocations of all functions.
-   */
-  "invocationsSum"?: number;
+    /**
+    * Contains the number of different functions for each region and AWS account.
+    */
+    'funcCount'?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * Contains the sum of invocations of all functions.
+    */
+    'invocationsSum'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    funcCount: {
-      baseName: "func_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "funcCount": {
+            "baseName": "func_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "invocationsSum": {
+            "baseName": "invocations_sum",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageLambdaHour.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    invocationsSum: {
-      baseName: "invocations_sum",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLambdaHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,116 +8,150 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
-import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
-import { LogQueryDefinition } from "./LogQueryDefinition";
-import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { WidgetAggregator } from "./WidgetAggregator";
-import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
-import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionQueryDefinition } from './FormulaAndFunctionQueryDefinition';
+import { FormulaAndFunctionResponseFormat } from './FormulaAndFunctionResponseFormat';
+import { LogQueryDefinition } from './LogQueryDefinition';
+import { ProcessQueryDefinition } from './ProcessQueryDefinition';
+import { WidgetAggregator } from './WidgetAggregator';
+import { WidgetConditionalFormat } from './WidgetConditionalFormat';
+import { WidgetFormula } from './WidgetFormula';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated query value widget.
- */
+* Updated query value widget.
+*/
 
 export class QueryValueWidgetRequest {
-  "aggregator"?: WidgetAggregator;
-  "apmQuery"?: LogQueryDefinition;
-  "auditQuery"?: LogQueryDefinition;
-  /**
-   * List of conditional formats.
-   */
-  "conditionalFormats"?: Array<WidgetConditionalFormat>;
-  "eventQuery"?: LogQueryDefinition;
-  /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
-   */
-  "formulas"?: Array<WidgetFormula>;
-  "logQuery"?: LogQueryDefinition;
-  "networkQuery"?: LogQueryDefinition;
-  "processQuery"?: ProcessQueryDefinition;
-  "profileMetricsQuery"?: LogQueryDefinition;
-  /**
-   * TODO.
-   */
-  "q"?: string;
-  /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-   */
-  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
-  "rumQuery"?: LogQueryDefinition;
-  "securityQuery"?: LogQueryDefinition;
+    'aggregator'?: WidgetAggregator;
+    'apmQuery'?: LogQueryDefinition;
+    'auditQuery'?: LogQueryDefinition;
+    /**
+    * List of conditional formats.
+    */
+    'conditionalFormats'?: Array<WidgetConditionalFormat>;
+    'eventQuery'?: LogQueryDefinition;
+    /**
+    * List of formulas that operate on queries. **This feature is currently in beta.**
+    */
+    'formulas'?: Array<WidgetFormula>;
+    'logQuery'?: LogQueryDefinition;
+    'networkQuery'?: LogQueryDefinition;
+    'processQuery'?: ProcessQueryDefinition;
+    'profileMetricsQuery'?: LogQueryDefinition;
+    /**
+    * TODO.
+    */
+    'q'?: string;
+    /**
+    * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+    */
+    'queries'?: Array<FormulaAndFunctionQueryDefinition>;
+    'responseFormat'?: FormulaAndFunctionResponseFormat;
+    'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregator: {
-      baseName: "aggregator",
-      type: "WidgetAggregator",
-    },
-    apmQuery: {
-      baseName: "apm_query",
-      type: "LogQueryDefinition",
-    },
-    auditQuery: {
-      baseName: "audit_query",
-      type: "LogQueryDefinition",
-    },
-    conditionalFormats: {
-      baseName: "conditional_formats",
-      type: "Array<WidgetConditionalFormat>",
-    },
-    eventQuery: {
-      baseName: "event_query",
-      type: "LogQueryDefinition",
-    },
-    formulas: {
-      baseName: "formulas",
-      type: "Array<WidgetFormula>",
-    },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
-    },
-    networkQuery: {
-      baseName: "network_query",
-      type: "LogQueryDefinition",
-    },
-    processQuery: {
-      baseName: "process_query",
-      type: "ProcessQueryDefinition",
-    },
-    profileMetricsQuery: {
-      baseName: "profile_metrics_query",
-      type: "LogQueryDefinition",
-    },
-    q: {
-      baseName: "q",
-      type: "string",
-    },
-    queries: {
-      baseName: "queries",
-      type: "Array<FormulaAndFunctionQueryDefinition>",
-    },
-    responseFormat: {
-      baseName: "response_format",
-      type: "FormulaAndFunctionResponseFormat",
-    },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
-    },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregator": {
+            "baseName": "aggregator",
+            "type": "WidgetAggregator",
+            
+            
+        },
+        "apmQuery": {
+            "baseName": "apm_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "auditQuery": {
+            "baseName": "audit_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "conditionalFormats": {
+            "baseName": "conditional_formats",
+            "type": "Array<WidgetConditionalFormat>",
+            
+            
+        },
+        "eventQuery": {
+            "baseName": "event_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "formulas": {
+            "baseName": "formulas",
+            "type": "Array<WidgetFormula>",
+            
+            
+        },
+        "logQuery": {
+            "baseName": "log_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "networkQuery": {
+            "baseName": "network_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "processQuery": {
+            "baseName": "process_query",
+            "type": "ProcessQueryDefinition",
+            
+            
+        },
+        "profileMetricsQuery": {
+            "baseName": "profile_metrics_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            
+            
+        },
+        "queries": {
+            "baseName": "queries",
+            "type": "Array<FormulaAndFunctionQueryDefinition>",
+            
+            
+        },
+        "responseFormat": {
+            "baseName": "response_format",
+            "type": "FormulaAndFunctionResponseFormat",
+            
+            
+        },
+        "rumQuery": {
+            "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "securityQuery": {
+            "baseName": "security_query",
+            "type": "LogQueryDefinition",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return QueryValueWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return QueryValueWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

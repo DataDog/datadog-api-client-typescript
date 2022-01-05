@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type WidgetGrouping = typeof CHECK | typeof CLUSTER;
-export const CHECK = "check";
-export const CLUSTER = "cluster";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The kind of grouping to use.
+*/
+
+export type WidgetGrouping = typeof CHECK | typeof CLUSTER ;
+export const CHECK = 'check';
+export const CLUSTER = 'cluster';
+
+

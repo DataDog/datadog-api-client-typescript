@@ -8,33 +8,41 @@
  * Do not edit the class manually.
  */
 
-import { HostMapRequest } from "./HostMapRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HostMapRequest } from './HostMapRequest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of definitions.
- */
+* List of definitions.
+*/
 
 export class HostMapWidgetDefinitionRequests {
-  "fill"?: HostMapRequest;
-  "size"?: HostMapRequest;
+    'fill'?: HostMapRequest;
+    'size'?: HostMapRequest;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    fill: {
-      baseName: "fill",
-      type: "HostMapRequest",
-    },
-    size: {
-      baseName: "size",
-      type: "HostMapRequest",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "fill": {
+            "baseName": "fill",
+            "type": "HostMapRequest",
+            
+            
+        },
+        "size": {
+            "baseName": "size",
+            "type": "HostMapRequest",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionRequests.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostMapWidgetDefinitionRequests.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SecurityMonitoringSignalType = typeof SIGNAL;
-export const SIGNAL = "signal";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of event.
+*/
+
+export type SecurityMonitoringSignalType = typeof SIGNAL ;
+export const SIGNAL = 'signal';
+
+

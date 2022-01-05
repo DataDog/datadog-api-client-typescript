@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { SLOCorrectionResponseAttributes } from "./SLOCorrectionResponseAttributes";
-import { SLOCorrectionType } from "./SLOCorrectionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOCorrectionResponseAttributes } from './SLOCorrectionResponseAttributes';
+import { SLOCorrectionType } from './SLOCorrectionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response object of a list of SLO corrections.
- */
+* The response object of a list of SLO corrections.
+*/
 
 export class SLOCorrection {
-  "attributes"?: SLOCorrectionResponseAttributes;
-  /**
-   * The ID of the SLO correction.
-   */
-  "id"?: string;
-  "type"?: SLOCorrectionType;
+    'attributes'?: SLOCorrectionResponseAttributes;
+    /**
+    * The ID of the SLO correction.
+    */
+    'id'?: string;
+    'type'?: SLOCorrectionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SLOCorrectionResponseAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "SLOCorrectionType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "SLOCorrectionResponseAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SLOCorrectionType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrection.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrection.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

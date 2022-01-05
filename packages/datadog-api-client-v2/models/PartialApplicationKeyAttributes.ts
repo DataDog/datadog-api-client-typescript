@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of a partial application key.
- */
+* Attributes of a partial application key.
+*/
 
 export class PartialApplicationKeyAttributes {
-  /**
-   * Creation date of the application key.
-   */
-  "createdAt"?: string;
-  /**
-   * The last four characters of the application key.
-   */
-  "last4"?: string;
-  /**
-   * Name of the application key.
-   */
-  "name"?: string;
-  /**
-   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
-   */
-  "scopes"?: Array<string>;
+    /**
+    * Creation date of the application key.
+    */
+    'createdAt'?: string;
+    /**
+    * The last four characters of the application key.
+    */
+    'last4'?: string;
+    /**
+    * Name of the application key.
+    */
+    'name'?: string;
+    /**
+    * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+    */
+    'scopes'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "string",
-    },
-    last4: {
-      baseName: "last4",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "string",
+            
+            
+        },
+        "last4": {
+            "baseName": "last4",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "scopes": {
+            "baseName": "scopes",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialApplicationKeyAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return PartialApplicationKeyAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { MetricVolumes } from "./MetricVolumes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricVolumes } from './MetricVolumes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response object which includes a single metric's volume.
- */
+* Response object which includes a single metric's volume.
+*/
 
 export class MetricVolumesResponse {
-  "data"?: MetricVolumes;
+    'data'?: MetricVolumes;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricVolumes",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "MetricVolumes",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricVolumesResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricVolumesResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

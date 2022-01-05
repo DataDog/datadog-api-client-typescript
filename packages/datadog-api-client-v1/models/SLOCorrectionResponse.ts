@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SLOCorrection } from "./SLOCorrection";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOCorrection } from './SLOCorrection';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response object of an SLO correction.
- */
+* The response object of an SLO correction.
+*/
 
 export class SLOCorrectionResponse {
-  "data"?: SLOCorrection;
+    'data'?: SLOCorrection;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOCorrection",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SLOCorrection",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrectionResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

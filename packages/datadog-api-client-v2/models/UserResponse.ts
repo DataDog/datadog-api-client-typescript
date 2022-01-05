@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { User } from "./User";
-import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { User } from './User';
+import { UserResponseIncludedItem } from './UserResponseIncludedItem';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing information about a single user.
- */
+* Response containing information about a single user.
+*/
 
 export class UserResponse {
-  "data"?: User;
-  /**
-   * Array of objects related to the user.
-   */
-  "included"?: Array<UserResponseIncludedItem>;
+    'data'?: User;
+    /**
+    * Array of objects related to the user.
+    */
+    'included'?: Array<UserResponseIncludedItem>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "User",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<UserResponseIncludedItem>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "User",
+            
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<UserResponseIncludedItem>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

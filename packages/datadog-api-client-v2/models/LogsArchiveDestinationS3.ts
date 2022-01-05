@@ -8,53 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
-import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveDestinationS3Type } from './LogsArchiveDestinationS3Type';
+import { LogsArchiveIntegrationS3 } from './LogsArchiveIntegrationS3';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The S3 archive destination.
- */
+* The S3 archive destination.
+*/
 
 export class LogsArchiveDestinationS3 {
-  /**
-   * The bucket where the archive will be stored.
-   */
-  "bucket": string;
-  "integration": LogsArchiveIntegrationS3;
-  /**
-   * The archive path.
-   */
-  "path"?: string;
-  "type": LogsArchiveDestinationS3Type;
+    /**
+    * The bucket where the archive will be stored.
+    */
+    'bucket': string;
+    'integration': LogsArchiveIntegrationS3;
+    /**
+    * The archive path.
+    */
+    'path'?: string;
+    'type': LogsArchiveDestinationS3Type;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    bucket: {
-      baseName: "bucket",
-      type: "string",
-      required: true,
-    },
-    integration: {
-      baseName: "integration",
-      type: "LogsArchiveIntegrationS3",
-      required: true,
-    },
-    path: {
-      baseName: "path",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "LogsArchiveDestinationS3Type",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "bucket": {
+            "baseName": "bucket",
+            "type": "string",
+            "required": true,
+            
+        },
+        "integration": {
+            "baseName": "integration",
+            "type": "LogsArchiveIntegrationS3",
+            "required": true,
+            
+        },
+        "path": {
+            "baseName": "path",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsArchiveDestinationS3Type",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationS3.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveDestinationS3.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

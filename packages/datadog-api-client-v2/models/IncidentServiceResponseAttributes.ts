@@ -8,50 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The incident service's attributes from a response.
- */
+* The incident service's attributes from a response.
+*/
 
 export class IncidentServiceResponseAttributes {
-  /**
-   * Timestamp of when the incident service was created.
-   */
-  "created"?: Date;
-  /**
-   * Timestamp of when the incident service was modified.
-   */
-  "modified"?: Date;
-  /**
-   * Name of the incident service.
-   */
-  "name"?: string;
+    /**
+    * Timestamp of when the incident service was created.
+    */
+    'created'?: Date;
+    /**
+    * Timestamp of when the incident service was modified.
+    */
+    'modified'?: Date;
+    /**
+    * Name of the incident service.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    created: {
-      baseName: "created",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "created": {
+            "baseName": "created",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "modified": {
+            "baseName": "modified",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    modified: {
-      baseName: "modified",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServiceResponseAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

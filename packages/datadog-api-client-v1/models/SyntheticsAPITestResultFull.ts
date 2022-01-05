@@ -8,76 +8,90 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
-import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
-import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsAPITestResultData } from './SyntheticsAPITestResultData';
+import { SyntheticsAPITestResultFullCheck } from './SyntheticsAPITestResultFullCheck';
+import { SyntheticsTestMonitorStatus } from './SyntheticsTestMonitorStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object returned describing a API test result.
- */
+* Object returned describing a API test result.
+*/
 
 export class SyntheticsAPITestResultFull {
-  "check"?: SyntheticsAPITestResultFullCheck;
-  /**
-   * When the API test was conducted.
-   */
-  "checkTime"?: number;
-  /**
-   * Version of the API test used.
-   */
-  "checkVersion"?: number;
-  /**
-   * Locations for which to query the API test results.
-   */
-  "probeDc"?: string;
-  "result"?: SyntheticsAPITestResultData;
-  /**
-   * ID of the API test result.
-   */
-  "resultId"?: string;
-  "status"?: SyntheticsTestMonitorStatus;
+    'check'?: SyntheticsAPITestResultFullCheck;
+    /**
+    * When the API test was conducted.
+    */
+    'checkTime'?: number;
+    /**
+    * Version of the API test used.
+    */
+    'checkVersion'?: number;
+    /**
+    * Locations for which to query the API test results.
+    */
+    'probeDc'?: string;
+    'result'?: SyntheticsAPITestResultData;
+    /**
+    * ID of the API test result.
+    */
+    'resultId'?: string;
+    'status'?: SyntheticsTestMonitorStatus;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    check: {
-      baseName: "check",
-      type: "SyntheticsAPITestResultFullCheck",
-    },
-    checkTime: {
-      baseName: "check_time",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "check": {
+            "baseName": "check",
+            "type": "SyntheticsAPITestResultFullCheck",
+            
+            
+        },
+        "checkTime": {
+            "baseName": "check_time",
+            "type": "number",
+            
+            "format": "double",
+        },
+        "checkVersion": {
+            "baseName": "check_version",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "probeDc": {
+            "baseName": "probe_dc",
+            "type": "string",
+            
+            
+        },
+        "result": {
+            "baseName": "result",
+            "type": "SyntheticsAPITestResultData",
+            
+            
+        },
+        "resultId": {
+            "baseName": "result_id",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SyntheticsTestMonitorStatus",
+            
+            
+        }    };
 
-      format: "double",
-    },
-    checkVersion: {
-      baseName: "check_version",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAPITestResultFull.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    probeDc: {
-      baseName: "probe_dc",
-      type: "string",
-    },
-    result: {
-      baseName: "result",
-      type: "SyntheticsAPITestResultData",
-    },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "SyntheticsTestMonitorStatus",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultFull.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

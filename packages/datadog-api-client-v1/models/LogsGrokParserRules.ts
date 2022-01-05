@@ -8,39 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Set of rules for the grok parser.
- */
+* Set of rules for the grok parser.
+*/
 
 export class LogsGrokParserRules {
-  /**
-   * List of match rules for the grok parser, separated by a new line.
-   */
-  "matchRules": string;
-  /**
-   * List of support rules for the grok parser, separated by a new line.
-   */
-  "supportRules"?: string;
+    /**
+    * List of match rules for the grok parser, separated by a new line.
+    */
+    'matchRules': string;
+    /**
+    * List of support rules for the grok parser, separated by a new line.
+    */
+    'supportRules'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    matchRules: {
-      baseName: "match_rules",
-      type: "string",
-      required: true,
-    },
-    supportRules: {
-      baseName: "support_rules",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "matchRules": {
+            "baseName": "match_rules",
+            "type": "string",
+            "required": true,
+            
+        },
+        "supportRules": {
+            "baseName": "support_rules",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGrokParserRules.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsGrokParserRules.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageProfilingHour } from "./UsageProfilingHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageProfilingHour } from './UsageProfilingHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of profiled hosts for each hour for a given organization.
- */
+* Response containing the number of profiled hosts for each hour for a given organization.
+*/
 
 export class UsageProfilingResponse {
-  /**
-   * Get hourly usage for profiled hosts.
-   */
-  "usage"?: Array<UsageProfilingHour>;
+    /**
+    * Get hourly usage for profiled hosts.
+    */
+    'usage'?: Array<UsageProfilingHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageProfilingHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageProfilingHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageProfilingResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageProfilingResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

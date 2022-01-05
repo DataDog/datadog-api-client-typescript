@@ -8,14 +8,18 @@
  * Do not edit the class manually.
  */
 
-export type NotebookMetadataType =
-  | typeof POSTMORTEM
-  | typeof RUNBOOK
-  | typeof INVESTIGATION
-  | typeof DOCUMENTATION
-  | typeof REPORT;
-export const POSTMORTEM = "postmortem";
-export const RUNBOOK = "runbook";
-export const INVESTIGATION = "investigation";
-export const DOCUMENTATION = "documentation";
-export const REPORT = "report";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Metadata type of the notebook.
+*/
+
+export type NotebookMetadataType = typeof POSTMORTEM | typeof RUNBOOK | typeof INVESTIGATION | typeof DOCUMENTATION | typeof REPORT ;
+export const POSTMORTEM = 'postmortem';
+export const RUNBOOK = 'runbook';
+export const INVESTIGATION = 'investigation';
+export const DOCUMENTATION = 'documentation';
+export const REPORT = 'report';
+
+

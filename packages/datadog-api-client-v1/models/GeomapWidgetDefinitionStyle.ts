@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The style to apply to the widget.
- */
+* The style to apply to the widget.
+*/
 
 export class GeomapWidgetDefinitionStyle {
-  /**
-   * The color palette to apply to the widget.
-   */
-  "palette": string;
-  /**
-   * Whether to flip the palette tones.
-   */
-  "paletteFlip": boolean;
+    /**
+    * The color palette to apply to the widget.
+    */
+    'palette': string;
+    /**
+    * Whether to flip the palette tones.
+    */
+    'paletteFlip': boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    palette: {
-      baseName: "palette",
-      type: "string",
-      required: true,
-    },
-    paletteFlip: {
-      baseName: "palette_flip",
-      type: "boolean",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "palette": {
+            "baseName": "palette",
+            "type": "string",
+            "required": true,
+            
+        },
+        "paletteFlip": {
+            "baseName": "palette_flip",
+            "type": "boolean",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinitionStyle.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return GeomapWidgetDefinitionStyle.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

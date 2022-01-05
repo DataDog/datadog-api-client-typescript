@@ -8,38 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServiceIncludedItems } from "./IncidentServiceIncludedItems";
-import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentServiceIncludedItems } from './IncidentServiceIncludedItems';
+import { IncidentServiceResponseData } from './IncidentServiceResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with an incident service payload.
- */
+* Response with an incident service payload.
+*/
 
 export class IncidentServiceResponse {
-  "data": IncidentServiceResponseData;
-  /**
-   * Included objects from relationships.
-   */
-  "included"?: Array<IncidentServiceIncludedItems>;
+    'data': IncidentServiceResponseData;
+    /**
+    * Included objects from relationships.
+    */
+    'included'?: Array<IncidentServiceIncludedItems>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentServiceResponseData",
-      required: true,
-    },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentServiceIncludedItems>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "IncidentServiceResponseData",
+            "required": true,
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<IncidentServiceIncludedItems>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentServiceResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

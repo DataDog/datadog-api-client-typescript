@@ -8,53 +8,64 @@
  * Do not edit the class manually.
  */
 
-import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityMonitoringRuleSeverity } from './SecurityMonitoringRuleSeverity';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Case when signal is generated.
- */
+* Case when signal is generated.
+*/
 
 export class SecurityMonitoringRuleCaseCreate {
-  /**
-   * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
-   */
-  "condition"?: string;
-  /**
-   * Name of the case.
-   */
-  "name"?: string;
-  /**
-   * Notification targets for each rule case.
-   */
-  "notifications"?: Array<string>;
-  "status": SecurityMonitoringRuleSeverity;
+    /**
+    * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+    */
+    'condition'?: string;
+    /**
+    * Name of the case.
+    */
+    'name'?: string;
+    /**
+    * Notification targets for each rule case.
+    */
+    'notifications'?: Array<string>;
+    'status': SecurityMonitoringRuleSeverity;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    condition: {
-      baseName: "condition",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    notifications: {
-      baseName: "notifications",
-      type: "Array<string>",
-    },
-    status: {
-      baseName: "status",
-      type: "SecurityMonitoringRuleSeverity",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "condition": {
+            "baseName": "condition",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "notifications": {
+            "baseName": "notifications",
+            "type": "Array<string>",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SecurityMonitoringRuleSeverity",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleCaseCreate.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringRuleCaseCreate.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

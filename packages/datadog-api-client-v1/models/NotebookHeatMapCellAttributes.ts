@@ -8,47 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
-import { NotebookCellTime } from "./NotebookCellTime";
-import { NotebookGraphSize } from "./NotebookGraphSize";
-import { NotebookSplitBy } from "./NotebookSplitBy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HeatMapWidgetDefinition } from './HeatMapWidgetDefinition';
+import { NotebookCellTime } from './NotebookCellTime';
+import { NotebookGraphSize } from './NotebookGraphSize';
+import { NotebookSplitBy } from './NotebookSplitBy';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes of a notebook `heatmap` cell.
- */
+* The attributes of a notebook `heatmap` cell.
+*/
 
 export class NotebookHeatMapCellAttributes {
-  "definition": HeatMapWidgetDefinition;
-  "graphSize"?: NotebookGraphSize;
-  "splitBy"?: NotebookSplitBy;
-  "time"?: NotebookCellTime;
+    'definition': HeatMapWidgetDefinition;
+    'graphSize'?: NotebookGraphSize;
+    'splitBy'?: NotebookSplitBy;
+    'time'?: NotebookCellTime;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "HeatMapWidgetDefinition",
-      required: true,
-    },
-    graphSize: {
-      baseName: "graph_size",
-      type: "NotebookGraphSize",
-    },
-    splitBy: {
-      baseName: "split_by",
-      type: "NotebookSplitBy",
-    },
-    time: {
-      baseName: "time",
-      type: "NotebookCellTime",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "definition": {
+            "baseName": "definition",
+            "type": "HeatMapWidgetDefinition",
+            "required": true,
+            
+        },
+        "graphSize": {
+            "baseName": "graph_size",
+            "type": "NotebookGraphSize",
+            
+            
+        },
+        "splitBy": {
+            "baseName": "split_by",
+            "type": "NotebookSplitBy",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "NotebookCellTime",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookHeatMapCellAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookHeatMapCellAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

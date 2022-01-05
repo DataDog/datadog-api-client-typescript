@@ -8,16 +8,15 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
 let params: v1.MetricsApiQueryMetricsRequest = {
-  from: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
-  to: new Date().getTime() / 1000,
-  query: "system.cpu.idle{*}",
+  from: new Date(new Date().getTime() / 1000 + -1*86400).getTime() / 1000,
+to: new Date().getTime() / 1000,
+query: "system.cpu.idle{*}",
+
 };
 
 apiInstance
   .queryMetrics(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

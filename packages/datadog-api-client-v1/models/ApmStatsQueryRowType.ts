@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type ApmStatsQueryRowType =
-  | typeof SERVICE
-  | typeof RESOURCE
-  | typeof SPAN;
-export const SERVICE = "service";
-export const RESOURCE = "resource";
-export const SPAN = "span";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The level of detail for the request.
+*/
+
+export type ApmStatsQueryRowType = typeof SERVICE | typeof RESOURCE | typeof SPAN ;
+export const SERVICE = 'service';
+export const RESOURCE = 'resource';
+export const SPAN = 'span';
+
+

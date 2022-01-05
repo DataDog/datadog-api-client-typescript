@@ -8,76 +8,84 @@
  * Do not edit the class manually.
  */
 
-import { MonitorOverallStates } from "./MonitorOverallStates";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MonitorOverallStates } from './MonitorOverallStates';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Monitor state for a single group.
- */
+* Monitor state for a single group.
+*/
 
 export class MonitorStateGroup {
-  /**
-   * Latest timestamp the monitor was in NO_DATA state.
-   */
-  "lastNodataTs"?: number;
-  /**
-   * Latest timestamp of the notification sent for this monitor group.
-   */
-  "lastNotifiedTs"?: number;
-  /**
-   * Latest timestamp the monitor group was resolved.
-   */
-  "lastResolvedTs"?: number;
-  /**
-   * Latest timestamp the monitor group triggered.
-   */
-  "lastTriggeredTs"?: number;
-  /**
-   * The name of the monitor.
-   */
-  "name"?: string;
-  "status"?: MonitorOverallStates;
+    /**
+    * Latest timestamp the monitor was in NO_DATA state.
+    */
+    'lastNodataTs'?: number;
+    /**
+    * Latest timestamp of the notification sent for this monitor group.
+    */
+    'lastNotifiedTs'?: number;
+    /**
+    * Latest timestamp the monitor group was resolved.
+    */
+    'lastResolvedTs'?: number;
+    /**
+    * Latest timestamp the monitor group triggered.
+    */
+    'lastTriggeredTs'?: number;
+    /**
+    * The name of the monitor.
+    */
+    'name'?: string;
+    'status'?: MonitorOverallStates;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    lastNodataTs: {
-      baseName: "last_nodata_ts",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "lastNodataTs": {
+            "baseName": "last_nodata_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "lastNotifiedTs": {
+            "baseName": "last_notified_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "lastResolvedTs": {
+            "baseName": "last_resolved_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "lastTriggeredTs": {
+            "baseName": "last_triggered_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "MonitorOverallStates",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    lastNotifiedTs: {
-      baseName: "last_notified_ts",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorStateGroup.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    lastResolvedTs: {
-      baseName: "last_resolved_ts",
-      type: "number",
-
-      format: "int64",
-    },
-    lastTriggeredTs: {
-      baseName: "last_triggered_ts",
-      type: "number",
-
-      format: "int64",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "MonitorOverallStates",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorStateGroup.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

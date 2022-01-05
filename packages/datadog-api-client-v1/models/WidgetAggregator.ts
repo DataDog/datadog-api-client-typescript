@@ -8,16 +8,19 @@
  * Do not edit the class manually.
  */
 
-export type WidgetAggregator =
-  | typeof AVERAGE
-  | typeof LAST
-  | typeof MAXIMUM
-  | typeof MINIMUM
-  | typeof SUM
-  | typeof PERCENTILE;
-export const AVERAGE = "avg";
-export const LAST = "last";
-export const MAXIMUM = "max";
-export const MINIMUM = "min";
-export const SUM = "sum";
-export const PERCENTILE = "percentile";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Aggregator used for the request.
+*/
+
+export type WidgetAggregator = typeof AVERAGE | typeof LAST | typeof MAXIMUM | typeof MINIMUM | typeof SUM | typeof PERCENTILE ;
+export const AVERAGE = 'avg';
+export const LAST = 'last';
+export const MAXIMUM = 'max';
+export const MINIMUM = 'min';
+export const SUM = 'sum';
+export const PERCENTILE = 'percentile';
+
+

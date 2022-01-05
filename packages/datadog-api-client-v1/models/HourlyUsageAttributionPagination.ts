@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The metadata for the current pagination.
- */
+* The metadata for the current pagination.
+*/
 
 export class HourlyUsageAttributionPagination {
-  /**
-   * The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
-   */
-  "nextRecordId"?: string;
+    /**
+    * The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
+    */
+    'nextRecordId'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    nextRecordId: {
-      baseName: "next_record_id",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "nextRecordId": {
+            "baseName": "next_record_id",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionPagination.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HourlyUsageAttributionPagination.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

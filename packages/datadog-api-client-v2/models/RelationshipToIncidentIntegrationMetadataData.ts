@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentIntegrationMetadataType } from './IncidentIntegrationMetadataType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A relationship reference for an integration metadata object.
- */
+* A relationship reference for an integration metadata object.
+*/
 
 export class RelationshipToIncidentIntegrationMetadataData {
-  /**
-   * A unique identifier that represents the integration metadata.
-   */
-  "id": string;
-  "type": IncidentIntegrationMetadataType;
+    /**
+    * A unique identifier that represents the integration metadata.
+    */
+    'id': string;
+    'type': IncidentIntegrationMetadataType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentIntegrationMetadataType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentIntegrationMetadataType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

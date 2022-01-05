@@ -2,13 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                | HTTP request                       | Description |
-| ------------------------------------- | ---------------------------------- | ----------- |
-| [**listLogs**](LogsApi.md#listLogs)   | **POST** /api/v1/logs-queries/list | Search logs |
-| [**submitLog**](LogsApi.md#submitLog) | **POST** /v1/input                 | Send logs   |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
+[**submitLog**](LogsApi.md#submitLog) | **POST** /v1/input | Send logs
+
 
 ## **listLogs**
-
 > LogsListResponse listLogs(body)
 
 List endpoint returns logs that match a log search query.
@@ -23,14 +23,15 @@ See [Datadog Logs Archive documentation][2].**
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsApi(configuration);
 
-let params: v1.LogsApiListLogsRequest = {
+let params:v1.LogsApiListLogsRequest = {
   // LogsListRequest | Logs filter
   body: {
     index: "retention-3,retention-15",
@@ -39,28 +40,25 @@ let params: v1.LogsApiListLogsRequest = {
     sort: "asc",
     startAt: "startAt_example",
     time: {
-      from: new Date("2020-02-02T02:02:02Z"),
+      from: new Date('2020-02-02T02:02:02Z'),
       timezone: "timezone_example",
-      to: new Date("2020-02-02T20:20:20Z"),
+      to: new Date('2020-02-02T20:20:20Z'),
     },
   },
 };
 
-apiInstance
-  .listLogs(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.listLogs(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name     | Type                | Description | Notes |
-| -------- | ------------------- | ----------- | ----- |
-| **body** | **LogsListRequest** | Logs filter |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **LogsListRequest**| Logs filter |
+
 
 ### Return type
 
@@ -72,22 +70,21 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
-| **429**     | Too many requests    | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication error |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 ## **submitLog**
-
 > any submitLog(body)
 
 Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
@@ -97,7 +94,6 @@ Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
 - Maximum array size if sending multiple logs in an array: 1000 entries
 
 Any log exceeding 1MB is accepted and truncated by Datadog:
-
 - For a single log request, the API truncates the log at 1MB and returns a 2xx.
 - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
 
@@ -105,7 +101,6 @@ Datadog recommends sending your logs compressed.
 Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
 
 The status codes answered by the HTTP API are:
-
 - 200: OK
 - 400: Bad request (likely an issue in the payload formatting)
 - 403: Permission issue (likely using an invalid API Key)
@@ -114,14 +109,15 @@ The status codes answered by the HTTP API are:
 
 ### Example
 
+
 ```typescript
-import { v1 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v1 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsApi(configuration);
 
-let params: v1.LogsApiSubmitLogRequest = {
+let params:v1.LogsApiSubmitLogRequest = {
   // Array<HTTPLogItem> | Log to send (JSON format).
   body: [
     {
@@ -145,23 +141,20 @@ let params: v1.LogsApiSubmitLogRequest = {
   ddtags: "env:prod,user:my-user",
 };
 
-apiInstance
-  .submitLog(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.submitLog(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
+
 
 ### Parameters
 
-| Name                | Type                   | Description                                                                          | Notes                            |
-| ------------------- | ---------------------- | ------------------------------------------------------------------------------------ | -------------------------------- |
-| **body**            | **Array<HTTPLogItem>** | Log to send (JSON format).                                                           |
-| **contentEncoding** | **ContentEncoding**    | HTTP header used to compress the media-type.                                         | (optional) defaults to undefined |
-| **ddtags**          | [**string**]           | Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type. | (optional) defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **Array<HTTPLogItem>**| Log to send (JSON format). |
+ **contentEncoding** | **ContentEncoding** | HTTP header used to compress the media-type. | (optional) defaults to undefined
+ **ddtags** | [**string**] | Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type. | (optional) defaults to undefined
+
 
 ### Return type
 
@@ -173,15 +166,16 @@ apiInstance
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/logplex-1, text/plain
-- **Accept**: application/json
+ - **Content-Type**: application/json, application/logplex-1, text/plain
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
-| Status code | Description                                   | Response headers |
-| ----------- | --------------------------------------------- | ---------------- |
-| **200**     | Response from server (always 200 empty JSON). | -                |
-| **400**     | unexpected error                              | -                |
-| **429**     | Too many requests                             | -                |
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Response from server (always 200 empty JSON). |  -  |
+**400** | unexpected error |  -  |
+**429** | Too many requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+

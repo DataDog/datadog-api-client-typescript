@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Available prefix information for the API endpoints.
- */
+* Available prefix information for the API endpoints.
+*/
 
 export class IPPrefixesAPI {
-  /**
-   * List of IPv4 prefixes.
-   */
-  "prefixesIpv4"?: Array<string>;
-  /**
-   * List of IPv6 prefixes.
-   */
-  "prefixesIpv6"?: Array<string>;
+    /**
+    * List of IPv4 prefixes.
+    */
+    'prefixesIpv4'?: Array<string>;
+    /**
+    * List of IPv6 prefixes.
+    */
+    'prefixesIpv6'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    prefixesIpv4: {
-      baseName: "prefixes_ipv4",
-      type: "Array<string>",
-    },
-    prefixesIpv6: {
-      baseName: "prefixes_ipv6",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "prefixesIpv4": {
+            "baseName": "prefixes_ipv4",
+            "type": "Array<string>",
+            
+            
+        },
+        "prefixesIpv6": {
+            "baseName": "prefixes_ipv6",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesAPI.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IPPrefixesAPI.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

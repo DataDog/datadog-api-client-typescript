@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of the global variable.
- */
+* Attributes of the global variable.
+*/
 
 export class SyntheticsGlobalVariableAttributes {
-  /**
-   * List of role identifiers that can be pulled from the Roles API.
-   */
-  "restrictedRoles"?: Array<string>;
+    /**
+    * List of role identifiers that can be pulled from the Roles API.
+    */
+    'restrictedRoles'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    restrictedRoles: {
-      baseName: "restricted_roles",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "restrictedRoles": {
+            "baseName": "restricted_roles",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsGlobalVariableAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

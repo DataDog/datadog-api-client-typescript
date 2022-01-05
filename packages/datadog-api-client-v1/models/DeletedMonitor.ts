@@ -8,32 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response from the delete monitor call.
- */
+* Response from the delete monitor call.
+*/
 
 export class DeletedMonitor {
-  /**
-   * ID of the deleted monitor.
-   */
-  "deletedMonitorId"?: number;
+    /**
+    * ID of the deleted monitor.
+    */
+    'deletedMonitorId'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedMonitorId: {
-      baseName: "deleted_monitor_id",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "deletedMonitorId": {
+            "baseName": "deleted_monitor_id",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DeletedMonitor.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DeletedMonitor.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

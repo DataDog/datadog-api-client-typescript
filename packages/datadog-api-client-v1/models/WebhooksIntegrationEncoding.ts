@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type WebhooksIntegrationEncoding = typeof JSON | typeof FORM;
-export const JSON = "json";
-export const FORM = "form";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Encoding type. Can be given either `json` or `form`.
+*/
+
+export type WebhooksIntegrationEncoding = typeof JSON | typeof FORM ;
+export const JSON = 'json';
+export const FORM = 'form';
+
+

@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { DashboardType } from "./DashboardType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardType } from './DashboardType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A dashboard within a list.
- */
+* A dashboard within a list.
+*/
 
 export class DashboardListItemResponse {
-  /**
-   * ID of the dashboard.
-   */
-  "id": string;
-  "type": DashboardType;
+    /**
+    * ID of the dashboard.
+    */
+    'id': string;
+    'type': DashboardType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "DashboardType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "DashboardType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListItemResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardListItemResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

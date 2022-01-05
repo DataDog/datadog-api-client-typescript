@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
-import { MetricDistinctVolumeType } from "./MetricDistinctVolumeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricDistinctVolumeAttributes } from './MetricDistinctVolumeAttributes';
+import { MetricDistinctVolumeType } from './MetricDistinctVolumeType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a single metric's distinct volume.
- */
+* Object for a single metric's distinct volume.
+*/
 
 export class MetricDistinctVolume {
-  "attributes"?: MetricDistinctVolumeAttributes;
-  /**
-   * The metric name for this resource.
-   */
-  "id"?: string;
-  "type"?: MetricDistinctVolumeType;
+    'attributes'?: MetricDistinctVolumeAttributes;
+    /**
+    * The metric name for this resource.
+    */
+    'id'?: string;
+    'type'?: MetricDistinctVolumeType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricDistinctVolumeAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricDistinctVolumeType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "MetricDistinctVolumeAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MetricDistinctVolumeType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricDistinctVolume.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricDistinctVolume.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,15 +8,15 @@
  * Do not edit the class manually.
  */
 
-import { MetricDistinctVolume } from "./MetricDistinctVolume";
-import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
-import { UnparsedObject } from "./ObjectSerializer";
+import { MetricDistinctVolume } from './MetricDistinctVolume';
+import { MetricIngestedIndexedVolume } from './MetricIngestedIndexedVolume';
+import { MetricIngestedIndexedVolumeAttributes } from './MetricIngestedIndexedVolumeAttributes';
+import { MetricIngestedIndexedVolumeType } from './MetricIngestedIndexedVolumeType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Possible response objects for a metric's volume.
- */
+* Possible response objects for a metric's volume.
+*/
 
-export type MetricVolumes =
-  | MetricDistinctVolume
-  | MetricIngestedIndexedVolume
-  | UnparsedObject;
+export type MetricVolumes = MetricDistinctVolume | MetricIngestedIndexedVolume | UnparsedObject;

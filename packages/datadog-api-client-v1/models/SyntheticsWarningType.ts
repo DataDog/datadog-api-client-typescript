@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsWarningType = typeof USER_LOCATOR;
-export const USER_LOCATOR = "user_locator";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* User locator used.
+*/
+
+export type SyntheticsWarningType = typeof USER_LOCATOR ;
+export const USER_LOCATOR = 'user_locator';
+
+

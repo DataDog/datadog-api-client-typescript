@@ -8,114 +8,136 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of user object returned by the API.
- */
+* Attributes of user object returned by the API.
+*/
 
 export class UserAttributes {
-  /**
-   * Creation time of the user.
-   */
-  "createdAt"?: Date;
-  /**
-   * Whether the user is disabled.
-   */
-  "disabled"?: boolean;
-  /**
-   * Email of the user.
-   */
-  "email"?: string;
-  /**
-   * Handle of the user.
-   */
-  "handle"?: string;
-  /**
-   * URL of the user's icon.
-   */
-  "icon"?: string;
-  /**
-   * Time that the user was last modified.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * Name of the user.
-   */
-  "name"?: string;
-  /**
-   * Whether the user is a service account.
-   */
-  "serviceAccount"?: boolean;
-  /**
-   * Status of the user.
-   */
-  "status"?: string;
-  /**
-   * Title of the user.
-   */
-  "title"?: string;
-  /**
-   * Whether the user is verified.
-   */
-  "verified"?: boolean;
+    /**
+    * Creation time of the user.
+    */
+    'createdAt'?: Date;
+    /**
+    * Whether the user is disabled.
+    */
+    'disabled'?: boolean;
+    /**
+    * Email of the user.
+    */
+    'email'?: string;
+    /**
+    * Handle of the user.
+    */
+    'handle'?: string;
+    /**
+    * URL of the user's icon.
+    */
+    'icon'?: string;
+    /**
+    * Time that the user was last modified.
+    */
+    'modifiedAt'?: Date;
+    /**
+    * Name of the user.
+    */
+    'name'?: string;
+    /**
+    * Whether the user is a service account.
+    */
+    'serviceAccount'?: boolean;
+    /**
+    * Status of the user.
+    */
+    'status'?: string;
+    /**
+    * Title of the user.
+    */
+    'title'?: string;
+    /**
+    * Whether the user is verified.
+    */
+    'verified'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "disabled": {
+            "baseName": "disabled",
+            "type": "boolean",
+            
+            
+        },
+        "email": {
+            "baseName": "email",
+            "type": "string",
+            
+            
+        },
+        "handle": {
+            "baseName": "handle",
+            "type": "string",
+            
+            
+        },
+        "icon": {
+            "baseName": "icon",
+            "type": "string",
+            
+            
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "serviceAccount": {
+            "baseName": "service_account",
+            "type": "boolean",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "string",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "verified": {
+            "baseName": "verified",
+            "type": "boolean",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    disabled: {
-      baseName: "disabled",
-      type: "boolean",
-    },
-    email: {
-      baseName: "email",
-      type: "string",
-    },
-    handle: {
-      baseName: "handle",
-      type: "string",
-    },
-    icon: {
-      baseName: "icon",
-      type: "string",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    serviceAccount: {
-      baseName: "service_account",
-      type: "boolean",
-    },
-    status: {
-      baseName: "status",
-      type: "string",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    verified: {
-      baseName: "verified",
-      type: "boolean",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { WidgetLineType } from "./WidgetLineType";
-import { WidgetLineWidth } from "./WidgetLineWidth";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { WidgetLineType } from './WidgetLineType';
+import { WidgetLineWidth } from './WidgetLineWidth';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Define request widget style.
- */
+* Define request widget style.
+*/
 
 export class WidgetRequestStyle {
-  "lineType"?: WidgetLineType;
-  "lineWidth"?: WidgetLineWidth;
-  /**
-   * Color palette to apply to the widget.
-   */
-  "palette"?: string;
+    'lineType'?: WidgetLineType;
+    'lineWidth'?: WidgetLineWidth;
+    /**
+    * Color palette to apply to the widget.
+    */
+    'palette'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    lineType: {
-      baseName: "line_type",
-      type: "WidgetLineType",
-    },
-    lineWidth: {
-      baseName: "line_width",
-      type: "WidgetLineWidth",
-    },
-    palette: {
-      baseName: "palette",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "lineType": {
+            "baseName": "line_type",
+            "type": "WidgetLineType",
+            
+            
+        },
+        "lineWidth": {
+            "baseName": "line_width",
+            "type": "WidgetLineWidth",
+            
+            
+        },
+        "palette": {
+            "baseName": "palette",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetRequestStyle.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetRequestStyle.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,31 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The view of the world that the map should render.
- */
+* The view of the world that the map should render.
+*/
 
 export class GeomapWidgetDefinitionView {
-  /**
-   * The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
-   */
-  "focus": string;
+    /**
+    * The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
+    */
+    'focus': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    focus: {
-      baseName: "focus",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "focus": {
+            "baseName": "focus",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinitionView.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return GeomapWidgetDefinitionView.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

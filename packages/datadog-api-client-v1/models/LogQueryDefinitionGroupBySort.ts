@@ -8,46 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { WidgetSort } from './WidgetSort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Define a sorting method.
- */
+* Define a sorting method.
+*/
 
 export class LogQueryDefinitionGroupBySort {
-  /**
-   * The aggregation method.
-   */
-  "aggregation": string;
-  /**
-   * Facet name.
-   */
-  "facet"?: string;
-  "order": WidgetSort;
+    /**
+    * The aggregation method.
+    */
+    'aggregation': string;
+    /**
+    * Facet name.
+    */
+    'facet'?: string;
+    'order': WidgetSort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "string",
-      required: true,
-    },
-    facet: {
-      baseName: "facet",
-      type: "string",
-    },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "string",
+            "required": true,
+            
+        },
+        "facet": {
+            "baseName": "facet",
+            "type": "string",
+            
+            
+        },
+        "order": {
+            "baseName": "order",
+            "type": "WidgetSort",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogQueryDefinitionGroupBySort.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogQueryDefinitionGroupBySort.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

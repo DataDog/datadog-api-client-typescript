@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageSDSHour } from "./UsageSDSHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageSDSHour } from './UsageSDSHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
- */
+* Response containing the Sensitive Data Scanner usage for each hour for a given organization.
+*/
 
 export class UsageSDSResponse {
-  /**
-   * Get hourly usage for Sensitive Data Scanner.
-   */
-  "usage"?: Array<UsageSDSHour>;
+    /**
+    * Get hourly usage for Sensitive Data Scanner.
+    */
+    'usage'?: Array<UsageSDSHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSDSHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageSDSHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSDSResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSDSResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

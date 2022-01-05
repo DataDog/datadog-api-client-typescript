@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { UsageAttributionBody } from "./UsageAttributionBody";
-import { UsageAttributionMetadata } from "./UsageAttributionMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageAttributionBody } from './UsageAttributionBody';
+import { UsageAttributionMetadata } from './UsageAttributionMetadata';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the Usage Summary by tag(s).
- */
+* Response containing the Usage Summary by tag(s).
+*/
 
 export class UsageAttributionResponse {
-  "metadata"?: UsageAttributionMetadata;
-  /**
-   * Get Usage Summary by tag(s).
-   */
-  "usage"?: Array<UsageAttributionBody>;
+    'metadata'?: UsageAttributionMetadata;
+    /**
+    * Get Usage Summary by tag(s).
+    */
+    'usage'?: Array<UsageAttributionBody>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "UsageAttributionMetadata",
-    },
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageAttributionBody>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "metadata": {
+            "baseName": "metadata",
+            "type": "UsageAttributionMetadata",
+            
+            
+        },
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageAttributionBody>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageAttributionResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

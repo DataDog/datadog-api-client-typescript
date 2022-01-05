@@ -8,122 +8,140 @@
  * Do not edit the class manually.
  */
 
-import { Creator } from "./Creator";
-import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
-import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Creator } from './Creator';
+import { SLOCorrectionCategory } from './SLOCorrectionCategory';
+import { SLOCorrectionResponseAttributesModifier } from './SLOCorrectionResponseAttributesModifier';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attribute object associated with the SLO correction.
- */
+* The attribute object associated with the SLO correction.
+*/
 
 export class SLOCorrectionResponseAttributes {
-  "category"?: SLOCorrectionCategory;
-  /**
-   * The epoch timestamp of when the correction was created at
-   */
-  "createdAt"?: number;
-  "creator"?: Creator;
-  /**
-   * Description of the correction being made.
-   */
-  "description"?: string;
-  /**
-   * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
-   */
-  "duration"?: number;
-  /**
-   * Ending time of the correction in epoch seconds.
-   */
-  "end"?: number;
-  /**
-   * The epoch timestamp of when the correction was modified at
-   */
-  "modifiedAt"?: number;
-  "modifier"?: SLOCorrectionResponseAttributesModifier;
-  /**
-   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
-   */
-  "rrule"?: string;
-  /**
-   * ID of the SLO that this correction will be applied to.
-   */
-  "sloId"?: string;
-  /**
-   * Starting time of the correction in epoch seconds.
-   */
-  "start"?: number;
-  /**
-   * The timezone to display in the UI for the correction times (defaults to \"UTC\").
-   */
-  "timezone"?: string;
+    'category'?: SLOCorrectionCategory;
+    /**
+    * The epoch timestamp of when the correction was created at
+    */
+    'createdAt'?: number;
+    'creator'?: Creator;
+    /**
+    * Description of the correction being made.
+    */
+    'description'?: string;
+    /**
+    * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
+    */
+    'duration'?: number;
+    /**
+    * Ending time of the correction in epoch seconds.
+    */
+    'end'?: number;
+    /**
+    * The epoch timestamp of when the correction was modified at
+    */
+    'modifiedAt'?: number;
+    'modifier'?: SLOCorrectionResponseAttributesModifier;
+    /**
+    * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+    */
+    'rrule'?: string;
+    /**
+    * ID of the SLO that this correction will be applied to.
+    */
+    'sloId'?: string;
+    /**
+    * Starting time of the correction in epoch seconds.
+    */
+    'start'?: number;
+    /**
+    * The timezone to display in the UI for the correction times (defaults to \"UTC\").
+    */
+    'timezone'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "SLOCorrectionCategory",
-    },
-    createdAt: {
-      baseName: "created_at",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "category": {
+            "baseName": "category",
+            "type": "SLOCorrectionCategory",
+            
+            
+        },
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "creator": {
+            "baseName": "creator",
+            "type": "Creator",
+            
+            
+        },
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            
+            
+        },
+        "duration": {
+            "baseName": "duration",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "end": {
+            "baseName": "end",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "modifier": {
+            "baseName": "modifier",
+            "type": "SLOCorrectionResponseAttributesModifier",
+            
+            
+        },
+        "rrule": {
+            "baseName": "rrule",
+            "type": "string",
+            
+            
+        },
+        "sloId": {
+            "baseName": "slo_id",
+            "type": "string",
+            
+            
+        },
+        "start": {
+            "baseName": "start",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "timezone": {
+            "baseName": "timezone",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    creator: {
-      baseName: "creator",
-      type: "Creator",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    duration: {
-      baseName: "duration",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrectionResponseAttributes.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    end: {
-      baseName: "end",
-      type: "number",
-
-      format: "int64",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "number",
-
-      format: "int64",
-    },
-    modifier: {
-      baseName: "modifier",
-      type: "SLOCorrectionResponseAttributesModifier",
-    },
-    rrule: {
-      baseName: "rrule",
-      type: "string",
-    },
-    sloId: {
-      baseName: "slo_id",
-      type: "string",
-    },
-    start: {
-      baseName: "start",
-      type: "number",
-
-      format: "int64",
-    },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

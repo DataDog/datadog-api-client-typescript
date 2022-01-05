@@ -8,63 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { LogsArchiveCreateRequestDestination } from "./LogsArchiveCreateRequestDestination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsArchiveCreateRequestDestination } from './LogsArchiveCreateRequestDestination';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes associated with the archive.
- */
+* The attributes associated with the archive.
+*/
 
 export class LogsArchiveCreateRequestAttributes {
-  "destination": LogsArchiveCreateRequestDestination;
-  /**
-   * To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.
-   */
-  "includeTags"?: boolean;
-  /**
-   * The archive name.
-   */
-  "name": string;
-  /**
-   * The archive query/filter. Logs matching this query are included in the archive.
-   */
-  "query": string;
-  /**
-   * An array of tags to add to rehydrated logs from an archive.
-   */
-  "rehydrationTags"?: Array<string>;
+    'destination': LogsArchiveCreateRequestDestination;
+    /**
+    * To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.
+    */
+    'includeTags'?: boolean;
+    /**
+    * The archive name.
+    */
+    'name': string;
+    /**
+    * The archive query/filter. Logs matching this query are included in the archive.
+    */
+    'query': string;
+    /**
+    * An array of tags to add to rehydrated logs from an archive.
+    */
+    'rehydrationTags'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    destination: {
-      baseName: "destination",
-      type: "LogsArchiveCreateRequestDestination",
-      required: true,
-    },
-    includeTags: {
-      baseName: "include_tags",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
-    rehydrationTags: {
-      baseName: "rehydration_tags",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "destination": {
+            "baseName": "destination",
+            "type": "LogsArchiveCreateRequestDestination",
+            "required": true,
+            
+        },
+        "includeTags": {
+            "baseName": "include_tags",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            "required": true,
+            
+        },
+        "rehydrationTags": {
+            "baseName": "rehydration_tags",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveCreateRequestAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveCreateRequestAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

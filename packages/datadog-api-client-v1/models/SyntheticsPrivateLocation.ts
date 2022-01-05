@@ -8,63 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsPrivateLocationSecrets } from './SyntheticsPrivateLocationSecrets';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing information about the private location to create.
- */
+* Object containing information about the private location to create.
+*/
 
 export class SyntheticsPrivateLocation {
-  /**
-   * Description of the private location.
-   */
-  "description": string;
-  /**
-   * Unique identifier of the private location.
-   */
-  "id"?: string;
-  /**
-   * Name of the private location.
-   */
-  "name": string;
-  "secrets"?: SyntheticsPrivateLocationSecrets;
-  /**
-   * Array of tags attached to the private location.
-   */
-  "tags": Array<string>;
+    /**
+    * Description of the private location.
+    */
+    'description': string;
+    /**
+    * Unique identifier of the private location.
+    */
+    'id'?: string;
+    /**
+    * Name of the private location.
+    */
+    'name': string;
+    'secrets'?: SyntheticsPrivateLocationSecrets;
+    /**
+    * Array of tags attached to the private location.
+    */
+    'tags': Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    secrets: {
-      baseName: "secrets",
-      type: "SyntheticsPrivateLocationSecrets",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "secrets": {
+            "baseName": "secrets",
+            "type": "SyntheticsPrivateLocationSecrets",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocation.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsPrivateLocation.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

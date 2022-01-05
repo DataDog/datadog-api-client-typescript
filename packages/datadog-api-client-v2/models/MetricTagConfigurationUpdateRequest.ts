@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricTagConfigurationUpdateData } from './MetricTagConfigurationUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request object that includes the metric that you would like to edit the tag configuration on.
- */
+* Request object that includes the metric that you would like to edit the tag configuration on.
+*/
 
 export class MetricTagConfigurationUpdateRequest {
-  "data": MetricTagConfigurationUpdateData;
+    'data': MetricTagConfigurationUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricTagConfigurationUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "MetricTagConfigurationUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricTagConfigurationUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

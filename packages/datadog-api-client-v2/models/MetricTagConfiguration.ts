@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
-import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricTagConfigurationAttributes } from './MetricTagConfigurationAttributes';
+import { MetricTagConfigurationType } from './MetricTagConfigurationType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a single metric tag configuration.
- */
+* Object for a single metric tag configuration.
+*/
 
 export class MetricTagConfiguration {
-  "attributes"?: MetricTagConfigurationAttributes;
-  /**
-   * The metric name for this resource.
-   */
-  "id"?: string;
-  "type"?: MetricTagConfigurationType;
+    'attributes'?: MetricTagConfigurationAttributes;
+    /**
+    * The metric name for this resource.
+    */
+    'id'?: string;
+    'type'?: MetricTagConfigurationType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricTagConfigurationAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricTagConfigurationType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "MetricTagConfigurationAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MetricTagConfigurationType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfiguration.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricTagConfiguration.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

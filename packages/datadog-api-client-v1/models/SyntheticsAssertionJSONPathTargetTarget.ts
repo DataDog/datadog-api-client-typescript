@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Composed target for `validatesJSONPath` operator.
- */
+* Composed target for `validatesJSONPath` operator.
+*/
 
 export class SyntheticsAssertionJSONPathTargetTarget {
-  /**
-   * The JSON path to assert.
-   */
-  "jsonPath"?: string;
-  /**
-   * The specific operator to use on the path.
-   */
-  "operator"?: string;
-  /**
-   * The path target value to compare to.
-   */
-  "targetValue"?: any;
+    /**
+    * The JSON path to assert.
+    */
+    'jsonPath'?: string;
+    /**
+    * The specific operator to use on the path.
+    */
+    'operator'?: string;
+    /**
+    * The path target value to compare to.
+    */
+    'targetValue'?: any;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    jsonPath: {
-      baseName: "jsonPath",
-      type: "string",
-    },
-    operator: {
-      baseName: "operator",
-      type: "string",
-    },
-    targetValue: {
-      baseName: "targetValue",
-      type: "any",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "jsonPath": {
+            "baseName": "jsonPath",
+            "type": "string",
+            
+            
+        },
+        "operator": {
+            "baseName": "operator",
+            "type": "string",
+            
+            
+        },
+        "targetValue": {
+            "baseName": "targetValue",
+            "type": "any",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

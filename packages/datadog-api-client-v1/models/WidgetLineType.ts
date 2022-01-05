@@ -8,7 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetLineType = typeof DASHED | typeof DOTTED | typeof SOLID;
-export const DASHED = "dashed";
-export const DOTTED = "dotted";
-export const SOLID = "solid";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of lines displayed.
+*/
+
+export type WidgetLineType = typeof DASHED | typeof DOTTED | typeof SOLID ;
+export const DASHED = 'dashed';
+export const DOTTED = 'dotted';
+export const SOLID = 'solid';
+
+

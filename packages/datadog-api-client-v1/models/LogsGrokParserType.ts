@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsGrokParserType = typeof GROK_PARSER;
-export const GROK_PARSER = "grok-parser";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs grok parser.
+*/
+
+export type LogsGrokParserType = typeof GROK_PARSER ;
+export const GROK_PARSER = 'grok-parser';
+
+

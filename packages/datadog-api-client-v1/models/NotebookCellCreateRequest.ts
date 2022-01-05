@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCellCreateRequestAttributes } from "./NotebookCellCreateRequestAttributes";
-import { NotebookCellResourceType } from "./NotebookCellResourceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookCellCreateRequestAttributes } from './NotebookCellCreateRequestAttributes';
+import { NotebookCellResourceType } from './NotebookCellResourceType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The description of a notebook cell create request.
- */
+* The description of a notebook cell create request.
+*/
 
 export class NotebookCellCreateRequest {
-  "attributes": NotebookCellCreateRequestAttributes;
-  "type": NotebookCellResourceType;
+    'attributes': NotebookCellCreateRequestAttributes;
+    'type': NotebookCellResourceType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NotebookCellCreateRequestAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "NotebookCellResourceType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "NotebookCellCreateRequestAttributes",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "NotebookCellResourceType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCellCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookCellCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

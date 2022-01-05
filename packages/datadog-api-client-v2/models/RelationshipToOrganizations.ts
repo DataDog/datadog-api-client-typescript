@@ -8,32 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToOrganizationData } from './RelationshipToOrganizationData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationship to organizations.
- */
+* Relationship to organizations.
+*/
 
 export class RelationshipToOrganizations {
-  /**
-   * Relationships to organization objects.
-   */
-  "data": Array<RelationshipToOrganizationData>;
+    /**
+    * Relationships to organization objects.
+    */
+    'data': Array<RelationshipToOrganizationData>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipToOrganizationData>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<RelationshipToOrganizationData>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToOrganizations.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToOrganizations.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

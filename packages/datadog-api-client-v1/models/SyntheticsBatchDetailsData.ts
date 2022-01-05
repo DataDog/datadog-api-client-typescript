@@ -8,43 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
-import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
-import { SyntheticsStatus } from "./SyntheticsStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBatchResult } from './SyntheticsBatchResult';
+import { SyntheticsCIBatchMetadata } from './SyntheticsCIBatchMetadata';
+import { SyntheticsStatus } from './SyntheticsStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Wrapper object that contains the details of a batch.
- */
+* Wrapper object that contains the details of a batch.
+*/
 
 export class SyntheticsBatchDetailsData {
-  "metadata"?: SyntheticsCIBatchMetadata;
-  /**
-   * List of results for the batch.
-   */
-  "results"?: Array<SyntheticsBatchResult>;
-  "status"?: SyntheticsStatus;
+    'metadata'?: SyntheticsCIBatchMetadata;
+    /**
+    * List of results for the batch.
+    */
+    'results'?: Array<SyntheticsBatchResult>;
+    'status'?: SyntheticsStatus;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "SyntheticsCIBatchMetadata",
-    },
-    results: {
-      baseName: "results",
-      type: "Array<SyntheticsBatchResult>",
-    },
-    status: {
-      baseName: "status",
-      type: "SyntheticsStatus",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "metadata": {
+            "baseName": "metadata",
+            "type": "SyntheticsCIBatchMetadata",
+            
+            
+        },
+        "results": {
+            "baseName": "results",
+            "type": "Array<SyntheticsBatchResult>",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "SyntheticsStatus",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBatchDetailsData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBatchDetailsData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

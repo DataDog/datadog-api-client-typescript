@@ -8,32 +8,27 @@
  * Do not edit the class manually.
  */
 
-export type MonitorType =
-  | typeof COMPOSITE
-  | typeof EVENT_ALERT
-  | typeof LOG_ALERT
-  | typeof METRIC_ALERT
-  | typeof PROCESS_ALERT
-  | typeof QUERY_ALERT
-  | typeof RUM_ALERT
-  | typeof SERVICE_CHECK
-  | typeof SYNTHETICS_ALERT
-  | typeof TRACE_ANALYTICS_ALERT
-  | typeof SLO_ALERT
-  | typeof EVENT_V2_ALERT
-  | typeof AUDIT_ALERT
-  | typeof CI_PIPELINES_ALERT;
-export const COMPOSITE = "composite";
-export const EVENT_ALERT = "event alert";
-export const LOG_ALERT = "log alert";
-export const METRIC_ALERT = "metric alert";
-export const PROCESS_ALERT = "process alert";
-export const QUERY_ALERT = "query alert";
-export const RUM_ALERT = "rum alert";
-export const SERVICE_CHECK = "service check";
-export const SYNTHETICS_ALERT = "synthetics alert";
-export const TRACE_ANALYTICS_ALERT = "trace-analytics alert";
-export const SLO_ALERT = "slo alert";
-export const EVENT_V2_ALERT = "event-v2 alert";
-export const AUDIT_ALERT = "audit alert";
-export const CI_PIPELINES_ALERT = "ci-pipelines alert";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+*/
+
+export type MonitorType = typeof COMPOSITE | typeof EVENT_ALERT | typeof LOG_ALERT | typeof METRIC_ALERT | typeof PROCESS_ALERT | typeof QUERY_ALERT | typeof RUM_ALERT | typeof SERVICE_CHECK | typeof SYNTHETICS_ALERT | typeof TRACE_ANALYTICS_ALERT | typeof SLO_ALERT | typeof EVENT_V2_ALERT | typeof AUDIT_ALERT | typeof CI_PIPELINES_ALERT ;
+export const COMPOSITE = 'composite';
+export const EVENT_ALERT = 'event alert';
+export const LOG_ALERT = 'log alert';
+export const METRIC_ALERT = 'metric alert';
+export const PROCESS_ALERT = 'process alert';
+export const QUERY_ALERT = 'query alert';
+export const RUM_ALERT = 'rum alert';
+export const SERVICE_CHECK = 'service check';
+export const SYNTHETICS_ALERT = 'synthetics alert';
+export const TRACE_ANALYTICS_ALERT = 'trace-analytics alert';
+export const SLO_ALERT = 'slo alert';
+export const EVENT_V2_ALERT = 'event-v2 alert';
+export const AUDIT_ALERT = 'audit alert';
+export const CI_PIPELINES_ALERT = 'ci-pipelines alert';
+
+

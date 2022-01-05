@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { LogsIndex } from "./LogsIndex";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsIndex } from './LogsIndex';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object with all Index configurations for a given organization.
- */
+* Object with all Index configurations for a given organization.
+*/
 
 export class LogsIndexListResponse {
-  /**
-   * Array of Log index configurations.
-   */
-  "indexes"?: Array<LogsIndex>;
+    /**
+    * Array of Log index configurations.
+    */
+    'indexes'?: Array<LogsIndex>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    indexes: {
-      baseName: "indexes",
-      type: "Array<LogsIndex>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "indexes": {
+            "baseName": "indexes",
+            "type": "Array<LogsIndex>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndexListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsIndexListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

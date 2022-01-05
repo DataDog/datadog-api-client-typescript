@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { User } from "./User";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { User } from './User';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Array of Datadog users for a given organization.
- */
+* Array of Datadog users for a given organization.
+*/
 
 export class UserListResponse {
-  /**
-   * Array of users.
-   */
-  "users"?: Array<User>;
+    /**
+    * Array of users.
+    */
+    'users'?: Array<User>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    users: {
-      baseName: "users",
-      type: "Array<User>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "users": {
+            "baseName": "users",
+            "type": "Array<User>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

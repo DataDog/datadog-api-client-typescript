@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { Organization } from "./Organization";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Organization } from './Organization';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with the list of organizations.
- */
+* Response with the list of organizations.
+*/
 
 export class OrganizationListResponse {
-  /**
-   * Array of organization objects.
-   */
-  "orgs"?: Array<Organization>;
+    /**
+    * Array of organization objects.
+    */
+    'orgs'?: Array<Organization>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    orgs: {
-      baseName: "orgs",
-      type: "Array<Organization>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "orgs": {
+            "baseName": "orgs",
+            "type": "Array<Organization>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

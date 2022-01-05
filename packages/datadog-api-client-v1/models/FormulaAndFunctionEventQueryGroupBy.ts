@@ -8,47 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionEventQueryGroupBySort } from './FormulaAndFunctionEventQueryGroupBySort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of objects used to group by.
- */
+* List of objects used to group by.
+*/
 
 export class FormulaAndFunctionEventQueryGroupBy {
-  /**
-   * Event facet.
-   */
-  "facet": string;
-  /**
-   * Number of groups to return.
-   */
-  "limit"?: number;
-  "sort"?: FormulaAndFunctionEventQueryGroupBySort;
+    /**
+    * Event facet.
+    */
+    'facet': string;
+    /**
+    * Number of groups to return.
+    */
+    'limit'?: number;
+    'sort'?: FormulaAndFunctionEventQueryGroupBySort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "facet": {
+            "baseName": "facet",
+            "type": "string",
+            "required": true,
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "sort": {
+            "baseName": "sort",
+            "type": "FormulaAndFunctionEventQueryGroupBySort",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    sort: {
-      baseName: "sort",
-      type: "FormulaAndFunctionEventQueryGroupBySort",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

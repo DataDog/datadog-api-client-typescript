@@ -8,8 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type FormulaAndFunctionResponseFormat =
-  | typeof TIMESERIES
-  | typeof SCALAR;
-export const TIMESERIES = "timeseries";
-export const SCALAR = "scalar";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Timeseries or Scalar response. **This feature is currently in beta.**
+*/
+
+export type FormulaAndFunctionResponseFormat = typeof TIMESERIES | typeof SCALAR ;
+export const TIMESERIES = 'timeseries';
+export const SCALAR = 'scalar';
+
+

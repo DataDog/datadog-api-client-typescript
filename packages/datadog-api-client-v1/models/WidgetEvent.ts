@@ -8,39 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the `<EVENTS_SCHEMA>`.
- */
+* Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the `<EVENTS_SCHEMA>`.
+*/
 
 export class WidgetEvent {
-  /**
-   * Query definition.
-   */
-  "q": string;
-  /**
-   * The execution method for multi-value filters.
-   */
-  "tagsExecution"?: string;
+    /**
+    * Query definition.
+    */
+    'q': string;
+    /**
+    * The execution method for multi-value filters.
+    */
+    'tagsExecution'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    q: {
-      baseName: "q",
-      type: "string",
-      required: true,
-    },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            "required": true,
+            
+        },
+        "tagsExecution": {
+            "baseName": "tags_execution",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetEvent.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetEvent.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

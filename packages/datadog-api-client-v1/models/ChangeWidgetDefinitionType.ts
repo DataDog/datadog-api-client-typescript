@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ChangeWidgetDefinitionType = typeof CHANGE;
-export const CHANGE = "change";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the change widget.
+*/
+
+export type ChangeWidgetDefinitionType = typeof CHANGE ;
+export const CHANGE = 'change';
+
+

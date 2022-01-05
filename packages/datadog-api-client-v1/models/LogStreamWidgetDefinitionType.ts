@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogStreamWidgetDefinitionType = typeof LOG_STREAM;
-export const LOG_STREAM = "log_stream";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the log stream widget.
+*/
+
+export type LogStreamWidgetDefinitionType = typeof LOG_STREAM ;
+export const LOG_STREAM = 'log_stream';
+
+

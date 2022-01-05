@@ -8,79 +8,95 @@
  * Do not edit the class manually.
  */
 
-import { SecurityFilterExclusionFilterResponse } from "./SecurityFilterExclusionFilterResponse";
-import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SecurityFilterExclusionFilterResponse } from './SecurityFilterExclusionFilterResponse';
+import { SecurityFilterFilteredDataType } from './SecurityFilterFilteredDataType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The object describing a security filter.
- */
+* The object describing a security filter.
+*/
 
 export class SecurityFilterAttributes {
-  /**
-   * The list of exclusion filters applied in this security filter.
-   */
-  "exclusionFilters"?: Array<SecurityFilterExclusionFilterResponse>;
-  "filteredDataType"?: SecurityFilterFilteredDataType;
-  /**
-   * Whether the security filter is the built-in filter.
-   */
-  "isBuiltin"?: boolean;
-  /**
-   * Whether the security filter is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
-   * The security filter name.
-   */
-  "name"?: string;
-  /**
-   * The security filter query. Logs accepted by this query will be accepted by this filter.
-   */
-  "query"?: string;
-  /**
-   * The version of the security filter.
-   */
-  "version"?: number;
+    /**
+    * The list of exclusion filters applied in this security filter.
+    */
+    'exclusionFilters'?: Array<SecurityFilterExclusionFilterResponse>;
+    'filteredDataType'?: SecurityFilterFilteredDataType;
+    /**
+    * Whether the security filter is the built-in filter.
+    */
+    'isBuiltin'?: boolean;
+    /**
+    * Whether the security filter is enabled.
+    */
+    'isEnabled'?: boolean;
+    /**
+    * The security filter name.
+    */
+    'name'?: string;
+    /**
+    * The security filter query. Logs accepted by this query will be accepted by this filter.
+    */
+    'query'?: string;
+    /**
+    * The version of the security filter.
+    */
+    'version'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    exclusionFilters: {
-      baseName: "exclusion_filters",
-      type: "Array<SecurityFilterExclusionFilterResponse>",
-    },
-    filteredDataType: {
-      baseName: "filtered_data_type",
-      type: "SecurityFilterFilteredDataType",
-    },
-    isBuiltin: {
-      baseName: "is_builtin",
-      type: "boolean",
-    },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-    version: {
-      baseName: "version",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "exclusionFilters": {
+            "baseName": "exclusion_filters",
+            "type": "Array<SecurityFilterExclusionFilterResponse>",
+            
+            
+        },
+        "filteredDataType": {
+            "baseName": "filtered_data_type",
+            "type": "SecurityFilterFilteredDataType",
+            
+            
+        },
+        "isBuiltin": {
+            "baseName": "is_builtin",
+            "type": "boolean",
+            
+            
+        },
+        "isEnabled": {
+            "baseName": "is_enabled",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        },
+        "version": {
+            "baseName": "version",
+            "type": "number",
+            
+            "format": "int32",
+        }    };
 
-      format: "int32",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityFilterAttributes.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

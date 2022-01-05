@@ -8,51 +8,57 @@
  * Do not edit the class manually.
  */
 
-import { Host } from "./Host";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Host } from './Host';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response with Host information from Datadog.
- */
+* Response with Host information from Datadog.
+*/
 
 export class HostListResponse {
-  /**
-   * Array of hosts.
-   */
-  "hostList"?: Array<Host>;
-  /**
-   * Number of host matching the query.
-   */
-  "totalMatching"?: number;
-  /**
-   * Number of host returned.
-   */
-  "totalReturned"?: number;
+    /**
+    * Array of hosts.
+    */
+    'hostList'?: Array<Host>;
+    /**
+    * Number of host matching the query.
+    */
+    'totalMatching'?: number;
+    /**
+    * Number of host returned.
+    */
+    'totalReturned'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hostList: {
-      baseName: "host_list",
-      type: "Array<Host>",
-    },
-    totalMatching: {
-      baseName: "total_matching",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hostList": {
+            "baseName": "host_list",
+            "type": "Array<Host>",
+            
+            
+        },
+        "totalMatching": {
+            "baseName": "total_matching",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "totalReturned": {
+            "baseName": "total_returned",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    totalReturned: {
-      baseName: "total_returned",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostListResponse.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

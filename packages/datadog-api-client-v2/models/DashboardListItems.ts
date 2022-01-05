@@ -8,42 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { DashboardListItem } from "./DashboardListItem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardListItem } from './DashboardListItem';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Dashboards within a list.
- */
+* Dashboards within a list.
+*/
 
 export class DashboardListItems {
-  /**
-   * List of dashboards in the dashboard list.
-   */
-  "dashboards": Array<DashboardListItem>;
-  /**
-   * Number of dashboards in the dashboard list.
-   */
-  "total"?: number;
+    /**
+    * List of dashboards in the dashboard list.
+    */
+    'dashboards': Array<DashboardListItem>;
+    /**
+    * Number of dashboards in the dashboard list.
+    */
+    'total'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardListItem>",
-      required: true,
-    },
-    total: {
-      baseName: "total",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "dashboards": {
+            "baseName": "dashboards",
+            "type": "Array<DashboardListItem>",
+            "required": true,
+            
+        },
+        "total": {
+            "baseName": "total",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardListItems.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListItems.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

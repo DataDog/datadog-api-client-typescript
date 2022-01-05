@@ -8,60 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing indexed logs usage grouped by retention period and summed.
- */
+* Object containing indexed logs usage grouped by retention period and summed.
+*/
 
 export class LogsRetentionSumUsage {
-  /**
-   * Total indexed logs for this retention period.
-   */
-  "logsIndexedLogsUsageSum"?: number;
-  /**
-   * Live indexed logs for this retention period.
-   */
-  "logsLiveIndexedLogsUsageSum"?: number;
-  /**
-   * Rehydrated indexed logs for this retention period.
-   */
-  "logsRehydratedIndexedLogsUsageSum"?: number;
-  /**
-   * The retention period in days or \"custom\" for all custom retention periods.
-   */
-  "retention"?: string;
+    /**
+    * Total indexed logs for this retention period.
+    */
+    'logsIndexedLogsUsageSum'?: number;
+    /**
+    * Live indexed logs for this retention period.
+    */
+    'logsLiveIndexedLogsUsageSum'?: number;
+    /**
+    * Rehydrated indexed logs for this retention period.
+    */
+    'logsRehydratedIndexedLogsUsageSum'?: number;
+    /**
+    * The retention period in days or \"custom\" for all custom retention periods.
+    */
+    'retention'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    logsIndexedLogsUsageSum: {
-      baseName: "logs_indexed_logs_usage_sum",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "logsIndexedLogsUsageSum": {
+            "baseName": "logs_indexed_logs_usage_sum",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "logsLiveIndexedLogsUsageSum": {
+            "baseName": "logs_live_indexed_logs_usage_sum",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "logsRehydratedIndexedLogsUsageSum": {
+            "baseName": "logs_rehydrated_indexed_logs_usage_sum",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "retention": {
+            "baseName": "retention",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    logsLiveIndexedLogsUsageSum: {
-      baseName: "logs_live_indexed_logs_usage_sum",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsRetentionSumUsage.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    logsRehydratedIndexedLogsUsageSum: {
-      baseName: "logs_rehydrated_indexed_logs_usage_sum",
-      type: "number",
-
-      format: "int64",
-    },
-    retention: {
-      baseName: "retention",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsRetentionSumUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

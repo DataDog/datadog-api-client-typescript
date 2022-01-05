@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An application key with its associated metadata.
- */
+* An application key with its associated metadata.
+*/
 
 export class ApplicationKey {
-  /**
-   * Hash of an application key.
-   */
-  "hash"?: string;
-  /**
-   * Name of an application key.
-   */
-  "name"?: string;
-  /**
-   * Owner of an application key.
-   */
-  "owner"?: string;
+    /**
+    * Hash of an application key.
+    */
+    'hash'?: string;
+    /**
+    * Name of an application key.
+    */
+    'name'?: string;
+    /**
+    * Owner of an application key.
+    */
+    'owner'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hash: {
-      baseName: "hash",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    owner: {
-      baseName: "owner",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hash": {
+            "baseName": "hash",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "owner": {
+            "baseName": "owner",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKey.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKey.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

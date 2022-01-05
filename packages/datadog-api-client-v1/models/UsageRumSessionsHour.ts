@@ -8,78 +8,86 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Number of RUM Sessions recorded for each hour for a given organization.
- */
+* Number of RUM Sessions recorded for each hour for a given organization.
+*/
 
 export class UsageRumSessionsHour {
-  /**
-   * The hour for the usage.
-   */
-  "hour"?: Date;
-  /**
-   * The organization name.
-   */
-  "orgName"?: string;
-  /**
-   * The organization public ID.
-   */
-  "publicId"?: string;
-  /**
-   * Contains the number of RUM Sessions.
-   */
-  "sessionCount"?: number;
-  /**
-   * Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
-   */
-  "sessionCountAndroid"?: number;
-  /**
-   * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
-   */
-  "sessionCountIos"?: number;
+    /**
+    * The hour for the usage.
+    */
+    'hour'?: Date;
+    /**
+    * The organization name.
+    */
+    'orgName'?: string;
+    /**
+    * The organization public ID.
+    */
+    'publicId'?: string;
+    /**
+    * Contains the number of RUM Sessions.
+    */
+    'sessionCount'?: number;
+    /**
+    * Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
+    */
+    'sessionCountAndroid'?: number;
+    /**
+    * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+    */
+    'sessionCountIos'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "hour": {
+            "baseName": "hour",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "orgName": {
+            "baseName": "org_name",
+            "type": "string",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        },
+        "sessionCount": {
+            "baseName": "session_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "sessionCountAndroid": {
+            "baseName": "session_count_android",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "sessionCountIos": {
+            "baseName": "session_count_ios",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-    sessionCount: {
-      baseName: "session_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageRumSessionsHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    sessionCountAndroid: {
-      baseName: "session_count_android",
-      type: "number",
-
-      format: "int64",
-    },
-    sessionCountIos: {
-      baseName: "session_count_ios",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumSessionsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

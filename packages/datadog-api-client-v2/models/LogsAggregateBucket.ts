@@ -8,39 +8,47 @@
  * Do not edit the class manually.
  */
 
-import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsAggregateBucketValue } from './LogsAggregateBucketValue';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A bucket values
- */
+* A bucket values
+*/
 
 export class LogsAggregateBucket {
-  /**
-   * The key, value pairs for each group by
-   */
-  "by"?: { [key: string]: string };
-  /**
-   * A map of the metric name -> value for regular compute or list of values for a timeseries
-   */
-  "computes"?: { [key: string]: LogsAggregateBucketValue };
+    /**
+    * The key, value pairs for each group by
+    */
+    'by'?: { [key: string]: string; };
+    /**
+    * A map of the metric name -> value for regular compute or list of values for a timeseries
+    */
+    'computes'?: { [key: string]: LogsAggregateBucketValue; };
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    by: {
-      baseName: "by",
-      type: "{ [key: string]: string; }",
-    },
-    computes: {
-      baseName: "computes",
-      type: "{ [key: string]: LogsAggregateBucketValue; }",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "by": {
+            "baseName": "by",
+            "type": "{ [key: string]: string; }",
+            
+            
+        },
+        "computes": {
+            "baseName": "computes",
+            "type": "{ [key: string]: LogsAggregateBucketValue; }",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateBucket.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsAggregateBucket.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

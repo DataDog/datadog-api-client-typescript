@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes used to update an application Key.
- */
+* Attributes used to update an application Key.
+*/
 
 export class ApplicationKeyUpdateAttributes {
-  /**
-   * Name of the application key.
-   */
-  "name"?: string;
-  /**
-   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
-   */
-  "scopes"?: Array<string>;
+    /**
+    * Name of the application key.
+    */
+    'name'?: string;
+    /**
+    * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+    */
+    'scopes'?: Array<string>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "scopes": {
+            "baseName": "scopes",
+            "type": "Array<string>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyUpdateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKeyUpdateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

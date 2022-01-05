@@ -8,43 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
-import { QuerySortOrder } from "./QuerySortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionEventAggregation } from './FormulaAndFunctionEventAggregation';
+import { QuerySortOrder } from './QuerySortOrder';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Options for sorting group by results.
- */
+* Options for sorting group by results.
+*/
 
 export class FormulaAndFunctionEventQueryGroupBySort {
-  "aggregation": FormulaAndFunctionEventAggregation;
-  /**
-   * Metric used for sorting group by results.
-   */
-  "metric"?: string;
-  "order"?: QuerySortOrder;
+    'aggregation': FormulaAndFunctionEventAggregation;
+    /**
+    * Metric used for sorting group by results.
+    */
+    'metric'?: string;
+    'order'?: QuerySortOrder;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "FormulaAndFunctionEventAggregation",
-      required: true,
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
-    },
-    order: {
-      baseName: "order",
-      type: "QuerySortOrder",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregation": {
+            "baseName": "aggregation",
+            "type": "FormulaAndFunctionEventAggregation",
+            "required": true,
+            
+        },
+        "metric": {
+            "baseName": "metric",
+            "type": "string",
+            
+            
+        },
+        "order": {
+            "baseName": "order",
+            "type": "QuerySortOrder",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

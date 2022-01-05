@@ -8,79 +8,103 @@
  * Do not edit the class manually.
  */
 
-import { EventQueryDefinition } from "./EventQueryDefinition";
-import { LogQueryDefinition } from "./LogQueryDefinition";
-import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { WidgetStyle } from "./WidgetStyle";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { EventQueryDefinition } from './EventQueryDefinition';
+import { LogQueryDefinition } from './LogQueryDefinition';
+import { ProcessQueryDefinition } from './ProcessQueryDefinition';
+import { WidgetStyle } from './WidgetStyle';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated heat map widget.
- */
+* Updated heat map widget.
+*/
 
 export class HeatMapWidgetRequest {
-  "apmQuery"?: LogQueryDefinition;
-  "eventQuery"?: EventQueryDefinition;
-  "logQuery"?: LogQueryDefinition;
-  "networkQuery"?: LogQueryDefinition;
-  "processQuery"?: ProcessQueryDefinition;
-  "profileMetricsQuery"?: LogQueryDefinition;
-  /**
-   * Widget query.
-   */
-  "q"?: string;
-  "rumQuery"?: LogQueryDefinition;
-  "securityQuery"?: LogQueryDefinition;
-  "style"?: WidgetStyle;
+    'apmQuery'?: LogQueryDefinition;
+    'eventQuery'?: EventQueryDefinition;
+    'logQuery'?: LogQueryDefinition;
+    'networkQuery'?: LogQueryDefinition;
+    'processQuery'?: ProcessQueryDefinition;
+    'profileMetricsQuery'?: LogQueryDefinition;
+    /**
+    * Widget query.
+    */
+    'q'?: string;
+    'rumQuery'?: LogQueryDefinition;
+    'securityQuery'?: LogQueryDefinition;
+    'style'?: WidgetStyle;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    apmQuery: {
-      baseName: "apm_query",
-      type: "LogQueryDefinition",
-    },
-    eventQuery: {
-      baseName: "event_query",
-      type: "EventQueryDefinition",
-    },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
-    },
-    networkQuery: {
-      baseName: "network_query",
-      type: "LogQueryDefinition",
-    },
-    processQuery: {
-      baseName: "process_query",
-      type: "ProcessQueryDefinition",
-    },
-    profileMetricsQuery: {
-      baseName: "profile_metrics_query",
-      type: "LogQueryDefinition",
-    },
-    q: {
-      baseName: "q",
-      type: "string",
-    },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
-    },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
-    },
-    style: {
-      baseName: "style",
-      type: "WidgetStyle",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "apmQuery": {
+            "baseName": "apm_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "eventQuery": {
+            "baseName": "event_query",
+            "type": "EventQueryDefinition",
+            
+            
+        },
+        "logQuery": {
+            "baseName": "log_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "networkQuery": {
+            "baseName": "network_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "processQuery": {
+            "baseName": "process_query",
+            "type": "ProcessQueryDefinition",
+            
+            
+        },
+        "profileMetricsQuery": {
+            "baseName": "profile_metrics_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "q": {
+            "baseName": "q",
+            "type": "string",
+            
+            
+        },
+        "rumQuery": {
+            "baseName": "rum_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "securityQuery": {
+            "baseName": "security_query",
+            "type": "LogQueryDefinition",
+            
+            
+        },
+        "style": {
+            "baseName": "style",
+            "type": "WidgetStyle",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HeatMapWidgetRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HeatMapWidgetRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

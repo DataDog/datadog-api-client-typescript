@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsArchiveDestinationS3Type = typeof S3;
-export const S3 = "s3";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the S3 archive destination.
+*/
+
+export type LogsArchiveDestinationS3Type = typeof S3 ;
+export const S3 = 's3';
+
+

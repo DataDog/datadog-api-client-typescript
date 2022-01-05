@@ -8,58 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of a user invitation.
- */
+* Attributes of a user invitation.
+*/
 
 export class UserInvitationDataAttributes {
-  /**
-   * Creation time of the user invitation.
-   */
-  "createdAt"?: Date;
-  /**
-   * Time of invitation expiration.
-   */
-  "expiresAt"?: Date;
-  /**
-   * Type of invitation.
-   */
-  "inviteType"?: string;
-  /**
-   * UUID of the user invitation.
-   */
-  "uuid"?: string;
+    /**
+    * Creation time of the user invitation.
+    */
+    'createdAt'?: Date;
+    /**
+    * Time of invitation expiration.
+    */
+    'expiresAt'?: Date;
+    /**
+    * Type of invitation.
+    */
+    'inviteType'?: string;
+    /**
+    * UUID of the user invitation.
+    */
+    'uuid'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "expiresAt": {
+            "baseName": "expires_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "inviteType": {
+            "baseName": "invite_type",
+            "type": "string",
+            
+            
+        },
+        "uuid": {
+            "baseName": "uuid",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserInvitationDataAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    inviteType: {
-      baseName: "invite_type",
-      type: "string",
-    },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

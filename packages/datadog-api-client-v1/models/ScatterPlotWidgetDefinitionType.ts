@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type ScatterPlotWidgetDefinitionType = typeof SCATTERPLOT;
-export const SCATTERPLOT = "scatterplot";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the scatter plot widget.
+*/
+
+export type ScatterPlotWidgetDefinitionType = typeof SCATTERPLOT ;
+export const SCATTERPLOT = 'scatterplot';
+
+

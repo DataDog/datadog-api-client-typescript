@@ -8,45 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
-import { ApplicationKeysType } from "./ApplicationKeysType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApplicationKeyUpdateAttributes } from './ApplicationKeyUpdateAttributes';
+import { ApplicationKeysType } from './ApplicationKeysType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object used to update an application key.
- */
+* Object used to update an application key.
+*/
 
 export class ApplicationKeyUpdateData {
-  "attributes": ApplicationKeyUpdateAttributes;
-  /**
-   * ID of the application key.
-   */
-  "id": string;
-  "type": ApplicationKeysType;
+    'attributes': ApplicationKeyUpdateAttributes;
+    /**
+    * ID of the application key.
+    */
+    'id': string;
+    'type': ApplicationKeysType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationKeyUpdateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "ApplicationKeysType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "ApplicationKeyUpdateAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "ApplicationKeysType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyUpdateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKeyUpdateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsConfigVariableType = typeof GLOBAL | typeof TEXT;
-export const GLOBAL = "global";
-export const TEXT = "text";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the configuration variable.
+*/
+
+export type SyntheticsConfigVariableType = typeof GLOBAL | typeof TEXT ;
+export const GLOBAL = 'global';
+export const TEXT = 'text';
+
+

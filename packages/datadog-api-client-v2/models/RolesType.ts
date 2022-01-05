@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type RolesType = typeof ROLES;
-export const ROLES = "roles";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Roles type.
+*/
+
+export type RolesType = typeof ROLES ;
+export const ROLES = 'roles';
+
+

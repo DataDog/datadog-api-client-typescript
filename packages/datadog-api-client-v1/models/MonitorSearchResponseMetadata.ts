@@ -8,62 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Metadata about the response.
- */
+* Metadata about the response.
+*/
 
 export class MonitorSearchResponseMetadata {
-  /**
-   * The page to start paginating from.
-   */
-  "page"?: number;
-  /**
-   * The number of pages.
-   */
-  "pageCount"?: number;
-  /**
-   * The number of monitors to return per page.
-   */
-  "perPage"?: number;
-  /**
-   * The total number of monitors.
-   */
-  "totalCount"?: number;
+    /**
+    * The page to start paginating from.
+    */
+    'page'?: number;
+    /**
+    * The number of pages.
+    */
+    'pageCount'?: number;
+    /**
+    * The number of monitors to return per page.
+    */
+    'perPage'?: number;
+    /**
+    * The total number of monitors.
+    */
+    'totalCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "pageCount": {
+            "baseName": "page_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "perPage": {
+            "baseName": "per_page",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "totalCount": {
+            "baseName": "total_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    pageCount: {
-      baseName: "page_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorSearchResponseMetadata.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    perPage: {
-      baseName: "per_page",
-      type: "number",
-
-      format: "int64",
-    },
-    totalCount: {
-      baseName: "total_count",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

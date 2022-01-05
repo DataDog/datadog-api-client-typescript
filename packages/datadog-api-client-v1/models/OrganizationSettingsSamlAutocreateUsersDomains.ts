@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
- */
+* Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
+*/
 
 export class OrganizationSettingsSamlAutocreateUsersDomains {
-  /**
-   * List of domains where the SAML automated user creation is enabled.
-   */
-  "domains"?: Array<string>;
-  /**
-   * Whether or not the automated user creation based on SAML domain is enabled.
-   */
-  "enabled"?: boolean;
+    /**
+    * List of domains where the SAML automated user creation is enabled.
+    */
+    'domains'?: Array<string>;
+    /**
+    * Whether or not the automated user creation based on SAML domain is enabled.
+    */
+    'enabled'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    domains: {
-      baseName: "domains",
-      type: "Array<string>",
-    },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "domains": {
+            "baseName": "domains",
+            "type": "Array<string>",
+            
+            
+        },
+        "enabled": {
+            "baseName": "enabled",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

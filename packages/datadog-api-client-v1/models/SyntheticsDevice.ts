@@ -8,66 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsDeviceID } from './SyntheticsDeviceID';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the device used to perform the Synthetic test.
- */
+* Object describing the device used to perform the Synthetic test.
+*/
 
 export class SyntheticsDevice {
-  /**
-   * Screen height of the device.
-   */
-  "height": number;
-  "id": SyntheticsDeviceID;
-  /**
-   * Whether or not the device is a mobile.
-   */
-  "isMobile"?: boolean;
-  /**
-   * The device name.
-   */
-  "name": string;
-  /**
-   * Screen width of the device.
-   */
-  "width": number;
+    /**
+    * Screen height of the device.
+    */
+    'height': number;
+    'id': SyntheticsDeviceID;
+    /**
+    * Whether or not the device is a mobile.
+    */
+    'isMobile'?: boolean;
+    /**
+    * The device name.
+    */
+    'name': string;
+    /**
+    * Screen width of the device.
+    */
+    'width': number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    height: {
-      baseName: "height",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    id: {
-      baseName: "id",
-      type: "SyntheticsDeviceID",
-      required: true,
-    },
-    isMobile: {
-      baseName: "isMobile",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    width: {
-      baseName: "width",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "height": {
+            "baseName": "height",
+            "type": "number",
+            "required": true,
+            "format": "int64",
+        },
+        "id": {
+            "baseName": "id",
+            "type": "SyntheticsDeviceID",
+            "required": true,
+            
+        },
+        "isMobile": {
+            "baseName": "isMobile",
+            "type": "boolean",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "width": {
+            "baseName": "width",
+            "type": "number",
+            "required": true,
+            "format": "int64",
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDevice.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsDevice.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

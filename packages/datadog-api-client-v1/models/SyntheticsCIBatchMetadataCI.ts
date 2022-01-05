@@ -8,34 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
-import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsCIBatchMetadataPipeline } from './SyntheticsCIBatchMetadataPipeline';
+import { SyntheticsCIBatchMetadataProvider } from './SyntheticsCIBatchMetadataProvider';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Description of the CI provider.
- */
+* Description of the CI provider.
+*/
 
 export class SyntheticsCIBatchMetadataCI {
-  "pipeline"?: SyntheticsCIBatchMetadataPipeline;
-  "provider"?: SyntheticsCIBatchMetadataProvider;
+    'pipeline'?: SyntheticsCIBatchMetadataPipeline;
+    'provider'?: SyntheticsCIBatchMetadataProvider;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    pipeline: {
-      baseName: "pipeline",
-      type: "SyntheticsCIBatchMetadataPipeline",
-    },
-    provider: {
-      baseName: "provider",
-      type: "SyntheticsCIBatchMetadataProvider",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "pipeline": {
+            "baseName": "pipeline",
+            "type": "SyntheticsCIBatchMetadataPipeline",
+            
+            
+        },
+        "provider": {
+            "baseName": "provider",
+            "type": "SyntheticsCIBatchMetadataProvider",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataCI.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsCIBatchMetadataCI.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

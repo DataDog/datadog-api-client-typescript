@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object representing a graph snapshot.
- */
+* Object representing a graph snapshot.
+*/
 
 export class GraphSnapshot {
-  /**
-   * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
-   */
-  "graphDef"?: string;
-  /**
-   * The metric query. One of `metric_query` or `graph_def` is required.
-   */
-  "metricQuery"?: string;
-  /**
-   * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
-   */
-  "snapshotUrl"?: string;
+    /**
+    * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
+    */
+    'graphDef'?: string;
+    /**
+    * The metric query. One of `metric_query` or `graph_def` is required.
+    */
+    'metricQuery'?: string;
+    /**
+    * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
+    */
+    'snapshotUrl'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    graphDef: {
-      baseName: "graph_def",
-      type: "string",
-    },
-    metricQuery: {
-      baseName: "metric_query",
-      type: "string",
-    },
-    snapshotUrl: {
-      baseName: "snapshot_url",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "graphDef": {
+            "baseName": "graph_def",
+            "type": "string",
+            
+            
+        },
+        "metricQuery": {
+            "baseName": "metric_query",
+            "type": "string",
+            
+            
+        },
+        "snapshotUrl": {
+            "baseName": "snapshot_url",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GraphSnapshot.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return GraphSnapshot.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

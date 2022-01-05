@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ProcessSummariesMetaPage } from './ProcessSummariesMetaPage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response metadata object.
- */
+* Response metadata object.
+*/
 
 export class ProcessSummariesMeta {
-  "page"?: ProcessSummariesMetaPage;
+    'page'?: ProcessSummariesMetaPage;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ProcessSummariesMetaPage",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "ProcessSummariesMetaPage",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesMeta.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ProcessSummariesMeta.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

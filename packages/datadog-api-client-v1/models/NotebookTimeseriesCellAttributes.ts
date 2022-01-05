@@ -8,47 +8,58 @@
  * Do not edit the class manually.
  */
 
-import { NotebookCellTime } from "./NotebookCellTime";
-import { NotebookGraphSize } from "./NotebookGraphSize";
-import { NotebookSplitBy } from "./NotebookSplitBy";
-import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookCellTime } from './NotebookCellTime';
+import { NotebookGraphSize } from './NotebookGraphSize';
+import { NotebookSplitBy } from './NotebookSplitBy';
+import { TimeseriesWidgetDefinition } from './TimeseriesWidgetDefinition';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes of a notebook `timeseries` cell.
- */
+* The attributes of a notebook `timeseries` cell.
+*/
 
 export class NotebookTimeseriesCellAttributes {
-  "definition": TimeseriesWidgetDefinition;
-  "graphSize"?: NotebookGraphSize;
-  "splitBy"?: NotebookSplitBy;
-  "time"?: NotebookCellTime;
+    'definition': TimeseriesWidgetDefinition;
+    'graphSize'?: NotebookGraphSize;
+    'splitBy'?: NotebookSplitBy;
+    'time'?: NotebookCellTime;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "TimeseriesWidgetDefinition",
-      required: true,
-    },
-    graphSize: {
-      baseName: "graph_size",
-      type: "NotebookGraphSize",
-    },
-    splitBy: {
-      baseName: "split_by",
-      type: "NotebookSplitBy",
-    },
-    time: {
-      baseName: "time",
-      type: "NotebookCellTime",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "definition": {
+            "baseName": "definition",
+            "type": "TimeseriesWidgetDefinition",
+            "required": true,
+            
+        },
+        "graphSize": {
+            "baseName": "graph_size",
+            "type": "NotebookGraphSize",
+            
+            
+        },
+        "splitBy": {
+            "baseName": "split_by",
+            "type": "NotebookSplitBy",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "NotebookCellTime",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookTimeseriesCellAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookTimeseriesCellAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

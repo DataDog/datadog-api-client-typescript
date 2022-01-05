@@ -8,6 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type FormulaAndFunctionApmDependencyStatsDataSource =
-  typeof APM_DEPENDENCY_STATS;
-export const APM_DEPENDENCY_STATS = "apm_dependency_stats";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Data source for APM dependency stats queries.
+*/
+
+export type FormulaAndFunctionApmDependencyStatsDataSource = typeof APM_DEPENDENCY_STATS ;
+export const APM_DEPENDENCY_STATS = 'apm_dependency_stats';
+
+

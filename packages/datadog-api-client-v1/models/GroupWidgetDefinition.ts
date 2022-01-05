@@ -8,84 +8,101 @@
  * Do not edit the class manually.
  */
 
-import { GroupWidgetDefinitionType } from "./GroupWidgetDefinitionType";
-import { Widget } from "./Widget";
-import { WidgetLayoutType } from "./WidgetLayoutType";
-import { WidgetTextAlign } from "./WidgetTextAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { GroupWidgetDefinitionType } from './GroupWidgetDefinitionType';
+import { Widget } from './Widget';
+import { WidgetLayoutType } from './WidgetLayoutType';
+import { WidgetTextAlign } from './WidgetTextAlign';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
- */
+* The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
+*/
 
 export class GroupWidgetDefinition {
-  /**
-   * Background color of the group title.
-   */
-  "backgroundColor"?: string;
-  /**
-   * URL of image to display as a banner for the group.
-   */
-  "bannerImg"?: string;
-  "layoutType": WidgetLayoutType;
-  /**
-   * Whether to show the title or not.
-   */
-  "showTitle"?: boolean;
-  /**
-   * Title of the widget.
-   */
-  "title"?: string;
-  "titleAlign"?: WidgetTextAlign;
-  "type": GroupWidgetDefinitionType;
-  /**
-   * List of widget groups.
-   */
-  "widgets": Array<Widget>;
+    /**
+    * Background color of the group title.
+    */
+    'backgroundColor'?: string;
+    /**
+    * URL of image to display as a banner for the group.
+    */
+    'bannerImg'?: string;
+    'layoutType': WidgetLayoutType;
+    /**
+    * Whether to show the title or not.
+    */
+    'showTitle'?: boolean;
+    /**
+    * Title of the widget.
+    */
+    'title'?: string;
+    'titleAlign'?: WidgetTextAlign;
+    'type': GroupWidgetDefinitionType;
+    /**
+    * List of widget groups.
+    */
+    'widgets': Array<Widget>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    backgroundColor: {
-      baseName: "background_color",
-      type: "string",
-    },
-    bannerImg: {
-      baseName: "banner_img",
-      type: "string",
-    },
-    layoutType: {
-      baseName: "layout_type",
-      type: "WidgetLayoutType",
-      required: true,
-    },
-    showTitle: {
-      baseName: "show_title",
-      type: "boolean",
-    },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
-    },
-    type: {
-      baseName: "type",
-      type: "GroupWidgetDefinitionType",
-      required: true,
-    },
-    widgets: {
-      baseName: "widgets",
-      type: "Array<Widget>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "backgroundColor": {
+            "baseName": "background_color",
+            "type": "string",
+            
+            
+        },
+        "bannerImg": {
+            "baseName": "banner_img",
+            "type": "string",
+            
+            
+        },
+        "layoutType": {
+            "baseName": "layout_type",
+            "type": "WidgetLayoutType",
+            "required": true,
+            
+        },
+        "showTitle": {
+            "baseName": "show_title",
+            "type": "boolean",
+            
+            
+        },
+        "title": {
+            "baseName": "title",
+            "type": "string",
+            
+            
+        },
+        "titleAlign": {
+            "baseName": "title_align",
+            "type": "WidgetTextAlign",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "GroupWidgetDefinitionType",
+            "required": true,
+            
+        },
+        "widgets": {
+            "baseName": "widgets",
+            "type": "Array<Widget>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GroupWidgetDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return GroupWidgetDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

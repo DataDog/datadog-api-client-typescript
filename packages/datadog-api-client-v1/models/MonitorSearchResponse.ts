@@ -8,43 +8,53 @@
  * Do not edit the class manually.
  */
 
-import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
-import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
-import { MonitorSearchResult } from "./MonitorSearchResult";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MonitorSearchResponseCounts } from './MonitorSearchResponseCounts';
+import { MonitorSearchResponseMetadata } from './MonitorSearchResponseMetadata';
+import { MonitorSearchResult } from './MonitorSearchResult';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The response form a monitor search.
- */
+* The response form a monitor search.
+*/
 
 export class MonitorSearchResponse {
-  "counts"?: MonitorSearchResponseCounts;
-  "metadata"?: MonitorSearchResponseMetadata;
-  /**
-   * The list of found monitors.
-   */
-  "monitors"?: Array<MonitorSearchResult>;
+    'counts'?: MonitorSearchResponseCounts;
+    'metadata'?: MonitorSearchResponseMetadata;
+    /**
+    * The list of found monitors.
+    */
+    'monitors'?: Array<MonitorSearchResult>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    counts: {
-      baseName: "counts",
-      type: "MonitorSearchResponseCounts",
-    },
-    metadata: {
-      baseName: "metadata",
-      type: "MonitorSearchResponseMetadata",
-    },
-    monitors: {
-      baseName: "monitors",
-      type: "Array<MonitorSearchResult>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "counts": {
+            "baseName": "counts",
+            "type": "MonitorSearchResponseCounts",
+            
+            
+        },
+        "metadata": {
+            "baseName": "metadata",
+            "type": "MonitorSearchResponseMetadata",
+            
+            
+        },
+        "monitors": {
+            "baseName": "monitors",
+            "type": "Array<MonitorSearchResult>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorSearchResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
-import { SLOCorrection } from "./SLOCorrection";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ResponseMetaAttributes } from './ResponseMetaAttributes';
+import { SLOCorrection } from './SLOCorrection';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A list of  SLO correction objects.
- */
+* A list of  SLO correction objects.
+*/
 
 export class SLOCorrectionListResponse {
-  /**
-   * The list of of SLO corrections objects.
-   */
-  "data"?: Array<SLOCorrection>;
-  "meta"?: ResponseMetaAttributes;
+    /**
+    * The list of of SLO corrections objects.
+    */
+    'data'?: Array<SLOCorrection>;
+    'meta'?: ResponseMetaAttributes;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SLOCorrection>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ResponseMetaAttributes",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<SLOCorrection>",
+            
+            
+        },
+        "meta": {
+            "baseName": "meta",
+            "type": "ResponseMetaAttributes",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrectionListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

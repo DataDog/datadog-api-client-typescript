@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
-import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOHistoryResponseData } from './SLOHistoryResponseData';
+import { SLOHistoryResponseError } from './SLOHistoryResponseError';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A service level objective history response.
- */
+* A service level objective history response.
+*/
 
 export class SLOHistoryResponse {
-  "data"?: SLOHistoryResponseData;
-  /**
-   * A list of errors while querying the history data for the service level objective.
-   */
-  "errors"?: Array<SLOHistoryResponseError>;
+    'data'?: SLOHistoryResponseData;
+    /**
+    * A list of errors while querying the history data for the service level objective.
+    */
+    'errors'?: Array<SLOHistoryResponseError>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOHistoryResponseData",
-    },
-    errors: {
-      baseName: "errors",
-      type: "Array<SLOHistoryResponseError>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "SLOHistoryResponseData",
+            
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "Array<SLOHistoryResponseError>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOHistoryResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

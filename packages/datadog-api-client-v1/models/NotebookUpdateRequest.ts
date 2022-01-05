@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { NotebookUpdateData } from "./NotebookUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookUpdateData } from './NotebookUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The description of a notebook update request.
- */
+* The description of a notebook update request.
+*/
 
 export class NotebookUpdateRequest {
-  "data": NotebookUpdateData;
+    'data': NotebookUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NotebookUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "NotebookUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

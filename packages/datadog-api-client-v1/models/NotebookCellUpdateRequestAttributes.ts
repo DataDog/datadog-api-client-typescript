@@ -8,23 +8,21 @@
  * Do not edit the class manually.
  */
 
-import { NotebookDistributionCellAttributes } from "./NotebookDistributionCellAttributes";
-import { NotebookHeatMapCellAttributes } from "./NotebookHeatMapCellAttributes";
-import { NotebookLogStreamCellAttributes } from "./NotebookLogStreamCellAttributes";
-import { NotebookMarkdownCellAttributes } from "./NotebookMarkdownCellAttributes";
-import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
-import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
-import { UnparsedObject } from "./ObjectSerializer";
+import { LogStreamWidgetDefinition } from './LogStreamWidgetDefinition';
+import { NotebookCellTime } from './NotebookCellTime';
+import { NotebookDistributionCellAttributes } from './NotebookDistributionCellAttributes';
+import { NotebookGraphSize } from './NotebookGraphSize';
+import { NotebookHeatMapCellAttributes } from './NotebookHeatMapCellAttributes';
+import { NotebookLogStreamCellAttributes } from './NotebookLogStreamCellAttributes';
+import { NotebookMarkdownCellAttributes } from './NotebookMarkdownCellAttributes';
+import { NotebookSplitBy } from './NotebookSplitBy';
+import { NotebookTimeseriesCellAttributes } from './NotebookTimeseriesCellAttributes';
+import { NotebookToplistCellAttributes } from './NotebookToplistCellAttributes';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
- */
+* The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
+*/
 
-export type NotebookCellUpdateRequestAttributes =
-  | NotebookDistributionCellAttributes
-  | NotebookHeatMapCellAttributes
-  | NotebookLogStreamCellAttributes
-  | NotebookMarkdownCellAttributes
-  | NotebookTimeseriesCellAttributes
-  | NotebookToplistCellAttributes
-  | UnparsedObject;
+export type NotebookCellUpdateRequestAttributes = NotebookDistributionCellAttributes | NotebookHeatMapCellAttributes | NotebookLogStreamCellAttributes | NotebookMarkdownCellAttributes | NotebookTimeseriesCellAttributes | NotebookToplistCellAttributes | UnparsedObject;

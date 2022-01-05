@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Paging attributes.
- */
+* Paging attributes.
+*/
 
 export class LogsResponseMetadataPage {
-  /**
-   * The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the `page[cursor]`.
-   */
-  "after"?: string;
+    /**
+    * The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the `page[cursor]`.
+    */
+    'after'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    after: {
-      baseName: "after",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "after": {
+            "baseName": "after",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsResponseMetadataPage.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsResponseMetadataPage.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

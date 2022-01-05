@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsAPITestType = typeof API;
-export const API = "api";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the Synthetic test, `api`.
+*/
+
+export type SyntheticsAPITestType = typeof API ;
+export const API = 'api';
+
+

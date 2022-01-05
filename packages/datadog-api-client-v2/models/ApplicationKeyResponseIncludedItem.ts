@@ -8,12 +8,16 @@
  * Do not edit the class manually.
  */
 
-import { Role } from "./Role";
-import { User } from "./User";
-import { UnparsedObject } from "./ObjectSerializer";
+import { Role } from './Role';
+import { RoleAttributes } from './RoleAttributes';
+import { RoleResponseRelationships } from './RoleResponseRelationships';
+import { RolesType } from './RolesType';
+import { User } from './User';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An object related to an application key.
- */
+* An object related to an application key.
+*/
 
 export type ApplicationKeyResponseIncludedItem = Role | User | UnparsedObject;

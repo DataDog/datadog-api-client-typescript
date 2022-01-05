@@ -8,84 +8,99 @@
  * Do not edit the class manually.
  */
 
-import { NotebookAuthor } from "./NotebookAuthor";
-import { NotebookCellResponse } from "./NotebookCellResponse";
-import { NotebookGlobalTime } from "./NotebookGlobalTime";
-import { NotebookMetadata } from "./NotebookMetadata";
-import { NotebookStatus } from "./NotebookStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookAuthor } from './NotebookAuthor';
+import { NotebookCellResponse } from './NotebookCellResponse';
+import { NotebookGlobalTime } from './NotebookGlobalTime';
+import { NotebookMetadata } from './NotebookMetadata';
+import { NotebookStatus } from './NotebookStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes of a notebook in get all response.
- */
+* The attributes of a notebook in get all response.
+*/
 
 export class NotebooksResponseDataAttributes {
-  "author"?: NotebookAuthor;
-  /**
-   * List of cells to display in the notebook.
-   */
-  "cells"?: Array<NotebookCellResponse>;
-  /**
-   * UTC time stamp for when the notebook was created.
-   */
-  "created"?: Date;
-  "metadata"?: NotebookMetadata;
-  /**
-   * UTC time stamp for when the notebook was last modified.
-   */
-  "modified"?: Date;
-  /**
-   * The name of the notebook.
-   */
-  "name": string;
-  "status"?: NotebookStatus;
-  "time"?: NotebookGlobalTime;
+    'author'?: NotebookAuthor;
+    /**
+    * List of cells to display in the notebook.
+    */
+    'cells'?: Array<NotebookCellResponse>;
+    /**
+    * UTC time stamp for when the notebook was created.
+    */
+    'created'?: Date;
+    'metadata'?: NotebookMetadata;
+    /**
+    * UTC time stamp for when the notebook was last modified.
+    */
+    'modified'?: Date;
+    /**
+    * The name of the notebook.
+    */
+    'name': string;
+    'status'?: NotebookStatus;
+    'time'?: NotebookGlobalTime;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "NotebookAuthor",
-    },
-    cells: {
-      baseName: "cells",
-      type: "Array<NotebookCellResponse>",
-    },
-    created: {
-      baseName: "created",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "author": {
+            "baseName": "author",
+            "type": "NotebookAuthor",
+            
+            
+        },
+        "cells": {
+            "baseName": "cells",
+            "type": "Array<NotebookCellResponse>",
+            
+            
+        },
+        "created": {
+            "baseName": "created",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "metadata": {
+            "baseName": "metadata",
+            "type": "NotebookMetadata",
+            
+            
+        },
+        "modified": {
+            "baseName": "modified",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "NotebookStatus",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "NotebookGlobalTime",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    metadata: {
-      baseName: "metadata",
-      type: "NotebookMetadata",
-    },
-    modified: {
-      baseName: "modified",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebooksResponseDataAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    status: {
-      baseName: "status",
-      type: "NotebookStatus",
-    },
-    time: {
-      baseName: "time",
-      type: "NotebookGlobalTime",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponseDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

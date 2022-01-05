@@ -8,50 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Absolute timeframe.
- */
+* Absolute timeframe.
+*/
 
 export class NotebookAbsoluteTime {
-  /**
-   * The end time.
-   */
-  "end": Date;
-  /**
-   * Indicates whether the timeframe should be shifted to end at the current time.
-   */
-  "live"?: boolean;
-  /**
-   * The start time.
-   */
-  "start": Date;
+    /**
+    * The end time.
+    */
+    'end': Date;
+    /**
+    * Indicates whether the timeframe should be shifted to end at the current time.
+    */
+    'live'?: boolean;
+    /**
+    * The start time.
+    */
+    'start': Date;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "Date",
-      required: true,
-      format: "date-time",
-    },
-    live: {
-      baseName: "live",
-      type: "boolean",
-    },
-    start: {
-      baseName: "start",
-      type: "Date",
-      required: true,
-      format: "date-time",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "end": {
+            "baseName": "end",
+            "type": "Date",
+            "required": true,
+            "format": "date-time",
+        },
+        "live": {
+            "baseName": "live",
+            "type": "boolean",
+            
+            
+        },
+        "start": {
+            "baseName": "start",
+            "type": "Date",
+            "required": true,
+            "format": "date-time",
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookAbsoluteTime.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookAbsoluteTime.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

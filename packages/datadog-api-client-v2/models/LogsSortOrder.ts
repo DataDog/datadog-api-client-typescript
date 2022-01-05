@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type LogsSortOrder = typeof ASCENDING | typeof DESCENDING;
-export const ASCENDING = "asc";
-export const DESCENDING = "desc";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The order to use, ascending or descending
+*/
+
+export type LogsSortOrder = typeof ASCENDING | typeof DESCENDING ;
+export const ASCENDING = 'asc';
+export const DESCENDING = 'desc';
+
+

@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Paging attributes.
- */
+* Paging attributes.
+*/
 
 export class ProcessSummariesMetaPage {
-  /**
-   * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
-   */
-  "after"?: string;
-  /**
-   * Number of results returned.
-   */
-  "size"?: number;
+    /**
+    * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
+    */
+    'after'?: string;
+    /**
+    * Number of results returned.
+    */
+    'size'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    after: {
-      baseName: "after",
-      type: "string",
-    },
-    size: {
-      baseName: "size",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "after": {
+            "baseName": "after",
+            "type": "string",
+            
+            
+        },
+        "size": {
+            "baseName": "size",
+            "type": "number",
+            
+            "format": "int32",
+        }    };
 
-      format: "int32",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ProcessSummariesMetaPage.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesMetaPage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type NoteWidgetDefinitionType = typeof NOTE;
-export const NOTE = "note";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the note widget.
+*/
+
+export type NoteWidgetDefinitionType = typeof NOTE ;
+export const NOTE = 'note';
+
+

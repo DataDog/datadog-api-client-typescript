@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Define a request certificate.
- */
+* Define a request certificate.
+*/
 
 export class SyntheticsTestRequestCertificateItem {
-  /**
-   * Content of the certificate or key.
-   */
-  "content"?: string;
-  /**
-   * File name for the certificate or key.
-   */
-  "filename"?: string;
-  /**
-   * Date of update of the certificate or key, ISO format.
-   */
-  "updatedAt"?: string;
+    /**
+    * Content of the certificate or key.
+    */
+    'content'?: string;
+    /**
+    * File name for the certificate or key.
+    */
+    'filename'?: string;
+    /**
+    * Date of update of the certificate or key, ISO format.
+    */
+    'updatedAt'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "string",
-    },
-    filename: {
-      baseName: "filename",
-      type: "string",
-    },
-    updatedAt: {
-      baseName: "updatedAt",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "content": {
+            "baseName": "content",
+            "type": "string",
+            
+            
+        },
+        "filename": {
+            "baseName": "filename",
+            "type": "string",
+            
+            
+        },
+        "updatedAt": {
+            "baseName": "updatedAt",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestCertificateItem.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTestRequestCertificateItem.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

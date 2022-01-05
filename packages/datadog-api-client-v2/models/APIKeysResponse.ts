@@ -8,40 +8,48 @@
  * Do not edit the class manually.
  */
 
-import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
-import { PartialAPIKey } from "./PartialAPIKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { APIKeyResponseIncludedItem } from './APIKeyResponseIncludedItem';
+import { PartialAPIKey } from './PartialAPIKey';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response for a list of API keys.
- */
+* Response for a list of API keys.
+*/
 
 export class APIKeysResponse {
-  /**
-   * Array of API keys.
-   */
-  "data"?: Array<PartialAPIKey>;
-  /**
-   * Array of objects related to the API key.
-   */
-  "included"?: Array<APIKeyResponseIncludedItem>;
+    /**
+    * Array of API keys.
+    */
+    'data'?: Array<PartialAPIKey>;
+    /**
+    * Array of objects related to the API key.
+    */
+    'included'?: Array<APIKeyResponseIncludedItem>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<PartialAPIKey>",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<APIKeyResponseIncludedItem>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<PartialAPIKey>",
+            
+            
+        },
+        "included": {
+            "baseName": "included",
+            "type": "Array<APIKeyResponseIncludedItem>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeysResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return APIKeysResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

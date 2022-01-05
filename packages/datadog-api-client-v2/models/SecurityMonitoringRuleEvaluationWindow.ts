@@ -8,15 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SecurityMonitoringRuleEvaluationWindow =
-  | typeof ZERO_MINUTES
-  | typeof ONE_MINUTE
-  | typeof FIVE_MINUTES
-  | typeof TEN_MINUTES
-  | typeof FIFTEEN_MINUTES
-  | typeof THIRTY_MINUTES
-  | typeof ONE_HOUR
-  | typeof TWO_HOURS;
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+*/
+
+export type SecurityMonitoringRuleEvaluationWindow = typeof ZERO_MINUTES | typeof ONE_MINUTE | typeof FIVE_MINUTES | typeof TEN_MINUTES | typeof FIFTEEN_MINUTES | typeof THIRTY_MINUTES | typeof ONE_HOUR | typeof TWO_HOURS ;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;
@@ -25,3 +24,5 @@ export const FIFTEEN_MINUTES = 900;
 export const THIRTY_MINUTES = 1800;
 export const ONE_HOUR = 3600;
 export const TWO_HOURS = 7200;
+
+

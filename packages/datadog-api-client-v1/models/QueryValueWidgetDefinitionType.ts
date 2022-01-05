@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type QueryValueWidgetDefinitionType = typeof QUERY_VALUE;
-export const QUERY_VALUE = "query_value";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the query value widget.
+*/
+
+export type QueryValueWidgetDefinitionType = typeof QUERY_VALUE ;
+export const QUERY_VALUE = 'query_value';
+
+

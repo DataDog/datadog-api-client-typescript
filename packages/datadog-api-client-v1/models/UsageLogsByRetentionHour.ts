@@ -8,60 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The number of indexed logs for each hour for a given organization broken down by retention period.
- */
+* The number of indexed logs for each hour for a given organization broken down by retention period.
+*/
 
 export class UsageLogsByRetentionHour {
-  /**
-   * Total logs indexed with this retention period during a given hour.
-   */
-  "indexedEventsCount"?: number;
-  /**
-   * Live logs indexed with this retention period during a given hour.
-   */
-  "liveIndexedEventsCount"?: number;
-  /**
-   * Rehydrated logs indexed with this retention period during a given hour.
-   */
-  "rehydratedIndexedEventsCount"?: number;
-  /**
-   * The retention period in days or \"custom\" for all custom retention usage.
-   */
-  "retention"?: string;
+    /**
+    * Total logs indexed with this retention period during a given hour.
+    */
+    'indexedEventsCount'?: number;
+    /**
+    * Live logs indexed with this retention period during a given hour.
+    */
+    'liveIndexedEventsCount'?: number;
+    /**
+    * Rehydrated logs indexed with this retention period during a given hour.
+    */
+    'rehydratedIndexedEventsCount'?: number;
+    /**
+    * The retention period in days or \"custom\" for all custom retention usage.
+    */
+    'retention'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    indexedEventsCount: {
-      baseName: "indexed_events_count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "indexedEventsCount": {
+            "baseName": "indexed_events_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "liveIndexedEventsCount": {
+            "baseName": "live_indexed_events_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "rehydratedIndexedEventsCount": {
+            "baseName": "rehydrated_indexed_events_count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "retention": {
+            "baseName": "retention",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    liveIndexedEventsCount: {
-      baseName: "live_indexed_events_count",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageLogsByRetentionHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    rehydratedIndexedEventsCount: {
-      baseName: "rehydrated_indexed_events_count",
-      type: "number",
-
-      format: "int64",
-    },
-    retention: {
-      baseName: "retention",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByRetentionHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

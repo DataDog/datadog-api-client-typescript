@@ -9,15 +9,14 @@ const apiInstance = new v1.DashboardListsApi(configuration);
 
 let params: v1.DashboardListsApiCreateDashboardListRequest = {
   body: {
-    name: "Example-Create_a_dashboard_list_returns_OK_response",
-  },
+name: "Example-Create_a_dashboard_list_returns_OK_response",
+},
+  
 };
 
 apiInstance
   .createDashboardList(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

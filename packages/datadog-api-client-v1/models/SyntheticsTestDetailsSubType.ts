@@ -8,20 +8,21 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsTestDetailsSubType =
-  | typeof HTTP
-  | typeof SSL
-  | typeof TCP
-  | typeof DNS
-  | typeof MULTI
-  | typeof ICMP
-  | typeof UDP
-  | typeof WEBSOCKET;
-export const HTTP = "http";
-export const SSL = "ssl";
-export const TCP = "tcp";
-export const DNS = "dns";
-export const MULTI = "multi";
-export const ICMP = "icmp";
-export const UDP = "udp";
-export const WEBSOCKET = "websocket";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The subtype of the Synthetic API test, `http`, `ssl`, `tcp`, `dns`, `icmp`, `udp`, `websocket` or `multi`.
+*/
+
+export type SyntheticsTestDetailsSubType = typeof HTTP | typeof SSL | typeof TCP | typeof DNS | typeof MULTI | typeof ICMP | typeof UDP | typeof WEBSOCKET ;
+export const HTTP = 'http';
+export const SSL = 'ssl';
+export const TCP = 'tcp';
+export const DNS = 'dns';
+export const MULTI = 'multi';
+export const ICMP = 'icmp';
+export const UDP = 'udp';
+export const WEBSOCKET = 'websocket';
+
+

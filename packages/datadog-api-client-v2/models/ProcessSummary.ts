@@ -8,42 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
-import { ProcessSummaryType } from "./ProcessSummaryType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ProcessSummaryAttributes } from './ProcessSummaryAttributes';
+import { ProcessSummaryType } from './ProcessSummaryType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Process summary object.
- */
+* Process summary object.
+*/
 
 export class ProcessSummary {
-  "attributes"?: ProcessSummaryAttributes;
-  /**
-   * Process ID.
-   */
-  "id"?: string;
-  "type"?: ProcessSummaryType;
+    'attributes'?: ProcessSummaryAttributes;
+    /**
+    * Process ID.
+    */
+    'id'?: string;
+    'type'?: ProcessSummaryType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProcessSummaryAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "ProcessSummaryType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "ProcessSummaryAttributes",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "ProcessSummaryType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummary.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ProcessSummary.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

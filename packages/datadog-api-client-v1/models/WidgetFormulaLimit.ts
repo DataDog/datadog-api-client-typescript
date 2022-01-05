@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { QuerySortOrder } from "./QuerySortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { QuerySortOrder } from './QuerySortOrder';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Options for limiting results returned.
- */
+* Options for limiting results returned.
+*/
 
 export class WidgetFormulaLimit {
-  /**
-   * Number of results to return.
-   */
-  "count"?: number;
-  "order"?: QuerySortOrder;
+    /**
+    * Number of results to return.
+    */
+    'count'?: number;
+    'order'?: QuerySortOrder;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "count": {
+            "baseName": "count",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "order": {
+            "baseName": "order",
+            "type": "QuerySortOrder",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    order: {
-      baseName: "order",
-      type: "QuerySortOrder",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetFormulaLimit.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormulaLimit.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

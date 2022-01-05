@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SunburstWidgetLegendTableType } from "./SunburstWidgetLegendTableType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SunburstWidgetLegendTableType } from './SunburstWidgetLegendTableType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Configuration of table-based legend.
- */
+* Configuration of table-based legend.
+*/
 
 export class SunburstWidgetLegendTable {
-  "type": SunburstWidgetLegendTableType;
+    'type': SunburstWidgetLegendTableType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "SunburstWidgetLegendTableType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "type": {
+            "baseName": "type",
+            "type": "SunburstWidgetLegendTableType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetLegendTable.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SunburstWidgetLegendTable.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

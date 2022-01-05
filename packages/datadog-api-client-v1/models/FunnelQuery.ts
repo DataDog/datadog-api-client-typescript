@@ -8,47 +8,54 @@
  * Do not edit the class manually.
  */
 
-import { FunnelSource } from "./FunnelSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FunnelSource } from './FunnelSource';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Updated funnel widget.
- */
+* Updated funnel widget.
+*/
 
 export class FunnelQuery {
-  "dataSource": FunnelSource;
-  /**
-   * The widget query.
-   */
-  "queryString": string;
-  /**
-   * List of funnel steps.
-   */
-  "steps": Array<any>;
+    'dataSource': FunnelSource;
+    /**
+    * The widget query.
+    */
+    'queryString': string;
+    /**
+    * List of funnel steps.
+    */
+    'steps': Array<any>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "FunnelSource",
-      required: true,
-    },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
-    },
-    steps: {
-      baseName: "steps",
-      type: "Array<any>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "dataSource": {
+            "baseName": "data_source",
+            "type": "FunnelSource",
+            "required": true,
+            
+        },
+        "queryString": {
+            "baseName": "query_string",
+            "type": "string",
+            "required": true,
+            
+        },
+        "steps": {
+            "baseName": "steps",
+            "type": "Array<any>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelQuery.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FunnelQuery.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

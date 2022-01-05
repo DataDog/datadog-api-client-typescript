@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { NotebookResponseData } from "./NotebookResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { NotebookResponseData } from './NotebookResponseData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The description of a notebook response.
- */
+* The description of a notebook response.
+*/
 
 export class NotebookResponse {
-  "data"?: NotebookResponseData;
+    'data'?: NotebookResponseData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NotebookResponseData",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "NotebookResponseData",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

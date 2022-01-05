@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { WidgetLiveSpan } from "./WidgetLiveSpan";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { WidgetLiveSpan } from './WidgetLiveSpan';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Time setting for the widget.
- */
+* Time setting for the widget.
+*/
 
 export class WidgetTime {
-  "liveSpan"?: WidgetLiveSpan;
+    'liveSpan'?: WidgetLiveSpan;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    liveSpan: {
-      baseName: "live_span",
-      type: "WidgetLiveSpan",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "liveSpan": {
+            "baseName": "live_span",
+            "type": "WidgetLiveSpan",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetTime.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetTime.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

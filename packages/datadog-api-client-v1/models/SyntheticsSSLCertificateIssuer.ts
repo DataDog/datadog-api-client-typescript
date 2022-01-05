@@ -8,70 +8,86 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the issuer of a SSL certificate.
- */
+* Object describing the issuer of a SSL certificate.
+*/
 
 export class SyntheticsSSLCertificateIssuer {
-  /**
-   * Country Name that issued the certificate.
-   */
-  "C"?: string;
-  /**
-   * Common Name that issued certificate.
-   */
-  "CN"?: string;
-  /**
-   * Locality that issued the certificate.
-   */
-  "L"?: string;
-  /**
-   * Organization that issued the certificate.
-   */
-  "O"?: string;
-  /**
-   * Organizational Unit that issued the certificate.
-   */
-  "OU"?: string;
-  /**
-   * State Or Province Name that issued the certificate.
-   */
-  "ST"?: string;
+    /**
+    * Country Name that issued the certificate.
+    */
+    'C'?: string;
+    /**
+    * Common Name that issued certificate.
+    */
+    'CN'?: string;
+    /**
+    * Locality that issued the certificate.
+    */
+    'L'?: string;
+    /**
+    * Organization that issued the certificate.
+    */
+    'O'?: string;
+    /**
+    * Organizational Unit that issued the certificate.
+    */
+    'OU'?: string;
+    /**
+    * State Or Province Name that issued the certificate.
+    */
+    'ST'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    C: {
-      baseName: "C",
-      type: "string",
-    },
-    CN: {
-      baseName: "CN",
-      type: "string",
-    },
-    L: {
-      baseName: "L",
-      type: "string",
-    },
-    O: {
-      baseName: "O",
-      type: "string",
-    },
-    OU: {
-      baseName: "OU",
-      type: "string",
-    },
-    ST: {
-      baseName: "ST",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "C": {
+            "baseName": "C",
+            "type": "string",
+            
+            
+        },
+        "CN": {
+            "baseName": "CN",
+            "type": "string",
+            
+            
+        },
+        "L": {
+            "baseName": "L",
+            "type": "string",
+            
+            
+        },
+        "O": {
+            "baseName": "O",
+            "type": "string",
+            
+            
+        },
+        "OU": {
+            "baseName": "OU",
+            "type": "string",
+            
+            
+        },
+        "ST": {
+            "baseName": "ST",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSSLCertificateIssuer.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsSSLCertificateIssuer.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

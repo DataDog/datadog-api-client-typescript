@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A response list of all service level objective deleted.
- */
+* A response list of all service level objective deleted.
+*/
 
 export class SLODeleteResponse {
-  /**
-   * An array containing the ID of the deleted service level objective object.
-   */
-  "data"?: Array<string>;
-  /**
-   * An dictionary containing the ID of the SLO as key and a deletion error as value.
-   */
-  "errors"?: { [key: string]: string };
+    /**
+    * An array containing the ID of the deleted service level objective object.
+    */
+    'data'?: Array<string>;
+    /**
+    * An dictionary containing the ID of the SLO as key and a deletion error as value.
+    */
+    'errors'?: { [key: string]: string; };
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<string>",
-    },
-    errors: {
-      baseName: "errors",
-      type: "{ [key: string]: string; }",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<string>",
+            
+            
+        },
+        "errors": {
+            "baseName": "errors",
+            "type": "{ [key: string]: string; }",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLODeleteResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLODeleteResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

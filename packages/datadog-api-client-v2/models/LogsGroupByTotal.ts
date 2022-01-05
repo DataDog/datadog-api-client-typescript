@@ -8,10 +8,11 @@
  * Do not edit the class manually.
  */
 
-import { UnparsedObject } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A resulting object to put the given computes in over all the matching records.
- */
+* A resulting object to put the given computes in over all the matching records.
+*/
 
 export type LogsGroupByTotal = boolean | number | string | UnparsedObject;

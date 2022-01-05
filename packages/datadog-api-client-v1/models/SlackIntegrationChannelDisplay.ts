@@ -8,54 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Configuration options for what is shown in an alert event message.
- */
+* Configuration options for what is shown in an alert event message.
+*/
 
 export class SlackIntegrationChannelDisplay {
-  /**
-   * Show the main body of the alert event.
-   */
-  "message"?: boolean;
-  /**
-   * Show the list of @-handles in the alert event.
-   */
-  "notified"?: boolean;
-  /**
-   * Show the alert event's snapshot image.
-   */
-  "snapshot"?: boolean;
-  /**
-   * Show the scopes on which the monitor alerted.
-   */
-  "tags"?: boolean;
+    /**
+    * Show the main body of the alert event.
+    */
+    'message'?: boolean;
+    /**
+    * Show the list of @-handles in the alert event.
+    */
+    'notified'?: boolean;
+    /**
+    * Show the alert event's snapshot image.
+    */
+    'snapshot'?: boolean;
+    /**
+    * Show the scopes on which the monitor alerted.
+    */
+    'tags'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    message: {
-      baseName: "message",
-      type: "boolean",
-    },
-    notified: {
-      baseName: "notified",
-      type: "boolean",
-    },
-    snapshot: {
-      baseName: "snapshot",
-      type: "boolean",
-    },
-    tags: {
-      baseName: "tags",
-      type: "boolean",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "message": {
+            "baseName": "message",
+            "type": "boolean",
+            
+            
+        },
+        "notified": {
+            "baseName": "notified",
+            "type": "boolean",
+            
+            
+        },
+        "snapshot": {
+            "baseName": "snapshot",
+            "type": "boolean",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "boolean",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationChannelDisplay.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SlackIntegrationChannelDisplay.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

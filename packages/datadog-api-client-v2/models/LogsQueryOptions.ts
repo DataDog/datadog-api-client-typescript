@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Global query options that are used during the query. Note: You should only supply timezone or time offset but not both otherwise the query will fail.
- */
+* Global query options that are used during the query. Note: You should only supply timezone or time offset but not both otherwise the query will fail.
+*/
 
 export class LogsQueryOptions {
-  /**
-   * The time offset (in seconds) to apply to the query.
-   */
-  "timeOffset"?: number;
-  /**
-   * The timezone can be specified both as an offset, for example: \"UTC+03:00\".
-   */
-  "timezone"?: string;
+    /**
+    * The time offset (in seconds) to apply to the query.
+    */
+    'timeOffset'?: number;
+    /**
+    * The timezone can be specified both as an offset, for example: \"UTC+03:00\".
+    */
+    'timezone'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    timeOffset: {
-      baseName: "timeOffset",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "timeOffset": {
+            "baseName": "timeOffset",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "timezone": {
+            "baseName": "timezone",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsQueryOptions.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

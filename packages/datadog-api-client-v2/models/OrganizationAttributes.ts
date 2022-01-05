@@ -8,90 +8,106 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of the organization.
- */
+* Attributes of the organization.
+*/
 
 export class OrganizationAttributes {
-  /**
-   * Creation time of the organization.
-   */
-  "createdAt"?: Date;
-  /**
-   * Description of the organization.
-   */
-  "description"?: string;
-  /**
-   * Whether or not the organization is disabled.
-   */
-  "disabled"?: boolean;
-  /**
-   * Time of last organization modification.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * Name of the organization.
-   */
-  "name"?: string;
-  /**
-   * Public ID of the organization.
-   */
-  "publicId"?: string;
-  /**
-   * Sharing type of the organization.
-   */
-  "sharing"?: string;
-  /**
-   * URL of the site that this organization exists at.
-   */
-  "url"?: string;
+    /**
+    * Creation time of the organization.
+    */
+    'createdAt'?: Date;
+    /**
+    * Description of the organization.
+    */
+    'description'?: string;
+    /**
+    * Whether or not the organization is disabled.
+    */
+    'disabled'?: boolean;
+    /**
+    * Time of last organization modification.
+    */
+    'modifiedAt'?: Date;
+    /**
+    * Name of the organization.
+    */
+    'name'?: string;
+    /**
+    * Public ID of the organization.
+    */
+    'publicId'?: string;
+    /**
+    * Sharing type of the organization.
+    */
+    'sharing'?: string;
+    /**
+    * URL of the site that this organization exists at.
+    */
+    'url'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            
+            
+        },
+        "disabled": {
+            "baseName": "disabled",
+            "type": "boolean",
+            
+            
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        },
+        "sharing": {
+            "baseName": "sharing",
+            "type": "string",
+            
+            
+        },
+        "url": {
+            "baseName": "url",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    disabled: {
-      baseName: "disabled",
-      type: "boolean",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return OrganizationAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-    sharing: {
-      baseName: "sharing",
-      type: "string",
-    },
-    url: {
-      baseName: "url",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

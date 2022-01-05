@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { WidgetSort } from './WidgetSort';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Which column and order to sort by
- */
+* Which column and order to sort by
+*/
 
 export class WidgetFieldSort {
-  /**
-   * Facet path for the column
-   */
-  "column": string;
-  "order": WidgetSort;
+    /**
+    * Facet path for the column
+    */
+    'column': string;
+    'order': WidgetSort;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
-    },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "column": {
+            "baseName": "column",
+            "type": "string",
+            "required": true,
+            
+        },
+        "order": {
+            "baseName": "order",
+            "type": "WidgetSort",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFieldSort.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return WidgetFieldSort.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,37 +8,45 @@
  * Do not edit the class manually.
  */
 
-import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
-import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageTopAvgMetricsHour } from './UsageTopAvgMetricsHour';
+import { UsageTopAvgMetricsMetadata } from './UsageTopAvgMetricsMetadata';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of hourly recorded custom metrics for a given organization.
- */
+* Response containing the number of hourly recorded custom metrics for a given organization.
+*/
 
 export class UsageTopAvgMetricsResponse {
-  "metadata"?: UsageTopAvgMetricsMetadata;
-  /**
-   * Number of hourly recorded custom metrics for a given organization.
-   */
-  "usage"?: Array<UsageTopAvgMetricsHour>;
+    'metadata'?: UsageTopAvgMetricsMetadata;
+    /**
+    * Number of hourly recorded custom metrics for a given organization.
+    */
+    'usage'?: Array<UsageTopAvgMetricsHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "UsageTopAvgMetricsMetadata",
-    },
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageTopAvgMetricsHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "metadata": {
+            "baseName": "metadata",
+            "type": "UsageTopAvgMetricsMetadata",
+            
+            
+        },
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageTopAvgMetricsHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTopAvgMetricsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageTopAvgMetricsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

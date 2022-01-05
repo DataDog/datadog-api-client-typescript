@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The PagerDuty service that is available for integration with Datadog.
- */
+* The PagerDuty service that is available for integration with Datadog.
+*/
 
 export class PagerDutyService {
-  /**
-   * Your service key in PagerDuty.
-   */
-  "serviceKey": string;
-  /**
-   * Your service name associated with a service key in PagerDuty.
-   */
-  "serviceName": string;
+    /**
+    * Your service key in PagerDuty.
+    */
+    'serviceKey': string;
+    /**
+    * Your service name associated with a service key in PagerDuty.
+    */
+    'serviceName': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    serviceKey: {
-      baseName: "service_key",
-      type: "string",
-      required: true,
-    },
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "serviceKey": {
+            "baseName": "service_key",
+            "type": "string",
+            "required": true,
+            
+        },
+        "serviceName": {
+            "baseName": "service_name",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PagerDutyService.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return PagerDutyService.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

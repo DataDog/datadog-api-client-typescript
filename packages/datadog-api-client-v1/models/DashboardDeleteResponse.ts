@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response from the delete dashboard call.
- */
+* Response from the delete dashboard call.
+*/
 
 export class DashboardDeleteResponse {
-  /**
-   * ID of the deleted dashboard.
-   */
-  "deletedDashboardId"?: string;
+    /**
+    * ID of the deleted dashboard.
+    */
+    'deletedDashboardId'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedDashboardId: {
-      baseName: "deleted_dashboard_id",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "deletedDashboardId": {
+            "baseName": "deleted_dashboard_id",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardDeleteResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardDeleteResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

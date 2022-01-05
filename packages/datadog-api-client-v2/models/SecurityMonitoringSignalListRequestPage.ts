@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The paging attributes for listing security signals.
- */
+* The paging attributes for listing security signals.
+*/
 
 export class SecurityMonitoringSignalListRequestPage {
-  /**
-   * A list of results using the cursor provided in the previous query.
-   */
-  "cursor"?: string;
-  /**
-   * The maximum number of security signals in the response.
-   */
-  "limit"?: number;
+    /**
+    * A list of results using the cursor provided in the previous query.
+    */
+    'cursor'?: string;
+    /**
+    * The maximum number of security signals in the response.
+    */
+    'limit'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
-    },
-    limit: {
-      baseName: "limit",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cursor": {
+            "baseName": "cursor",
+            "type": "string",
+            
+            
+        },
+        "limit": {
+            "baseName": "limit",
+            "type": "number",
+            
+            "format": "int32",
+        }    };
 
-      format: "int32",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SecurityMonitoringSignalListRequestPage.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

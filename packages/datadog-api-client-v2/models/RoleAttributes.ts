@@ -8,60 +8,66 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of the role.
- */
+* Attributes of the role.
+*/
 
 export class RoleAttributes {
-  /**
-   * Creation time of the role.
-   */
-  "createdAt"?: Date;
-  /**
-   * Time of last role modification.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * Name of the role.
-   */
-  "name"?: string;
-  /**
-   * Number of users with that role.
-   */
-  "userCount"?: number;
+    /**
+    * Creation time of the role.
+    */
+    'createdAt'?: Date;
+    /**
+    * Time of last role modification.
+    */
+    'modifiedAt'?: Date;
+    /**
+    * Name of the role.
+    */
+    'name'?: string;
+    /**
+    * Number of users with that role.
+    */
+    'userCount'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "createdAt": {
+            "baseName": "created_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "modifiedAt": {
+            "baseName": "modified_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "userCount": {
+            "baseName": "user_count",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "date-time",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleAttributes.attributeTypeMap;
+    }
 
-      format: "date-time",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    userCount: {
-      baseName: "user_count",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

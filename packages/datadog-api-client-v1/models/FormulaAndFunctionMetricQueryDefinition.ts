@@ -8,53 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
-import { FormulaAndFunctionMetricDataSource } from "./FormulaAndFunctionMetricDataSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { FormulaAndFunctionMetricAggregation } from './FormulaAndFunctionMetricAggregation';
+import { FormulaAndFunctionMetricDataSource } from './FormulaAndFunctionMetricDataSource';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * A formula and functions metrics query.
- */
+* A formula and functions metrics query.
+*/
 
 export class FormulaAndFunctionMetricQueryDefinition {
-  "aggregator"?: FormulaAndFunctionMetricAggregation;
-  "dataSource": FormulaAndFunctionMetricDataSource;
-  /**
-   * Name of the query for use in formulas.
-   */
-  "name": string;
-  /**
-   * Metrics query definition.
-   */
-  "query": string;
+    'aggregator'?: FormulaAndFunctionMetricAggregation;
+    'dataSource': FormulaAndFunctionMetricDataSource;
+    /**
+    * Name of the query for use in formulas.
+    */
+    'name': string;
+    /**
+    * Metrics query definition.
+    */
+    'query': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregator: {
-      baseName: "aggregator",
-      type: "FormulaAndFunctionMetricAggregation",
-    },
-    dataSource: {
-      baseName: "data_source",
-      type: "FormulaAndFunctionMetricDataSource",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "aggregator": {
+            "baseName": "aggregator",
+            "type": "FormulaAndFunctionMetricAggregation",
+            
+            
+        },
+        "dataSource": {
+            "baseName": "data_source",
+            "type": "FormulaAndFunctionMetricDataSource",
+            "required": true,
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return FormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

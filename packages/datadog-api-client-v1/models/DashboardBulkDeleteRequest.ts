@@ -8,32 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { DashboardBulkActionData } from "./DashboardBulkActionData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardBulkActionData } from './DashboardBulkActionData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Dashboard bulk delete request body.
- */
+* Dashboard bulk delete request body.
+*/
 
 export class DashboardBulkDeleteRequest {
-  /**
-   * List of dashboard bulk action request data objects.
-   */
-  "data": Array<DashboardBulkActionData>;
+    /**
+    * List of dashboard bulk action request data objects.
+    */
+    'data': Array<DashboardBulkActionData>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DashboardBulkActionData>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "Array<DashboardBulkActionData>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardBulkDeleteRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardBulkDeleteRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

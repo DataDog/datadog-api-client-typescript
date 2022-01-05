@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToPermissionData } from './RelationshipToPermissionData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationship to a permissions object.
- */
+* Relationship to a permissions object.
+*/
 
 export class RelationshipToPermission {
-  "data"?: RelationshipToPermissionData;
+    'data'?: RelationshipToPermissionData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToPermissionData",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "RelationshipToPermissionData",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToPermission.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RelationshipToPermission.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

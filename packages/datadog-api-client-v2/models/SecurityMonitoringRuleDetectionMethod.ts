@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type SecurityMonitoringRuleDetectionMethod =
-  | typeof THRESHOLD
-  | typeof NEW_VALUE
-  | typeof ANOMALY_DETECTION;
-export const THRESHOLD = "threshold";
-export const NEW_VALUE = "new_value";
-export const ANOMALY_DETECTION = "anomaly_detection";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The detection method.
+*/
+
+export type SecurityMonitoringRuleDetectionMethod = typeof THRESHOLD | typeof NEW_VALUE | typeof ANOMALY_DETECTION ;
+export const THRESHOLD = 'threshold';
+export const NEW_VALUE = 'new_value';
+export const ANOMALY_DETECTION = 'anomaly_detection';
+
+

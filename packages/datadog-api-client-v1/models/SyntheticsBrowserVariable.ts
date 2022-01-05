@@ -8,62 +8,74 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsBrowserVariableType } from "./SyntheticsBrowserVariableType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsBrowserVariableType } from './SyntheticsBrowserVariableType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
- */
+* Object defining a variable that can be used in your browser test. Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
+*/
 
 export class SyntheticsBrowserVariable {
-  /**
-   * Example for the variable.
-   */
-  "example"?: string;
-  /**
-   * ID for the variable. Global variables require an ID.
-   */
-  "id"?: string;
-  /**
-   * Name of the variable.
-   */
-  "name": string;
-  /**
-   * Pattern of the variable.
-   */
-  "pattern"?: string;
-  "type": SyntheticsBrowserVariableType;
+    /**
+    * Example for the variable.
+    */
+    'example'?: string;
+    /**
+    * ID for the variable. Global variables require an ID.
+    */
+    'id'?: string;
+    /**
+    * Name of the variable.
+    */
+    'name': string;
+    /**
+    * Pattern of the variable.
+    */
+    'pattern'?: string;
+    'type': SyntheticsBrowserVariableType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    example: {
-      baseName: "example",
-      type: "string",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    pattern: {
-      baseName: "pattern",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBrowserVariableType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "example": {
+            "baseName": "example",
+            "type": "string",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "pattern": {
+            "baseName": "pattern",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsBrowserVariableType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserVariable.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBrowserVariable.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsRetentionSumUsage } from './LogsRetentionSumUsage';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Indexed logs usage by retention for a single organization.
- */
+* Indexed logs usage by retention for a single organization.
+*/
 
 export class LogsByRetentionOrgUsage {
-  /**
-   * Indexed logs usage for each active retention for the organization.
-   */
-  "usage"?: Array<LogsRetentionSumUsage>;
+    /**
+    * Indexed logs usage for each active retention for the organization.
+    */
+    'usage'?: Array<LogsRetentionSumUsage>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<LogsRetentionSumUsage>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<LogsRetentionSumUsage>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetentionOrgUsage.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsByRetentionOrgUsage.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

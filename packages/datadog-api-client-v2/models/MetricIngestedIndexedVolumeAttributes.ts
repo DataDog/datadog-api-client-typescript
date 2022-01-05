@@ -8,42 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing the definition of a metric's ingested and indexed volume.
- */
+* Object containing the definition of a metric's ingested and indexed volume.
+*/
 
 export class MetricIngestedIndexedVolumeAttributes {
-  /**
-   * Indexed volume for the given metric.
-   */
-  "indexedVolume"?: number;
-  /**
-   * Ingested volume for the given metric.
-   */
-  "ingestedVolume"?: number;
+    /**
+    * Indexed volume for the given metric.
+    */
+    'indexedVolume'?: number;
+    /**
+    * Ingested volume for the given metric.
+    */
+    'ingestedVolume'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    indexedVolume: {
-      baseName: "indexed_volume",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "indexedVolume": {
+            "baseName": "indexed_volume",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "ingestedVolume": {
+            "baseName": "ingested_volume",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    ingestedVolume: {
-      baseName: "ingested_volume",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

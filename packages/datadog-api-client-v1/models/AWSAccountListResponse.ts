@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { AWSAccount } from "./AWSAccount";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AWSAccount } from './AWSAccount';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of enabled AWS accounts.
- */
+* List of enabled AWS accounts.
+*/
 
 export class AWSAccountListResponse {
-  /**
-   * List of enabled AWS accounts.
-   */
-  "accounts"?: Array<AWSAccount>;
+    /**
+    * List of enabled AWS accounts.
+    */
+    'accounts'?: Array<AWSAccount>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accounts: {
-      baseName: "accounts",
-      type: "Array<AWSAccount>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accounts": {
+            "baseName": "accounts",
+            "type": "Array<AWSAccount>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountListResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSAccountListResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

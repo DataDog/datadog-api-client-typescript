@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ApplicationKeyUpdateData } from './ApplicationKeyUpdateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request used to update an application key.
- */
+* Request used to update an application key.
+*/
 
 export class ApplicationKeyUpdateRequest {
-  "data": ApplicationKeyUpdateData;
+    'data': ApplicationKeyUpdateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ApplicationKeyUpdateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "ApplicationKeyUpdateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyUpdateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ApplicationKeyUpdateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

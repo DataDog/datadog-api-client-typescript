@@ -8,36 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { MetricType } from "./MetricType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { MetricType } from './MetricType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object for a single metric tag configuration.
- */
+* Object for a single metric tag configuration.
+*/
 
 export class Metric {
-  /**
-   * The metric name for this resource.
-   */
-  "id"?: string;
-  "type"?: MetricType;
+    /**
+    * The metric name for this resource.
+    */
+    'id'?: string;
+    'type'?: MetricType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MetricType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Metric.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return Metric.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

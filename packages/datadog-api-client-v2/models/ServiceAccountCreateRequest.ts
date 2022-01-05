@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ServiceAccountCreateData } from './ServiceAccountCreateData';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Create a service account.
- */
+* Create a service account.
+*/
 
 export class ServiceAccountCreateRequest {
-  "data": ServiceAccountCreateData;
+    'data': ServiceAccountCreateData;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceAccountCreateData",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "data": {
+            "baseName": "data",
+            "type": "ServiceAccountCreateData",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ServiceAccountCreateRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

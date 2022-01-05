@@ -8,6 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsBrowserErrorType = typeof NETWORK | typeof JS;
-export const NETWORK = "network";
-export const JS = "js";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Error type returned by a browser test.
+*/
+
+export type SyntheticsBrowserErrorType = typeof NETWORK | typeof JS ;
+export const NETWORK = 'network';
+export const JS = 'js';
+
+

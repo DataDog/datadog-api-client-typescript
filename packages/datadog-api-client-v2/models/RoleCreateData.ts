@@ -8,41 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { RoleCreateAttributes } from "./RoleCreateAttributes";
-import { RoleRelationships } from "./RoleRelationships";
-import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RoleCreateAttributes } from './RoleCreateAttributes';
+import { RoleRelationships } from './RoleRelationships';
+import { RolesType } from './RolesType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Data related to the creation of a role.
- */
+* Data related to the creation of a role.
+*/
 
 export class RoleCreateData {
-  "attributes": RoleCreateAttributes;
-  "relationships"?: RoleRelationships;
-  "type"?: RolesType;
+    'attributes': RoleCreateAttributes;
+    'relationships'?: RoleRelationships;
+    'type'?: RolesType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoleCreateAttributes",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "RoleRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "RoleCreateAttributes",
+            "required": true,
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "RoleRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "RolesType",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

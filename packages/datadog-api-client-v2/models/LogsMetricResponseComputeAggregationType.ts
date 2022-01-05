@@ -8,8 +8,15 @@
  * Do not edit the class manually.
  */
 
-export type LogsMetricResponseComputeAggregationType =
-  | typeof COUNT
-  | typeof DISTRIBUTION;
-export const COUNT = "count";
-export const DISTRIBUTION = "distribution";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The type of aggregation to use.
+*/
+
+export type LogsMetricResponseComputeAggregationType = typeof COUNT | typeof DISTRIBUTION ;
+export const COUNT = 'count';
+export const DISTRIBUTION = 'distribution';
+
+

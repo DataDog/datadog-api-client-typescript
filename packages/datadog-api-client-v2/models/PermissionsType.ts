@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type PermissionsType = typeof PERMISSIONS;
-export const PERMISSIONS = "permissions";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Permissions resource type.
+*/
+
+export type PermissionsType = typeof PERMISSIONS ;
+export const PERMISSIONS = 'permissions';
+
+

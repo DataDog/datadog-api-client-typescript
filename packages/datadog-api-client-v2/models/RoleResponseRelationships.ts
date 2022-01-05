@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToPermissions } from "./RelationshipToPermissions";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { RelationshipToPermissions } from './RelationshipToPermissions';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Relationships of the role object returned by the API.
- */
+* Relationships of the role object returned by the API.
+*/
 
 export class RoleResponseRelationships {
-  "permissions"?: RelationshipToPermissions;
+    'permissions'?: RelationshipToPermissions;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    permissions: {
-      baseName: "permissions",
-      type: "RelationshipToPermissions",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "permissions": {
+            "baseName": "permissions",
+            "type": "RelationshipToPermissions",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleResponseRelationships.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return RoleResponseRelationships.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

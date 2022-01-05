@@ -8,28 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { Pagination } from "./Pagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Pagination } from './Pagination';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing meta attributes of response.
- */
+* Object describing meta attributes of response.
+*/
 
 export class ResponseMetaAttributes {
-  "page"?: Pagination;
+    'page'?: Pagination;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "Pagination",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "page": {
+            "baseName": "page",
+            "type": "Pagination",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ResponseMetaAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ResponseMetaAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

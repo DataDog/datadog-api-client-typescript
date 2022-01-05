@@ -8,36 +8,42 @@
  * Do not edit the class manually.
  */
 
-import { UserInvitationRelationships } from "./UserInvitationRelationships";
-import { UserInvitationsType } from "./UserInvitationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UserInvitationRelationships } from './UserInvitationRelationships';
+import { UserInvitationsType } from './UserInvitationsType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object to create a user invitation.
- */
+* Object to create a user invitation.
+*/
 
 export class UserInvitationData {
-  "relationships": UserInvitationRelationships;
-  "type": UserInvitationsType;
+    'relationships': UserInvitationRelationships;
+    'type': UserInvitationsType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    relationships: {
-      baseName: "relationships",
-      type: "UserInvitationRelationships",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "UserInvitationsType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "relationships": {
+            "baseName": "relationships",
+            "type": "UserInvitationRelationships",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "UserInvitationsType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserInvitationData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

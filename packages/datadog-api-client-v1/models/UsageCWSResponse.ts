@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageCWSHour } from "./UsageCWSHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageCWSHour } from './UsageCWSHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the Cloud Workload Security usage for each hour for a given organization.
- */
+* Response containing the Cloud Workload Security usage for each hour for a given organization.
+*/
 
 export class UsageCWSResponse {
-  /**
-   * Get hourly usage for Cloud Workload Security.
-   */
-  "usage"?: Array<UsageCWSHour>;
+    /**
+    * Get hourly usage for Cloud Workload Security.
+    */
+    'usage'?: Array<UsageCWSHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageCWSHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageCWSHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCWSResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageCWSResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

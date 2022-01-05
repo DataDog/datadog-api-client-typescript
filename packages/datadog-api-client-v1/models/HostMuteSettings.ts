@@ -8,48 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Combination of settings to mute a host.
- */
+* Combination of settings to mute a host.
+*/
 
 export class HostMuteSettings {
-  /**
-   * POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
-   */
-  "end"?: number;
-  /**
-   * Message to associate with the muting of this host.
-   */
-  "message"?: string;
-  /**
-   * If true and the host is already muted, replaces existing host mute settings.
-   */
-  "override"?: boolean;
+    /**
+    * POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
+    */
+    'end'?: number;
+    /**
+    * Message to associate with the muting of this host.
+    */
+    'message'?: string;
+    /**
+    * If true and the host is already muted, replaces existing host mute settings.
+    */
+    'override'?: boolean;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "end": {
+            "baseName": "end",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        },
+        "override": {
+            "baseName": "override",
+            "type": "boolean",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-    override: {
-      baseName: "override",
-      type: "boolean",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return HostMuteSettings.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMuteSettings.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

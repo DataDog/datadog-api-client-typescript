@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IncidentTeamType = typeof TEAMS;
-export const TEAMS = "teams";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Incident Team resource type.
+*/
+
+export type IncidentTeamType = typeof TEAMS ;
+export const TEAMS = 'teams';
+
+

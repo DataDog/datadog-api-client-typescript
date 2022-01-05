@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageSyntheticsBrowserHour } from "./UsageSyntheticsBrowserHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageSyntheticsBrowserHour } from './UsageSyntheticsBrowserHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of Synthetics Browser tests run for each hour for a given organization.
- */
+* Response containing the number of Synthetics Browser tests run for each hour for a given organization.
+*/
 
 export class UsageSyntheticsBrowserResponse {
-  /**
-   * Get hourly usage for Synthetics Browser tests.
-   */
-  "usage"?: Array<UsageSyntheticsBrowserHour>;
+    /**
+    * Get hourly usage for Synthetics Browser tests.
+    */
+    'usage'?: Array<UsageSyntheticsBrowserHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSyntheticsBrowserHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageSyntheticsBrowserHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsBrowserResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageSyntheticsBrowserResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

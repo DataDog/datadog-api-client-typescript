@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type IncidentPostmortemType = typeof INCIDENT_POSTMORTEMS;
-export const INCIDENT_POSTMORTEMS = "incident_postmortems";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Incident postmortem resource type.
+*/
+
+export type IncidentPostmortemType = typeof INCIDENT_POSTMORTEMS ;
+export const INCIDENT_POSTMORTEMS = 'incident_postmortems';
+
+

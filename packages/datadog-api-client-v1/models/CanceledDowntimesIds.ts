@@ -8,32 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing array of IDs of canceled downtimes.
- */
+* Object containing array of IDs of canceled downtimes.
+*/
 
 export class CanceledDowntimesIds {
-  /**
-   * ID of downtimes that were canceled.
-   */
-  "cancelledIds"?: Array<number>;
+    /**
+    * ID of downtimes that were canceled.
+    */
+    'cancelledIds'?: Array<number>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cancelledIds: {
-      baseName: "cancelled_ids",
-      type: "Array<number>",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cancelledIds": {
+            "baseName": "cancelled_ids",
+            "type": "Array<number>",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return CanceledDowntimesIds.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CanceledDowntimesIds.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

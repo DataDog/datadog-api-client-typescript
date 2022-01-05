@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { UsageRumUnitsHour } from "./UsageRumUnitsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageRumUnitsHour } from './UsageRumUnitsHour';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Response containing the number of RUM Units for each hour for a given organization.
- */
+* Response containing the number of RUM Units for each hour for a given organization.
+*/
 
 export class UsageRumUnitsResponse {
-  /**
-   * Get hourly usage for RUM Units.
-   */
-  "usage"?: Array<UsageRumUnitsHour>;
+    /**
+    * Get hourly usage for RUM Units.
+    */
+    'usage'?: Array<UsageRumUnitsHour>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageRumUnitsHour>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "usage": {
+            "baseName": "usage",
+            "type": "Array<UsageRumUnitsHour>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumUnitsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageRumUnitsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

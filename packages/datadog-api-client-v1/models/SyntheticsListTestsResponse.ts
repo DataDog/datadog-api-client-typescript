@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsTestDetails } from './SyntheticsTestDetails';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing an array of Synthetic tests configuration.
- */
+* Object containing an array of Synthetic tests configuration.
+*/
 
 export class SyntheticsListTestsResponse {
-  /**
-   * Array of Synthetic tests configuration.
-   */
-  "tests"?: Array<SyntheticsTestDetails>;
+    /**
+    * Array of Synthetic tests configuration.
+    */
+    'tests'?: Array<SyntheticsTestDetails>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    tests: {
-      baseName: "tests",
-      type: "Array<SyntheticsTestDetails>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "tests": {
+            "baseName": "tests",
+            "type": "Array<SyntheticsTestDetails>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsListTestsResponse.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsListTestsResponse.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

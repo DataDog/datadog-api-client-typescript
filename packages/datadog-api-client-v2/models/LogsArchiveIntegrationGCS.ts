@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The GCS archive's integration destination.
- */
+* The GCS archive's integration destination.
+*/
 
 export class LogsArchiveIntegrationGCS {
-  /**
-   * A client email.
-   */
-  "clientEmail": string;
-  /**
-   * A project ID.
-   */
-  "projectId": string;
+    /**
+    * A client email.
+    */
+    'clientEmail': string;
+    /**
+    * A project ID.
+    */
+    'projectId': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    clientEmail: {
-      baseName: "client_email",
-      type: "string",
-      required: true,
-    },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "clientEmail": {
+            "baseName": "client_email",
+            "type": "string",
+            "required": true,
+            
+        },
+        "projectId": {
+            "baseName": "project_id",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveIntegrationGCS.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveIntegrationGCS.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

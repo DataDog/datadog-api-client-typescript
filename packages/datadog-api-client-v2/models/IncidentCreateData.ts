@@ -8,42 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
-import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
-import { IncidentType } from "./IncidentType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { IncidentCreateAttributes } from './IncidentCreateAttributes';
+import { IncidentCreateRelationships } from './IncidentCreateRelationships';
+import { IncidentType } from './IncidentType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Incident data for a create request.
- */
+* Incident data for a create request.
+*/
 
 export class IncidentCreateData {
-  "attributes": IncidentCreateAttributes;
-  "relationships"?: IncidentCreateRelationships;
-  "type": IncidentType;
+    'attributes': IncidentCreateAttributes;
+    'relationships'?: IncidentCreateRelationships;
+    'type': IncidentType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentCreateAttributes",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentCreateRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "IncidentType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "IncidentCreateAttributes",
+            "required": true,
+            
+        },
+        "relationships": {
+            "baseName": "relationships",
+            "type": "IncidentCreateRelationships",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "IncidentType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return IncidentCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

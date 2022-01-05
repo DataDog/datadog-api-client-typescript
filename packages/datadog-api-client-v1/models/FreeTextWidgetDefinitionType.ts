@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type FreeTextWidgetDefinitionType = typeof FREE_TEXT;
-export const FREE_TEXT = "free_text";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the free text widget.
+*/
+
+export type FreeTextWidgetDefinitionType = typeof FREE_TEXT ;
+export const FREE_TEXT = 'free_text';
+
+

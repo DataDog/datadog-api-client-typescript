@@ -8,33 +8,41 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsTestRequestCertificateItem } from './SyntheticsTestRequestCertificateItem';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Client certificate to use when performing the test request.
- */
+* Client certificate to use when performing the test request.
+*/
 
 export class SyntheticsTestRequestCertificate {
-  "cert"?: SyntheticsTestRequestCertificateItem;
-  "key"?: SyntheticsTestRequestCertificateItem;
+    'cert'?: SyntheticsTestRequestCertificateItem;
+    'key'?: SyntheticsTestRequestCertificateItem;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    cert: {
-      baseName: "cert",
-      type: "SyntheticsTestRequestCertificateItem",
-    },
-    key: {
-      baseName: "key",
-      type: "SyntheticsTestRequestCertificateItem",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "cert": {
+            "baseName": "cert",
+            "type": "SyntheticsTestRequestCertificateItem",
+            
+            
+        },
+        "key": {
+            "baseName": "key",
+            "type": "SyntheticsTestRequestCertificateItem",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestCertificate.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTestRequestCertificate.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

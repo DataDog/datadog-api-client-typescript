@@ -8,68 +8,76 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
- */
+* Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
+*/
 
 export class UsageRumUnitsHour {
-  /**
-   * The number of browser RUM units.
-   */
-  "browserRumUnits"?: number;
-  /**
-   * The number of mobile RUM units.
-   */
-  "mobileRumUnits"?: number;
-  /**
-   * The organization name.
-   */
-  "orgName"?: string;
-  /**
-   * The organization public ID.
-   */
-  "publicId"?: string;
-  /**
-   * Total RUM units across mobile and browser RUM.
-   */
-  "rumUnits"?: number;
+    /**
+    * The number of browser RUM units.
+    */
+    'browserRumUnits'?: number;
+    /**
+    * The number of mobile RUM units.
+    */
+    'mobileRumUnits'?: number;
+    /**
+    * The organization name.
+    */
+    'orgName'?: string;
+    /**
+    * The organization public ID.
+    */
+    'publicId'?: string;
+    /**
+    * Total RUM units across mobile and browser RUM.
+    */
+    'rumUnits'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    browserRumUnits: {
-      baseName: "browser_rum_units",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "browserRumUnits": {
+            "baseName": "browser_rum_units",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "mobileRumUnits": {
+            "baseName": "mobile_rum_units",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "orgName": {
+            "baseName": "org_name",
+            "type": "string",
+            
+            
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        },
+        "rumUnits": {
+            "baseName": "rum_units",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-    mobileRumUnits: {
-      baseName: "mobile_rum_units",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UsageRumUnitsHour.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-    rumUnits: {
-      baseName: "rum_units",
-      type: "number",
-
-      format: "int64",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumUnitsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

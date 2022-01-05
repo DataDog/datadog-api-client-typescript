@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Attributes of the edited user.
- */
+* Attributes of the edited user.
+*/
 
 export class UserUpdateAttributes {
-  /**
-   * If the user is enabled or disabled.
-   */
-  "disabled"?: boolean;
-  /**
-   * The email of the user.
-   */
-  "email"?: string;
-  /**
-   * The name of the user.
-   */
-  "name"?: string;
+    /**
+    * If the user is enabled or disabled.
+    */
+    'disabled'?: boolean;
+    /**
+    * The email of the user.
+    */
+    'email'?: string;
+    /**
+    * The name of the user.
+    */
+    'name'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    disabled: {
-      baseName: "disabled",
-      type: "boolean",
-    },
-    email: {
-      baseName: "email",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "disabled": {
+            "baseName": "disabled",
+            "type": "boolean",
+            
+            
+        },
+        "email": {
+            "baseName": "email",
+            "type": "string",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return UserUpdateAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

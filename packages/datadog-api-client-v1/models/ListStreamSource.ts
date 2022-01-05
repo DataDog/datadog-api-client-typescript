@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type ListStreamSource =
-  | typeof ISSUE_STREAM
-  | typeof LOGS_STREAM
-  | typeof AUDIT_STREAM;
-export const ISSUE_STREAM = "issue_stream";
-export const LOGS_STREAM = "logs_stream";
-export const AUDIT_STREAM = "audit_stream";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Source from which to query items to display in the stream.
+*/
+
+export type ListStreamSource = typeof ISSUE_STREAM | typeof LOGS_STREAM | typeof AUDIT_STREAM ;
+export const ISSUE_STREAM = 'issue_stream';
+export const LOGS_STREAM = 'logs_stream';
+export const AUDIT_STREAM = 'audit_stream';
+
+

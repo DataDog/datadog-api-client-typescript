@@ -10,15 +10,16 @@ const apiInstance = new v1.NotebooksApi(configuration);
 // there is a valid "notebook" in the system
 let NOTEBOOK_DATA_ID = parseInt(process.env.NOTEBOOK_DATA_ID as string);
 
+
+
 let params: v1.NotebooksApiGetNotebookRequest = {
   notebookId: NOTEBOOK_DATA_ID,
+
 };
 
 apiInstance
   .getNotebook(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

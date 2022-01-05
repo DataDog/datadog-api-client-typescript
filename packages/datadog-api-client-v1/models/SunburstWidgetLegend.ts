@@ -8,15 +8,14 @@
  * Do not edit the class manually.
  */
 
-import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
-import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
-import { UnparsedObject } from "./ObjectSerializer";
+import { SunburstWidgetLegendInlineAutomatic } from './SunburstWidgetLegendInlineAutomatic';
+import { SunburstWidgetLegendInlineAutomaticType } from './SunburstWidgetLegendInlineAutomaticType';
+import { SunburstWidgetLegendTable } from './SunburstWidgetLegendTable';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Configuration of the legend.
- */
+* Configuration of the legend.
+*/
 
-export type SunburstWidgetLegend =
-  | SunburstWidgetLegendInlineAutomatic
-  | SunburstWidgetLegendTable
-  | UnparsedObject;
+export type SunburstWidgetLegend = SunburstWidgetLegendInlineAutomatic | SunburstWidgetLegendTable | UnparsedObject;

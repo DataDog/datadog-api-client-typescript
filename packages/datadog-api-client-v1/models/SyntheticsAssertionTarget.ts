@@ -8,53 +8,62 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
-import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsAssertionOperator } from './SyntheticsAssertionOperator';
+import { SyntheticsAssertionType } from './SyntheticsAssertionType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An assertion which uses a simple target.
- */
+* An assertion which uses a simple target.
+*/
 
 export class SyntheticsAssertionTarget {
-  "operator": SyntheticsAssertionOperator;
-  /**
-   * The associated assertion property.
-   */
-  "property"?: string;
-  /**
-   * Value used by the operator.
-   */
-  "target": any;
-  "type": SyntheticsAssertionType;
+    'operator': SyntheticsAssertionOperator;
+    /**
+    * The associated assertion property.
+    */
+    'property'?: string;
+    /**
+    * Value used by the operator.
+    */
+    'target': any;
+    'type': SyntheticsAssertionType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsAssertionOperator",
-      required: true,
-    },
-    property: {
-      baseName: "property",
-      type: "string",
-    },
-    target: {
-      baseName: "target",
-      type: "any",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsAssertionType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "operator": {
+            "baseName": "operator",
+            "type": "SyntheticsAssertionOperator",
+            "required": true,
+            
+        },
+        "property": {
+            "baseName": "property",
+            "type": "string",
+            
+            
+        },
+        "target": {
+            "baseName": "target",
+            "type": "any",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsAssertionType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionTarget.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAssertionTarget.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

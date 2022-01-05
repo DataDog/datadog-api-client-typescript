@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type SyntheticsTestMonitorStatus =
-  | typeof UNTRIGGERED
-  | typeof TRIGGERED
-  | typeof NO_DATA;
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The status of your Synthetic monitor. * `O` for not triggered * `1` for triggered * `2` for no data
+*/
+
+export type SyntheticsTestMonitorStatus = typeof UNTRIGGERED | typeof TRIGGERED | typeof NO_DATA ;
 export const UNTRIGGERED = 0;
 export const TRIGGERED = 1;
 export const NO_DATA = 2;
+
+

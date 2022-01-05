@@ -8,38 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Alerting time window options.
- */
+* Alerting time window options.
+*/
 
 export class MonitorThresholdWindowOptions {
-  /**
-   * Describes how long an anomalous metric must be normal before the alert recovers.
-   */
-  "recoveryWindow"?: string;
-  /**
-   * Describes how long a metric must be anomalous before an alert triggers.
-   */
-  "triggerWindow"?: string;
+    /**
+    * Describes how long an anomalous metric must be normal before the alert recovers.
+    */
+    'recoveryWindow'?: string;
+    /**
+    * Describes how long a metric must be anomalous before an alert triggers.
+    */
+    'triggerWindow'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    recoveryWindow: {
-      baseName: "recovery_window",
-      type: "string",
-    },
-    triggerWindow: {
-      baseName: "trigger_window",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "recoveryWindow": {
+            "baseName": "recovery_window",
+            "type": "string",
+            
+            
+        },
+        "triggerWindow": {
+            "baseName": "trigger_window",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorThresholdWindowOptions.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorThresholdWindowOptions.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

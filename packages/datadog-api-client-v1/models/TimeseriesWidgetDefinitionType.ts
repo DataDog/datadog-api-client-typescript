@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type TimeseriesWidgetDefinitionType = typeof TIMESERIES;
-export const TIMESERIES = "timeseries";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the timeseries widget.
+*/
+
+export type TimeseriesWidgetDefinitionType = typeof TIMESERIES ;
+export const TIMESERIES = 'timeseries';
+
+

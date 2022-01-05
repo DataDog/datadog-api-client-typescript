@@ -8,32 +8,36 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Wrapper object with the list of monitor IDs.
- */
+* Wrapper object with the list of monitor IDs.
+*/
 
 export class CheckCanDeleteMonitorResponseData {
-  /**
-   * An array of of Monitor IDs that can be safely deleted.
-   */
-  "ok"?: Array<number>;
+    /**
+    * An array of of Monitor IDs that can be safely deleted.
+    */
+    'ok'?: Array<number>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    ok: {
-      baseName: "ok",
-      type: "Array<number>",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "ok": {
+            "baseName": "ok",
+            "type": "Array<number>",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return CheckCanDeleteMonitorResponseData.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteMonitorResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

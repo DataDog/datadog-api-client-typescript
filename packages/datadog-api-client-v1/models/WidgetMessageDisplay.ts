@@ -8,10 +8,16 @@
  * Do not edit the class manually.
  */
 
-export type WidgetMessageDisplay =
-  | typeof INLINE
-  | typeof EXPANDED_MEDIUM
-  | typeof EXPANDED_LARGE;
-export const INLINE = "inline";
-export const EXPANDED_MEDIUM = "expanded-md";
-export const EXPANDED_LARGE = "expanded-lg";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Amount of log lines to display
+*/
+
+export type WidgetMessageDisplay = typeof INLINE | typeof EXPANDED_MEDIUM | typeof EXPANDED_LARGE ;
+export const INLINE = 'inline';
+export const EXPANDED_MEDIUM = 'expanded-md';
+export const EXPANDED_LARGE = 'expanded-lg';
+
+

@@ -8,14 +8,18 @@
  * Do not edit the class manually.
  */
 
-export type MetricCustomTimeAggregation =
-  | typeof AVG
-  | typeof COUNT
-  | typeof MAX
-  | typeof MIN
-  | typeof SUM;
-export const AVG = "avg";
-export const COUNT = "count";
-export const MAX = "max";
-export const MIN = "min";
-export const SUM = "sum";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* A time aggregation for use in query.
+*/
+
+export type MetricCustomTimeAggregation = typeof AVG | typeof COUNT | typeof MAX | typeof MIN | typeof SUM ;
+export const AVG = 'avg';
+export const COUNT = 'count';
+export const MAX = 'max';
+export const MIN = 'min';
+export const SUM = 'sum';
+
+

@@ -8,55 +8,67 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAPIStep } from "./SyntheticsAPIStep";
-import { SyntheticsAssertion } from "./SyntheticsAssertion";
-import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
-import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsAPIStep } from './SyntheticsAPIStep';
+import { SyntheticsAssertion } from './SyntheticsAssertion';
+import { SyntheticsConfigVariable } from './SyntheticsConfigVariable';
+import { SyntheticsTestRequest } from './SyntheticsTestRequest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Configuration object for a Synthetic API test.
- */
+* Configuration object for a Synthetic API test.
+*/
 
 export class SyntheticsAPITestConfig {
-  /**
-   * Array of assertions used for the test. Required for single API tests.
-   */
-  "assertions"?: Array<SyntheticsAssertion>;
-  /**
-   * Array of variables used for the test.
-   */
-  "configVariables"?: Array<SyntheticsConfigVariable>;
-  "request"?: SyntheticsTestRequest;
-  /**
-   * When the test subtype is `multi`, the steps of the test.
-   */
-  "steps"?: Array<SyntheticsAPIStep>;
+    /**
+    * Array of assertions used for the test. Required for single API tests.
+    */
+    'assertions'?: Array<SyntheticsAssertion>;
+    /**
+    * Array of variables used for the test.
+    */
+    'configVariables'?: Array<SyntheticsConfigVariable>;
+    'request'?: SyntheticsTestRequest;
+    /**
+    * When the test subtype is `multi`, the steps of the test.
+    */
+    'steps'?: Array<SyntheticsAPIStep>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    assertions: {
-      baseName: "assertions",
-      type: "Array<SyntheticsAssertion>",
-    },
-    configVariables: {
-      baseName: "configVariables",
-      type: "Array<SyntheticsConfigVariable>",
-    },
-    request: {
-      baseName: "request",
-      type: "SyntheticsTestRequest",
-    },
-    steps: {
-      baseName: "steps",
-      type: "Array<SyntheticsAPIStep>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "assertions": {
+            "baseName": "assertions",
+            "type": "Array<SyntheticsAssertion>",
+            
+            
+        },
+        "configVariables": {
+            "baseName": "configVariables",
+            "type": "Array<SyntheticsConfigVariable>",
+            
+            
+        },
+        "request": {
+            "baseName": "request",
+            "type": "SyntheticsTestRequest",
+            
+            
+        },
+        "steps": {
+            "baseName": "steps",
+            "type": "Array<SyntheticsAPIStep>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestConfig.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsAPITestConfig.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

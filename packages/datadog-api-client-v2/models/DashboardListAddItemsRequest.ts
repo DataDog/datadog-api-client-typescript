@@ -8,31 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { DashboardListItemRequest } from "./DashboardListItemRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { DashboardListItemRequest } from './DashboardListItemRequest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Request containing a list of dashboards to add.
- */
+* Request containing a list of dashboards to add.
+*/
 
 export class DashboardListAddItemsRequest {
-  /**
-   * List of dashboards to add the dashboard list.
-   */
-  "dashboards"?: Array<DashboardListItemRequest>;
+    /**
+    * List of dashboards to add the dashboard list.
+    */
+    'dashboards'?: Array<DashboardListItemRequest>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardListItemRequest>",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "dashboards": {
+            "baseName": "dashboards",
+            "type": "Array<DashboardListItemRequest>",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListAddItemsRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return DashboardListAddItemsRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

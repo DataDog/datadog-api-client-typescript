@@ -8,82 +8,94 @@
  * Do not edit the class manually.
  */
 
-import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SLOCorrectionCategory } from './SLOCorrectionCategory';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attribute object associated with the SLO correction to be updated.
- */
+* The attribute object associated with the SLO correction to be updated.
+*/
 
 export class SLOCorrectionUpdateRequestAttributes {
-  "category"?: SLOCorrectionCategory;
-  /**
-   * Description of the correction being made.
-   */
-  "description"?: string;
-  /**
-   * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
-   */
-  "duration"?: number;
-  /**
-   * Ending time of the correction in epoch seconds.
-   */
-  "end"?: number;
-  /**
-   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
-   */
-  "rrule"?: string;
-  /**
-   * Starting time of the correction in epoch seconds.
-   */
-  "start"?: number;
-  /**
-   * The timezone to display in the UI for the correction times (defaults to \"UTC\").
-   */
-  "timezone"?: string;
+    'category'?: SLOCorrectionCategory;
+    /**
+    * Description of the correction being made.
+    */
+    'description'?: string;
+    /**
+    * Length of time (in seconds) for a specified `rrule` recurring SLO correction.
+    */
+    'duration'?: number;
+    /**
+    * Ending time of the correction in epoch seconds.
+    */
+    'end'?: number;
+    /**
+    * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+    */
+    'rrule'?: string;
+    /**
+    * Starting time of the correction in epoch seconds.
+    */
+    'start'?: number;
+    /**
+    * The timezone to display in the UI for the correction times (defaults to \"UTC\").
+    */
+    'timezone'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "SLOCorrectionCategory",
-    },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    duration: {
-      baseName: "duration",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "category": {
+            "baseName": "category",
+            "type": "SLOCorrectionCategory",
+            
+            
+        },
+        "description": {
+            "baseName": "description",
+            "type": "string",
+            
+            
+        },
+        "duration": {
+            "baseName": "duration",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "end": {
+            "baseName": "end",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "rrule": {
+            "baseName": "rrule",
+            "type": "string",
+            
+            
+        },
+        "start": {
+            "baseName": "start",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "timezone": {
+            "baseName": "timezone",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    end: {
-      baseName: "end",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SLOCorrectionUpdateRequestAttributes.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    rrule: {
-      baseName: "rrule",
-      type: "string",
-    },
-    start: {
-      baseName: "start",
-      type: "number",
-
-      format: "int64",
-    },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionUpdateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

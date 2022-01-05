@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type FunnelSource = typeof RUM;
-export const RUM = "rum";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Source from which to query items to display in the funnel.
+*/
+
+export type FunnelSource = typeof RUM ;
+export const RUM = 'rum';
+
+

@@ -8,127 +8,151 @@
  * Do not edit the class manually.
  */
 
-import { Creator } from "./Creator";
-import { MonitorOverallStates } from "./MonitorOverallStates";
-import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
-import { MonitorType } from "./MonitorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { Creator } from './Creator';
+import { MonitorOverallStates } from './MonitorOverallStates';
+import { MonitorSearchResultNotification } from './MonitorSearchResultNotification';
+import { MonitorType } from './MonitorType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Holds search results.
- */
+* Holds search results.
+*/
 
 export class MonitorSearchResult {
-  /**
-   * Classification of the monitor.
-   */
-  "classification"?: string;
-  "creator"?: Creator;
-  /**
-   * ID of the monitor.
-   */
-  "id"?: number;
-  /**
-   * Latest timestamp the monitor triggered.
-   */
-  "lastTriggeredTs"?: number;
-  /**
-   * Metrics used by the monitor.
-   */
-  "metrics"?: Array<string>;
-  /**
-   * The monitor name.
-   */
-  "name"?: string;
-  /**
-   * The notification triggered by the monitor.
-   */
-  "notifications"?: Array<MonitorSearchResultNotification>;
-  /**
-   * The ID of the organization.
-   */
-  "orgId"?: number;
-  /**
-   * The monitor query.
-   */
-  "query"?: string;
-  /**
-   * The scope(s) to which the downtime applies, for example `host:app2`. Provide multiple scopes as a comma-separated list, for example `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (that is `env:dev AND env:prod`), NOT any of them.
-   */
-  "scopes"?: Array<string>;
-  "status"?: MonitorOverallStates;
-  /**
-   * Tags associated with the monitor.
-   */
-  "tags"?: Array<string>;
-  "type"?: MonitorType;
+    /**
+    * Classification of the monitor.
+    */
+    'classification'?: string;
+    'creator'?: Creator;
+    /**
+    * ID of the monitor.
+    */
+    'id'?: number;
+    /**
+    * Latest timestamp the monitor triggered.
+    */
+    'lastTriggeredTs'?: number;
+    /**
+    * Metrics used by the monitor.
+    */
+    'metrics'?: Array<string>;
+    /**
+    * The monitor name.
+    */
+    'name'?: string;
+    /**
+    * The notification triggered by the monitor.
+    */
+    'notifications'?: Array<MonitorSearchResultNotification>;
+    /**
+    * The ID of the organization.
+    */
+    'orgId'?: number;
+    /**
+    * The monitor query.
+    */
+    'query'?: string;
+    /**
+    * The scope(s) to which the downtime applies, for example `host:app2`. Provide multiple scopes as a comma-separated list, for example `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (that is `env:dev AND env:prod`), NOT any of them.
+    */
+    'scopes'?: Array<string>;
+    'status'?: MonitorOverallStates;
+    /**
+    * Tags associated with the monitor.
+    */
+    'tags'?: Array<string>;
+    'type'?: MonitorType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    classification: {
-      baseName: "classification",
-      type: "string",
-    },
-    creator: {
-      baseName: "creator",
-      type: "Creator",
-    },
-    id: {
-      baseName: "id",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "classification": {
+            "baseName": "classification",
+            "type": "string",
+            
+            
+        },
+        "creator": {
+            "baseName": "creator",
+            "type": "Creator",
+            
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "lastTriggeredTs": {
+            "baseName": "last_triggered_ts",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "metrics": {
+            "baseName": "metrics",
+            "type": "Array<string>",
+            
+            
+        },
+        "name": {
+            "baseName": "name",
+            "type": "string",
+            
+            
+        },
+        "notifications": {
+            "baseName": "notifications",
+            "type": "Array<MonitorSearchResultNotification>",
+            
+            
+        },
+        "orgId": {
+            "baseName": "org_id",
+            "type": "number",
+            
+            "format": "int64",
+        },
+        "query": {
+            "baseName": "query",
+            "type": "string",
+            
+            
+        },
+        "scopes": {
+            "baseName": "scopes",
+            "type": "Array<string>",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "MonitorOverallStates",
+            
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "MonitorType",
+            
+            
+        }    };
 
-      format: "int64",
-    },
-    lastTriggeredTs: {
-      baseName: "last_triggered_ts",
-      type: "number",
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return MonitorSearchResult.attributeTypeMap;
+    }
 
-      format: "int64",
-    },
-    metrics: {
-      baseName: "metrics",
-      type: "Array<string>",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    notifications: {
-      baseName: "notifications",
-      type: "Array<MonitorSearchResultNotification>",
-    },
-    orgId: {
-      baseName: "org_id",
-      type: "number",
-
-      format: "int64",
-    },
-    query: {
-      baseName: "query",
-      type: "string",
-    },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
-    },
-    status: {
-      baseName: "status",
-      type: "MonitorOverallStates",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-    },
-    type: {
-      baseName: "type",
-      type: "MonitorType",
-    },
-  };
-
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResult.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

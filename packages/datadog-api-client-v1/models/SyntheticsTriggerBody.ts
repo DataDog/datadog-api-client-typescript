@@ -8,32 +8,37 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsTriggerTest } from './SyntheticsTriggerTest';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the synthetics tests to trigger.
- */
+* Object describing the synthetics tests to trigger.
+*/
 
 export class SyntheticsTriggerBody {
-  /**
-   * Individual synthetics test.
-   */
-  "tests": Array<SyntheticsTriggerTest>;
+    /**
+    * Individual synthetics test.
+    */
+    'tests': Array<SyntheticsTriggerTest>;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    tests: {
-      baseName: "tests",
-      type: "Array<SyntheticsTriggerTest>",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "tests": {
+            "baseName": "tests",
+            "type": "Array<SyntheticsTriggerTest>",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerBody.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsTriggerBody.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

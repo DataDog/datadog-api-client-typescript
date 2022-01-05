@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type LogsStringBuilderProcessorType = typeof STRING_BUILDER_PROCESSOR;
-export const STRING_BUILDER_PROCESSOR = "string-builder-processor";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of logs string builder processor.
+*/
+
+export type LogsStringBuilderProcessorType = typeof STRING_BUILDER_PROCESSOR ;
+export const STRING_BUILDER_PROCESSOR = 'string-builder-processor';
+
+

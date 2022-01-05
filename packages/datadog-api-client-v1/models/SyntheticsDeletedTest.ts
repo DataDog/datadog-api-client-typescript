@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object containing a deleted Synthetic test ID with the associated deletion timestamp.
- */
+* Object containing a deleted Synthetic test ID with the associated deletion timestamp.
+*/
 
 export class SyntheticsDeletedTest {
-  /**
-   * Deletion timestamp of the Synthetic test ID.
-   */
-  "deletedAt"?: Date;
-  /**
-   * The Synthetic test ID deleted.
-   */
-  "publicId"?: string;
+    /**
+    * Deletion timestamp of the Synthetic test ID.
+    */
+    'deletedAt'?: Date;
+    /**
+    * The Synthetic test ID deleted.
+    */
+    'publicId'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedAt: {
-      baseName: "deleted_at",
-      type: "Date",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "deletedAt": {
+            "baseName": "deleted_at",
+            "type": "Date",
+            
+            "format": "date-time",
+        },
+        "publicId": {
+            "baseName": "public_id",
+            "type": "string",
+            
+            
+        }    };
 
-      format: "date-time",
-    },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsDeletedTest.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDeletedTest.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

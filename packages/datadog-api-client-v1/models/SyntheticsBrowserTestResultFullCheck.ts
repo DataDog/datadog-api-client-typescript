@@ -8,29 +8,34 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsTestConfig } from './SyntheticsTestConfig';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object describing the browser test configuration.
- */
+* Object describing the browser test configuration.
+*/
 
 export class SyntheticsBrowserTestResultFullCheck {
-  "config": SyntheticsTestConfig;
+    'config': SyntheticsTestConfig;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "SyntheticsTestConfig",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "config": {
+            "baseName": "config",
+            "type": "SyntheticsTestConfig",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

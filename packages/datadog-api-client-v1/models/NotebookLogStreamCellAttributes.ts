@@ -8,41 +8,50 @@
  * Do not edit the class manually.
  */
 
-import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
-import { NotebookCellTime } from "./NotebookCellTime";
-import { NotebookGraphSize } from "./NotebookGraphSize";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogStreamWidgetDefinition } from './LogStreamWidgetDefinition';
+import { NotebookCellTime } from './NotebookCellTime';
+import { NotebookGraphSize } from './NotebookGraphSize';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The attributes of a notebook `log_stream` cell.
- */
+* The attributes of a notebook `log_stream` cell.
+*/
 
 export class NotebookLogStreamCellAttributes {
-  "definition": LogStreamWidgetDefinition;
-  "graphSize"?: NotebookGraphSize;
-  "time"?: NotebookCellTime;
+    'definition': LogStreamWidgetDefinition;
+    'graphSize'?: NotebookGraphSize;
+    'time'?: NotebookCellTime;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "LogStreamWidgetDefinition",
-      required: true,
-    },
-    graphSize: {
-      baseName: "graph_size",
-      type: "NotebookGraphSize",
-    },
-    time: {
-      baseName: "time",
-      type: "NotebookCellTime",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "definition": {
+            "baseName": "definition",
+            "type": "LogStreamWidgetDefinition",
+            "required": true,
+            
+        },
+        "graphSize": {
+            "baseName": "graph_size",
+            "type": "NotebookGraphSize",
+            
+            
+        },
+        "time": {
+            "baseName": "time",
+            "type": "NotebookCellTime",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookLogStreamCellAttributes.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return NotebookLogStreamCellAttributes.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

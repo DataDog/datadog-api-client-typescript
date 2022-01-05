@@ -8,45 +8,52 @@
  * Do not edit the class manually.
  */
 
-import { LogsMetricCreateAttributes } from "./LogsMetricCreateAttributes";
-import { LogsMetricType } from "./LogsMetricType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { LogsMetricCreateAttributes } from './LogsMetricCreateAttributes';
+import { LogsMetricType } from './LogsMetricType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The new log-based metric properties.
- */
+* The new log-based metric properties.
+*/
 
 export class LogsMetricCreateData {
-  "attributes": LogsMetricCreateAttributes;
-  /**
-   * The name of the log-based metric.
-   */
-  "id": string;
-  "type": LogsMetricType;
+    'attributes': LogsMetricCreateAttributes;
+    /**
+    * The name of the log-based metric.
+    */
+    'id': string;
+    'type': LogsMetricType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsMetricCreateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LogsMetricType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "attributes": {
+            "baseName": "attributes",
+            "type": "LogsMetricCreateAttributes",
+            "required": true,
+            
+        },
+        "id": {
+            "baseName": "id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "LogsMetricType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCreateData.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsMetricCreateData.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

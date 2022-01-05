@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type MonitorSummaryWidgetDefinitionType = typeof MANAGE_STATUS;
-export const MANAGE_STATUS = "manage_status";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the monitor summary widget.
+*/
+
+export type MonitorSummaryWidgetDefinitionType = typeof MANAGE_STATUS ;
+export const MANAGE_STATUS = 'manage_status';
+
+

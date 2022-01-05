@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type TreeMapColorBy = typeof USER;
-export const USER = "user";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The attribute used to determine color in the widget.
+*/
+
+export type TreeMapColorBy = typeof USER ;
+export const USER = 'user';
+
+

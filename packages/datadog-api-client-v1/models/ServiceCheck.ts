@@ -8,74 +8,84 @@
  * Do not edit the class manually.
  */
 
-import { ServiceCheckStatus } from "./ServiceCheckStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { ServiceCheckStatus } from './ServiceCheckStatus';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * An object containing service check and status.
- */
+* An object containing service check and status.
+*/
 
 export class ServiceCheck {
-  /**
-   * The check.
-   */
-  "check": string;
-  /**
-   * The host name correlated with the check.
-   */
-  "hostName": string;
-  /**
-   * Message containing check status.
-   */
-  "message"?: string;
-  "status": ServiceCheckStatus;
-  /**
-   * Tags related to a check.
-   */
-  "tags": Array<string>;
-  /**
-   * Time of check.
-   */
-  "timestamp"?: number;
+    /**
+    * The check.
+    */
+    'check': string;
+    /**
+    * The host name correlated with the check.
+    */
+    'hostName': string;
+    /**
+    * Message containing check status.
+    */
+    'message'?: string;
+    'status': ServiceCheckStatus;
+    /**
+    * Tags related to a check.
+    */
+    'tags': Array<string>;
+    /**
+    * Time of check.
+    */
+    'timestamp'?: number;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    check: {
-      baseName: "check",
-      type: "string",
-      required: true,
-    },
-    hostName: {
-      baseName: "host_name",
-      type: "string",
-      required: true,
-    },
-    message: {
-      baseName: "message",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "ServiceCheckStatus",
-      required: true,
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
-    },
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "check": {
+            "baseName": "check",
+            "type": "string",
+            "required": true,
+            
+        },
+        "hostName": {
+            "baseName": "host_name",
+            "type": "string",
+            "required": true,
+            
+        },
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            
+            
+        },
+        "status": {
+            "baseName": "status",
+            "type": "ServiceCheckStatus",
+            "required": true,
+            
+        },
+        "tags": {
+            "baseName": "tags",
+            "type": "Array<string>",
+            "required": true,
+            
+        },
+        "timestamp": {
+            "baseName": "timestamp",
+            "type": "number",
+            
+            "format": "int64",
+        }    };
 
-      format: "int64",
-    },
-  };
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return ServiceCheck.attributeTypeMap;
+    }
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceCheck.attributeTypeMap;
-  }
-
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

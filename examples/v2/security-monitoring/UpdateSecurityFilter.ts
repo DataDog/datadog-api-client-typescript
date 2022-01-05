@@ -10,28 +10,30 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 // there is a valid "security_filter" in the system
 let SECURITY_FILTER_DATA_ID = process.env.SECURITY_FILTER_DATA_ID as string;
 
+
+
 let params: v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
   body: {
-    data: {
-      attributes: {
-        exclusionFilters: [],
-        filteredDataType: "logs",
-        isEnabled: true,
-        name: "Example-Update_a_security_filter_returns_OK_response",
-        query: "service:ExampleUpdateasecurityfilterreturnsOKresponse",
-        version: 1,
-      },
-      type: "security_filters",
-    },
-  },
+data: {
+attributes: {
+exclusionFilters: [
+],
+filteredDataType: "logs",
+isEnabled: true,
+name: "Example-Update_a_security_filter_returns_OK_response",
+query: "service:ExampleUpdateasecurityfilterreturnsOKresponse",
+version: 1,
+},
+type: "security_filters",
+},
+},
   securityFilterId: SECURITY_FILTER_DATA_ID,
+
 };
 
 apiInstance
   .updateSecurityFilter(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

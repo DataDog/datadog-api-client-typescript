@@ -8,38 +8,44 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsWarningType } from "./SyntheticsWarningType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { SyntheticsWarningType } from './SyntheticsWarningType';
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * Object collecting warnings for a given step.
- */
+* Object collecting warnings for a given step.
+*/
 
 export class SyntheticsStepDetailWarning {
-  /**
-   * Message for the warning.
-   */
-  "message": string;
-  "type": SyntheticsWarningType;
+    /**
+    * Message for the warning.
+    */
+    'message': string;
+    'type': SyntheticsWarningType;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "SyntheticsWarningType",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "message": {
+            "baseName": "message",
+            "type": "string",
+            "required": true,
+            
+        },
+        "type": {
+            "baseName": "type",
+            "type": "SyntheticsWarningType",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsStepDetailWarning.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return SyntheticsStepDetailWarning.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

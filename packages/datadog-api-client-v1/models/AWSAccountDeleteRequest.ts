@@ -8,46 +8,56 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * List of AWS accounts to delete.
- */
+* List of AWS accounts to delete.
+*/
 
 export class AWSAccountDeleteRequest {
-  /**
-   * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
-   */
-  "accessKeyId"?: string;
-  /**
-   * Your AWS Account ID without dashes.
-   */
-  "accountId"?: string;
-  /**
-   * Your Datadog role delegation name.
-   */
-  "roleName"?: string;
+    /**
+    * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+    */
+    'accessKeyId'?: string;
+    /**
+    * Your AWS Account ID without dashes.
+    */
+    'accountId'?: string;
+    /**
+    * Your Datadog role delegation name.
+    */
+    'roleName'?: string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accessKeyId: {
-      baseName: "access_key_id",
-      type: "string",
-    },
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-    },
-    roleName: {
-      baseName: "role_name",
-      type: "string",
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accessKeyId": {
+            "baseName": "access_key_id",
+            "type": "string",
+            
+            
+        },
+        "accountId": {
+            "baseName": "account_id",
+            "type": "string",
+            
+            
+        },
+        "roleName": {
+            "baseName": "role_name",
+            "type": "string",
+            
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountDeleteRequest.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return AWSAccountDeleteRequest.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

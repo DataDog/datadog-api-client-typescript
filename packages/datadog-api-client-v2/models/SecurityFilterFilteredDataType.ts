@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type SecurityFilterFilteredDataType = typeof LOGS;
-export const LOGS = "logs";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* The filtered data type.
+*/
+
+export type SecurityFilterFilteredDataType = typeof LOGS ;
+export const LOGS = 'logs';
+
+

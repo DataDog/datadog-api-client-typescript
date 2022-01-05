@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The Azure archive's integration destination.
- */
+* The Azure archive's integration destination.
+*/
 
 export class LogsArchiveIntegrationAzure {
-  /**
-   * A client ID.
-   */
-  "clientId": string;
-  /**
-   * A tenant ID.
-   */
-  "tenantId": string;
+    /**
+    * A client ID.
+    */
+    'clientId': string;
+    /**
+    * A tenant ID.
+    */
+    'tenantId': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    clientId: {
-      baseName: "client_id",
-      type: "string",
-      required: true,
-    },
-    tenantId: {
-      baseName: "tenant_id",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "clientId": {
+            "baseName": "client_id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "tenantId": {
+            "baseName": "tenant_id",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveIntegrationAzure.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveIntegrationAzure.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+

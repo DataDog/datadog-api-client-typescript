@@ -9,17 +9,18 @@ const apiInstance = new v1.EventsApi(configuration);
 
 let params: v1.EventsApiCreateEventRequest = {
   body: {
-    title: "Example-Post_an_event_returns_OK_response",
-    text: "A text message.",
-    tags: ["test:ExamplePostaneventreturnsOKresponse"],
-  },
+title: "Example-Post_an_event_returns_OK_response",
+text: "A text message.",
+tags: [
+"test:ExamplePostaneventreturnsOKresponse",
+],
+},
+  
 };
 
 apiInstance
   .createEvent(params)
   .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));

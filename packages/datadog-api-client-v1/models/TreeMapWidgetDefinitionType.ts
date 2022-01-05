@@ -8,5 +8,14 @@
  * Do not edit the class manually.
  */
 
-export type TreeMapWidgetDefinitionType = typeof TREEMAP;
-export const TREEMAP = "treemap";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
+
+/**
+* Type of the treemap widget.
+*/
+
+export type TreeMapWidgetDefinitionType = typeof TREEMAP ;
+export const TREEMAP = 'treemap';
+
+

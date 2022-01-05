@@ -8,40 +8,46 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { HttpFile } from '../http/http';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 /**
- * The S3 Archive's integration destination.
- */
+* The S3 Archive's integration destination.
+*/
 
 export class LogsArchiveIntegrationS3 {
-  /**
-   * The account ID for the integration.
-   */
-  "accountId": string;
-  /**
-   * The path of the integration.
-   */
-  "roleName": string;
+    /**
+    * The account ID for the integration.
+    */
+    'accountId': string;
+    /**
+    * The path of the integration.
+    */
+    'roleName': string;
 
-  "unparsedObject"?: any;
+    'unparsedObject'?:any;
 
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
-    },
-    roleName: {
-      baseName: "role_name",
-      type: "string",
-      required: true,
-    },
-  };
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        "accountId": {
+            "baseName": "account_id",
+            "type": "string",
+            "required": true,
+            
+        },
+        "roleName": {
+            "baseName": "role_name",
+            "type": "string",
+            "required": true,
+            
+        }    };
 
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveIntegrationS3.attributeTypeMap;
-  }
+    static getAttributeTypeMap(): AttributeTypeMap {
+        return LogsArchiveIntegrationS3.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
+
+
