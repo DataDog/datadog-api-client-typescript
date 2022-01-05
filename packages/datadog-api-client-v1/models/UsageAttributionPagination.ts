@@ -14,11 +14,19 @@ export class UsageAttributionPagination {
    */
   "limit"?: number;
   /**
-   * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of this next_record_id.
+   * Records to be skipped before beginning to return.
    */
-  "nextRecordId"?: string;
+  "offset"?: number;
   /**
-   * Total number of records. (deprecated after May 1st, 2021)
+   * Direction to sort by.
+   */
+  "sortDirection"?: string;
+  /**
+   * Field to sort by.
+   */
+  "sortName"?: string;
+  /**
+   * Total number of records.
    */
   "totalNumberOfRecords"?: number;
 
@@ -38,8 +46,18 @@ export class UsageAttributionPagination {
 
       format: "int64",
     },
-    nextRecordId: {
-      baseName: "next_record_id",
+    offset: {
+      baseName: "offset",
+      type: "number",
+
+      format: "int64",
+    },
+    sortDirection: {
+      baseName: "sort_direction",
+      type: "string",
+    },
+    sortName: {
+      baseName: "sort_name",
       type: "string",
     },
     totalNumberOfRecords: {
