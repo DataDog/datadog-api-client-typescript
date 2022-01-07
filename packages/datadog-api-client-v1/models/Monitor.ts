@@ -76,7 +76,6 @@ export class Monitor {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     creator: {
@@ -86,13 +85,11 @@ export class Monitor {
     deleted: {
       baseName: "deleted",
       type: "Date",
-
       format: "date-time",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     message: {
@@ -102,7 +99,6 @@ export class Monitor {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     multi: {
@@ -124,7 +120,6 @@ export class Monitor {
     priority: {
       baseName: "priority",
       type: "number",
-
       format: "int64",
     },
     query: {

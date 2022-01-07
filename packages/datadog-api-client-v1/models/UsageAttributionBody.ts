@@ -48,7 +48,6 @@ export class UsageAttributionBody {
     month: {
       baseName: "month",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {

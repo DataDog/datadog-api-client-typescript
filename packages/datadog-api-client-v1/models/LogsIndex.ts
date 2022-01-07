@@ -45,7 +45,6 @@ export class LogsIndex {
     dailyLimit: {
       baseName: "daily_limit",
       type: "number",
-
       format: "int64",
     },
     exclusionFilters: {
@@ -69,7 +68,6 @@ export class LogsIndex {
     numRetentionDays: {
       baseName: "num_retention_days",
       type: "number",
-
       format: "int64",
     },
   };

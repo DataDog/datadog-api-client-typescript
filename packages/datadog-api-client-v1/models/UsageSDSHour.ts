@@ -42,13 +42,11 @@ export class UsageSDSHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     logsScannedBytes: {
       baseName: "logs_scanned_bytes",
       type: "number",
-
       format: "int64",
     },
     orgName: {
@@ -62,7 +60,6 @@ export class UsageSDSHour {
     totalScannedBytes: {
       baseName: "total_scanned_bytes",
       type: "number",
-
       format: "int64",
     },
   };

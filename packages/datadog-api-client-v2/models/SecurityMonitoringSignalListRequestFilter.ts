@@ -34,7 +34,6 @@ export class SecurityMonitoringSignalListRequestFilter {
     from: {
       baseName: "from",
       type: "Date",
-
       format: "date-time",
     },
     query: {
@@ -44,7 +43,6 @@ export class SecurityMonitoringSignalListRequestFilter {
     to: {
       baseName: "to",
       type: "Date",
-
       format: "date-time",
     },
   };

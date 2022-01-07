@@ -71,7 +71,6 @@ export class SLOHistorySLIData {
     errorBudgetRemaining: {
       baseName: "error_budget_remaining",
       type: "{ [key: string]: number; }",
-
       format: "double",
     },
     errors: {
@@ -85,13 +84,11 @@ export class SLOHistorySLIData {
     history: {
       baseName: "history",
       type: "Array<Array<number>>",
-
       format: "double",
     },
     monitorModified: {
       baseName: "monitor_modified",
       type: "number",
-
       format: "int64",
     },
     monitorType: {
@@ -105,7 +102,6 @@ export class SLOHistorySLIData {
     precision: {
       baseName: "precision",
       type: "{ [key: string]: number; }",
-
       format: "double",
     },
     preview: {
@@ -115,19 +111,16 @@ export class SLOHistorySLIData {
     sliValue: {
       baseName: "sli_value",
       type: "number",
-
       format: "double",
     },
     spanPrecision: {
       baseName: "span_precision",
       type: "number",
-
       format: "double",
     },
     uptime: {
       baseName: "uptime",
       type: "number",
-
       format: "double",
     },
   };

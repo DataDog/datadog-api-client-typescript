@@ -65,10 +65,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -137,12 +133,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -200,12 +190,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -250,12 +234,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(source, "string", "")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -327,10 +305,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(source, "string", "")
       );
     }
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([

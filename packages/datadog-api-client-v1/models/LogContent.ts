@@ -62,13 +62,11 @@ export class LogContent {
     tags: {
       baseName: "tags",
       type: "Array<any>",
-
       format: "string",
     },
     timestamp: {
       baseName: "timestamp",
       type: "Date",
-
       format: "date-time",
     },
   };

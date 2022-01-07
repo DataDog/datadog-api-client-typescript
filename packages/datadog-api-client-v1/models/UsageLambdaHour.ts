@@ -34,19 +34,16 @@ export class UsageLambdaHour {
     funcCount: {
       baseName: "func_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     invocationsSum: {
       baseName: "invocations_sum",
       type: "number",
-
       format: "int64",
     },
   };

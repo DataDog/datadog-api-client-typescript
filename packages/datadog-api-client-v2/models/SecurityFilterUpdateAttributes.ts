@@ -65,7 +65,6 @@ export class SecurityFilterUpdateAttributes {
     version: {
       baseName: "version",
       type: "number",
-
       format: "int32",
     },
   };

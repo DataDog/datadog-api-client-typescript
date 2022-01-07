@@ -68,7 +68,6 @@ export class SyntheticsAPITest {
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     name: {

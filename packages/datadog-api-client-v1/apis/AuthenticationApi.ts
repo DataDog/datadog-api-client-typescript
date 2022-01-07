@@ -31,14 +31,6 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];

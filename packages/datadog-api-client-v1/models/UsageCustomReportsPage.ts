@@ -26,7 +26,6 @@ export class UsageCustomReportsPage {
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
   };

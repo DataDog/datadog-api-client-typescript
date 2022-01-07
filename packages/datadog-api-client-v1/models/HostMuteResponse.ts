@@ -42,7 +42,6 @@ export class HostMuteResponse {
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     hostname: {

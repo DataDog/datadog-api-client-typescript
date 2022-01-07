@@ -44,12 +44,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -113,14 +107,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -173,14 +159,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -220,14 +198,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -289,12 +259,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([

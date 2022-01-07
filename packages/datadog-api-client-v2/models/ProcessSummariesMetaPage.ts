@@ -34,7 +34,6 @@ export class ProcessSummariesMetaPage {
     size: {
       baseName: "size",
       type: "number",
-
       format: "int32",
     },
   };

@@ -34,13 +34,11 @@ export class IncidentTeamResponseAttributes {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     name: {

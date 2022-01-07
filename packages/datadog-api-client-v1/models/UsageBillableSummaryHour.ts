@@ -56,13 +56,11 @@ export class UsageBillableSummaryHour {
     endDate: {
       baseName: "end_date",
       type: "Date",
-
       format: "date-time",
     },
     numOrgs: {
       baseName: "num_orgs",
       type: "number",
-
       format: "int64",
     },
     orgName: {
@@ -76,13 +74,11 @@ export class UsageBillableSummaryHour {
     ratioInMonth: {
       baseName: "ratio_in_month",
       type: "number",
-
       format: "double",
     },
     startDate: {
       baseName: "start_date",
       type: "Date",
-
       format: "date-time",
     },
     usage: {

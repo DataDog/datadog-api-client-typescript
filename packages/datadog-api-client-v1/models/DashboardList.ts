@@ -56,19 +56,16 @@ export class DashboardList {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     dashboardCount: {
       baseName: "dashboard_count",
       type: "number",
-
       format: "int64",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     isFavorite: {
@@ -78,7 +75,6 @@ export class DashboardList {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     name: {

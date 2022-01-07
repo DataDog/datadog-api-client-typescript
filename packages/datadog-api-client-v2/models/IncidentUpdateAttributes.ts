@@ -60,7 +60,6 @@ export class IncidentUpdateAttributes {
     customerImpactEnd: {
       baseName: "customer_impact_end",
       type: "Date",
-
       format: "date-time",
     },
     customerImpactScope: {
@@ -70,7 +69,6 @@ export class IncidentUpdateAttributes {
     customerImpactStart: {
       baseName: "customer_impact_start",
       type: "Date",
-
       format: "date-time",
     },
     customerImpacted: {
@@ -80,7 +78,6 @@ export class IncidentUpdateAttributes {
     detected: {
       baseName: "detected",
       type: "Date",
-
       format: "date-time",
     },
     fields: {
@@ -94,7 +91,6 @@ export class IncidentUpdateAttributes {
     resolved: {
       baseName: "resolved",
       type: "Date",
-
       format: "date-time",
     },
     title: {

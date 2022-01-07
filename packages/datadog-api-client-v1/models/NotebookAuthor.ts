@@ -58,7 +58,6 @@ export class NotebookAuthor {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     disabled: {

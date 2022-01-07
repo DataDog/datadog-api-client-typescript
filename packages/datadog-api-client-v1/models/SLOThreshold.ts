@@ -55,7 +55,6 @@ export class SLOThreshold {
     warning: {
       baseName: "warning",
       type: "number",
-
       format: "double",
     },
     warningDisplay: {

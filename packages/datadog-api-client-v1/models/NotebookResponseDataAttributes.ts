@@ -56,7 +56,6 @@ export class NotebookResponseDataAttributes {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     metadata: {
@@ -66,7 +65,6 @@ export class NotebookResponseDataAttributes {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     name: {

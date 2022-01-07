@@ -62,13 +62,11 @@ export class ProcessSummaryAttributes {
     pid: {
       baseName: "pid",
       type: "number",
-
       format: "int64",
     },
     ppid: {
       baseName: "ppid",
       type: "number",
-
       format: "int64",
     },
     start: {

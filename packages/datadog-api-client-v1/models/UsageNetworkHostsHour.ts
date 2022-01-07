@@ -30,13 +30,11 @@ export class UsageNetworkHostsHour {
     hostCount: {
       baseName: "host_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
   };

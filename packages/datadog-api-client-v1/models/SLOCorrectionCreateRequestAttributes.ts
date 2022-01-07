@@ -61,13 +61,11 @@ export class SLOCorrectionCreateRequestAttributes {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "int64",
     },
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     rrule: {

@@ -53,12 +53,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -117,14 +111,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -157,14 +143,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -221,12 +199,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -295,10 +267,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
     // Form Params
     const localVarFormParams = new FormData();
 
@@ -307,8 +275,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
       localVarFormParams.append("idp_file", idpFile.data, idpFile.name);
     }
     requestContext.setBody(localVarFormParams);
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods

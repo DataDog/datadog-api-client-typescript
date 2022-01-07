@@ -38,7 +38,6 @@ export class SyntheticsBrowserTestResultShort {
     checkTime: {
       baseName: "check_time",
       type: "number",
-
       format: "double",
     },
     probeDc: {

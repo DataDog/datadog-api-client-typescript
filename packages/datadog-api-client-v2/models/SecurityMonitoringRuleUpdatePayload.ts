@@ -99,7 +99,6 @@ export class SecurityMonitoringRuleUpdatePayload {
     version: {
       baseName: "version",
       type: "number",
-
       format: "int32",
     },
   };

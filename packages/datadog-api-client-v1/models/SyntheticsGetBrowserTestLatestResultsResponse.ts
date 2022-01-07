@@ -31,7 +31,6 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
     lastTimestampFetched: {
       baseName: "last_timestamp_fetched",
       type: "number",
-
       format: "int64",
     },
     results: {

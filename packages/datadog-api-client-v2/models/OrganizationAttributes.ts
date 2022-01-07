@@ -54,7 +54,6 @@ export class OrganizationAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     description: {
@@ -68,7 +67,6 @@ export class OrganizationAttributes {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     name: {

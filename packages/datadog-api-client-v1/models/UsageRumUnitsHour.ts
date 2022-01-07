@@ -42,13 +42,11 @@ export class UsageRumUnitsHour {
     browserRumUnits: {
       baseName: "browser_rum_units",
       type: "number",
-
       format: "int64",
     },
     mobileRumUnits: {
       baseName: "mobile_rum_units",
       type: "number",
-
       format: "int64",
     },
     orgName: {
@@ -62,7 +60,6 @@ export class UsageRumUnitsHour {
     rumUnits: {
       baseName: "rum_units",
       type: "number",
-
       format: "int64",
     },
   };

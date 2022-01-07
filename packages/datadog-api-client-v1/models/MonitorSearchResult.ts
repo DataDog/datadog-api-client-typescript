@@ -77,13 +77,11 @@ export class MonitorSearchResult {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     lastTriggeredTs: {
       baseName: "last_triggered_ts",
       type: "number",
-
       format: "int64",
     },
     metrics: {
@@ -101,7 +99,6 @@ export class MonitorSearchResult {
     orgId: {
       baseName: "org_id",
       type: "number",
-
       format: "int64",
     },
     query: {

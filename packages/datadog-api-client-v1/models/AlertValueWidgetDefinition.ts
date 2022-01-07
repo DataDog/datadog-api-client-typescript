@@ -52,7 +52,6 @@ export class AlertValueWidgetDefinition {
     precision: {
       baseName: "precision",
       type: "number",
-
       format: "int64",
     },
     textAlign: {

@@ -54,7 +54,6 @@ export class MetricsQueryUnit {
     scaleFactor: {
       baseName: "scale_factor",
       type: "number",
-
       format: "double",
     },
     shortName: {

@@ -34,13 +34,11 @@ export class RoleCreateAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     name: {

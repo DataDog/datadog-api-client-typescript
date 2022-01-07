@@ -50,7 +50,6 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     name: {
@@ -64,7 +63,6 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
     scaleFactor: {
       baseName: "scale_factor",
       type: "number",
-
       format: "double",
     },
     shortName: {

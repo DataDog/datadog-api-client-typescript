@@ -70,7 +70,6 @@ export class DashboardListItem {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     icon: {
@@ -97,13 +96,11 @@ export class DashboardListItem {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     popularity: {
       baseName: "popularity",
       type: "number",
-
       format: "int32",
     },
     title: {

@@ -66,7 +66,6 @@ export class MetricMetadata {
     statsdInterval: {
       baseName: "statsd_interval",
       type: "number",
-
       format: "int64",
     },
     type: {

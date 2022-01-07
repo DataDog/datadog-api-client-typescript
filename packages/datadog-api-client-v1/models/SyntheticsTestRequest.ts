@@ -112,7 +112,6 @@ export class SyntheticsTestRequest {
     dnsServerPort: {
       baseName: "dnsServerPort",
       type: "number",
-
       format: "int32",
     },
     followRedirects: {
@@ -142,13 +141,11 @@ export class SyntheticsTestRequest {
     numberOfPackets: {
       baseName: "numberOfPackets",
       type: "number",
-
       format: "int32",
     },
     port: {
       baseName: "port",
       type: "number",
-
       format: "int64",
     },
     query: {
@@ -166,7 +163,6 @@ export class SyntheticsTestRequest {
     timeout: {
       baseName: "timeout",
       type: "number",
-
       format: "double",
     },
     url: {

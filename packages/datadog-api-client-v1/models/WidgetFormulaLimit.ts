@@ -28,7 +28,6 @@ export class WidgetFormulaLimit {
     count: {
       baseName: "count",
       type: "number",
-
       format: "int64",
     },
     order: {

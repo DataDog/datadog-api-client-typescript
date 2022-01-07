@@ -69,7 +69,6 @@ export class ServiceLevelObjective {
     createdAt: {
       baseName: "created_at",
       type: "number",
-
       format: "int64",
     },
     creator: {
@@ -91,13 +90,11 @@ export class ServiceLevelObjective {
     modifiedAt: {
       baseName: "modified_at",
       type: "number",
-
       format: "int64",
     },
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-
       format: "int64",
     },
     monitorTags: {

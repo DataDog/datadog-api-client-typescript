@@ -38,13 +38,11 @@ export class RoleAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     name: {
@@ -54,7 +52,6 @@ export class RoleAttributes {
     userCount: {
       baseName: "user_count",
       type: "number",
-
       format: "int64",
     },
   };

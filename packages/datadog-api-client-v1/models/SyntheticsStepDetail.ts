@@ -99,7 +99,6 @@ export class SyntheticsStepDetail {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "double",
     },
     error: {
@@ -125,7 +124,6 @@ export class SyntheticsStepDetail {
     stepId: {
       baseName: "stepId",
       type: "number",
-
       format: "int64",
     },
     subTestStepDetails: {
@@ -135,7 +133,6 @@ export class SyntheticsStepDetail {
     timeToInteractive: {
       baseName: "timeToInteractive",
       type: "number",
-
       format: "double",
     },
     type: {

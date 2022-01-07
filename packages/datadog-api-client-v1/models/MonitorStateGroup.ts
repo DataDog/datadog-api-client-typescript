@@ -44,25 +44,21 @@ export class MonitorStateGroup {
     lastNodataTs: {
       baseName: "last_nodata_ts",
       type: "number",
-
       format: "int64",
     },
     lastNotifiedTs: {
       baseName: "last_notified_ts",
       type: "number",
-
       format: "int64",
     },
     lastResolvedTs: {
       baseName: "last_resolved_ts",
       type: "number",
-
       format: "int64",
     },
     lastTriggeredTs: {
       baseName: "last_triggered_ts",
       type: "number",
-
       format: "int64",
     },
     name: {

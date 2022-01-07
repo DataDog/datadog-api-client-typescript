@@ -34,7 +34,6 @@ export class LogsListRequestPage {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int32",
     },
   };

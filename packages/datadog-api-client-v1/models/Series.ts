@@ -50,7 +50,6 @@ export class Series {
     interval: {
       baseName: "interval",
       type: "number",
-
       format: "int64",
     },
     metric: {

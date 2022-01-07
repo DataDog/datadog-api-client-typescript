@@ -37,7 +37,6 @@ export class FormulaAndFunctionEventQueryGroupBy {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     sort: {

@@ -42,19 +42,16 @@ export class UsageCloudSecurityPostureManagementHour {
     containerCount: {
       baseName: "container_count",
       type: "number",
-
       format: "int64",
     },
     hostCount: {
       baseName: "host_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {

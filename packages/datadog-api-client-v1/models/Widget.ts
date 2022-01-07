@@ -35,7 +35,6 @@ export class Widget {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     layout: {

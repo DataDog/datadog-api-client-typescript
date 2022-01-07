@@ -30,13 +30,11 @@ export class SyntheticsTestOptionsRetry {
     count: {
       baseName: "count",
       type: "number",
-
       format: "int64",
     },
     interval: {
       baseName: "interval",
       type: "number",
-
       format: "double",
     },
   };

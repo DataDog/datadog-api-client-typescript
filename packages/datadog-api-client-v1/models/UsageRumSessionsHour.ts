@@ -46,7 +46,6 @@ export class UsageRumSessionsHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {
@@ -60,19 +59,16 @@ export class UsageRumSessionsHour {
     sessionCount: {
       baseName: "session_count",
       type: "number",
-
       format: "int64",
     },
     sessionCountAndroid: {
       baseName: "session_count_android",
       type: "number",
-
       format: "int64",
     },
     sessionCountIos: {
       baseName: "session_count_ios",
       type: "number",
-
       format: "int64",
     },
   };

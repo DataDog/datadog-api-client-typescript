@@ -83,7 +83,6 @@ export class MetricsQueryMetadata {
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     expression: {
@@ -93,13 +92,11 @@ export class MetricsQueryMetadata {
     interval: {
       baseName: "interval",
       type: "number",
-
       format: "int64",
     },
     length: {
       baseName: "length",
       type: "number",
-
       format: "int64",
     },
     metric: {
@@ -109,13 +106,11 @@ export class MetricsQueryMetadata {
     pointlist: {
       baseName: "pointlist",
       type: "Array<Array<number>>",
-
       format: "double",
     },
     queryIndex: {
       baseName: "query_index",
       type: "number",
-
       format: "int64",
     },
     scope: {
@@ -125,7 +120,6 @@ export class MetricsQueryMetadata {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     tagSet: {

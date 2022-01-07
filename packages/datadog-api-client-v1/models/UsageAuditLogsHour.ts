@@ -38,13 +38,11 @@ export class UsageAuditLogsHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     linesIndexed: {
       baseName: "lines_indexed",
       type: "number",
-
       format: "int64",
     },
     orgName: {

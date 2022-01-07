@@ -42,7 +42,6 @@ export class UsageAttributionAggregatesBody {
     value: {
       baseName: "value",
       type: "number",
-
       format: "double",
     },
   };

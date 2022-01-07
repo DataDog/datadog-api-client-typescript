@@ -30,13 +30,11 @@ export class Pagination {
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
     totalFilteredCount: {
       baseName: "total_filtered_count",
       type: "number",
-
       format: "int64",
     },
   };

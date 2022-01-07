@@ -39,7 +39,6 @@ export class LogsResponseMetadata {
     elapsed: {
       baseName: "elapsed",
       type: "number",
-
       format: "int64",
     },
     page: {

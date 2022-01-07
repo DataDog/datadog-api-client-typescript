@@ -277,229 +277,191 @@ export class UsageSummaryResponse {
     agentHostTop99pSum: {
       baseName: "agent_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     apmAzureAppServiceHostTop99pSum: {
       baseName: "apm_azure_app_service_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     apmHostTop99pSum: {
       baseName: "apm_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     auditLogsLinesIndexedAggSum: {
       baseName: "audit_logs_lines_indexed_agg_sum",
       type: "number",
-
       format: "int64",
     },
     avgProfiledFargateTasksSum: {
       baseName: "avg_profiled_fargate_tasks_sum",
       type: "number",
-
       format: "int64",
     },
     awsHostTop99pSum: {
       baseName: "aws_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     awsLambdaFuncCount: {
       baseName: "aws_lambda_func_count",
       type: "number",
-
       format: "int64",
     },
     awsLambdaInvocationsSum: {
       baseName: "aws_lambda_invocations_sum",
       type: "number",
-
       format: "int64",
     },
     azureAppServiceTop99pSum: {
       baseName: "azure_app_service_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     azureHostTop99pSum: {
       baseName: "azure_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     billableIngestedBytesAggSum: {
       baseName: "billable_ingested_bytes_agg_sum",
       type: "number",
-
       format: "int64",
     },
     browserRumLiteSessionCountAggSum: {
       baseName: "browser_rum_lite_session_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     browserRumReplaySessionCountAggSum: {
       baseName: "browser_rum_replay_session_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     browserRumUnitsAggSum: {
       baseName: "browser_rum_units_agg_sum",
       type: "number",
-
       format: "int64",
     },
     containerAvgSum: {
       baseName: "container_avg_sum",
       type: "number",
-
       format: "int64",
     },
     containerHwmSum: {
       baseName: "container_hwm_sum",
       type: "number",
-
       format: "int64",
     },
     cspmContainerAvgSum: {
       baseName: "cspm_container_avg_sum",
       type: "number",
-
       format: "int64",
     },
     cspmContainerHwmSum: {
       baseName: "cspm_container_hwm_sum",
       type: "number",
-
       format: "int64",
     },
     cspmHostTop99pSum: {
       baseName: "cspm_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     customTsSum: {
       baseName: "custom_ts_sum",
       type: "number",
-
       format: "int64",
     },
     cwsContainersAvgSum: {
       baseName: "cws_containers_avg_sum",
       type: "number",
-
       format: "int64",
     },
     cwsHostTop99pSum: {
       baseName: "cws_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     dbmHostTop99pSum: {
       baseName: "dbm_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     dbmQueriesAvgSum: {
       baseName: "dbm_queries_avg_sum",
       type: "number",
-
       format: "int64",
     },
     endDate: {
       baseName: "end_date",
       type: "Date",
-
       format: "date-time",
     },
     fargateTasksCountAvgSum: {
       baseName: "fargate_tasks_count_avg_sum",
       type: "number",
-
       format: "int64",
     },
     fargateTasksCountHwmSum: {
       baseName: "fargate_tasks_count_hwm_sum",
       type: "number",
-
       format: "int64",
     },
     gcpHostTop99pSum: {
       baseName: "gcp_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     herokuHostTop99pSum: {
       baseName: "heroku_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     incidentManagementMonthlyActiveUsersHwmSum: {
       baseName: "incident_management_monthly_active_users_hwm_sum",
       type: "number",
-
       format: "int64",
     },
     indexedEventsCountAggSum: {
       baseName: "indexed_events_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     infraHostTop99pSum: {
       baseName: "infra_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     ingestedEventsBytesAggSum: {
       baseName: "ingested_events_bytes_agg_sum",
       type: "number",
-
       format: "int64",
     },
     iotDeviceAggSum: {
       baseName: "iot_device_agg_sum",
       type: "number",
-
       format: "int64",
     },
     iotDeviceTop99pSum: {
       baseName: "iot_device_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     lastUpdated: {
       baseName: "last_updated",
       type: "Date",
-
       format: "date-time",
     },
     liveIndexedEventsAggSum: {
       baseName: "live_indexed_events_agg_sum",
       type: "number",
-
       format: "int64",
     },
     liveIngestedBytesAggSum: {
       baseName: "live_ingested_bytes_agg_sum",
       type: "number",
-
       format: "int64",
     },
     logsByRetention: {
@@ -509,139 +471,116 @@ export class UsageSummaryResponse {
     mobileRumLiteSessionCountAggSum: {
       baseName: "mobile_rum_lite_session_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     mobileRumSessionCountAggSum: {
       baseName: "mobile_rum_session_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     mobileRumSessionCountAndroidAggSum: {
       baseName: "mobile_rum_session_count_android_agg_sum",
       type: "number",
-
       format: "int64",
     },
     mobileRumSessionCountIosAggSum: {
       baseName: "mobile_rum_session_count_ios_agg_sum",
       type: "number",
-
       format: "int64",
     },
     mobileRumUnitsAggSum: {
       baseName: "mobile_rum_units_agg_sum",
       type: "number",
-
       format: "int64",
     },
     netflowIndexedEventsCountAggSum: {
       baseName: "netflow_indexed_events_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     npmHostTop99pSum: {
       baseName: "npm_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     opentelemetryHostTop99pSum: {
       baseName: "opentelemetry_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     profilingContainerAgentCountAvg: {
       baseName: "profiling_container_agent_count_avg",
       type: "number",
-
       format: "int64",
     },
     profilingHostCountTop99pSum: {
       baseName: "profiling_host_count_top99p_sum",
       type: "number",
-
       format: "int64",
     },
     rehydratedIndexedEventsAggSum: {
       baseName: "rehydrated_indexed_events_agg_sum",
       type: "number",
-
       format: "int64",
     },
     rehydratedIngestedBytesAggSum: {
       baseName: "rehydrated_ingested_bytes_agg_sum",
       type: "number",
-
       format: "int64",
     },
     rumBrowserAndMobileSessionCount: {
       baseName: "rum_browser_and_mobile_session_count",
       type: "number",
-
       format: "int64",
     },
     rumSessionCountAggSum: {
       baseName: "rum_session_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     rumTotalSessionCountAggSum: {
       baseName: "rum_total_session_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     rumUnitsAggSum: {
       baseName: "rum_units_agg_sum",
       type: "number",
-
       format: "int64",
     },
     sdsLogsScannedBytesSum: {
       baseName: "sds_logs_scanned_bytes_sum",
       type: "number",
-
       format: "int64",
     },
     sdsTotalScannedBytesSum: {
       baseName: "sds_total_scanned_bytes_sum",
       type: "number",
-
       format: "int64",
     },
     startDate: {
       baseName: "start_date",
       type: "Date",
-
       format: "date-time",
     },
     syntheticsBrowserCheckCallsCountAggSum: {
       baseName: "synthetics_browser_check_calls_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     syntheticsCheckCallsCountAggSum: {
       baseName: "synthetics_check_calls_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     traceSearchIndexedEventsCountAggSum: {
       baseName: "trace_search_indexed_events_count_agg_sum",
       type: "number",
-
       format: "int64",
     },
     twolIngestedEventsBytesAggSum: {
       baseName: "twol_ingested_events_bytes_agg_sum",
       type: "number",
-
       format: "int64",
     },
     usage: {
@@ -651,7 +590,6 @@ export class UsageSummaryResponse {
     vsphereHostTop99pSum: {
       baseName: "vsphere_host_top99p_sum",
       type: "number",
-
       format: "int64",
     },
   };

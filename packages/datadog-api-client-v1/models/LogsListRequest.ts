@@ -46,7 +46,6 @@ export class LogsListRequest {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int32",
     },
     query: {

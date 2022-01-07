@@ -77,7 +77,6 @@ export class SyntheticsBrowserTestResultData {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "double",
     },
     error: {
@@ -91,7 +90,6 @@ export class SyntheticsBrowserTestResultData {
     receivedEmailCount: {
       baseName: "receivedEmailCount",
       type: "number",
-
       format: "int64",
     },
     startUrl: {
@@ -109,7 +107,6 @@ export class SyntheticsBrowserTestResultData {
     timeToInteractive: {
       baseName: "timeToInteractive",
       type: "number",
-
       format: "double",
     },
   };

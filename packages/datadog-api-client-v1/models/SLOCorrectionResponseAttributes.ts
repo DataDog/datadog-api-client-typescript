@@ -68,7 +68,6 @@ export class SLOCorrectionResponseAttributes {
     createdAt: {
       baseName: "created_at",
       type: "number",
-
       format: "int64",
     },
     creator: {
@@ -82,19 +81,16 @@ export class SLOCorrectionResponseAttributes {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "int64",
     },
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "number",
-
       format: "int64",
     },
     modifier: {
@@ -112,7 +108,6 @@ export class SLOCorrectionResponseAttributes {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     timezone: {

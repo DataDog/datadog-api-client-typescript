@@ -38,19 +38,16 @@ export class LogsRetentionSumUsage {
     logsIndexedLogsUsageSum: {
       baseName: "logs_indexed_logs_usage_sum",
       type: "number",
-
       format: "int64",
     },
     logsLiveIndexedLogsUsageSum: {
       baseName: "logs_live_indexed_logs_usage_sum",
       type: "number",
-
       format: "int64",
     },
     logsRehydratedIndexedLogsUsageSum: {
       baseName: "logs_rehydrated_indexed_logs_usage_sum",
       type: "number",
-
       format: "int64",
     },
     retention: {

@@ -38,25 +38,21 @@ export class UsageTimeseriesHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     numCustomInputTimeseries: {
       baseName: "num_custom_input_timeseries",
       type: "number",
-
       format: "int64",
     },
     numCustomOutputTimeseries: {
       baseName: "num_custom_output_timeseries",
       type: "number",
-
       format: "int64",
     },
     numCustomTimeseries: {
       baseName: "num_custom_timeseries",
       type: "number",
-
       format: "int64",
     },
   };

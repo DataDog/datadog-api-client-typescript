@@ -39,13 +39,11 @@ export class HostListResponse {
     totalMatching: {
       baseName: "total_matching",
       type: "number",
-
       format: "int64",
     },
     totalReturned: {
       baseName: "total_returned",
       type: "number",
-
       format: "int64",
     },
   };

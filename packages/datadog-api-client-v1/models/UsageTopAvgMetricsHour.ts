@@ -36,13 +36,11 @@ export class UsageTopAvgMetricsHour {
     avgMetricHour: {
       baseName: "avg_metric_hour",
       type: "number",
-
       format: "int64",
     },
     maxMetricHour: {
       baseName: "max_metric_hour",
       type: "number",
-
       format: "int64",
     },
     metricCategory: {

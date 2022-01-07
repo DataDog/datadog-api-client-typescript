@@ -72,7 +72,6 @@ export class SyntheticsBrowserTest {
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     name: {

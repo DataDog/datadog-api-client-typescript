@@ -48,13 +48,11 @@ export class SyntheticsBrowserTestResultFull {
     checkTime: {
       baseName: "check_time",
       type: "number",
-
       format: "double",
     },
     checkVersion: {
       baseName: "check_version",
       type: "number",
-
       format: "int64",
     },
     probeDc: {

@@ -38,25 +38,21 @@ export class MonitorSearchResponseMetadata {
     page: {
       baseName: "page",
       type: "number",
-
       format: "int64",
     },
     pageCount: {
       baseName: "page_count",
       type: "number",
-
       format: "int64",
     },
     perPage: {
       baseName: "per_page",
       type: "number",
-
       format: "int64",
     },
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
   };

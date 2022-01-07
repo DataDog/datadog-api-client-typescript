@@ -34,7 +34,6 @@ export class LogsAggregateBucketValueTimeseriesPoint {
     value: {
       baseName: "value",
       type: "number",
-
       format: "double",
     },
   };

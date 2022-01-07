@@ -97,12 +97,6 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];

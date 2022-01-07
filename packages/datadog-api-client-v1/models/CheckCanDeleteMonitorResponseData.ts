@@ -26,7 +26,6 @@ export class CheckCanDeleteMonitorResponseData {
     ok: {
       baseName: "ok",
       type: "Array<number>",
-
       format: "int64",
     },
   };

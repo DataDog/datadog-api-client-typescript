@@ -52,7 +52,6 @@ export class SyntheticsStep {
     timeout: {
       baseName: "timeout",
       type: "number",
-
       format: "int64",
     },
     type: {

@@ -30,13 +30,11 @@ export class MetricIngestedIndexedVolumeAttributes {
     indexedVolume: {
       baseName: "indexed_volume",
       type: "number",
-
       format: "int64",
     },
     ingestedVolume: {
       baseName: "ingested_volume",
       type: "number",
-
       format: "int64",
     },
   };

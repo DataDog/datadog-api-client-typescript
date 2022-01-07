@@ -52,12 +52,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -126,14 +120,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -200,12 +186,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -278,12 +258,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -349,12 +323,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([

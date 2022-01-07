@@ -60,7 +60,6 @@ export class DashboardSummaryDefinition {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     description: {
@@ -82,7 +81,6 @@ export class DashboardSummaryDefinition {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     title: {
