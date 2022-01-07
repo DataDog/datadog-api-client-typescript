@@ -42,19 +42,16 @@ export class UsageCWSHour {
     cwsContainerCount: {
       baseName: "cws_container_count",
       type: "number",
-
       format: "int64",
     },
     cwsHostCount: {
       baseName: "cws_host_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {

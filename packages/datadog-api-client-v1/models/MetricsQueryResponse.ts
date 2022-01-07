@@ -63,7 +63,6 @@ export class MetricsQueryResponse {
     fromDate: {
       baseName: "from_date",
       type: "number",
-
       format: "int64",
     },
     groupBy: {
@@ -93,7 +92,6 @@ export class MetricsQueryResponse {
     toDate: {
       baseName: "to_date",
       type: "number",
-
       format: "int64",
     },
   };

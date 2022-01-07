@@ -52,7 +52,6 @@ export class HourlyUsageAttributionBody {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {
@@ -74,7 +73,6 @@ export class HourlyUsageAttributionBody {
     totalUsageSum: {
       baseName: "total_usage_sum",
       type: "number",
-
       format: "double",
     },
     updatedAt: {

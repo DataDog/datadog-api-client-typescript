@@ -43,7 +43,6 @@ export class LogsQueryCompute {
     interval: {
       baseName: "interval",
       type: "number",
-
       format: "int64",
     },
   };

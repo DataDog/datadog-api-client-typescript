@@ -74,7 +74,6 @@ export class Event {
     dateHappened: {
       baseName: "date_happened",
       type: "number",
-
       format: "int64",
     },
     deviceName: {
@@ -88,7 +87,6 @@ export class Event {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     idStr: {

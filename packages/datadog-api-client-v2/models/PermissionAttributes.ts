@@ -50,7 +50,6 @@ export class PermissionAttributes {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     description: {

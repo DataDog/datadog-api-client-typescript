@@ -56,13 +56,11 @@ export class SLOCorrectionUpdateRequestAttributes {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "int64",
     },
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     rrule: {
@@ -72,7 +70,6 @@ export class SLOCorrectionUpdateRequestAttributes {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     timezone: {

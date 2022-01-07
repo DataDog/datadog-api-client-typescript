@@ -30,7 +30,6 @@ export class LogsQueryOptions {
     timeOffset: {
       baseName: "timeOffset",
       type: "number",
-
       format: "int64",
     },
     timezone: {

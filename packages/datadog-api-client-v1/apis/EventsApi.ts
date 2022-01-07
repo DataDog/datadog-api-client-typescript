@@ -46,12 +46,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -104,14 +98,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -232,12 +218,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(page, "number", "int32")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods

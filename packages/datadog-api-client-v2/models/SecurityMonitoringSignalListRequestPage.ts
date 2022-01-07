@@ -34,7 +34,6 @@ export class SecurityMonitoringSignalListRequestPage {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int32",
     },
   };

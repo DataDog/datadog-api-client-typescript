@@ -51,14 +51,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -132,12 +124,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -194,12 +180,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(q, "string", "")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -288,12 +268,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -345,8 +319,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
     // Header Params
     if (contentEncoding !== undefined) {
       requestContext.setHeaderParam(
@@ -354,8 +326,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", "")
       );
     }
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
@@ -416,12 +386,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([

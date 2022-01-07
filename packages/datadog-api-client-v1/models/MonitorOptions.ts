@@ -130,7 +130,6 @@ export class MonitorOptions {
     evaluationDelay: {
       baseName: "evaluation_delay",
       type: "number",
-
       format: "int64",
     },
     groupbySimpleMonitor: {
@@ -148,31 +147,26 @@ export class MonitorOptions {
     minFailureDuration: {
       baseName: "min_failure_duration",
       type: "number",
-
       format: "int64",
     },
     minLocationFailed: {
       baseName: "min_location_failed",
       type: "number",
-
       format: "int64",
     },
     newGroupDelay: {
       baseName: "new_group_delay",
       type: "number",
-
       format: "int64",
     },
     newHostDelay: {
       baseName: "new_host_delay",
       type: "number",
-
       format: "int64",
     },
     noDataTimeframe: {
       baseName: "no_data_timeframe",
       type: "number",
-
       format: "int64",
     },
     notifyAudit: {
@@ -186,13 +180,11 @@ export class MonitorOptions {
     renotifyInterval: {
       baseName: "renotify_interval",
       type: "number",
-
       format: "int64",
     },
     renotifyOccurrences: {
       baseName: "renotify_occurrences",
       type: "number",
-
       format: "int64",
     },
     renotifyStatuses: {
@@ -206,7 +198,6 @@ export class MonitorOptions {
     silenced: {
       baseName: "silenced",
       type: "{ [key: string]: number; }",
-
       format: "int64",
     },
     syntheticsCheckId: {
@@ -224,7 +215,6 @@ export class MonitorOptions {
     timeoutH: {
       baseName: "timeout_h",
       type: "number",
-
       format: "int64",
     },
   };

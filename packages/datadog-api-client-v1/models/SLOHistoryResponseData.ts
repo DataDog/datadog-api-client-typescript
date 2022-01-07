@@ -56,7 +56,6 @@ export class SLOHistoryResponseData {
     fromTs: {
       baseName: "from_ts",
       type: "number",
-
       format: "int64",
     },
     groupBy: {
@@ -86,7 +85,6 @@ export class SLOHistoryResponseData {
     toTs: {
       baseName: "to_ts",
       type: "number",
-
       format: "int64",
     },
     type: {

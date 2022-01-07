@@ -36,7 +36,6 @@ export class DashboardListItems {
     total: {
       baseName: "total",
       type: "number",
-
       format: "int64",
     },
   };

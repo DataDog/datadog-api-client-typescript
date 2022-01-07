@@ -30,13 +30,11 @@ export class HostTotals {
     totalActive: {
       baseName: "total_active",
       type: "number",
-
       format: "int64",
     },
     totalUp: {
       baseName: "total_up",
       type: "number",
-
       format: "int64",
     },
   };

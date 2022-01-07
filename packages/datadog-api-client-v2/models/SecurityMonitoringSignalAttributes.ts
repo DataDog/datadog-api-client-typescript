@@ -50,7 +50,6 @@ export class SecurityMonitoringSignalAttributes {
     timestamp: {
       baseName: "timestamp",
       type: "Date",
-
       format: "date-time",
     },
   };

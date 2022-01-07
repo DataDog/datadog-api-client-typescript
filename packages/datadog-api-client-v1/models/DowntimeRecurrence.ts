@@ -46,7 +46,6 @@ export class DowntimeRecurrence {
     period: {
       baseName: "period",
       type: "number",
-
       format: "int32",
     },
     rrule: {
@@ -60,13 +59,11 @@ export class DowntimeRecurrence {
     untilDate: {
       baseName: "until_date",
       type: "number",
-
       format: "int64",
     },
     untilOccurrences: {
       baseName: "until_occurrences",
       type: "number",
-
       format: "int32",
     },
     weekDays: {

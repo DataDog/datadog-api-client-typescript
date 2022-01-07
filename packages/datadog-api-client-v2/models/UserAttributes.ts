@@ -66,7 +66,6 @@ export class UserAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     disabled: {
@@ -88,7 +87,6 @@ export class UserAttributes {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     name: {

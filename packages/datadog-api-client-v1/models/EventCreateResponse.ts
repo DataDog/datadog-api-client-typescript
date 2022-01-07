@@ -78,7 +78,6 @@ export class EventCreateResponse {
     dateHappened: {
       baseName: "date_happened",
       type: "number",
-
       format: "int64",
     },
     deviceName: {
@@ -92,7 +91,6 @@ export class EventCreateResponse {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     payload: {
@@ -106,7 +104,6 @@ export class EventCreateResponse {
     relatedEventId: {
       baseName: "related_event_id",
       type: "number",
-
       format: "int64",
     },
     sourceTypeName: {

@@ -34,19 +34,16 @@ export class IncidentServicesResponseMetaPagination {
     nextOffset: {
       baseName: "next_offset",
       type: "number",
-
       format: "int64",
     },
     offset: {
       baseName: "offset",
       type: "number",
-
       format: "int64",
     },
     size: {
       baseName: "size",
       type: "number",
-
       format: "int64",
     },
   };

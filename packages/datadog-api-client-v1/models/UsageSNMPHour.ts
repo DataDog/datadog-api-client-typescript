@@ -30,13 +30,11 @@ export class UsageSNMPHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     snmpDevices: {
       baseName: "snmp_devices",
       type: "number",
-
       format: "int64",
     },
   };

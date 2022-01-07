@@ -49,7 +49,6 @@ export class MetricTagConfigurationAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     includePercentiles: {
@@ -63,7 +62,6 @@ export class MetricTagConfigurationAttributes {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     tags: {

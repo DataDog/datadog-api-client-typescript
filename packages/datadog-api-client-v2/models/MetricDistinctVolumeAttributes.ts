@@ -26,7 +26,6 @@ export class MetricDistinctVolumeAttributes {
     distinctVolume: {
       baseName: "distinct_volume",
       type: "number",
-
       format: "int64",
     },
   };

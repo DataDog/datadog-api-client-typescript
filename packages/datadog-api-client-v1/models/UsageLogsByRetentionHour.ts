@@ -38,19 +38,16 @@ export class UsageLogsByRetentionHour {
     indexedEventsCount: {
       baseName: "indexed_events_count",
       type: "number",
-
       format: "int64",
     },
     liveIndexedEventsCount: {
       baseName: "live_indexed_events_count",
       type: "number",
-
       format: "int64",
     },
     rehydratedIndexedEventsCount: {
       baseName: "rehydrated_indexed_events_count",
       type: "number",
-
       format: "int64",
     },
     retention: {

@@ -56,13 +56,11 @@ export class User {
     email: {
       baseName: "email",
       type: "string",
-
       format: "email",
     },
     handle: {
       baseName: "handle",
       type: "string",
-
       format: "email",
     },
     icon: {

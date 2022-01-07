@@ -34,19 +34,16 @@ export class HostMetrics {
     cpu: {
       baseName: "cpu",
       type: "number",
-
       format: "double",
     },
     iowait: {
       baseName: "iowait",
       type: "number",
-
       format: "double",
     },
     load: {
       baseName: "load",
       type: "number",
-
       format: "double",
     },
   };

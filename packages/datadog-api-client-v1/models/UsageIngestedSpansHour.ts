@@ -30,13 +30,11 @@ export class UsageIngestedSpansHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     ingestedEventsBytes: {
       baseName: "ingested_events_bytes",
       type: "number",
-
       format: "int64",
     },
   };

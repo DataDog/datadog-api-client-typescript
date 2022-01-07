@@ -31,7 +31,6 @@ export class LogsByRetentionMonthlyUsage {
     date: {
       baseName: "date",
       type: "string",
-
       format: "datetime",
     },
     usage: {

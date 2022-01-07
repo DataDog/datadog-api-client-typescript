@@ -68,7 +68,6 @@ export class ServiceCheck {
     timestamp: {
       baseName: "timestamp",
       type: "number",
-
       format: "int64",
     },
   };

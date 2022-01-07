@@ -46,37 +46,31 @@ export class MonitorThresholds {
     critical: {
       baseName: "critical",
       type: "number",
-
       format: "double",
     },
     criticalRecovery: {
       baseName: "critical_recovery",
       type: "number",
-
       format: "double",
     },
     ok: {
       baseName: "ok",
       type: "number",
-
       format: "double",
     },
     unknown: {
       baseName: "unknown",
       type: "number",
-
       format: "double",
     },
     warning: {
       baseName: "warning",
       type: "number",
-
       format: "double",
     },
     warningRecovery: {
       baseName: "warning_recovery",
       type: "number",
-
       format: "double",
     },
   };

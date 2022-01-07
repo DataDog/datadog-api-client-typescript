@@ -46,7 +46,6 @@ export class SyntheticsBrowserError {
     status: {
       baseName: "status",
       type: "number",
-
       format: "int64",
     },
     type: {

@@ -50,7 +50,6 @@ export class UsageCustomReportsAttributes {
     size: {
       baseName: "size",
       type: "number",
-
       format: "int64",
     },
     startDate: {

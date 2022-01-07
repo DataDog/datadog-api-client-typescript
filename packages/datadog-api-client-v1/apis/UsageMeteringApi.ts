@@ -110,12 +110,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -218,12 +212,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -289,12 +277,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -359,12 +341,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -447,12 +423,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -507,14 +477,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -568,14 +530,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -636,12 +590,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -756,12 +704,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -827,12 +769,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -877,12 +813,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(month, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -949,12 +879,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -1020,12 +944,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -1086,12 +1004,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -1151,12 +1063,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -1223,12 +1129,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -1293,12 +1193,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -1365,12 +1259,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -1436,12 +1324,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -1506,12 +1388,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -1586,12 +1462,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -1657,12 +1527,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -1722,12 +1586,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -1794,12 +1652,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -1864,12 +1716,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -1944,12 +1790,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -2014,12 +1854,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -2086,12 +1920,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
@@ -2151,12 +1979,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -2231,12 +2053,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -2301,12 +2117,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -2373,12 +2183,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -2444,12 +2248,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
     let authMethod = null;
     // Apply auth methods
     authMethod = _config.authMethods["AuthZ"];
@@ -2514,12 +2312,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(endHr, "Date", "date-time")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods
@@ -2602,12 +2394,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(nextRecordId, "string", "")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
 
     let authMethod = null;
     // Apply auth methods

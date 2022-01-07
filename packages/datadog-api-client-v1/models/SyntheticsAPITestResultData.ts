@@ -70,7 +70,6 @@ export class SyntheticsAPITestResultData {
     httpStatusCode: {
       baseName: "httpStatusCode",
       type: "number",
-
       format: "int64",
     },
     requestHeaders: {
@@ -88,7 +87,6 @@ export class SyntheticsAPITestResultData {
     responseSize: {
       baseName: "responseSize",
       type: "number",
-
       format: "int64",
     },
     timings: {

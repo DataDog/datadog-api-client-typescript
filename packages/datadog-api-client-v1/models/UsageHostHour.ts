@@ -78,85 +78,71 @@ export class UsageHostHour {
     agentHostCount: {
       baseName: "agent_host_count",
       type: "number",
-
       format: "int64",
     },
     alibabaHostCount: {
       baseName: "alibaba_host_count",
       type: "number",
-
       format: "int64",
     },
     apmAzureAppServiceHostCount: {
       baseName: "apm_azure_app_service_host_count",
       type: "number",
-
       format: "int64",
     },
     apmHostCount: {
       baseName: "apm_host_count",
       type: "number",
-
       format: "int64",
     },
     awsHostCount: {
       baseName: "aws_host_count",
       type: "number",
-
       format: "int64",
     },
     azureHostCount: {
       baseName: "azure_host_count",
       type: "number",
-
       format: "int64",
     },
     containerCount: {
       baseName: "container_count",
       type: "number",
-
       format: "int64",
     },
     gcpHostCount: {
       baseName: "gcp_host_count",
       type: "number",
-
       format: "int64",
     },
     herokuHostCount: {
       baseName: "heroku_host_count",
       type: "number",
-
       format: "int64",
     },
     hostCount: {
       baseName: "host_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     infraAzureAppService: {
       baseName: "infra_azure_app_service",
       type: "number",
-
       format: "int64",
     },
     opentelemetryHostCount: {
       baseName: "opentelemetry_host_count",
       type: "number",
-
       format: "int64",
     },
     vsphereHostCount: {
       baseName: "vsphere_host_count",
       type: "number",
-
       format: "int64",
     },
   };

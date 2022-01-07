@@ -47,7 +47,6 @@ export class LogsGroupBy {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     missing: {

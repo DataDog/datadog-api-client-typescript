@@ -30,13 +30,11 @@ export class UsageIncidentManagementHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     monthlyActiveUsers: {
       baseName: "monthly_active_users",
       type: "number",
-
       format: "int64",
     },
   };

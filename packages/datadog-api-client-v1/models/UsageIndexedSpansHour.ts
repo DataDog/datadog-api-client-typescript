@@ -30,13 +30,11 @@ export class UsageIndexedSpansHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     indexedEventsCount: {
       baseName: "indexed_events_count",
       type: "number",
-
       format: "int64",
     },
   };

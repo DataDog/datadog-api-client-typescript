@@ -30,7 +30,6 @@ export class SyntheticsDeletedTest {
     deletedAt: {
       baseName: "deleted_at",
       type: "Date",
-
       format: "date-time",
     },
     publicId: {

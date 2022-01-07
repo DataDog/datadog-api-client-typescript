@@ -93,7 +93,6 @@ export class Dashboard {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     description: {
@@ -116,7 +115,6 @@ export class Dashboard {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     notifyList: {

@@ -42,13 +42,11 @@ export class UsageLogsByIndexHour {
     eventCount: {
       baseName: "event_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     indexId: {
@@ -62,7 +60,6 @@ export class UsageLogsByIndexHour {
     retention: {
       baseName: "retention",
       type: "number",
-
       format: "int64",
     },
   };

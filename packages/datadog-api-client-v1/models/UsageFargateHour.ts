@@ -42,13 +42,11 @@ export class UsageFargateHour {
     avgProfiledFargateTasks: {
       baseName: "avg_profiled_fargate_tasks",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {
@@ -62,7 +60,6 @@ export class UsageFargateHour {
     tasksCount: {
       baseName: "tasks_count",
       type: "number",
-
       format: "int64",
     },
   };

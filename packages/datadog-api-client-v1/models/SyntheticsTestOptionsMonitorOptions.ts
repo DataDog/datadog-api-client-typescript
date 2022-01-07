@@ -26,7 +26,6 @@ export class SyntheticsTestOptionsMonitorOptions {
     renotifyInterval: {
       baseName: "renotify_interval",
       type: "number",
-
       format: "int64",
     },
   };

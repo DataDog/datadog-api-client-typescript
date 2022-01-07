@@ -56,19 +56,16 @@ export class MonitorGroupSearchResult {
     lastNodataTs: {
       baseName: "last_nodata_ts",
       type: "number",
-
       format: "int64",
     },
     lastTriggeredTs: {
       baseName: "last_triggered_ts",
       type: "number",
-
       format: "int64",
     },
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     monitorName: {

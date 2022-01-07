@@ -26,7 +26,6 @@ export class DeletedMonitor {
     deletedMonitorId: {
       baseName: "deleted_monitor_id",
       type: "number",
-
       format: "int64",
     },
   };

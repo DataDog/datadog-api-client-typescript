@@ -40,7 +40,6 @@ export class SyntheticsTriggerCITestRunResult {
     location: {
       baseName: "location",
       type: "number",
-
       format: "int64",
     },
     publicId: {

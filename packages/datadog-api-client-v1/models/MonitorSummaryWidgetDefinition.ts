@@ -66,7 +66,6 @@ export class MonitorSummaryWidgetDefinition {
     count: {
       baseName: "count",
       type: "number",
-
       format: "int64",
     },
     displayFormat: {
@@ -93,7 +92,6 @@ export class MonitorSummaryWidgetDefinition {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     summaryType: {

@@ -50,37 +50,31 @@ export class UsageBillableSummaryBody {
     accountBillableUsage: {
       baseName: "account_billable_usage",
       type: "number",
-
       format: "int64",
     },
     elapsedUsageHours: {
       baseName: "elapsed_usage_hours",
       type: "number",
-
       format: "int64",
     },
     firstBillableUsageHour: {
       baseName: "first_billable_usage_hour",
       type: "Date",
-
       format: "date-time",
     },
     lastBillableUsageHour: {
       baseName: "last_billable_usage_hour",
       type: "Date",
-
       format: "date-time",
     },
     orgBillableUsage: {
       baseName: "org_billable_usage",
       type: "number",
-
       format: "int64",
     },
     percentageInAccount: {
       baseName: "percentage_in_account",
       type: "number",
-
       format: "double",
     },
     usageUnit: {

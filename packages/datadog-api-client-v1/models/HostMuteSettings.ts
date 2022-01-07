@@ -34,7 +34,6 @@ export class HostMuteSettings {
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     message: {

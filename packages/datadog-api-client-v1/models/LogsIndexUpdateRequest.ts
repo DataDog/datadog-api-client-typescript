@@ -41,7 +41,6 @@ export class LogsIndexUpdateRequest {
     dailyLimit: {
       baseName: "daily_limit",
       type: "number",
-
       format: "int64",
     },
     disableDailyLimit: {
@@ -60,7 +59,6 @@ export class LogsIndexUpdateRequest {
     numRetentionDays: {
       baseName: "num_retention_days",
       type: "number",
-
       format: "int64",
     },
   };

@@ -59,7 +59,6 @@ export class SLOHistoryMetricsSeriesMetadata {
     queryIndex: {
       baseName: "query_index",
       type: "number",
-
       format: "int64",
     },
     scope: {

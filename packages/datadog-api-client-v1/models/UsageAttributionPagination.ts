@@ -42,13 +42,11 @@ export class UsageAttributionPagination {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     offset: {
       baseName: "offset",
       type: "number",
-
       format: "int64",
     },
     sortDirection: {
@@ -62,7 +60,6 @@ export class UsageAttributionPagination {
     totalNumberOfRecords: {
       baseName: "total_number_of_records",
       type: "number",
-
       format: "int64",
     },
   };

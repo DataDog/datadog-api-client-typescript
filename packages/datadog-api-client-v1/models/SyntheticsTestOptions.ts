@@ -91,13 +91,11 @@ export class SyntheticsTestOptions {
     minFailureDuration: {
       baseName: "min_failure_duration",
       type: "number",
-
       format: "int64",
     },
     minLocationFailed: {
       baseName: "min_location_failed",
       type: "number",
-
       format: "int64",
     },
     monitorName: {
@@ -111,7 +109,6 @@ export class SyntheticsTestOptions {
     monitorPriority: {
       baseName: "monitor_priority",
       type: "number",
-
       format: "int32",
     },
     noScreenshot: {
@@ -125,7 +122,6 @@ export class SyntheticsTestOptions {
     tickEvery: {
       baseName: "tick_every",
       type: "number",
-
       format: "int64",
     },
   };

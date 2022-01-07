@@ -42,19 +42,16 @@ export class UsageDBMHour {
     dbmHostCount: {
       baseName: "dbm_host_count",
       type: "number",
-
       format: "int64",
     },
     dbmQueriesCount: {
       baseName: "dbm_queries_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {

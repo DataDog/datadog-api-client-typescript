@@ -94,13 +94,11 @@ export class Downtime {
     canceled: {
       baseName: "canceled",
       type: "number",
-
       format: "int64",
     },
     creatorId: {
       baseName: "creator_id",
       type: "number",
-
       format: "int32",
     },
     disabled: {
@@ -110,19 +108,16 @@ export class Downtime {
     downtimeType: {
       baseName: "downtime_type",
       type: "number",
-
       format: "int32",
     },
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     message: {
@@ -132,7 +127,6 @@ export class Downtime {
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     monitorTags: {
@@ -142,7 +136,6 @@ export class Downtime {
     parentId: {
       baseName: "parent_id",
       type: "number",
-
       format: "int64",
     },
     recurrence: {
@@ -156,7 +149,6 @@ export class Downtime {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     timezone: {
@@ -166,7 +158,6 @@ export class Downtime {
     updaterId: {
       baseName: "updater_id",
       type: "number",
-
       format: "int32",
     },
   };

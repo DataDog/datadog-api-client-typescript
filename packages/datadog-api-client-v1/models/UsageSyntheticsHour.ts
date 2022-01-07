@@ -30,13 +30,11 @@ export class UsageSyntheticsHour {
     checkCallsCount: {
       baseName: "check_calls_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
   };

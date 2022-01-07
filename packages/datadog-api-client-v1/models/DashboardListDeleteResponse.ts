@@ -26,7 +26,6 @@ export class DashboardListDeleteResponse {
     deletedDashboardListId: {
       baseName: "deleted_dashboard_list_id",
       type: "number",
-
       format: "int64",
     },
   };

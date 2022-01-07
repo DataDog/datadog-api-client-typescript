@@ -58,7 +58,6 @@ export class SyntheticsBatchResult {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "double",
     },
     executionRule: {
@@ -76,7 +75,6 @@ export class SyntheticsBatchResult {
     retries: {
       baseName: "retries",
       type: "number",
-
       format: "double",
     },
     status: {

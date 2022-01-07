@@ -30,13 +30,11 @@ export class UsageIoTHour {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     iotDeviceCount: {
       baseName: "iot_device_count",
       type: "number",
-
       format: "int64",
     },
   };

@@ -71,7 +71,6 @@ export class QueryValueWidgetDefinition {
     precision: {
       baseName: "precision",
       type: "number",
-
       format: "int64",
     },
     requests: {

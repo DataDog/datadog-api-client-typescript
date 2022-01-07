@@ -93,13 +93,11 @@ export class SecurityMonitoringRuleResponse {
     createdAt: {
       baseName: "createdAt",
       type: "number",
-
       format: "int64",
     },
     creationAuthorId: {
       baseName: "creationAuthorId",
       type: "number",
-
       format: "int64",
     },
     filters: {
@@ -153,13 +151,11 @@ export class SecurityMonitoringRuleResponse {
     updateAuthorId: {
       baseName: "updateAuthorId",
       type: "number",
-
       format: "int64",
     },
     version: {
       baseName: "version",
       type: "number",
-
       format: "int64",
     },
   };

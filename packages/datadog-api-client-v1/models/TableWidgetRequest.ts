@@ -104,7 +104,6 @@ export class TableWidgetRequest {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     logQuery: {

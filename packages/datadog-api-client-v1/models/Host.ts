@@ -90,7 +90,6 @@ export class Host {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     isMuted: {
@@ -100,7 +99,6 @@ export class Host {
     lastReportedTime: {
       baseName: "last_reported_time",
       type: "number",
-
       format: "int64",
     },
     meta: {
@@ -114,7 +112,6 @@ export class Host {
     muteTimeout: {
       baseName: "mute_timeout",
       type: "number",
-
       format: "int64",
     },
     name: {

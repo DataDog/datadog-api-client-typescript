@@ -72,7 +72,6 @@ export class IPRanges {
     version: {
       baseName: "version",
       type: "number",
-
       format: "int64",
     },
     webhooks: {

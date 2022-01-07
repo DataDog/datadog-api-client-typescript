@@ -76,7 +76,6 @@ export class MonitorUpdateRequest {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     creator: {
@@ -86,13 +85,11 @@ export class MonitorUpdateRequest {
     deleted: {
       baseName: "deleted",
       type: "Date",
-
       format: "date-time",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     message: {
@@ -102,7 +99,6 @@ export class MonitorUpdateRequest {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     multi: {
@@ -124,7 +120,6 @@ export class MonitorUpdateRequest {
     priority: {
       baseName: "priority",
       type: "number",
-
       format: "int64",
     },
     query: {

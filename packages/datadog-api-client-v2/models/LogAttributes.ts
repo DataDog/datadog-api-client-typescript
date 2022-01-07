@@ -74,7 +74,6 @@ export class LogAttributes {
     timestamp: {
       baseName: "timestamp",
       type: "Date",
-
       format: "date-time",
     },
   };

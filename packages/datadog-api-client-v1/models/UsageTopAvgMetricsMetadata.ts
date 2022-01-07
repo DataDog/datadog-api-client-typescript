@@ -32,13 +32,11 @@ export class UsageTopAvgMetricsMetadata {
     day: {
       baseName: "day",
       type: "Date",
-
       format: "date-time",
     },
     month: {
       baseName: "month",
       type: "Date",
-
       format: "date-time",
     },
     pagination: {

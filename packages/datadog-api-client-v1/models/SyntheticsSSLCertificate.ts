@@ -70,7 +70,6 @@ export class SyntheticsSSLCertificate {
     exponent: {
       baseName: "exponent",
       type: "number",
-
       format: "double",
     },
     extKeyUsage: {
@@ -108,13 +107,11 @@ export class SyntheticsSSLCertificate {
     validFrom: {
       baseName: "validFrom",
       type: "Date",
-
       format: "date-time",
     },
     validTo: {
       baseName: "validTo",
       type: "Date",
-
       format: "date-time",
     },
   };

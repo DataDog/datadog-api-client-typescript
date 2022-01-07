@@ -38,13 +38,11 @@ export class UserInvitationDataAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     expiresAt: {
       baseName: "expires_at",
       type: "Date",
-
       format: "date-time",
     },
     inviteType: {
