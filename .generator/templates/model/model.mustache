@@ -30,9 +30,9 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
         {{#vars}}
         "{{name}}": {
             "baseName": "{{baseName}}",
-            "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
-            {{#required}}"required": {{required}},{{/required}}
-            {{#dataFormat}}"format": "{{.}}",{{/dataFormat}}
+            "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",{{#required}}
+            "required": {{required}},{{/required}}{{#dataFormat}}
+            "format": "{{.}}",{{/dataFormat}}
         }{{^-last}},
         {{/-last}}
         {{/vars}}
