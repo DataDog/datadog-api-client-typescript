@@ -197,7 +197,7 @@ export class UsageSummaryDate {
    */
   "rumBrowserAndMobileSessionCount"?: number;
   /**
-   * Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations
+   * Shows the sum of all browser RUM Lite Sessions over all hours in the current date for all organizations
    */
   "rumSessionCountSum"?: number;
   /**
