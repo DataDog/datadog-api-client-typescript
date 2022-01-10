@@ -96,6 +96,7 @@ import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { HostMapWidgetDefinitionRequests } from "./HostMapWidgetDefinitionRequests";
 import { HostMapWidgetDefinitionStyle } from "./HostMapWidgetDefinitionStyle";
 import { HostMeta } from "./HostMeta";
+import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
 import { HostMetrics } from "./HostMetrics";
 import { HostMuteResponse } from "./HostMuteResponse";
 import { HostMuteSettings } from "./HostMuteSettings";
@@ -1143,6 +1144,7 @@ const typeMap: { [index: string]: any } = {
   HostMapWidgetDefinitionRequests: HostMapWidgetDefinitionRequests,
   HostMapWidgetDefinitionStyle: HostMapWidgetDefinitionStyle,
   HostMeta: HostMeta,
+  HostMetaInstallMethod: HostMetaInstallMethod,
   HostMetrics: HostMetrics,
   HostMuteResponse: HostMuteResponse,
   HostMuteSettings: HostMuteSettings,
