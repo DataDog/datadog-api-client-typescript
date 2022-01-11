@@ -28,7 +28,11 @@ export class UsageRumSessionsHour {
    */
   "publicId"?: string;
   /**
-   * Contains the number of RUM Sessions.
+   * Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+   */
+  "replaySessionCount"?: number;
+  /**
+   * Contains the number of browser RUM Lite Sessions.
    */
   "sessionCount"?: number;
   /**
@@ -55,6 +59,11 @@ export class UsageRumSessionsHour {
     publicId: {
       baseName: "public_id",
       type: "string",
+    },
+    replaySessionCount: {
+      baseName: "replay_session_count",
+      type: "number",
+      format: "int64",
     },
     sessionCount: {
       baseName: "session_count",
