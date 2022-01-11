@@ -5016,6 +5016,18 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
    * @memberof UsageMeteringApigetUsageAttribution
    */
   includeDescendants?: boolean;
+  /**
+   * Number of records to skip before beginning to return.
+   * @type number
+   * @memberof UsageMeteringApigetUsageAttribution
+   */
+  offset?: number;
+  /**
+   * Maximum number of records to be returned.
+   * @type number
+   * @memberof UsageMeteringApigetUsageAttribution
+   */
+  limit?: number;
 }
 
 export interface UsageMeteringApiGetUsageAuditLogsRequest {
@@ -5624,6 +5636,8 @@ export class ObjectUsageMeteringApi {
         param.sortDirection,
         param.sortName,
         param.includeDescendants,
+        param.offset,
+        param.limit,
         options
       )
       .toPromise();

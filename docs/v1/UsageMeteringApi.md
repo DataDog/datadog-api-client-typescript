@@ -663,6 +663,10 @@ let params: v1.UsageMeteringApiGetUsageAttributionRequest = {
   sortName: "custom_timeseries_usage",
   // boolean | Include child org usage in the response. Defaults to false. (optional)
   includeDescendants: false,
+  // number | Number of records to skip before beginning to return. (optional)
+  offset: 0,
+  // number | Maximum number of records to be returned. (optional)
+  limit: 5000,
 };
 
 apiInstance
@@ -685,6 +689,8 @@ apiInstance
 | **sortDirection**      | **UsageSortDirection**               | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | (optional) defaults to undefined |
 | **sortName**           | **UsageAttributionSort**             | The field to sort by.                                                                                                                  | (optional) defaults to undefined |
 | **includeDescendants** | [**boolean**]                        | Include child org usage in the response. Defaults to false.                                                                            | (optional) defaults to undefined |
+| **offset**             | [**number**]                         | Number of records to skip before beginning to return.                                                                                  | (optional) defaults to 0         |
+| **limit**              | [**number**]                         | Maximum number of records to be returned.                                                                                              | (optional) defaults to 5000      |
 
 ### Return type
 

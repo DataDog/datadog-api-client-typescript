@@ -8159,6 +8159,8 @@ export class ObservableUsageMeteringApi {
    * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
    * @param sortName The field to sort by.
    * @param includeDescendants Include child org usage in the response. Defaults to false.
+   * @param offset Number of records to skip before beginning to return.
+   * @param limit Maximum number of records to be returned.
    */
   public getUsageAttribution(
     startMonth: Date,
@@ -8167,6 +8169,8 @@ export class ObservableUsageMeteringApi {
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
     includeDescendants?: boolean,
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Observable<UsageAttributionResponse> {
     const requestContextPromise = this.requestFactory.getUsageAttribution(
@@ -8176,6 +8180,8 @@ export class ObservableUsageMeteringApi {
       sortDirection,
       sortName,
       includeDescendants,
+      offset,
+      limit,
       _options
     );
 
