@@ -72,6 +72,8 @@ import { Monitor } from "../models/Monitor";
 import { MonitorGroupSearchResponse } from "../models/MonitorGroupSearchResponse";
 import { MonitorSearchResponse } from "../models/MonitorSearchResponse";
 import { MonitorUpdateRequest } from "../models/MonitorUpdateRequest";
+import { MonthlyUsageAttributionResponse } from "../models/MonthlyUsageAttributionResponse";
+import { MonthlyUsageAttributionSupportedMetrics } from "../models/MonthlyUsageAttributionSupportedMetrics";
 import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
 import { NotebookResponse } from "../models/NotebookResponse";
 import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
@@ -4899,6 +4901,51 @@ export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
   sort?: UsageSort;
 }
 
+export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @type Date
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  startMonth: Date;
+  /**
+   * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * @type MonthlyUsageAttributionSupportedMetrics
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  fields: MonthlyUsageAttributionSupportedMetrics;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * @type Date
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  endMonth?: Date;
+  /**
+   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * @type UsageSortDirection
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  sortDirection?: UsageSortDirection;
+  /**
+   * The field to sort by.
+   * @type MonthlyUsageAttributionSupportedMetrics
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  sortName?: MonthlyUsageAttributionSupportedMetrics;
+  /**
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   * @type string
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  tagBreakdownKeys?: string;
+  /**
+   * List following results with a next_record_id provided in the previous query.
+   * @type string
+   * @memberof UsageMeteringApigetMonthlyUsageAttribution
+   */
+  nextRecordId?: string;
+}
+
 export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
   /**
    * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
@@ -5490,6 +5537,29 @@ export class ObjectUsageMeteringApi {
         param.pageNumber,
         param.sortDir,
         param.sort,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   * @param param the request object
+   */
+  public getMonthlyUsageAttribution(
+    param: UsageMeteringApiGetMonthlyUsageAttributionRequest,
+    options?: Configuration
+  ): Promise<MonthlyUsageAttributionResponse> {
+    return this.api
+      .getMonthlyUsageAttribution(
+        param.startMonth,
+        param.fields,
+        param.endMonth,
+        param.sortDirection,
+        param.sortName,
+        param.tagBreakdownKeys,
+        param.nextRecordId,
         options
       )
       .toPromise();

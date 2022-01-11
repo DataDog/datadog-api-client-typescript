@@ -9,6 +9,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement)                                   | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
 | [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans)                                             | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
 | [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports)                               | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
+| [**getMonthlyUsageAttribution**](UsageMeteringApi.md#getMonthlyUsageAttribution)                         | **GET** /api/v1/usage/monthly-attribution          | Get Monthly Usage Attribution                    |
 | [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports)                 | **GET** /api/v1/daily_custom_reports/{report_id}   | Get specified daily custom reports               |
 | [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports)             | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports             |
 | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs)                                     | **GET** /api/v1/usage/analyzed_logs                | Get hourly usage for analyzed logs               |
@@ -96,7 +97,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -167,7 +168,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -229,7 +230,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -292,7 +293,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -361,7 +362,84 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+## **getMonthlyUsageAttribution**
+
+> MonthlyUsageAttributionResponse getMonthlyUsageAttribution()
+
+Get Monthly Usage Attribution.
+
+### Example
+
+```typescript
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
+
+const configuration = v1.createConfiguration();
+const apiInstance = new v1.UsageMeteringApi(configuration);
+
+let params: v1.UsageMeteringApiGetMonthlyUsageAttributionRequest = {
+  // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+  startMonth: new Date("1970-01-01T00:00:00.00Z"),
+  // MonthlyUsageAttributionSupportedMetrics | Comma-separated list of usage types to return, or `*` for all usage types.
+  fields: "api_usage",
+  // Date | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month. (optional)
+  endMonth: new Date("1970-01-01T00:00:00.00Z"),
+  // UsageSortDirection | The direction to sort by: `[desc, asc]`. (optional)
+  sortDirection: "desc",
+  // MonthlyUsageAttributionSupportedMetrics | The field to sort by. (optional)
+  sortName: "api_usage",
+  // string | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags. (optional)
+  tagBreakdownKeys: "tag_breakdown_keys_example",
+  // string | List following results with a next_record_id provided in the previous query. (optional)
+  nextRecordId: "next_record_id_example",
+};
+
+apiInstance
+  .getMonthlyUsageAttribution(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
+```
+
+### Parameters
+
+| Name                 | Type                                        | Description                                                                                                                            | Notes                            |
+| -------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **startMonth**       | [**Date**]                                  | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. | defaults to undefined            |
+| **fields**           | **MonthlyUsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;\*&#x60; for all usage types.                                                  | defaults to undefined            |
+| **endMonth**         | [**Date**]                                  | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | (optional) defaults to undefined |
+| **sortDirection**    | **UsageSortDirection**                      | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | (optional) defaults to undefined |
+| **sortName**         | **MonthlyUsageAttributionSupportedMetrics** | The field to sort by.                                                                                                                  | (optional) defaults to undefined |
+| **tagBreakdownKeys** | [**string**]                                | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.                   | (optional) defaults to undefined |
+| **nextRecordId**     | [**string**]                                | List following results with a next_record_id provided in the previous query.                                                           | (optional) defaults to undefined |
+
+### Return type
+
+**MonthlyUsageAttributionResponse**
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -420,7 +498,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -480,7 +558,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -544,7 +622,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -619,7 +697,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -681,7 +759,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -741,7 +819,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -804,7 +882,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -867,7 +945,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -930,7 +1008,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -993,7 +1071,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1056,7 +1134,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1119,7 +1197,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1182,7 +1260,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1245,7 +1323,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1308,7 +1386,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1374,7 +1452,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1437,7 +1515,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1500,7 +1578,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1563,7 +1641,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1626,7 +1704,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1692,7 +1770,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1755,7 +1833,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1818,7 +1896,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1881,7 +1959,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1947,7 +2025,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2010,7 +2088,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2073,7 +2151,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2136,7 +2214,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2199,7 +2277,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2271,7 +2349,7 @@ apiInstance
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
