@@ -182,6 +182,7 @@ export {
   UsageMeteringApiGetIncidentManagementRequest,
   UsageMeteringApiGetIngestedSpansRequest,
   UsageMeteringApiGetMonthlyCustomReportsRequest,
+  UsageMeteringApiGetMonthlyUsageAttributionRequest,
   UsageMeteringApiGetSpecifiedDailyCustomReportsRequest,
   UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest,
   UsageMeteringApiGetUsageAnalyzedLogsRequest,
