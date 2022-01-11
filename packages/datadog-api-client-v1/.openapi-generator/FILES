@@ -201,6 +201,7 @@ models/HostMapWidgetDefinitionRequests.ts
 models/HostMapWidgetDefinitionStyle.ts
 models/HostMapWidgetDefinitionType.ts
 models/HostMeta.ts
+models/HostMetaInstallMethod.ts
 models/HostMetrics.ts
 models/HostMuteResponse.ts
 models/HostMuteSettings.ts
