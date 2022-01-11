@@ -1,4 +1,4 @@
-import { HttpLibrary, HttpConfiguration } from "./http/http";
+import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http";
 import {
   DebugMiddleWare,
   Middleware,
@@ -178,5 +178,23 @@ export function setServerVariables(
 
   for (const op in operationServers) {
     operationServers[op][0].setVariables(serverVariables);
+  }
+}
+
+/**
+ * Apply given security authentication method if avaiable in configuration.
+ */
+export function applySecurityAuthentication<
+  AuthMethodKey extends keyof AuthMethods
+>(
+  conf: Configuration,
+  requestContext: RequestContext,
+  authMethods: AuthMethodKey[]
+): void {
+  for (const authMethodName of authMethods) {
+    const authMethod = conf.authMethods[authMethodName];
+    if (authMethod) {
+      authMethod.applySecurityAuthentication(requestContext);
+    }
   }
 }
