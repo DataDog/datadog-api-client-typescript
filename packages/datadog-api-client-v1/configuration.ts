@@ -124,6 +124,7 @@ export function createConfiguration(
       getDailyCustomReports: false,
       getHourlyUsageAttribution: false,
       getMonthlyCustomReports: false,
+      getMonthlyUsageAttribution: false,
       getSpecifiedDailyCustomReports: false,
       getSpecifiedMonthlyCustomReports: false,
       getUsageAttribution: false,

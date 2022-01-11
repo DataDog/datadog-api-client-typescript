@@ -329,6 +329,12 @@ models/MonitorThresholdWindowOptions.ts
 models/MonitorThresholds.ts
 models/MonitorType.ts
 models/MonitorUpdateRequest.ts
+models/MonthlyUsageAttributionBody.ts
+models/MonthlyUsageAttributionMetadata.ts
+models/MonthlyUsageAttributionPagination.ts
+models/MonthlyUsageAttributionResponse.ts
+models/MonthlyUsageAttributionSupportedMetrics.ts
+models/MonthlyUsageAttributionValues.ts
 models/NoteWidgetDefinition.ts
 models/NoteWidgetDefinitionType.ts
 models/NotebookAbsoluteTime.ts

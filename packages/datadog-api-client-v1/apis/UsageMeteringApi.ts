@@ -10,6 +10,8 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
 import { HourlyUsageAttributionUsageType } from "../models/HourlyUsageAttributionUsageType";
+import { MonthlyUsageAttributionResponse } from "../models/MonthlyUsageAttributionResponse";
+import { MonthlyUsageAttributionSupportedMetrics } from "../models/MonthlyUsageAttributionSupportedMetrics";
 import { UsageAnalyzedLogsResponse } from "../models/UsageAnalyzedLogsResponse";
 import { UsageAttributionResponse } from "../models/UsageAttributionResponse";
 import { UsageAttributionSort } from "../models/UsageAttributionSort";
@@ -85,7 +87,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -181,7 +182,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -272,7 +272,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -341,7 +340,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -414,7 +412,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -444,6 +441,136 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["apiKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+    // Apply auth methods
+    authMethod = _config.authMethods["appKeyAuth"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
+
+    return requestContext;
+  }
+
+  /**
+   * Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * @param sortName The field to sort by.
+   * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   * @param nextRecordId List following results with a next_record_id provided in the previous query.
+   */
+  public async getMonthlyUsageAttribution(
+    startMonth: Date,
+    fields: MonthlyUsageAttributionSupportedMetrics,
+    endMonth?: Date,
+    sortDirection?: UsageSortDirection,
+    sortName?: MonthlyUsageAttributionSupportedMetrics,
+    tagBreakdownKeys?: string,
+    nextRecordId?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getMonthlyUsageAttribution'");
+    if (!_config.unstableOperations["getMonthlyUsageAttribution"]) {
+      throw new Error(
+        "Unstable operation 'getMonthlyUsageAttribution' is disabled"
+      );
+    }
+
+    // verify required parameter 'startMonth' is not null or undefined
+    if (startMonth === null || startMonth === undefined) {
+      throw new RequiredError(
+        "Required parameter startMonth was null or undefined when calling getMonthlyUsageAttribution."
+      );
+    }
+
+    // verify required parameter 'fields' is not null or undefined
+    if (fields === null || fields === undefined) {
+      throw new RequiredError(
+        "Required parameter fields was null or undefined when calling getMonthlyUsageAttribution."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/usage/monthly-attribution";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "UsageMeteringApi.getMonthlyUsageAttribution"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (startMonth !== undefined) {
+      requestContext.setQueryParam(
+        "start_month",
+        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+      );
+    }
+    if (endMonth !== undefined) {
+      requestContext.setQueryParam(
+        "end_month",
+        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+      );
+    }
+    if (fields !== undefined) {
+      requestContext.setQueryParam(
+        "fields",
+        ObjectSerializer.serialize(
+          fields,
+          "MonthlyUsageAttributionSupportedMetrics",
+          ""
+        )
+      );
+    }
+    if (sortDirection !== undefined) {
+      requestContext.setQueryParam(
+        "sort_direction",
+        ObjectSerializer.serialize(sortDirection, "UsageSortDirection", "")
+      );
+    }
+    if (sortName !== undefined) {
+      requestContext.setQueryParam(
+        "sort_name",
+        ObjectSerializer.serialize(
+          sortName,
+          "MonthlyUsageAttributionSupportedMetrics",
+          ""
+        )
+      );
+    }
+    if (tagBreakdownKeys !== undefined) {
+      requestContext.setQueryParam(
+        "tag_breakdown_keys",
+        ObjectSerializer.serialize(tagBreakdownKeys, "string", "")
+      );
+    }
+    if (nextRecordId !== undefined) {
+      requestContext.setQueryParam(
+        "next_record_id",
+        ObjectSerializer.serialize(nextRecordId, "string", "")
+      );
+    }
+
+    let authMethod = null;
+    // Apply auth methods
+    authMethod = _config.authMethods["AuthZ"];
+    if (authMethod) {
+      await authMethod.applySecurityAuthentication(requestContext);
+    }
     // Apply auth methods
     authMethod = _config.authMethods["apiKeyAuth"];
     if (authMethod) {
@@ -498,7 +625,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -556,7 +682,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -606,7 +731,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -652,6 +776,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
    * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
    * @param sortName The field to sort by.
    * @param includeDescendants Include child org usage in the response. Defaults to false.
+   * @param offset Number of records to skip before beginning to return.
+   * @param limit Maximum number of records to be returned.
    */
   public async getUsageAttribution(
     startMonth: Date,
@@ -660,6 +786,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
     includeDescendants?: boolean,
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -695,7 +823,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -737,6 +864,18 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_descendants",
         ObjectSerializer.serialize(includeDescendants, "boolean", "")
+      );
+    }
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int64")
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64")
       );
     }
 
@@ -792,7 +931,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -847,7 +985,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -910,7 +1047,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -979,7 +1115,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1043,7 +1178,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1107,7 +1241,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1176,7 +1309,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1245,7 +1377,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1314,7 +1445,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1383,7 +1513,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1452,7 +1581,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1523,7 +1651,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1598,7 +1725,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1662,7 +1788,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1731,7 +1856,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1800,7 +1924,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1871,7 +1994,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1946,7 +2068,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2015,7 +2136,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2079,7 +2199,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2150,7 +2269,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2225,7 +2343,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2294,7 +2411,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2363,7 +2479,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2432,7 +2547,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2500,7 +2614,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "Accept",
       "application/json;datetime-format=rfc3339"
     );
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2840,6 +2953,63 @@ export class UsageMeteringApiResponseProcessor {
         "UsageCustomReportsResponse",
         ""
       ) as UsageCustomReportsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMonthlyUsageAttribution
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMonthlyUsageAttribution(
+    response: ResponseContext
+  ): Promise<MonthlyUsageAttributionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: MonthlyUsageAttributionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonthlyUsageAttributionResponse",
+          ""
+        ) as MonthlyUsageAttributionResponse;
+      return body;
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonthlyUsageAttributionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonthlyUsageAttributionResponse",
+          ""
+        ) as MonthlyUsageAttributionResponse;
       return body;
     }
 

@@ -73,6 +73,8 @@ import { Monitor } from "../models/Monitor";
 import { MonitorGroupSearchResponse } from "../models/MonitorGroupSearchResponse";
 import { MonitorSearchResponse } from "../models/MonitorSearchResponse";
 import { MonitorUpdateRequest } from "../models/MonitorUpdateRequest";
+import { MonthlyUsageAttributionResponse } from "../models/MonthlyUsageAttributionResponse";
+import { MonthlyUsageAttributionSupportedMetrics } from "../models/MonthlyUsageAttributionSupportedMetrics";
 import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
 import { NotebookResponse } from "../models/NotebookResponse";
 import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
@@ -7963,6 +7965,67 @@ export class ObservableUsageMeteringApi {
       );
   }
   /**
+   * Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * @param sortName The field to sort by.
+   * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   * @param nextRecordId List following results with a next_record_id provided in the previous query.
+   */
+  public getMonthlyUsageAttribution(
+    startMonth: Date,
+    fields: MonthlyUsageAttributionSupportedMetrics,
+    endMonth?: Date,
+    sortDirection?: UsageSortDirection,
+    sortName?: MonthlyUsageAttributionSupportedMetrics,
+    tagBreakdownKeys?: string,
+    nextRecordId?: string,
+    _options?: Configuration
+  ): Observable<MonthlyUsageAttributionResponse> {
+    const requestContextPromise =
+      this.requestFactory.getMonthlyUsageAttribution(
+        startMonth,
+        fields,
+        endMonth,
+        sortDirection,
+        sortName,
+        tagBreakdownKeys,
+        nextRecordId,
+        _options
+      );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getMonthlyUsageAttribution(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
    * Get specified daily custom reports.
    * Get specified daily custom reports
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
@@ -8096,6 +8159,8 @@ export class ObservableUsageMeteringApi {
    * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
    * @param sortName The field to sort by.
    * @param includeDescendants Include child org usage in the response. Defaults to false.
+   * @param offset Number of records to skip before beginning to return.
+   * @param limit Maximum number of records to be returned.
    */
   public getUsageAttribution(
     startMonth: Date,
@@ -8104,6 +8169,8 @@ export class ObservableUsageMeteringApi {
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
     includeDescendants?: boolean,
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Observable<UsageAttributionResponse> {
     const requestContextPromise = this.requestFactory.getUsageAttribution(
@@ -8113,6 +8180,8 @@ export class ObservableUsageMeteringApi {
       sortDirection,
       sortName,
       includeDescendants,
+      offset,
+      limit,
       _options
     );
 

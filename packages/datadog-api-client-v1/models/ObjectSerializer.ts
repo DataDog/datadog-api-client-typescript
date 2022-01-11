@@ -193,6 +193,11 @@ import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorUpdateRequest } from "./MonitorUpdateRequest";
+import { MonthlyUsageAttributionBody } from "./MonthlyUsageAttributionBody";
+import { MonthlyUsageAttributionMetadata } from "./MonthlyUsageAttributionMetadata";
+import { MonthlyUsageAttributionPagination } from "./MonthlyUsageAttributionPagination";
+import { MonthlyUsageAttributionResponse } from "./MonthlyUsageAttributionResponse";
+import { MonthlyUsageAttributionValues } from "./MonthlyUsageAttributionValues";
 import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
 import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
 import { NotebookAuthor } from "./NotebookAuthor";
@@ -678,6 +683,37 @@ const enumsMap: { [key: string]: any[] } = {
     "event-v2 alert",
     "audit alert",
     "ci-pipelines alert",
+  ],
+  MonthlyUsageAttributionSupportedMetrics: [
+    "api_usage",
+    "api_percentage",
+    "apm_host_usage",
+    "apm_host_percentage",
+    "browser_usage",
+    "browser_percentage",
+    "container_usage",
+    "container_percentage",
+    "custom_timeseries_usage",
+    "custom_timeseries_percentage",
+    "fargate_usage",
+    "fargate_percentage",
+    "functions_usage",
+    "functions_percentage",
+    "indexed_logs_usage",
+    "indexed_logs_percentage",
+    "infra_host_usage",
+    "infra_host_percentage",
+    "invocations_usage",
+    "invocations_percentage",
+    "npm_host_usage",
+    "npm_host_percentage",
+    "profiled_container_usage",
+    "profiled_container_percentage",
+    "profiled_host_usage",
+    "profiled_host_percentage",
+    "snmp_usage",
+    "snmp_percentage",
+    "*",
   ],
   NoteWidgetDefinitionType: ["note"],
   NotebookCellResourceType: ["notebook_cells"],
@@ -1241,6 +1277,11 @@ const typeMap: { [index: string]: any } = {
   MonitorThresholdWindowOptions: MonitorThresholdWindowOptions,
   MonitorThresholds: MonitorThresholds,
   MonitorUpdateRequest: MonitorUpdateRequest,
+  MonthlyUsageAttributionBody: MonthlyUsageAttributionBody,
+  MonthlyUsageAttributionMetadata: MonthlyUsageAttributionMetadata,
+  MonthlyUsageAttributionPagination: MonthlyUsageAttributionPagination,
+  MonthlyUsageAttributionResponse: MonthlyUsageAttributionResponse,
+  MonthlyUsageAttributionValues: MonthlyUsageAttributionValues,
   NoteWidgetDefinition: NoteWidgetDefinition,
   NotebookAbsoluteTime: NotebookAbsoluteTime,
   NotebookAuthor: NotebookAuthor,
