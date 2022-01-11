@@ -43,7 +43,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "EventsApi.createEvent"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -96,7 +96,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "EventsApi.getEvent"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -166,7 +166,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "EventsApi.listEvents"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params

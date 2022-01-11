@@ -62,7 +62,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.addPermissionToRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -134,7 +134,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.addUserToRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -206,7 +206,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.cloneRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -266,7 +266,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.createRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -329,7 +329,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.deleteRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -381,7 +381,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.getRole"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -421,7 +421,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.listPermissions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -473,7 +473,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.listRolePermissions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -533,7 +533,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.listRoleUsers"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -607,7 +607,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.listRoles"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -694,7 +694,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.removePermissionFromRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -766,7 +766,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.removeUserFromRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -838,7 +838,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.updateRole"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

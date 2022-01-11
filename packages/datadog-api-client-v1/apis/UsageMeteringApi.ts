@@ -81,7 +81,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getDailyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -173,7 +177,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getHourlyUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -260,7 +268,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getIncidentManagement"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -325,7 +337,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getIngestedSpans"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -394,7 +410,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getMonthlyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -474,7 +494,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getSpecifiedDailyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -528,7 +552,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getSpecifiedMonthlyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -574,7 +602,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageAnalyzedLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -659,7 +691,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -752,7 +788,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageAuditLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -803,7 +843,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageBillableSummary"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -862,7 +906,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageCWS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -927,7 +975,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageCloudSecurityPostureManagement"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -987,7 +1039,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageDBM"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1047,7 +1103,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageFargate"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1112,7 +1172,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1177,7 +1241,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageIndexedSpans"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1242,7 +1310,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageInternetOfThings"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1307,7 +1379,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageLambda"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1372,7 +1448,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1439,7 +1519,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageLogsByIndex"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1510,7 +1594,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageLogsByRetention"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1570,7 +1658,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageNetworkFlows"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1635,7 +1727,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageNetworkHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1700,7 +1796,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageProfiling"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1767,7 +1867,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageRumSessions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1838,7 +1942,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageRumUnits"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1903,7 +2011,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageSDS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -1963,7 +2075,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageSNMP"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2030,7 +2146,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageSummary"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2101,7 +2221,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageSynthetics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2166,7 +2290,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageSyntheticsAPI"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2231,7 +2359,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageSyntheticsBrowser"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2296,7 +2428,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageTimeseries"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -2360,7 +2496,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "UsageMeteringApi.getUsageTopAvgMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params

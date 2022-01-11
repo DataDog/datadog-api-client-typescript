@@ -45,7 +45,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.createAWSAccount"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -100,7 +100,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.createAWSTagFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -155,7 +155,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.createNewAWSExternalID"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -210,7 +210,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.deleteAWSAccount"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -265,7 +265,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.deleteAWSTagFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -317,7 +317,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.listAWSAccounts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -381,7 +381,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.listAWSTagFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -424,7 +424,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.listAvailableAWSNamespaces"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -474,7 +474,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSIntegrationApi.updateAWSAccount"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params

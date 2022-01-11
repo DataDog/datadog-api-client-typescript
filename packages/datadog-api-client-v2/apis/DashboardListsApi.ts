@@ -58,7 +58,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.createDashboardListItems"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -126,7 +126,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.deleteDashboardListItems"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -185,7 +185,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.getDashboardListItems"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -247,7 +247,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.updateDashboardListItems"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
