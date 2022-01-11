@@ -776,6 +776,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
    * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
    * @param sortName The field to sort by.
    * @param includeDescendants Include child org usage in the response. Defaults to false.
+   * @param offset Number of records to skip before beginning to return.
+   * @param limit Maximum number of records to be returned.
    */
   public async getUsageAttribution(
     startMonth: Date,
@@ -784,6 +786,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     sortDirection?: UsageSortDirection,
     sortName?: UsageAttributionSort,
     includeDescendants?: boolean,
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -860,6 +864,18 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_descendants",
         ObjectSerializer.serialize(includeDescendants, "boolean", "")
+      );
+    }
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int64")
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64")
       );
     }
 
