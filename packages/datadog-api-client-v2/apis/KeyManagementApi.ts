@@ -48,7 +48,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.createAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -103,7 +103,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.createCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -161,7 +161,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.deleteAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -208,7 +208,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.deleteApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -256,7 +256,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.deleteCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -305,7 +305,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.getAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -362,7 +362,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.getApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -418,7 +418,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.getCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -471,7 +471,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.listAPIKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -574,7 +574,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.listApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -659,7 +659,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.listCurrentUserApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -753,7 +753,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.updateAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -820,7 +820,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.updateApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -888,7 +888,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.updateCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

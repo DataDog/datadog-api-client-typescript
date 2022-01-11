@@ -49,7 +49,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "IncidentTeamsApi.createIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -117,7 +117,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "IncidentTeamsApi.deleteIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -176,7 +176,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "IncidentTeamsApi.getIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -237,7 +237,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "IncidentTeamsApi.listIncidentTeams"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -329,7 +329,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "IncidentTeamsApi.updateIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

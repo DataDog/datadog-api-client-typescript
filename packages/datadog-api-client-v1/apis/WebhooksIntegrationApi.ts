@@ -43,7 +43,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.createWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -99,7 +99,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -158,7 +158,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.deleteWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -206,7 +206,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -254,7 +254,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.getWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -302,7 +302,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -359,7 +359,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.updateWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -427,7 +427,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

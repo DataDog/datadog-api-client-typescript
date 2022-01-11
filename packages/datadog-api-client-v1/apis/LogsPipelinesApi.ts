@@ -41,7 +41,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.createLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -99,7 +99,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.deleteLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -146,7 +146,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.getLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -181,7 +181,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.getLogsPipelineOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -216,7 +216,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.listLogsPipelines"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -272,7 +272,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.updateLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -327,7 +327,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsPipelinesApi.updateLogsPipelineOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

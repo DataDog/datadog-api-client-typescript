@@ -48,7 +48,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.getMetricMetadata"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -101,7 +101,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.listActiveMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -170,7 +170,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.listMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -245,7 +245,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.queryMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -316,7 +316,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.submitMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "text/json");
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Header Params
@@ -384,7 +385,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.updateMetricMetadata"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

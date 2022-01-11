@@ -43,7 +43,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.checkAWSLogsLambdaAsync"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -103,7 +103,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.checkAWSLogsServicesAsync"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -158,7 +158,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.createAWSLambdaARN"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -213,7 +213,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.deleteAWSLambdaARN"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -268,7 +268,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.enableAWSLogServices"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -314,7 +314,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.listAWSLogsIntegrations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -349,7 +349,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AWSLogsIntegrationApi.listAWSLogsServices"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;

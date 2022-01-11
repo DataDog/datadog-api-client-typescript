@@ -40,7 +40,8 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceChecksApi.submitServiceCheck"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "text/json");
+
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

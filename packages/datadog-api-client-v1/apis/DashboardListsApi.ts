@@ -41,7 +41,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.createDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -104,7 +104,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.deleteDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -156,7 +156,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.getDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -196,7 +196,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.listDashboardLists"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -257,7 +257,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardListsApi.updateDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

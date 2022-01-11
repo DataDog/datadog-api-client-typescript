@@ -57,7 +57,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.addReadRoleToArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -112,7 +112,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.createLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -170,7 +170,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.deleteLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -217,7 +217,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.getLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -252,7 +252,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.getLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -300,7 +300,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.listArchiveReadRoles"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -335,7 +335,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.listLogsArchives"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -392,7 +392,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.removeRoleFromArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -459,7 +459,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.updateLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -514,7 +514,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.updateLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

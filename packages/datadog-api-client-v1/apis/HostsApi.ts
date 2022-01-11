@@ -35,7 +35,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "HostsApi.getHostTotals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -94,7 +94,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "HostsApi.listHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -205,7 +205,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "HostsApi.muteHost"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -263,7 +263,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "HostsApi.unmuteHost"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;

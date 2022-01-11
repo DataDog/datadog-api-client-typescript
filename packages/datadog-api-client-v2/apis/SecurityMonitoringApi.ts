@@ -51,7 +51,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.createSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -111,7 +111,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.createSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -179,7 +179,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.deleteSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -231,7 +231,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.deleteSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -284,7 +284,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.getSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -336,7 +336,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.getSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -377,7 +377,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.listSecurityFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -421,7 +421,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.listSecurityMonitoringRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -494,7 +494,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.listSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -581,7 +581,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.searchSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -658,7 +658,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.updateSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -730,7 +730,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SecurityMonitoringApi.updateSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
