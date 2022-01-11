@@ -52,7 +52,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.createSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -125,7 +125,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.getSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -173,7 +173,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.getSlackIntegrationChannels"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -235,7 +235,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.removeSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -306,7 +306,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.updateSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

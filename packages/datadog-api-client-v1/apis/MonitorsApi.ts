@@ -44,7 +44,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.checkCanDeleteMonitor"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -101,7 +101,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.createMonitor"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -166,7 +166,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.deleteMonitor"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -228,7 +228,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.getMonitor"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -292,7 +292,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.listMonitors"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -390,7 +390,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.searchMonitorGroups"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -464,7 +464,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.searchMonitors"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -551,7 +551,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.updateMonitor"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -611,7 +611,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MonitorsApi.validateMonitor"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

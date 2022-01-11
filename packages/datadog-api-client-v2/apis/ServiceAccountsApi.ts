@@ -57,7 +57,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceAccountsApi.createServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -130,7 +130,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceAccountsApi.deleteServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -192,7 +192,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceAccountsApi.getServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     let authMethod = null;
@@ -252,7 +252,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceAccountsApi.listServiceAccountApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -361,7 +361,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceAccountsApi.updateServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

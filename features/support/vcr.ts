@@ -4,7 +4,7 @@ import path from "path";
 
 import NodeHttpAdapter from "@pollyjs/adapter-node-http";
 import FSPersister from "@pollyjs/persister-fs";
-import { Polly } from "@pollyjs/core";
+import { Headers, Polly, Request } from "@pollyjs/core";
 import { After, AfterAll, Before } from "@cucumber/cucumber";
 import { World } from "./world";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
@@ -21,8 +21,20 @@ const RecordMode: { [value: string]: any } = {
   none: MODES.PASSTHROUGH,
 };
 
+const headersToPersist: Array<string> = ["accept", "content-type"];
+
 function filterHeader(value: any) {
-  return value.name != "dd-api-key" && value.name != "dd-application-key";
+  return headersToPersist.includes(value.name);
+}
+
+function matchHeaders(input: Headers, req: Request): Headers {
+  const output: { [value: string]: any } = {};
+  for (const key in input) {
+    if (headersToPersist.includes(key)) {
+      output[key] = input[key];
+    }
+  }
+  return output;
 }
 
 Before(function (
@@ -39,7 +51,7 @@ Before(function (
     flushRequestsOnStop: true,
     persister: "fs",
     matchRequestsBy: {
-      headers: false,
+      headers: matchHeaders,
     },
     mode: RecordMode[process.env.RECORD || "false"],
     recordIfMissing: process.env.RERECORD_FAILED_TESTS === "true", // make sure that we match body exactly
@@ -110,6 +122,12 @@ Before(function (
   // remove secrets from request headers before persisting
   server.any().on("beforePersist", (req, recording) => {
     recording.request.headers = recording.request.headers.filter(filterHeader);
+    recording.response.headers = recording.response.headers.filter(
+      filterHeader
+    );
+
+    // remove timing information
+    delete recording.timings;
   });
 });
 
