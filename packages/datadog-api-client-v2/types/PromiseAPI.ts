@@ -421,7 +421,7 @@ export class PromiseIncidentsApi {
   /**
    * Deletes an existing incident from the users organization.
    * Delete an existing incident
-   * @param incidentId The UUID the incident.
+   * @param incidentId The UUID of the incident.
    */
   public deleteIncident(
     incidentId: string,
@@ -434,7 +434,7 @@ export class PromiseIncidentsApi {
   /**
    * Get the details of an incident by `incident_id`.
    * Get the details of an incident
-   * @param incidentId The UUID the incident.
+   * @param incidentId The UUID of the incident.
    * @param include Specifies which types of related objects should be included in the response.
    */
   public getIncident(
@@ -471,7 +471,7 @@ export class PromiseIncidentsApi {
   /**
    * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
    * Update an existing incident
-   * @param incidentId The UUID the incident.
+   * @param incidentId The UUID of the incident.
    * @param body Incident Payload.
    */
   public updateIncident(
