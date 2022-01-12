@@ -16,6 +16,18 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
+import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
+import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
+import { CloudWorkloadSecurityAgentRuleCreateRequest } from "./CloudWorkloadSecurityAgentRuleCreateRequest";
+import { CloudWorkloadSecurityAgentRuleCreatorAttributes } from "./CloudWorkloadSecurityAgentRuleCreatorAttributes";
+import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgentRuleData";
+import { CloudWorkloadSecurityAgentRuleResponse } from "./CloudWorkloadSecurityAgentRuleResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./CloudWorkloadSecurityAgentRuleUpdateAttributes";
+import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurityAgentRuleUpdateData";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
+import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
+import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
 import { Creator } from "./Creator";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
@@ -298,6 +310,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ContentEncoding: ["gzip", "deflate"],
   DashboardType: [
     "custom_timeboard",
@@ -426,6 +439,29 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  CloudWorkloadSecurityAgentRuleAttributes:
+    CloudWorkloadSecurityAgentRuleAttributes,
+  CloudWorkloadSecurityAgentRuleCreateAttributes:
+    CloudWorkloadSecurityAgentRuleCreateAttributes,
+  CloudWorkloadSecurityAgentRuleCreateData:
+    CloudWorkloadSecurityAgentRuleCreateData,
+  CloudWorkloadSecurityAgentRuleCreateRequest:
+    CloudWorkloadSecurityAgentRuleCreateRequest,
+  CloudWorkloadSecurityAgentRuleCreatorAttributes:
+    CloudWorkloadSecurityAgentRuleCreatorAttributes,
+  CloudWorkloadSecurityAgentRuleData: CloudWorkloadSecurityAgentRuleData,
+  CloudWorkloadSecurityAgentRuleResponse:
+    CloudWorkloadSecurityAgentRuleResponse,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes:
+    CloudWorkloadSecurityAgentRuleUpdateAttributes,
+  CloudWorkloadSecurityAgentRuleUpdateData:
+    CloudWorkloadSecurityAgentRuleUpdateData,
+  CloudWorkloadSecurityAgentRuleUpdateRequest:
+    CloudWorkloadSecurityAgentRuleUpdateRequest,
+  CloudWorkloadSecurityAgentRuleUpdaterAttributes:
+    CloudWorkloadSecurityAgentRuleUpdaterAttributes,
+  CloudWorkloadSecurityAgentRulesListResponse:
+    CloudWorkloadSecurityAgentRulesListResponse,
   Creator: Creator,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,

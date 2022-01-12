@@ -9,6 +9,11 @@ export * from "./servers";
 
 export { PromiseMiddleware as Middleware } from "./middleware";
 export {
+  CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
+  CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
+  CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
+  CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
+  ObjectCloudWorkloadSecurityApi as CloudWorkloadSecurityApi,
   DashboardListsApiCreateDashboardListItemsRequest,
   DashboardListsApiDeleteDashboardListItemsRequest,
   DashboardListsApiGetDashboardListItemsRequest,
