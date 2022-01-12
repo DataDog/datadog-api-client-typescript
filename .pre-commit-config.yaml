@@ -25,3 +25,11 @@ repos:
         entry: yarn run lint:fix
         stages: [manual]
         pass_filenames: false
+      - id: openapi-generator
+        name: OpenAPI-generator
+        language: node
+        entry: openapi-generator-cli generate
+        stages: [manual]
+        pass_filenames: false
+        additional_dependencies:
+          - "@openapitools/openapi-generator-cli"
