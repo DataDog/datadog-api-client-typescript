@@ -111,13 +111,6 @@ let params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
         warning: 90.0,
         warningDisplay: "90.0",
       },
-      {
-        target: 99.9,
-        targetDisplay: "99.9",
-        timeframe: "30d",
-        warning: 90.0,
-        warningDisplay: "90.0",
-      },
     ],
     type: "metric",
   },
@@ -607,13 +600,6 @@ let params: v1.ServiceLevelObjectivesApiUpdateSLORequest = {
     },
     tags: ["env:prod", "app:core"],
     thresholds: [
-      {
-        target: 99.9,
-        targetDisplay: "99.9",
-        timeframe: "30d",
-        warning: 90.0,
-        warningDisplay: "90.0",
-      },
       {
         target: 99.9,
         targetDisplay: "99.9",

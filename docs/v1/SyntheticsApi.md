@@ -252,7 +252,14 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       steps: [
         {
           allowFailure: true,
-          assertions: [],
+          assertions: [
+            {
+              operator: "contains",
+              property: "property_example",
+              target: null,
+              type: "statusCode",
+            },
+          ],
           extractedValues: [
             {
               field: "content-type",
@@ -401,7 +408,14 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   // SyntheticsBrowserTest | Details of the test to create.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+        {
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -1843,7 +1857,14 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
       steps: [
         {
           allowFailure: true,
-          assertions: [],
+          assertions: [
+            {
+              operator: "contains",
+              property: "property_example",
+              target: null,
+              type: "statusCode",
+            },
+          ],
           extractedValues: [
             {
               field: "content-type",
@@ -1995,7 +2016,14 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
   // SyntheticsBrowserTest | New test details to be saved.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+        {
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
+      ],
       configVariables: [
         {
           example: "example_example",

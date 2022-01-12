@@ -1,7 +1,7 @@
 version: "3"
 services:
   datadog-api-client-v1:
-    image: datadog/docker-library:openapi-generator-typescript-array-examples-905e6309a85
+    image: datadog/docker-library:openapi-generator-cli-60b29e1f8e2
     user: "${UID}:${GID}"
     volumes:
       - .:/src:rw
@@ -30,7 +30,7 @@ services:
       - -t
       - ".generator/templates"
   datadog-api-client-v2:
-    image: datadog/docker-library:openapi-generator-typescript-array-examples-905e6309a85
+    image: datadog/docker-library:openapi-generator-cli-60b29e1f8e2
     user: "${UID}:${GID}"
     volumes:
       - .:/src:rw
