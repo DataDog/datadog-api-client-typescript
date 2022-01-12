@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
-import {Configuration, getServer } from '../configuration{{extensionForDeno}}';
+import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
 import { logger } from "../../../index";
 {{#platforms}}
@@ -148,17 +148,11 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
         {{/bodyParam}}
-
         {{#hasAuthMethods}}
-        let authMethod = null;
-        {{/hasAuthMethods}}
-        {{#authMethods}}
+
         // Apply auth methods
-        authMethod = _config.authMethods["{{name}}"]
-        if (authMethod) {
-            await authMethod.applySecurityAuthentication(requestContext);
-        }
-        {{/authMethods}}
+        applySecurityAuthentication(_config, requestContext, [{{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}}]);
+        {{/hasAuthMethods}}
 
         return requestContext;
     }

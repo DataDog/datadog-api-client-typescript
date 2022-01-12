@@ -1,6 +1,10 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer } from "../configuration";
+import {
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -53,17 +57,11 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -108,17 +106,11 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -143,17 +135,11 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -198,17 +184,11 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -253,17 +233,11 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
