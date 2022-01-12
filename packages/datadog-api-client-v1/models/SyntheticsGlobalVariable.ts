@@ -28,7 +28,7 @@ export class SyntheticsGlobalVariable {
    */
   "id"?: string;
   /**
-   * Name of the global variable.
+   * Name of the global variable. Unique across Synthetics global variables.
    */
   "name": string;
   "parseTestOptions"?: SyntheticsGlobalVariableParseTestOptions;
