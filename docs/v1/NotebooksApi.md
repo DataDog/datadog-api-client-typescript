@@ -41,16 +41,6 @@ example content`,
             },
             type: "notebook_cells",
           },
-          {
-            attributes: {
-              definition: {
-                text: `# Example Header 
-example content`,
-                type: "markdown",
-              },
-            },
-            type: "notebook_cells",
-          },
         ],
         metadata: {
           isTemplate: false,
@@ -341,16 +331,6 @@ let params: v1.NotebooksApiUpdateNotebookRequest = {
     data: {
       attributes: {
         cells: [
-          {
-            attributes: {
-              definition: {
-                text: `# Example Header 
-example content`,
-                type: "markdown",
-              },
-            },
-            type: "notebook_cells",
-          },
           {
             attributes: {
               definition: {
