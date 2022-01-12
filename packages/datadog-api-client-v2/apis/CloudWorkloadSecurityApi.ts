@@ -5,53 +5,52 @@ import {
   getServer,
   applySecurityAuthentication,
 } from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
-import { logger } from "../../../index";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+  HttpFile,
+} from "../http/http";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
-import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
-import { IncidentResponse } from "../models/IncidentResponse";
-import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
-import { IncidentsResponse } from "../models/IncidentsResponse";
+import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
+import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
 
 /**
  * no description
  */
-export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
+export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactory {
   /**
-   * Create an incident.
-   * Create an incident
-   * @param body Incident payload.
+   * Create a new Agent rule with the given parameters.
+   * Create a Cloud Workload Security Agent rule
+   * @param body The definition of the new Agent rule.
    */
-  public async createIncident(
-    body: IncidentCreateRequest,
+  public async createCloudWorkloadSecurityAgentRule(
+    body: CloudWorkloadSecurityAgentRuleCreateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createIncident'");
-    if (!_config.unstableOperations["createIncident"]) {
-      throw new Error("Unstable operation 'createIncident' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError(
-        "Required parameter body was null or undefined when calling createIncident."
+        "Required parameter body was null or undefined when calling createCloudWorkloadSecurityAgentRule."
       );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents";
+    const localVarPath =
+      "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.createIncident"
+      "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -62,7 +61,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "IncidentCreateRequest", ""),
+      ObjectSerializer.serialize(
+        body,
+        "CloudWorkloadSecurityAgentRuleCreateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -78,38 +81,34 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   /**
-   * Deletes an existing incident from the users organization.
-   * Delete an existing incident
-   * @param incidentId The UUID of the incident.
+   * Delete a specific Agent rule.
+   * Delete a Cloud Workload Security Agent rule
+   * @param agentRuleId The ID of the Agent rule.
    */
-  public async deleteIncident(
-    incidentId: string,
+  public async deleteCloudWorkloadSecurityAgentRule(
+    agentRuleId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteIncident'");
-    if (!_config.unstableOperations["deleteIncident"]) {
-      throw new Error("Unstable operation 'deleteIncident' is disabled");
-    }
-
-    // verify required parameter 'incidentId' is not null or undefined
-    if (incidentId === null || incidentId === undefined) {
+    // verify required parameter 'agentRuleId' is not null or undefined
+    if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling deleteIncident."
+        "Required parameter agentRuleId was null or undefined when calling deleteCloudWorkloadSecurityAgentRule."
       );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}".replace(
-      "{" + "incident_id" + "}",
-      encodeURIComponent(String(incidentId))
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
+        "{" + "agent_rule_id" + "}",
+        encodeURIComponent(String(agentRuleId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.deleteIncident"
+      "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -125,51 +124,25 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   /**
-   * Get the details of an incident by `incident_id`.
-   * Get the details of an incident
-   * @param incidentId The UUID of the incident.
-   * @param include Specifies which types of related objects should be included in the response.
+   * The download endpoint generates a Cloud Workload Security policy file from your currently active Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to your agents to update the policy running in your environment.
+   * Get the latest Cloud Workload Security policy
    */
-  public async getIncident(
-    incidentId: string,
-    include?: Array<IncidentRelatedObject>,
+  public async downloadCloudWorkloadPolicyFile(
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getIncident'");
-    if (!_config.unstableOperations["getIncident"]) {
-      throw new Error("Unstable operation 'getIncident' is disabled");
-    }
-
-    // verify required parameter 'incidentId' is not null or undefined
-    if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling getIncident."
-      );
-    }
-
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}".replace(
-      "{" + "incident_id" + "}",
-      encodeURIComponent(String(incidentId))
-    );
+    const localVarPath = "/api/v2/security/cloud_workload/policy/download";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.getIncident"
+      "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
+    requestContext.setHeaderParam("Accept", "application/yaml");
 
-    // Query Params
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
-      );
-    }
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -182,55 +155,37 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   /**
-   * Get all incidents for the user's organization.
-   * Get a list of incidents
-   * @param include Specifies which types of related objects should be included in the response.
-   * @param pageSize Size for a given page.
-   * @param pageOffset Specific offset to use as the beginning of the returned page.
+   * Get the details of a specific Agent rule.
+   * Get a Cloud Workload Security Agent rule
+   * @param agentRuleId The ID of the Agent rule.
    */
-  public async listIncidents(
-    include?: Array<IncidentRelatedObject>,
-    pageSize?: number,
-    pageOffset?: number,
+  public async getCloudWorkloadSecurityAgentRule(
+    agentRuleId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listIncidents'");
-    if (!_config.unstableOperations["listIncidents"]) {
-      throw new Error("Unstable operation 'listIncidents' is disabled");
+    // verify required parameter 'agentRuleId' is not null or undefined
+    if (agentRuleId === null || agentRuleId === undefined) {
+      throw new RequiredError(
+        "Required parameter agentRuleId was null or undefined when calling getCloudWorkloadSecurityAgentRule."
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents";
+    const localVarPath =
+      "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
+        "{" + "agent_rule_id" + "}",
+        encodeURIComponent(String(agentRuleId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.listIncidents"
+      "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
-      );
-    }
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
-      );
-    }
-    if (pageOffset !== undefined) {
-      requestContext.setQueryParam(
-        "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
-      );
-    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -243,47 +198,74 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   /**
-   * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-   * Update an existing incident
-   * @param incidentId The UUID of the incident.
-   * @param body Incident Payload.
+   * Get the list of Agent rules.
+   * Get all Cloud Workload Security Agent rules
    */
-  public async updateIncident(
-    incidentId: string,
-    body: IncidentUpdateRequest,
+  public async listCloudWorkloadSecurityAgentRules(
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateIncident'");
-    if (!_config.unstableOperations["updateIncident"]) {
-      throw new Error("Unstable operation 'updateIncident' is disabled");
-    }
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
-    // verify required parameter 'incidentId' is not null or undefined
-    if (incidentId === null || incidentId === undefined) {
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  /**
+   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * Update a Cloud Workload Security Agent rule
+   * @param agentRuleId The ID of the Agent rule.
+   * @param body New definition of the Agent rule.
+   */
+  public async updateCloudWorkloadSecurityAgentRule(
+    agentRuleId: string,
+    body: CloudWorkloadSecurityAgentRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'agentRuleId' is not null or undefined
+    if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling updateIncident."
+        "Required parameter agentRuleId was null or undefined when calling updateCloudWorkloadSecurityAgentRule."
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateIncident."
+        "Required parameter body was null or undefined when calling updateCloudWorkloadSecurityAgentRule."
       );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}".replace(
-      "{" + "incident_id" + "}",
-      encodeURIComponent(String(incidentId))
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
+        "{" + "agent_rule_id" + "}",
+        encodeURIComponent(String(agentRuleId))
+      );
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.updateIncident"
+      "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -294,7 +276,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "IncidentUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        body,
+        "CloudWorkloadSecurityAgentRuleUpdateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -310,26 +296,27 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class IncidentsApiResponseProcessor {
+export class CloudWorkloadSecurityApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createIncident
+   * @params response Response returned by the server for a request to createCloudWorkloadSecurityAgentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createIncident(
+  public async createCloudWorkloadSecurityAgentRule(
     response: ResponseContext
-  ): Promise<IncidentResponse> {
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("201", response.httpStatusCode)) {
-      const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
-      ) as IncidentResponse;
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: CloudWorkloadSecurityAgentRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRuleResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -340,14 +327,6 @@ export class IncidentsApiResponseProcessor {
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
-    }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -356,13 +335,13 @@ export class IncidentsApiResponseProcessor {
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
-    if (isCodeInRange("404", response.httpStatusCode)) {
+    if (isCodeInRange("409", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
         ""
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
+      throw new ApiException<APIErrorResponse>(409, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
@@ -375,11 +354,12 @@ export class IncidentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
-      ) as IncidentResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRuleResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -394,31 +374,17 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteIncident
+   * @params response Response returned by the server for a request to deleteCloudWorkloadSecurityAgentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncident(response: ResponseContext): Promise<void> {
+  public async deleteCloudWorkloadSecurityAgentRule(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (isCodeInRange("204", response.httpStatusCode)) {
       return;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
@@ -466,71 +432,44 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getIncident
+   * @params response Response returned by the server for a request to downloadCloudWorkloadPolicyFile
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getIncident(
+  public async downloadCloudWorkloadPolicyFile(
     response: ResponseContext
-  ): Promise<IncidentResponse> {
+  ): Promise<HttpFile> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
-      ) as IncidentResponse;
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
       return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
-        ""
+        "binary"
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
-        ""
+        "binary"
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentResponse = ObjectSerializer.deserialize(
+      const body: HttpFile = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
-      ) as IncidentResponse;
+        "HttpFile",
+        "binary"
+      ) as HttpFile;
       return body;
     }
 
@@ -545,38 +484,23 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listIncidents
+   * @params response Response returned by the server for a request to getCloudWorkloadSecurityAgentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listIncidents(
+  public async getCloudWorkloadSecurityAgentRule(
     response: ResponseContext
-  ): Promise<IncidentsResponse> {
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: IncidentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentsResponse",
-        ""
-      ) as IncidentsResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRuleResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
@@ -605,11 +529,12 @@ export class IncidentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentsResponse",
-        ""
-      ) as IncidentsResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRuleResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -624,21 +549,79 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateIncident
+   * @params response Response returned by the server for a request to listCloudWorkloadSecurityAgentRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateIncident(
+  public async listCloudWorkloadSecurityAgentRules(
     response: ResponseContext
-  ): Promise<IncidentResponse> {
+  ): Promise<CloudWorkloadSecurityAgentRulesListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: IncidentResponse = ObjectSerializer.deserialize(
+      const body: CloudWorkloadSecurityAgentRulesListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRulesListResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRulesListResponse;
+      return body;
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
+        "APIErrorResponse",
         ""
-      ) as IncidentResponse;
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudWorkloadSecurityAgentRulesListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRulesListResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRulesListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateCloudWorkloadSecurityAgentRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCloudWorkloadSecurityAgentRule(
+    response: ResponseContext
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: CloudWorkloadSecurityAgentRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRuleResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
@@ -648,14 +631,6 @@ export class IncidentsApiResponseProcessor {
         ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
@@ -673,6 +648,14 @@ export class IncidentsApiResponseProcessor {
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
+    if (isCodeInRange("409", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(409, body);
+    }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -684,11 +667,12 @@ export class IncidentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
-      ) as IncidentResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentRuleResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
