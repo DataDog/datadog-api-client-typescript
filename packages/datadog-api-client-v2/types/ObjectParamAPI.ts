@@ -574,7 +574,7 @@ export interface IncidentsApiCreateIncidentRequest {
 
 export interface IncidentsApiDeleteIncidentRequest {
   /**
-   * The UUID the incident.
+   * The UUID of the incident.
    * @type string
    * @memberof IncidentsApideleteIncident
    */
@@ -583,7 +583,7 @@ export interface IncidentsApiDeleteIncidentRequest {
 
 export interface IncidentsApiGetIncidentRequest {
   /**
-   * The UUID the incident.
+   * The UUID of the incident.
    * @type string
    * @memberof IncidentsApigetIncident
    */
@@ -619,7 +619,7 @@ export interface IncidentsApiListIncidentsRequest {
 
 export interface IncidentsApiUpdateIncidentRequest {
   /**
-   * The UUID the incident.
+   * The UUID of the incident.
    * @type string
    * @memberof IncidentsApiupdateIncident
    */

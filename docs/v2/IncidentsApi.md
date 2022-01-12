@@ -125,7 +125,7 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
 let params: v2.IncidentsApiDeleteIncidentRequest = {
-  // string | The UUID the incident.
+  // string | The UUID of the incident.
   incidentId: "incident_id_example",
 };
 
@@ -141,9 +141,9 @@ apiInstance
 
 ### Parameters
 
-| Name           | Type         | Description            | Notes                 |
-| -------------- | ------------ | ---------------------- | --------------------- |
-| **incidentId** | [**string**] | The UUID the incident. | defaults to undefined |
+| Name           | Type         | Description               | Notes                 |
+| -------------- | ------------ | ------------------------- | --------------------- |
+| **incidentId** | [**string**] | The UUID of the incident. | defaults to undefined |
 
 ### Return type
 
@@ -187,7 +187,7 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
 let params: v2.IncidentsApiGetIncidentRequest = {
-  // string | The UUID the incident.
+  // string | The UUID of the incident.
   incidentId: "incident_id_example",
   // Array<IncidentRelatedObject> | Specifies which types of related objects should be included in the response. (optional)
   include: ["users"],
@@ -207,7 +207,7 @@ apiInstance
 
 | Name           | Type                                   | Description                                                                  | Notes                            |
 | -------------- | -------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------- |
-| **incidentId** | [**string**]                           | The UUID the incident.                                                       | defaults to undefined            |
+| **incidentId** | [**string**]                           | The UUID of the incident.                                                    | defaults to undefined            |
 | **include**    | **Array&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | (optional) defaults to undefined |
 
 ### Return type
@@ -320,7 +320,7 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
 let params: v2.IncidentsApiUpdateIncidentRequest = {
-  // string | The UUID the incident.
+  // string | The UUID of the incident.
   incidentId: "incident_id_example",
   // IncidentUpdateRequest | Incident Payload.
   body: {
@@ -402,10 +402,10 @@ apiInstance
 
 ### Parameters
 
-| Name           | Type                      | Description            | Notes                 |
-| -------------- | ------------------------- | ---------------------- | --------------------- |
-| **body**       | **IncidentUpdateRequest** | Incident Payload.      |
-| **incidentId** | [**string**]              | The UUID the incident. | defaults to undefined |
+| Name           | Type                      | Description               | Notes                 |
+| -------------- | ------------------------- | ------------------------- | --------------------- |
+| **body**       | **IncidentUpdateRequest** | Incident Payload.         |
+| **incidentId** | [**string**]              | The UUID of the incident. | defaults to undefined |
 
 ### Return type
 
