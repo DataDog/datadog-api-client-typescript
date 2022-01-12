@@ -115,7 +115,14 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   // SecurityMonitoringRuleCreatePayload
   body: {
-    cases: [],
+    cases: [
+      {
+        condition: "condition_example",
+        name: "name_example",
+        notifications: ["notifications_example"],
+        status: "critical",
+      },
+    ],
     filters: [
       {
         action: "require",
@@ -136,7 +143,16 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         learningDuration: 0,
       },
     },
-    queries: [],
+    queries: [
+      {
+        aggregation: "count",
+        distinctFields: ["distinctFields_example"],
+        groupByFields: ["groupByFields_example"],
+        metric: "metric_example",
+        name: "name_example",
+        query: "a > 3",
+      },
+    ],
     tags: ["env:prod", "team:security"],
     type: "log_detection",
   },
@@ -713,7 +729,12 @@ let params: v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
   body: {
     data: {
       attributes: {
-        exclusionFilters: [],
+        exclusionFilters: [
+          {
+            name: "Exclude staging",
+            query: "source:staging",
+          },
+        ],
         filteredDataType: "logs",
         isEnabled: true,
         name: "Custom security filter",
