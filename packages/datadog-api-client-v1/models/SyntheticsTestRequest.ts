@@ -11,6 +11,7 @@
 import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
+import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -65,6 +66,7 @@ export class SyntheticsTestRequest {
    * Port to use when performing the test.
    */
   "port"?: number;
+  "proxy"?: SyntheticsTestRequestProxy;
   /**
    * Query to use for the test.
    */
@@ -147,6 +149,10 @@ export class SyntheticsTestRequest {
       baseName: "port",
       type: "number",
       format: "int64",
+    },
+    proxy: {
+      baseName: "proxy",
+      type: "SyntheticsTestRequestProxy",
     },
     query: {
       baseName: "query",
