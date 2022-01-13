@@ -34,14 +34,6 @@ export class EventCreateRequest {
    * Host name to associate with the event. Any tags associated with the host are also applied to this event.
    */
   "host"?: string;
-  /**
-   * Integer ID of the event.
-   */
-  "id"?: number;
-  /**
-   * Payload of the event.
-   */
-  "payload"?: string;
   "priority"?: EventPriority;
   /**
    * ID of the parent event. Must be sent as an integer (that is no quotes).
@@ -63,10 +55,6 @@ export class EventCreateRequest {
    * The event title.
    */
   "title": string;
-  /**
-   * URL of the event.
-   */
-  "url"?: string;
 
   "unparsedObject"?: any;
 
@@ -90,15 +78,6 @@ export class EventCreateRequest {
     },
     host: {
       baseName: "host",
-      type: "string",
-    },
-    id: {
-      baseName: "id",
-      type: "number",
-      format: "int64",
-    },
-    payload: {
-      baseName: "payload",
       type: "string",
     },
     priority: {
@@ -127,10 +106,6 @@ export class EventCreateRequest {
       baseName: "title",
       type: "string",
       required: true,
-    },
-    url: {
-      baseName: "url",
-      type: "string",
     },
   };
 
