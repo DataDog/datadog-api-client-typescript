@@ -8,6 +8,9 @@
  * Do not edit the class manually.
  */
 
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
+import { WidgetFormula } from "./WidgetFormula";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -16,16 +19,37 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class TreeMapWidgetRequest {
   /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   */
+  "formulas"?: Array<WidgetFormula>;
+  /**
    * The widget metrics query.
    */
   "q"?: string;
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
 
   "unparsedObject"?: any;
 
   static readonly attributeTypeMap: AttributeTypeMap = {
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+    },
     q: {
       baseName: "q",
       type: "string",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
   };
 
