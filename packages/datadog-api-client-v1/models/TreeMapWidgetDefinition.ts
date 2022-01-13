@@ -20,13 +20,13 @@ import { AttributeTypeMap } from "./ObjectSerializer";
  */
 
 export class TreeMapWidgetDefinition {
-  "colorBy": TreeMapColorBy;
-  "groupBy": TreeMapGroupBy;
+  "colorBy"?: TreeMapColorBy;
+  "groupBy"?: TreeMapGroupBy;
   /**
    * List of top list widget requests.
    */
   "requests": Array<TreeMapWidgetRequest>;
-  "sizeBy": TreeMapSizeBy;
+  "sizeBy"?: TreeMapSizeBy;
   /**
    * Title of your widget.
    */
@@ -39,12 +39,10 @@ export class TreeMapWidgetDefinition {
     colorBy: {
       baseName: "color_by",
       type: "TreeMapColorBy",
-      required: true,
     },
     groupBy: {
       baseName: "group_by",
       type: "TreeMapGroupBy",
-      required: true,
     },
     requests: {
       baseName: "requests",
@@ -54,7 +52,6 @@ export class TreeMapWidgetDefinition {
     sizeBy: {
       baseName: "size_by",
       type: "TreeMapSizeBy",
-      required: true,
     },
     title: {
       baseName: "title",
