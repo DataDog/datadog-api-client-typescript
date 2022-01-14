@@ -60,6 +60,10 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         method: "GET",
         timeout: 10,
         url: "https://datadoghq.com",
+        proxy: {
+          url: "https://datadoghq.com",
+          headers: {},
+        },
       },
     },
     locations: ["aws:us-east-2"],

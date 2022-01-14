@@ -309,7 +309,9 @@ import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultSho
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
-import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
+import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
+import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
 import { SyntheticsBatchDetails } from "./SyntheticsBatchDetails";
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
 import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
@@ -366,6 +368,7 @@ import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
+import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 import { SyntheticsTiming } from "./SyntheticsTiming";
 import { SyntheticsTriggerBody } from "./SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
@@ -786,6 +789,9 @@ const enumsMap: { [key: string]: any[] } = {
     "networkHop",
     "receivedMessage",
   ],
+  SyntheticsBasicAuthNTLMType: ["ntlm"],
+  SyntheticsBasicAuthSigv4Type: ["sigv4"],
+  SyntheticsBasicAuthWebType: ["web"],
   SyntheticsBrowserErrorType: ["network", "js"],
   SyntheticsBrowserTestType: ["browser"],
   SyntheticsBrowserVariableType: [
@@ -1397,7 +1403,9 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
-  SyntheticsBasicAuth: SyntheticsBasicAuth,
+  SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
+  SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
+  SyntheticsBasicAuthWeb: SyntheticsBasicAuthWeb,
   SyntheticsBatchDetails: SyntheticsBatchDetails,
   SyntheticsBatchDetailsData: SyntheticsBatchDetailsData,
   SyntheticsBatchResult: SyntheticsBatchResult,
@@ -1462,6 +1470,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestRequest: SyntheticsTestRequest,
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
+  SyntheticsTestRequestProxy: SyntheticsTestRequestProxy,
   SyntheticsTiming: SyntheticsTiming,
   SyntheticsTriggerBody: SyntheticsTriggerBody,
   SyntheticsTriggerCITestLocation: SyntheticsTriggerCITestLocation,
@@ -1649,6 +1658,11 @@ const oneOfMap: { [index: string]: string[] } = {
   SyntheticsAssertion: [
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionTarget",
+  ],
+  SyntheticsBasicAuth: [
+    "SyntheticsBasicAuthNTLM",
+    "SyntheticsBasicAuthSigv4",
+    "SyntheticsBasicAuthWeb",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
