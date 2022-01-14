@@ -216,6 +216,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -243,6 +244,12 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -277,6 +284,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             allowInsecure: true,
             basicAuth: {
               password: "",
+              type: "web",
               username: "",
             },
             body: "body_example",
@@ -304,6 +312,12 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             noSavingResponseBody: true,
             numberOfPackets: 0,
             port: 1,
+            proxy: {
+              headers: {
+                key: "key_example",
+              },
+              url: "https://example.com",
+            },
             query: {},
             servername: "servername_example",
             shouldTrackHops: true,
@@ -429,6 +443,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -456,6 +471,12 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -1622,6 +1643,7 @@ let params: v1.SyntheticsApiTriggerCITestsRequest = {
         allowInsecureCertificates: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -1821,6 +1843,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -1848,6 +1871,12 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -1882,6 +1911,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             allowInsecure: true,
             basicAuth: {
               password: "",
+              type: "web",
               username: "",
             },
             body: "body_example",
@@ -1909,6 +1939,12 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             noSavingResponseBody: true,
             numberOfPackets: 0,
             port: 1,
+            proxy: {
+              headers: {
+                key: "key_example",
+              },
+              url: "https://example.com",
+            },
             query: {},
             servername: "servername_example",
             shouldTrackHops: true,
@@ -2037,6 +2073,7 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -2064,6 +2101,12 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,

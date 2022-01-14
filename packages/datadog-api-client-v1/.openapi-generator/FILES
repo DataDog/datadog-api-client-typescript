@@ -486,6 +486,12 @@ models/SyntheticsAssertionOperator.ts
 models/SyntheticsAssertionTarget.ts
 models/SyntheticsAssertionType.ts
 models/SyntheticsBasicAuth.ts
+models/SyntheticsBasicAuthNTLM.ts
+models/SyntheticsBasicAuthNTLMType.ts
+models/SyntheticsBasicAuthSigv4.ts
+models/SyntheticsBasicAuthSigv4Type.ts
+models/SyntheticsBasicAuthWeb.ts
+models/SyntheticsBasicAuthWebType.ts
 models/SyntheticsBatchDetails.ts
 models/SyntheticsBatchDetailsData.ts
 models/SyntheticsBatchResult.ts
@@ -560,6 +566,7 @@ models/SyntheticsTestProcessStatus.ts
 models/SyntheticsTestRequest.ts
 models/SyntheticsTestRequestCertificate.ts
 models/SyntheticsTestRequestCertificateItem.ts
+models/SyntheticsTestRequestProxy.ts
 models/SyntheticsTiming.ts
 models/SyntheticsTriggerBody.ts
 models/SyntheticsTriggerCITestLocation.ts

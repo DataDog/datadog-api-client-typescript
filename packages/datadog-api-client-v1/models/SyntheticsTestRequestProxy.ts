@@ -8,30 +8,38 @@
  * Do not edit the class manually.
  */
 
-import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgentRuleData";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * Response object that includes a list of Agent rule.
+ * The proxy to perform the test.
  */
 
-export class CloudWorkloadSecurityAgentRulesListResponse {
+export class SyntheticsTestRequestProxy {
   /**
-   * A list of Agent rules objects.
+   * Headers to include when performing the test.
    */
-  "data"?: Array<CloudWorkloadSecurityAgentRuleData>;
+  "headers"?: { [key: string]: string };
+  /**
+   * URL of the proxy to perform the test.
+   */
+  "url": string;
 
   "unparsedObject"?: any;
 
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CloudWorkloadSecurityAgentRuleData>",
+    headers: {
+      baseName: "headers",
+      type: "{ [key: string]: string; }",
+    },
+    url: {
+      baseName: "url",
+      type: "string",
+      required: true,
     },
   };
 
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRulesListResponse.attributeTypeMap;
+    return SyntheticsTestRequestProxy.attributeTypeMap;
   }
 
   public constructor() {}
