@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
+import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgentRuleData";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -19,14 +19,14 @@ export class CloudWorkloadSecurityAgentRulesListResponse {
   /**
    * A list of Agent rules objects.
    */
-  "data"?: Array<CloudWorkloadSecurityAgentRuleAttributes>;
+  "data"?: Array<CloudWorkloadSecurityAgentRuleData>;
 
   "unparsedObject"?: any;
 
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<CloudWorkloadSecurityAgentRuleAttributes>",
+      type: "Array<CloudWorkloadSecurityAgentRuleData>",
     },
   };
 
