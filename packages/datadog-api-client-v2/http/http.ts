@@ -7,6 +7,39 @@ import { Observable, from } from "../rxjsStub";
 export * from "./isomorphic-fetch";
 
 /**
+ * Interface for aborting fetch requests.
+ */
+export interface AbortSignal {
+  aborted: boolean;
+
+  addEventListener: (
+    type: "abort",
+    listener: (this: AbortSignal, event: any) => any,
+    options?:
+      | boolean
+      | {
+          capture?: boolean;
+          once?: boolean;
+          passive?: boolean;
+        }
+  ) => void;
+
+  removeEventListener: (
+    type: "abort",
+    listener: (this: AbortSignal, event: any) => any,
+    options?:
+      | boolean
+      | {
+          capture?: boolean;
+        }
+  ) => void;
+
+  dispatchEvent: (event: any) => boolean;
+
+  onabort?: null | ((this: AbortSignal, event: any) => void);
+}
+
+/**
  * Represents an HTTP method.
  */
 export enum HttpMethod {
@@ -45,6 +78,7 @@ export type RequestBody = undefined | string | Buffer | FormData;
  */
 export interface HttpConfiguration {
   compress?: boolean;
+  signal?: AbortSignal;
 }
 
 /**

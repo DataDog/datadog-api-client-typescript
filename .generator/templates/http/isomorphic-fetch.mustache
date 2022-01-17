@@ -35,6 +35,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             body: body as any,
             headers: headers,
             compress: compress,
+            signal: request.getHttpConfig().signal,
             {{#platforms}}
             {{#browser}}
             credentials: "same-origin"
