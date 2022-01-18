@@ -886,6 +886,12 @@ export interface DashboardsApiListDashboardsRequest {
    * @memberof DashboardsApilistDashboards
    */
   filterShared?: boolean;
+  /**
+   * When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+   * @type boolean
+   * @memberof DashboardsApilistDashboards
+   */
+  filterDeleted?: boolean;
 }
 
 export interface DashboardsApiRestoreDashboardsRequest {
@@ -984,7 +990,9 @@ export class ObjectDashboardsApi {
     param: DashboardsApiListDashboardsRequest = {},
     options?: Configuration
   ): Promise<DashboardSummary> {
-    return this.api.listDashboards(param.filterShared, options).toPromise();
+    return this.api
+      .listDashboards(param.filterShared, param.filterDeleted, options)
+      .toPromise();
   }
 
   /**

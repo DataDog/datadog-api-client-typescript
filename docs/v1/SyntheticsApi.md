@@ -279,7 +279,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             },
           ],
           isCritical: true,
-          name: "name_example",
+          name: "Example step name",
           request: {
             allowInsecure: true,
             basicAuth: {
@@ -334,7 +334,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     locations: ["aws:eu-west-3"],
     message: "Notification message",
-    name: "Test name",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -494,9 +494,9 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         },
       ],
     },
-    locations: ["locations_example"],
+    locations: ["example-location"],
     message: "",
-    name: "name_example",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -1906,7 +1906,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             },
           ],
           isCritical: true,
-          name: "name_example",
+          name: "Example step name",
           request: {
             allowInsecure: true,
             basicAuth: {
@@ -1961,7 +1961,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
     },
     locations: ["aws:eu-west-3"],
     message: "Notification message",
-    name: "Test name",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -2124,9 +2124,9 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         },
       ],
     },
-    locations: ["locations_example"],
+    locations: ["example-location"],
     message: "",
-    name: "name_example",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,

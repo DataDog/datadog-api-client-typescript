@@ -332,6 +332,8 @@ const apiInstance = new v1.DashboardsApi(configuration);
 let params: v1.DashboardsApiListDashboardsRequest = {
   // boolean | When `true`, this query only returns shared custom created or cloned dashboards. (optional)
   filterShared: true,
+  // boolean | When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`. (optional)
+  filterDeleted: true,
 };
 
 apiInstance
@@ -346,9 +348,10 @@ apiInstance
 
 ### Parameters
 
-| Name             | Type          | Description                                                                                | Notes                            |
-| ---------------- | ------------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| **filterShared** | [**boolean**] | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | (optional) defaults to undefined |
+| Name              | Type          | Description                                                                                                                                                 | Notes                            |
+| ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **filterShared**  | [**boolean**] | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.                                                                  | (optional) defaults to undefined |
+| **filterDeleted** | [**boolean**] | When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;. | (optional) defaults to undefined |
 
 ### Return type
 
