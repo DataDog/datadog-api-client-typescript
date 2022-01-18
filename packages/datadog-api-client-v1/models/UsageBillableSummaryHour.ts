@@ -23,7 +23,7 @@ export class UsageBillableSummaryHour {
   /**
    * Shows the last date of usage.
    */
-  "endDate"?: Date;
+  "endDate"?: string;
   /**
    * The number of organizations.
    */
@@ -43,7 +43,7 @@ export class UsageBillableSummaryHour {
   /**
    * Shows the first date of usage.
    */
-  "startDate"?: Date;
+  "startDate"?: string;
   "usage"?: UsageBillableSummaryKeys;
 
   "unparsedObject"?: any;
@@ -55,8 +55,8 @@ export class UsageBillableSummaryHour {
     },
     endDate: {
       baseName: "end_date",
-      type: "Date",
-      format: "date-time",
+      type: "string",
+      format: "date",
     },
     numOrgs: {
       baseName: "num_orgs",
@@ -78,8 +78,8 @@ export class UsageBillableSummaryHour {
     },
     startDate: {
       baseName: "start_date",
-      type: "Date",
-      format: "date-time",
+      type: "string",
+      format: "date",
     },
     usage: {
       baseName: "usage",
